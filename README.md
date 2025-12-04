@@ -1022,4 +1022,5 @@ This directory is a best-effort compilation using multiple public sources plus c
 - Official website  
 
 This helps keep the directory accurate for the entire numismatic community.
+
 <!-- Last updated via GitHub Pages setup --!>
