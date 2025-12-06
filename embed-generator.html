@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coin Show Widget – Embed Code Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --panel: #ffffff;
+      --border: #e5e7eb;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #4b5563;
+      --radius: 0.75rem;
+      --shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 1.5rem;
+      background: radial-gradient(circle at top, #e5e7eb 0, #f3f4f6 40%, #f9fafb 100%);
+      color: var(--text);
+    }
+
+    .eg-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .eg-panel {
+      background: var(--panel);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
+
+    h1 {
+      margin: 0 0 0.25rem;
+      font-size: 20px;
+    }
+
+    .eg-subtitle {
+      margin: 0 0 1.25rem;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .eg-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 720px) {
+      .eg-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .eg-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .eg-field-group {
+      margin-bottom: 0.65rem;
+    }
+
+    .eg-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .eg-label span {
+      color: #b91c1c;
+    }
+
+    .eg-input,
+    .eg-textarea,
+    .eg-select {
+      width: 100%;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.55rem;
+      font-size: 13px;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .eg-input:focus,
+    .eg-textarea:focus,
+    .eg-select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(75, 85, 99, 0.18);
+    }
+
+    .eg-help {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .eg-code-area {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      width: 100%;
+      min-height: 190px;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      padding: 0.55rem 0.6rem;
+      background: #0f172a;
+      color: #e5e7eb;
+      resize: vertical;
+      outline: none;
+    }
+
+    .eg-code-area:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(75, 85, 99, 0.3);
+    }
+
+    .eg-button-row {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .eg-button {
+      border-radius: 999px;
+      border: none;
+      padding: 0.45rem 0.9rem;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--accent);
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .eg-button:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .eg-status {
+      font-size: 11px;
+      color: #16a34a;
+    }
+
+    .eg-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #e5e7eb;
+      font-size: 11px;
+      color: #374151;
+      margin-left: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="eg-wrapper">
+    <div class="eg-panel">
+      <h1>Coin Show Widget – Embed Code Generator</h1>
+      <p class="eg-subtitle">
+        Enter your dealer details below and paste the generated code into your website.
+      </p>
+
+      <div class="eg-grid">
+
+        <!-- LEFT COLUMN -->
+        <div>
+          <div class="eg-card-title">Dealer Configuration</div>
+
+          <div class="eg-field-group">
+            <label class="eg-label" for="eg-dealer-name">Dealer name <span>*</span></label>
+            <input id="eg-dealer-name" class="eg-input" type="text" placeholder="ABC Coins & Bullion">
+            <div class="eg-help">Displayed in the widget header as “Hosted for ____”.</div>
+          </div>
+
+          <div class="eg-field-group">
+            <label class="eg-label" for="eg-dealer-email">Dealer email <span>*</span></label>
+            <input id="eg-dealer-email" class="eg-input" type="email" placeholder="info@yourshop.com">
+            <div class="eg-help">Lead submissions will be sent to this address (via mailto for now).</div>
+          </div>
+
+          <div class="eg-field-group">
+            <label class="eg-label" for="eg-logo-url">Logo URL (optional)</label>
+            <input id="eg-logo-url" class="eg-input" type="url" placeholder="https://yourshop.com/logo.png">
+            <div class="eg-help">If provided, this small logo shows in the widget header.</div>
+          </div>
+
+          <div class="eg-field-group">
+            <label class="eg-label" for="eg-max-width">Max width (px) <span class="eg-tag">Advanced</span></label>
+            <input id="eg-max-width" class="eg-input" type="number" value="900">
+          </div>
+
+          <div class="eg-field-group">
+            <label class="eg-label" for="eg-height">Height (px) <span class="eg-tag">Advanced</span></label>
+            <input id="eg-height" class="eg-input" type="number" value="650">
+          </div>
+
+          <div class="eg-field-group">
+            <label class="eg-label" for="eg-base-url">Widget URL <span class="eg-tag">Read Only</span></label>
+            <input id="eg-base-url" class="eg-input" type="text" readonly>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN (GENERATED CODE) -->
+        <div>
+          <div class="eg-card-title">Embed Code</div>
+          <textarea id="eg-embed-code" class="eg-code-area" readonly></textarea>
+
+          <div class="eg-button-row">
+            <span id="eg-status" class="eg-status"></span>
+            <button id="eg-copy-btn" class="eg-button">Copy Code</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+
+      // ----------------------------------------
+      // WHERE THE WIDGET LIVES
+      // ----------------------------------------
+      const BASE_WIDGET_URL = "https://nezumitora.github.io/coin-shows-near-me/widget.html";
+
+      const dealerNameInput = document.getElementById("eg-dealer-name");
+      const dealerEmailInput = document.getElementById("eg-dealer-email");
+      const logoUrlInput = document.getElementById("eg-logo-url");
+      const maxWidthInput = document.getElementById("eg-max-width");
+      const heightInput = document.getElementById("eg-height");
+      const baseUrlInput = document.getElementById("eg-base-url");
+      const embedCodeArea = document.getElementById("eg-embed-code");
+      const statusEl = document.getElementById("eg-status");
+      const copyBtn = document.getElementById("eg-copy-btn");
+
+      baseUrlInput.value = BASE_WIDGET_URL;
+
+      function generateEmbedCode() {
+        const dealerName = dealerNameInput.value.trim();
+        const dealerEmail = dealerEmailInput.value.trim();
+        const logoUrl = logoUrlInput.value.trim();
+
+        const maxWidth = maxWidthInput.value.trim() || "900";
+        const height = heightInput.value.trim() || "650";
+
+        const url = new URL(BASE_WIDGET_URL);
+
+        if (dealerName) url.searchParams.set("dealerName", dealerName);
+        else url.searchParams.delete("dealerName");
+
+        if (dealerEmail) url.searchParams.set("dealerEmail", dealerEmail);
+        else url.searchParams.delete("dealerEmail");
+
+        if (logoUrl) url.searchParams.set("dealerLogoUrl", logoUrl);
+        else url.searchParams.delete("dealerLogoUrl");
+
+        const iframeCode = `
+<iframe
+  src="${url.toString()}"
+  style="width:100%; max-width:${maxWidth}px; height:${height}px; border:0; overflow:auto;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>`.trim();
+
+        embedCodeArea.value = iframeCode;
+
+        statusEl.textContent = "";
+      }
+
+      async function copyToClipboard() {
+        try {
+          await navigator.clipboard.writeText(embedCodeArea.value);
+          statusEl.textContent = "Copied!";
+          setTimeout(() => (statusEl.textContent = ""), 2000);
+        } catch (err) {
+          statusEl.textContent = "Copy failed — copy manually.";
+          console.error(err);
+        }
+      }
+
+      [dealerNameInput, dealerEmailInput, logoUrlInput, maxWidthInput, heightInput].forEach(input => {
+        input.addEventListener("input", generateEmbedCode);
+      });
+
+      copyBtn.addEventListener("click", copyToClipboard);
+
+      generateEmbedCode();
+    })();
+  </script>
+
+</body>
+</html>
