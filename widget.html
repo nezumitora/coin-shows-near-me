@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coin Show Finder Widget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --csw-bg: #ffffff;
+      --csw-border: #e5e7eb;
+      --csw-primary: #111827;
+      --csw-accent: #4b5563;
+      --csw-muted: #6b7280;
+      --csw-surface: #f9fafb;
+      --csw-radius: 0.75rem;
+      --csw-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 1rem;
+      background: transparent;
+    }
+
+    .csw-widget {
+      background: var(--csw-bg);
+      border: 1px solid var(--csw-border);
+      border-radius: var(--csw-radius);
+      box-shadow: var(--csw-shadow);
+      padding: 1rem 1.25rem 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--csw-primary);
+      font-size: 14px;
+    }
+
+    .csw-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .csw-dealer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .csw-dealer-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      object-fit: contain;
+      border: 1px solid var(--csw-border);
+      background: #f9fafb;
+      display: none;
+    }
+
+    .csw-dealer-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--csw-muted);
+    }
+
+    .csw-dealer-name {
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .csw-title-block {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .csw-title-block h2 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .csw-title-block p {
+      margin: 0.25rem 0 0;
+      color: var(--csw-muted);
+      font-size: 13px;
+    }
+
+    .csw-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      .csw-main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .csw-card {
+      border: 1px solid var(--csw-border);
+      border-radius: var(--csw-radius);
+      padding: 0.75rem;
+      background: var(--csw-surface);
+    }
+
+    .csw-card-header {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 14px;
+    }
+
+    .csw-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .csw-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .csw-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-letter-spacing: 0.06em;
+      color: var(--csw-muted);
+    }
+
+    .csw-input,
+    .csw-select,
+    .csw-textarea {
+      width: 100%;
+      border-radius: 0.5rem;
+      border: 1px solid var(--csw-border);
+      padding: 0.4rem 0.55rem;
+      font-size: 13px;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .csw-input:focus,
+    .csw-select:focus,
+    .csw-textarea:focus {
+      border-color: var(--csw-accent);
+      box-shadow: 0 0 0 1px rgba(75, 85, 99, 0.18);
+    }
+
+    .csw-button {
+      border-radius: 999px;
+      border: none;
+      padding: 0.45rem 0.9rem;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--csw-accent);
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .csw-button:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .csw-shows-list {
+      list-style: none;
+      margin: 0.5rem 0 0;
+      padding: 0;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .csw-show-item {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--csw-border);
+    }
+
+    .csw-show-name {
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 0.15rem;
+    }
+
+    .csw-show-meta {
+      font-size: 12px;
+      color: var(--csw-muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .csw-show-venue {
+      font-size: 12px;
+      color: var(--csw-muted);
+    }
+
+    .csw-show-link {
+      font-size: 12px;
+      margin-top: 0.2rem;
+    }
+
+    .csw-show-link a {
+      color: var(--csw-accent);
+      text-decoration: none;
+    }
+
+    .csw-show-link a:hover {
+      text-decoration: underline;
+    }
+
+    .csw-empty {
+      font-size: 12px;
+      color: var(--csw-muted);
+      padding: 0.25rem 0;
+    }
+
+    .csw-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .csw-checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      font-size: 12px;
+      color: var(--csw-muted);
+    }
+
+    .csw-checkbox-row input[type="checkbox"] {
+      margin-top: 0.15rem;
+    }
+
+    .csw-form-note {
+      font-size: 11px;
+      color: var(--csw-muted);
+    }
+
+    .csw-error {
+      font-size: 11px;
+      color: #b91c1c;
+      display: none;
+    }
+
+    .csw-success {
+      font-size: 12px;
+      color: #15803d;
+      margin-top: 0.4rem;
+      display: none;
+    }
+
+    .csw-footer {
+      margin-top: 0.75rem;
+      text-align: right;
+      font-size: 11px;
+      color: var(--csw-muted);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .csw-footer-mark {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 2px solid var(--csw-border);
+      position: relative;
+    }
+
+    .csw-footer-mark::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background-color: var(--csw-muted);
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="csw-widget" id="csw-widget">
+    <div class="csw-header">
+      <div class="csw-dealer-brand">
+        <img id="csw-dealer-logo" class="csw-dealer-logo" alt="Dealer logo">
+        <div>
+          <div class="csw-dealer-label">Hosted for</div>
+          <div id="csw-dealer-name" class="csw-dealer-name">Your Local Coin Dealer</div>
+        </div>
+      </div>
+
+      <div class="csw-title-block">
+        <h2>Upcoming Coin Shows Near You</h2>
+        <p>Search upcoming shows and request a free appraisal or offer.</p>
+      </div>
+    </div>
+
+    <div class="csw-main">
+
+      <!-- LEFT SIDE — SHOW LIST -->
+      <section class="csw-card">
+        <div class="csw-card-header">Find a Coin Show</div>
+
+        <div class="csw-filters">
+          <div class="csw-field-group">
+            <label class="csw-label">State</label>
+            <select id="csw-state-filter" class="csw-select">
+              <option value="all">All States</option>
+            </select>
+          </div>
+
+          <div class="csw-field-group">
+            <label class="csw-label">ZIP</label>
+            <input id="csw-zip-filter" class="csw-input" type="text" placeholder="e.g., 90015">
+          </div>
+
+          <div class="csw-field-group" style="max-width:100px; align-self:flex-end;">
+            <button id="csw-apply-filters" class="csw-button">Filter</button>
+          </div>
+        </div>
+
+        <ul id="csw-shows-list" class="csw-shows-list"></ul>
+      </section>
+
+      <!-- RIGHT SIDE — LEAD FORM -->
+      <section class="csw-card">
+        <div class="csw-card-header">Request a Free Appraisal or Offer</div>
+
+        <form id="csw-lead-form" class="csw-form" novalidate>
+          <div class="csw-field-group">
+            <label class="csw-label" for="csw-name">Name *</label>
+            <input id="csw-name" class="csw-input" type="text">
+            <div class="csw-error" data-for="name"></div>
+          </div>
+
+          <div class="csw-field-group">
+            <label class="csw-label" for="csw-email">Email *</label>
+            <input id="csw-email" class="csw-input" type="email">
+            <div class="csw-error" data-for="email"></div>
+          </div>
+
+          <div class="csw-field-group">
+            <label class="csw-label" for="csw-phone">Phone</label>
+            <input id="csw-phone" class="csw-input" type="text">
+          </div>
+
+          <div class="csw-field-group">
+            <label class="csw-label" for="csw-show-select">Which show?</label>
+            <select id="csw-show-select" class="csw-select"></select>
+            <div class="csw-error" data-for="show"></div>
+          </div>
+
+          <div class="csw-field-group">
+            <label class="csw-label" for="csw-notes">What are you selling?</label>
+            <textarea id="csw-notes" class="csw-textarea" rows="3"></textarea>
+          </div>
+
+          <div class="csw-checkbox-row">
+            <input id="csw-consent" type="checkbox">
+            <label for="csw-consent">I agree to be contacted by this dealer.</label>
+          </div>
+          <div class="csw-error" data-for="consent"></div>
+
+          <button class="csw-button" type="submit">Submit Request</button>
+
+          <div id="csw-success-message" class="csw-success">Thank you! Your request has been submitted.</div>
+        </form>
+      </section>
+
+    </div>
+
+    <div class="csw-footer">
+      <span class="csw-footer-mark"></span>
+      Powered by <a href="https://yourbrand.com" target="_blank">YourBrand</a>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+
+      // ------------------------------------
+      // CONFIG
+      // ------------------------------------
+      const CONFIG = {
+        // IMPORTANT: Update this!
+        showsJsonUrl: "https://nezumitora.github.io/coin-shows-near-me/shows.json",
+        poweredByName: "YourBrand",
+        poweredByUrl: "https://yourbrand.com"
+      };
+
+      // ------------------------------------
+      // DOM REFERENCES
+      // ------------------------------------
+      const dealerNameEl = document.getElementById("csw-dealer-name");
+      const dealerLogoEl = document.getElementById("csw-dealer-logo");
+
+      const stateFilterEl = document.getElementById("csw-state-filter");
+      const zipFilterEl = document.getElementById("csw-zip-filter");
+      const applyFiltersBtn = document.getElementById("csw-apply-filters");
+      const showsListEl = document.getElementById("csw-shows-list");
+      const showSelectEl = document.getElementById("csw-show-select");
+
+      const leadFormEl = document.getElementById("csw-lead-form");
+      const nameInput = document.getElementById("csw-name");
+      const emailInput = document.getElementById("csw-email");
+      const phoneInput = document.getElementById("csw-phone");
+      const notesInput = document.getElementById("csw-notes");
+      const consentInput = document.getElementById("csw-consent");
+      const successMessageEl = document.getElementById("csw-success-message");
+
+      const footerEl = document.querySelector(".csw-footer");
+
+      // ------------------------------------
+      // FOOTER BRANDING
+      // ------------------------------------
+      footerEl.innerHTML =
+        '<span class="csw-footer-mark"></span>' +
+        'Powered by <a href="' + CONFIG.poweredByUrl +
+        '" target="_blank" rel="noopener noreferrer">' +
+        CONFIG.poweredByName + "</a>";
+
+      // ------------------------------------
+      // READ URL PARAMETERS FOR DEALER NAME/LOGO
+      // ------------------------------------
+      const p = new URLSearchParams(window.location.search);
+
+      const dealerName = p.get("dealerName") || "Your Local Coin Dealer";
+      const dealerEmail = p.get("dealerEmail") || "";
+      const dealerLogoUrl = p.get("dealerLogoUrl") || "";
+
+      dealerNameEl.textContent = dealerName;
+
+      if (dealerLogoUrl) {
+        dealerLogoEl.src = dealerLogoUrl;
+        dealerLogoEl.style.display = "block";
+      }
+
+      // ------------------------------------
+      // LOAD SHOW DATA
+      // ------------------------------------
+      let allShows = [];
+      let filteredShows = [];
+
+      function parseDate(d) {
+        return new Date(d + "T00:00:00");
+      }
+
+      function formatDateRange(start, end) {
+        const s = parseDate(start);
+        const e = parseDate(end);
+        const opts = { month: "short", day: "numeric" };
+        return (
+          s.toLocaleDateString(undefined, opts) +
+          " – " +
+          e.toLocaleDateString(undefined, opts)
+        );
+      }
+
+      function isFutureShow(show) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const end = parseDate(show.end_date);
+        return end >= today;
+      }
+
+      function renderStateDropdown(shows) {
+        const states = [...new Set(shows.map(s => s.state))].sort();
+
+        stateFilterEl.innerHTML = `<option value="all">All States</option>`;
+
+        states.forEach(state => {
+          const opt = document.createElement("option");
+          opt.value = state;
+          opt.textContent = state;
+          stateFilterEl.appendChild(opt);
+        });
+      }
+
+      function renderShowList(shows) {
+        showsListEl.innerHTML = "";
+
+        if (!shows.length) {
+          showsListEl.innerHTML = `<li class="csw-empty">No matching shows.</li>`;
+          return;
+        }
+
+        shows.forEach(show => {
+          const li = document.createElement("li");
+          li.className = "csw-show-item";
+          li.innerHTML = `
+            <div class="csw-show-name">${show.show_name}</div>
+            <div class="csw-show-meta">${formatDateRange(show.start_date, show.end_date)} • ${show.city}, ${show.state}</div>
+            <div class="csw-show-venue">${show.venue_name}</div>
+            ${
+              show.website_url
+                ? `<div class="csw-show-link"><a href="${show.website_url}" target="_blank">Show website</a></div>`
+                : ""
+            }
+          `;
+          showsListEl.appendChild(li);
+        });
+      }
+
+      function updateShowSelect(shows) {
+        showSelectEl.innerHTML = "";
+
+        if (!shows.length) {
+          showSelectEl.innerHTML = `<option value="">No shows available</option>`;
+          showSelectEl.disabled = true;
+          return;
+        }
+
+        showSelectEl.disabled = false;
+        showSelectEl.innerHTML = `<option value="">Select show</option>`;
+
+        shows.forEach(show => {
+          const opt = document.createElement("option");
+          opt.value = show.id;
+          opt.textContent = `${show.show_name} – ${show.city}, ${show.state}`;
+          showSelectEl.appendChild(opt);
+        });
+      }
+
+      function applyFilters() {
+        const stateVal = stateFilterEl.value;
+        const zipVal = zipFilterEl.value.trim();
+
+        filteredShows = allShows.filter(show => {
+          if (!isFutureShow(show)) return false;
+
+          if (stateVal !== "all" && show.state !== stateVal) return false;
+
+          if (zipVal && !String(show.postal_code).startsWith(zipVal)) return false;
+
+          return true;
+        });
+
+        renderShowList(filteredShows);
+        updateShowSelect(filteredShows);
+      }
+
+      function validateForm() {
+        let valid = true;
+
+        function setErr(id, msg) {
+          const el = document.querySelector(`.csw-error[data-for="${id}"]`);
+          el.textContent = msg;
+          el.style.display = msg ? "block" : "none";
+          if (msg) valid = false;
+        }
+
+        setErr("name", nameInput.value.trim() ? "" : "Please enter your name.");
+        setErr(
+          "email",
+          emailInput.value.includes("@") ? "" : "Valid email required."
+        );
+        setErr(
+          "show",
+          showSelectEl.value ? "" : "Select a show you plan to attend."
+        );
+        setErr(
+          "consent",
+          consentInput.checked ? "" : "You must agree to be contacted."
+        );
+
+        return valid;
+      }
+
+      leadFormEl.addEventListener("submit", e => {
+        e.preventDefault();
+
+        if (!validateForm()) return;
+
+        // Build mailto body
+        const selectedShow = allShows.find(s => s.id === showSelectEl.value);
+        const details = [
+          `Dealer: ${dealerName}`,
+          `Name: ${nameInput.value}`,
+          `Email: ${emailInput.value}`,
+          `Phone: ${phoneInput.value || "N/A"}`,
+          "",
+          `Show: ${selectedShow ? selectedShow.show_name : showSelectEl.value}`,
+          "",
+          `Notes: ${notesInput.value || "(none)"}`,
+          "",
+          `Submitted: ${new Date().toLocaleString()}`
+        ].join("\n");
+
+        if (dealerEmail) {
+          const mailto = `mailto:${encodeURIComponent(
+            dealerEmail
+          )}?subject=${encodeURIComponent(
+            "Coin Show Appraisal Request"
+          )}&body=${encodeURIComponent(details)}`;
+          window.location.href = mailto;
+        }
+
+        // Show success message
+        successMessageEl.style.display = "block";
+        leadFormEl.reset();
+        updateShowSelect(filteredShows);
+      });
+
+      // Load shows.json
+      fetch(CONFIG.showsJsonUrl)
+        .then(resp => resp.json())
+        .then(data => {
+          allShows = data.filter(isFutureShow);
+          renderStateDropdown(allShows);
+          applyFilters();
+        })
+        .catch(err => {
+          showsListEl.innerHTML =
+            `<li class="csw-empty">Failed to load show data.</li>`;
+        });
+
+      stateFilterEl.addEventListener("change", applyFilters);
+      zipFilterEl.addEventListener("keyup", e => {
+        if (e.key === "Enter") applyFilters();
+      });
+      applyFiltersBtn.addEventListener("click", applyFilters);
+
+    })();
+  </script>
+</body>
+</html>
