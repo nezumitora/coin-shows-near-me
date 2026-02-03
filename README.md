@@ -1,6 +1,6 @@
-# United States Coin Show Directory
+# Coin Shows Near Me
 
-A directory of recurring numismatic events in the United States, organized by state.
+Find upcoming coin shows near you, including local and regional coin shows across the United States.
 
 > ⚠️ **Important:** Dates and venues can change. Always verify details on the official show or club website before traveling. Some future dates may be listed as “TBD — Check Organizer Website” when not yet announced.
 
