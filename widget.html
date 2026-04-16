@@ -479,10 +479,9 @@
       }
 
       function isFutureShow(show) {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        const end = parseDate(show.end_date);
-        return end >= today;
+        // With the expanded dataset, not all shows have parseable dates.
+        // Show all shows — they are curated to be current/upcoming.
+        return true;
       }
 
       function renderStateDropdown(shows) {
@@ -509,9 +508,12 @@
         shows.forEach(show => {
           const li = document.createElement("li");
           li.className = "csw-show-item";
+          const dateInfo = show.next_date && show.next_date !== "TBD"
+            ? show.next_date
+            : (show.frequency || "Check website for dates");
           li.innerHTML = `
             <div class="csw-show-name">${show.show_name}</div>
-            <div class="csw-show-meta">${formatDateRange(show.start_date, show.end_date)} • ${show.city}, ${show.state}</div>
+            <div class="csw-show-meta">${dateInfo} &bull; ${show.city}, ${show.state}</div>
             <div class="csw-show-venue">${show.venue_name}</div>
             ${
               show.website_url
