@@ -1,7 +1,9 @@
-title: "Coin Shows Near Me — US Coin Show Directory"
+title: "Coin Shows Near Me"
 description: "Find coin shows near you. Complete directory of 90+ coin shows across all 50 US states with dates, venues, and organizer details."
 url: "https://coinshownearme.com"
 baseurl: ""
+
+logo: "/assets/images/logo.png"
 
 remote_theme: just-the-docs/just-the-docs
 
