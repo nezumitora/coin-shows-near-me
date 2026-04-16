@@ -1,7 +1,7 @@
 title: "Coin Shows Near Me — US Coin Show Directory"
 description: "Find coin shows near you. Complete directory of 90+ coin shows across all 50 US states with dates, venues, and organizer details."
-url: "https://nezumitora.github.io"
-baseurl: "/coin-shows-near-me"
+url: "https://coinshownearme.com"
+baseurl: ""
 
 remote_theme: just-the-docs/just-the-docs
 
@@ -25,7 +25,7 @@ nav_external_links: []
 
 aux_links:
   "Melt Calculator":
-    - "/coin-shows-near-me/tools/melt-value-calculator/"
+    - "/tools/melt-value-calculator/"
 aux_links_new_tab: false
 
 google_site_verification: ZW60JDUpZFD9rhZv8KgiklQ65RSr5jyyxku3686lHbo
