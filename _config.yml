@@ -1,5 +1,5 @@
 title: "Coin Shows Near Me — US Coin Show Directory"
-description: "Find coin shows near you. Complete directory of 90+ coin shows across all 50 US states with dates, venues, details, and pre-show offers from verified dealers."
+description: "Find coin shows near you. Complete directory of 90+ coin shows across all 50 US states with dates, venues, and organizer details."
 url: "https://nezumitora.github.io"
 baseurl: "/coin-shows-near-me"
 
@@ -24,16 +24,9 @@ nav_sort: order
 nav_external_links: []
 
 aux_links:
-  "Get Offers":
-    - "/coin-shows-near-me/get-offers/"
+  "Melt Calculator":
+    - "/coin-shows-near-me/tools/melt-value-calculator/"
 aux_links_new_tab: false
-
-# Form endpoints — replace with your Formspree IDs or WordPress API URLs
-# form_endpoints:
-#   dealer_register: "https://formspree.io/f/YOUR_ID"
-#   offer_request: "https://formspree.io/f/YOUR_ID"
-#   promoter_submit: "https://formspree.io/f/YOUR_ID"
-#   attendee_inventory: "https://formspree.io/f/YOUR_ID"
 
 google_site_verification: ZW60JDUpZFD9rhZv8KgiklQ65RSr5jyyxku3686lHbo
 
