@@ -19,7 +19,7 @@ layout: default
 {% endfor %}
 
 {% else %}
-<p>No coin shows currently listed for {{ page.state_name }}. Know of one? <a href="https://github.com/nezumitora/coin-shows-near-me/issues">Submit it here</a>.</p>
+<p>No coin shows currently listed for {{ page.state_name }}. Know of one? <a href="/#stay-updated">Let us know</a>.</p>
 {% endif %}
 
 {% assign state_cities = state_shows | map: "city" | uniq | sort %}

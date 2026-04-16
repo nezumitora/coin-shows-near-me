@@ -136,6 +136,91 @@
   color: var(--coin-gold-light);
 }
 
+/* Notify / contact form */
+.notify-section {
+  background: var(--coin-gold-bg);
+  border: 1px solid var(--coin-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.notify-section h3 {
+  color: var(--coin-navy) !important;
+  margin-top: 0 !important;
+  border-bottom: none !important;
+}
+.notify-section p {
+  color: var(--coin-text);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+.notify-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.notify-form input[type="email"],
+.notify-form input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--coin-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #fff;
+}
+.notify-form input:focus {
+  border-color: var(--coin-gold) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2);
+}
+.notify-form textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--coin-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: vertical;
+  background: #fff;
+}
+.notify-form textarea:focus {
+  border-color: var(--coin-gold) !important;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2);
+}
+.notify-form button {
+  background-color: var(--coin-gold);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.notify-form button:hover {
+  background-color: var(--coin-gold-light);
+}
+.notify-form .form-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.notify-success {
+  display: none;
+  background: #065f46;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
 /* Footer credit override */
 .site-footer {
   display: none !important;
