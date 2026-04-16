@@ -1,2 +1,140 @@
 <meta name="google-site-verification" content="ZW60JDUpZFD9rhZv8KgiklQ65RSr5jyyxku3686lHbo">
 {% include seo-meta.html %}
+
+<style>
+/* === Coin Shows Near Me — Custom Theme === */
+
+/* Color scheme: gold/amber for coins, dark navy for trust */
+:root {
+  --coin-gold: #b8860b;
+  --coin-gold-light: #daa520;
+  --coin-gold-bg: #faf6ed;
+  --coin-navy: #1a2332;
+  --coin-navy-light: #2c3e50;
+  --coin-border: #e5e0d0;
+  --coin-text: #2c2c2c;
+  --coin-muted: #6b7280;
+}
+
+/* Sidebar — dark navy with gold accents */
+.side-bar {
+  background-color: var(--coin-navy) !important;
+  border-right: 3px solid var(--coin-gold) !important;
+}
+.site-header {
+  padding-top: 0.5rem !important;
+}
+.site-logo {
+  max-width: 80px !important;
+  height: auto !important;
+  margin-bottom: 0.25rem;
+  border-radius: 8px;
+}
+.site-title {
+  color: var(--coin-gold-light) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+}
+.site-nav .nav-list-link {
+  color: #cbd5e1 !important;
+  font-size: 0.85rem !important;
+}
+.site-nav .nav-list-link:hover,
+.site-nav .nav-list-link.active {
+  color: var(--coin-gold-light) !important;
+  background-color: rgba(218, 165, 32, 0.1) !important;
+}
+.site-footer {
+  color: #64748b !important;
+  font-size: 0.75rem !important;
+}
+.site-footer a {
+  color: #94a3b8 !important;
+}
+
+/* Mobile menu button */
+.site-button {
+  color: var(--coin-gold-light) !important;
+}
+
+/* Main content area */
+.main-content h1 {
+  color: var(--coin-navy) !important;
+  border-bottom: 2px solid var(--coin-gold) !important;
+  padding-bottom: 0.5rem;
+}
+.main-content h2 {
+  color: var(--coin-navy-light) !important;
+}
+
+/* State grid cards — warmer, more polished */
+.main-content a[href^="/states/"] {
+  border-color: var(--coin-border) !important;
+  background: var(--coin-gold-bg) !important;
+  transition: all 0.2s ease !important;
+}
+.main-content a[href^="/states/"]:hover {
+  border-color: var(--coin-gold) !important;
+  background: #f5edd6 !important;
+  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Search bar styling */
+.search-input {
+  border-color: var(--coin-border) !important;
+}
+.search-input:focus {
+  border-color: var(--coin-gold) !important;
+  box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2) !important;
+}
+
+/* Aux nav button (Melt Calculator) */
+.aux-nav .site-button {
+  background-color: var(--coin-gold) !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  padding: 0.4rem 0.8rem !important;
+  font-size: 0.85rem !important;
+}
+.aux-nav .site-button:hover {
+  background-color: var(--coin-gold-light) !important;
+}
+
+/* Links — gold instead of default blue */
+.main-content a {
+  color: var(--coin-gold) !important;
+}
+.main-content a:hover {
+  color: var(--coin-gold-light) !important;
+}
+
+/* Show cards (used on state/city pages) */
+.show-card {
+  border-color: var(--coin-border) !important;
+  background: var(--coin-gold-bg) !important;
+  border-radius: 0.5rem !important;
+}
+
+/* Launch banner */
+.launch-banner {
+  background: linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);
+  color: #f1f5f9;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--coin-gold);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.launch-banner strong {
+  color: var(--coin-gold-light);
+}
+
+/* Footer credit override */
+.site-footer {
+  display: none !important;
+}
+</style>
