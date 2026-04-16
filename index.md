@@ -106,7 +106,7 @@ If you run a coin show and want it listed, or if you notice missing or outdated 
 <h3>Stay Updated</h3>
 <p>Our full-featured directory with dealer verification, pre-show offers, and collection tools is launching soon. Sign up to be notified when we go live, or send us a message if you have questions or want to submit a show.</p>
 
-<form class="notify-form" id="notify-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID" method="POST">
+<form class="notify-form" id="notify-form" action="https://formspree.io/f/mykleozw" method="POST">
 <input type="hidden" name="_subject" value="Coin Show Near Me — New Signup">
 <div class="form-row">
 <input type="text" name="name" placeholder="Name (optional)">
