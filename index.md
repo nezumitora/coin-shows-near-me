@@ -12,7 +12,11 @@ nav_order: 1
 <div class="launch-banner">
 <strong>Site Under Construction</strong> — We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Our full site is launching soon. In the meantime, browse our directory of 90+ coin shows across all 50 states below.
 
-<form class="notify-form" id="notify-form" action="https://formspree.io/f/mykleozw" method="POST" style="margin-top:1rem;">
+<hr style="border:none;border-top:2px solid #daa520;margin:1rem 0;">
+
+<p style="margin:0 0 0.75rem;font-size:0.95rem;">Be notified when our website officially launches, or if you have any questions please provide your email address.</p>
+
+<form class="notify-form" id="notify-form" action="https://formspree.io/f/mykleozw" method="POST">
 <input type="hidden" name="_subject" value="Coin Show Near Me — New Signup">
 <div class="form-row">
 <input type="text" name="name" placeholder="Name (optional)" style="background:#fff;color:#111;">
