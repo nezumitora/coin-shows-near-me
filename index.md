@@ -10,7 +10,7 @@ nav_order: 1
 # Coin Shows Near Me
 
 <div class="launch-banner">
-<strong>We're building something great.</strong> Our full-featured coin show directory with dealer verification, pre-show offers, and collection tools is launching soon. In the meantime, browse our directory of 90+ coin shows across all 50 states below.
+<strong>Site Under Construction</strong> — We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Our full site is launching soon. In the meantime, browse our directory of 90+ coin shows across all 50 states below.
 </div>
 
 The most complete directory of coin shows in the United States. Find upcoming coin shows, numismatic conventions, and coin expos near you — with dates, venues, and details for every show.
