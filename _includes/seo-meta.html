@@ -1,0 +1,18 @@
+{% if page.seo_title %}
+<title>{{ page.seo_title }}</title>
+<meta property="og:title" content="{{ page.seo_title }}">
+{% endif %}
+{% if page.seo_description %}
+<meta name="description" content="{{ page.seo_description }}">
+<meta property="og:description" content="{{ page.seo_description }}">
+{% endif %}
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+{% if page.canonical %}
+<link rel="canonical" href="{{ page.canonical }}">
+<meta property="og:url" content="{{ page.canonical }}">
+{% else %}
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+{% endif %}
+<meta property="og:site_name" content="Coin Show Near Me">

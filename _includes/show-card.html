@@ -1,0 +1,17 @@
+<div class="show-card" style="border:1px solid #e5e7eb;border-radius:0.5rem;padding:1rem;margin-bottom:0.75rem;background:#f9fafb;">
+  <h3 style="margin:0 0 0.25rem;font-size:1.1rem;">
+    <a href="{{ site.baseurl }}/shows/{{ include.show.id }}/" style="color:#111827;text-decoration:none;">{{ include.show.name }}</a>
+  </h3>
+  <p style="margin:0 0 0.25rem;color:#6b7280;font-size:0.9rem;">
+    {{ include.show.city }}, {{ include.show.state_name }} &mdash; {{ include.show.venue }}
+  </p>
+  <p style="margin:0 0 0.25rem;font-size:0.9rem;">
+    <strong>Frequency:</strong> {{ include.show.frequency }}
+    {% unless include.show.next_date == "TBD" %}
+    &nbsp;|&nbsp; <strong>Next:</strong> {{ include.show.next_date }}
+    {% endunless %}
+  </p>
+  {% if include.show.notes and include.show.notes != "" %}
+  <p style="margin:0.25rem 0 0;font-size:0.85rem;color:#6b7280;font-style:italic;">{{ include.show.notes }}</p>
+  {% endif %}
+</div>

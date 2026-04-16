@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+{% include breadcrumbs.html %}
+
+<h1>{{ page.title }}</h1>
+
+<p>{{ page.seo_description }}</p>
+
+{% assign city_shows = site.data.shows | where: "city_slug", page.city_slug | sort: "name" %}
+
+{% if city_shows.size > 0 %}
+
+<h2>Coin Shows in {{ page.city_name }} ({{ city_shows.size }})</h2>
+
+{% for show in city_shows %}
+  {% include show-card.html show=show %}
+  {% include schema-event.html show=show %}
+{% endfor %}
+
+{% else %}
+<p>No coin shows currently listed for {{ page.city_name }}. <a href="https://github.com/nezumitora/coin-shows-near-me/issues">Know of one?</a></p>
+{% endif %}
+
+<h2>More Coin Shows in {{ page.state_name }}</h2>
+<p>See all <a href="{{ site.baseurl }}/states/{{ page.state_slug }}/">coin shows in {{ page.state_name }}</a> for more events near {{ page.city_name }}.</p>
+
+<h2>About Coin Shows in {{ page.city_name }}</h2>
+<p>{{ page.city_name }}, {{ page.state_name }} hosts coin shows where collectors and dealers gather to buy, sell, and trade coins, currency, bullion, and numismatic collectibles. Whether you're a seasoned numismatist or just getting started, attending a local coin show is one of the best ways to find deals, get appraisals, and connect with the collecting community.</p>
+
+<h2>Tips for Attending Coin Shows in {{ page.city_name }}</h2>
+<ul>
+  <li><strong>Arrive early</strong> for the best selection — many dealers offer first picks to early birds.</li>
+  <li><strong>Bring cash</strong> — most dealers prefer cash transactions and may offer discounts.</li>
+  <li><strong>Bring a loupe or magnifying glass</strong> to examine coins closely before purchasing.</li>
+  <li><strong>Ask questions</strong> — dealers are usually happy to educate and share knowledge.</li>
+  <li><strong>Check dates before traveling</strong> — venues and schedules can change.</li>
+</ul>

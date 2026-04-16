@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+{% include breadcrumbs.html %}
+
+<h1>{{ page.title }}</h1>
+
+<p>{{ page.seo_description }}</p>
+
+{% assign state_shows = site.data.shows | where: "state", page.state_abbrev | sort: "name" %}
+
+{% if state_shows.size > 0 %}
+
+<h2>All Coin Shows in {{ page.state_name }} ({{ state_shows.size }})</h2>
+
+{% for show in state_shows %}
+  {% include show-card.html show=show %}
+{% endfor %}
+
+{% else %}
+<p>No coin shows currently listed for {{ page.state_name }}. Know of one? <a href="https://github.com/nezumitora/coin-shows-near-me/issues">Submit it here</a>.</p>
+{% endif %}
+
+{% assign state_cities = state_shows | map: "city" | uniq | sort %}
+{% if state_cities.size > 1 %}
+<h2>Cities with Coin Shows in {{ page.state_name }}</h2>
+<ul>
+{% for city in state_cities %}
+  {% assign city_show = state_shows | where: "city", city | first %}
+  <li><a href="{{ site.baseurl }}/cities/{{ city_show.city_slug }}/">{{ city }}, {{ page.state_name }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<h2>Find Coin Shows in Other States</h2>
+<p>Browse our <a href="{{ site.baseurl }}/states/">complete list of coin shows by state</a>, or visit the <a href="{{ site.baseurl }}/">homepage</a> to search all upcoming shows across the United States.</p>
