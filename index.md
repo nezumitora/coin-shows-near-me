@@ -15,7 +15,7 @@ The most complete directory of coin shows in the United States. Find upcoming co
 
 ## Find Coin Shows This Weekend
 
-Looking for a coin show happening soon? Check our **[Coin Shows This Weekend](/coin-shows-near-me/coin-shows-this-weekend/)** page for shows happening in the next few days.
+Looking for a coin show happening soon? Check our **[Coin Shows This Weekend](/coin-shows-this-weekend/)** page for shows happening in the next few days.
 
 ---
 

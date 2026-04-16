@@ -10,6 +10,6 @@ breadcrumb_current: "Legal"
 
 # Legal
 
-- [Terms of Use](/coin-shows-near-me/legal/terms-of-use/) — Your agreement with the Platform, including limitation of liability, indemnification, and dispute resolution.
-- [Privacy Policy](/coin-shows-near-me/legal/privacy-policy/) — How we collect, use, and protect your personal information.
-- [Disclaimer](/coin-shows-near-me/legal/disclaimer/) — Important disclaimers regarding transactions, appraisals, event listings, and dealer verification.
+- [Terms of Use](/legal/terms-of-use/) — Your agreement with the Platform, including limitation of liability, indemnification, and dispute resolution.
+- [Privacy Policy](/legal/privacy-policy/) — How we collect, use, and protect your personal information.
+- [Disclaimer](/legal/disclaimer/) — Important disclaimers regarding transactions, appraisals, event listings, and dealer verification.
