@@ -1,0 +1,74 @@
+---
+layout: default
+---
+
+{% include breadcrumbs.html %}
+
+{% assign show = nil %}
+{% for s in site.data.shows %}
+  {% if s.id == page.show_id %}
+    {% assign show = s %}
+  {% endif %}
+{% endfor %}
+
+<h1>{{ show.name }}</h1>
+
+{% include schema-event.html show=show %}
+
+<div style="border:1px solid #e5e7eb;border-radius:0.75rem;padding:1.25rem;margin:1rem 0;background:#f9fafb;">
+  <table style="width:100%;border-collapse:collapse;">
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Location</td>
+      <td style="padding:0.4rem 0;">{{ show.city }}, {{ show.state_name }}</td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Venue</td>
+      <td style="padding:0.4rem 0;">{{ show.venue }}</td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Frequency</td>
+      <td style="padding:0.4rem 0;">{{ show.frequency }}</td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Next Date</td>
+      <td style="padding:0.4rem 0;">{% if show.next_date == "TBD" %}TBD &mdash; Check organizer website{% else %}{{ show.next_date }}{% endif %}</td>
+    </tr>
+    {% if show.organizer and show.organizer != "" %}
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Organizer</td>
+      <td style="padding:0.4rem 0;">{{ show.organizer }}</td>
+    </tr>
+    {% endif %}
+    {% if show.website and show.website != "" %}
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Website</td>
+      <td style="padding:0.4rem 0;"><a href="{{ show.website }}" target="_blank" rel="noopener noreferrer">{{ show.website }}</a></td>
+    </tr>
+    {% endif %}
+  </table>
+</div>
+
+{% if show.notes and show.notes != "" %}
+<p><em>{{ show.notes }}</em></p>
+{% endif %}
+
+<h2>About {{ show.name }}</h2>
+<p>The {{ show.name }} is a {{ show.frequency | downcase }} coin show held at {{ show.venue }} in {{ show.city }}, {{ show.state_name }}. This event brings together coin dealers, collectors, and numismatic enthusiasts to buy, sell, and trade coins, currency, bullion, and collectibles.</p>
+
+<p>Whether you're looking to add to your collection, get a free appraisal, or simply browse, the {{ show.name }} offers something for collectors at every level.</p>
+
+<h2>What to Expect</h2>
+<ul>
+  <li>Coin and currency dealers with a wide range of inventory</li>
+  <li>U.S. and world coins, paper currency, bullion, and tokens</li>
+  <li>Free appraisals from knowledgeable dealers</li>
+  <li>Opportunities to buy, sell, or trade your collection</li>
+  <li>Networking with local and regional collectors</li>
+</ul>
+
+<h2>More Coin Shows Near {{ show.city }}</h2>
+<p>See all <a href="{{ site.baseurl }}/cities/{{ show.city_slug }}/">coin shows in {{ show.city }}</a> or browse <a href="{{ site.baseurl }}/states/{% for state in site.data.states %}{% if state.abbrev == show.state %}{{ state.slug }}{% endif %}{% endfor %}/">all coin shows in {{ show.state_name }}</a>.</p>
+
+<p style="margin-top:1.5rem;padding:0.75rem;background:#fef3c7;border-radius:0.5rem;font-size:0.9rem;">
+  <strong>Dates and venues can change.</strong> Always verify details on the official show or club website before traveling.
+</p>

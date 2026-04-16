@@ -1,0 +1,144 @@
+---
+layout: default
+---
+
+{% include breadcrumbs.html %}
+
+<h1>{{ page.title }}</h1>
+
+<p>{{ page.seo_description }}</p>
+
+<div id="weekend-shows-app">
+  <noscript>
+    <p>This page requires JavaScript to filter upcoming weekend shows. Please enable JavaScript or browse our <a href="{{ site.baseurl }}/states/">state-by-state coin show directory</a> instead.</p>
+  </noscript>
+  <div id="weekend-loading" style="padding:1rem;color:#6b7280;">Loading upcoming weekend shows...</div>
+  <div id="this-weekend" style="display:none;">
+    <h2 id="this-weekend-heading"></h2>
+    <div id="this-weekend-list"></div>
+  </div>
+  <div id="next-weekend" style="display:none;">
+    <h2 id="next-weekend-heading"></h2>
+    <div id="next-weekend-list"></div>
+  </div>
+  <div id="upcoming-weekends" style="display:none;">
+    <h2>Coming Up in the Next 30 Days</h2>
+    <div id="upcoming-list"></div>
+  </div>
+  <div id="no-shows" style="display:none;padding:1rem;background:#f9fafb;border-radius:0.5rem;">
+    <p>No coin shows are scheduled for the upcoming weekends. Check back soon, or browse our <a href="{{ site.baseurl }}/states/">full directory by state</a>.</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  var shows = {{ site.data.shows | jsonify }};
+  var baseurl = "{{ site.baseurl }}";
+
+  function parseDate(d) {
+    return new Date(d + "T00:00:00");
+  }
+
+  function getWeekend(date) {
+    var d = new Date(date);
+    var day = d.getDay();
+    var fri = new Date(d);
+    fri.setDate(d.getDate() - ((day + 2) % 7));
+    var sun = new Date(fri);
+    sun.setDate(fri.getDate() + 2);
+    return { fri: fri, sun: sun };
+  }
+
+  function formatDate(d) {
+    var opts = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+    return d.toLocaleDateString('en-US', opts);
+  }
+
+  function formatRange(start, end) {
+    var opts = { month: 'short', day: 'numeric' };
+    return start.toLocaleDateString('en-US', opts) + ' - ' + end.toLocaleDateString('en-US', opts);
+  }
+
+  function renderCard(show) {
+    return '<div style="border:1px solid #e5e7eb;border-radius:0.5rem;padding:1rem;margin-bottom:0.75rem;background:#f9fafb;">' +
+      '<h3 style="margin:0 0 0.25rem;font-size:1.1rem;"><a href="' + baseurl + '/shows/' + show.id + '/" style="color:#111827;text-decoration:none;">' + show.name + '</a></h3>' +
+      '<p style="margin:0 0 0.25rem;color:#6b7280;font-size:0.9rem;">' + show.city + ', ' + show.state_name + ' &mdash; ' + show.venue + '</p>' +
+      '<p style="margin:0;font-size:0.9rem;"><strong>Date:</strong> ' + show.next_date + '</p>' +
+      '</div>';
+  }
+
+  var today = new Date();
+  today.setHours(0,0,0,0);
+
+  var thisWE = getWeekend(today);
+  var nextFri = new Date(thisWE.fri);
+  nextFri.setDate(nextFri.getDate() + 7);
+  var nextWE = getWeekend(nextFri);
+  var thirtyDays = new Date(today);
+  thirtyDays.setDate(today.getDate() + 30);
+
+  var thisWeekendShows = [];
+  var nextWeekendShows = [];
+  var upcomingShows = [];
+
+  shows.forEach(function(show) {
+    if (show.next_date === 'TBD') return;
+    var parts = show.next_date.match(/\w+\s+\d+/);
+    if (!parts) return;
+
+    var startStr = show.next_date;
+    var start;
+    try {
+      start = new Date(startStr);
+      if (isNaN(start.getTime())) return;
+    } catch(e) { return; }
+
+    if (start < today) return;
+    if (start > thirtyDays) return;
+
+    var showDay = start.getDay();
+
+    if (start >= thisWE.fri && start <= thisWE.sun) {
+      thisWeekendShows.push(show);
+    } else if (start >= nextWE.fri && start <= nextWE.sun) {
+      nextWeekendShows.push(show);
+    } else if (showDay === 0 || showDay === 6 || showDay === 5) {
+      upcomingShows.push(show);
+    }
+  });
+
+  document.getElementById('weekend-loading').style.display = 'none';
+
+  if (thisWeekendShows.length === 0 && nextWeekendShows.length === 0 && upcomingShows.length === 0) {
+    document.getElementById('no-shows').style.display = 'block';
+  }
+
+  if (thisWeekendShows.length > 0) {
+    var el = document.getElementById('this-weekend');
+    el.style.display = 'block';
+    document.getElementById('this-weekend-heading').textContent = 'This Weekend (' + formatRange(thisWE.fri, thisWE.sun) + ')';
+    document.getElementById('this-weekend-list').innerHTML = thisWeekendShows.map(renderCard).join('');
+  }
+
+  if (nextWeekendShows.length > 0) {
+    var el2 = document.getElementById('next-weekend');
+    el2.style.display = 'block';
+    document.getElementById('next-weekend-heading').textContent = 'Next Weekend (' + formatRange(nextWE.fri, nextWE.sun) + ')';
+    document.getElementById('next-weekend-list').innerHTML = nextWeekendShows.map(renderCard).join('');
+  }
+
+  if (upcomingShows.length > 0) {
+    var el3 = document.getElementById('upcoming-weekends');
+    el3.style.display = 'block';
+    document.getElementById('upcoming-list').innerHTML = upcomingShows.map(renderCard).join('');
+  }
+})();
+</script>
+
+{{ content }}
+
+<h2>Browse All Coin Shows</h2>
+<p>Can't find a show this weekend? Browse our <a href="{{ site.baseurl }}/states/">complete directory of coin shows by state</a> to plan ahead.</p>
+
+<h2>Never Miss a Coin Show</h2>
+<p>Bookmark this page and check back each week. We update show dates regularly so you always have the latest information on upcoming coin shows across the United States.</p>

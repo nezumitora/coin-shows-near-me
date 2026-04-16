@@ -1,0 +1,33 @@
+{% comment %}
+  Schema.org Event markup for individual coin shows.
+  Usage: {% include schema-event.html show=show %}
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": {{ include.show.name | jsonify }},
+  "description": {{ include.show.name | append: " in " | append: include.show.city | append: ", " | append: include.show.state_name | append: ". " | append: include.show.frequency | append: " coin show featuring coin dealers, currency, bullion, and numismatic collectibles." | jsonify }},
+  "url": "{{ site.url }}{{ site.baseurl }}/shows/{{ include.show.id }}/",
+  {% unless include.show.next_date == "TBD" %}
+  "startDate": {{ include.show.next_date | jsonify }},
+  {% endunless %}
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": {{ include.show.venue | jsonify }},
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": {{ include.show.city | jsonify }},
+      "addressRegion": {{ include.show.state | jsonify }},
+      "addressCountry": "US"
+    }
+  }{% if include.show.organizer and include.show.organizer != "" %},
+  "organizer": {
+    "@type": "Organization",
+    "name": {{ include.show.organizer | jsonify }}{% if include.show.website and include.show.website != "" %},
+    "url": {{ include.show.website | jsonify }}{% endif %}
+  }{% endif %}
+}
+</script>
