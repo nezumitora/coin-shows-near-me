@@ -2,8 +2,11 @@
 
 ## Pending
 
-- [ ] Merge PR #1 (SEO buildout + tools) — waiting on site setup
+- [ ] Merge PR #1 (full site buildout) — waiting on site setup
 - [ ] Point coinshownearme.com DNS to GitHub Pages and update _config.yml url
+- [ ] Set up Formspree endpoints for all forms (dealer, offers, promoter, attendee) — see _config.yml comments
+- [ ] Have a licensed attorney review Terms of Use and Privacy Policy
+- [ ] Set up legal@, privacy@, dealers@, promoters@ email addresses at coinshownearme.com
 
 ## Backlog (Needs You)
 
@@ -14,7 +17,7 @@
 
 ## Done (PR #1)
 
-### SEO Buildout
+### SEO Buildout (244 pages)
 - [x] Extract README show data into _data/shows.yml + _data/states.yml
 - [x] Build Jekyll layouts (state, city, show, weekend)
 - [x] Build includes (schema.org Event JSON-LD, breadcrumbs, show cards, SEO meta)
@@ -28,7 +31,19 @@
 - [x] Add robots.txt + sitemap reference
 
 ### Tools Built
-- [x] Melt value calculator & "Get an Offer" lead form `added:2025-12-06` — `/tools/melt-value-calculator/`
-- [x] Mini coin show finder & lead capture widget `added:2025-12-06` — widget.html (updated for 98-show dataset)
-- [x] Build scraper tool — show listings `added:2025-12-24` — `_scrapers/scrape_shows.py`
-- [x] Build scraper tool — dealer listings `added:2025-12-24` — `_scrapers/scrape_dealers.py`
+- [x] Melt value calculator & "Get an Offer" lead form — `/tools/melt-value-calculator/`
+- [x] Mini coin show finder & lead capture widget — widget.html (updated for 98-show dataset)
+- [x] Build scraper tool — show listings — `_scrapers/scrape_shows.py`
+- [x] Build scraper tool — dealer listings — `_scrapers/scrape_dealers.py`
+
+### Portals & Platform Features
+- [x] Dealer Portal — `/dealers/` — registration, show attendance verification, specialty selection
+- [x] Pre-Show Offer System — `/get-offers/` — sellers submit collections to attending dealers with photos
+- [x] Attendee Portal — `/attendees/` — collection inventory builder with item-by-item + bulk upload
+- [x] Promoter Submission — `/promoters/` — add your show to the directory
+- [x] Shared form styles + configurable form handler (Formspree, swappable to WP backend)
+
+### Legal
+- [x] Terms of Use — `/legal/terms-of-use/` — comprehensive platform TOS with transaction liability, indemnification, arbitration
+- [x] Privacy Policy — `/legal/privacy-policy/` — CCPA/CPRA compliant
+- [x] Disclaimer — `/legal/disclaimer/` — transaction, appraisal, listing, dealer verification disclaimers
