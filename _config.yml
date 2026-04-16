@@ -1,5 +1,5 @@
-title: "Coin Shows Near Me – United States Coin Show Directory"
-description: "A nationwide directory of recurring coin shows in the United States, organized by state."
+title: "Coin Shows Near Me — US Coin Show Directory"
+description: "Find coin shows near you. Complete directory of 90+ coin shows across all 50 US states with dates, venues, and details."
 url: "https://nezumitora.github.io"
 baseurl: "/coin-shows-near-me"
 
@@ -7,14 +7,33 @@ remote_theme: just-the-docs/just-the-docs
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 markdown: kramdown
 
 search_enabled: true
 nav_enabled: true
 
+# SEO
+lang: en-US
+tagline: "Find upcoming coin shows in your area"
+
+# just-the-docs nav
+nav_sort: order
+nav_external_links: []
+
 aux_links:
-  "View on GitHub":
-    - "https://github.com/nezumitora/coin-shows-near-me"
+  "Submit a Show":
+    - "https://github.com/nezumitora/coin-shows-near-me/issues"
 aux_links_new_tab: true
+
 google_site_verification: ZW60JDUpZFD9rhZv8KgiklQ65RSr5jyyxku3686lHbo
+
+# Exclude build artifacts
+exclude:
+  - _scripts/
+  - Gemfile
+  - Gemfile.lock
+  - TODO.md
+  - LICENSE
