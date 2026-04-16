@@ -50,11 +50,11 @@ These are the largest and most well-known coin shows in the United States — wo
 {% assign featured_ids = "fun-convention,long-beach-expo,whitman-coin-expo,csns-convention,nyinc,pan-coin-show,ana-worlds-fair" | split: "," %}
 
 {% for fid in featured_ids %}
-  {% for show in site.data.shows %}
-    {% if show.id == fid %}
-      {% include show-card.html show=show %}
-    {% endif %}
-  {% endfor %}
+{% for show in site.data.shows %}
+{% if show.id == fid %}
+{% include show-card.html show=show %}
+{% endif %}
+{% endfor %}
 {% endfor %}
 
 ---
