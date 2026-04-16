@@ -11,6 +11,19 @@ nav_order: 1
 
 <div class="launch-banner">
 <strong>Site Under Construction</strong> — We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Our full site is launching soon. In the meantime, browse our directory of 90+ coin shows across all 50 states below.
+
+<form class="notify-form" id="notify-form" action="https://formspree.io/f/mykleozw" method="POST" style="margin-top:1rem;">
+<input type="hidden" name="_subject" value="Coin Show Near Me — New Signup">
+<div class="form-row">
+<input type="text" name="name" placeholder="Name (optional)" style="background:#fff;color:#111;">
+<input type="email" name="email" placeholder="Email address" required style="background:#fff;color:#111;">
+<button type="submit">Sign Up for Updates</button>
+</div>
+<textarea name="message" placeholder="Questions, show submissions, or just say hello (optional)" style="background:#fff;color:#111;margin-top:0.5rem;"></textarea>
+</form>
+<div class="notify-success" id="notify-success" style="background:#065f46;margin-top:0.5rem;">
+Thank you! We'll notify you when we launch. If you submitted a show or question, we'll get back to you shortly.
+</div>
 </div>
 
 The most complete directory of coin shows in the United States. Find upcoming coin shows, numismatic conventions, and coin expos near you — with dates, venues, and details for every show.
@@ -98,27 +111,7 @@ Coin Show Near Me is a free, community-driven directory of recurring coin shows 
 
 ### Missing a Show?
 
-If you run a coin show and want it listed, or if you notice missing or outdated information, use the form below to let us know.
-
----
-
-<div class="notify-section">
-<h3>Stay Updated</h3>
-<p>Our full-featured directory with dealer verification, pre-show offers, and collection tools is launching soon. Sign up to be notified when we go live, or send us a message if you have questions or want to submit a show.</p>
-
-<form class="notify-form" id="notify-form" action="https://formspree.io/f/mykleozw" method="POST">
-<input type="hidden" name="_subject" value="Coin Show Near Me — New Signup">
-<div class="form-row">
-<input type="text" name="name" placeholder="Name (optional)">
-<input type="email" name="email" placeholder="Email address" required>
-</div>
-<textarea name="message" placeholder="Questions, show submissions, or just say hello (optional)"></textarea>
-<button type="submit">Sign Up for Updates</button>
-</form>
-<div class="notify-success" id="notify-success">
-Thank you! We'll notify you when we launch. If you submitted a show or question, we'll get back to you shortly.
-</div>
-</div>
+Know of a coin show not in our directory? Use the form at the top of this page to let us know — include the show name, city, state, and any details you have.
 
 <script>
 var form = document.getElementById('notify-form');
