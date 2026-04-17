@@ -196,10 +196,10 @@
   state_name: California
   city: Cupertino
   city_slug: cupertino-ca
-  venue: ''
+  venue: 10110 N DeAnza Blvd, Cupertino, CA
   frequency: Annual
   next_date: TBD
-  website: ''
+  website: https://www.cupertinocoinclub.org
   organizer: ''
   notes: ''
 - id: fremont-coin-club-show
@@ -244,7 +244,7 @@
   state_name: California
   city: Sacramento
   city_slug: sacramento-ca
-  venue: ''
+  venue: 3410 Westover Street, Sacramento, CA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -280,10 +280,10 @@
   state_name: California
   city: Santa Clara
   city_slug: santa-clara-ca
-  venue: ''
+  venue: American Legion Post 419, 958 Homestead Road, Santa Clara, CA
   frequency: Recurring
   next_date: TBD
-  website: ''
+  website: https://www.santaclaracoinshow.com
   organizer: ''
   notes: ''
 - id: valley-coin-show
@@ -475,7 +475,7 @@
   venue: ''
   frequency: Recurring
   next_date: TBD
-  website: ''
+  website: https://GoldCoastCoinClub.com
   organizer: ''
   notes: ''
 - id: the-villages-leesburg-coin-show
@@ -532,10 +532,10 @@
   state_name: Florida
   city: Plantation
   city_slug: plantation-fl
-  venue: ''
+  venue: 12050 W Sunrise Blvd, Plantation, FL 33323
   frequency: Monthly
   next_date: TBD
-  website: ''
+  website: https://GoldCoastCoinClub.com
   organizer: ''
   notes: ''
 - id: fort-lauderdale-coin-club-show
@@ -568,7 +568,7 @@
   state_name: Florida
   city: Tampa
   city_slug: tampa-fl
-  venue: ''
+  venue: 13336 N Central Ave, Tampa, FL
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -580,10 +580,10 @@
   state_name: Florida
   city: West Palm Beach
   city_slug: west-palm-beach-fl
-  venue: ''
+  venue: 4725 Lake Worth Rd, Greenacres, FL 33463
   frequency: Recurring
   next_date: TBD
-  website: ''
+  website: http://pbcc.anaclubs.org/
   organizer: ''
   notes: ''
 - id: the-villageswildwood-april-292026
@@ -616,7 +616,7 @@
   state_name: Georgia
   city: Carrollton
   city_slug: carrollton-ga
-  venue: ''
+  venue: 1201 Newnan Rd, Carrollton, GA 30116
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -700,7 +700,7 @@
   state_name: Idaho
   city: Garden City
   city_slug: garden-city-id
-  venue: ''
+  venue: 2900 W Chinden Blvd, Garden City, ID
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -739,7 +739,7 @@
   venue: ''
   frequency: Recurring
   next_date: TBD
-  website: ''
+  website: https://www.MetroEastCoinCurrencyClub.com
   organizer: ''
   notes: ''
 - id: chicago-coin-expo
@@ -788,6 +788,18 @@
   frequency: Monthly (1st Sunday)
   next_date: December 7, 2025
   website: https://www.coinshows-usa.com/Illinois
+  organizer: ''
+  notes: ''
+- id: peotone-coin-currency-show
+  name: Peotone Coin & Currency Show
+  state: IL
+  state_name: Illinois
+  city: Peotone
+  city_slug: peotone-il
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
   organizer: ''
   notes: ''
 - id: csns-convention
@@ -883,7 +895,7 @@
   venue: ''
   frequency: Recurring
   next_date: TBD
-  website: ''
+  website: http://lafayettecoinclub.tripod.com
   organizer: ''
   notes: ''
 - id: indiana-state-coin-show-nov-20th-21st-2026
@@ -1048,7 +1060,7 @@
   state_name: Maryland
   city: Timonium
   city_slug: timonium-md
-  venue: ''
+  venue: 2200 York Road, Timonium, MD 21093
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1180,10 +1192,10 @@
   state_name: Minnesota
   city: Maple Grove
   city_slug: maple-grove-mn
-  venue: ''
+  venue: 9655 Grove Circle North, Maple Grove, MN
   frequency: Recurring
   next_date: TBD
-  website: ''
+  website: https://antiquecoinsmn.com
   organizer: ''
   notes: ''
 - id: south-st-paul-coin-show
@@ -1348,7 +1360,7 @@
   state_name: North Carolina
   city: Morganton
   city_slug: morganton-nc
-  venue: ''
+  venue: 300 Collett St, Morganton, NC
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1552,7 +1564,7 @@
   state_name: New York
   city: Canandaigua
   city_slug: canandaigua-ny
-  venue: ''
+  venue: 454 N. Main Street, Canandaigua, NY 14424
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1636,7 +1648,7 @@
   state_name: Ohio
   city: Broadview Heights
   city_slug: broadview-heights-oh
-  venue: ''
+  venue: 5025 Mill Rd, Broadview Heights, OH
   frequency: Monthly
   next_date: TBD
   website: ''
@@ -1648,7 +1660,7 @@
   state_name: Ohio
   city: Broadview Heights
   city_slug: broadview-heights-oh
-  venue: ''
+  venue: 5025 Mill Rd, Broadview Heights, OH
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1744,7 +1756,7 @@
   state_name: Ohio
   city: Westlake
   city_slug: westlake-oh
-  venue: ''
+  venue: 24350 Center Ridge Rd, Westlake, OH 44145
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1780,7 +1792,7 @@
   state_name: Oklahoma
   city: Norman
   city_slug: norman-ok
-  venue: ''
+  venue: 615 E Robinson St, Norman, OK 73071
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1840,7 +1852,7 @@
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
-  venue: ''
+  venue: 400 N. Oxford Valley Rd, Langhorne, PA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1852,7 +1864,7 @@
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
-  venue: ''
+  venue: 400 N. Oxford Valley Rd, Langhorne, PA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1864,7 +1876,7 @@
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
-  venue: ''
+  venue: 400 N. Oxford Valley Rd, Langhorne, PA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1876,7 +1888,7 @@
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
-  venue: ''
+  venue: 400 N. Oxford Valley Rd, Langhorne, PA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1888,7 +1900,7 @@
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
-  venue: ''
+  venue: 400 N. Oxford Valley Rd, Langhorne, PA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1900,7 +1912,7 @@
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
-  venue: ''
+  venue: 400 N. Oxford Valley Rd, Langhorne, PA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1912,7 +1924,7 @@
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
-  venue: ''
+  venue: 400 N. Oxford Valley Rd, Langhorne, PA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1924,7 +1936,7 @@
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
-  venue: ''
+  venue: 400 N. Oxford Valley Rd, Langhorne, PA
   frequency: Recurring
   next_date: TBD
   website: ''
@@ -1984,7 +1996,7 @@
   state_name: Pennsylvania
   city: Telford
   city_slug: telford-pa
-  venue: ''
+  venue: 508 Harleysville Pike Unit A, Telford, PA 18969
   frequency: Monthly
   next_date: TBD
   website: ''
@@ -1999,7 +2011,7 @@
   venue: ''
   frequency: Monthly
   next_date: TBD
-  website: ''
+  website: https://www.buxmontcoinshows.com
   organizer: ''
   notes: ''
 - id: tri-state-monthly-coin-show
@@ -2068,10 +2080,10 @@
   state_name: South Carolina
   city: Sumter Coin Club
   city_slug: sumter-coin-club-sc
-  venue: ''
+  venue: 2320 Four Bridges Road, Sumter, SC
   frequency: Annual
   next_date: TBD
-  website: ''
+  website: https://www.sumtercoinclub.org
   organizer: ''
   notes: ''
 - id: ama-fall-coin-stamp-show
@@ -2155,7 +2167,7 @@
   venue: ''
   frequency: Recurring
   next_date: TBD
-  website: ''
+  website: https://www.TexasNumismatics.org
   organizer: ''
   notes: ''
 - id: cowtown-coin-show

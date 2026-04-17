@@ -2,7 +2,7 @@
 layout: show
 title: "Tri-State Coin. Stamp and Paper Money Show MAY 17th, 2026 — Langhorne, Pennsylvania Coin Show"
 seo_title: "Tri-State Coin. Stamp and Paper Money Show MAY 17th, 2026 — Langhorne, Pennsylvania | Coin Show Near Me"
-seo_description: "Tri-State Coin. Stamp and Paper Money Show MAY 17th, 2026 in Langhorne, Pennsylvania. Recurring coin show at . Get dates, venue details, and more."
+seo_description: "Tri-State Coin. Stamp and Paper Money Show MAY 17th, 2026 in Langhorne, Pennsylvania. Recurring coin show at 400 N. Oxford Valley Rd, Langhorne, PA. Get dates, venue details, and more."
 permalink: /shows/tri-state-coin-stamp-and-paper-money-show-may-17th-2026/
 show_id: "tri-state-coin-stamp-and-paper-money-show-may-17th-2026"
 breadcrumb_parent: "Pennsylvania"
