@@ -1,10 +1,12 @@
 {% if page.seo_title %}
 <title>{{ page.seo_title }}</title>
 <meta property="og:title" content="{{ page.seo_title }}">
+<meta name="twitter:title" content="{{ page.seo_title }}">
 {% endif %}
 {% if page.seo_description %}
 <meta name="description" content="{{ page.seo_description }}">
 <meta property="og:description" content="{{ page.seo_description }}">
+<meta name="twitter:description" content="{{ page.seo_description }}">
 {% endif %}
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
@@ -16,3 +18,9 @@
 <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
 {% endif %}
 <meta property="og:site_name" content="Coin Show Near Me">
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/logo.png">
+<meta property="og:image:width" content="200">
+<meta property="og:image:height" content="200">
+<meta property="og:image:alt" content="Coin Show Near Me — US Coin Show Directory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/logo.png">

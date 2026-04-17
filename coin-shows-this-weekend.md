@@ -19,3 +19,5 @@ Weekend coin shows are the perfect opportunity to:
 - **Support your local coin collecting community**
 
 Most coin shows are free to attend and welcome everyone from first-time visitors to experienced collectors.
+
+**Planning to sell?** Check our <a href="/tools/melt-value-calculator/">Melt Value Calculator</a> to see what your silver and gold coins are worth at today's spot prices before you go.
