@@ -55,7 +55,7 @@
   venue: Hot Springs Convention Center
   frequency: Annual (Winter)
   next_date: TBD
-  website: https://www.coinzip.com/arkansas-coin-shows
+  website: ''
   organizer: Tri-Lakes Coin Club
   notes: ''
 - id: arkansas-state-coin-show
@@ -103,7 +103,7 @@
   venue: Doubletree by Hilton
   frequency: Recurring
   next_date: Apr 18th, 2026
-  website: https://www.CoinShows-USA.com/Northwest-Valley-Coin-Card-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sat 9-2:30'
 - id: phoenix-coin-club-coin-show
@@ -127,7 +127,7 @@
   venue: Tucson Womans Club
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Tucson-Coin-Club-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9-4'
 - id: tucson-coin-club-coin-show
@@ -259,7 +259,7 @@
   venue: San Fernando Masonic Lodge 343
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/San-Fernando-Coin-and-Collectible-Expo
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9:30-4'
 - id: san-fernando-coin-collectibles-expo
@@ -295,7 +295,7 @@
   venue: Courtyard by Marriott — 4th Floor Ballroom
   frequency: Recurring
   next_date: Apr 18th - 19th, 2026
-  website: https://www.CoinShows-USA.com/Valley-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sat 10-5, Sun 10-4'
 - id: san-francisco-international-numismatic-bourse
@@ -403,7 +403,7 @@
   venue: Hartford Hotel & Conference Center
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Hartford-Coin-and-Currency-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9-3'
 - id: naugatuck-coin-currency-show
@@ -415,7 +415,7 @@
   venue: American Legion
   frequency: Recurring
   next_date: Apr 18th, 2026
-  website: https://www.CoinShows-USA.com/Naugatuck-Coin-Currency-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sat 9-2'
 - id: orange-collectibles-show
@@ -427,7 +427,7 @@
   venue: American Legion Post 127
   frequency: Monthly (2nd Sunday)
   next_date: December 14, 2025
-  website: https://www.coinzip.com/connecticut-coin-shows
+  website: ''
   organizer: ''
   notes: Consistent monthly local show.
 - id: mansfield-numismatic-society-coin-show
@@ -463,7 +463,7 @@
   venue: Countryside Recreation Center
   frequency: Recurring
   next_date: Apr 18th, 2026
-  website: https://www.CoinShows-USA.com/Clearwater-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sat 9:30-2:30'
 - id: gold-coast-coin-collectibles-show
@@ -523,7 +523,7 @@
   venue: Volunteer Park
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/3rd-Sunday-Fort-Lauderdale-Coin-Stamp-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9:30-2:30'
 - id: fort-lauderdale-coin-show-3rd-sundays-monthly-9am-3pm
@@ -643,7 +643,7 @@
   venue: Northwest Georgia Trade & Convention Center
   frequency: Recurring
   next_date: Apr 17th - 19th, 2026
-  website: https://www.CoinShows-USA.com/Georgia-Numismatic-Association-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Fri & Sat 10-6, Sun 10-3'
 - id: greater-atlanta-coin-show
@@ -691,7 +691,7 @@
   venue: Quality Inn
   frequency: Recurring
   next_date: Apr 17th - 18th, 2026
-  website: https://www.CoinShows-USA.com/Fort-Dodge-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Fri 12-6:30, Sat 9-3'
 - id: southern-idaho-coin-club-coin-show
@@ -727,7 +727,7 @@
   venue: Sokol-Tabor Hall
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Cicero-Berwyn-Coin-Stamp-Bourse
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 8:30-2:30'
 - id: metro-east-coin-currency-club-coin-show
@@ -751,7 +751,7 @@
   venue: Local 150 Union Hall
   frequency: Monthly (2nd Sunday)
   next_date: December 14, 2025
-  website: https://www.coinzip.com/illinois-coin-shows
+  website: ''
   organizer: ''
   notes: ''
 - id: greater-chicago-coin-currency-collectibles-show
@@ -787,7 +787,7 @@
   venue: Orland Park Civic Center
   frequency: Monthly (1st Sunday)
   next_date: December 7, 2025
-  website: https://www.coinshows-usa.com/Illinois
+  website: ''
   organizer: ''
   notes: ''
 - id: peotone-coin-currency-show
@@ -859,7 +859,7 @@
   venue: Marriott East
   frequency: Quarterly
   next_date: TBD
-  website: https://www.coinzip.com/indiana-coin-shows
+  website: ''
   organizer: ''
   notes: ''
 - id: jasper-area-coin-club-inc-show
@@ -883,7 +883,7 @@
   venue: UAW Union Hall 685
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Kokomo-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9-2'
 - id: lafayette-indiana-coin-show
@@ -919,7 +919,7 @@
   venue: Mater Dei Assumption Church Hall
   frequency: Annual
   next_date: TBD
-  website: https://www.coinzip.com/kansas-coin-shows
+  website: ''
   organizer: Topeka Coin Club
   notes: ''
 - id: kansas-numismatic-association-show
@@ -979,7 +979,7 @@
   venue: Devens Common Center
   frequency: Monthly (Last Sunday)
   next_date: December 28, 2025
-  website: https://www.coinzip.com/devens-coin-show
+  website: ''
   organizer: EBW Promotions
   notes: ''
 - id: bay-state-coin-show
@@ -1003,7 +1003,7 @@
   venue: 'Elks Lodge #1011'
   frequency: Monthly
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/North-Attleboro-Monthly-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9-2'
 - id: the-waterloocedar-valley-coin-show
@@ -1027,7 +1027,7 @@
   venue: VFW Post 1385
   frequency: Monthly (3rd Wednesday)
   next_date: December 17, 2025
-  website: https://www.coinzip.com/blackstone-valley-coin-collectibles-club
+  website: ''
   organizer: Blackstone Valley Coin Club
   notes: ''
 - id: whitman-coin-collectibles-expo-jun-11th-13th-2026
@@ -1111,7 +1111,7 @@
   venue: Lempke-Blackwell VFW Post 7573
   frequency: Monthly
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/New-Baltimore-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9-3'
 - id: royal-oak-coin-collectibles-show-may-10th-2026
@@ -1159,7 +1159,7 @@
   venue: Oakland Expo Center
   frequency: Recurring
   next_date: Apr 17th - 19th, 2026
-  website: https://www.CoinShows-USA.com/Michigan-State-Numismatic-Society-Convention-and-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Fri & Sat 10-6, Sun 10-3'
 - id: msns-spring-convention
@@ -1207,7 +1207,7 @@
   venue: United Food & Commercial Workers Union Hall
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Twin-Cities-Monthly-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9-4'
 - id: twin-cities-monthly-coin-show
@@ -1219,7 +1219,7 @@
   venue: 266 Hardman Ave N
   frequency: Monthly
   next_date: TBD
-  website: https://www.coinzip.com/minnesota-coin-shows
+  website: ''
   organizer: Antique Coins
   notes: ''
 - id: saint-paul-liberty-coin-club-show
@@ -1279,7 +1279,7 @@
   venue: Wheatland School Building
   frequency: Recurring
   next_date: Apr 18th, 2026
-  website: https://www.CoinShows-USA.com/Hicomo-Coin-Club-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sat 10-3'
 - id: annual-mississippi-mna-coin-currency-card-show
@@ -1303,7 +1303,7 @@
   venue: Mississippi Coast Coliseum
   frequency: Annual (May)
   next_date: May 2026
-  website: https://www.coinshows-usa.com/Mississippi
+  website: ''
   organizer: Mississippi Numismatic Association
   notes: ''
 - id: western-montana-coin-show
@@ -1315,7 +1315,7 @@
   venue: Hilton Garden Inn
   frequency: Annual (Fall)
   next_date: TBD
-  website: https://www.coinzip.com/montana-coin-shows
+  website: ''
   organizer: ''
   notes: ''
 - id: early-american-coppers-may-1st-2nd
@@ -1423,7 +1423,7 @@
   venue: Bel Air Banquet Room
   frequency: Monthly
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Omaha-Coin-Currency-Stamp-Collectibles-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9-2:30'
 - id: the-omaha-monthly-coin-collectibles-show-meets-3rd-sunday-monthly
@@ -1471,7 +1471,7 @@
   venue: Old Bridge First Aid and Rescue Bldg.
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Old-Bridge-Coin-Currency-Collectibles-Stamps-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 8-2'
 - id: garden-state-coin-currency-show
@@ -1519,7 +1519,7 @@
   venue: Marriott Pyramid North
   frequency: Recurring
   next_date: Apr 17th - 19th, 2026
-  website: https://www.CoinShows-USA.com/Albuquerque-Coin-Club-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Fri 12-5, Sat 9:-5, Sun 9-2'
 - id: vegas-national-coin-show
@@ -1579,7 +1579,7 @@
   venue: The Knights in Columbus Hall
   frequency: Monthly
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/BNA-Monthly-Coin-Stamp-Currency-Bourse-and-Auction
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 10-3'
 - id: the-big-flats-coin-club-show
@@ -1603,7 +1603,7 @@
   venue: Holiday Inn & Suites
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/3rd-Sunday-ONO-Coin-Currency-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 10-3'
 - id: melville-coin-stamp-collectibles-show
@@ -1615,7 +1615,7 @@
   venue: Catapano Engineering Hall
   frequency: Monthly (2nd & 4th Sunday)
   next_date: December 14, 2025
-  website: https://www.coinzip.com/new-york-coin-shows
+  website: ''
   organizer: ''
   notes: ''
 - id: nyinc
@@ -1699,7 +1699,7 @@
   venue: American Legion Post 530
   frequency: Monthly (Last Sunday)
   next_date: December 28, 2025
-  website: https://www.coinzip.com/ohio-coin-shows
+  website: ''
   organizer: ''
   notes: ''
 - id: ohio-state-coin-show
@@ -1735,7 +1735,7 @@
   venue: Makoy Center
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Columbus-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 10-4'
 - id: cincinnati-numismatic-association-show
@@ -1771,7 +1771,7 @@
   venue: Stephens County Fairgrounds
   frequency: Annual (March)
   next_date: March 2026
-  website: https://www.coinzip.com/oklahoma-coin-shows
+  website: ''
   organizer: Duncan Coin Club
   notes: ''
 - id: oklahoma-numismatic-association-convention
@@ -1843,7 +1843,7 @@
   venue: Sheraton Hotewl Bucks County
   frequency: Monthly
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Tri-State-Monthly-Coin-and-Stamp-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9:30-2:30'
 - id: tri-state-coin-stamp-and-paper-money-show-august-16th-2026
@@ -1975,7 +1975,7 @@
   venue: Venue varies
   frequency: Periodic
   next_date: December 7, 2025
-  website: https://www.coinshows-usa.com/Pennsylvania
+  website: ''
   organizer: ONR
   notes: ''
 - id: scranton-coin-club-show
@@ -1987,7 +1987,7 @@
   venue: Oblates of St. Josephs Seminary
   frequency: Recurring
   next_date: Apr 18th - 19th, 2026
-  website: https://www.CoinShows-USA.com/Scranton-Coin-Club-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sat 9-5, Sun 9-3'
 - id: montco-coin-show-meets-every-2nd-sunday-each-month
@@ -2023,7 +2023,7 @@
   venue: Sheraton Bucks County
   frequency: Monthly (3rd or 4th Sunday)
   next_date: December 21, 2025
-  website: https://www.coinzip.com/pennsylvania-coin-shows
+  website: ''
   organizer: ''
   notes: ''
 - id: blackstone-valley-coin-club-show-ri
@@ -2035,7 +2035,7 @@
   venue: 'Elks Club #850'
   frequency: Annual (Summer)
   next_date: TBD
-  website: https://www.coinshows-usa.com/Rhode-Island
+  website: ''
   organizer: Blackstone Valley Coin Club
   notes: ''
 - id: midlands-spring-coin-show
@@ -2119,7 +2119,7 @@
   venue: Rothchild Conference Center
   frequency: Monthly
   next_date: December 6, 2025
-  website: https://www.coinzip.com/tennessee-coin-shows
+  website: ''
   organizer: ''
   notes: ''
 - id: imex-show
@@ -2179,7 +2179,7 @@
   venue: Forest Hill Civic Center
   frequency: 6 Times Per Year (Jan, Mar, May, Jul, Sep, Nov)
   next_date: January 2026
-  website: https://www.coinzip.com/cowtown-coin-show
+  website: ''
   organizer: Cowtown Coin Show
   notes: ''
 - id: utah-numismatic-society-coin-show
@@ -2203,7 +2203,7 @@
   venue: NOVA Community College (Ernst Cultural Center)
   frequency: Annual (December)
   next_date: TBD
-  website: https://www.coinzip.com/annandale-coin-show
+  website: ''
   organizer: ''
   notes: ''
 - id: vna-convention-coin-show
@@ -2239,7 +2239,7 @@
   venue: Vienna Community Center
   frequency: Quarterly
   next_date: Apr 18th - 19th, 2026
-  website: https://www.CoinShows-USA.com/Vienna-Quarterly-Coin-Stamp-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sat 10-5, Sun 10-3'
 - id: burlington-coin-show
@@ -2251,7 +2251,7 @@
   venue: DoubleTree by Hilton
   frequency: Annual (Winter)
   next_date: TBD
-  website: https://www.coinshows-usa.com/Vermont
+  website: ''
   organizer: ''
   notes: ''
 - id: boeing-employees-coin-club-show
@@ -2275,7 +2275,7 @@
   venue: 'VFW Post #318 Hall'
   frequency: Recurring
   next_date: Apr 18th, 2026
-  website: https://www.CoinShows-USA.com/Northwest-Token-and-Medal-Society-Show
+  website: ''
   organizer: ''
   notes: 'Hours: 8-11:30'
 - id: pnna-spring-convention
@@ -2299,7 +2299,7 @@
   venue: Best Western Plus Eau Claire Conference Center
   frequency: Recurring
   next_date: Apr 19th, 2026
-  website: https://www.CoinShows-USA.com/Chippewa-Valley-Coin-Club-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sun 9-3'
 - id: milwaukee-numismatic-society-show
@@ -2347,7 +2347,7 @@
   venue: Mount Vernon Baptist Church
   frequency: Recurring
   next_date: Apr 18th, 2026
-  website: https://www.CoinShows-USA.com/River-City-Coin-Club-Coin-Show
+  website: ''
   organizer: ''
   notes: 'Hours: Sat 10-3'
 - id: cheyenne-coin-expo
@@ -2359,6 +2359,6 @@
   venue: Laramie County Community College
   frequency: Annual (November)
   next_date: November 2026
-  website: https://www.coinshows-usa.com/Wyoming
+  website: ''
   organizer: Cheyenne Coin Club
   notes: ''
