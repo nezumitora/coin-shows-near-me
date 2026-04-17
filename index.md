@@ -2,7 +2,7 @@
 layout: default
 title: "Coin Shows Near Me — Find Upcoming Coin Shows in Your Area"
 seo_title: "Coin Shows Near Me — US Coin Show Directory & Schedule 2025-2026"
-seo_description: "Find coin shows near you. Complete directory of 90+ coin shows across all 50 US states with dates, venues, and details. Updated regularly."
+seo_description: "Find coin shows near you. Complete directory of 190+ coin shows across all 50 US states with dates, venues, and details. Updated regularly."
 permalink: /
 nav_order: 1
 ---
@@ -10,7 +10,7 @@ nav_order: 1
 # Coin Shows Near Me
 
 <div class="launch-banner">
-<strong>Site Under Construction</strong> — We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Our full site is launching soon. In the meantime, browse our directory of 90+ coin shows across all 50 states below.
+<strong>Site Under Construction</strong> — We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Our full site is launching soon. In the meantime, browse our directory of 190+ coin shows across all 50 states below.
 
 <hr style="border:none;border-top:2px solid #daa520;margin:1rem 0;">
 
@@ -254,7 +254,7 @@ if (form) {
       "name": "How do I find coin shows near me?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Coin Show Near Me maintains a directory of 90+ recurring coin shows across all 50 US states. Browse by state, check our 'This Weekend' page for upcoming events, or use the search to find shows in your area. Always verify dates on the official show website before traveling, as schedules can change."
+        "text": "Coin Show Near Me maintains a directory of 190+ recurring coin shows across all 50 US states. Browse by state, check our 'This Weekend' page for upcoming events, or use the search to find shows in your area. Always verify dates on the official show website before traveling, as schedules can change."
       }
     },
     {
