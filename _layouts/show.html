@@ -69,6 +69,13 @@ layout: default
 <h2>Bringing Coins to Sell?</h2>
 <p>Use our <a href="{{ site.baseurl }}/tools/melt-value-calculator/">Melt Value Calculator</a> to calculate the metal value of your silver and gold coins before attending. Knowing the melt value gives you a baseline for negotiations with dealers.</p>
 
+<div style="background:linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);color:#f1f5f9;padding:1.25rem;border-radius:8px;margin:1.5rem 0;border-left:4px solid var(--coin-gold);">
+<p style="margin:0 0 0.5rem;font-size:1rem;"><strong style="color:var(--coin-gold-light);">Attending this show?</strong> Upload your collection ahead of time and get pre-show offers from verified dealers.</p>
+<p style="margin:0;font-size:0.9rem;">
+<a href="{{ site.baseurl }}/portal/" style="color:var(--coin-gold-light);font-weight:600;text-decoration:underline;">Learn about the Dealer Portal &rarr;</a>
+</p>
+</div>
+
 <h2>More Coin Shows Near {{ show.city }}</h2>
 <p>See all <a href="{{ site.baseurl }}/cities/{{ show.city_slug }}/">coin shows in {{ show.city }}</a> or browse <a href="{{ site.baseurl }}/states/{% for state in site.data.states %}{% if state.abbrev == show.state %}{{ state.slug }}{% endif %}{% endfor %}/">all coin shows in {{ show.state_name }}</a>.</p>
 
