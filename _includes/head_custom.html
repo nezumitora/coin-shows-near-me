@@ -225,4 +225,63 @@
 .site-footer {
   display: none !important;
 }
+
+/* Spot price ticker bar */
+.spot-ticker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  background: var(--coin-navy);
+  color: #e2e8f0;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  border: 1px solid rgba(218, 165, 32, 0.3);
+}
+.spot-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+.spot-ticker-label {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+.spot-ticker-price {
+  color: var(--coin-gold-light);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.spot-ticker-sep {
+  color: #475569;
+  font-size: 0.7rem;
+}
+.spot-ticker-updated {
+  color: #64748b;
+  font-size: 0.7rem;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.1rem;
+}
+.spot-ticker-updated a {
+  color: #64748b !important;
+  text-decoration: none;
+}
+@media (max-width: 600px) {
+  .spot-ticker {
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  .spot-ticker-price {
+    font-size: 0.85rem;
+  }
+}
 </style>

@@ -1,0 +1,77 @@
+name: Update Spot Prices
+
+on:
+  schedule:
+    # Run every hour at :05 past
+    - cron: '5 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch spot prices
+        run: |
+          mkdir -p assets/data
+
+          # Fetch all four metals from gold-api.com (no API key needed)
+          GOLD=$(curl -sf "https://api.gold-api.com/price/XAU" || echo '{}')
+          SILVER=$(curl -sf "https://api.gold-api.com/price/XAG" || echo '{}')
+          PLATINUM=$(curl -sf "https://api.gold-api.com/price/XPT" || echo '{}')
+          PALLADIUM=$(curl -sf "https://api.gold-api.com/price/XPD" || echo '{}')
+
+          # Extract prices (jq installed on ubuntu-latest)
+          GOLD_PRICE=$(echo "$GOLD" | jq -r '.price // empty')
+          SILVER_PRICE=$(echo "$SILVER" | jq -r '.price // empty')
+          PLATINUM_PRICE=$(echo "$PLATINUM" | jq -r '.price // empty')
+          PALLADIUM_PRICE=$(echo "$PALLADIUM" | jq -r '.price // empty')
+
+          # Only write if we got at least gold and silver
+          if [ -z "$GOLD_PRICE" ] || [ -z "$SILVER_PRICE" ]; then
+            echo "::warning::Failed to fetch gold or silver price. Skipping update."
+            exit 0
+          fi
+
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          cat > assets/data/spot-prices.json <<EOF
+          {
+            "gold": ${GOLD_PRICE},
+            "silver": ${SILVER_PRICE},
+            "platinum": ${PLATINUM_PRICE:-null},
+            "palladium": ${PALLADIUM_PRICE:-null},
+            "currency": "USD",
+            "source": "gold-api.com",
+            "updated_at": "${TIMESTAMP}"
+          }
+          EOF
+
+          # Clean up indentation (heredoc adds leading spaces)
+          python3 -c "
+          import json, sys
+          with open('assets/data/spot-prices.json') as f:
+              data = json.load(f)
+          with open('assets/data/spot-prices.json', 'w') as f:
+              json.dump(data, f, indent=2)
+              f.write('\n')
+          "
+
+          echo "Prices updated: Gold=$GOLD_PRICE Silver=$SILVER_PRICE Platinum=$PLATINUM_PRICE Palladium=$PALLADIUM_PRICE"
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/spot-prices.json
+          if git diff --cached --quiet; then
+            echo "No price changes to commit."
+          else
+            git commit -m "chore: update spot prices [skip ci]"
+            git push
+          fi

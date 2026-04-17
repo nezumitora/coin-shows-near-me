@@ -130,7 +130,30 @@ breadcrumb_current: "Melt Value Calculator"
 
 # Coin Melt Value Calculator
 
-Calculate the **metal melt value** of your US silver and gold coins instantly. Enter the current spot price and the number of coins you have — the calculator does the rest.
+Calculate the **metal melt value** of your US silver and gold coins instantly. Spot prices are loaded automatically and updated every hour — or enter your own.
+
+<div class="spot-ticker" id="calc-spot-ticker" style="display:none;">
+  <div class="spot-ticker-item">
+    <span class="spot-ticker-label">Gold</span>
+    <span class="spot-ticker-price" id="calc-spot-gold-display">--</span>
+  </div>
+  <span class="spot-ticker-sep">|</span>
+  <div class="spot-ticker-item">
+    <span class="spot-ticker-label">Silver</span>
+    <span class="spot-ticker-price" id="calc-spot-silver-display">--</span>
+  </div>
+  <span class="spot-ticker-sep">|</span>
+  <div class="spot-ticker-item">
+    <span class="spot-ticker-label">Platinum</span>
+    <span class="spot-ticker-price" id="calc-spot-platinum-display">--</span>
+  </div>
+  <span class="spot-ticker-sep">|</span>
+  <div class="spot-ticker-item">
+    <span class="spot-ticker-label">Palladium</span>
+    <span class="spot-ticker-price" id="calc-spot-palladium-display">--</span>
+  </div>
+  <div class="spot-ticker-updated" id="calc-spot-updated"></div>
+</div>
 
 <div class="calc-container">
 
@@ -139,14 +162,14 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. E
 
 <div class="field-group">
   <label class="field-label" for="spot-silver">Silver Spot Price ($/oz)</label>
-  <input class="field-input" type="number" id="spot-silver" step="0.01" value="32.00" min="0">
-  <div class="spot-note">Enter today's silver spot price per troy ounce.</div>
+  <input class="field-input" type="number" id="spot-silver" step="0.01" value="78.67" min="0">
+  <div class="spot-note" id="silver-spot-note">Loading live price...</div>
 </div>
 
 <div class="field-group">
   <label class="field-label" for="spot-gold">Gold Spot Price ($/oz)</label>
-  <input class="field-input" type="number" id="spot-gold" step="0.01" value="2350.00" min="0">
-  <div class="spot-note">Enter today's gold spot price per troy ounce.</div>
+  <input class="field-input" type="number" id="spot-gold" step="0.01" value="4789.70" min="0">
+  <div class="spot-note" id="gold-spot-note">Loading live price...</div>
 </div>
 
 <h3 style="margin:1rem 0 0.5rem;font-size:1rem;">Silver Coins (90% Silver, Pre-1965)</h3>
@@ -406,6 +429,55 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. E
     offerForm.style.display = 'none';
     offerSuccess.style.display = 'block';
   });
+
+  // Auto-load spot prices from pre-fetched JSON
+  function formatTickerPrice(price) {
+    if (price == null) return '--';
+    return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  function timeAgo(dateStr) {
+    var now = new Date();
+    var then = new Date(dateStr);
+    var mins = Math.round((now - then) / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return mins + ' min ago';
+    var hrs = Math.round(mins / 60);
+    if (hrs < 24) return hrs + ' hr' + (hrs > 1 ? 's' : '') + ' ago';
+    var days = Math.round(hrs / 24);
+    return days + ' day' + (days > 1 ? 's' : '') + ' ago';
+  }
+
+  fetch('/assets/data/spot-prices.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      // Update calculator input fields
+      if (data.silver) {
+        document.getElementById('spot-silver').value = data.silver.toFixed(2);
+        document.getElementById('silver-spot-note').textContent = 'Live price loaded · Updated ' + timeAgo(data.updated_at);
+      } else {
+        document.getElementById('silver-spot-note').textContent = 'Enter today\'s silver spot price per troy ounce.';
+      }
+      if (data.gold) {
+        document.getElementById('spot-gold').value = data.gold.toFixed(2);
+        document.getElementById('gold-spot-note').textContent = 'Live price loaded · Updated ' + timeAgo(data.updated_at);
+      } else {
+        document.getElementById('gold-spot-note').textContent = 'Enter today\'s gold spot price per troy ounce.';
+      }
+
+      // Update ticker display
+      var el = function(id) { return document.getElementById(id); };
+      el('calc-spot-gold-display').textContent = formatTickerPrice(data.gold);
+      el('calc-spot-silver-display').textContent = formatTickerPrice(data.silver);
+      el('calc-spot-platinum-display').textContent = formatTickerPrice(data.platinum);
+      el('calc-spot-palladium-display').textContent = formatTickerPrice(data.palladium);
+      var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' · Spot prices per troy oz' : 'Spot prices per troy oz';
+      el('calc-spot-updated').textContent = updated;
+      el('calc-spot-ticker').style.display = 'flex';
+    })
+    .catch(function() {
+      document.getElementById('silver-spot-note').textContent = 'Enter today\'s silver spot price per troy ounce.';
+      document.getElementById('gold-spot-note').textContent = 'Enter today\'s gold spot price per troy ounce.';
+    });
 })();
 </script>
 
@@ -432,7 +504,7 @@ Not sure about the silver content of your coins? Here's a quick reference:
 
 The **melt value** of a coin is the value of the precious metal it contains, based on the current spot price. It represents the minimum intrinsic value of a coin — what the metal itself would be worth if melted down.
 
-For example, a pre-1965 Washington quarter contains approximately 0.1808 troy ounces of silver. If silver is trading at $32/oz, that quarter's melt value is about $5.79 — regardless of its face value of $0.25.
+For example, a pre-1965 Washington quarter contains approximately 0.1808 troy ounces of silver. If silver is trading at $78/oz, that quarter's melt value is about $14.11 — regardless of its face value of $0.25.
 
 ### Melt Value vs. Collector Value
 

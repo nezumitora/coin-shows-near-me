@@ -30,6 +30,29 @@ Thank you! We'll notify you when we launch. If you submitted a show or question,
 </div>
 </div>
 
+<div class="spot-ticker" id="spot-ticker" style="display:none;">
+  <div class="spot-ticker-item">
+    <span class="spot-ticker-label">Gold</span>
+    <span class="spot-ticker-price" id="spot-gold-price">--</span>
+  </div>
+  <span class="spot-ticker-sep">|</span>
+  <div class="spot-ticker-item">
+    <span class="spot-ticker-label">Silver</span>
+    <span class="spot-ticker-price" id="spot-silver-price">--</span>
+  </div>
+  <span class="spot-ticker-sep">|</span>
+  <div class="spot-ticker-item">
+    <span class="spot-ticker-label">Platinum</span>
+    <span class="spot-ticker-price" id="spot-platinum-price">--</span>
+  </div>
+  <span class="spot-ticker-sep">|</span>
+  <div class="spot-ticker-item">
+    <span class="spot-ticker-label">Palladium</span>
+    <span class="spot-ticker-price" id="spot-palladium-price">--</span>
+  </div>
+  <div class="spot-ticker-updated" id="spot-ticker-updated"></div>
+</div>
+
 The most complete directory of coin shows in the United States. Find upcoming coin shows, numismatic conventions, and coin expos near you — with dates, venues, and details for every show.
 
 ---
@@ -135,6 +158,43 @@ if (form) {
     });
   });
 }
+</script>
+
+<script>
+// Load spot prices from pre-fetched JSON (updated hourly by GitHub Actions)
+(function() {
+  function formatPrice(price) {
+    if (price == null) return '--';
+    return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  function timeAgo(dateStr) {
+    var now = new Date();
+    var then = new Date(dateStr);
+    var mins = Math.round((now - then) / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return mins + ' min ago';
+    var hrs = Math.round(mins / 60);
+    if (hrs < 24) return hrs + ' hr' + (hrs > 1 ? 's' : '') + ' ago';
+    var days = Math.round(hrs / 24);
+    return days + ' day' + (days > 1 ? 's' : '') + ' ago';
+  }
+  fetch('/assets/data/spot-prices.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      document.getElementById('spot-gold-price').textContent = formatPrice(data.gold);
+      document.getElementById('spot-silver-price').textContent = formatPrice(data.silver);
+      document.getElementById('spot-platinum-price').textContent = formatPrice(data.platinum);
+      document.getElementById('spot-palladium-price').textContent = formatPrice(data.palladium);
+      var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' · Spot prices per troy oz' : 'Spot prices per troy oz';
+      document.getElementById('spot-ticker-updated').textContent = updated;
+      document.getElementById('spot-ticker').style.display = 'flex';
+      // Store prices globally for the melt calculator link
+      window.SPOT_PRICES = data;
+    })
+    .catch(function() {
+      // Silently fail — ticker stays hidden
+    });
+})();
 </script>
 
 <script type="application/ld+json">
