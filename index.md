@@ -144,13 +144,13 @@ Know of a coin show not in our directory? Use the form at the top of this page t
 
 ---
 
-## Dealer Portal — Coming Soon
+## Get Quotes on Your Collection Before the Show
 
 <div style="background:linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);color:#f1f5f9;padding:1.25rem;border-radius:8px;margin:1rem 0;border-left:4px solid var(--coin-gold);">
-<p style="margin:0 0 0.5rem;font-size:1rem;"><strong style="color:var(--coin-gold-light);">We're building a dealer portal</strong> to connect verified coin dealers with collectors before the show.</p>
-<p style="margin:0 0 0.75rem;font-size:0.9rem;color:#cbd5e1;">Upload your collection, get pre-show offers, and skip the table-to-table walk.</p>
+<p style="margin:0 0 0.5rem;font-size:1rem;"><strong style="color:var(--coin-gold-light);">Dealer Portal — Coming Soon</strong></p>
+<p style="margin:0 0 0.75rem;font-size:0.9rem;color:#cbd5e1;">Upload photos of your coins, pick a show you're attending, and get offers from verified dealers before you walk through the door. No more lugging your collection table to table.</p>
 <p style="margin:0;">
-<a href="/portal/" style="display:inline-block;background:var(--coin-gold);color:#fff;padding:0.5rem 1.25rem;border-radius:6px;font-weight:600;font-size:0.9rem;text-decoration:none;">Learn More &rarr;</a>
+<a href="/portal/" class="cta-btn" style="display:inline-block;background:var(--coin-gold);padding:0.5rem 1.25rem;border-radius:6px;font-weight:600;font-size:0.9rem;">Find Out More &rarr;</a>
 </p>
 </div>
 
