@@ -12,6 +12,8 @@ nav_order: 1
 <div class="launch-banner">
 <strong>Site Under Construction</strong> — We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Our full site is launching soon. In the meantime, browse our directory of 190+ coin shows across all 50 states below.
 
+<p style="margin:0.75rem 0 0;font-size:0.85rem;color:#94a3b8;font-style:italic;">This site is actively being developed. Please excuse any errors or incomplete information as we build things out. If you spot something wrong, let us know below.</p>
+
 <hr style="border:none;border-top:2px solid #daa520;margin:1rem 0;">
 
 <p style="margin:0 0 0.75rem;font-size:0.95rem;">Be notified when our website officially launches, or if you have any questions please provide your email address.</p>
@@ -30,7 +32,7 @@ Thank you! We'll notify you when we launch. If you submitted a show or question,
 </div>
 </div>
 
-<div class="spot-ticker" id="spot-ticker" style="display:none;">
+<div class="spot-ticker" id="spot-ticker">
   <div class="spot-ticker-item">
     <span class="spot-ticker-label">Gold</span>
     <span class="spot-ticker-price" id="spot-gold-price">--</span>
@@ -50,7 +52,7 @@ Thank you! We'll notify you when we launch. If you submitted a show or question,
     <span class="spot-ticker-label">Palladium</span>
     <span class="spot-ticker-price" id="spot-palladium-price">--</span>
   </div>
-  <div class="spot-ticker-updated" id="spot-ticker-updated"></div>
+  <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
 </div>
 
 The most complete directory of coin shows in the United States. Find upcoming coin shows, numismatic conventions, and coin expos near you — with dates, venues, and details for every show.
@@ -199,12 +201,11 @@ if (form) {
       document.getElementById('spot-palladium-price').textContent = formatPrice(data.palladium);
       var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' · Spot prices per troy oz' : 'Spot prices per troy oz';
       document.getElementById('spot-ticker-updated').textContent = updated;
-      document.getElementById('spot-ticker').style.display = 'flex';
       // Store prices globally for the melt calculator link
       window.SPOT_PRICES = data;
     })
     .catch(function() {
-      // Silently fail — ticker stays hidden
+      document.getElementById('spot-ticker-updated').textContent = 'Spot prices temporarily unavailable';
     });
 })();
 </script>
