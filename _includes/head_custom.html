@@ -245,10 +245,40 @@ footer .d-md-none {
   line-height: 1.4 !important;
 }
 
-/* CTA buttons — override gold link color */
-.cta-btn {
+/* CTA buttons — override gold link color (needs .main-content scope to beat .main-content a) */
+.main-content a.cta-btn,
+a.cta-btn {
   color: #fff !important;
   text-decoration: none !important;
+}
+.main-content a.cta-btn:hover,
+a.cta-btn:hover {
+  color: #f1f5f9 !important;
+}
+
+/* Content-area page footer */
+.page-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--coin-border);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--coin-muted);
+}
+.page-footer a {
+  color: var(--coin-muted) !important;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+.page-footer a:hover {
+  color: var(--coin-gold) !important;
+}
+.page-footer .footer-links {
+  margin-bottom: 0.5rem;
+}
+.page-footer .footer-copy {
+  font-size: 0.7rem;
+  color: #9ca3af;
 }
 
 /* Spot price ticker bar */
