@@ -1,1327 +1,2352 @@
-# Coin show data extracted from README.md
-# Each show has: id, name, state, state_name, city, city_slug, venue, frequency,
-# next_date, website, organizer, notes
-
-# Alabama
-- id: central-alabama-coin-show
-  name: "Central Alabama Coin Show"
-  state: AL
-  state_name: Alabama
-  city: Trussville
-  city_slug: trussville-al
-  venue: "Trussville Civic Center"
-  frequency: "Semiannual (Spring & Fall)"
-  next_date: "TBD"
-  website: "http://www.alabamanumismaticsociety.org/"
-  organizer: "Alabama Numismatic Society"
-  notes: "One of the longest-running state shows."
-
-- id: madison-county-coin-show
-  name: "Madison County Coin Show"
-  state: AL
-  state_name: Alabama
-  city: Huntsville
-  city_slug: huntsville-al
-  venue: "Kurt's Trucks Complex"
-  frequency: "Semiannual (January & Summer)"
-  next_date: "January 2026"
-  website: "http://mccoinclub.com/"
-  organizer: "Madison County Coin Club"
-  notes: ""
-
-- id: south-baldwin-coin-show
-  name: "South Baldwin Coin Show"
-  state: AL
-  state_name: Alabama
-  city: Foley
-  city_slug: foley-al
-  venue: "Foley Civic Center"
-  frequency: "Annual (January)"
-  next_date: "January 2026"
-  website: "https://www.facebook.com/SouthBaldwinNumismaticSociety/"
-  organizer: "South Baldwin Numismatic Society"
-  notes: ""
-
-# Alaska
 - id: anchorage-coin-club-coin-show
-  name: "Anchorage Coin Club Coin Show"
+  name: Anchorage Coin Club Coin Show
   state: AK
   state_name: Alaska
   city: Anchorage
   city_slug: anchorage-ak
-  venue: "Midtown Mall"
-  frequency: "Periodic"
-  next_date: "TBD"
-  website: "https://anchoragecoinclub.org/"
-  organizer: "Anchorage Coin Club"
-  notes: "Check their newsletter for specific small bourse dates."
-
-# Arizona
-- id: phoenix-coin-club-coin-show
-  name: "Phoenix Coin Club Coin Show"
-  state: AZ
-  state_name: Arizona
-  city: Phoenix
-  city_slug: phoenix-az
-  venue: "Holiday Inn & Suites Phoenix Airport North"
-  frequency: "Annual (Fall/November)"
-  next_date: "TBD"
-  website: "http://phoenixcoinclub.com/"
-  organizer: "Phoenix Coin Club"
-  notes: ""
-
-- id: tucson-coin-club-coin-show
-  name: "Tucson Coin Club Coin Show"
-  state: AZ
-  state_name: Arizona
-  city: Tucson
-  city_slug: tucson-az
-  venue: "Tucson Woman's Club"
-  frequency: "Semiannual (January & April)"
-  next_date: "January 2026"
-  website: "http://tucsoncoinclub.com/"
-  organizer: "Tucson Coin Club"
-  notes: ""
-
-- id: camelback-collectibles-coin-show
-  name: "Camelback Collectibles Coin Show"
-  state: AZ
-  state_name: Arizona
-  city: Phoenix
-  city_slug: phoenix-az
-  venue: "El Zaribah Shrine Auditorium"
-  frequency: "Monthly (2nd Sunday)"
-  next_date: "December 14, 2025"
-  website: "https://camelbackcollectables.com/"
-  organizer: "Camelback Collectibles"
-  notes: "Large monthly show with 40+ tables."
-
-# Arkansas
-- id: arkansas-state-coin-show
-  name: "Arkansas State Coin Show"
-  state: AR
-  state_name: Arkansas
-  city: Little Rock
-  city_slug: little-rock-ar
-  venue: "Four Points by Sheraton Little Rock Midtown"
-  frequency: "Annual (July)"
-  next_date: "July 2026"
-  website: "https://www.arkansasnumismaticsociety.org/"
-  organizer: "Arkansas Numismatic Society"
-  notes: ""
-
+  venue: Midtown Mall
+  frequency: Periodic
+  next_date: TBD
+  website: https://anchoragecoinclub.org/
+  organizer: Anchorage Coin Club
+  notes: Check their newsletter for specific small bourse dates.
+- id: south-baldwin-coin-show
+  name: South Baldwin Coin Show
+  state: AL
+  state_name: Alabama
+  city: Foley
+  city_slug: foley-al
+  venue: Foley Civic Center
+  frequency: Annual (January)
+  next_date: January 2026
+  website: https://www.facebook.com/SouthBaldwinNumismaticSociety/
+  organizer: South Baldwin Numismatic Society
+  notes: ''
+- id: madison-county-coin-show
+  name: Madison County Coin Show
+  state: AL
+  state_name: Alabama
+  city: Huntsville
+  city_slug: huntsville-al
+  venue: Kurt's Trucks Complex
+  frequency: Semiannual (January & Summer)
+  next_date: January 2026
+  website: http://mccoinclub.com/
+  organizer: Madison County Coin Club
+  notes: ''
+- id: central-alabama-coin-show
+  name: Central Alabama Coin Show
+  state: AL
+  state_name: Alabama
+  city: Trussville
+  city_slug: trussville-al
+  venue: Trussville Civic Center
+  frequency: Semiannual (Spring & Fall)
+  next_date: TBD
+  website: http://www.alabamanumismaticsociety.org/
+  organizer: Alabama Numismatic Society
+  notes: One of the longest-running state shows.
 - id: tri-lakes-coin-show
-  name: "Tri-Lakes Coin Show"
+  name: Tri-Lakes Coin Show
   state: AR
   state_name: Arkansas
   city: Hot Springs
   city_slug: hot-springs-ar
-  venue: "Hot Springs Convention Center"
-  frequency: "Annual (Winter)"
-  next_date: "TBD"
-  website: "https://www.coinzip.com/arkansas-coin-shows"
-  organizer: "Tri-Lakes Coin Club"
-  notes: ""
-
-# California
-- id: long-beach-expo
-  name: "Long Beach Expo"
-  state: CA
-  state_name: California
-  city: Long Beach
-  city_slug: long-beach-ca
-  venue: "Long Beach Convention Center"
-  frequency: "3 Times Per Year (February, June, September)"
-  next_date: "February 18-20, 2026"
-  website: "https://www.longbeachexpo.com/"
-  organizer: "Collectors Universe"
-  notes: "A major international show with hundreds of dealers."
-
-- id: buena-park-coin-show
-  name: "Buena Park Coin Show"
-  state: CA
-  state_name: California
-  city: Buena Park
-  city_slug: buena-park-ca
-  venue: "Retail Clerks Hall, 8550 Stanton Ave"
-  frequency: "3 Times Per Year (March, June, September)"
-  next_date: "March 7-8, 2026"
-  website: "https://pacificexposllc.com/"
-  organizer: "Pacific Expos LLC"
-  notes: "50+ dealers, free parking, free hourly coin drawings."
-
+  venue: Hot Springs Convention Center
+  frequency: Annual (Winter)
+  next_date: TBD
+  website: https://www.coinzip.com/arkansas-coin-shows
+  organizer: Tri-Lakes Coin Club
+  notes: ''
+- id: arkansas-state-coin-show
+  name: Arkansas State Coin Show
+  state: AR
+  state_name: Arkansas
+  city: Little Rock
+  city_slug: little-rock-ar
+  venue: Four Points by Sheraton Little Rock Midtown
+  frequency: Annual (July)
+  next_date: July 2026
+  website: https://www.arkansasnumismaticsociety.org/
+  organizer: Arkansas Numismatic Society
+  notes: ''
+- id: apnscc-coin-show-sat-july-18th-9am-6pm-sun-july-19th-9am-4pm
+  name: APNSCC Coin Show - Sat. July 18th 9a.m. - 6p.m. Sun. July 19th 9a.m. - 4p.m.
+  state: AR
+  state_name: Arkansas
+  city: Wyndham Hotel 700 Rogers Ave. Fort Smith
+  city_slug: wyndham-hotel-700-rogers-ave-fort-smith-ar
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: camelback-collectibles-coin-show
+  name: Camelback Collectibles Coin Show
+  state: AZ
+  state_name: Arizona
+  city: Phoenix
+  city_slug: phoenix-az
+  venue: El Zaribah Shrine Auditorium
+  frequency: Monthly (2nd Sunday)
+  next_date: December 14, 2025
+  website: https://camelbackcollectables.com/
+  organizer: Camelback Collectibles
+  notes: Large monthly show with 40+ tables.
+- id: northwest-valley-coin-card-show
+  name: Northwest Valley Coin & Card Show
+  state: AZ
+  state_name: Arizona
+  city: Phoenix
+  city_slug: phoenix-az
+  venue: Doubletree by Hilton
+  frequency: Recurring
+  next_date: Apr 18th, 2026
+  website: https://www.CoinShows-USA.com/Northwest-Valley-Coin-Card-Show
+  organizer: ''
+  notes: 'Hours: Sat 9-2:30'
+- id: phoenix-coin-club-coin-show
+  name: Phoenix Coin Club Coin Show
+  state: AZ
+  state_name: Arizona
+  city: Phoenix
+  city_slug: phoenix-az
+  venue: Holiday Inn & Suites Phoenix Airport North
+  frequency: Annual (Fall/November)
+  next_date: TBD
+  website: http://phoenixcoinclub.com/
+  organizer: Phoenix Coin Club
+  notes: ''
+- id: tucson-coin-club-coin-stamp-show
+  name: Tucson Coin Club Coin & Stamp Show
+  state: AZ
+  state_name: Arizona
+  city: Tucson
+  city_slug: tucson-az
+  venue: Tucson Womans Club
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Tucson-Coin-Club-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sun 9-4'
+- id: tucson-coin-club-coin-show
+  name: Tucson Coin Club Coin Show
+  state: AZ
+  state_name: Arizona
+  city: Tucson
+  city_slug: tucson-az
+  venue: Tucson Woman's Club
+  frequency: Semiannual (January & April)
+  next_date: January 2026
+  website: http://tucsoncoinclub.com/
+  organizer: Tucson Coin Club
+  notes: ''
 - id: north-county-monthly-coin-show
-  name: "North County Monthly Coin Show"
+  name: North County Monthly Coin Show
   state: CA
   state_name: California
   city: Anaheim
   city_slug: anaheim-ca
-  venue: "Embassy Suites Anaheim North, 3100 E Frontera St"
-  frequency: "Monthly (1st Sunday)"
-  next_date: "December 7, 2025"
-  website: "https://pacificexposllc.com/"
-  organizer: "Pacific Expos LLC"
-  notes: "30+ dealers; free parking and hourly prize drawings."
-
-- id: san-francisco-international-numismatic-bourse
-  name: "San Francisco International Numismatic Bourse"
+  venue: Embassy Suites Anaheim North, 3100 E Frontera St
+  frequency: Monthly (1st Sunday)
+  next_date: December 7, 2025
+  website: https://pacificexposllc.com/
+  organizer: Pacific Expos LLC
+  notes: 30+ dealers; free parking and hourly prize drawings.
+- id: the-arcadia-coin-currency-and-collectibles-show
+  name: The Arcadia Coin, Currency and Collectibles Show
   state: CA
   state_name: California
-  city: South San Francisco
-  city_slug: south-san-francisco-ca
-  venue: "DoubleTree Hotel San Francisco Airport"
-  frequency: "Annual (December)"
-  next_date: "December 2025"
-  website: "https://www.griffincoin.com/"
-  organizer: "Griffin Coin"
-  notes: "Focuses on World and Ancient coins."
-
-- id: sacramento-coin-show
-  name: "Sacramento Coin Show"
+  city: Arcadia
+  city_slug: arcadia-ca
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: buena-park-coin-show
+  name: Buena Park Coin Show
   state: CA
   state_name: California
-  city: Sacramento
-  city_slug: sacramento-ca
-  venue: "Lions Gate Hotel"
-  frequency: "Semiannual (Spring & Fall)"
-  next_date: "TBD"
-  website: "http://sacramentocoinshow.com/"
-  organizer: "Peter McIntosh / Sacramento Coin Shows"
-  notes: ""
-
+  city: Buena Park
+  city_slug: buena-park-ca
+  venue: Retail Clerks Hall, 8550 Stanton Ave
+  frequency: 3 Times Per Year (March, June, September)
+  next_date: March 7-8, 2026
+  website: https://pacificexposllc.com/
+  organizer: Pacific Expos LLC
+  notes: 50+ dealers, free parking, free hourly coin drawings.
+- id: east-bayconcord-coin-show
+  name: East Bay/Concord Coin Show
+  state: CA
+  state_name: California
+  city: Concord
+  city_slug: concord-ca
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: cupertino-coin-club-annual-coin-show
+  name: Cupertino Coin Club Annual Coin Show
+  state: CA
+  state_name: California
+  city: Cupertino
+  city_slug: cupertino-ca
+  venue: ''
+  frequency: Annual
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: fremont-coin-club-show
-  name: "Fremont Coin Club Show"
+  name: Fremont Coin Club Show
   state: CA
   state_name: California
   city: Fremont
   city_slug: fremont-ca
-  venue: "Elk's Lodge #2121"
-  frequency: "Annual (July)"
-  next_date: "July 2026"
-  website: "http://www.fremontcoinclub.org/"
-  organizer: "Fremont Coin Club"
-  notes: ""
-
+  venue: 'Elk''s Lodge #2121'
+  frequency: Annual (July)
+  next_date: July 2026
+  website: http://www.fremontcoinclub.org/
+  organizer: Fremont Coin Club
+  notes: ''
+- id: long-beach-expo
+  name: Long Beach Expo
+  state: CA
+  state_name: California
+  city: Long Beach
+  city_slug: long-beach-ca
+  venue: Long Beach Convention Center
+  frequency: 3 Times Per Year (February, June, September)
+  next_date: February 18-20, 2026
+  website: https://www.longbeachexpo.com/
+  organizer: Collectors Universe
+  notes: A major international show with hundreds of dealers.
+- id: sacramento-coin-show
+  name: Sacramento Coin Show
+  state: CA
+  state_name: California
+  city: Sacramento
+  city_slug: sacramento-ca
+  venue: Lions Gate Hotel
+  frequency: Semiannual (Spring & Fall)
+  next_date: TBD
+  website: http://sacramentocoinshow.com/
+  organizer: Peter McIntosh / Sacramento Coin Shows
+  notes: ''
+- id: sacramento-valley-coin-club
+  name: Sacramento Valley Coin Club
+  state: CA
+  state_name: California
+  city: Sacramento
+  city_slug: sacramento-ca
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: san-fernando-coin-collectible-expo
+  name: San Fernando Coin & Collectible Expo
+  state: CA
+  state_name: California
+  city: San Fernando
+  city_slug: san-fernando-ca
+  venue: San Fernando Masonic Lodge 343
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/San-Fernando-Coin-and-Collectible-Expo
+  organizer: ''
+  notes: 'Hours: Sun 9:30-4'
+- id: san-fernando-coin-collectibles-expo
+  name: San Fernando Coin & Collectibles Expo
+  state: CA
+  state_name: California
+  city: San Fernando
+  city_slug: san-fernando-ca
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: santa-clara-coin-show
+  name: Santa Clara Coin Show
+  state: CA
+  state_name: California
+  city: Santa Clara
+  city_slug: santa-clara-ca
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: valley-coin-show
+  name: Valley Coin Show
+  state: CA
+  state_name: California
+  city: Sherman Oaks
+  city_slug: sherman-oaks-ca
+  venue: Courtyard by Marriott — 4th Floor Ballroom
+  frequency: Recurring
+  next_date: Apr 18th - 19th, 2026
+  website: https://www.CoinShows-USA.com/Valley-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sat 10-5, Sun 10-4'
+- id: san-francisco-international-numismatic-bourse
+  name: San Francisco International Numismatic Bourse
+  state: CA
+  state_name: California
+  city: South San Francisco
+  city_slug: south-san-francisco-ca
+  venue: DoubleTree Hotel San Francisco Airport
+  frequency: Annual (December)
+  next_date: December 2025
+  website: https://www.griffincoin.com/
+  organizer: Griffin Coin
+  notes: Focuses on World and Ancient coins.
 - id: sunnyvale-coin-show
-  name: "Sunnyvale Coin Show"
+  name: Sunnyvale Coin Show
   state: CA
   state_name: California
   city: Sunnyvale
   city_slug: sunnyvale-ca
-  venue: "Domain Hotel"
-  frequency: "Semiannual (Spring & Fall)"
-  next_date: "TBD"
-  website: "http://norcalcoinshows.com/"
-  organizer: "NorCal Coin Shows"
-  notes: ""
-
-# Colorado
+  venue: Domain Hotel
+  frequency: Semiannual (Spring & Fall)
+  next_date: TBD
+  website: http://norcalcoinshows.com/
+  organizer: NorCal Coin Shows
+  notes: ''
+- id: van-nuys-coin-show-sunday-december-13-2026
+  name: Van Nuys Coin Show - Sunday, December 13, 2026
+  state: CA
+  state_name: California
+  city: Van Nuys
+  city_slug: van-nuys-ca
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: van-nuys-coin-show-sunday-june-21-2026
+  name: Van Nuys Coin Show - Sunday, June 21, 2026
+  state: CA
+  state_name: California
+  city: Van Nuys
+  city_slug: van-nuys-ca
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: van-nuys-coin-show-sunday-september-20-2026
+  name: Van Nuys Coin Show - Sunday, September 20, 2026
+  state: CA
+  state_name: California
+  city: Van Nuys
+  city_slug: van-nuys-ca
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tucson-coin-and-currency-expo
+  name: Tucson Coin and Currency Expo
+  state: CO
+  state_name: Colorado
+  city: Creating Collectors
+  city_slug: creating-collectors-co
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: denver-coin-expo
-  name: "Denver Coin Expo"
+  name: Denver Coin Expo
   state: CO
   state_name: Colorado
   city: Denver
   city_slug: denver-co
-  venue: "National Western Complex"
-  frequency: "Semiannual (May & October)"
-  next_date: "May 2026"
-  website: "https://www.rockymtnexpos.com/"
-  organizer: "Rocky Mountain Expos"
-  notes: "Largest show in the Rocky Mountain region."
-
+  venue: National Western Complex
+  frequency: Semiannual (May & October)
+  next_date: May 2026
+  website: https://www.rockymtnexpos.com/
+  organizer: Rocky Mountain Expos
+  notes: Largest show in the Rocky Mountain region.
 - id: fort-collins-coin-club-show
-  name: "Fort Collins Coin Club Show"
+  name: Fort Collins Coin Club Show
   state: CO
   state_name: Colorado
   city: Fort Collins
   city_slug: fort-collins-co
-  venue: "The Ranch (Larimer County Fairgrounds)"
-  frequency: "Semiannual (Spring & Fall)"
-  next_date: "TBD"
-  website: "http://www.fortcollinscoinclub.com/"
-  organizer: "Fort Collins Coin Club"
-  notes: ""
-
-# Connecticut
-- id: mansfield-numismatic-society-coin-show
-  name: "Mansfield Numismatic Society Coin Show"
+  venue: The Ranch (Larimer County Fairgrounds)
+  frequency: Semiannual (Spring & Fall)
+  next_date: TBD
+  website: http://www.fortcollinscoinclub.com/
+  organizer: Fort Collins Coin Club
+  notes: ''
+- id: cromwell-hartford-coin-and-currency-show
+  name: Cromwell-Hartford Coin and Currency Show
   state: CT
   state_name: Connecticut
-  city: Willimantic
-  city_slug: willimantic-ct
-  venue: "Prospect Street School"
-  frequency: "Annual (Spring)"
-  next_date: "TBD"
-  website: "http://mansfieldnumismaticsociety.org/"
-  organizer: "Mansfield Numismatic Society"
-  notes: ""
-
+  city: Cromwell
+  city_slug: cromwell-ct
+  venue: Hartford Hotel & Conference Center
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Hartford-Coin-and-Currency-Show
+  organizer: ''
+  notes: 'Hours: Sun 9-3'
+- id: naugatuck-coin-currency-show
+  name: Naugatuck Coin & Currency Show
+  state: CT
+  state_name: Connecticut
+  city: Naugatuck
+  city_slug: naugatuck-ct
+  venue: American Legion
+  frequency: Recurring
+  next_date: Apr 18th, 2026
+  website: https://www.CoinShows-USA.com/Naugatuck-Coin-Currency-Show
+  organizer: ''
+  notes: 'Hours: Sat 9-2'
 - id: orange-collectibles-show
-  name: "Orange Collectibles Show"
+  name: Orange Collectibles Show
   state: CT
   state_name: Connecticut
   city: Orange
   city_slug: orange-ct
-  venue: "American Legion Post 127"
-  frequency: "Monthly (2nd Sunday)"
-  next_date: "December 14, 2025"
-  website: "https://www.coinzip.com/connecticut-coin-shows"
-  organizer: ""
-  notes: "Consistent monthly local show."
-
-# Delaware
+  venue: American Legion Post 127
+  frequency: Monthly (2nd Sunday)
+  next_date: December 14, 2025
+  website: https://www.coinzip.com/connecticut-coin-shows
+  organizer: ''
+  notes: Consistent monthly local show.
+- id: mansfield-numismatic-society-coin-show
+  name: Mansfield Numismatic Society Coin Show
+  state: CT
+  state_name: Connecticut
+  city: Willimantic
+  city_slug: willimantic-ct
+  venue: Prospect Street School
+  frequency: Annual (Spring)
+  next_date: TBD
+  website: http://mansfieldnumismaticsociety.org/
+  organizer: Mansfield Numismatic Society
+  notes: ''
 - id: wilmington-coin-club-show
-  name: "Wilmington Coin Club Show"
+  name: Wilmington Coin Club Show
   state: DE
   state_name: Delaware
   city: New Castle
   city_slug: new-castle-de
-  venue: "Nur Shrine Temple"
-  frequency: "Annual (January)"
-  next_date: "January 2026"
-  website: "https://wilmingtoncoinclub.org/"
-  organizer: "Wilmington Coin Club"
-  notes: ""
-
-# Florida
+  venue: Nur Shrine Temple
+  frequency: Annual (January)
+  next_date: January 2026
+  website: https://wilmingtoncoinclub.org/
+  organizer: Wilmington Coin Club
+  notes: ''
+- id: clearwater-coin-show
+  name: Clearwater Coin Show
+  state: FL
+  state_name: Florida
+  city: Clearwater
+  city_slug: clearwater-fl
+  venue: Countryside Recreation Center
+  frequency: Recurring
+  next_date: Apr 18th, 2026
+  website: https://www.CoinShows-USA.com/Clearwater-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sat 9:30-2:30'
+- id: gold-coast-coin-collectibles-show
+  name: Gold Coast Coin & Collectibles Show
+  state: FL
+  state_name: Florida
+  city: Hollywood
+  city_slug: hollywood-fl
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: the-villages-leesburg-coin-show
+  name: The Villages / Leesburg Coin Show
+  state: FL
+  state_name: Florida
+  city: Leesburg
+  city_slug: leesburg-fl
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: fun-convention
-  name: "FUN Convention (Florida United Numismatists)"
+  name: FUN Convention (Florida United Numismatists)
   state: FL
   state_name: Florida
   city: Orlando
   city_slug: orlando-fl
-  venue: "Orange County Convention Center"
-  frequency: "Annual (January)"
-  next_date: "January 8-11, 2026"
-  website: "http://www.funtopics.com/"
-  organizer: "Florida United Numismatists"
-  notes: "One of the largest shows in the world."
-
+  venue: Orange County Convention Center
+  frequency: Annual (January)
+  next_date: January 8-11, 2026
+  website: http://www.funtopics.com/
+  organizer: Florida United Numismatists
+  notes: One of the largest shows in the world.
 - id: summer-fun
-  name: "Summer FUN"
+  name: Summer FUN
   state: FL
   state_name: Florida
   city: Orlando
   city_slug: orlando-fl
-  venue: "Orange County Convention Center"
-  frequency: "Annual (July)"
-  next_date: "July 9-11, 2026"
-  website: "http://www.funtopics.com/"
-  organizer: "Florida United Numismatists"
-  notes: ""
-
-- id: west-hernando-coin-club-show
-  name: "West Hernando Coin Club Show"
-  state: FL
-  state_name: Florida
-  city: Spring Hill
-  city_slug: spring-hill-fl
-  venue: "St. Joan of Arc Church Hall"
-  frequency: "Semiannual (January & July)"
-  next_date: "January 2026"
-  website: "http://www.westhernandocoinclub.com/"
-  organizer: "West Hernando Coin Club"
-  notes: ""
-
-- id: fort-lauderdale-coin-club-show
-  name: "Fort Lauderdale Coin Club Show"
+  venue: Orange County Convention Center
+  frequency: Annual (July)
+  next_date: July 9-11, 2026
+  website: http://www.funtopics.com/
+  organizer: Florida United Numismatists
+  notes: ''
+- id: 3rd-sunday-ft-lauderdale-coin-stamp-show
+  name: 3rd Sunday Ft Lauderdale Coin & Stamp Show
   state: FL
   state_name: Florida
   city: Plantation
   city_slug: plantation-fl
-  venue: "Volunteer Park Community Center"
-  frequency: "Monthly (3rd Sunday)"
-  next_date: "December 21, 2025"
-  website: "http://www.ftlauderdalecoinclub.com/"
-  organizer: "Fort Lauderdale Coin Club"
-  notes: ""
-
-# Georgia
+  venue: Volunteer Park
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/3rd-Sunday-Fort-Lauderdale-Coin-Stamp-Show
+  organizer: ''
+  notes: 'Hours: Sun 9:30-2:30'
+- id: fort-lauderdale-coin-show-3rd-sundays-monthly-9am-3pm
+  name: FORT LAUDERDALE COIN SHOW - 3rd Sundays Monthly - 9AM-3PM
+  state: FL
+  state_name: Florida
+  city: Plantation
+  city_slug: plantation-fl
+  venue: ''
+  frequency: Monthly
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: fort-lauderdale-coin-club-show
+  name: Fort Lauderdale Coin Club Show
+  state: FL
+  state_name: Florida
+  city: Plantation
+  city_slug: plantation-fl
+  venue: Volunteer Park Community Center
+  frequency: Monthly (3rd Sunday)
+  next_date: December 21, 2025
+  website: http://www.ftlauderdalecoinclub.com/
+  organizer: Fort Lauderdale Coin Club
+  notes: ''
+- id: west-hernando-coin-club-show
+  name: West Hernando Coin Club Show
+  state: FL
+  state_name: Florida
+  city: Spring Hill
+  city_slug: spring-hill-fl
+  venue: St. Joan of Arc Church Hall
+  frequency: Semiannual (January & July)
+  next_date: January 2026
+  website: http://www.westhernandocoinclub.com/
+  organizer: West Hernando Coin Club
+  notes: ''
+- id: coinacopia-tampas-coin-show
+  name: Coinacopia Tampa's Coin Show
+  state: FL
+  state_name: Florida
+  city: Tampa
+  city_slug: tampa-fl
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: palm-beach-coin-show
+  name: Palm Beach Coin Show
+  state: FL
+  state_name: Florida
+  city: West Palm Beach
+  city_slug: west-palm-beach-fl
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: the-villageswildwood-april-292026
+  name: THE VILLAGES/WILDWOOD APRIL 29,2026
+  state: FL
+  state_name: Florida
+  city: Wildwood
+  city_slug: wildwood-fl
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: the-villageswildwood-may-272026
+  name: THE VILLAGES/WILDWOOD MAY 27,2026
+  state: FL
+  state_name: Florida
+  city: Wildwood
+  city_slug: wildwood-fl
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: west-georgia-coin-show
+  name: West Georgia Coin Show
+  state: GA
+  state_name: Georgia
+  city: Carrollton
+  city_slug: carrollton-ga
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: georgia-numismatic-association-show
-  name: "Georgia Numismatic Association (GNA) Show"
+  name: Georgia Numismatic Association (GNA) Show
   state: GA
   state_name: Georgia
   city: Dalton
   city_slug: dalton-ga
-  venue: "Dalton Convention Center"
-  frequency: "Annual (April)"
-  next_date: "April 17-19, 2026"
-  website: "http://www.gamoney.org/"
-  organizer: "Georgia Numismatic Association"
-  notes: ""
-
+  venue: Dalton Convention Center
+  frequency: Annual (April)
+  next_date: April 17-19, 2026
+  website: http://www.gamoney.org/
+  organizer: Georgia Numismatic Association
+  notes: ''
+- id: georgia-numismatic-association-coin-show
+  name: Georgia Numismatic Association Coin Show
+  state: GA
+  state_name: Georgia
+  city: Dalton
+  city_slug: dalton-ga
+  venue: Northwest Georgia Trade & Convention Center
+  frequency: Recurring
+  next_date: Apr 17th - 19th, 2026
+  website: https://www.CoinShows-USA.com/Georgia-Numismatic-Association-Coin-Show
+  organizer: ''
+  notes: 'Hours: Fri & Sat 10-6, Sun 10-3'
 - id: greater-atlanta-coin-show
-  name: "Greater Atlanta Coin Show"
+  name: Greater Atlanta Coin Show
   state: GA
   state_name: Georgia
   city: Marietta
   city_slug: marietta-ga
-  venue: "Hilton Atlanta/Marietta Hotel & Conference Center"
-  frequency: "Monthly (Sunday)"
-  next_date: "December 14, 2025"
-  website: "http://www.atlcoin.com/"
-  organizer: "Great Southern Events"
-  notes: ""
-
-# Hawaii
+  venue: Hilton Atlanta/Marietta Hotel & Conference Center
+  frequency: Monthly (Sunday)
+  next_date: December 14, 2025
+  website: http://www.atlcoin.com/
+  organizer: Great Southern Events
+  notes: ''
 - id: hawaii-state-numismatic-association-show
-  name: "Hawaii State Numismatic Association Show"
+  name: Hawaii State Numismatic Association Show
   state: HI
   state_name: Hawaii
   city: Honolulu
   city_slug: honolulu-hi
-  venue: "Hawaii Convention Center"
-  frequency: "Annual (November)"
-  next_date: "November 2026"
-  website: "https://www.facebook.com/HawaiiStateNumismaticAssociation/"
-  organizer: "HSNA"
-  notes: ""
-
-# Idaho
-- id: southern-idaho-coin-club-show
-  name: "Southern Idaho Coin Club Show"
-  state: ID
-  state_name: Idaho
-  city: Garden City
-  city_slug: garden-city-id
-  venue: "The Riverside Hotel"
-  frequency: "Annual (May)"
-  next_date: "May 2026"
-  website: "http://www.southernidahocoinclub.com/"
-  organizer: "Southern Idaho Coin Club"
-  notes: ""
-
-# Illinois
-- id: csns-convention
-  name: "Central States Numismatic Society (CSNS) Convention"
-  state: IL
-  state_name: Illinois
-  city: Schaumburg
-  city_slug: schaumburg-il
-  venue: "Renaissance Schaumburg Convention Center"
-  frequency: "Annual (April)"
-  next_date: "April 22-25, 2026"
-  website: "http://www.csns.org/"
-  organizer: "Central States Numismatic Society"
-  notes: "Major regional convention with auction and 200+ tables."
-
-- id: chicago-coin-expo
-  name: "Chicago Coin Expo"
-  state: IL
-  state_name: Illinois
-  city: Countryside
-  city_slug: countryside-il
-  venue: "Local 150 Union Hall"
-  frequency: "Monthly (2nd Sunday)"
-  next_date: "December 14, 2025"
-  website: "https://www.coinzip.com/illinois-coin-shows"
-  organizer: ""
-  notes: ""
-
-- id: orland-park-coin-show
-  name: "Orland Park Coin Show"
-  state: IL
-  state_name: Illinois
-  city: Orland Park
-  city_slug: orland-park-il
-  venue: "Orland Park Civic Center"
-  frequency: "Monthly (1st Sunday)"
-  next_date: "December 7, 2025"
-  website: "https://www.coinshows-usa.com/Illinois"
-  organizer: ""
-  notes: ""
-
-# Indiana
-- id: indiana-state-coin-show
-  name: "Indiana State Coin Show"
-  state: IN
-  state_name: Indiana
-  city: Indianapolis
-  city_slug: indianapolis-in
-  venue: "Embassy Suites Hotel & Convention Center"
-  frequency: "Annual (Fall)"
-  next_date: "TBD"
-  website: "https://www.incoinshow.com/"
-  organizer: "Indiana State Numismatic Association"
-  notes: ""
-
-- id: indianapolis-coin-currency-show
-  name: "Indianapolis Coin & Currency Show"
-  state: IN
-  state_name: Indiana
-  city: Indianapolis
-  city_slug: indianapolis-in
-  venue: "Marriott East"
-  frequency: "Quarterly"
-  next_date: "TBD"
-  website: "https://www.coinzip.com/indiana-coin-shows"
-  organizer: ""
-  notes: ""
-
-# Iowa
+  venue: Hawaii Convention Center
+  frequency: Annual (November)
+  next_date: November 2026
+  website: https://www.facebook.com/HawaiiStateNumismaticAssociation/
+  organizer: HSNA
+  notes: ''
 - id: iowa-numismatic-association-coin-show
-  name: "Iowa Numismatic Association Coin Show"
+  name: Iowa Numismatic Association Coin Show
   state: IA
   state_name: Iowa
   city: Des Moines
   city_slug: des-moines-ia
-  venue: "Venue varies"
-  frequency: "Annual (October)"
-  next_date: "October 2026"
-  website: "http://www.ina.anaclubs.org/"
-  organizer: "Iowa Numismatic Association"
-  notes: ""
-
-# Kansas
-- id: kansas-numismatic-association-show
-  name: "Kansas Numismatic Association Show"
-  state: KS
-  state_name: Kansas
-  city: Wichita
-  city_slug: wichita-ks
-  venue: "Cessna Activity Center"
-  frequency: "Annual"
-  next_date: "TBD"
-  website: "https://www.kansasnumismaticassociation.org/"
-  organizer: "Kansas Numismatic Association"
-  notes: ""
-
+  venue: Venue varies
+  frequency: Annual (October)
+  next_date: October 2026
+  website: http://www.ina.anaclubs.org/
+  organizer: Iowa Numismatic Association
+  notes: ''
+- id: fort-dodge-coin-club-coin-show
+  name: Fort Dodge Coin Club Coin Show
+  state: IA
+  state_name: Iowa
+  city: Ft Dodge
+  city_slug: ft-dodge-ia
+  venue: Quality Inn
+  frequency: Recurring
+  next_date: Apr 17th - 18th, 2026
+  website: https://www.CoinShows-USA.com/Fort-Dodge-Coin-Show
+  organizer: ''
+  notes: 'Hours: Fri 12-6:30, Sat 9-3'
+- id: southern-idaho-coin-club-coin-show
+  name: Southern Idaho Coin Club - Coin Show
+  state: ID
+  state_name: Idaho
+  city: Garden City
+  city_slug: garden-city-id
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: southern-idaho-coin-club-show
+  name: Southern Idaho Coin Club Show
+  state: ID
+  state_name: Idaho
+  city: Garden City
+  city_slug: garden-city-id
+  venue: The Riverside Hotel
+  frequency: Annual (May)
+  next_date: May 2026
+  website: http://www.southernidahocoinclub.com/
+  organizer: Southern Idaho Coin Club
+  notes: ''
+- id: cicero-berwyn-coin-stamp-bourse
+  name: Cicero-Berwyn Coin & Stamp Bourse
+  state: IL
+  state_name: Illinois
+  city: Berwyn
+  city_slug: berwyn-il
+  venue: Sokol-Tabor Hall
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Cicero-Berwyn-Coin-Stamp-Bourse
+  organizer: ''
+  notes: 'Hours: Sun 8:30-2:30'
+- id: metro-east-coin-currency-club-coin-show
+  name: Metro East Coin & Currency Club Coin Show
+  state: IL
+  state_name: Illinois
+  city: Collinsville
+  city_slug: collinsville-il
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: chicago-coin-expo
+  name: Chicago Coin Expo
+  state: IL
+  state_name: Illinois
+  city: Countryside
+  city_slug: countryside-il
+  venue: Local 150 Union Hall
+  frequency: Monthly (2nd Sunday)
+  next_date: December 14, 2025
+  website: https://www.coinzip.com/illinois-coin-shows
+  organizer: ''
+  notes: ''
+- id: greater-chicago-coin-currency-collectibles-show
+  name: Greater Chicago Coin, Currency, & Collectibles Show
+  state: IL
+  state_name: Illinois
+  city: June 25th - 27th @ Countryside
+  city_slug: june-25th-27th-countryside-il
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: orland-park-coin-stamp-show
+  name: Orland Park Coin & Stamp Show
+  state: IL
+  state_name: Illinois
+  city: Orland Park
+  city_slug: orland-park-il
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: orland-park-coin-show
+  name: Orland Park Coin Show
+  state: IL
+  state_name: Illinois
+  city: Orland Park
+  city_slug: orland-park-il
+  venue: Orland Park Civic Center
+  frequency: Monthly (1st Sunday)
+  next_date: December 7, 2025
+  website: https://www.coinshows-usa.com/Illinois
+  organizer: ''
+  notes: ''
+- id: csns-convention
+  name: Central States Numismatic Society (CSNS) Convention
+  state: IL
+  state_name: Illinois
+  city: Schaumburg
+  city_slug: schaumburg-il
+  venue: Renaissance Schaumburg Convention Center
+  frequency: Annual (April)
+  next_date: April 22-25, 2026
+  website: http://www.csns.org/
+  organizer: Central States Numismatic Society
+  notes: Major regional convention with auction and 200+ tables.
+- id: ilna-illinois-numismatic-association-coin-show
+  name: ILNA Illinois Numismatic Association Coin Show
+  state: IL
+  state_name: Illinois
+  city: Sept 17th-19th @ Countryside
+  city_slug: sept-17th-19th-countryside-il
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: 71st-street-coin-show-may-3rd-2026-please-note-first-sunday-this-month
+  name: 71st Street Coin Show May 3rd, 2026  **Please Note First Sunday this Month
+  state: IN
+  state_name: Indiana
+  city: Indianapolis
+  city_slug: indianapolis-in
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: indiana-state-coin-show
+  name: Indiana State Coin Show
+  state: IN
+  state_name: Indiana
+  city: Indianapolis
+  city_slug: indianapolis-in
+  venue: Embassy Suites Hotel & Convention Center
+  frequency: Annual (Fall)
+  next_date: TBD
+  website: https://www.incoinshow.com/
+  organizer: Indiana State Numismatic Association
+  notes: ''
+- id: indianapolis-coin-currency-show
+  name: Indianapolis Coin & Currency Show
+  state: IN
+  state_name: Indiana
+  city: Indianapolis
+  city_slug: indianapolis-in
+  venue: Marriott East
+  frequency: Quarterly
+  next_date: TBD
+  website: https://www.coinzip.com/indiana-coin-shows
+  organizer: ''
+  notes: ''
+- id: jasper-area-coin-club-inc-show
+  name: Jasper Area Coin Club Inc. Show
+  state: IN
+  state_name: Indiana
+  city: Jasper
+  city_slug: jasper-in
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: kokomo-coin-collectibles-show
+  name: Kokomo Coin & Collectibles Show
+  state: IN
+  state_name: Indiana
+  city: Kokomo
+  city_slug: kokomo-in
+  venue: UAW Union Hall 685
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Kokomo-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sun 9-2'
+- id: lafayette-indiana-coin-show
+  name: Lafayette Indiana Coin show
+  state: IN
+  state_name: Indiana
+  city: Lafayette
+  city_slug: lafayette-in
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: indiana-state-coin-show-nov-20th-21st-2026
+  name: Indiana State Coin Show Nov 20th - 21st, 2026
+  state: IN
+  state_name: Indiana
+  city: Plainfield
+  city_slug: plainfield-in
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: topeka-coin-club-show
-  name: "Topeka Coin Club Show"
+  name: Topeka Coin Club Show
   state: KS
   state_name: Kansas
   city: Topeka
   city_slug: topeka-ks
-  venue: "Mater Dei Assumption Church Hall"
-  frequency: "Annual"
-  next_date: "TBD"
-  website: "https://www.coinzip.com/kansas-coin-shows"
-  organizer: "Topeka Coin Club"
-  notes: ""
-
-# Kentucky
+  venue: Mater Dei Assumption Church Hall
+  frequency: Annual
+  next_date: TBD
+  website: https://www.coinzip.com/kansas-coin-shows
+  organizer: Topeka Coin Club
+  notes: ''
+- id: kansas-numismatic-association-show
+  name: Kansas Numismatic Association Show
+  state: KS
+  state_name: Kansas
+  city: Wichita
+  city_slug: wichita-ks
+  venue: Cessna Activity Center
+  frequency: Annual
+  next_date: TBD
+  website: https://www.kansasnumismaticassociation.org/
+  organizer: Kansas Numismatic Association
+  notes: ''
 - id: louisville-coin-show
-  name: "Louisville Coin Show (LKSNA)"
+  name: Louisville Coin Show (LKSNA)
   state: KY
   state_name: Kentucky
   city: Louisville
   city_slug: louisville-ky
-  venue: "Hilton Garden Inn Louisville Airport"
-  frequency: "Semiannual (April & November)"
-  next_date: "April 2026"
-  website: "http://www.lksna.org/"
-  organizer: "Louisville & Kentucky State Numismatic Association"
-  notes: ""
-
-# Louisiana
+  venue: Hilton Garden Inn Louisville Airport
+  frequency: Semiannual (April & November)
+  next_date: April 2026
+  website: http://www.lksna.org/
+  organizer: Louisville & Kentucky State Numismatic Association
+  notes: ''
+- id: owensboro-coin-show-sat-may-9th-9-3
+  name: Owensboro Coin Show - Sat., May 9th - 9-3
+  state: KY
+  state_name: Kentucky
+  city: Owensboro
+  city_slug: owensboro-ky
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: shreveport-coin-club-money-show
-  name: "Shreveport Coin Club Money Show"
+  name: Shreveport Coin Club Money Show
   state: LA
   state_name: Louisiana
   city: Bossier City
   city_slug: bossier-city-la
-  venue: "Hilton Garden Inn"
-  frequency: "Annual (Summer)"
-  next_date: "July 2026"
-  website: "http://www.shreveportcoinclub.com/"
-  organizer: "Shreveport Coin Club"
-  notes: ""
-
-# Maine
-- id: brunswick-coin-stamp-club-show
-  name: "Brunswick Coin & Stamp Club Show"
-  state: ME
-  state_name: Maine
-  city: Topsham
-  city_slug: topsham-me
-  venue: "Topsham Fairgrounds Exhibition Hall"
-  frequency: "Annual (Spring)"
-  next_date: "May 2026"
-  website: "http://www.brunswickmainecoinclub.com/"
-  organizer: "Brunswick Coin & Stamp Club"
-  notes: ""
-
-# Maryland
-- id: whitman-coin-expo
-  name: "Whitman Coin Expo (Baltimore)"
-  state: MD
-  state_name: Maryland
-  city: Baltimore
-  city_slug: baltimore-md
-  venue: "Baltimore Convention Center"
-  frequency: "3 Times Per Year (Spring, Summer, Winter)"
-  next_date: "March 5-7, 2026"
-  website: "http://expo.whitman.com/"
-  organizer: "Whitman Coin & Collectibles Expo"
-  notes: "One of the most important national shows."
-
-- id: maryland-state-numismatic-association-show
-  name: "Maryland State Numismatic Association Show"
-  state: MD
-  state_name: Maryland
-  city: Timonium
-  city_slug: timonium-md
-  venue: "Timonium Fairgrounds"
-  frequency: "Annual"
-  next_date: "TBD"
-  website: "https://www.msna.net/"
-  organizer: "MSNA"
-  notes: ""
-
-# Massachusetts
-- id: bay-state-coin-show
-  name: "Bay State Coin Show"
-  state: MA
-  state_name: Massachusetts
-  city: Marlborough
-  city_slug: marlborough-ma
-  venue: "Best Western Royal Plaza Hotel"
-  frequency: "Annual (July)"
-  next_date: "July 2026"
-  website: "http://www.baystatecoinshow.com/"
-  organizer: "Bay State Coin Show"
-  notes: ""
-
+  venue: Hilton Garden Inn
+  frequency: Annual (Summer)
+  next_date: July 2026
+  website: http://www.shreveportcoinclub.com/
+  organizer: Shreveport Coin Club
+  notes: ''
 - id: devens-coin-show
-  name: "Devens Coin Show"
+  name: Devens Coin Show
   state: MA
   state_name: Massachusetts
   city: Devens
   city_slug: devens-ma
-  venue: "Devens Common Center"
-  frequency: "Monthly (Last Sunday)"
-  next_date: "December 28, 2025"
-  website: "https://www.coinzip.com/devens-coin-show"
-  organizer: "EBW Promotions"
-  notes: ""
-
+  venue: Devens Common Center
+  frequency: Monthly (Last Sunday)
+  next_date: December 28, 2025
+  website: https://www.coinzip.com/devens-coin-show
+  organizer: EBW Promotions
+  notes: ''
+- id: bay-state-coin-show
+  name: Bay State Coin Show
+  state: MA
+  state_name: Massachusetts
+  city: Marlborough
+  city_slug: marlborough-ma
+  venue: Best Western Royal Plaza Hotel
+  frequency: Annual (July)
+  next_date: July 2026
+  website: http://www.baystatecoinshow.com/
+  organizer: Bay State Coin Show
+  notes: ''
+- id: north-attleborough-monthly-coin-collectibles-show
+  name: North Attleborough Monthly Coin & Collectibles Show
+  state: MA
+  state_name: Massachusetts
+  city: North Attleborough
+  city_slug: north-attleborough-ma
+  venue: 'Elks Lodge #1011'
+  frequency: Monthly
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/North-Attleboro-Monthly-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sun 9-2'
+- id: the-waterloocedar-valley-coin-show
+  name: The Waterloo/Cedar Valley Coin Show
+  state: MA
+  state_name: Massachusetts
+  city: Sunday
+  city_slug: sunday-ma
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: blackstone-valley-coin-club-show-ma
-  name: "Blackstone Valley Coin Club Show"
+  name: Blackstone Valley Coin Club Show
   state: MA
   state_name: Massachusetts
   city: Uxbridge
   city_slug: uxbridge-ma
-  venue: "VFW Post 1385"
-  frequency: "Monthly (3rd Wednesday)"
-  next_date: "December 17, 2025"
-  website: "https://www.coinzip.com/blackstone-valley-coin-collectibles-club"
-  organizer: "Blackstone Valley Coin Club"
-  notes: ""
-
-# Michigan
-- id: michigan-premier-coin-show
-  name: "Michigan's Premier Coin, Currency & Stamp Show"
-  state: MI
-  state_name: Michigan
-  city: Westland
-  city_slug: westland-mi
-  venue: "Hellenic Cultural Center"
-  frequency: "Semiannual"
-  next_date: "March 6-7, 2026"
-  website: "https://michigancoinclub.org/"
-  organizer: "Michigan State Numismatic Society"
-  notes: ""
-
-- id: msns-spring-convention
-  name: "MSNS Spring Convention"
-  state: MI
-  state_name: Michigan
-  city: Waterford Township
-  city_slug: waterford-township-mi
-  venue: "Oakland Expo Center"
-  frequency: "Annual (Spring)"
-  next_date: "April 16-19, 2026"
-  website: "http://www.michigancoinclub.org/"
-  organizer: "Michigan State Numismatic Society"
-  notes: ""
-
+  venue: VFW Post 1385
+  frequency: Monthly (3rd Wednesday)
+  next_date: December 17, 2025
+  website: https://www.coinzip.com/blackstone-valley-coin-collectibles-club
+  organizer: Blackstone Valley Coin Club
+  notes: ''
+- id: whitman-coin-collectibles-expo-jun-11th-13th-2026
+  name: Whitman Coin & Collectibles Expo Jun 11th - 13th, 2026
+  state: MD
+  state_name: Maryland
+  city: Baltimore
+  city_slug: baltimore-md
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: whitman-coin-expo
+  name: Whitman Coin Expo (Baltimore)
+  state: MD
+  state_name: Maryland
+  city: Baltimore
+  city_slug: baltimore-md
+  venue: Baltimore Convention Center
+  frequency: 3 Times Per Year (Spring, Summer, Winter)
+  next_date: March 5-7, 2026
+  website: http://expo.whitman.com/
+  organizer: Whitman Coin & Collectibles Expo
+  notes: One of the most important national shows.
+- id: baltimore-stamp-and-coin-show
+  name: Baltimore Stamp and Coin Show
+  state: MD
+  state_name: Maryland
+  city: Timonium
+  city_slug: timonium-md
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: maryland-state-numismatic-association-show
+  name: Maryland State Numismatic Association Show
+  state: MD
+  state_name: Maryland
+  city: Timonium
+  city_slug: timonium-md
+  venue: Timonium Fairgrounds
+  frequency: Annual
+  next_date: TBD
+  website: https://www.msna.net/
+  organizer: MSNA
+  notes: ''
+- id: brunswick-coin-stamp-club-show
+  name: Brunswick Coin & Stamp Club Show
+  state: ME
+  state_name: Maine
+  city: Topsham
+  city_slug: topsham-me
+  venue: Topsham Fairgrounds Exhibition Hall
+  frequency: Annual (Spring)
+  next_date: May 2026
+  website: http://www.brunswickmainecoinclub.com/
+  organizer: Brunswick Coin & Stamp Club
+  notes: ''
 - id: lansing-coin-club-spring-show
-  name: "Lansing Coin Club Spring Show"
+  name: Lansing Coin Club Spring Show
   state: MI
   state_name: Michigan
   city: Lansing
   city_slug: lansing-mi
-  venue: "Royal Scot Golf & Bowl"
-  frequency: "Annual (Spring)"
-  next_date: "March 15, 2026"
-  website: "https://michigancoinclub.org/"
-  organizer: "Lansing Coin Club"
-  notes: ""
-
-# Minnesota
+  venue: Royal Scot Golf & Bowl
+  frequency: Annual (Spring)
+  next_date: March 15, 2026
+  website: https://michigancoinclub.org/
+  organizer: Lansing Coin Club
+  notes: ''
+- id: new-baltimore-monthly-coin-show
+  name: New Baltimore Monthly Coin Show
+  state: MI
+  state_name: Michigan
+  city: New Baltimore
+  city_slug: new-baltimore-mi
+  venue: Lempke-Blackwell VFW Post 7573
+  frequency: Monthly
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/New-Baltimore-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sun 9-3'
+- id: royal-oak-coin-collectibles-show-may-10th-2026
+  name: Royal Oak Coin & Collectibles Show May 10th, 2026
+  state: MI
+  state_name: Michigan
+  city: Royal Oak
+  city_slug: royal-oak-mi
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: detroit-area-coin-shows
+  name: Detroit Area Coin Shows
+  state: MI
+  state_name: Michigan
+  city: Southfield
+  city_slug: southfield-mi
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: royal-oak-coin-club-2026-fall-coin-show-1042026
+  name: Royal Oak Coin Club 2026 Fall Coin Show 10/4/2026
+  state: MI
+  state_name: Michigan
+  city: Warren
+  city_slug: warren-mi
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: michigan-state-numismatic-society-convention-coin-show
+  name: Michigan State Numismatic Society Convention & Coin Show
+  state: MI
+  state_name: Michigan
+  city: Waterford
+  city_slug: waterford-mi
+  venue: Oakland Expo Center
+  frequency: Recurring
+  next_date: Apr 17th - 19th, 2026
+  website: https://www.CoinShows-USA.com/Michigan-State-Numismatic-Society-Convention-and-Coin-Show
+  organizer: ''
+  notes: 'Hours: Fri & Sat 10-6, Sun 10-3'
+- id: msns-spring-convention
+  name: MSNS Spring Convention
+  state: MI
+  state_name: Michigan
+  city: Waterford Township
+  city_slug: waterford-township-mi
+  venue: Oakland Expo Center
+  frequency: Annual (Spring)
+  next_date: April 16-19, 2026
+  website: http://www.michigancoinclub.org/
+  organizer: Michigan State Numismatic Society
+  notes: ''
+- id: michigan-premier-coin-show
+  name: Michigan's Premier Coin, Currency & Stamp Show
+  state: MI
+  state_name: Michigan
+  city: Westland
+  city_slug: westland-mi
+  venue: Hellenic Cultural Center
+  frequency: Semiannual
+  next_date: March 6-7, 2026
+  website: https://michigancoinclub.org/
+  organizer: Michigan State Numismatic Society
+  notes: ''
+- id: north-metro-coin-show
+  name: North Metro Coin Show
+  state: MN
+  state_name: Minnesota
+  city: Maple Grove
+  city_slug: maple-grove-mn
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: south-st-paul-coin-show
+  name: South St Paul Coin Show
+  state: MN
+  state_name: Minnesota
+  city: South Saint Paul
+  city_slug: south-saint-paul-mn
+  venue: United Food & Commercial Workers Union Hall
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Twin-Cities-Monthly-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sun 9-4'
 - id: twin-cities-monthly-coin-show
-  name: "Twin Cities Largest Monthly Coin Show"
+  name: Twin Cities Largest Monthly Coin Show
   state: MN
   state_name: Minnesota
   city: South St. Paul
   city_slug: south-st-paul-mn
-  venue: "266 Hardman Ave N"
-  frequency: "Monthly"
-  next_date: "TBD"
-  website: "https://www.coinzip.com/minnesota-coin-shows"
-  organizer: "Antique Coins"
-  notes: ""
-
+  venue: 266 Hardman Ave N
+  frequency: Monthly
+  next_date: TBD
+  website: https://www.coinzip.com/minnesota-coin-shows
+  organizer: Antique Coins
+  notes: ''
+- id: saint-paul-liberty-coin-club-show
+  name: Saint Paul Liberty Coin Club Show
+  state: MN
+  state_name: Minnesota
+  city: St Anthony Village High School   3303 33rd Ave NE   St. Anthony
+  city_slug: st-anthony-village-high-school-3303-33rd-ave-ne-st-anthony-mn
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: mid-minnesota-coin-expo
-  name: "Mid-Minnesota Coin Expo"
+  name: Mid-Minnesota Coin Expo
   state: MN
   state_name: Minnesota
   city: St. Cloud
   city_slug: st-cloud-mn
-  venue: "Kelly Inn"
-  frequency: "Semiannual"
-  next_date: "TBD"
-  website: "http://stcloudareacoinclub.com/"
-  organizer: "St. Cloud Area Coin Club"
-  notes: ""
-
-# Mississippi
-- id: mna-state-coin-show
-  name: "MNA State Coin Show"
-  state: MS
-  state_name: Mississippi
-  city: Biloxi
-  city_slug: biloxi-ms
-  venue: "Mississippi Coast Coliseum"
-  frequency: "Annual (May)"
-  next_date: "May 2026"
-  website: "https://www.coinshows-usa.com/Mississippi"
-  organizer: "Mississippi Numismatic Association"
-  notes: ""
-
-# Missouri
-- id: st-louis-numismatic-association-show
-  name: "St. Louis Numismatic Association Show"
-  state: MO
-  state_name: Missouri
-  city: St. Charles
-  city_slug: st-charles-mo
-  venue: "St. Charles Convention Center"
-  frequency: "Annual (July)"
-  next_date: "July 2026"
-  website: "http://www.stlouisnumismatics.org/"
-  organizer: "St. Louis Numismatic Association"
-  notes: ""
-
+  venue: Kelly Inn
+  frequency: Semiannual
+  next_date: TBD
+  website: http://stcloudareacoinclub.com/
+  organizer: St. Cloud Area Coin Club
+  notes: ''
 - id: joplin-coin-club-show
-  name: "Joplin Coin Club Show"
+  name: Joplin Coin Club Show
   state: MO
   state_name: Missouri
   city: Joplin
   city_slug: joplin-mo
-  venue: "Butcher Block Event Center"
-  frequency: "Semiannual"
-  next_date: "TBD"
-  website: "http://joplincoinclub.org/"
-  organizer: "Joplin Coin Club"
-  notes: ""
-
-# Montana
+  venue: Butcher Block Event Center
+  frequency: Semiannual
+  next_date: TBD
+  website: http://joplincoinclub.org/
+  organizer: Joplin Coin Club
+  notes: ''
+- id: st-louis-numismatic-association-show
+  name: St. Louis Numismatic Association Show
+  state: MO
+  state_name: Missouri
+  city: St. Charles
+  city_slug: st-charles-mo
+  venue: St. Charles Convention Center
+  frequency: Annual (July)
+  next_date: July 2026
+  website: http://www.stlouisnumismatics.org/
+  organizer: St. Louis Numismatic Association
+  notes: ''
+- id: hicomo-coin-club-coin-show
+  name: Hicomo Coin Club Coin Show
+  state: MO
+  state_name: Missouri
+  city: Wheatland
+  city_slug: wheatland-mo
+  venue: Wheatland School Building
+  frequency: Recurring
+  next_date: Apr 18th, 2026
+  website: https://www.CoinShows-USA.com/Hicomo-Coin-Club-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sat 10-3'
+- id: annual-mississippi-mna-coin-currency-card-show
+  name: Annual Mississippi (MNA) Coin Currency & Card Show
+  state: MS
+  state_name: Mississippi
+  city: Biloxi
+  city_slug: biloxi-ms
+  venue: ''
+  frequency: Annual
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: mna-state-coin-show
+  name: MNA State Coin Show
+  state: MS
+  state_name: Mississippi
+  city: Biloxi
+  city_slug: biloxi-ms
+  venue: Mississippi Coast Coliseum
+  frequency: Annual (May)
+  next_date: May 2026
+  website: https://www.coinshows-usa.com/Mississippi
+  organizer: Mississippi Numismatic Association
+  notes: ''
 - id: western-montana-coin-show
-  name: "Western Montana Coin Show"
+  name: Western Montana Coin Show
   state: MT
   state_name: Montana
   city: Missoula
   city_slug: missoula-mt
-  venue: "Hilton Garden Inn"
-  frequency: "Annual (Fall)"
-  next_date: "TBD"
-  website: "https://www.coinzip.com/montana-coin-shows"
-  organizer: ""
-  notes: ""
-
-# Nebraska
-- id: nebraska-numismatic-association-show
-  name: "Nebraska Numismatic Association Show"
-  state: NE
-  state_name: Nebraska
-  city: Lincoln
-  city_slug: lincoln-ne
-  venue: "Lancaster Event Center"
-  frequency: "Annual (Spring)"
-  next_date: "April 2026"
-  website: "http://www.nenumismatic.org/"
-  organizer: "Nebraska Numismatic Association"
-  notes: ""
-
-- id: omaha-coin-club-show
-  name: "Omaha Coin Club Show"
-  state: NE
-  state_name: Nebraska
-  city: Omaha
-  city_slug: omaha-ne
-  venue: "Fraternal Order of Police Hall"
-  frequency: "Monthly"
-  next_date: "TBD"
-  website: "http://omahacoinclub.org/"
-  organizer: "Omaha Coin Club"
-  notes: ""
-
-# Nevada
-- id: vegas-national-coin-show
-  name: "The Vegas National Coin Show"
-  state: NV
-  state_name: Nevada
-  city: Las Vegas
-  city_slug: las-vegas-nv
-  venue: "Tuscany Suites & Casino"
-  frequency: "Semiannual (May & December)"
-  next_date: "TBD"
-  website: "https://www.ckshows.com/"
-  organizer: "CK Shows"
-  notes: ""
-
-# New Hampshire
-- id: new-hampshire-coin-currency-expo
-  name: "New Hampshire Coin & Currency Expo"
-  state: NH
-  state_name: New Hampshire
-  city: Manchester
-  city_slug: manchester-nh
-  venue: "DoubleTree by Hilton Manchester Downtown"
-  frequency: "Semiannual (April & October)"
-  next_date: "April 2026"
-  website: "https://nhcoinexpo.com/"
-  organizer: "EBW Promotions"
-  notes: "Largest show in New England."
-
-- id: nashua-coin-show
-  name: "Nashua Coin Show"
-  state: NH
-  state_name: New Hampshire
-  city: Hollis
-  city_slug: hollis-nh
-  venue: "Lawrence Barn Community Center"
-  frequency: "Monthly (3rd Sunday)"
-  next_date: "December 21, 2025"
-  website: "http://www.nashuacoinclub.com/"
-  organizer: "Nashua Coin Club"
-  notes: ""
-
-# New Jersey
-- id: garden-state-coin-currency-show
-  name: "Garden State Coin & Currency Show"
-  state: NJ
-  state_name: New Jersey
-  city: Parsippany
-  city_slug: parsippany-nj
-  venue: "PAL Building"
-  frequency: "Monthly (1st Sunday)"
-  next_date: "December 7, 2025"
-  website: "http://www.gsna.org/"
-  organizer: "Garden State Numismatic Association"
-  notes: ""
-
-- id: watchung-hills-coin-club-show
-  name: "Watchung Hills Coin Club Show"
-  state: NJ
-  state_name: New Jersey
-  city: Somerset
-  city_slug: somerset-nj
-  venue: "Elks Lodge"
-  frequency: "Quarterly"
-  next_date: "TBD"
-  website: "http://whccnj.org/"
-  organizer: "Watchung Hills Coin Club"
-  notes: ""
-
-# New Mexico
-- id: albuquerque-coin-club-show
-  name: "Albuquerque Coin Club Show"
-  state: NM
-  state_name: New Mexico
-  city: Albuquerque
-  city_slug: albuquerque-nm
-  venue: "Crowne Plaza or Marriott Pyramid"
-  frequency: "Semiannual (Spring & Fall)"
-  next_date: "TBD"
-  website: "http://www.albuquerquecoinclub.com/"
-  organizer: "Albuquerque Coin Club"
-  notes: ""
-
-# New York
-- id: nyinc
-  name: "New York International Numismatic Convention (NYINC)"
-  state: NY
-  state_name: New York
-  city: New York
-  city_slug: new-york-ny
-  venue: "InterContinental New York Barclay"
-  frequency: "Annual (January)"
-  next_date: "January 15-18, 2026"
-  website: "http://www.nyinc.info/"
-  organizer: "NYINC"
-  notes: "Premier world and ancient coin show."
-
-- id: rochester-numismatic-association-show
-  name: "Rochester Numismatic Association Show"
-  state: NY
-  state_name: New York
-  city: Rochester
-  city_slug: rochester-ny
-  venue: "Eisenhart Auditorium"
-  frequency: "Annual (November)"
-  next_date: "TBD"
-  website: "http://www.the-rna.com/"
-  organizer: "Rochester Numismatic Association"
-  notes: ""
-
-- id: melville-coin-stamp-collectibles-show
-  name: "Melville Coin, Stamp & Collectibles Show"
-  state: NY
-  state_name: New York
-  city: Melville
-  city_slug: melville-ny
-  venue: "Catapano Engineering Hall"
-  frequency: "Monthly (2nd & 4th Sunday)"
-  next_date: "December 14, 2025"
-  website: "https://www.coinzip.com/new-york-coin-shows"
-  organizer: ""
-  notes: ""
-
-# North Carolina
+  venue: Hilton Garden Inn
+  frequency: Annual (Fall)
+  next_date: TBD
+  website: https://www.coinzip.com/montana-coin-shows
+  organizer: ''
+  notes: ''
+- id: early-american-coppers-may-1st-2nd
+  name: Early American Coppers May 1st & 2nd
+  state: NC
+  state_name: North Carolina
+  city: Charlotte
+  city_slug: charlotte-nc
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: ncna-coin-show
-  name: "NCNA Coin Show"
+  name: NCNA Coin Show
   state: NC
   state_name: North Carolina
   city: Concord
   city_slug: concord-nc
-  venue: "Cabarrus Arena"
-  frequency: "Annual (October)"
-  next_date: "October 2026"
-  website: "http://www.ncna.club/"
-  organizer: "North Carolina Numismatic Association"
-  notes: ""
-
+  venue: Cabarrus Arena
+  frequency: Annual (October)
+  next_date: October 2026
+  website: http://www.ncna.club/
+  organizer: North Carolina Numismatic Association
+  notes: ''
+- id: nc-gold-festival-3rd-annual-coin-currency-show-june-6th-2026
+  name: NC Gold Festival 3rd Annual Coin & Currency Show June 6th, 2026
+  state: NC
+  state_name: North Carolina
+  city: Marion
+  city_slug: marion-nc
+  venue: ''
+  frequency: Annual
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: morganton-coin-club-show-saturday-may-30th-2026
+  name: Morganton Coin Club Show - Saturday, May 30th, 2026
+  state: NC
+  state_name: North Carolina
+  city: Morganton
+  city_slug: morganton-nc
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: raleigh-money-expo
-  name: "Raleigh Money Expo"
+  name: Raleigh Money Expo
   state: NC
   state_name: North Carolina
   city: Raleigh
   city_slug: raleigh-nc
-  venue: "NC State Fairgrounds"
-  frequency: "Annual (June)"
-  next_date: "June 2026"
-  website: "http://www.raleighcoinclub.org/"
-  organizer: "Raleigh Coin Club"
-  notes: ""
-
-# North Dakota
+  venue: NC State Fairgrounds
+  frequency: Annual (June)
+  next_date: June 2026
+  website: http://www.raleighcoinclub.org/
+  organizer: Raleigh Coin Club
+  notes: ''
 - id: red-river-valley-coin-club-show
-  name: "Red River Valley Coin Club Show"
+  name: Red River Valley Coin Club Show
   state: ND
   state_name: North Dakota
   city: Fargo
   city_slug: fargo-nd
-  venue: "Ramada by Wyndham"
-  frequency: "Annual (November)"
-  next_date: "TBD"
-  website: "http://www.redrivervalleycoinclub.com/"
-  organizer: "Red River Valley Coin Club"
-  notes: ""
-
-# Ohio
-- id: ohio-state-coin-show
-  name: "Ohio State Coin Show"
+  venue: Ramada by Wyndham
+  frequency: Annual (November)
+  next_date: TBD
+  website: http://www.redrivervalleycoinclub.com/
+  organizer: Red River Valley Coin Club
+  notes: ''
+- id: nebraska-numismatic-association-show
+  name: Nebraska Numismatic Association Show
+  state: NE
+  state_name: Nebraska
+  city: Lincoln
+  city_slug: lincoln-ne
+  venue: Lancaster Event Center
+  frequency: Annual (Spring)
+  next_date: April 2026
+  website: http://www.nenumismatic.org/
+  organizer: Nebraska Numismatic Association
+  notes: ''
+- id: omaha-coin-club-show
+  name: Omaha Coin Club Show
+  state: NE
+  state_name: Nebraska
+  city: Omaha
+  city_slug: omaha-ne
+  venue: Fraternal Order of Police Hall
+  frequency: Monthly
+  next_date: TBD
+  website: http://omahacoinclub.org/
+  organizer: Omaha Coin Club
+  notes: ''
+- id: original-monthly-coin-collectibles-show
+  name: Original Monthly Coin & Collectibles Show
+  state: NE
+  state_name: Nebraska
+  city: Omaha
+  city_slug: omaha-ne
+  venue: Bel Air Banquet Room
+  frequency: Monthly
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Omaha-Coin-Currency-Stamp-Collectibles-Show
+  organizer: ''
+  notes: 'Hours: Sun 9-2:30'
+- id: the-omaha-monthly-coin-collectibles-show-meets-3rd-sunday-monthly
+  name: The Omaha Monthly Coin & Collectibles Show - Meets 3rd Sunday Monthly
+  state: NE
+  state_name: Nebraska
+  city: Omaha
+  city_slug: omaha-ne
+  venue: ''
+  frequency: Monthly
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: nashua-coin-show
+  name: Nashua Coin Show
+  state: NH
+  state_name: New Hampshire
+  city: Hollis
+  city_slug: hollis-nh
+  venue: Lawrence Barn Community Center
+  frequency: Monthly (3rd Sunday)
+  next_date: December 21, 2025
+  website: http://www.nashuacoinclub.com/
+  organizer: Nashua Coin Club
+  notes: ''
+- id: new-hampshire-coin-currency-expo
+  name: New Hampshire Coin & Currency Expo
+  state: NH
+  state_name: New Hampshire
+  city: Manchester
+  city_slug: manchester-nh
+  venue: DoubleTree by Hilton Manchester Downtown
+  frequency: Semiannual (April & October)
+  next_date: April 2026
+  website: https://nhcoinexpo.com/
+  organizer: EBW Promotions
+  notes: Largest show in New England.
+- id: old-bridge-coin-show
+  name: Old Bridge Coin Show
+  state: NJ
+  state_name: New Jersey
+  city: Old Bridge
+  city_slug: old-bridge-nj
+  venue: Old Bridge First Aid and Rescue Bldg.
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Old-Bridge-Coin-Currency-Collectibles-Stamps-Show
+  organizer: ''
+  notes: 'Hours: Sun 8-2'
+- id: garden-state-coin-currency-show
+  name: Garden State Coin & Currency Show
+  state: NJ
+  state_name: New Jersey
+  city: Parsippany
+  city_slug: parsippany-nj
+  venue: PAL Building
+  frequency: Monthly (1st Sunday)
+  next_date: December 7, 2025
+  website: http://www.gsna.org/
+  organizer: Garden State Numismatic Association
+  notes: ''
+- id: watchung-hills-coin-club-show
+  name: Watchung Hills Coin Club Show
+  state: NJ
+  state_name: New Jersey
+  city: Somerset
+  city_slug: somerset-nj
+  venue: Elks Lodge
+  frequency: Quarterly
+  next_date: TBD
+  website: http://whccnj.org/
+  organizer: Watchung Hills Coin Club
+  notes: ''
+- id: albuquerque-coin-club-show
+  name: Albuquerque Coin Club Show
+  state: NM
+  state_name: New Mexico
+  city: Albuquerque
+  city_slug: albuquerque-nm
+  venue: Crowne Plaza or Marriott Pyramid
+  frequency: Semiannual (Spring & Fall)
+  next_date: TBD
+  website: http://www.albuquerquecoinclub.com/
+  organizer: Albuquerque Coin Club
+  notes: ''
+- id: albuquerque-coin-clubs-great-southwest-coin-expo
+  name: Albuquerque Coin Club's  Great Southwest Coin Expo
+  state: NM
+  state_name: New Mexico
+  city: Albuquerque
+  city_slug: albuquerque-nm
+  venue: Marriott Pyramid North
+  frequency: Recurring
+  next_date: Apr 17th - 19th, 2026
+  website: https://www.CoinShows-USA.com/Albuquerque-Coin-Club-Show
+  organizer: ''
+  notes: 'Hours: Fri 12-5, Sat 9:-5, Sun 9-2'
+- id: vegas-national-coin-show
+  name: The Vegas National Coin Show
+  state: NV
+  state_name: Nevada
+  city: Las Vegas
+  city_slug: las-vegas-nv
+  venue: Tuscany Suites & Casino
+  frequency: Semiannual (May & December)
+  next_date: TBD
+  website: https://www.ckshows.com/
+  organizer: CK Shows
+  notes: ''
+- id: the-reno-coin-show
+  name: THE Reno Coin Show
+  state: NV
+  state_name: Nevada
+  city: Reno
+  city_slug: reno-nv
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: wny-coin-show-meetings-4th-sunday-each-month
+  name: WNY COIN + SHOW - Meetings 4th Sunday each Month
+  state: NY
+  state_name: New York
+  city: Batavia
+  city_slug: batavia-ny
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: canandaigua-coin-show
+  name: Canandaigua Coin Show
+  state: NY
+  state_name: New York
+  city: Canandaigua
+  city_slug: canandaigua-ny
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: bna-monthly-coin-stamp-and-currency-show
+  name: BNA Monthly Coin, Stamp and Currency Show
+  state: NY
+  state_name: New York
+  city: Cheektowaga
+  city_slug: cheektowaga-ny
+  venue: The Knights in Columbus Hall
+  frequency: Monthly
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/BNA-Monthly-Coin-Stamp-Currency-Bourse-and-Auction
+  organizer: ''
+  notes: 'Hours: Sun 10-3'
+- id: the-big-flats-coin-club-show
+  name: The Big Flats Coin Club Show
+  state: NY
+  state_name: New York
+  city: July 11th, 2026  Big Flats
+  city_slug: july-11th-2026-big-flats-ny
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: onondaga-ona-coin-currency-show
+  name: Onondaga (ONA) Coin & Currency Show
+  state: NY
+  state_name: New York
+  city: Liverpool
+  city_slug: liverpool-ny
+  venue: Holiday Inn & Suites
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/3rd-Sunday-ONO-Coin-Currency-Show
+  organizer: ''
+  notes: 'Hours: Sun 10-3'
+- id: melville-coin-stamp-collectibles-show
+  name: Melville Coin, Stamp & Collectibles Show
+  state: NY
+  state_name: New York
+  city: Melville
+  city_slug: melville-ny
+  venue: Catapano Engineering Hall
+  frequency: Monthly (2nd & 4th Sunday)
+  next_date: December 14, 2025
+  website: https://www.coinzip.com/new-york-coin-shows
+  organizer: ''
+  notes: ''
+- id: nyinc
+  name: New York International Numismatic Convention (NYINC)
+  state: NY
+  state_name: New York
+  city: New York
+  city_slug: new-york-ny
+  venue: InterContinental New York Barclay
+  frequency: Annual (January)
+  next_date: January 15-18, 2026
+  website: http://www.nyinc.info/
+  organizer: NYINC
+  notes: Premier world and ancient coin show.
+- id: rochester-numismatic-association-show
+  name: Rochester Numismatic Association Show
+  state: NY
+  state_name: New York
+  city: Rochester
+  city_slug: rochester-ny
+  venue: Eisenhart Auditorium
+  frequency: Annual (November)
+  next_date: TBD
+  website: http://www.the-rna.com/
+  organizer: Rochester Numismatic Association
+  notes: ''
+- id: cleveland-coin-expo-2nd-saturdays-monthly-9am-2pm
+  name: Cleveland Coin Expo - 2nd Saturdays Monthly - 9AM-2PM
   state: OH
   state_name: Ohio
-  city: Dublin
-  city_slug: dublin-oh
-  venue: "Embassy Suites"
-  frequency: "Annual (Labor Day Weekend)"
-  next_date: "September 2026"
-  website: "http://www.conacoinclub.com/"
-  organizer: "Central Ohio Numismatic Association"
-  notes: ""
-
-- id: cincinnati-numismatic-association-show
-  name: "Cincinnati Numismatic Association Show"
+  city: Broadview Heights
+  city_slug: broadview-heights-oh
+  venue: ''
+  frequency: Monthly
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: cleveland-coin-expo-meets-2nd-saturday-of-each-month
+  name: Cleveland Coin Expo - Meets 2nd Saturday of Each Month
   state: OH
   state_name: Ohio
-  city: Sharonville
-  city_slug: sharonville-oh
-  venue: "Sharonville Convention Center"
-  frequency: "Annual (Spring)"
-  next_date: "April 2026"
-  website: "https://www.facebook.com/GreenhillsClassicCoinShow/"
-  organizer: "Cincinnati Numismatic Association"
-  notes: ""
-
-- id: greenhills-classic-coin-stamp-show
-  name: "Greenhills Classic Coin & Stamp Show"
+  city: Broadview Heights
+  city_slug: broadview-heights-oh
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: 43rd-annual-greater-cincinnati-numismatic-exposition
+  name: 43rd Annual Greater Cincinnati Numismatic Exposition
   state: OH
   state_name: Ohio
   city: Cincinnati
   city_slug: cincinnati-oh
-  venue: "American Legion Post 530"
-  frequency: "Monthly (Last Sunday)"
-  next_date: "December 28, 2025"
-  website: "https://www.coinzip.com/ohio-coin-shows"
-  organizer: ""
-  notes: ""
-
-# Oklahoma
-- id: oklahoma-numismatic-association-convention
-  name: "Oklahoma Numismatic Association Convention"
-  state: OK
-  state_name: Oklahoma
-  city: Moore
-  city_slug: moore-ok
-  venue: "Holiday Inn Hotel & Suites"
-  frequency: "Annual (May)"
-  next_date: "May 2026"
-  website: "http://the-ona.org/"
-  organizer: "Oklahoma Numismatic Association"
-  notes: ""
-
+  venue: ''
+  frequency: Annual
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: cincinnati-greenhills-classic-coin-currency-stamp-jewelry-and-watch-show
+  name: Cincinnati Greenhills Classic Coin, Currency, Stamp, Jewelry and Watch Show
+  state: OH
+  state_name: Ohio
+  city: Cincinnati
+  city_slug: cincinnati-oh
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: greenhills-classic-coin-stamp-show
+  name: Greenhills Classic Coin & Stamp Show
+  state: OH
+  state_name: Ohio
+  city: Cincinnati
+  city_slug: cincinnati-oh
+  venue: American Legion Post 530
+  frequency: Monthly (Last Sunday)
+  next_date: December 28, 2025
+  website: https://www.coinzip.com/ohio-coin-shows
+  organizer: ''
+  notes: ''
+- id: ohio-state-coin-show
+  name: Ohio State Coin Show
+  state: OH
+  state_name: Ohio
+  city: Dublin
+  city_slug: dublin-oh
+  venue: Embassy Suites
+  frequency: Annual (Labor Day Weekend)
+  next_date: September 2026
+  website: http://www.conacoinclub.com/
+  organizer: Central Ohio Numismatic Association
+  notes: ''
+- id: universal-coin-show
+  name: Universal Coin Show
+  state: OH
+  state_name: Ohio
+  city: Fairview Park
+  city_slug: fairview-park-oh
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: 3rd-sunday-columbus-coin-show
+  name: 3rd Sunday Columbus Coin Show
+  state: OH
+  state_name: Ohio
+  city: Hilliard
+  city_slug: hilliard-oh
+  venue: Makoy Center
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Columbus-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sun 10-4'
+- id: cincinnati-numismatic-association-show
+  name: Cincinnati Numismatic Association Show
+  state: OH
+  state_name: Ohio
+  city: Sharonville
+  city_slug: sharonville-oh
+  venue: Sharonville Convention Center
+  frequency: Annual (Spring)
+  next_date: April 2026
+  website: https://www.facebook.com/GreenhillsClassicCoinShow/
+  organizer: Cincinnati Numismatic Association
+  notes: ''
+- id: the-ohio-coin-and-collectibles-show
+  name: The Ohio Coin and Collectibles Show
+  state: OH
+  state_name: Ohio
+  city: Westlake
+  city_slug: westlake-oh
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: duncan-coin-club-annual-show
-  name: "Duncan Coin Club Annual Show"
+  name: Duncan Coin Club Annual Show
   state: OK
   state_name: Oklahoma
   city: Duncan
   city_slug: duncan-ok
-  venue: "Stephens County Fairgrounds"
-  frequency: "Annual (March)"
-  next_date: "March 2026"
-  website: "https://www.coinzip.com/oklahoma-coin-shows"
-  organizer: "Duncan Coin Club"
-  notes: ""
-
-# Oregon
+  venue: Stephens County Fairgrounds
+  frequency: Annual (March)
+  next_date: March 2026
+  website: https://www.coinzip.com/oklahoma-coin-shows
+  organizer: Duncan Coin Club
+  notes: ''
+- id: oklahoma-numismatic-association-convention
+  name: Oklahoma Numismatic Association Convention
+  state: OK
+  state_name: Oklahoma
+  city: Moore
+  city_slug: moore-ok
+  venue: Holiday Inn Hotel & Suites
+  frequency: Annual (May)
+  next_date: May 2026
+  website: http://the-ona.org/
+  organizer: Oklahoma Numismatic Association
+  notes: ''
+- id: were-back-norman-ok-coin-show-friday-512026-to-saturday-522026
+  name: WE'RE BACK! NORMAN, OK COIN SHOW - FRIDAY 5/1/2026 to SATURDAY 5/2/2026
+  state: OK
+  state_name: Oklahoma
+  city: Norman
+  city_slug: norman-ok
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: portland-coin-show
-  name: "Portland Coin Show"
+  name: Portland Coin Show
   state: OR
   state_name: Oregon
   city: Portland
   city_slug: portland-or
-  venue: "Holiday Inn Portland - Columbia Riverfront"
-  frequency: "Annual (November)"
-  next_date: "November 2026"
-  website: "http://www.pdxcoinclub.org/"
-  organizer: "Willamette Coin Club"
-  notes: ""
-
-# Pennsylvania
-- id: pan-coin-show
-  name: "PAN Coin Show"
-  state: PA
-  state_name: Pennsylvania
-  city: Monroeville
-  city_slug: monroeville-pa
-  venue: "Monroeville Convention Center"
-  frequency: "Semiannual (May & October)"
-  next_date: "May 28-30, 2026"
-  website: "https://pancoins.org/"
-  organizer: "Pennsylvania Association of Numismatists"
-  notes: ""
-
-- id: tri-state-monthly-coin-show
-  name: "Tri-State Monthly Coin Show"
-  state: PA
-  state_name: Pennsylvania
-  city: Trevose
-  city_slug: trevose-pa
-  venue: "Sheraton Bucks County"
-  frequency: "Monthly (3rd or 4th Sunday)"
-  next_date: "December 21, 2025"
-  website: "https://www.coinzip.com/pennsylvania-coin-shows"
-  organizer: ""
-  notes: ""
-
+  venue: Holiday Inn Portland - Columbia Riverfront
+  frequency: Annual (November)
+  next_date: November 2026
+  website: http://www.pdxcoinclub.org/
+  organizer: Willamette Coin Club
+  notes: ''
 - id: gettysburg-battlefield-coin-show
-  name: "Gettysburg Battlefield Coin Show"
+  name: Gettysburg Battlefield Coin Show
   state: PA
   state_name: Pennsylvania
   city: Gettysburg
   city_slug: gettysburg-pa
-  venue: "Eisenhower Hotel"
-  frequency: "Semiannual (Spring & Fall)"
-  next_date: "April 3-4, 2026"
-  website: "https://www.americascoinshows.com/"
-  organizer: "America's Coin Shows"
-  notes: ""
-
+  venue: Eisenhower Hotel
+  frequency: Semiannual (Spring & Fall)
+  next_date: April 3-4, 2026
+  website: https://www.americascoinshows.com/
+  organizer: America's Coin Shows
+  notes: ''
+- id: national-battlefield-coin-show
+  name: National Battlefield Coin Show
+  state: PA
+  state_name: Pennsylvania
+  city: Gettysburg
+  city_slug: gettysburg-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: monthly-tri-state-coin-stamp-show
+  name: Monthly Tri-State Coin & Stamp Show
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: Sheraton Hotewl Bucks County
+  frequency: Monthly
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Tri-State-Monthly-Coin-and-Stamp-Show
+  organizer: ''
+  notes: 'Hours: Sun 9:30-2:30'
+- id: tri-state-coin-stamp-and-paper-money-show-august-16th-2026
+  name: Tri-State Coin, Stamp and Paper Money Show AUGUST 16th, 2026
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tri-state-coin-stamp-and-paper-money-show-december-20th-2026
+  name: Tri-State Coin, Stamp and Paper Money Show DECEMBER 20th, 2026
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tri-state-coin-stamp-and-paper-money-show-june-21st-2026
+  name: Tri-State Coin, Stamp and Paper Money Show JUNE 21st, 2026
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tri-state-coin-stamp-and-paper-money-show-july-19st-2026
+  name: Tri-State Coin, Stamp and Paper Money Show JUly 19st, 2026
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tri-state-coin-stamp-and-paper-money-show-november-15th-2026
+  name: Tri-State Coin, Stamp and Paper Money Show NOVEMBER 15th, 2026
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tri-state-coin-stamp-and-paper-money-show-october-18th-2026
+  name: Tri-State Coin, Stamp and Paper Money Show OCTOBER 18th, 2026
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tri-state-coin-stamp-and-paper-money-show-september-20th-2026
+  name: Tri-State Coin, Stamp and Paper Money Show SEPTEMBER 20th, 2026
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tri-state-coin-stamp-and-paper-money-show-may-17th-2026
+  name: Tri-State Coin. Stamp and Paper Money Show MAY 17th, 2026
+  state: PA
+  state_name: Pennsylvania
+  city: Langhorne
+  city_slug: langhorne-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: pan-coin-show
+  name: PAN Coin Show
+  state: PA
+  state_name: Pennsylvania
+  city: Monroeville
+  city_slug: monroeville-pa
+  venue: Monroeville Convention Center
+  frequency: Semiannual (May & October)
+  next_date: May 28-30, 2026
+  website: https://pancoins.org/
+  organizer: Pennsylvania Association of Numismatists
+  notes: ''
+- id: pan-spring-coin-show
+  name: PAN Spring Coin Show
+  state: PA
+  state_name: Pennsylvania
+  city: Monroeville
+  city_slug: monroeville-pa
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: onr-coin-show
-  name: "ONR Coin Show"
+  name: ONR Coin Show
   state: PA
   state_name: Pennsylvania
   city: Pittsburgh
   city_slug: pittsburgh-pa
-  venue: "Venue varies"
-  frequency: "Periodic"
-  next_date: "December 7, 2025"
-  website: "https://www.coinshows-usa.com/Pennsylvania"
-  organizer: "ONR"
-  notes: ""
-
-# Rhode Island
+  venue: Venue varies
+  frequency: Periodic
+  next_date: December 7, 2025
+  website: https://www.coinshows-usa.com/Pennsylvania
+  organizer: ONR
+  notes: ''
+- id: scranton-coin-club-show
+  name: Scranton Coin Club Show
+  state: PA
+  state_name: Pennsylvania
+  city: Pittston
+  city_slug: pittston-pa
+  venue: Oblates of St. Josephs Seminary
+  frequency: Recurring
+  next_date: Apr 18th - 19th, 2026
+  website: https://www.CoinShows-USA.com/Scranton-Coin-Club-Show
+  organizer: ''
+  notes: 'Hours: Sat 9-5, Sun 9-3'
+- id: montco-coin-show-meets-every-2nd-sunday-each-month
+  name: MontCo Coin Show - Meets Every 2nd Sunday each Month
+  state: PA
+  state_name: Pennsylvania
+  city: Telford
+  city_slug: telford-pa
+  venue: ''
+  frequency: Monthly
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: trevose-coin-show-every-4th-sunday-of-the-month
+  name: Trevose Coin Show - Every 4th Sunday of the Month
+  state: PA
+  state_name: Pennsylvania
+  city: Trevose
+  city_slug: trevose-pa
+  venue: ''
+  frequency: Monthly
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: tri-state-monthly-coin-show
+  name: Tri-State Monthly Coin Show
+  state: PA
+  state_name: Pennsylvania
+  city: Trevose
+  city_slug: trevose-pa
+  venue: Sheraton Bucks County
+  frequency: Monthly (3rd or 4th Sunday)
+  next_date: December 21, 2025
+  website: https://www.coinzip.com/pennsylvania-coin-shows
+  organizer: ''
+  notes: ''
 - id: blackstone-valley-coin-club-show-ri
-  name: "Blackstone Valley Coin Club Show"
+  name: Blackstone Valley Coin Club Show
   state: RI
   state_name: Rhode Island
   city: Woonsocket
   city_slug: woonsocket-ri
-  venue: "Elks Club #850"
-  frequency: "Annual (Summer)"
-  next_date: "TBD"
-  website: "https://www.coinshows-usa.com/Rhode-Island"
-  organizer: "Blackstone Valley Coin Club"
-  notes: ""
-
-# South Carolina
-- id: upstate-south-carolina-coin-show
-  name: "Upstate South Carolina Coin Show"
+  venue: 'Elks Club #850'
+  frequency: Annual (Summer)
+  next_date: TBD
+  website: https://www.coinshows-usa.com/Rhode-Island
+  organizer: Blackstone Valley Coin Club
+  notes: ''
+- id: midlands-spring-coin-show
+  name: Midlands Spring Coin Show
   state: SC
   state_name: South Carolina
-  city: Spartanburg
-  city_slug: spartanburg-sc
-  venue: "Spartanburg Memorial Auditorium"
-  frequency: "Annual (February)"
-  next_date: "February 2026"
-  website: "http://www.upstatesccoinshow.com/"
-  organizer: "Upstate SC Coin Show"
-  notes: ""
-
+  city: Columbia
+  city_slug: columbia-sc
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: low-country-coin-club-show
-  name: "Low Country Coin Club Show"
+  name: Low Country Coin Club Show
   state: SC
   state_name: South Carolina
   city: Ladson
   city_slug: ladson-sc
-  venue: "Exchange Park Fairgrounds"
-  frequency: "Semiannual (February & August)"
-  next_date: "February 2026"
-  website: "http://www.lowcountrycoinclub.com/"
-  organizer: "Low Country Coin Club"
-  notes: ""
-
-# South Dakota
+  venue: Exchange Park Fairgrounds
+  frequency: Semiannual (February & August)
+  next_date: February 2026
+  website: http://www.lowcountrycoinclub.com/
+  organizer: Low Country Coin Club
+  notes: ''
+- id: upstate-south-carolina-coin-show
+  name: Upstate South Carolina Coin Show
+  state: SC
+  state_name: South Carolina
+  city: Spartanburg
+  city_slug: spartanburg-sc
+  venue: Spartanburg Memorial Auditorium
+  frequency: Annual (February)
+  next_date: February 2026
+  website: http://www.upstatesccoinshow.com/
+  organizer: Upstate SC Coin Show
+  notes: ''
+- id: sumter-2026-annual-coin-and-currency-show
+  name: SUMTER 2026 ANNUAL COIN AND CURRENCY SHOW
+  state: SC
+  state_name: South Carolina
+  city: Sumter Coin Club
+  city_slug: sumter-coin-club-sc
+  venue: ''
+  frequency: Annual
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: ama-fall-coin-stamp-show
-  name: "AMA Fall Coin & Stamp Show"
+  name: AMA Fall Coin & Stamp Show
   state: SD
   state_name: South Dakota
   city: Sioux Falls
   city_slug: sioux-falls-sd
-  venue: "Sioux Falls Convention Center"
-  frequency: "Annual (September)"
-  next_date: "September 2026"
-  website: "https://www.amacoins.com/"
-  organizer: "AMA Coins"
-  notes: ""
-
-# Tennessee
+  venue: Sioux Falls Convention Center
+  frequency: Annual (September)
+  next_date: September 2026
+  website: https://www.amacoins.com/
+  organizer: AMA Coins
+  notes: ''
 - id: tsns-coin-show
-  name: "Tennessee State Numismatic Society (TSNS) Coin Show"
+  name: Tennessee State Numismatic Society (TSNS) Coin Show
   state: TN
   state_name: Tennessee
   city: East Ridge
   city_slug: east-ridge-tn
-  venue: "Camp Jordan Arena"
-  frequency: "Semiannual (March & November)"
-  next_date: "March 6-8, 2026"
-  website: "http://www.tsns.org/"
-  organizer: "Tennessee State Numismatic Society"
-  notes: ""
-
-- id: imex-show
-  name: "IMEX (International Money Exposition)"
-  state: TN
-  state_name: Tennessee
-  city: Nashville
-  city_slug: nashville-tn
-  venue: "Music City Center"
-  frequency: "Annual (October)"
-  next_date: "October 2026"
-  website: "https://imexshow.com/"
-  organizer: "IMEX"
-  notes: "A new major international show."
-
+  venue: Camp Jordan Arena
+  frequency: Semiannual (March & November)
+  next_date: March 6-8, 2026
+  website: http://www.tsns.org/
+  organizer: Tennessee State Numismatic Society
+  notes: ''
 - id: knoxville-coin-currency-show
-  name: "Knoxville Coin & Currency Show"
+  name: Knoxville Coin & Currency Show
   state: TN
   state_name: Tennessee
   city: Knoxville
   city_slug: knoxville-tn
-  venue: "Rothchild Conference Center"
-  frequency: "Monthly"
-  next_date: "December 6, 2025"
-  website: "https://www.coinzip.com/tennessee-coin-shows"
-  organizer: ""
-  notes: ""
-
-# Texas
+  venue: Rothchild Conference Center
+  frequency: Monthly
+  next_date: December 6, 2025
+  website: https://www.coinzip.com/tennessee-coin-shows
+  organizer: ''
+  notes: ''
+- id: imex-show
+  name: IMEX (International Money Exposition)
+  state: TN
+  state_name: Tennessee
+  city: Nashville
+  city_slug: nashville-tn
+  venue: Music City Center
+  frequency: Annual (October)
+  next_date: October 2026
+  website: https://imexshow.com/
+  organizer: IMEX
+  notes: A new major international show.
 - id: texas-numismatic-association-convention
-  name: "Texas Numismatic Association Convention"
+  name: Texas Numismatic Association Convention
   state: TX
   state_name: Texas
   city: Arlington
   city_slug: arlington-tx
-  venue: "Arlington Convention Center"
-  frequency: "Annual (May/June)"
-  next_date: "May 2026"
-  website: "http://www.tna.org/"
-  organizer: "Texas Numismatic Association"
-  notes: ""
-
+  venue: Arlington Convention Center
+  frequency: Annual (May/June)
+  next_date: May 2026
+  website: http://www.tna.org/
+  organizer: Texas Numismatic Association
+  notes: ''
 - id: houston-money-show
-  name: "Houston Money Show"
+  name: Houston Money Show
   state: TX
   state_name: Texas
   city: Conroe
   city_slug: conroe-tx
-  venue: "Lone Star Convention Center"
-  frequency: "Annual (January)"
-  next_date: "January 2026"
-  website: "http://www.houstoncoinshow.org/"
-  organizer: "Greater Houston Coin Club"
-  notes: ""
-
+  venue: Lone Star Convention Center
+  frequency: Annual (January)
+  next_date: January 2026
+  website: http://www.houstoncoinshow.org/
+  organizer: Greater Houston Coin Club
+  notes: ''
+- id: texas-numismatic-association-coin-currency-show
+  name: Texas Numismatic Association Coin & Currency Show
+  state: TX
+  state_name: Texas
+  city: Fort Worth
+  city_slug: fort-worth-tx
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
 - id: cowtown-coin-show
-  name: "Cowtown Coin Show"
+  name: Cowtown Coin Show
   state: TX
   state_name: Texas
   city: White Settlement
   city_slug: white-settlement-tx
-  venue: "Forest Hill Civic Center"
-  frequency: "6 Times Per Year (Jan, Mar, May, Jul, Sep, Nov)"
-  next_date: "January 2026"
-  website: "https://www.coinzip.com/cowtown-coin-show"
-  organizer: "Cowtown Coin Show"
-  notes: ""
-
-# Utah
+  venue: Forest Hill Civic Center
+  frequency: 6 Times Per Year (Jan, Mar, May, Jul, Sep, Nov)
+  next_date: January 2026
+  website: https://www.coinzip.com/cowtown-coin-show
+  organizer: Cowtown Coin Show
+  notes: ''
 - id: utah-numismatic-society-coin-show
-  name: "Utah Numismatic Society Coin Show"
+  name: Utah Numismatic Society Coin Show
   state: UT
   state_name: Utah
   city: Sandy
   city_slug: sandy-ut
-  venue: "Salt Lake Community College (Miller Campus)"
-  frequency: "Annual (October)"
-  next_date: "October 2026"
-  website: "http://www.utahcoinshows.com/"
-  organizer: "Utah Numismatic Society"
-  notes: ""
-
-# Vermont
-- id: burlington-coin-show
-  name: "Burlington Coin Show"
-  state: VT
-  state_name: Vermont
-  city: South Burlington
-  city_slug: south-burlington-vt
-  venue: "DoubleTree by Hilton"
-  frequency: "Annual (Winter)"
-  next_date: "TBD"
-  website: "https://www.coinshows-usa.com/Vermont"
-  organizer: ""
-  notes: ""
-
-# Virginia
-- id: vna-convention-coin-show
-  name: "VNA Convention & Coin Show"
-  state: VA
-  state_name: Virginia
-  city: Fredericksburg
-  city_slug: fredericksburg-va
-  venue: "Fredericksburg Expo Center"
-  frequency: "Annual (September)"
-  next_date: "September 2026"
-  website: "http://www.vnaonline.org/"
-  organizer: "Virginia Numismatic Association"
-  notes: ""
-
+  venue: Salt Lake Community College (Miller Campus)
+  frequency: Annual (October)
+  next_date: October 2026
+  website: http://www.utahcoinshows.com/
+  organizer: Utah Numismatic Society
+  notes: ''
 - id: annandale-coin-show
-  name: "Annandale Coin Show"
+  name: Annandale Coin Show
   state: VA
   state_name: Virginia
   city: Annandale
   city_slug: annandale-va
-  venue: "NOVA Community College (Ernst Cultural Center)"
-  frequency: "Annual (December)"
-  next_date: "TBD"
-  website: "https://www.coinzip.com/annandale-coin-show"
-  organizer: ""
-  notes: ""
-
-# Washington
-- id: pnna-spring-convention
-  name: "PNNA Spring Convention"
-  state: WA
-  state_name: Washington
-  city: Tukwila
-  city_slug: tukwila-wa
-  venue: "Tukwila Community Center"
-  frequency: "Annual (April)"
-  next_date: "April 2026"
-  website: "https://www.pnna.org/"
-  organizer: "Pacific Northwest Numismatic Association"
-  notes: ""
-
+  venue: NOVA Community College (Ernst Cultural Center)
+  frequency: Annual (December)
+  next_date: TBD
+  website: https://www.coinzip.com/annandale-coin-show
+  organizer: ''
+  notes: ''
+- id: vna-convention-coin-show
+  name: VNA Convention & Coin Show
+  state: VA
+  state_name: Virginia
+  city: Fredericksburg
+  city_slug: fredericksburg-va
+  venue: Fredericksburg Expo Center
+  frequency: Annual (September)
+  next_date: September 2026
+  website: http://www.vnaonline.org/
+  organizer: Virginia Numismatic Association
+  notes: ''
+- id: salemroanoke-valley-coin-show
+  name: Salem/Roanoke Valley Coin Show
+  state: VA
+  state_name: Virginia
+  city: Salem
+  city_slug: salem-va
+  venue: ''
+  frequency: Recurring
+  next_date: TBD
+  website: ''
+  organizer: ''
+  notes: ''
+- id: vienna-quarterly-coin-stamp-show
+  name: Vienna Quarterly Coin & Stamp Show
+  state: VA
+  state_name: Virginia
+  city: Vienna
+  city_slug: vienna-va
+  venue: Vienna Community Center
+  frequency: Quarterly
+  next_date: Apr 18th - 19th, 2026
+  website: https://www.CoinShows-USA.com/Vienna-Quarterly-Coin-Stamp-Show
+  organizer: ''
+  notes: 'Hours: Sat 10-5, Sun 10-3'
+- id: burlington-coin-show
+  name: Burlington Coin Show
+  state: VT
+  state_name: Vermont
+  city: South Burlington
+  city_slug: south-burlington-vt
+  venue: DoubleTree by Hilton
+  frequency: Annual (Winter)
+  next_date: TBD
+  website: https://www.coinshows-usa.com/Vermont
+  organizer: ''
+  notes: ''
 - id: boeing-employees-coin-club-show
-  name: "Boeing Employees Coin Club Show"
+  name: Boeing Employees Coin Club Show
   state: WA
   state_name: Washington
   city: Kent
   city_slug: kent-wa
-  venue: "Kent Commons"
-  frequency: "Annual (January)"
-  next_date: "January 2026"
-  website: "http://www.becc.net/"
-  organizer: "Boeing Employees Coin Club"
-  notes: ""
-
-# West Virginia
-- id: kanawha-valley-coin-club-show
-  name: "Kanawha Valley Coin Club Show"
-  state: WV
-  state_name: West Virginia
-  city: Charleston
-  city_slug: charleston-wv
-  venue: "Tyler Mountain Community Center"
-  frequency: "Semiannual (Spring & Fall)"
-  next_date: "TBD"
-  website: "http://kvcc.eznetway.com/"
-  organizer: "Kanawha Valley Coin Club"
-  notes: ""
-
-# Wisconsin
-- id: numismatists-of-wisconsin-annual-show
-  name: "Numismatists of Wisconsin (NOW) Annual Show"
+  venue: Kent Commons
+  frequency: Annual (January)
+  next_date: January 2026
+  website: http://www.becc.net/
+  organizer: Boeing Employees Coin Club
+  notes: ''
+- id: northwest-token-medal-society-show
+  name: Northwest Token & Medal Society Show
+  state: WA
+  state_name: Washington
+  city: Olympia
+  city_slug: olympia-wa
+  venue: 'VFW Post #318 Hall'
+  frequency: Recurring
+  next_date: Apr 18th, 2026
+  website: https://www.CoinShows-USA.com/Northwest-Token-and-Medal-Society-Show
+  organizer: ''
+  notes: 'Hours: 8-11:30'
+- id: pnna-spring-convention
+  name: PNNA Spring Convention
+  state: WA
+  state_name: Washington
+  city: Tukwila
+  city_slug: tukwila-wa
+  venue: Tukwila Community Center
+  frequency: Annual (April)
+  next_date: April 2026
+  website: https://www.pnna.org/
+  organizer: Pacific Northwest Numismatic Association
+  notes: ''
+- id: chippewa-valley-coin-club-cvcc-coin-show
+  name: Chippewa Valley Coin Club (CVCC) Coin Show
   state: WI
   state_name: Wisconsin
-  city: Oshkosh
-  city_slug: oshkosh-wi
-  venue: "Oshkosh Convention Center"
-  frequency: "Annual (May)"
-  next_date: "May 2026"
-  website: "http://www.numismatistsofwisconsin.com/"
-  organizer: "Numismatists of Wisconsin"
-  notes: ""
-
+  city: Eau Claire
+  city_slug: eau-claire-wi
+  venue: Best Western Plus Eau Claire Conference Center
+  frequency: Recurring
+  next_date: Apr 19th, 2026
+  website: https://www.CoinShows-USA.com/Chippewa-Valley-Coin-Club-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sun 9-3'
 - id: milwaukee-numismatic-society-show
-  name: "Milwaukee Numismatic Society Show"
+  name: Milwaukee Numismatic Society Show
   state: WI
   state_name: Wisconsin
   city: Milwaukee
   city_slug: milwaukee-wi
-  venue: "Sheraton Milwaukee Brookfield"
-  frequency: "Annual (October)"
-  next_date: "October 2026"
-  website: "http://www.milwaukeenumismaticsociety.com/"
-  organizer: "Milwaukee Numismatic Society"
-  notes: ""
-
-# Wyoming
+  venue: Sheraton Milwaukee Brookfield
+  frequency: Annual (October)
+  next_date: October 2026
+  website: http://www.milwaukeenumismaticsociety.com/
+  organizer: Milwaukee Numismatic Society
+  notes: ''
+- id: numismatists-of-wisconsin-annual-show
+  name: Numismatists of Wisconsin (NOW) Annual Show
+  state: WI
+  state_name: Wisconsin
+  city: Oshkosh
+  city_slug: oshkosh-wi
+  venue: Oshkosh Convention Center
+  frequency: Annual (May)
+  next_date: May 2026
+  website: http://www.numismatistsofwisconsin.com/
+  organizer: Numismatists of Wisconsin
+  notes: ''
+- id: kanawha-valley-coin-club-show
+  name: Kanawha Valley Coin Club Show
+  state: WV
+  state_name: West Virginia
+  city: Charleston
+  city_slug: charleston-wv
+  venue: Tyler Mountain Community Center
+  frequency: Semiannual (Spring & Fall)
+  next_date: TBD
+  website: http://kvcc.eznetway.com/
+  organizer: Kanawha Valley Coin Club
+  notes: ''
+- id: river-city-coin-club-coin-show
+  name: River City Coin Club Coin Show
+  state: WV
+  state_name: West Virginia
+  city: Hurricane
+  city_slug: hurricane-wv
+  venue: Mount Vernon Baptist Church
+  frequency: Recurring
+  next_date: Apr 18th, 2026
+  website: https://www.CoinShows-USA.com/River-City-Coin-Club-Coin-Show
+  organizer: ''
+  notes: 'Hours: Sat 10-3'
 - id: cheyenne-coin-expo
-  name: "Cheyenne Coin Expo"
+  name: Cheyenne Coin Expo
   state: WY
   state_name: Wyoming
   city: Cheyenne
   city_slug: cheyenne-wy
-  venue: "Laramie County Community College"
-  frequency: "Annual (November)"
-  next_date: "November 2026"
-  website: "https://www.coinshows-usa.com/Wyoming"
-  organizer: "Cheyenne Coin Club"
-  notes: ""
+  venue: Laramie County Community College
+  frequency: Annual (November)
+  next_date: November 2026
+  website: https://www.coinshows-usa.com/Wyoming
+  organizer: Cheyenne Coin Club
+  notes: ''
