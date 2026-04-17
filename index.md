@@ -211,3 +211,60 @@ if (form) {
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a coin show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A coin show (also called a coin expo, coin convention, or numismatic bourse) is an event where coin dealers, collectors, and enthusiasts gather to buy, sell, and trade coins, paper currency, bullion, tokens, and other numismatic collectibles. Shows range from small local events with a handful of tables to major national conventions with hundreds of dealers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are coin shows free to attend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most local and regional coin shows are free to attend. Some larger national conventions may charge an admission fee, typically $5-$10 for a day pass. Many shows offer free admission for children and students."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I bring to a coin show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bring cash (most dealers prefer it and offer discounts), a loupe or magnifying glass to examine coins, any coins you want to sell or get appraised, and a budget you're comfortable with. A small notebook is also useful for tracking prices and dealer information."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I sell coins at a coin show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, coin shows are one of the best places to sell coins. Multiple dealers under one roof means you can get competing offers. Most dealers will give free appraisals and make offers on the spot. Use our Melt Value Calculator to know the minimum metal value of your silver and gold coins before attending."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find coin shows near me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coin Show Near Me maintains a directory of 90+ recurring coin shows across all 50 US states. Browse by state, check our 'This Weekend' page for upcoming events, or use the search to find shows in your area. Always verify dates on the official show website before traveling, as schedules can change."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the melt value of a coin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The melt value is the value of the precious metal content in a coin based on current spot prices. For example, a pre-1965 Washington quarter contains 0.1808 troy ounces of silver. Melt value is the minimum intrinsic value — many coins are worth more due to rarity, condition, and collector demand. Use our free Melt Value Calculator to check your coins."
+      }
+    }
+  ]
+}
+</script>
