@@ -1,176 +1,192 @@
-<!-- Hero Map Animation — SVG USA outline + animated coin show locations -->
-<!-- Uses Anime.js v3 (UMD) for SVG path drawing + staggered dot animations -->
+<!-- Hero Map — Canvas-based USA outline + animated coin show locations -->
+<!-- Pure vanilla JS + CSS — zero external dependencies -->
 
 <div class="hero-map-container" id="hero-map">
   <div class="hero-map-perspective">
-    <svg id="usa-map" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-      <!-- Continental US outline (simplified) -->
-      <path id="usa-outline" class="usa-outline-path" d="
-        M 120,82 L 90,120 78,175 72,230 68,280 82,340 110,372
-        L 155,395 205,405 250,400 300,438 340,460 380,478
-        L 430,492 490,482 540,475 575,468 615,458 645,462
-        L 660,470 680,500 700,528 712,520 715,490 710,450
-        L 710,420 718,395 725,370 745,348 768,328 788,308
-        L 810,278 828,262 842,248 852,225 860,212 868,200
-        L 878,204 882,210 878,196 870,175 868,158 878,138
-        L 885,118 892,95
-        L 888,88 855,128 830,165 815,178 790,195
-        L 762,208 738,218 715,228 690,230 665,222
-        L 640,218 615,210 590,200 565,195
-        L 545,180 530,162 520,148 500,135
-        L 475,122 445,118 410,120 380,118
-        L 340,115 300,108 265,105 225,100
-        L 185,88 155,84 Z
-      " fill="none" stroke="var(--coin-gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-
-      <!-- Show location dots and lines — generated from shows.yml by Liquid -->
-      <g id="show-lines">
-        {% for show in site.data.shows %}
-        <line class="show-line" data-state="{{ show.state }}"
-              x1="0" y1="0" x2="0" y2="0"
-              stroke="var(--coin-gold-light)" stroke-width="1" opacity="0"/>
-        {% endfor %}
-      </g>
-      <g id="show-dots">
-        {% for show in site.data.shows %}
-        <circle class="show-dot" data-state="{{ show.state }}" data-city="{{ show.city }}" data-id="{{ show.id }}"
-                cx="0" cy="0" r="0" fill="var(--coin-gold-light)" opacity="0"/>
-        {% endfor %}
-      </g>
-    </svg>
+    <canvas id="usa-canvas" width="900" height="520"></canvas>
   </div>
-
   <div class="hero-map-text">
     <span class="hero-map-count">{{ site.data.shows | size }}+</span> Coin Shows Across America
   </div>
 </div>
 
-<!-- Anime.js v3 — UMD build, reliable cross-browser -->
-<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
 <script>
 (function() {
-  // Wait for anime to be available
-  if (typeof anime === 'undefined') return;
+  var canvas = document.getElementById('usa-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width;
+  var H = canvas.height;
 
-  // State center coordinates on SVG viewBox (0 0 960 600)
-  var stateCoords = {
-    AL:[630,410], AZ:[200,385], AR:[530,395], CA:[88,300],
-    CO:[290,310], CT:[855,215], DE:[830,272], FL:[700,478],
-    GA:[680,405], ID:[190,185], IL:[575,290], IN:[620,280],
-    IA:[510,250], KS:[430,330], KY:[650,330], LA:[540,455],
-    ME:[882,118], MD:[810,278], MA:[868,198], MI:[615,225],
-    MN:[480,180], MS:[570,425], MO:[530,335], MT:[260,140],
-    NE:[410,268], NV:[145,280], NH:[868,162], NJ:[842,252],
-    NM:[255,395], NY:[828,195], NC:[735,350], ND:[410,155],
-    OH:[660,270], OK:[440,378], OR:[108,165], PA:[800,242],
-    RI:[875,208], SC:[715,378], SD:[405,208], TN:[630,360],
-    TX:[400,445], UT:[215,300], VT:[855,148], VA:[760,315],
-    WA:[135,108], WV:[720,300], WI:[545,200], WY:[285,230]
+  var GOLD = '#b8860b';
+  var GOLD_LIGHT = '#daa520';
+  var GOLD_GLOW = 'rgba(218,165,32,0.4)';
+
+  // State center coordinates on 900x520 canvas
+  var SC = {
+    AL:[590,385], AZ:[185,370], AR:[495,375], CA:[75,280],
+    CO:[270,295], CT:[805,205], DE:[780,260], FL:[660,445],
+    GA:[640,385], ID:[175,175], IL:[540,275], IN:[580,265],
+    IA:[475,235], KS:[400,315], KY:[610,315], LA:[505,430],
+    ME:[835,110], MD:[760,265], MA:[820,190], MI:[575,210],
+    MN:[450,170], MS:[535,400], MO:[495,320], MT:[240,130],
+    NE:[380,255], NV:[130,265], NH:[820,155], NJ:[790,240],
+    NM:[240,375], NY:[780,185], NC:[690,335], ND:[380,145],
+    OH:[620,255], OK:[410,360], OR:[100,155], PA:[750,230],
+    RI:[825,200], SC2:[675,360], SD:[375,195], TN:[590,345],
+    TX:[370,425], UT:[200,285], VT:[805,140], VA:[715,300],
+    WA:[125,100], WV:[675,285], WI:[510,190], WY:[265,215]
   };
+  // SC (South Carolina) conflicts with variable name, alias it
+  SC['SC'] = [675,360];
 
-  // Simple hash for deterministic city-based offset
   function cityHash(str) {
     var h = 0;
-    for (var i = 0; i < str.length; i++) {
-      h = ((h << 5) - h + str.charCodeAt(i)) | 0;
-    }
+    for (var i = 0; i < str.length; i++) h = ((h << 5) - h + str.charCodeAt(i)) | 0;
     return h;
   }
 
-  // Position all dots and lines
-  var dots = document.querySelectorAll('.show-dot');
-  var lines = document.querySelectorAll('.show-line');
-  var stateIndex = {};
+  // Show data from Liquid
+  var shows = [{% for show in site.data.shows %}{s:"{{ show.state }}",c:"{{ show.city | replace: '"', '' | replace: "'", '' }}"}{% unless forloop.last %},{% endunless %}{% endfor %}];
 
-  dots.forEach(function(dot, i) {
-    var state = dot.getAttribute('data-state');
-    var city = dot.getAttribute('data-city') || '';
-    var coords = stateCoords[state];
-    if (!coords) return;
-
-    stateIndex[state] = (stateIndex[state] || 0) + 1;
-    var idx = stateIndex[state];
-
-    var hash = cityHash(city + idx);
-    var offsetX = ((hash & 0xFF) / 255 - 0.5) * 40;
-    var offsetY = (((hash >> 8) & 0xFF) / 255 - 0.5) * 30;
-
-    var cx = coords[0] + offsetX;
-    var cy = coords[1] + offsetY;
-
-    dot.setAttribute('cx', cx);
-    dot.setAttribute('cy', cy);
-
-    var line = lines[i];
-    if (line) {
-      line.setAttribute('x1', cx);
-      line.setAttribute('y1', cy);
-      line.setAttribute('x2', cx);
-      line.setAttribute('y2', cy);
-    }
-  });
-
-  // SVG path draw setup
-  var outlinePath = document.getElementById('usa-outline');
-  var pathLength = outlinePath.getTotalLength();
-  outlinePath.style.strokeDasharray = pathLength;
-  outlinePath.style.strokeDashoffset = pathLength;
-  outlinePath.style.opacity = 0;
-
-  // === ANIMATION TIMELINE ===
-  var tl = anime.timeline({
-    easing: 'easeOutExpo'
-  });
-
-  // Phase 1: Draw USA outline
-  tl.add({
-    targets: outlinePath,
-    strokeDashoffset: [pathLength, 0],
-    opacity: [0, 0.7],
-    duration: 2500,
-    easing: 'easeInOutQuad'
-  }, 0);
-
-  // Trigger CSS background transition
-  document.getElementById('hero-map').classList.add('animate-bg');
-
-  // Phase 2: Lines shoot up from each show location
-  tl.add({
-    targets: '.show-line',
-    opacity: [
-      {value: 0.8, duration: 100},
-      {value: 0, duration: 500}
-    ],
-    y2: function(el) {
-      return parseFloat(el.getAttribute('y2')) - 30;
-    },
-    duration: 600,
-    delay: anime.stagger(12, {from: 'center'}),
-    easing: 'easeOutQuad'
-  }, 1500);
-
-  // Phase 3: Dots appear with pop-in
-  tl.add({
-    targets: '.show-dot',
-    opacity: [0, 1],
-    r: [0, 2.5],
-    duration: 400,
-    delay: anime.stagger(12, {from: 'center'}),
-    easing: 'easeOutBack'
-  }, 1700);
-
-  // Phase 4: Gentle twinkle loop (starts after dots are placed)
-  setTimeout(function() {
-    anime({
-      targets: '.show-dot',
-      opacity: [0.5, 1],
-      r: [2, 3.5],
-      duration: 2000,
-      delay: anime.stagger(30),
-      direction: 'alternate',
-      loop: true,
-      easing: 'easeInOutSine'
+  var positions = [];
+  var sIdx = {};
+  shows.forEach(function(sh) {
+    var c = SC[sh.s];
+    if (!c) return;
+    sIdx[sh.s] = (sIdx[sh.s] || 0) + 1;
+    var h = cityHash(sh.c + sIdx[sh.s]);
+    positions.push({
+      x: c[0] + ((h & 0xFF) / 255 - 0.5) * 35,
+      y: c[1] + (((h >> 8) & 0xFF) / 255 - 0.5) * 25
     });
-  }, 5000);
+  });
+  positions.sort(function(a, b) { return a.x - b.x; });
+
+  // Continental US boundary (hand-traced, ~120 points)
+  var border = [
+    [120,88],[110,105],[100,130],[92,155],[85,175],[78,200],
+    [72,225],[68,248],[65,270],[62,290],[63,305],[68,320],
+    [78,338],[92,352],[108,362],[125,370],[148,378],[175,383],
+    [200,387],[225,390],[248,392],[275,394],[298,398],
+    [318,408],[335,418],[352,428],[368,438],[385,448],
+    [405,458],[425,465],[448,470],[468,472],[488,468],
+    [505,462],[522,458],[538,455],[555,452],[572,450],
+    [590,448],[608,445],[625,442],[638,440],
+    // Florida
+    [648,445],[655,455],[660,470],[665,485],[670,498],[675,505],
+    [678,500],[680,490],[682,478],[680,465],[676,450],[672,438],
+    // East coast
+    [672,425],[675,412],[680,398],[688,382],[698,368],
+    [708,352],[720,340],[732,328],[745,318],
+    [758,308],[768,298],[778,288],[788,275],
+    [798,262],[808,248],[815,235],[812,222],
+    [808,210],[810,198],[815,190],[822,188],
+    [828,192],[830,188],[825,178],[820,168],
+    [818,158],[820,148],[825,138],[832,125],
+    [838,112],[842,100],[840,90],
+    // Canadian border west
+    [832,92],[818,100],[802,112],[788,125],
+    [772,140],[758,155],[745,168],[732,178],
+    [718,188],[705,195],[692,202],[678,208],
+    [662,212],[648,215],[632,212],[618,208],
+    [602,200],[588,195],[572,188],[558,182],
+    [542,175],[528,168],[515,160],[502,152],
+    [488,145],[472,140],[455,135],[438,130],
+    [418,128],[398,125],[378,122],[358,120],
+    [338,118],[318,115],[298,112],[278,108],
+    [258,105],[238,100],[218,96],[198,93],
+    [178,90],[158,88],[140,87],[120,88]
+  ];
+
+  // Animation
+  var t0 = null;
+  var total = positions.length;
+
+  function draw(ts) {
+    if (!t0) t0 = ts;
+    var el = ts - t0;
+    ctx.clearRect(0, 0, W, H);
+
+    // --- Outline draws in (0 - 2500ms) ---
+    var oP = Math.min(el / 2500, 1);
+    var pts = Math.floor(oP * border.length);
+    if (pts > 1) {
+      ctx.save();
+      ctx.strokeStyle = GOLD;
+      ctx.lineWidth = 1.5;
+      ctx.lineJoin = 'round';
+      ctx.globalAlpha = 0.4 + oP * 0.4;
+      ctx.shadowColor = GOLD_GLOW;
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.moveTo(border[0][0], border[0][1]);
+      for (var i = 1; i < pts; i++) ctx.lineTo(border[i][0], border[i][1]);
+      if (oP >= 1) ctx.closePath();
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // --- Dots + lines appear (1200ms - 4200ms) ---
+    var dStart = 1200;
+    var dDur = 3000;
+    var revealed = 0;
+    if (el > dStart) {
+      revealed = Math.min(Math.floor(((el - dStart) / dDur) * total), total);
+    }
+
+    for (var j = 0; j < revealed; j++) {
+      var p = positions[j];
+      var age = (el - dStart) - (j / total) * dDur;
+      if (age < 0) continue;
+
+      // Vertical line (0-200ms up, 200-500ms fade)
+      if (age < 500) {
+        var lUp = Math.min(age / 200, 1);
+        var lFade = age > 200 ? 1 - (age - 200) / 300 : 1;
+        ctx.save();
+        ctx.strokeStyle = GOLD_LIGHT;
+        ctx.lineWidth = 1;
+        ctx.globalAlpha = lFade * 0.6;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p.x, p.y - lUp * 18);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Dot (appears at 100ms, pops in over 250ms)
+      if (age > 100) {
+        var popAge = age - 100;
+        var pop = Math.min(popAge / 250, 1);
+        var eased = 1 - Math.pow(1 - pop, 3);
+        var r = eased * 2.5;
+        var alpha = eased;
+
+        // Twinkle after all dots placed
+        if (pop >= 1 && el > dStart + dDur + 800) {
+          var tw = el - (dStart + dDur + 800);
+          var wave = 0.5 + 0.5 * Math.sin(tw * 0.0018 + j * 0.7);
+          r = 1.8 + wave * 1.5;
+          alpha = 0.5 + wave * 0.5;
+        }
+
+        ctx.save();
+        ctx.fillStyle = GOLD_LIGHT;
+        ctx.globalAlpha = alpha;
+        ctx.shadowColor = GOLD_GLOW;
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  document.getElementById('hero-map').classList.add('animate-bg');
+  requestAnimationFrame(draw);
 })();
 </script>
