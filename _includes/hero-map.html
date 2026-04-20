@@ -1,161 +1,176 @@
 <!-- Hero Map Animation — SVG USA outline + animated coin show locations -->
-<!-- Uses Anime.js v4 for SVG path drawing + staggered dot animations -->
+<!-- Uses Anime.js v3 (UMD) for SVG path drawing + staggered dot animations -->
 
 <div class="hero-map-container" id="hero-map">
-  <svg id="usa-map" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-    <!-- Continental US outline (simplified) -->
-    <path id="usa-outline" class="usa-outline-path" d="
-      M 120,82 L 90,120 78,175 72,230 68,280 82,340 110,372
-      L 155,395 205,405 250,400 300,438 340,460 380,478
-      L 430,492 490,482 540,475 575,468 615,458 645,462
-      L 660,470 680,500 700,528 712,520 715,490 710,450
-      L 710,420 718,395 725,370 745,348 768,328 788,308
-      L 810,278 828,262 842,248 852,225 860,212 868,200
-      L 878,204 882,210 878,196 870,175 868,158 878,138
-      L 885,118 892,95
-      L 888,88 855,128 830,165 815,178 790,195
-      L 762,208 738,218 715,228 690,230 665,222
-      L 640,218 615,210 590,200 565,195
-      L 545,180 530,162 520,148 500,135
-      L 475,122 445,118 410,120 380,118
-      L 340,115 300,108 265,105 225,100
-      L 185,88 155,84 Z
-    " fill="none" stroke="var(--coin-gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-       stroke-dasharray="3000" stroke-dashoffset="3000" opacity="0"/>
+  <div class="hero-map-perspective">
+    <svg id="usa-map" viewBox="0 0 960 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <!-- Continental US outline (simplified) -->
+      <path id="usa-outline" class="usa-outline-path" d="
+        M 120,82 L 90,120 78,175 72,230 68,280 82,340 110,372
+        L 155,395 205,405 250,400 300,438 340,460 380,478
+        L 430,492 490,482 540,475 575,468 615,458 645,462
+        L 660,470 680,500 700,528 712,520 715,490 710,450
+        L 710,420 718,395 725,370 745,348 768,328 788,308
+        L 810,278 828,262 842,248 852,225 860,212 868,200
+        L 878,204 882,210 878,196 870,175 868,158 878,138
+        L 885,118 892,95
+        L 888,88 855,128 830,165 815,178 790,195
+        L 762,208 738,218 715,228 690,230 665,222
+        L 640,218 615,210 590,200 565,195
+        L 545,180 530,162 520,148 500,135
+        L 475,122 445,118 410,120 380,118
+        L 340,115 300,108 265,105 225,100
+        L 185,88 155,84 Z
+      " fill="none" stroke="var(--coin-gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 
-    <!-- Show location dots and lines — generated from shows.yml by Liquid -->
-    <g id="show-lines">
-      {% for show in site.data.shows %}
-      <line class="show-line" data-state="{{ show.state }}"
-            x1="0" y1="0" x2="0" y2="0"
-            stroke="var(--coin-gold-light)" stroke-width="1" opacity="0"/>
-      {% endfor %}
-    </g>
-    <g id="show-dots">
-      {% for show in site.data.shows %}
-      <circle class="show-dot" data-state="{{ show.state }}" data-city="{{ show.city }}" data-id="{{ show.id }}"
-              cx="0" cy="0" r="2.5" fill="var(--coin-gold-light)" opacity="0"/>
-      {% endfor %}
-    </g>
-  </svg>
+      <!-- Show location dots and lines — generated from shows.yml by Liquid -->
+      <g id="show-lines">
+        {% for show in site.data.shows %}
+        <line class="show-line" data-state="{{ show.state }}"
+              x1="0" y1="0" x2="0" y2="0"
+              stroke="var(--coin-gold-light)" stroke-width="1" opacity="0"/>
+        {% endfor %}
+      </g>
+      <g id="show-dots">
+        {% for show in site.data.shows %}
+        <circle class="show-dot" data-state="{{ show.state }}" data-city="{{ show.city }}" data-id="{{ show.id }}"
+                cx="0" cy="0" r="0" fill="var(--coin-gold-light)" opacity="0"/>
+        {% endfor %}
+      </g>
+    </svg>
+  </div>
 
   <div class="hero-map-text">
     <span class="hero-map-count">{{ site.data.shows | size }}+</span> Coin Shows Across America
   </div>
 </div>
 
-<script type="module">
-import { animate, createTimeline, stagger, svg } from 'https://cdn.jsdelivr.net/npm/animejs@4/+esm';
+<!-- Anime.js v3 — UMD build, reliable cross-browser -->
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script>
+(function() {
+  // Wait for anime to be available
+  if (typeof anime === 'undefined') return;
 
-// State center coordinates on the SVG viewBox (0 0 960 600)
-// Approximate Albers projection positions
-const stateCoords = {
-  AL:[630,410], AZ:[200,385], AR:[530,395], CA:[88,300],
-  CO:[290,310], CT:[855,215], DE:[830,272], FL:[700,478],
-  GA:[680,405], ID:[190,185], IL:[575,290], IN:[620,280],
-  IA:[510,250], KS:[430,330], KY:[650,330], LA:[540,455],
-  ME:[882,118], MD:[810,278], MA:[868,198], MI:[615,225],
-  MN:[480,180], MS:[570,425], MO:[530,335], MT:[260,140],
-  NE:[410,268], NV:[145,280], NH:[868,162], NJ:[842,252],
-  NM:[255,395], NY:[828,195], NC:[735,350], ND:[410,155],
-  OH:[660,270], OK:[440,378], OR:[108,165], PA:[800,242],
-  RI:[875,208], SC:[715,378], SD:[405,208], TN:[630,360],
-  TX:[400,445], UT:[215,300], VT:[855,148], VA:[760,315],
-  WA:[135,108], WV:[720,300], WI:[545,200], WY:[285,230]
-};
+  // State center coordinates on SVG viewBox (0 0 960 600)
+  var stateCoords = {
+    AL:[630,410], AZ:[200,385], AR:[530,395], CA:[88,300],
+    CO:[290,310], CT:[855,215], DE:[830,272], FL:[700,478],
+    GA:[680,405], ID:[190,185], IL:[575,290], IN:[620,280],
+    IA:[510,250], KS:[430,330], KY:[650,330], LA:[540,455],
+    ME:[882,118], MD:[810,278], MA:[868,198], MI:[615,225],
+    MN:[480,180], MS:[570,425], MO:[530,335], MT:[260,140],
+    NE:[410,268], NV:[145,280], NH:[868,162], NJ:[842,252],
+    NM:[255,395], NY:[828,195], NC:[735,350], ND:[410,155],
+    OH:[660,270], OK:[440,378], OR:[108,165], PA:[800,242],
+    RI:[875,208], SC:[715,378], SD:[405,208], TN:[630,360],
+    TX:[400,445], UT:[215,300], VT:[855,148], VA:[760,315],
+    WA:[135,108], WV:[720,300], WI:[545,200], WY:[285,230]
+  };
 
-// Simple hash function for deterministic city-based offset
-function cityHash(city) {
-  let h = 0;
-  for (let i = 0; i < city.length; i++) {
-    h = ((h << 5) - h + city.charCodeAt(i)) | 0;
+  // Simple hash for deterministic city-based offset
+  function cityHash(str) {
+    var h = 0;
+    for (var i = 0; i < str.length; i++) {
+      h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+    }
+    return h;
   }
-  return h;
-}
 
-// Position dots and lines based on state + city offset
-const dots = document.querySelectorAll('.show-dot');
-const lines = document.querySelectorAll('.show-line');
+  // Position all dots and lines
+  var dots = document.querySelectorAll('.show-dot');
+  var lines = document.querySelectorAll('.show-line');
+  var stateIndex = {};
 
-// Track per-state counts for spreading dots
-const stateIndex = {};
+  dots.forEach(function(dot, i) {
+    var state = dot.getAttribute('data-state');
+    var city = dot.getAttribute('data-city') || '';
+    var coords = stateCoords[state];
+    if (!coords) return;
 
-dots.forEach((dot, i) => {
-  const state = dot.dataset.state;
-  const city = dot.dataset.city || '';
-  const coords = stateCoords[state];
-  if (!coords) return;
+    stateIndex[state] = (stateIndex[state] || 0) + 1;
+    var idx = stateIndex[state];
 
-  // Increment per-state counter
-  stateIndex[state] = (stateIndex[state] || 0) + 1;
-  const idx = stateIndex[state];
+    var hash = cityHash(city + idx);
+    var offsetX = ((hash & 0xFF) / 255 - 0.5) * 40;
+    var offsetY = (((hash >> 8) & 0xFF) / 255 - 0.5) * 30;
 
-  // Deterministic offset from city name hash
-  const hash = cityHash(city + idx);
-  const offsetX = ((hash & 0xFF) / 255 - 0.5) * 40;
-  const offsetY = (((hash >> 8) & 0xFF) / 255 - 0.5) * 30;
+    var cx = coords[0] + offsetX;
+    var cy = coords[1] + offsetY;
 
-  const cx = coords[0] + offsetX;
-  const cy = coords[1] + offsetY;
+    dot.setAttribute('cx', cx);
+    dot.setAttribute('cy', cy);
 
-  dot.setAttribute('cx', cx);
-  dot.setAttribute('cy', cy);
+    var line = lines[i];
+    if (line) {
+      line.setAttribute('x1', cx);
+      line.setAttribute('y1', cy);
+      line.setAttribute('x2', cx);
+      line.setAttribute('y2', cy);
+    }
+  });
 
-  // Position matching line
-  const line = lines[i];
-  if (line) {
-    line.setAttribute('x1', cx);
-    line.setAttribute('y1', cy);
-    line.setAttribute('x2', cx);
-    line.setAttribute('y2', cy - 25);
-  }
-});
+  // SVG path draw setup
+  var outlinePath = document.getElementById('usa-outline');
+  var pathLength = outlinePath.getTotalLength();
+  outlinePath.style.strokeDasharray = pathLength;
+  outlinePath.style.strokeDashoffset = pathLength;
+  outlinePath.style.opacity = 0;
 
-// === ANIMATION SEQUENCE ===
-const tl = createTimeline({
-  defaults: { ease: 'outExpo' }
-});
+  // === ANIMATION TIMELINE ===
+  var tl = anime.timeline({
+    easing: 'easeOutExpo'
+  });
 
-// Phase 1: Draw USA outline (2s)
-const outlinePath = document.getElementById('usa-outline');
-tl.add(outlinePath, {
-  opacity: [0, 0.6],
-  strokeDashoffset: [3000, 0],
-  duration: 2500,
-  ease: 'inOutQuad'
-}, 0);
+  // Phase 1: Draw USA outline
+  tl.add({
+    targets: outlinePath,
+    strokeDashoffset: [pathLength, 0],
+    opacity: [0, 0.7],
+    duration: 2500,
+    easing: 'easeInOutQuad'
+  }, 0);
 
-// Phase 2: Background gradient transition (handled by CSS animation triggered via class)
-document.getElementById('hero-map').classList.add('animate-bg');
+  // Trigger CSS background transition
+  document.getElementById('hero-map').classList.add('animate-bg');
 
-// Phase 3: Lines shoot up (staggered, 50ms apart)
-tl.add('.show-line', {
-  opacity: [0, 0.8, 0],
-  y2: function(el) {
-    return parseFloat(el.getAttribute('y2')) - 15;
-  },
-  duration: 600,
-  delay: stagger(15, { from: 'center' }),
-  ease: 'outQuad'
-}, 1800);
+  // Phase 2: Lines shoot up from each show location
+  tl.add({
+    targets: '.show-line',
+    opacity: [
+      {value: 0.8, duration: 100},
+      {value: 0, duration: 500}
+    ],
+    y2: function(el) {
+      return parseFloat(el.getAttribute('y2')) - 30;
+    },
+    duration: 600,
+    delay: anime.stagger(12, {from: 'center'}),
+    easing: 'easeOutQuad'
+  }, 1500);
 
-// Phase 4: Dots appear (staggered, starting slightly before lines finish)
-tl.add('.show-dot', {
-  opacity: [0, 1],
-  r: [0, 2.5],
-  duration: 400,
-  delay: stagger(15, { from: 'center' }),
-  ease: 'outBack'
-}, 2000);
+  // Phase 3: Dots appear with pop-in
+  tl.add({
+    targets: '.show-dot',
+    opacity: [0, 1],
+    r: [0, 2.5],
+    duration: 400,
+    delay: anime.stagger(12, {from: 'center'}),
+    easing: 'easeOutBack'
+  }, 1700);
 
-// Phase 5: Gentle twinkle loop on all dots (runs forever)
-tl.add('.show-dot', {
-  opacity: [0.6, 1],
-  r: [2, 3],
-  duration: 1500,
-  delay: stagger(50, { from: 'first' }),
-  loop: true,
-  alternate: true,
-  ease: 'inOutSine'
-}, '+=500');
+  // Phase 4: Gentle twinkle loop (starts after dots are placed)
+  setTimeout(function() {
+    anime({
+      targets: '.show-dot',
+      opacity: [0.5, 1],
+      r: [2, 3.5],
+      duration: 2000,
+      delay: anime.stagger(30),
+      direction: 'alternate',
+      loop: true,
+      easing: 'easeInOutSine'
+    });
+  }, 5000);
+})();
 </script>
