@@ -358,4 +358,68 @@ a.cta-btn:hover {
     font-size: 0.85rem;
   }
 }
+
+/* === Hero Map Animation === */
+.hero-map-container {
+  position: relative;
+  width: 100%;
+  padding: 2rem 1rem 1.5rem;
+  margin: -1rem -1rem 1.5rem -1rem;
+  background: #000000;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+.hero-map-container.animate-bg {
+  animation: heroBgFade 3s ease-out 0.5s forwards;
+}
+@keyframes heroBgFade {
+  0%   { background: #000000; }
+  100% { background: linear-gradient(180deg, #000000 0%, #0a1628 40%, var(--coin-navy) 100%); }
+}
+
+#usa-map {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.usa-outline-path {
+  filter: drop-shadow(0 0 6px rgba(218, 165, 32, 0.3));
+}
+
+.show-dot {
+  filter: drop-shadow(0 0 3px rgba(218, 165, 32, 0.6));
+}
+
+.show-line {
+  filter: drop-shadow(0 0 2px rgba(218, 165, 32, 0.4));
+}
+
+.hero-map-text {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  letter-spacing: 0.05em;
+}
+.hero-map-count {
+  color: var(--coin-gold-light);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+@media (max-width: 600px) {
+  .hero-map-container {
+    padding: 1.5rem 0.5rem 1rem;
+    margin: -0.5rem -0.5rem 1rem -0.5rem;
+  }
+  .hero-map-text {
+    font-size: 0.8rem;
+  }
+  .hero-map-count {
+    font-size: 1.1rem;
+  }
+}
 </style>
