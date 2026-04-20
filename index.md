@@ -7,6 +7,8 @@ permalink: /
 nav_order: 1
 ---
 
+{% include hero-map.html %}
+
 # Coin Shows Near Me
 
 <div class="launch-banner">
