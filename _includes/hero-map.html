@@ -1,9 +1,9 @@
-<!-- Hero Map — Canvas-based USA outline + animated coin show locations -->
+<!-- Hero Map — Canvas USA outline + animated coin show locations -->
 <!-- Pure vanilla JS + CSS — zero external dependencies -->
 
 <div class="hero-map-container" id="hero-map">
   <div class="hero-map-perspective">
-    <canvas id="usa-canvas" width="900" height="520"></canvas>
+    <canvas id="usa-canvas"></canvas>
   </div>
   <div class="hero-map-text">
     <span class="hero-map-count">{{ site.data.shows | size }}+</span> Coin Shows Across America
@@ -12,181 +12,180 @@
 
 <script>
 (function() {
-  var canvas = document.getElementById('usa-canvas');
-  if (!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var W = canvas.width;
-  var H = canvas.height;
+  try {
+    var canvas = document.getElementById('usa-canvas');
+    if (!canvas || !canvas.getContext) return;
 
-  var GOLD = '#b8860b';
-  var GOLD_LIGHT = '#daa520';
-  var GOLD_GLOW = 'rgba(218,165,32,0.4)';
+    // Set canvas size explicitly (CSS scales it via aspect-ratio)
+    canvas.width = 900;
+    canvas.height = 520;
+    var ctx = canvas.getContext('2d');
 
-  // State center coordinates on 900x520 canvas
-  var SC = {
-    AL:[590,385], AZ:[185,370], AR:[495,375], CA:[75,280],
-    CO:[270,295], CT:[805,205], DE:[780,260], FL:[660,445],
-    GA:[640,385], ID:[175,175], IL:[540,275], IN:[580,265],
-    IA:[475,235], KS:[400,315], KY:[610,315], LA:[505,430],
-    ME:[835,110], MD:[760,265], MA:[820,190], MI:[575,210],
-    MN:[450,170], MS:[535,400], MO:[495,320], MT:[240,130],
-    NE:[380,255], NV:[130,265], NH:[820,155], NJ:[790,240],
-    NM:[240,375], NY:[780,185], NC:[690,335], ND:[380,145],
-    OH:[620,255], OK:[410,360], OR:[100,155], PA:[750,230],
-    RI:[825,200], SC2:[675,360], SD:[375,195], TN:[590,345],
-    TX:[370,425], UT:[200,285], VT:[805,140], VA:[715,300],
-    WA:[125,100], WV:[675,285], WI:[510,190], WY:[265,215]
-  };
-  // SC (South Carolina) conflicts with variable name, alias it
-  SC['SC'] = [675,360];
+    var GOLD = '#b8860b';
+    var GOLD_LIGHT = '#daa520';
+    var GOLD_GLOW = 'rgba(218,165,32,0.4)';
 
-  function cityHash(str) {
-    var h = 0;
-    for (var i = 0; i < str.length; i++) h = ((h << 5) - h + str.charCodeAt(i)) | 0;
-    return h;
-  }
+    // State center coordinates on 900x520 canvas
+    var coords = {
+      AL:[590,385], AZ:[185,370], AR:[495,375], CA:[75,280],
+      CO:[270,295], CT:[805,205], DE:[780,260], FL:[660,445],
+      GA:[640,385], ID:[175,175], IL:[540,275], IN:[580,265],
+      IA:[475,235], KS:[400,315], KY:[610,315], LA:[505,430],
+      ME:[835,110], MD:[760,265], MA:[820,190], MI:[575,210],
+      MN:[450,170], MS:[535,400], MO:[495,320], MT:[240,130],
+      NE:[380,255], NV:[130,265], NH:[820,155], NJ:[790,240],
+      NM:[240,375], NY:[780,185], NC:[690,335], ND:[380,145],
+      OH:[620,255], OK:[410,360], OR:[100,155], PA:[750,230],
+      RI:[825,200], SC:[675,360], SD:[375,195], TN:[590,345],
+      TX:[370,425], UT:[200,285], VT:[805,140], VA:[715,300],
+      WA:[125,100], WV:[675,285], WI:[510,190], WY:[265,215]
+    };
 
-  // Show data from Liquid
-  var shows = [{% for show in site.data.shows %}{s:"{{ show.state }}",c:"{{ show.city | replace: '"', '' | replace: "'", '' }}"}{% unless forloop.last %},{% endunless %}{% endfor %}];
+    // Show data: just state abbreviations (safe — no special chars possible)
+    var showStates = [{% for show in site.data.shows %}"{{ show.state }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
 
-  var positions = [];
-  var sIdx = {};
-  shows.forEach(function(sh) {
-    var c = SC[sh.s];
-    if (!c) return;
-    sIdx[sh.s] = (sIdx[sh.s] || 0) + 1;
-    var h = cityHash(sh.c + sIdx[sh.s]);
-    positions.push({
-      x: c[0] + ((h & 0xFF) / 255 - 0.5) * 35,
-      y: c[1] + (((h >> 8) & 0xFF) / 255 - 0.5) * 25
-    });
-  });
-  positions.sort(function(a, b) { return a.x - b.x; });
-
-  // Continental US boundary (hand-traced, ~120 points)
-  var border = [
-    [120,88],[110,105],[100,130],[92,155],[85,175],[78,200],
-    [72,225],[68,248],[65,270],[62,290],[63,305],[68,320],
-    [78,338],[92,352],[108,362],[125,370],[148,378],[175,383],
-    [200,387],[225,390],[248,392],[275,394],[298,398],
-    [318,408],[335,418],[352,428],[368,438],[385,448],
-    [405,458],[425,465],[448,470],[468,472],[488,468],
-    [505,462],[522,458],[538,455],[555,452],[572,450],
-    [590,448],[608,445],[625,442],[638,440],
-    // Florida
-    [648,445],[655,455],[660,470],[665,485],[670,498],[675,505],
-    [678,500],[680,490],[682,478],[680,465],[676,450],[672,438],
-    // East coast
-    [672,425],[675,412],[680,398],[688,382],[698,368],
-    [708,352],[720,340],[732,328],[745,318],
-    [758,308],[768,298],[778,288],[788,275],
-    [798,262],[808,248],[815,235],[812,222],
-    [808,210],[810,198],[815,190],[822,188],
-    [828,192],[830,188],[825,178],[820,168],
-    [818,158],[820,148],[825,138],[832,125],
-    [838,112],[842,100],[840,90],
-    // Canadian border west
-    [832,92],[818,100],[802,112],[788,125],
-    [772,140],[758,155],[745,168],[732,178],
-    [718,188],[705,195],[692,202],[678,208],
-    [662,212],[648,215],[632,212],[618,208],
-    [602,200],[588,195],[572,188],[558,182],
-    [542,175],[528,168],[515,160],[502,152],
-    [488,145],[472,140],[455,135],[438,130],
-    [418,128],[398,125],[378,122],[358,120],
-    [338,118],[318,115],[298,112],[278,108],
-    [258,105],[238,100],[218,96],[198,93],
-    [178,90],[158,88],[140,87],[120,88]
-  ];
-
-  // Animation
-  var t0 = null;
-  var total = positions.length;
-
-  function draw(ts) {
-    if (!t0) t0 = ts;
-    var el = ts - t0;
-    ctx.clearRect(0, 0, W, H);
-
-    // --- Outline draws in (0 - 2500ms) ---
-    var oP = Math.min(el / 2500, 1);
-    var pts = Math.floor(oP * border.length);
-    if (pts > 1) {
-      ctx.save();
-      ctx.strokeStyle = GOLD;
-      ctx.lineWidth = 1.5;
-      ctx.lineJoin = 'round';
-      ctx.globalAlpha = 0.4 + oP * 0.4;
-      ctx.shadowColor = GOLD_GLOW;
-      ctx.shadowBlur = 10;
-      ctx.beginPath();
-      ctx.moveTo(border[0][0], border[0][1]);
-      for (var i = 1; i < pts; i++) ctx.lineTo(border[i][0], border[i][1]);
-      if (oP >= 1) ctx.closePath();
-      ctx.stroke();
-      ctx.restore();
+    // Build positions with deterministic offsets per state
+    var positions = [];
+    var stateIdx = {};
+    for (var i = 0; i < showStates.length; i++) {
+      var st = showStates[i];
+      var c = coords[st];
+      if (!c) continue;
+      stateIdx[st] = (stateIdx[st] || 0) + 1;
+      var idx = stateIdx[st];
+      // Deterministic spread within state area
+      var angle = idx * 2.399; // golden angle in radians
+      var dist = Math.sqrt(idx) * 8;
+      positions.push({
+        x: c[0] + Math.cos(angle) * dist,
+        y: c[1] + Math.sin(angle) * dist
+      });
     }
+    positions.sort(function(a, b) { return a.x - b.x; });
 
-    // --- Dots + lines appear (1200ms - 4200ms) ---
-    var dStart = 1200;
-    var dDur = 3000;
-    var revealed = 0;
-    if (el > dStart) {
-      revealed = Math.min(Math.floor(((el - dStart) / dDur) * total), total);
-    }
+    // Continental US boundary (~120 points, hand-traced)
+    var border = [
+      [120,88],[110,105],[100,130],[92,155],[85,175],[78,200],
+      [72,225],[68,248],[65,270],[62,290],[63,305],[68,320],
+      [78,338],[92,352],[108,362],[125,370],[148,378],[175,383],
+      [200,387],[225,390],[248,392],[275,394],[298,398],
+      [318,408],[335,418],[352,428],[368,438],[385,448],
+      [405,458],[425,465],[448,470],[468,472],[488,468],
+      [505,462],[522,458],[538,455],[555,452],[572,450],
+      [590,448],[608,445],[625,442],[638,440],
+      [648,445],[655,455],[660,470],[665,485],[670,498],[675,505],
+      [678,500],[680,490],[682,478],[680,465],[676,450],[672,438],
+      [672,425],[675,412],[680,398],[688,382],[698,368],
+      [708,352],[720,340],[732,328],[745,318],
+      [758,308],[768,298],[778,288],[788,275],
+      [798,262],[808,248],[815,235],[812,222],
+      [808,210],[810,198],[815,190],[822,188],
+      [828,192],[830,188],[825,178],[820,168],
+      [818,158],[820,148],[825,138],[832,125],
+      [838,112],[842,100],[840,90],
+      [832,92],[818,100],[802,112],[788,125],
+      [772,140],[758,155],[745,168],[732,178],
+      [718,188],[705,195],[692,202],[678,208],
+      [662,212],[648,215],[632,212],[618,208],
+      [602,200],[588,195],[572,188],[558,182],
+      [542,175],[528,168],[515,160],[502,152],
+      [488,145],[472,140],[455,135],[438,130],
+      [418,128],[398,125],[378,122],[358,120],
+      [338,118],[318,115],[298,112],[278,108],
+      [258,105],[238,100],[218,96],[198,93],
+      [178,90],[158,88],[140,87],[120,88]
+    ];
 
-    for (var j = 0; j < revealed; j++) {
-      var p = positions[j];
-      var age = (el - dStart) - (j / total) * dDur;
-      if (age < 0) continue;
+    var t0 = null;
+    var total = positions.length;
 
-      // Vertical line (0-200ms up, 200-500ms fade)
-      if (age < 500) {
-        var lUp = Math.min(age / 200, 1);
-        var lFade = age > 200 ? 1 - (age - 200) / 300 : 1;
+    function draw(ts) {
+      if (!t0) t0 = ts;
+      var el = ts - t0;
+      ctx.clearRect(0, 0, 900, 520);
+
+      // --- Outline draws in (0 - 2500ms) ---
+      var oP = Math.min(el / 2500, 1);
+      var pts = Math.floor(oP * border.length);
+      if (pts > 1) {
         ctx.save();
-        ctx.strokeStyle = GOLD_LIGHT;
-        ctx.lineWidth = 1;
-        ctx.globalAlpha = lFade * 0.6;
+        ctx.strokeStyle = GOLD;
+        ctx.lineWidth = 1.5;
+        ctx.lineJoin = 'round';
+        ctx.globalAlpha = 0.4 + oP * 0.4;
+        ctx.shadowColor = GOLD_GLOW;
+        ctx.shadowBlur = 10;
         ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        ctx.lineTo(p.x, p.y - lUp * 18);
+        ctx.moveTo(border[0][0], border[0][1]);
+        for (var i = 1; i < pts; i++) ctx.lineTo(border[i][0], border[i][1]);
+        if (oP >= 1) ctx.closePath();
         ctx.stroke();
         ctx.restore();
       }
 
-      // Dot (appears at 100ms, pops in over 250ms)
-      if (age > 100) {
-        var popAge = age - 100;
-        var pop = Math.min(popAge / 250, 1);
-        var eased = 1 - Math.pow(1 - pop, 3);
-        var r = eased * 2.5;
-        var alpha = eased;
+      // --- Dots + lines (1200ms - 4200ms) ---
+      var dStart = 1200;
+      var dDur = 3000;
+      var revealed = 0;
+      if (el > dStart) {
+        revealed = Math.min(Math.floor(((el - dStart) / dDur) * total), total);
+      }
 
-        // Twinkle after all dots placed
-        if (pop >= 1 && el > dStart + dDur + 800) {
-          var tw = el - (dStart + dDur + 800);
-          var wave = 0.5 + 0.5 * Math.sin(tw * 0.0018 + j * 0.7);
-          r = 1.8 + wave * 1.5;
-          alpha = 0.5 + wave * 0.5;
+      for (var j = 0; j < revealed; j++) {
+        var p = positions[j];
+        var age = (el - dStart) - (j / total) * dDur;
+        if (age < 0) continue;
+
+        // Vertical line shoots up then fades
+        if (age < 500) {
+          var lUp = Math.min(age / 200, 1);
+          var lFade = age > 200 ? 1 - (age - 200) / 300 : 1;
+          ctx.save();
+          ctx.strokeStyle = GOLD_LIGHT;
+          ctx.lineWidth = 1;
+          ctx.globalAlpha = lFade * 0.6;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p.x, p.y - lUp * 18);
+          ctx.stroke();
+          ctx.restore();
         }
 
-        ctx.save();
-        ctx.fillStyle = GOLD_LIGHT;
-        ctx.globalAlpha = alpha;
-        ctx.shadowColor = GOLD_GLOW;
-        ctx.shadowBlur = 6;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        // Dot pops in
+        if (age > 100) {
+          var pop = Math.min((age - 100) / 250, 1);
+          var eased = 1 - Math.pow(1 - pop, 3);
+          var r = eased * 2.5;
+          var alpha = eased;
+
+          // Twinkle after all dots are placed
+          if (pop >= 1 && el > dStart + dDur + 800) {
+            var tw = el - (dStart + dDur + 800);
+            var wave = 0.5 + 0.5 * Math.sin(tw * 0.0018 + j * 0.7);
+            r = 1.8 + wave * 1.5;
+            alpha = 0.5 + wave * 0.5;
+          }
+
+          ctx.save();
+          ctx.fillStyle = GOLD_LIGHT;
+          ctx.globalAlpha = alpha;
+          ctx.shadowColor = GOLD_GLOW;
+          ctx.shadowBlur = 6;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
       }
+
+      requestAnimationFrame(draw);
     }
 
+    document.getElementById('hero-map').classList.add('animate-bg');
     requestAnimationFrame(draw);
-  }
 
-  document.getElementById('hero-map').classList.add('animate-bg');
-  requestAnimationFrame(draw);
+  } catch(e) {
+    // Fail silently — page works fine without the animation
+  }
 })();
 </script>
