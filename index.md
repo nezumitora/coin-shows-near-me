@@ -176,7 +176,7 @@ if (form) {
 
 <script>
 // Load spot prices from pre-fetched JSON (updated hourly by GitHub Actions)
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   function formatPrice(price) {
     if (price == null) return '--';
     return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -192,8 +192,12 @@ if (form) {
     var days = Math.round(hrs / 24);
     return days + ' day' + (days > 1 ? 's' : '') + ' ago';
   }
-  fetch('/assets/data/spot-prices.json')
-    .then(function(r) { return r.json(); })
+  var jsonUrl = window.location.origin + '/assets/data/spot-prices.json';
+  fetch(jsonUrl)
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
     .then(function(data) {
       document.getElementById('spot-gold-price').textContent = formatPrice(data.gold);
       document.getElementById('spot-silver-price').textContent = formatPrice(data.silver);
@@ -201,13 +205,13 @@ if (form) {
       document.getElementById('spot-palladium-price').textContent = formatPrice(data.palladium);
       var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' · Spot prices per troy oz' : 'Spot prices per troy oz';
       document.getElementById('spot-ticker-updated').textContent = updated;
-      // Store prices globally for the melt calculator link
       window.SPOT_PRICES = data;
     })
-    .catch(function() {
+    .catch(function(err) {
+      console.error('Spot prices failed:', err);
       document.getElementById('spot-ticker-updated').textContent = 'Spot prices temporarily unavailable';
     });
-})();
+});
 </script>
 
 <script type="application/ld+json">
