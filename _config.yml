@@ -39,4 +39,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - TODO.md
+  - CHANGELOG.md
   - LICENSE

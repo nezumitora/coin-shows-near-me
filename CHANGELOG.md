@@ -1,5 +1,10 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Apr 26, 2026
+- v0.6.0: Excluded CHANGELOG from public site (was appearing in nav)
+- Fixed spot price ticker not loading (DOMContentLoaded + absolute URL)
+- v0.5.4: Reverted hero map, restored clean homepage
+
 ## Apr 17, 2026
 - Removed 51 competitor directory links from show website fields
 - Added GA4 + Microsoft Clarity analytics tracking
