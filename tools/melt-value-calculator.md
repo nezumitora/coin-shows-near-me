@@ -304,24 +304,24 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
 
 <script>
 (function() {
-  // Silver content in troy ounces per coin (90% silver coins)
+  /* Silver content in troy ounces per coin (90% silver coins) */
   var SILVER_CONTENT = {
-    dimes:    0.07234,   // 2.5g x 0.900 / 31.1035
-    quarters: 0.18084,   // 6.25g x 0.900 / 31.1035
-    halves:   0.36169,   // 12.5g x 0.900 / 31.1035
-    morgan:   0.77344,   // 26.73g x 0.900 / 31.1035
-    ase:      1.00000,   // 1 troy oz .999 fine
-    halves40: 0.14792    // 11.5g x 0.400 / 31.1035
+    dimes:    0.07234,   /* 2.5g x 0.900 / 31.1035 */
+    quarters: 0.18084,   /* 6.25g x 0.900 / 31.1035 */
+    halves:   0.36169,   /* 12.5g x 0.900 / 31.1035 */
+    morgan:   0.77344,   /* 26.73g x 0.900 / 31.1035 */
+    ase:      1.00000,   /* 1 troy oz .999 fine */
+    halves40: 0.14792    /* 11.5g x 0.400 / 31.1035 */
   };
 
   var GOLD_CONTENT = {
-    age1oz:    0.9167,   // AGE is 22k (91.67% gold), but contains exactly 1 oz fine gold
+    age1oz:    0.9167,   /* AGE is 22k (91.67% gold), but contains exactly 1 oz fine gold */
     ageHalf:   0.5000,
     ageQtr:    0.2500,
     ageTenth:  0.1000
   };
 
-  // Actually AGE contains exact fine gold weights:
+  /* Actually AGE contains exact fine gold weights: */
   GOLD_CONTENT.age1oz = 1.0000;
   GOLD_CONTENT.ageHalf = 0.5000;
   GOLD_CONTENT.ageQtr = 0.2500;
@@ -389,7 +389,7 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
       breakdownBody.innerHTML = html;
       breakdownArea.style.display = 'block';
 
-      // Auto-fill the offer form
+      /* Auto-fill the offer form */
       document.getElementById('offer-melt').value = formatUSD(total);
     } else {
       resultBox.style.display = 'none';
@@ -397,7 +397,7 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
     }
   });
 
-  // Offer form
+  /* Offer form */
   var offerForm = document.getElementById('offer-form');
   var offerSuccess = document.getElementById('offer-success');
 
@@ -425,12 +425,12 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
 
     if (!valid) return;
 
-    // For now, show success. In production, this would POST to an API.
+    /* For now, show success. In production, this would POST to an API. */
     offerForm.style.display = 'none';
     offerSuccess.style.display = 'block';
   });
 
-  // Auto-load spot prices from pre-fetched JSON
+  /* Auto-load spot prices from pre-fetched JSON */
   function formatTickerPrice(price) {
     if (price == null) return '--';
     return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -450,7 +450,7 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
   fetch('/assets/data/spot-prices.json')
     .then(function(r) { return r.json(); })
     .then(function(data) {
-      // Update calculator input fields
+      /* Update calculator input fields */
       if (data.silver) {
         document.getElementById('spot-silver').value = data.silver.toFixed(2);
         document.getElementById('silver-spot-note').textContent = 'Live price loaded · Updated ' + timeAgo(data.updated_at);
@@ -464,7 +464,7 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
         document.getElementById('gold-spot-note').textContent = 'Enter today\'s gold spot price per troy ounce.';
       }
 
-      // Update ticker display
+      /* Update ticker display */
       var el = function(id) { return document.getElementById(id); };
       el('calc-spot-gold-display').textContent = formatTickerPrice(data.gold);
       el('calc-spot-silver-display').textContent = formatTickerPrice(data.silver);

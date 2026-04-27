@@ -175,7 +175,7 @@ if (form) {
 </script>
 
 <script>
-// Load spot prices from pre-fetched JSON (updated hourly by GitHub Actions)
+/* Load spot prices from pre-fetched JSON (updated hourly by GitHub Actions) */
 document.addEventListener('DOMContentLoaded', function() {
   function formatPrice(price) {
     if (price == null) return '--';
