@@ -1,8 +1,21 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Apr 28, 2026
+- v0.7.0: Full homepage redesign — Nomads.com-inspired directory layout
+  - Custom full-width homepage (no more just-the-docs sidebar on homepage)
+  - Navy-to-light-blue gradient hero with search bar and stats
+  - Card-based show grid with state filter pills and search
+  - Grid/list view toggle
+  - Featured major shows section
+  - Browse by state grid
+  - Info section (what is a coin show + tips for first-timers)
+  - Redesigned signup CTA section
+  - Mobile-responsive throughout
+
 ## Apr 26, 2026
 - v0.6.0: Excluded CHANGELOG from public site (was appearing in nav)
 - Fixed spot price ticker not loading (DOMContentLoaded + absolute URL)
+- Fixed root cause: JS // comments killed by Jekyll line collapse (converted to /* */)
 - v0.5.4: Reverted hero map, restored clean homepage
 
 ## Apr 17, 2026
