@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.seo_title | default: page.title }}</title>
+{% include seo-meta.html %}
+<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+<link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png" type="image/png">
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-19GQEC65D5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-19GQEC65D5');
+</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "wdaqvs8glu");
+</script>
+
+<style>
+/* === Reset & Base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a2332;
+  --navy-light: #2c3e50;
+  --navy-mid: #34495e;
+  --gold: #b8860b;
+  --gold-light: #daa520;
+  --gold-pale: #f0e6c8;
+  --cream: #fdf8f0;
+  --warm-white: #fefcf8;
+  --warm-gray: #f5f0e8;
+  --text-dark: #2c2c2c;
+  --text-mid: #555;
+  --text-light: #888;
+  --border: #e5ddd0;
+  --shadow: rgba(26, 35, 50, 0.08);
+  --shadow-lg: rgba(26, 35, 50, 0.12);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-dark);
+  background: var(--warm-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold-light); }
+
+/* === Top Nav === */
+.top-nav {
+  background: var(--navy);
+  padding: 0.75rem 0;
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.top-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--gold-light);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.top-nav-logo img {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+}
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+.top-nav-links a {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.top-nav-links a:hover { color: var(--gold-light); }
+.nav-cta {
+  background: var(--gold) !important;
+  color: #fff !important;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; }
+
+/* Mobile nav toggle */
+.nav-toggle { display: none; background: none; border: none; color: var(--gold-light); font-size: 1.5rem; cursor: pointer; }
+
+/* === Hero === */
+.hero {
+  background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 40%, #4a6fa5 70%, #7ba0cc 85%, var(--cream) 100%);
+  padding: 3.5rem 1.5rem 3rem;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.hero h1 span { color: var(--gold-light); }
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #c8d6e5;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  display: block;
+}
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* === Search Bar === */
+.search-wrap {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+.search-input {
+  width: 100%;
+  padding: 1rem 1.25rem 1rem 3rem;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  font-size: 1.05rem;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  outline: none;
+  transition: all 0.3s;
+  backdrop-filter: blur(8px);
+}
+.search-input::placeholder { color: #94a3b8; }
+.search-input:focus {
+  border-color: var(--gold-light);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 0 0 4px rgba(218,165,32,0.15);
+}
+.search-icon {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+/* === Spot Ticker === */
+.spot-ticker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+.spot-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.spot-ticker-label {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.spot-ticker-price {
+  color: var(--gold-light);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.spot-ticker-sep { color: #475569; }
+.spot-ticker-updated {
+  width: 100%;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+}
+
+/* === Filter Bar === */
+.filter-section {
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 52px;
+  z-index: 90;
+}
+.filter-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.filter-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  white-space: nowrap;
+}
+.filter-pills {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.filter-pill {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-mid);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  user-select: none;
+}
+.filter-pill:hover { border-color: var(--gold); color: var(--gold); }
+.filter-pill.active {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+.filter-count {
+  background: var(--gold-pale);
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  margin-left: 0.25rem;
+}
+.view-toggles {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+.view-btn {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--text-mid);
+  transition: all 0.2s;
+}
+.view-btn:hover { border-color: var(--gold); }
+.view-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* === Show Count === */
+.results-bar {
+  max-width: 1200px;
+  margin: 1.5rem auto 1rem;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.results-count {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+.results-count strong { color: var(--text-dark); }
+
+/* === Card Grid === */
+.shows-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.show-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.show-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.show-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.show-card-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+  flex: 1;
+}
+.show-card-name a { color: var(--text-dark); }
+.show-card-name a:hover { color: var(--gold); }
+.show-card-state-badge {
+  background: var(--gold-pale);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+.show-card-location {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.show-card-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+.show-card-tag {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: var(--warm-gray);
+  color: var(--text-mid);
+}
+.show-card-tag.date-tag {
+  background: #e8f4e8;
+  color: #2d6a2e;
+  font-weight: 600;
+}
+.show-card-tag.tbd-tag {
+  background: #fef3cd;
+  color: #856404;
+}
+.show-card-notes {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+.show-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* === Featured Section === */
+.featured-section {
+  background: var(--warm-gray);
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.featured-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.section-subtitle {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1rem;
+}
+.featured-card {
+  background: #fff;
+  border: 2px solid var(--gold-pale);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.25s;
+  position: relative;
+}
+.featured-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px var(--shadow-lg);
+}
+.featured-card .show-card-name { font-size: 1.1rem; }
+.featured-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+/* === State Grid Section === */
+.states-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+.state-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: all 0.2s;
+}
+.state-link:hover {
+  border-color: var(--gold);
+  background: var(--gold-pale);
+  color: var(--gold);
+}
+.state-link-count {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* === Info Section === */
+.info-section {
+  background: var(--warm-gray);
+  padding: 3rem 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.info-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.info-block h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+.info-block p, .info-block li {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.info-block ul {
+  list-style: none;
+  padding: 0;
+}
+.info-block li {
+  padding: 0.35rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+.info-block li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+.tips-list { counter-reset: tips; }
+.tips-list li { padding-left: 1.75rem; }
+.tips-list li::before {
+  content: counter(tips);
+  counter-increment: tips;
+  background: var(--gold);
+  color: #fff;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+}
+
+/* === CTA / Signup Section === */
+.cta-section {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+.cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.cta-section h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+.cta-section h2 span { color: var(--gold-light); }
+.cta-section p {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.cta-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cta-form input[type="text"],
+.cta-form input[type="email"] {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  outline: none;
+}
+.cta-form input::placeholder { color: #94a3b8; }
+.cta-form input:focus { border-color: var(--gold-light); }
+.cta-form textarea {
+  width: 100%;
+  min-height: 70px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+}
+.cta-form textarea::placeholder { color: #94a3b8; }
+.cta-form textarea:focus { border-color: var(--gold-light); }
+.cta-form button {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cta-form button:hover { background: var(--gold-light); }
+.cta-success {
+  display: none;
+  background: #065f46;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* === Footer === */
+.site-footer {
+  background: var(--navy);
+  color: #94a3b8;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 2px solid var(--gold);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-links {
+  margin-bottom: 0.75rem;
+}
+.footer-links a {
+  color: #94a3b8;
+  margin: 0 0.75rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-copy { font-size: 0.75rem; color: #64748b; }
+.footer-version {
+  font-size: 0.65rem;
+  color: #475569;
+  margin-top: 0.5rem;
+}
+
+/* === No Results === */
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-light);
+  display: none;
+}
+.no-results h3 { color: var(--text-mid); margin-bottom: 0.5rem; }
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .top-nav-links { display: none; }
+  .top-nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    padding: 1rem 1.5rem;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-toggle { display: block; }
+
+  .hero { padding: 2.5rem 1rem 2rem; }
+  .hero h1 { font-size: 1.7rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .hero-stats { gap: 1.25rem; }
+  .hero-stat-num { font-size: 1.4rem; }
+
+  .filter-section { top: 48px; }
+  .filter-pills { max-height: 40px; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .filter-pills::-webkit-scrollbar { display: none; }
+  .view-toggles { display: none; }
+
+  .card-grid { grid-template-columns: 1fr; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .state-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .info-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+  .cta-form { flex-direction: column; }
+  .cta-form input[type="email"],
+  .cta-form input[type="text"] { min-width: 100%; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* === Utility === */
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a href="/" class="top-nav-logo">
+      <img src="{{ site.baseurl }}/assets/images/logo.png" alt="Coin Show Near Me">
+      <span>Coin Show Near Me</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
+    <ul class="top-nav-links" id="nav-links">
+      <li><a href="/states/">Browse by State</a></li>
+      <li><a href="/coin-shows-this-weekend/">This Weekend</a></li>
+      <li><a href="/tools/melt-value-calculator/" class="nav-cta">Melt Calculator</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Find <span>Coin Shows</span> Near You</h1>
+  <p class="hero-subtitle">The most complete directory of coin shows in the United States. Browse {{ site.data.shows | size }}+ shows across all 50 states.</p>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">{{ site.data.shows | size }}+</span>
+      <span class="hero-stat-label">Shows Listed</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">50</span>
+      <span class="hero-stat-label">States</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">160+</span>
+      <span class="hero-stat-label">Cities</span>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" class="search-input" id="show-search" placeholder="Search by show name, city, or state...">
+  </div>
+
+  <div class="spot-ticker" id="spot-ticker">
+    <div class="spot-ticker-item">
+      <span class="spot-ticker-label">Gold</span>
+      <span class="spot-ticker-price" id="spot-gold-price">--</span>
+    </div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item">
+      <span class="spot-ticker-label">Silver</span>
+      <span class="spot-ticker-price" id="spot-silver-price">--</span>
+    </div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item">
+      <span class="spot-ticker-label">Platinum</span>
+      <span class="spot-ticker-price" id="spot-platinum-price">--</span>
+    </div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item">
+      <span class="spot-ticker-label">Palladium</span>
+      <span class="spot-ticker-price" id="spot-palladium-price">--</span>
+    </div>
+    <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
+  </div>
+</section>
+
+<!-- Filter Bar -->
+<section class="filter-section" id="filter-section">
+  <div class="filter-inner">
+    <span class="filter-label">Filter:</span>
+    <div class="filter-pills" id="filter-pills">
+      <span class="filter-pill active" data-state="all">All States</span>
+      {% for state in site.data.states %}
+        {% assign sc = site.data.shows | where: "state", state.abbrev | size %}
+        {% if sc > 0 %}
+        <span class="filter-pill" data-state="{{ state.abbrev }}">{{ state.abbrev }}<span class="filter-count">{{ sc }}</span></span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="view-toggles">
+      <button class="view-btn active" data-view="grid" title="Grid view">&#9638; Grid</button>
+      <button class="view-btn" data-view="list" title="List view">&#9776; List</button>
+    </div>
+  </div>
+</section>
+
+<!-- Results Count -->
+<div class="results-bar">
+  <div class="results-count" id="results-count">
+    Showing <strong id="showing-count">{{ site.data.shows | size }}</strong> coin shows
+  </div>
+</div>
+
+<!-- Show Cards -->
+<section class="shows-section">
+  <div class="card-grid" id="card-grid">
+    {% for show in site.data.shows %}
+    <div class="show-card" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}">
+      <a href="{{ site.baseurl }}/shows/{{ show.id }}/" class="show-card-link" aria-label="{{ show.name }}"></a>
+      <div class="show-card-header">
+        <div class="show-card-name">
+          <a href="{{ site.baseurl }}/shows/{{ show.id }}/">{{ show.name }}</a>
+        </div>
+        <span class="show-card-state-badge">{{ show.state }}</span>
+      </div>
+      <div class="show-card-location">
+        &#128205; {{ show.city }}, {{ show.state_name }}{% if show.venue and show.venue != "" %} &mdash; {{ show.venue }}{% endif %}
+      </div>
+      <div class="show-card-details">
+        {% if show.next_date and show.next_date != "TBD" %}
+        <span class="show-card-tag date-tag">{{ show.next_date }}</span>
+        {% else %}
+        <span class="show-card-tag tbd-tag">Date TBD</span>
+        {% endif %}
+        {% if show.frequency and show.frequency != "" %}
+        <span class="show-card-tag">{{ show.frequency }}</span>
+        {% endif %}
+      </div>
+      {% if show.notes and show.notes != "" %}
+      <div class="show-card-notes">{{ show.notes }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="no-results" id="no-results">
+    <h3>No shows found</h3>
+    <p>Try a different search or filter.</p>
+  </div>
+</section>
+
+<!-- Featured Shows -->
+<section class="featured-section">
+  <div class="featured-inner">
+    <h2 class="section-title">Featured Major Coin Shows</h2>
+    <p class="section-subtitle">The largest and most well-known coin shows in the US — worth traveling to.</p>
+    <div class="featured-grid">
+      {% assign featured_ids = "fun-convention,long-beach-expo,whitman-coin-expo,csns-convention,nyinc,pan-coin-show,ana-worlds-fair" | split: "," %}
+      {% for fid in featured_ids %}
+        {% for show in site.data.shows %}
+          {% if show.id == fid %}
+          <div class="featured-card">
+            <span class="featured-badge">Major Show</span>
+            <div class="show-card-header">
+              <div class="show-card-name">
+                <a href="{{ site.baseurl }}/shows/{{ show.id }}/">{{ show.name }}</a>
+              </div>
+              <span class="show-card-state-badge">{{ show.state }}</span>
+            </div>
+            <div class="show-card-location">
+              &#128205; {{ show.city }}, {{ show.state_name }}{% if show.venue and show.venue != "" %} &mdash; {{ show.venue }}{% endif %}
+            </div>
+            <div class="show-card-details">
+              {% if show.next_date and show.next_date != "TBD" %}
+              <span class="show-card-tag date-tag">{{ show.next_date }}</span>
+              {% else %}
+              <span class="show-card-tag tbd-tag">Date TBD</span>
+              {% endif %}
+              <span class="show-card-tag">{{ show.frequency }}</span>
+            </div>
+            {% if show.notes and show.notes != "" %}
+            <div class="show-card-notes">{{ show.notes }}</div>
+            {% endif %}
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Browse by State -->
+<section class="states-section">
+  <h2 class="section-title">Browse by State</h2>
+  <p class="section-subtitle">Find coin shows in your state.</p>
+  <div class="state-grid">
+    {% for state in site.data.states %}
+      {% assign state_count = site.data.shows | where: "state", state.abbrev | size %}
+      {% if state_count > 0 %}
+      <a href="{{ site.baseurl }}/states/{{ state.slug }}/" class="state-link">
+        {{ state.name }}
+        <span class="state-link-count">{{ state_count }}</span>
+      </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Info Sections -->
+<section class="info-section">
+  <div class="info-inner">
+    <div class="info-block">
+      <h2>What is a Coin Show?</h2>
+      <p>A coin show is an event where dealers, collectors, and enthusiasts gather to buy, sell, and trade coins, currency, bullion, and other numismatic collectibles. Shows range from small local events to major national conventions with hundreds of dealers.</p>
+      <ul style="margin-top:0.75rem;">
+        <li>Dealers selling US and world coins, currency, gold and silver bullion</li>
+        <li>Free appraisals from experienced dealers</li>
+        <li>Education talks, presentations, and youth programs</li>
+        <li>Networking with collectors and local coin clubs</li>
+      </ul>
+    </div>
+    <div class="info-block">
+      <h2>Tips for First-Time Attendees</h2>
+      <ul class="tips-list">
+        <li>Bring cash — most dealers prefer it and offer discounts</li>
+        <li>Arrive early for the best deals, especially at smaller shows</li>
+        <li>Bring a loupe or magnifying glass to examine coins</li>
+        <li>Set a budget before you go — it's easy to overspend</li>
+        <li>Ask questions — dealers are happy to educate newcomers</li>
+        <li>Always verify dates before traveling — shows can change</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / Signup -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Stay in the <span>Loop</span></h2>
+    <p>Get notified when we launch new features, or submit a show we're missing.</p>
+    <form class="cta-form" id="notify-form" action="https://formspree.io/f/mykleozw" method="POST">
+      <input type="hidden" name="_subject" value="Coin Show Near Me — New Signup">
+      <input type="text" name="name" placeholder="Name (optional)">
+      <input type="email" name="email" placeholder="Email address" required>
+      <textarea name="message" placeholder="Questions, show submissions, or feedback (optional)"></textarea>
+      <button type="submit">Sign Up for Updates</button>
+    </form>
+    <div class="cta-success" id="notify-success">
+      Thank you! We'll notify you when we launch. If you submitted a show or question, we'll get back to you shortly.
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/legal/terms-of-use/">Terms of Use</a>
+      <a href="/legal/privacy-policy/">Privacy Policy</a>
+      <a href="/legal/disclaimer/">Disclaimer</a>
+      <a href="/legal/">Legal</a>
+    </div>
+    <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
+    <div class="footer-version">v0.7.0</div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script>
+/* Mobile nav toggle */
+document.getElementById('nav-toggle').addEventListener('click', function() {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+/* State filter */
+(function() {
+  var pills = document.querySelectorAll('.filter-pill');
+  var cards = document.querySelectorAll('.show-card');
+  var countEl = document.getElementById('showing-count');
+  var noResults = document.getElementById('no-results');
+  var searchInput = document.getElementById('show-search');
+  var activeState = 'all';
+  var searchTerm = '';
+
+  function filterCards() {
+    var visible = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      var stateMatch = (activeState === 'all') || (card.getAttribute('data-state') === activeState);
+      var searchMatch = true;
+      if (searchTerm) {
+        var name = card.getAttribute('data-name') || '';
+        var city = card.getAttribute('data-city') || '';
+        var stateName = card.getAttribute('data-state-name') || '';
+        var state = (card.getAttribute('data-state') || '').toLowerCase();
+        searchMatch = name.indexOf(searchTerm) !== -1 || city.indexOf(searchTerm) !== -1 || stateName.indexOf(searchTerm) !== -1 || state.indexOf(searchTerm) !== -1;
+      }
+      if (stateMatch && searchMatch) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    }
+    countEl.textContent = visible;
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  for (var i = 0; i < pills.length; i++) {
+    pills[i].addEventListener('click', function() {
+      for (var j = 0; j < pills.length; j++) { pills[j].classList.remove('active'); }
+      this.classList.add('active');
+      activeState = this.getAttribute('data-state');
+      filterCards();
+    });
+  }
+
+  searchInput.addEventListener('input', function() {
+    searchTerm = this.value.toLowerCase().trim();
+    filterCards();
+  });
+})();
+
+/* View toggle (grid/list) */
+(function() {
+  var btns = document.querySelectorAll('.view-btn');
+  var grid = document.getElementById('card-grid');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function() {
+      for (var j = 0; j < btns.length; j++) { btns[j].classList.remove('active'); }
+      this.classList.add('active');
+      if (this.getAttribute('data-view') === 'list') {
+        grid.style.gridTemplateColumns = '1fr';
+      } else {
+        grid.style.gridTemplateColumns = '';
+      }
+    });
+  }
+})();
+
+/* Signup form */
+(function() {
+  var form = document.getElementById('notify-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('notify-success').style.display = 'block';
+        }
+      });
+    });
+  }
+})();
+
+/* Spot prices */
+document.addEventListener('DOMContentLoaded', function() {
+  function formatPrice(price) {
+    if (price == null) return '--';
+    return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  function timeAgo(dateStr) {
+    var now = new Date();
+    var then = new Date(dateStr);
+    var mins = Math.round((now - then) / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return mins + ' min ago';
+    var hrs = Math.round(mins / 60);
+    if (hrs < 24) return hrs + ' hr' + (hrs > 1 ? 's' : '') + ' ago';
+    var days = Math.round(hrs / 24);
+    return days + ' day' + (days > 1 ? 's' : '') + ' ago';
+  }
+  var jsonUrl = window.location.origin + '/assets/data/spot-prices.json';
+  fetch(jsonUrl)
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      document.getElementById('spot-gold-price').textContent = formatPrice(data.gold);
+      document.getElementById('spot-silver-price').textContent = formatPrice(data.silver);
+      document.getElementById('spot-platinum-price').textContent = formatPrice(data.platinum);
+      document.getElementById('spot-palladium-price').textContent = formatPrice(data.palladium);
+      var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' . Spot prices per troy oz' : 'Spot prices per troy oz';
+      document.getElementById('spot-ticker-updated').textContent = updated;
+      window.SPOT_PRICES = data;
+    })
+    .catch(function(err) {
+      console.error('Spot prices failed:', err);
+      document.getElementById('spot-ticker-updated').textContent = 'Spot prices temporarily unavailable';
+    });
+});
+</script>
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Coin Show Near Me",
+  "url": "{{ site.url }}{{ site.baseurl }}/",
+  "description": "Complete directory of coin shows across the United States. Find upcoming coin shows, numismatic conventions, and coin expos near you.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site.url }}{{ site.baseurl }}/states/{search_term}",
+    "query-input": "required name=search_term"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a coin show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A coin show is an event where coin dealers, collectors, and enthusiasts gather to buy, sell, and trade coins, paper currency, bullion, tokens, and other numismatic collectibles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find coin shows near me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use our directory to browse {{ site.data.shows | size }}+ coin shows across all 50 US states. Filter by state or search by city to find shows in your area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are coin shows free to attend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many coin shows offer free admission, especially smaller local shows. Larger national conventions may charge a small entry fee, typically $5-$10."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
