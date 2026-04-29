@@ -1,5 +1,10 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Apr 29, 2026
+- v0.7.3: Dealer portal inquiry form (Formspree) — name, email, show, interest dropdown, description
+- v0.7.2: Construction banner + nav bar sticky together on scroll, filter bar offset adjusted
+- v0.7.1: Added construction disclaimer banner + dealer portal CTA section
+
 ## Apr 28, 2026
 - v0.7.0: Full homepage redesign — Nomads.com-inspired directory layout
   - Custom full-width homepage (no more just-the-docs sidebar on homepage)
