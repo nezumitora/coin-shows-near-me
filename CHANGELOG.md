@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Apr 29, 2026
+- v0.7.4: Reworked forms — quote form subject now "Attendee Wants a Quote", added dealer checkbox toggle in Stay in the Loop section that reveals a dealer registration form (name, business, email, phone, website, specialty, shows attended)
 - v0.7.3: Dealer portal inquiry form (Formspree) — name, email, show, interest dropdown, description
 - v0.7.2: Construction banner + nav bar sticky together on scroll, filter bar offset adjusted
 - v0.7.1: Added construction disclaimer banner + dealer portal CTA section
