@@ -119,6 +119,63 @@ a:hover { color: var(--gold-light); }
 /* Mobile nav toggle */
 .nav-toggle { display: none; background: none; border: none; color: var(--gold-light); font-size: 1.5rem; cursor: pointer; }
 
+/* === Construction Banner === */
+.construction-banner {
+  background: linear-gradient(135deg, #fef3cd 0%, #fff8e1 100%);
+  border-bottom: 2px solid var(--gold);
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #664d03;
+  line-height: 1.5;
+}
+.construction-banner strong { color: var(--gold); }
+.construction-banner a { color: var(--gold); font-weight: 600; text-decoration: underline; }
+
+/* === Dealer Portal CTA === */
+.dealer-cta {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+.dealer-cta-card {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: #f1f5f9;
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.dealer-cta-text { flex: 1; }
+.dealer-cta-text h3 {
+  color: var(--gold-light);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.dealer-cta-text p {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.dealer-cta-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff !important;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.dealer-cta-btn:hover { background: var(--gold-light); }
+@media (max-width: 768px) {
+  .dealer-cta-card { flex-direction: column; text-align: center; gap: 1rem; }
+}
+
 /* === Hero === */
 .hero {
   background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 40%, #4a6fa5 70%, #7ba0cc 85%, var(--cream) 100%);
@@ -751,6 +808,11 @@ a:hover { color: var(--gold-light); }
   </div>
 </nav>
 
+<!-- Construction Banner -->
+<div class="construction-banner">
+  <strong>Site Under Construction</strong> &mdash; We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Please excuse any errors or incomplete information as we build things out. <a href="#signup">Let us know</a> if you spot something wrong.
+</div>
+
 <!-- Hero Section -->
 <section class="hero">
   <h1>Find <span>Coin Shows</span> Near You</h1>
@@ -948,8 +1010,19 @@ a:hover { color: var(--gold-light); }
   </div>
 </section>
 
+<!-- Dealer Portal CTA -->
+<div class="dealer-cta">
+  <div class="dealer-cta-card">
+    <div class="dealer-cta-text">
+      <h3>Dealer Portal &mdash; Coming Soon</h3>
+      <p>Upload photos of your coins, pick a show you're attending, and get offers from verified dealers before you walk through the door. No more lugging your collection table to table.</p>
+      <a href="/portal/" class="dealer-cta-btn">Find Out More &rarr;</a>
+    </div>
+  </div>
+</div>
+
 <!-- CTA / Signup -->
-<section class="cta-section">
+<section class="cta-section" id="signup">
   <div class="cta-inner">
     <h2>Stay in the <span>Loop</span></h2>
     <p>Get notified when we launch new features, or submit a show we're missing.</p>
