@@ -23,5 +23,6 @@ Know of a coin show not in the directory? Open an issue with:
 - Interactive map view
 - Calendar export (iCal/Google Calendar)
 - Show-finder by date range
+- Buffalo logo monogram pattern — create a micro version of the buffalo nickel logo as a repeating pattern (Gucci-style interlocking monogram). Use as subtle background texture for hero, section dividers, or card backgrounds. Reference: `~/Git/milohiss/inspiration/screenshots/gucci-pattern-reference.jpg`
 
 See `README.md` for the full show list.
