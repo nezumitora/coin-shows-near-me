@@ -61,14 +61,18 @@ body {
 a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--gold-light); }
 
+/* === Sticky Header (nav + banner) === */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 /* === Top Nav === */
 .top-nav {
   background: var(--navy);
   padding: 0.75rem 0;
-  border-bottom: 2px solid var(--gold);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  border-bottom: none;
 }
 .top-nav-inner {
   max-width: 1200px;
@@ -300,7 +304,7 @@ a:hover { color: var(--gold-light); }
   border-bottom: 1px solid var(--border);
   padding: 1rem 1.5rem;
   position: sticky;
-  top: 52px;
+  top: 97px;
   z-index: 90;
 }
 .filter-inner {
@@ -767,7 +771,7 @@ a:hover { color: var(--gold-light); }
   .hero-stats { gap: 1.25rem; }
   .hero-stat-num { font-size: 1.4rem; }
 
-  .filter-section { top: 48px; }
+  .filter-section { top: 90px; }
   .filter-pills { max-height: 40px; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .filter-pills::-webkit-scrollbar { display: none; }
   .view-toggles { display: none; }
@@ -792,25 +796,25 @@ a:hover { color: var(--gold-light); }
 </head>
 <body>
 
-<!-- Top Navigation -->
-<nav class="top-nav">
-  <div class="top-nav-inner">
-    <a href="/" class="top-nav-logo">
-      <img src="{{ site.baseurl }}/assets/images/logo.png" alt="Coin Show Near Me">
-      <span>Coin Show Near Me</span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
-    <ul class="top-nav-links" id="nav-links">
-      <li><a href="/states/">Browse by State</a></li>
-      <li><a href="/coin-shows-this-weekend/">This Weekend</a></li>
-      <li><a href="/tools/melt-value-calculator/" class="nav-cta">Melt Calculator</a></li>
-    </ul>
+<!-- Sticky Header: Nav + Construction Banner -->
+<div class="sticky-header">
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="/" class="top-nav-logo">
+        <img src="{{ site.baseurl }}/assets/images/logo.png" alt="Coin Show Near Me">
+        <span>Coin Show Near Me</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
+      <ul class="top-nav-links" id="nav-links">
+        <li><a href="/states/">Browse by State</a></li>
+        <li><a href="/coin-shows-this-weekend/">This Weekend</a></li>
+        <li><a href="/tools/melt-value-calculator/" class="nav-cta">Melt Calculator</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="construction-banner">
+    <strong>Site Under Construction</strong> &mdash; We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Please excuse any errors or incomplete information as we build things out. <a href="#signup">Let us know</a> if you spot something wrong.
   </div>
-</nav>
-
-<!-- Construction Banner -->
-<div class="construction-banner">
-  <strong>Site Under Construction</strong> &mdash; We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Please excuse any errors or incomplete information as we build things out. <a href="#signup">Let us know</a> if you spot something wrong.
 </div>
 
 <!-- Hero Section -->
