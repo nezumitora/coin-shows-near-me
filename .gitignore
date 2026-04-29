@@ -6,3 +6,7 @@ Gemfile.lock
 *.swp
 .DS_Store
 .agents/loop-state/
+
+# Inter-agent inbox (transient messages)
+inbox/*.json
+inbox/processed/*.json
