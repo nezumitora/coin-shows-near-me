@@ -119,6 +119,19 @@ a:hover { color: var(--gold-light); }
 /* Mobile nav toggle */
 .nav-toggle { display: none; background: none; border: none; color: var(--gold-light); font-size: 1.5rem; cursor: pointer; }
 
+/* === Construction Banner === */
+.construction-banner {
+  background: linear-gradient(135deg, #fef3cd 0%, #fff8e1 100%);
+  border-bottom: 2px solid var(--gold);
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #664d03;
+  line-height: 1.5;
+}
+.construction-banner strong { color: var(--gold); }
+.construction-banner a { color: var(--gold); font-weight: 600; text-decoration: underline; }
+
 /* === Hero === */
 .hero {
   background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 40%, #4a6fa5 70%, #7ba0cc 85%, var(--cream) 100%);
@@ -751,6 +764,11 @@ a:hover { color: var(--gold-light); }
   </div>
 </nav>
 
+<!-- Construction Banner -->
+<div class="construction-banner">
+  <strong>Site Under Construction</strong> &mdash; We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Please excuse any errors or incomplete information as we build things out. <a href="#signup">Let us know</a> if you spot something wrong.
+</div>
+
 <!-- Hero Section -->
 <section class="hero">
   <h1>Find <span>Coin Shows</span> Near You</h1>
@@ -949,7 +967,7 @@ a:hover { color: var(--gold-light); }
 </section>
 
 <!-- CTA / Signup -->
-<section class="cta-section">
+<section class="cta-section" id="signup">
   <div class="cta-inner">
     <h2>Stay in the <span>Loop</span></h2>
     <p>Get notified when we launch new features, or submit a show we're missing.</p>
