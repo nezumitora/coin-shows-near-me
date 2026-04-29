@@ -136,48 +136,105 @@ a:hover { color: var(--gold-light); }
 .construction-banner strong { color: var(--gold); }
 .construction-banner a { color: var(--gold); font-weight: 600; text-decoration: underline; }
 
-/* === Dealer Portal CTA === */
-.dealer-cta {
+/* === Dealer Portal Section === */
+.dealer-section {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem 3rem;
 }
-.dealer-cta-card {
+.dealer-card {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
   color: #f1f5f9;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 12px;
   border-left: 4px solid var(--gold);
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
-.dealer-cta-text { flex: 1; }
-.dealer-cta-text h3 {
+.dealer-info h3 {
   color: var(--gold-light);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
-.dealer-cta-text p {
+.dealer-info p {
   color: #cbd5e1;
   font-size: 0.92rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
 }
-.dealer-cta-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: #fff !important;
-  padding: 0.6rem 1.5rem;
-  border-radius: 8px;
+.dealer-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dealer-info li {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  padding: 0.3rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+.dealer-info li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--gold-light);
   font-weight: 700;
-  font-size: 0.9rem;
+}
+.dealer-form { display: flex; flex-direction: column; gap: 0.6rem; }
+.dealer-form input,
+.dealer-form select,
+.dealer-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  outline: none;
+  font-family: inherit;
+}
+.dealer-form input::placeholder,
+.dealer-form textarea::placeholder { color: #94a3b8; }
+.dealer-form select { color: #94a3b8; }
+.dealer-form select option { background: var(--navy); color: #fff; }
+.dealer-form input:focus,
+.dealer-form select:focus,
+.dealer-form textarea:focus { border-color: var(--gold-light); }
+.dealer-form textarea { min-height: 70px; resize: vertical; }
+.dealer-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+.dealer-form button {
+  background: var(--gold);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
   transition: background 0.2s;
 }
-.dealer-cta-btn:hover { background: var(--gold-light); }
+.dealer-form button:hover { background: var(--gold-light); }
+.dealer-success {
+  display: none;
+  background: #065f46;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}
 @media (max-width: 768px) {
-  .dealer-cta-card { flex-direction: column; text-align: center; gap: 1rem; }
+  .dealer-card { grid-template-columns: 1fr; gap: 1.5rem; }
+  .dealer-form .form-row { grid-template-columns: 1fr; }
 }
 
 /* === Hero === */
@@ -1014,13 +1071,41 @@ a:hover { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- Dealer Portal CTA -->
-<div class="dealer-cta">
-  <div class="dealer-cta-card">
-    <div class="dealer-cta-text">
-      <h3>Dealer Portal &mdash; Coming Soon</h3>
-      <p>Upload photos of your coins, pick a show you're attending, and get offers from verified dealers before you walk through the door. No more lugging your collection table to table.</p>
-      <a href="/portal/" class="dealer-cta-btn">Find Out More &rarr;</a>
+<!-- Dealer Portal -->
+<div class="dealer-section">
+  <div class="dealer-card">
+    <div class="dealer-info">
+      <h3>Get Quotes Before the Show</h3>
+      <p>Planning to sell or get an appraisal at an upcoming coin show? Tell us what you have and which show you're attending — we'll connect you with verified dealers who can give you offers before you walk through the door.</p>
+      <ul>
+        <li>Get competing offers from multiple dealers</li>
+        <li>Know what your collection is worth before you go</li>
+        <li>No more lugging coins table to table hoping for a fair price</li>
+        <li>Free — no obligation, no fees</li>
+      </ul>
+    </div>
+    <div>
+      <form class="dealer-form" id="dealer-form" action="https://formspree.io/f/mykleozw" method="POST">
+        <input type="hidden" name="_subject" value="Coin Show Near Me — Dealer Portal Inquiry">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Email address" required>
+        </div>
+        <input type="text" name="show" placeholder="Which show are you attending? (name, city, or state)">
+        <select name="interest">
+          <option value="" disabled selected>What are you looking to do?</option>
+          <option value="sell">Sell coins or collection</option>
+          <option value="appraisal">Get an appraisal</option>
+          <option value="buy">Buy specific coins</option>
+          <option value="dealer">I'm a dealer — list me</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea name="message" placeholder="Describe what you have or what you're looking for..."></textarea>
+        <button type="submit">Submit Inquiry</button>
+      </form>
+      <div class="dealer-success" id="dealer-success">
+        Thank you! We'll connect you with dealers attending your show. Check your email for next steps.
+      </div>
     </div>
   </div>
 </div>
@@ -1145,6 +1230,27 @@ document.getElementById('nav-toggle').addEventListener('click', function() {
         if (response.ok) {
           form.style.display = 'none';
           document.getElementById('notify-success').style.display = 'block';
+        }
+      });
+    });
+  }
+})();
+
+/* Dealer portal form */
+(function() {
+  var form = document.getElementById('dealer-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('dealer-success').style.display = 'block';
         }
       });
     });
