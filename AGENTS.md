@@ -1,5 +1,21 @@
 # AI Assistant Instructions
 
+## Self-Setup (MANDATORY — run on FIRST session in any repo)
+
+If this repo is missing `inbox/`, `inbox/processed/`, or `inbox/README.md`, create them:
+
+```bash
+mkdir -p inbox/processed && touch inbox/.gitkeep inbox/processed/.gitkeep
+```
+
+If any OTHER repo you interact with is missing this structure, run the welcome script:
+
+```bash
+~/.aidevops/agents/custom/scripts/new-repo-welcome.sh ~/Git/REPO-NAME BUSINESS-NAME
+```
+
+This ensures every repo can participate in the inter-agent messaging system.
+
 ## User Preferences (MANDATORY)
 
 - User has no dev/programming experience — explain things simply
