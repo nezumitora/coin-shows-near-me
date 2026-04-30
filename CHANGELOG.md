@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Apr 29, 2026
+- v0.7.7: Changed "Stay in the Loop" to "Stay in the Loupe" — coin collector wordplay (a loupe is the magnifying glass used to examine coins)
 - v0.7.6: Show reminder CTA system — "Never Miss a Coin Show" opt-in cards
   - In-grid CTA card on homepage (positioned after first row of show cards)
   - Show-specific reminder CTA on individual show detail pages (pre-fills show name)
