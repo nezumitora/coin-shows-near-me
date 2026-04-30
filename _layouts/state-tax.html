@@ -1,0 +1,104 @@
+---
+layout: default
+---
+
+{% include breadcrumbs.html %}
+
+{% assign tax = nil %}
+{% for t in site.data.state_tax %}
+  {% if t.abbrev == page.state_abbrev %}
+    {% assign tax = t %}
+  {% endif %}
+{% endfor %}
+
+<h1>{{ page.title }}</h1>
+
+<p>{{ page.seo_description }}</p>
+
+<div style="border:1px solid #e5e7eb;border-radius:0.75rem;padding:1.25rem;margin:1.5rem 0;background:#f9fafb;">
+  <table style="width:100%;border-collapse:collapse;">
+    <tr>
+      <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">State Sales Tax Rate</td>
+      <td style="padding:0.5rem 0;">{{ tax.sales_tax }}</td>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Bullion Exempt?</td>
+      <td style="padding:0.5rem 0;">
+        {% if tax.bullion_exempt %}
+          <span style="color:#16a34a;font-weight:700;">Yes &mdash; Exempt</span>
+        {% else %}
+          <span style="color:#dc2626;font-weight:700;">No &mdash; Taxed</span>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Coins Exempt?</td>
+      <td style="padding:0.5rem 0;">
+        {% if tax.coins_exempt %}
+          <span style="color:#16a34a;font-weight:700;">Yes &mdash; Exempt</span>
+        {% else %}
+          <span style="color:#dc2626;font-weight:700;">No &mdash; Taxed</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% if tax.threshold and tax.threshold != "N/A" and tax.threshold != "$0" %}
+    <tr>
+      <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Minimum Threshold</td>
+      <td style="padding:0.5rem 0;">{{ tax.threshold }} per transaction</td>
+    </tr>
+    {% endif %}
+    {% if tax.effective_date and tax.effective_date != "N/A" %}
+    <tr>
+      <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Exemption Since</td>
+      <td style="padding:0.5rem 0;">{{ tax.effective_date }}</td>
+    </tr>
+    {% endif %}
+  </table>
+</div>
+
+<p style="font-size:0.95rem;line-height:1.7;">{{ tax.details }}</p>
+
+{% if tax.threshold and tax.threshold != "N/A" and tax.threshold != "$0" %}
+<div style="background:#fef3c7;border-radius:0.5rem;padding:1rem;margin:1.5rem 0;border-left:4px solid #f59e0b;">
+  <p style="margin:0;font-size:0.9rem;"><strong>Threshold tip:</strong> The {{ tax.threshold }} minimum applies per transaction. If you're buying close to the threshold, consider combining purchases into a single transaction to qualify for the exemption.</p>
+</div>
+{% endif %}
+
+{% if tax.bullion_exempt == false %}
+<div style="background:#fef2f2;border-radius:0.5rem;padding:1rem;margin:1.5rem 0;border-left:4px solid #ef4444;">
+  <p style="margin:0;font-size:0.9rem;"><strong>Tax tip:</strong> {{ tax.state }} currently taxes precious metals purchases. Some collectors buy from dealers in tax-exempt states and have items shipped. Check whether your state charges use tax on out-of-state purchases, and always follow your state's tax laws.</p>
+</div>
+{% endif %}
+
+<h2>Coin Shows in {{ tax.state }}</h2>
+
+{% assign state_shows = site.data.shows | where: "state", tax.abbrev | sort: "name" %}
+{% if state_shows.size > 0 %}
+<p>There are <strong>{{ state_shows.size }}</strong> coin shows listed in {{ tax.state }}. Browse them all or find one near you:</p>
+<ul>
+{% for show in state_shows %}
+  <li><a href="{{ site.baseurl }}/shows/{{ show.id }}/">{{ show.name }}</a> &mdash; {{ show.city }}, {{ tax.state }}</li>
+{% endfor %}
+</ul>
+<p><a href="{{ site.baseurl }}/states/{{ tax.slug }}/">View all coin shows in {{ tax.state }} &rarr;</a></p>
+{% else %}
+<p>No coin shows currently listed for {{ tax.state }}. <a href="/#signup">Let us know</a> if you know of one.</p>
+{% endif %}
+
+<h2>Calculate Your Coin's Value</h2>
+<p>Heading to a {{ tax.state }} coin show? Use our <a href="{{ site.baseurl }}/tools/melt-value-calculator/">Melt Value Calculator</a> to check the metal value of your silver and gold coins before you go.</p>
+
+<p style="margin-top:1.5rem;font-size:0.85rem;color:#64748b;">
+  <a href="{{ tax.tax_authority_url }}" target="_blank" rel="noopener noreferrer">{{ tax.state }} tax authority website &rarr;</a>
+</p>
+
+<div style="background:linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);color:#f1f5f9;padding:1.25rem;border-radius:8px;margin:1.5rem 0;border-left:4px solid var(--coin-gold);">
+  <p style="margin:0 0 0.5rem;font-size:1rem;"><strong style="color:var(--coin-gold-light);">Browse All 50 States</strong></p>
+  <p style="margin:0;font-size:0.9rem;">
+    <a href="{{ site.baseurl }}/tools/sales-tax-guide/" style="color:var(--coin-gold-light);font-weight:600;text-decoration:underline;">Back to the full state sales tax guide &rarr;</a>
+  </p>
+</div>
+
+<p style="margin-top:2rem;padding:0.75rem;background:#f8fafc;border-radius:0.5rem;font-size:0.8rem;color:#64748b;border:1px solid #e2e8f0;">
+  <strong>Disclaimer:</strong> This information is for general reference only and does not constitute tax or legal advice. Tax laws change frequently. Always verify current rates and exemptions with the <a href="{{ tax.tax_authority_url }}" target="_blank" rel="noopener noreferrer">{{ tax.state }} tax authority</a> or consult a qualified tax professional before making purchasing decisions.
+</p>
