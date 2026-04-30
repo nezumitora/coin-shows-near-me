@@ -46,6 +46,17 @@ layout: default
     </tr>
     {% endif %}
   </table>
+  <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid #e5e7eb;">
+    <a href="https://www.google.com/maps/dir/?api=1&destination={{ show.venue | url_encode }}+{{ show.city | url_encode }}+{{ show.state_name | url_encode }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;background:#1a2332;color:#fff;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.2s;">
+      &#128663; Get Driving Directions
+    </a>
+    {% assign state_slug = nil %}{% for st in site.data.states %}{% if st.abbrev == show.state %}{% assign state_slug = st.slug %}{% endif %}{% endfor %}
+    {% for tax in site.data.state_tax %}{% if tax.abbrev == show.state %}
+    <a href="{{ site.baseurl }}/tools/sales-tax-guide/{{ tax.slug }}/" style="display:inline-flex;align-items:center;gap:0.4rem;background:#f8fafc;color:#555;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:600;text-decoration:none;border:1px solid #e5ddd0;margin-left:0.5rem;transition:all 0.2s;">
+      {% if tax.bullion_exempt %}<span style="color:#16a34a;">&#10003;</span> Tax-Free State{% else %}<span style="color:#dc2626;">&#10005;</span> Taxed State{% endif %}
+    </a>
+    {% endif %}{% endfor %}
+  </div>
 </div>
 
 {% if show.notes and show.notes != "" %}

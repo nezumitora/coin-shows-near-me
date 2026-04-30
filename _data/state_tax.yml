@@ -1,0 +1,617 @@
+# State sales tax data for coins and precious metals
+# Sources: state tax authority websites, APMEX, JM Bullion tax guides
+# Last researched: April 2026
+# DISCLAIMER: This is for informational purposes only. Tax laws change.
+# Always verify with your state tax authority or a tax professional.
+
+- state: Alabama
+  abbrev: AL
+  slug: alabama
+  sales_tax: "4%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Gold, silver, platinum, and palladium bullion and coins are exempt from state sales tax. Local taxes may still apply."
+  effective_date: "2023"
+  tax_authority_url: "https://www.revenue.alabama.gov"
+  details: "Alabama exempts sales of gold, silver, platinum, and palladium bullion and monetized bullion (coins) from state sales tax. The exemption applies regardless of the transaction amount. However, Alabama has local sales taxes that may not follow the state exemption — check with your county or city tax office."
+
+- state: Alaska
+  abbrev: AK
+  slug: alaska
+  sales_tax: "0%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "No state sales tax. Some local jurisdictions charge sales tax — check your borough or city."
+  effective_date: "N/A"
+  tax_authority_url: "https://tax.alaska.gov"
+  details: "Alaska has no state sales tax, so bullion and coins are not taxed at the state level. However, Alaska allows local governments to impose their own sales taxes. Some boroughs and cities charge 1-7% local sales tax, and local exemptions for bullion vary. Always check with your local jurisdiction."
+
+- state: Arizona
+  abbrev: AZ
+  slug: arizona
+  sales_tax: "5.6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are fully exempt from state transaction privilege (sales) tax."
+  effective_date: "2017"
+  tax_authority_url: "https://azdor.gov"
+  details: "Arizona exempts the sale of precious metals bullion from its transaction privilege tax (the state's version of sales tax). The exemption covers gold, silver, platinum, and palladium in coin or bar form. This exemption was enacted in 2017 and has no minimum purchase threshold. Arizona also does not tax capital gains on precious metals at the state level."
+
+- state: Arkansas
+  abbrev: AR
+  slug: arkansas
+  sales_tax: "6.5%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Gold, silver, and other precious metals bullion and coins are exempt from sales tax."
+  effective_date: "2021"
+  tax_authority_url: "https://www.dfa.arkansas.gov"
+  details: "Arkansas enacted a sales tax exemption for precious metals bullion and coins in 2021. The exemption covers gold, silver, platinum, and palladium in bullion or coin form. There is no minimum transaction threshold. Numismatic (collector) coins sold primarily for their collectible value rather than metal content may still be subject to sales tax."
+
+- state: California
+  abbrev: CA
+  slug: california
+  sales_tax: "7.25%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$2,000"
+  notes: "Exempt when total sale exceeds $2,000. Sales under $2,000 are taxed at the full state + local rate."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://www.cdtfa.ca.gov"
+  details: "California exempts sales of monetized bullion, nonmonetized gold or silver bullion, and numismatic coins from sales tax ONLY when the total sale amount exceeds $2,000. Sales of $2,000 or less are subject to the full state rate of 7.25% plus any local taxes (total can reach 10.25%+ in some areas). The $2,000 threshold applies per transaction, not per item. This means bundling purchases into a single transaction over $2,000 avoids the tax."
+
+- state: Colorado
+  abbrev: CO
+  slug: colorado
+  sales_tax: "2.9%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state sales tax. Local jurisdictions may differ."
+  effective_date: "2019"
+  tax_authority_url: "https://tax.colorado.gov"
+  details: "Colorado exempts precious metals bullion and coins from state sales tax as of 2019. The exemption covers gold, silver, platinum, and palladium. However, Colorado has a complex local tax system — some home-rule cities and counties may still impose their own sales tax on precious metals. Check with your local jurisdiction."
+
+- state: Connecticut
+  abbrev: CT
+  slug: connecticut
+  sales_tax: "6.35%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$1,000"
+  notes: "Exempt when total sale exceeds $1,000. Sales under $1,000 are taxed."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://portal.ct.gov/drs"
+  details: "Connecticut exempts sales of rare or precious metal bullion from the 6.35% sales tax when the total sale price exceeds $1,000 per transaction. Sales of $1,000 or less are fully taxable. The exemption covers gold, silver, platinum, and palladium bullion and coins. Numismatic coins may be treated differently depending on whether they are sold for their metal content or collectible value."
+
+- state: Delaware
+  abbrev: DE
+  slug: delaware
+  sales_tax: "0%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "No state sales tax. All purchases, including coins and bullion, are tax-free."
+  effective_date: "N/A"
+  tax_authority_url: "https://revenue.delaware.gov"
+  details: "Delaware has no state or local sales tax, making it one of the most tax-friendly states for buying precious metals. All coin and bullion purchases are completely tax-free regardless of amount."
+
+- state: Florida
+  abbrev: FL
+  slug: florida
+  sales_tax: "6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$500"
+  notes: "Exempt when total sale exceeds $500. Sales of $500 or less are taxed at the full rate."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://floridarevenue.com"
+  details: "Florida exempts gold, silver, and platinum bullion, as well as coins, from sales tax when the total sale amount exceeds $500. Transactions of $500 or less are subject to the full 6% state rate plus any applicable local discretionary surtax (typically 0.5-1.5%). The exemption applies per transaction. Currency (paper money) is also included in the exemption."
+
+- state: Georgia
+  abbrev: GA
+  slug: georgia
+  sales_tax: "4%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Gold, silver, platinum, and palladium bullion and coins are fully exempt from state and local sales tax."
+  effective_date: "2019"
+  tax_authority_url: "https://dor.georgia.gov"
+  details: "Georgia fully exempts the sale of investment metals and coins from state and local sales tax. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum transaction threshold. Georgia enacted this exemption in 2019, removing a significant barrier for precious metals dealers and collectors in the state."
+
+- state: Hawaii
+  abbrev: HI
+  slug: hawaii
+  sales_tax: "4%"
+  bullion_exempt: false
+  coins_exempt: false
+  threshold: "N/A"
+  notes: "Hawaii's general excise tax applies to precious metals and coin sales. No exemption."
+  effective_date: "N/A"
+  tax_authority_url: "https://tax.hawaii.gov"
+  details: "Hawaii imposes its 4% general excise tax (GET) on sales of precious metals, bullion, and coins with no exemption. The GET is technically a tax on the seller's gross receipts, not a sales tax, but it is effectively passed on to the buyer. Some counties add a 0.5% surcharge. Hawaii is one of the least favorable states for buying precious metals."
+
+- state: Idaho
+  abbrev: ID
+  slug: idaho
+  sales_tax: "6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax."
+  effective_date: "2022"
+  tax_authority_url: "https://tax.idaho.gov"
+  details: "Idaho exempts sales of precious metals bullion and coins from state sales tax. The exemption covers gold, silver, platinum, and palladium in bullion or coin form. There is no minimum purchase threshold. This exemption was enacted in 2022."
+
+- state: Illinois
+  abbrev: IL
+  slug: illinois
+  sales_tax: "6.25%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion (gold, silver, platinum, palladium) in bar or coin form is exempt. Numismatic items sold for collectible value may be taxed."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://tax.illinois.gov"
+  details: "Illinois exempts precious metals bullion from the state's 6.25% sales tax. The exemption covers gold, silver, platinum, and palladium bullion in bar, ingot, or coin form when sold based on metal content rather than collectible value. Numismatic coins and collectibles sold primarily for their rarity or condition may still be taxable. Local sales taxes may also apply — check with your county or municipality."
+
+- state: Indiana
+  abbrev: IN
+  slug: indiana
+  sales_tax: "7%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Gold, silver, platinum, and palladium bullion and coins are exempt from sales tax."
+  effective_date: "2016"
+  tax_authority_url: "https://www.in.gov/dor"
+  details: "Indiana exempts precious metals bullion and coins from the 7% state sales tax. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. This exemption has been in effect since 2016."
+
+- state: Iowa
+  abbrev: IA
+  slug: iowa
+  sales_tax: "6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Gold, silver, and other precious metals bullion and coins are exempt from sales tax."
+  effective_date: "2019"
+  tax_authority_url: "https://tax.iowa.gov"
+  details: "Iowa exempts the retail sale of gold, silver, platinum, and palladium bullion and coins from the 6% state sales tax. The exemption was enacted in 2019. There is no minimum transaction amount. The exemption applies to bullion and coins sold for their precious metal content."
+
+- state: Kansas
+  abbrev: KS
+  slug: kansas
+  sales_tax: "6.5%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "2023"
+  tax_authority_url: "https://www.ksrevenue.gov"
+  details: "Kansas enacted a sales tax exemption for precious metals bullion and coins effective 2023. The exemption covers gold, silver, platinum, and palladium bullion in bar, ingot, or coin form. There is no minimum purchase threshold. Both state and local sales taxes are waived."
+
+- state: Kentucky
+  abbrev: KY
+  slug: kentucky
+  sales_tax: "6%"
+  bullion_exempt: false
+  coins_exempt: false
+  threshold: "N/A"
+  notes: "Kentucky applies the full 6% sales tax to precious metals and coin purchases. No exemption currently exists."
+  effective_date: "N/A"
+  tax_authority_url: "https://revenue.ky.gov"
+  details: "Kentucky does not exempt precious metals bullion or coins from its 6% sales tax. All purchases of gold, silver, platinum, palladium, and numismatic coins are subject to the full state sales tax. There have been legislative efforts to create an exemption, but none have passed as of 2026."
+
+- state: Louisiana
+  abbrev: LA
+  slug: louisiana
+  sales_tax: "4.45%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state sales tax. Local taxes may still apply."
+  effective_date: "2018"
+  tax_authority_url: "https://revenue.louisiana.gov"
+  details: "Louisiana exempts precious metals and numismatic coins from the state's 4.45% sales tax. However, local parish taxes (which can add 4-6%) may still apply depending on the jurisdiction. The exemption covers gold, silver, platinum, and palladium bullion and coins. Check with your local parish tax authority for local exemption status."
+
+- state: Maine
+  abbrev: ME
+  slug: maine
+  sales_tax: "5.5%"
+  bullion_exempt: false
+  coins_exempt: false
+  threshold: "N/A"
+  notes: "Maine applies the full 5.5% sales tax to precious metals and coin purchases. No exemption currently exists."
+  effective_date: "N/A"
+  tax_authority_url: "https://www.maine.gov/revenue"
+  details: "Maine does not exempt precious metals bullion or coins from its 5.5% sales tax. All purchases of gold, silver, bullion, and coins are subject to the full state sales tax rate. There is no threshold or exemption for any amount."
+
+- state: Maryland
+  abbrev: MD
+  slug: maryland
+  sales_tax: "6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://www.marylandtaxes.gov"
+  details: "Maryland exempts the sale of precious metals bullion (gold, silver, platinum, palladium) and coins from the 6% state sales tax. There is no minimum purchase threshold. The exemption applies to bullion in bar, ingot, or coin form sold based on metal content value."
+
+- state: Massachusetts
+  abbrev: MA
+  slug: massachusetts
+  sales_tax: "6.25%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$1,000"
+  notes: "Exempt when total sale exceeds $1,000. Sales of $1,000 or less are taxed."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://www.mass.gov/dor"
+  details: "Massachusetts exempts the sale of precious metals, coins, and bullion from the 6.25% sales tax when the total transaction exceeds $1,000. Sales of $1,000 or less are fully taxable. The threshold applies per transaction. Numismatic coins are included in the exemption when they exceed the threshold."
+
+- state: Michigan
+  abbrev: MI
+  slug: michigan
+  sales_tax: "6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://www.michigan.gov/treasury"
+  details: "Michigan exempts the sale of precious metals bullion (gold, silver, platinum, palladium) and coins from the 6% state sales tax. The exemption covers items sold based on their precious metal content. There is no minimum purchase threshold."
+
+- state: Minnesota
+  abbrev: MN
+  slug: minnesota
+  sales_tax: "6.875%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "2023"
+  tax_authority_url: "https://www.revenue.state.mn.us"
+  details: "Minnesota enacted a sales tax exemption for precious metals bullion and coins in 2023. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. Both state and local sales taxes are waived. Prior to 2023, Minnesota was one of the higher-taxed states for precious metals purchases."
+
+- state: Mississippi
+  abbrev: MS
+  slug: mississippi
+  sales_tax: "7%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Gold, silver, and other precious metals bullion and coins are exempt from sales tax."
+  effective_date: "2022"
+  tax_authority_url: "https://www.dor.ms.gov"
+  details: "Mississippi exempts the sale of precious metals bullion and coins from the 7% state sales tax. The exemption was enacted in 2022 and covers gold, silver, platinum, and palladium. There is no minimum transaction amount."
+
+- state: Missouri
+  abbrev: MO
+  slug: missouri
+  sales_tax: "4.225%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://dor.mo.gov"
+  details: "Missouri exempts sales of precious metals bullion and coins from the state's 4.225% sales tax. The exemption covers gold, silver, platinum, and palladium in coin or bar form. Local sales taxes may still apply in some jurisdictions — check with your local tax authority."
+
+- state: Montana
+  abbrev: MT
+  slug: montana
+  sales_tax: "0%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "No state sales tax. All purchases, including coins and bullion, are tax-free."
+  effective_date: "N/A"
+  tax_authority_url: "https://mtrevenue.gov"
+  details: "Montana has no state or local sales tax, making all coin and bullion purchases completely tax-free. Montana is one of only five states with no sales tax at all."
+
+- state: Nebraska
+  abbrev: NE
+  slug: nebraska
+  sales_tax: "5.5%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "2022"
+  tax_authority_url: "https://revenue.nebraska.gov"
+  details: "Nebraska enacted a sales tax exemption for precious metals bullion and coins in 2022. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. The exemption applies to both state and local sales taxes."
+
+- state: Nevada
+  abbrev: NV
+  slug: nevada
+  sales_tax: "6.85%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://tax.nv.gov"
+  details: "Nevada exempts precious metals bullion and coins from the state sales tax. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+
+- state: New Hampshire
+  abbrev: NH
+  slug: new-hampshire
+  sales_tax: "0%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "No state sales tax. All purchases, including coins and bullion, are tax-free."
+  effective_date: "N/A"
+  tax_authority_url: "https://www.revenue.nh.gov"
+  details: "New Hampshire has no state or local sales tax, making all coin and bullion purchases completely tax-free."
+
+- state: New Jersey
+  abbrev: NJ
+  slug: new-jersey
+  sales_tax: "6.625%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax. Numismatic items may be taxed."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://www.nj.gov/treasury/taxation"
+  details: "New Jersey exempts precious metals bullion (gold, silver, platinum, palladium) and investment coins from the 6.625% sales tax. The exemption applies to items sold based on precious metal content. Numismatic coins sold primarily for their collectible value rather than metal content may be subject to sales tax. There is no minimum purchase threshold for the bullion exemption."
+
+- state: New Mexico
+  abbrev: NM
+  slug: new-mexico
+  sales_tax: "4.875%"
+  bullion_exempt: false
+  coins_exempt: false
+  threshold: "N/A"
+  notes: "New Mexico's gross receipts tax applies to precious metals and coin sales. No exemption."
+  effective_date: "N/A"
+  tax_authority_url: "https://www.tax.newmexico.gov"
+  details: "New Mexico applies its gross receipts tax (similar to sales tax) to precious metals and coin purchases. There is currently no exemption for bullion or coins. The rate varies by location but starts at 4.875% at the state level with local additions. Legislative efforts to create an exemption have been introduced but have not passed as of 2026."
+
+- state: New York
+  abbrev: NY
+  slug: new-york
+  sales_tax: "4%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$1,000"
+  notes: "Exempt when total sale exceeds $1,000. Sales of $1,000 or less are taxed at the full state + local rate."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://www.tax.ny.gov"
+  details: "New York exempts the sale of precious metals bullion and coins from sales tax when the total transaction exceeds $1,000. Sales of $1,000 or less are subject to the full 4% state tax plus local taxes (which can total 8-8.875% in New York City). The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. The $1,000 threshold applies per invoice/transaction."
+
+- state: North Carolina
+  abbrev: NC
+  slug: north-carolina
+  sales_tax: "4.75%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "2014"
+  tax_authority_url: "https://www.ncdor.gov"
+  details: "North Carolina exempts precious metals bullion and coins from the state's 4.75% sales tax and all local sales taxes. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+
+- state: North Dakota
+  abbrev: ND
+  slug: north-dakota
+  sales_tax: "5%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://www.tax.nd.gov"
+  details: "North Dakota exempts precious metals bullion and coins from the 5% state sales tax. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+
+- state: Ohio
+  abbrev: OH
+  slug: ohio
+  sales_tax: "5.75%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "2021"
+  tax_authority_url: "https://tax.ohio.gov"
+  details: "Ohio exempts the sale of investment metal bullion and investment coins from the state's 5.75% sales tax and all county sales taxes. The exemption was enacted in 2021 and covers gold, silver, platinum, and palladium. There is no minimum purchase threshold."
+
+- state: Oklahoma
+  abbrev: OK
+  slug: oklahoma
+  sales_tax: "4.5%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state sales tax."
+  effective_date: "2019"
+  tax_authority_url: "https://oklahoma.gov/tax.html"
+  details: "Oklahoma exempts the sale of precious metals bullion and coins from the state's 4.5% sales tax. The exemption was enacted in 2019 and covers gold, silver, platinum, and palladium. There is no minimum purchase threshold. Local city and county sales taxes may still apply — check with your local jurisdiction."
+
+- state: Oregon
+  abbrev: OR
+  slug: oregon
+  sales_tax: "0%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "No state sales tax. All purchases, including coins and bullion, are tax-free."
+  effective_date: "N/A"
+  tax_authority_url: "https://www.oregon.gov/dor"
+  details: "Oregon has no state or local sales tax, making all coin and bullion purchases completely tax-free. Oregon is one of only five states with no sales tax at all."
+
+- state: Pennsylvania
+  abbrev: PA
+  slug: pennsylvania
+  sales_tax: "6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://www.revenue.pa.gov"
+  details: "Pennsylvania exempts the sale of precious metals bullion and coins from the 6% state sales tax. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. Local taxes may apply in Philadelphia (2%) and Allegheny County (1%)."
+
+- state: Rhode Island
+  abbrev: RI
+  slug: rhode-island
+  sales_tax: "7%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from the 7% sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://tax.ri.gov"
+  details: "Rhode Island exempts precious metals bullion and coins from the 7% state sales tax. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+
+- state: South Carolina
+  abbrev: SC
+  slug: south-carolina
+  sales_tax: "6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$50"
+  notes: "Exempt when total sale exceeds $50. Very low threshold — most purchases qualify."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://dor.sc.gov"
+  details: "South Carolina exempts the sale of precious metals and coins from the 6% state sales tax when the transaction exceeds $50. This very low threshold means virtually all bullion and coin purchases qualify for the exemption. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form."
+
+- state: South Dakota
+  abbrev: SD
+  slug: south-dakota
+  sales_tax: "4.5%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://dor.sd.gov"
+  details: "South Dakota exempts the sale of precious metals bullion and coins from the state's 4.5% sales tax and all local municipal taxes. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+
+- state: Tennessee
+  abbrev: TN
+  slug: tennessee
+  sales_tax: "7%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "2022"
+  tax_authority_url: "https://www.tn.gov/revenue.html"
+  details: "Tennessee enacted a sales tax exemption for precious metals bullion and coins in 2022. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. Both the 7% state tax and all local taxes are waived."
+
+- state: Texas
+  abbrev: TX
+  slug: texas
+  sales_tax: "6.25%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are fully exempt from state and local sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://comptroller.texas.gov"
+  details: "Texas fully exempts precious metals bullion (gold, silver, platinum, palladium) and coins from the 6.25% state sales tax and all local sales taxes. There is no minimum purchase threshold. The exemption covers items sold based on their precious metal content. Texas is one of the most favorable states for precious metals purchases."
+
+- state: Utah
+  abbrev: UT
+  slug: utah
+  sales_tax: "6.1%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax. Utah also eliminates state capital gains tax on precious metals."
+  effective_date: "2011"
+  tax_authority_url: "https://tax.utah.gov"
+  details: "Utah was one of the first states to exempt precious metals from sales tax (2011) and has gone further by eliminating state capital gains tax on the sale of precious metals. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. Utah recognizes gold and silver as legal tender."
+
+- state: Vermont
+  abbrev: VT
+  slug: vermont
+  sales_tax: "6%"
+  bullion_exempt: false
+  coins_exempt: false
+  threshold: "N/A"
+  notes: "Vermont applies the full 6% sales tax to precious metals and coin purchases. No exemption currently exists."
+  effective_date: "N/A"
+  tax_authority_url: "https://tax.vermont.gov"
+  details: "Vermont does not exempt precious metals bullion or coins from its 6% sales tax. All purchases of gold, silver, bullion, and coins are subject to the full state sales tax rate plus any applicable local taxes. There is no minimum threshold or exemption."
+
+- state: Virginia
+  abbrev: VA
+  slug: virginia
+  sales_tax: "5.3%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax."
+  effective_date: "2022"
+  tax_authority_url: "https://www.tax.virginia.gov"
+  details: "Virginia enacted a sales tax exemption for precious metals bullion and coins in 2022. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. Both state and local sales taxes are waived."
+
+- state: Washington
+  abbrev: WA
+  slug: washington
+  sales_tax: "6.5%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "Ongoing"
+  tax_authority_url: "https://dor.wa.gov"
+  details: "Washington exempts the sale of precious metals bullion and coins from the 6.5% state sales tax and all local sales taxes. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+
+- state: West Virginia
+  abbrev: WV
+  slug: west-virginia
+  sales_tax: "6%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from sales tax."
+  effective_date: "2019"
+  tax_authority_url: "https://tax.wv.gov"
+  details: "West Virginia exempts precious metals bullion and coins from the 6% state sales tax. The exemption was enacted in 2019 and covers gold, silver, platinum, and palladium. There is no minimum purchase threshold."
+
+- state: Wisconsin
+  abbrev: WI
+  slug: wisconsin
+  sales_tax: "5%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
+  effective_date: "2018"
+  tax_authority_url: "https://www.revenue.wi.gov"
+  details: "Wisconsin exempts precious metals bullion and coins from the 5% state sales tax and all county sales taxes. The exemption was enacted in 2018 and covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+
+- state: Wyoming
+  abbrev: WY
+  slug: wyoming
+  sales_tax: "4%"
+  bullion_exempt: true
+  coins_exempt: true
+  threshold: "$0"
+  notes: "Precious metals bullion and coins are exempt from state and local sales tax. Wyoming also recognizes gold and silver as legal tender."
+  effective_date: "2018"
+  tax_authority_url: "https://revenue.wyo.gov"
+  details: "Wyoming exempts precious metals bullion and coins from the 4% state sales tax and all local sales taxes. The exemption was enacted in 2018. Wyoming has also passed legislation recognizing gold and silver as legal tender and eliminating state capital gains tax on precious metals. There is no minimum purchase threshold."
+
+- state: District of Columbia
+  abbrev: DC
+  slug: district-of-columbia
+  sales_tax: "6%"
+  bullion_exempt: false
+  coins_exempt: false
+  threshold: "N/A"
+  notes: "DC applies the full 6% sales tax to precious metals and coin purchases. No exemption."
+  effective_date: "N/A"
+  tax_authority_url: "https://otr.cfo.dc.gov"
+  details: "The District of Columbia does not exempt precious metals bullion or coins from its 6% sales tax. All purchases of gold, silver, bullion, and coins are subject to the full tax rate."
