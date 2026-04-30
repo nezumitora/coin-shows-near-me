@@ -1,0 +1,210 @@
+# Coin dealer directory data
+# Types: brick-and-mortar, online, both
+# Last updated: April 2026
+# NOTE: This is a starter set. Dealers can register at /dealers/register/
+
+# === Major Online Dealers ===
+
+- name: "APMEX"
+  type: online
+  website: "https://www.apmex.com"
+  city: "Oklahoma City"
+  state: "OK"
+  state_name: "Oklahoma"
+  specialties:
+    - Gold & Silver Bullion
+    - US Coins
+    - World Coins
+  description: "One of the largest online precious metals dealers. Huge selection of bullion, coins, and bars. Competitive pricing with frequent sales."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "JM Bullion"
+  type: online
+  website: "https://www.jmbullion.com"
+  city: "Dallas"
+  state: "TX"
+  state_name: "Texas"
+  specialties:
+    - Gold & Silver Bullion
+    - Platinum & Palladium
+  description: "Major online bullion dealer known for low premiums and free shipping over $199. Focuses on investment-grade bullion products."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "SD Bullion"
+  type: online
+  website: "https://www.sdbullion.com"
+  city: "Williston"
+  state: "ND"
+  state_name: "North Dakota"
+  specialties:
+    - Gold & Silver Bullion
+    - Bars & Rounds
+  description: "Online bullion dealer known for some of the lowest premiums in the industry. Popular with high-volume buyers."
+  ships_nationwide: true
+  accepts_trade_ins: false
+
+- name: "Provident Metals"
+  type: online
+  website: "https://www.providentmetals.com"
+  city: "Dallas"
+  state: "TX"
+  state_name: "Texas"
+  specialties:
+    - Gold & Silver Bullion
+    - Custom Rounds
+  description: "Online precious metals retailer owned by JM Bullion. Known for custom-designed silver rounds and competitive pricing."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "Money Metals Exchange"
+  type: online
+  website: "https://www.moneymetals.com"
+  city: "Eagle"
+  state: "ID"
+  state_name: "Idaho"
+  specialties:
+    - Gold & Silver Bullion
+    - Monthly Savings Plans
+  description: "Online dealer offering a monthly precious metals savings program. Buy as little as $100/month in gold or silver delivered to your door."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "Hero Bullion"
+  type: online
+  website: "https://www.herobullion.com"
+  city: "Austin"
+  state: "TX"
+  state_name: "Texas"
+  specialties:
+    - Gold & Silver Bullion
+    - Low Premiums
+  description: "Newer online dealer gaining popularity for consistently low premiums on popular bullion products like American Eagles and Maple Leafs."
+  ships_nationwide: true
+  accepts_trade_ins: false
+
+- name: "Bold Precious Metals"
+  type: online
+  website: "https://www.boldpreciousmetals.com"
+  city: "Austin"
+  state: "TX"
+  state_name: "Texas"
+  specialties:
+    - Gold & Silver Bullion
+    - Vintage Silver
+  description: "Online dealer specializing in bullion with a focus on vintage and semi-numismatic silver. Competitive pricing."
+  ships_nationwide: true
+  accepts_trade_ins: false
+
+# === Major Auction / Both ===
+
+- name: "Heritage Auctions"
+  type: both
+  website: "https://www.ha.com"
+  city: "Dallas"
+  state: "TX"
+  state_name: "Texas"
+  specialties:
+    - Rare US Coins
+    - Paper Currency
+    - Auction Services
+  description: "The world's largest numismatic auction house. Handles rare coins, currency, and collectibles. Free appraisals for potential consignments. Also has a retail storefront."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "Stack's Bowers Galleries"
+  type: both
+  website: "https://www.stacksbowers.com"
+  city: "Costa Mesa"
+  state: "CA"
+  state_name: "California"
+  specialties:
+    - Rare US Coins
+    - World Coins
+    - Auction Services
+  description: "One of the oldest and most respected coin auction houses in the US (founded 1935). Specializes in rare and high-value numismatic items."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "Great Collections"
+  type: online
+  website: "https://www.greatcollections.com"
+  city: "Irvine"
+  state: "CA"
+  state_name: "California"
+  specialties:
+    - Certified Coins
+    - Online Auctions
+  description: "Online-only coin auction platform specializing in PCGS and NGC certified coins. No buyer's premium on most lots."
+  ships_nationwide: true
+  accepts_trade_ins: false
+
+# === Brick and Mortar Dealers ===
+
+- name: "Blanchard & Company"
+  type: both
+  website: "https://www.blanchardonline.com"
+  city: "New Orleans"
+  state: "LA"
+  state_name: "Louisiana"
+  specialties:
+    - Gold Coins
+    - Rare US Coins
+    - Portfolio Services
+  description: "One of the largest tangible asset dealers in the US. Specializes in rare gold coins and precious metals portfolio management. In business since 1975."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "David Lawrence Rare Coins"
+  type: both
+  website: "https://www.davidlawrence.com"
+  city: "Virginia Beach"
+  state: "VA"
+  state_name: "Virginia"
+  specialties:
+    - Certified US Coins
+    - Online Auctions
+  description: "Established dealer specializing in PCGS and NGC certified US coins. Runs weekly online auctions with no buyer's premium."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "Goldline International"
+  type: both
+  website: "https://www.goldline.com"
+  city: "Santa Monica"
+  state: "CA"
+  state_name: "California"
+  specialties:
+    - Gold & Silver Bullion
+    - IRA-Eligible Metals
+  description: "Precious metals dealer specializing in IRA-eligible gold and silver products. In business since 1960."
+  ships_nationwide: true
+  accepts_trade_ins: true
+
+- name: "Scotsman Coin & Jewelry"
+  type: brick-and-mortar
+  website: "https://www.scotsmancoin.com"
+  city: "St. Louis"
+  state: "MO"
+  state_name: "Missouri"
+  specialties:
+    - US Coins
+    - Gold & Silver
+    - Estate Buying
+  description: "Established St. Louis coin shop buying and selling coins, bullion, and estate jewelry since 1972. Walk-in appraisals available."
+  ships_nationwide: false
+  accepts_trade_ins: true
+
+- name: "Coin World / Amos Media"
+  type: online
+  website: "https://www.coinworld.com"
+  city: "Sidney"
+  state: "OH"
+  state_name: "Ohio"
+  specialties:
+    - Coin News & Media
+    - Price Guides
+  description: "Publisher of Coin World magazine and online coin news. Not a dealer but an essential reference resource for collectors and dealers."
+  ships_nationwide: true
+  accepts_trade_ins: false
