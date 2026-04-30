@@ -1,6 +1,14 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Apr 29, 2026
+- v0.7.6: Show reminder CTA system — "Never Miss a Coin Show" opt-in cards
+  - In-grid CTA card on homepage (positioned after first row of show cards)
+  - Show-specific reminder CTA on individual show detail pages (pre-fills show name)
+  - TCPA-compliant SMS consent checkbox with legal language
+  - Phone field dynamically required when SMS checkbox is checked
+  - Added SMS and Email Messaging Terms section (Section 9) to Terms of Use
+  - Both CTAs link to Terms of Use #sms-terms anchor and Privacy Policy
+  - All forms submit through Formspree with "Show Reminder Signup" subject
 - v0.7.5: Improved spot ticker "Updated" text contrast — changed from muted gray to light blue-white for readability on hero gradient
 - v0.7.4: Reworked forms — quote form subject now "Attendee Wants a Quote", added dealer checkbox toggle in Stay in the Loop section that reveals a dealer registration form (name, business, email, phone, website, specialty, shows attended)
 - v0.7.3: Dealer portal inquiry form (Formspree) — name, email, show, interest dropdown, description

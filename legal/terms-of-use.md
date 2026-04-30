@@ -13,7 +13,7 @@ breadcrumb_current: "Terms of Use"
 # Terms of Use
 
 **Effective Date:** April 15, 2026
-**Last Updated:** April 15, 2026
+**Last Updated:** April 29, 2026
 
 Please read these Terms of Use ("Terms") carefully before using the Coin Show Near Me website located at coinshownearme.com (the "Site"), including all subdomains, pages, tools, services, and features offered through the Site (collectively, the "Platform"). The Platform is operated by Coin Show Near Me ("we," "us," or "our").
 
@@ -174,7 +174,43 @@ You agree not to submit content that is:
 
 ---
 
-## 9. Prohibited Uses
+## 9. SMS and Email Messaging Terms {#sms-terms}
+
+### 9.1 Consent to Receive Messages
+
+By providing your mobile phone number and checking the SMS consent box on our Platform, you expressly consent to receive recurring automated text messages (SMS/MMS) from Coin Show Near Me related to coin show reminders, event updates, and related notifications. Consent is not a condition of any purchase. You may receive approximately 2 to 4 messages per month, though frequency may vary.
+
+### 9.2 Message and Data Rates
+
+Message and data rates may apply depending on your mobile carrier and plan. Coin Show Near Me is not responsible for any charges incurred from your carrier as a result of receiving text messages.
+
+### 9.3 How to Opt Out
+
+You may opt out of receiving text messages at any time by replying **STOP** to any message you receive from us. After opting out, you will receive one final confirmation message. You will no longer receive text messages from us unless you re-subscribe.
+
+### 9.4 Help
+
+For help with text messages, reply **HELP** to any message you receive from us, or contact us at legal@coinshownearme.com.
+
+### 9.5 Supported Carriers
+
+Major US carriers are supported, including but not limited to AT&T, Verizon, T-Mobile, Sprint, and their affiliates. Coin Show Near Me is not responsible for delayed or undelivered messages due to carrier issues.
+
+### 9.6 Email Communications
+
+By providing your email address through any form on the Platform, you consent to receive email communications from Coin Show Near Me, including coin show reminders, event updates, and feature announcements. You may unsubscribe from email communications at any time by clicking the "unsubscribe" link included in every email or by contacting us at legal@coinshownearme.com.
+
+### 9.7 Privacy
+
+Your phone number and email address will not be shared with third parties for marketing purposes. For more information on how we handle your data, see our [Privacy Policy](/legal/privacy-policy/).
+
+### 9.8 Modifications
+
+We reserve the right to modify this SMS messaging program at any time. Any changes will be reflected in an updated version of these Terms.
+
+---
+
+## 10. Prohibited Uses
 
 You agree not to:
 - Use the Platform for any unlawful purpose
@@ -189,53 +225,53 @@ You agree not to:
 
 ---
 
-## 10. Dispute Resolution
+## 11. Dispute Resolution
 
-### 10.1 Between Users
+### 11.1 Between Users
 
 Disputes between users (Dealers, Sellers, Attendees, Promoters) are exclusively between those parties. **We are not obligated to mediate, arbitrate, or resolve any dispute between users.** We may, at our sole discretion, provide reasonable assistance, but have no obligation to do so.
 
-### 10.2 Between You and Us
+### 11.2 Between You and Us
 
 Any dispute arising from or related to these Terms or your use of the Platform shall be resolved through binding arbitration administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules. The arbitration shall take place in Orange County, California. **You agree to waive any right to a jury trial and to participate in a class action lawsuit.**
 
-### 10.3 Governing Law
+### 11.3 Governing Law
 
 These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to conflict of law principles.
 
 ---
 
-## 11. Intellectual Property
+## 12. Intellectual Property
 
 All content, design, code, trademarks, logos, and other intellectual property on the Platform (excluding User Content) is owned by or licensed to Coin Show Near Me and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any Platform content without our prior written consent.
 
 ---
 
-## 12. Termination
+## 13. Termination
 
 We may terminate or suspend your access to the Platform at any time, for any reason, without notice. Upon termination, your right to use the Platform ceases immediately. Sections that by their nature should survive termination (including Limitation of Liability, Indemnification, Disclaimer of Warranties, and Dispute Resolution) shall survive.
 
 ---
 
-## 13. Modifications to Terms
+## 14. Modifications to Terms
 
 We reserve the right to modify these Terms at any time. Material changes will be posted on the Platform with an updated "Last Updated" date. Your continued use of the Platform after any modification constitutes acceptance of the modified Terms.
 
 ---
 
-## 14. Severability
+## 15. Severability
 
 If any provision of these Terms is found to be unenforceable, the remaining provisions shall continue in full force and effect.
 
 ---
 
-## 15. Entire Agreement
+## 16. Entire Agreement
 
 These Terms, together with our [Privacy Policy](/legal/privacy-policy/) and any other legal notices published on the Platform, constitute the entire agreement between you and Coin Show Near Me regarding your use of the Platform.
 
 ---
 
-## 16. Contact
+## 17. Contact
 
 For questions about these Terms, contact us at:
 
