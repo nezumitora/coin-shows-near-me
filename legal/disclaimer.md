@@ -111,4 +111,4 @@ Please see our [Terms of Use](/legal/terms-of-use/) for complete limitation of l
 Questions about these disclaimers may be directed to:
 
 **Coin Show Near Me**
-Email: legal@coinshownearme.com
+[Contact us here](/contact/)

@@ -111,7 +111,7 @@ Depending on your jurisdiction, you may have the right to:
 
 If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), including the right to know what personal information we collect, the right to delete, and the right to opt out of the sale of personal information. **We do not sell personal information.**
 
-To exercise your rights, contact us at privacy@coinshownearme.com.
+To exercise your rights, [contact us](/contact/).
 
 ---
 
@@ -150,7 +150,7 @@ We may update this Privacy Policy from time to time. Material changes will be po
 For privacy-related questions or to exercise your rights:
 
 **Coin Show Near Me**
-Email: privacy@coinshownearme.com
+[Contact us here](/contact/)
 
 ---
 
