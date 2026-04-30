@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Coin Shows by State — Complete US Directory"
+title: "Browse by State"
 seo_title: "Coin Shows by State — Find Coin Shows in Every US State | Coin Show Near Me"
 seo_description: "Browse coin shows in all 50 US states. Find upcoming coin shows, expos, and numismatic conventions near you with dates, venues, and details."
 permalink: /states/

@@ -1,10 +1,11 @@
 ---
 layout: default
-title: "What to Do With an Inherited Coin Collection"
+title: "Inherited Coins"
 seo_title: "Inherited Coin Collection? What to Do, How to Value & Where to Sell | Coin Show Near Me"
 seo_description: "Inherited coins or a coin collection? Don't clean them. Learn how to value, protect, and sell inherited coins — common mistakes, tax rules, and where to get honest appraisals."
 permalink: /guides/inherited-coin-collection/
-nav_exclude: true
+parent: "Guides"
+nav_order: 2
 breadcrumb_parent: "Guides"
 breadcrumb_parent_url: "/guides/"
 breadcrumb_current: "Inherited Coin Collection"

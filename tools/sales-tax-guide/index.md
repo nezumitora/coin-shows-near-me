@@ -1,10 +1,11 @@
 ---
 layout: default
-title: "State Sales Tax Guide for Coins & Precious Metals"
+title: "Sales Tax Guide"
 seo_title: "Sales Tax on Coins & Precious Metals by State (2026) | Coin Show Near Me"
 seo_description: "Complete 50-state guide to sales tax on gold, silver, bullion, and coins. Find out if your state taxes precious metals purchases and what exemptions apply."
 permalink: /tools/sales-tax-guide/
-nav_exclude: true
+parent: "Tools"
+nav_order: 2
 breadcrumb_parent: "Tools"
 breadcrumb_parent_url: "/tools/"
 breadcrumb_current: "Sales Tax Guide"

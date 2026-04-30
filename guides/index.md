@@ -1,10 +1,11 @@
 ---
 layout: default
-title: "Coin Collecting Guides"
+title: "Guides"
 seo_title: "Coin Collecting Guides & Resources | Coin Show Near Me"
 seo_description: "Free guides for coin collectors — beginner tips, coin show etiquette, inherited collection advice, and more."
 permalink: /guides/
-nav_exclude: true
+nav_order: 5
+has_children: true
 breadcrumb_current: "Guides"
 ---
 
