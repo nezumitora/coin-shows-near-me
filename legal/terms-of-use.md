@@ -190,7 +190,7 @@ You may opt out of receiving text messages at any time by replying **STOP** to a
 
 ### 9.4 Help
 
-For help with text messages, reply **HELP** to any message you receive from us, or contact us at legal@coinshownearme.com.
+For help with text messages, reply **HELP** to any message you receive from us, or [contact us](/contact/).
 
 ### 9.5 Supported Carriers
 
@@ -198,7 +198,7 @@ Major US carriers are supported, including but not limited to AT&T, Verizon, T-M
 
 ### 9.6 Email Communications
 
-By providing your email address through any form on the Platform, you consent to receive email communications from Coin Show Near Me, including coin show reminders, event updates, and feature announcements. You may unsubscribe from email communications at any time by clicking the "unsubscribe" link included in every email or by contacting us at legal@coinshownearme.com.
+By providing your email address through any form on the Platform, you consent to receive email communications from Coin Show Near Me, including coin show reminders, event updates, and feature announcements. You may unsubscribe from email communications at any time by clicking the "unsubscribe" link included in every email or by [contacting us](/contact/).
 
 ### 9.7 Privacy
 
@@ -276,7 +276,7 @@ These Terms, together with our [Privacy Policy](/legal/privacy-policy/) and any 
 For questions about these Terms, contact us at:
 
 **Coin Show Near Me**
-Email: legal@coinshownearme.com
+[Contact us here](/contact/)
 
 ---
 

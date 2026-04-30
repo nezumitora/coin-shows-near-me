@@ -41,3 +41,5 @@ exclude:
   - TODO.md
   - CHANGELOG.md
   - LICENSE
+  - AGENTS.md
+  - inbox/

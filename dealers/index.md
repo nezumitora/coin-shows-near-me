@@ -74,7 +74,7 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
     <li style="color:#94a3b8;font-size:0.85rem;padding:0.25rem 0;padding-left:1.25rem;position:relative;"><span style="position:absolute;left:0;color:#daa520;font-weight:700;">&#10003;</span> Receive pre-show offer requests from sellers</li>
     <li style="color:#94a3b8;font-size:0.85rem;padding:0.25rem 0;padding-left:1.25rem;position:relative;"><span style="position:absolute;left:0;color:#daa520;font-weight:700;">&#10003;</span> Link to your website and show your specialties</li>
   </ul>
-  <a href="/#signup" style="display:inline-block;background:#b8860b;color:#fff;padding:0.65rem 2rem;border-radius:6px;font-weight:700;font-size:0.95rem;text-decoration:none;">Register as a Dealer</a>
+  <a href="/#signup" class="cta-btn" style="display:inline-block;background:#b8860b;color:#fff;padding:0.65rem 2rem;border-radius:6px;font-weight:700;font-size:0.95rem;text-decoration:none;">Register as a Dealer</a>
 </div>
 
 ## How to Choose a Dealer
