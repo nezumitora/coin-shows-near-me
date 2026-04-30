@@ -56,6 +56,24 @@ INBOX_EOF
 **Always send a copy to dashboard** for: expenses, services, credentials, infrastructure.
 Dashboard inbox: `~/Git/business-dashboard/inbox/`
 
+## Project Routing Table
+
+| Project | Inbox path | Business |
+|---|---|---|
+| business-dashboard | `~/Git/business-dashboard/inbox/` | all |
+| dsi-labels | `~/Git/dsi-labels/inbox/` | dsi-labels |
+| coin-shows-near-me | `~/Git/coin-shows-near-me/inbox/` | coin-directory |
+| ewastefreepickup.com | `~/Git/ewastefreepickup.com/inbox/` | e-waste |
+| espocrm-setup | `~/Git/espocrm-setup/inbox/` | shared |
+| fcbf | `~/Git/fcbf/inbox/` | fcbf |
+| fcbf-qualifier | `~/Git/fcbf-qualifier/inbox/` | fcbf |
+| fcbf-roi-calculator | `~/Git/fcbf-roi-calculator/inbox/` | fcbf |
+| fcbf-newsletter | `~/Git/fcbf-newsletter/inbox/` | fcbf |
+| milo-fcbf-bot | `~/Git/milo-fcbf-bot/inbox/` | all |
+| milohiss | `~/Git/milohiss/inbox/` | all |
+| multi-tenant-crm | `~/Git/multi-tenant-crm/inbox/` | shared |
+| seo-blog-engine | `~/Git/seo-blog-engine/inbox/` | shared |
+
 ## Infrastructure (current as of April 2026)
 
 | Service | URL | Cost |
