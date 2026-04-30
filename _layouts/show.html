@@ -76,6 +76,69 @@ layout: default
 </p>
 </div>
 
+<!-- Show Reminder CTA -->
+<div style="background:linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);color:#f1f5f9;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid var(--coin-gold);">
+  <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:700;color:var(--coin-gold-light);">Don't Forget About This Show!</p>
+  <p style="margin:0 0 1rem;font-size:0.9rem;color:#cbd5e1;">Get a reminder a week before <strong>{{ show.name }}</strong> — by email or text message.</p>
+  <form id="show-reminder-form" action="https://formspree.io/f/mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.5rem;">
+    <input type="hidden" name="_subject" value="Coin Show Near Me — Show Reminder Signup">
+    <input type="hidden" name="form_type" value="show_reminder">
+    <input type="hidden" name="show_name" value="{{ show.name }}">
+    <input type="hidden" name="show_id" value="{{ show.id }}">
+    <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="email" name="email" placeholder="Email address" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;">
+      <input type="tel" name="phone" placeholder="Mobile number (optional)" style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;">
+    </div>
+    <label style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
+      <input type="checkbox" name="sms_consent" id="sms-consent-show" value="yes" style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>I agree to receive text message reminders about upcoming coin shows. Msg &amp; data rates may apply. Approx. 2-4 msgs/month. Reply STOP to cancel. <a href="/legal/terms-of-use/#sms-terms" style="color:var(--coin-gold-light);text-decoration:underline;">SMS Terms</a> &amp; <a href="/legal/privacy-policy/" style="color:var(--coin-gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
+    </label>
+    <p style="font-size:0.65rem;color:#64748b;line-height:1.4;margin:0;">By submitting, you also consent to receive email reminders. You can unsubscribe at any time.</p>
+    <button type="submit" style="background:var(--coin-gold);color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:700;cursor:pointer;align-self:flex-start;">Remind Me About This Show</button>
+  </form>
+  <div id="show-reminder-success" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
+    You're signed up! We'll remind you before {{ show.name }}.
+  </div>
+</div>
+
+<script>
+(function() {
+  /* Phone required when SMS checked */
+  var smsCheck = document.getElementById('sms-consent-show');
+  if (smsCheck) {
+    var phoneField = smsCheck.closest('form').querySelector('input[name="phone"]');
+    smsCheck.addEventListener('change', function() {
+      if (this.checked) {
+        phoneField.setAttribute('required', '');
+        phoneField.setAttribute('placeholder', 'Mobile number (required for text reminders)');
+      } else {
+        phoneField.removeAttribute('required');
+        phoneField.setAttribute('placeholder', 'Mobile number (optional)');
+      }
+    });
+  }
+  /* Form submit */
+  var form = document.getElementById('show-reminder-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('show-reminder-success').style.display = 'block';
+        }
+      });
+    });
+  }
+})();
+</script>
+
 <h2>More Coin Shows Near {{ show.city }}</h2>
 <p>See all <a href="{{ site.baseurl }}/cities/{{ show.city_slug }}/">coin shows in {{ show.city }}</a> or browse <a href="{{ site.baseurl }}/states/{% for state in site.data.states %}{% if state.abbrev == show.state %}{{ state.slug }}{% endif %}{% endfor %}/">all coin shows in {{ show.state_name }}</a>.</p>
 
