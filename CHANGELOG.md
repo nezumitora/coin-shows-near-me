@@ -1,6 +1,13 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Apr 29, 2026
+- v0.8.1: Navigation overhaul + driving directions fix
+  - Homepage nav now has dropdown menus: Find Shows (Browse by State, This Weekend, Major Shows), Tools (Melt Calculator, Sales Tax Guide), Guides (Beginner's Guide, Inherited Coins), Sign Up CTA
+  - Dropdowns work on mobile (expand inline in hamburger menu)
+  - Sidebar nav (inner pages) now shows: Browse by State, This Weekend, Tools (with children), Guides (with children)
+  - Added Tools index page and made melt calc + tax guide sidebar-visible
+  - Fixed: Driving Directions button now hidden when show has no venue/address
+  - Cleaner nav titles: shortened sidebar labels for readability
 - v0.8.0: Major content expansion — 4 new sections, 55+ new pages
   - **State Sales Tax Guide** — main index page with search/filter + 51 individual state pages. Covers bullion/coin exemption status, thresholds, effective dates, tax authority links. Data-driven from `_data/state_tax.yml`.
   - **Get Driving Directions** button on every show detail page (Google Maps link with venue pre-filled) + tax status badge linking to state's tax guide

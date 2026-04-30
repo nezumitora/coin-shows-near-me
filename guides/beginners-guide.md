@@ -1,10 +1,11 @@
 ---
 layout: default
-title: "Beginner's Guide to Coin Shows"
+title: "Beginner's Guide"
 seo_title: "Beginner's Guide to Coin Shows — What to Expect, Tips & Etiquette | Coin Show Near Me"
 seo_description: "First time at a coin show? Learn what to expect, how to negotiate with dealers, what to bring, coin show etiquette, and insider tips for getting the best deals."
 permalink: /guides/beginners-guide/
-nav_exclude: true
+parent: "Guides"
+nav_order: 1
 breadcrumb_parent: "Guides"
 breadcrumb_parent_url: "/guides/"
 breadcrumb_current: "Beginner's Guide"

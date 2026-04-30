@@ -1,6 +1,6 @@
 ---
 layout: weekend
-title: "Coin Shows This Weekend — Find a Coin Show Near You"
+title: "This Weekend"
 seo_title: "Coin Shows This Weekend — Upcoming Coin Shows Near You | Coin Show Near Me"
 seo_description: "Find coin shows happening this weekend and next weekend across the United States. Updated weekly with dates, venues, and locations for upcoming coin shows."
 permalink: /coin-shows-this-weekend/

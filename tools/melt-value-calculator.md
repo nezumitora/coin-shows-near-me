@@ -1,10 +1,11 @@
 ---
 layout: default
-title: "Coin Melt Value Calculator — What Are Your Coins Worth in Metal?"
+title: "Melt Value Calculator"
 seo_title: "Coin Melt Value Calculator — Silver & Gold Coin Melt Values | Coin Show Near Me"
 seo_description: "Calculate the melt value of US silver and gold coins. Instant calculator for pre-1965 silver quarters, dimes, half dollars, silver dollars, and gold coins. Get an offer from a local dealer."
 permalink: /tools/melt-value-calculator/
-nav_order: 4
+parent: "Tools"
+nav_order: 1
 breadcrumb_current: "Melt Value Calculator"
 ---
 
