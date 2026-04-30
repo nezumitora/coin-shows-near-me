@@ -37,21 +37,33 @@ When the user says they shared a file, screenshot, or says "see ss" / "see scree
 
 **Never skip step 3** — reading directly from the Desktop path will fail with "File not found".
 
-## Inbox System (MANDATORY — check on EVERY session start)
+## Inbox Check (MANDATORY — FIRST thing on EVERY session, before ANY other work)
 
-Other project agents drop JSON messages into `inbox/` when they have info for this project.
+**YOU MUST DO THIS BEFORE RESPONDING TO THE USER'S FIRST MESSAGE.**
 
-**On every session start, run:**
+Other project agents and the Milo Telegram bot drop JSON messages into this repo's inbox. You must check for them and report what you found BEFORE doing anything else.
+
+**Step 1: Check the CANONICAL repo path (NEVER a worktree path):**
 
 ```bash
-ls inbox/*.json 2>/dev/null | grep -v README
+ls ~/Git/REPO-NAME/inbox/*.json 2>/dev/null | grep -v README
 ```
 
-If messages exist:
+**CRITICAL:** Always use `~/Git/REPO-NAME/inbox/` — the canonical repo directory. NEVER check a worktree path like `~/Git/REPO-NAME-feature-xyz/inbox/`. Messages are delivered to the canonical path only.
+
+**Step 2: Report to user immediately.** Your FIRST message must start with one of:
+
+- If messages found: "📬 I found N inbox messages: [brief summary of each]. Processing them now."
+- If no messages: "📭 Inbox checked — no new messages."
+
+Then proceed with whatever the user asked.
+
+**Step 3: Process any messages found:**
 1. Read each JSON file
 2. Act on the message (add tasks, update configs, note the info)
 3. Move processed files to `inbox/processed/`
-4. Tell the user what you found
+
+**DO NOT SKIP THIS.** The user should never have to ask "did you check your inbox?"
 
 **To send messages to other agents**, write a JSON file to their inbox:
 
