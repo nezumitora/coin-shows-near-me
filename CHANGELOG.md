@@ -1,6 +1,14 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Apr 29, 2026
+- v0.8.0: Major content expansion — 4 new sections, 55+ new pages
+  - **State Sales Tax Guide** — main index page with search/filter + 51 individual state pages. Covers bullion/coin exemption status, thresholds, effective dates, tax authority links. Data-driven from `_data/state_tax.yml`.
+  - **Get Driving Directions** button on every show detail page (Google Maps link with venue pre-filled) + tax status badge linking to state's tax guide
+  - **Beginner's Guide to Coin Shows** — full guide: what to expect, what to bring, how to negotiate, selling tips, etiquette, glossary of 15 numismatic terms, types of shows
+  - **Inherited Coin Collection Guide** — step-by-step for "I inherited coins, now what?" Covers: don't clean, sorting, appraisals, understanding value, selling options, tax considerations, common mistakes, silver/gold ID reference
+  - **Guides index page** with links to all guides and tools
+  - Added Guides and Sales Tax Guide links to homepage footer
+  - Added URL path/slug audit task to TODO for WordPress migration prep
 - v0.7.7: Changed "Stay in the Loop" to "Stay in the Loupe" — coin collector wordplay (a loupe is the magnifying glass used to examine coins)
 - v0.7.6: Show reminder CTA system — "Never Miss a Coin Show" opt-in cards
   - In-grid CTA card on homepage (positioned after first row of show cards)
