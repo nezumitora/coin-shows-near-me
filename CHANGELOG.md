@@ -1,6 +1,18 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Apr 29, 2026
+- v0.8.2: Blog page + Dealer Directory
+  - **Blog** coming soon page at `/blog/` with sign-up CTA and preview of upcoming content topics
+  - **Dealer Directory** at `/dealers/` — searchable, filterable directory of coin dealers
+    - 16 initial dealers: online bullion dealers, auction houses, brick-and-mortar shops
+    - Filter by type: All, Brick & Mortar, Online, Online + Storefront
+    - Search by dealer name, city, or state
+    - Each listing shows: type badge, specialties, description, website link, "Buys Coins" badge, shipping info
+    - Dealer registration CTA for dealers to get listed
+    - "How to Choose a Dealer" buying/selling guide with red flags section
+  - Data-driven from `_data/dealers.yml`
+  - Added "Find a Dealer" and "Blog" to homepage nav bar
+  - Added both to sidebar nav on inner pages
 - v0.8.1: Navigation overhaul + driving directions fix
   - Homepage nav now has dropdown menus: Find Shows (Browse by State, This Weekend, Major Shows), Tools (Melt Calculator, Sales Tax Guide), Guides (Beginner's Guide, Inherited Coins), Sign Up CTA
   - Dropdowns work on mobile (expand inline in hamburger menu)
