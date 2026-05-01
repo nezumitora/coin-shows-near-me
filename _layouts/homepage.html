@@ -68,14 +68,154 @@ a:hover { color: var(--gold-light); }
   z-index: 100;
 }
 
-/* === Top Nav (shared styles from head_custom.html via global-top-nav) === */
-/* Homepage-specific overrides for the shared nav */
+/* === Top Nav (full styles — homepage doesn't load head_custom.html) === */
 .global-top-nav {
   background: var(--navy);
   padding: 0.6rem 0;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: none;
   position: relative;
   z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+.global-top-nav * { box-sizing: border-box; }
+.global-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.global-nav-site-name {
+  color: var(--gold-light);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.global-nav-site-name:hover { color: #fff; }
+.global-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.global-nav-links a {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.global-nav-links a:hover { color: var(--gold-light); }
+.global-nav-links .gnav-cta {
+  background: var(--gold) !important;
+  color: #fff !important;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem !important;
+}
+.global-nav-links .gnav-cta:hover { background: var(--gold-light) !important; }
+.gnav-dropdown { position: relative; }
+.gnav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; padding: 0.5rem 0; }
+.gnav-dropdown > a::after { content: "\25BE"; font-size: 0.65rem; opacity: 0.7; }
+.gnav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.75rem 0 0.5rem;
+  min-width: 200px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  z-index: 1100;
+}
+.gnav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+}
+.gnav-dropdown:hover .gnav-dropdown-menu { display: block; }
+.gnav-dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1.25rem;
+  color: #cbd5e1 !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.gnav-dropdown-menu a:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--gold-light) !important;
+}
+.gnav-dropdown-menu .gnav-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 0.35rem 0;
+}
+.global-nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.global-nav-logo img {
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+.global-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--gold-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+}
+@media (max-width: 800px) {
+  .global-nav-links { display: none; }
+  .global-nav-links.gnav-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    padding: 0.75rem 1.5rem;
+    border-bottom: 2px solid var(--gold);
+    gap: 0;
+    z-index: 1100;
+  }
+  .global-nav-links.gnav-open li { padding: 0.35rem 0; }
+  .global-nav-toggle { display: block; }
+  .gnav-dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 0 0 1rem !important;
+    min-width: auto !important;
+    background: transparent !important;
+  }
+  .gnav-dropdown-menu::before { display: none; }
+  .gnav-dropdown:hover .gnav-dropdown-menu,
+  .gnav-open .gnav-dropdown .gnav-dropdown-menu { display: block; }
+  .gnav-dropdown > a::after { content: ""; }
+  .gnav-dropdown-menu .gnav-divider { display: none; }
+  .global-nav-logo { display: none; }
 }
 
 /* === Construction Banner === */
