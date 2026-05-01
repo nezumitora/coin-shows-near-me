@@ -82,19 +82,24 @@ a:hover { color: var(--gold-light); }
   align-items: center;
   justify-content: space-between;
 }
-.top-nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+.top-nav-site-name {
   color: var(--gold-light);
   font-weight: 700;
   font-size: 1.1rem;
   text-decoration: none;
+  white-space: nowrap;
+}
+.top-nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 .top-nav-logo img {
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   border-radius: 6px;
+  object-fit: contain;
 }
 .top-nav-links {
   display: flex;
@@ -122,7 +127,7 @@ a:hover { color: var(--gold-light); }
 
 /* Nav dropdowns */
 .nav-dropdown { position: relative; }
-.nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; }
+.nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; padding: 0.5rem 0; }
 .nav-dropdown > a::after { content: "\25BE"; font-size: 0.65rem; opacity: 0.7; }
 .nav-dropdown-menu {
   display: none;
@@ -137,7 +142,16 @@ a:hover { color: var(--gold-light); }
   min-width: 200px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   z-index: 200;
-  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+}
+/* Invisible bridge so cursor can move from link to dropdown without gap */
+.nav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
 }
 .nav-dropdown:hover .nav-dropdown-menu { display: block; }
 .nav-dropdown-menu a {
@@ -1037,6 +1051,7 @@ a:hover { color: var(--gold-light); }
   .nav-dropdown > a::after { content: ""; }
   .top-nav-links.open .nav-dropdown .nav-dropdown-menu { display: block; }
   .nav-dropdown-menu .dropdown-divider { display: none; }
+  .top-nav-logo { display: none; }
 
   .hero { padding: 2.5rem 1rem 2rem; }
   .hero h1 { font-size: 1.7rem; }
@@ -1073,10 +1088,7 @@ a:hover { color: var(--gold-light); }
 <div class="sticky-header">
   <nav class="top-nav">
     <div class="top-nav-inner">
-      <a href="/" class="top-nav-logo">
-        <img src="{{ site.baseurl }}/assets/images/logo.png" alt="Coin Show Near Me">
-        <span>Coin Show Near Me</span>
-      </a>
+      <a href="/" class="top-nav-site-name">Coin Show Near Me</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
       <ul class="top-nav-links" id="nav-links">
         <li class="nav-dropdown">
@@ -1106,6 +1118,9 @@ a:hover { color: var(--gold-light); }
         <li><a href="/blog/">Blog</a></li>
         <li><a href="#signup" class="nav-cta">Sign Up</a></li>
       </ul>
+      <a href="/" class="top-nav-logo">
+        <img src="{{ site.baseurl }}/assets/images/logo.png" alt="Coin Show Near Me">
+      </a>
     </div>
   </nav>
   <div class="construction-banner">

@@ -358,4 +358,192 @@ a.cta-btn:hover {
     font-size: 0.85rem;
   }
 }
+
+/* === Global Top Nav Bar (injected on all just-the-docs pages) === */
+.global-top-nav {
+  background: var(--coin-navy);
+  padding: 0.6rem 0;
+  border-bottom: 2px solid var(--coin-gold);
+  position: relative;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+.global-top-nav * { box-sizing: border-box; }
+.global-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.global-nav-site-name {
+  color: var(--coin-gold-light) !important;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+.global-nav-site-name:hover { color: #fff !important; }
+.global-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.global-nav-links a {
+  color: #cbd5e1 !important;
+  font-size: 0.85rem !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: color 0.2s;
+}
+.global-nav-links a:hover { color: var(--coin-gold-light) !important; }
+.global-nav-links .gnav-cta {
+  background: var(--coin-gold) !important;
+  color: #fff !important;
+  padding: 0.35rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem !important;
+}
+.global-nav-links .gnav-cta:hover { background: var(--coin-gold-light) !important; }
+/* Dropdown menus in global nav */
+.gnav-dropdown { position: relative; }
+.gnav-dropdown > a { display: flex !important; align-items: center; gap: 0.25rem; }
+.gnav-dropdown > a::after { content: "\25BE"; font-size: 0.6rem; opacity: 0.7; }
+.gnav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--coin-navy);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.75rem 0 0.5rem;
+  min-width: 190px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  z-index: 1100;
+}
+.gnav-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+}
+.gnav-dropdown:hover .gnav-dropdown-menu { display: block; }
+.gnav-dropdown-menu a {
+  display: block !important;
+  padding: 0.45rem 1.1rem !important;
+  color: #cbd5e1 !important;
+  font-size: 0.8rem !important;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.gnav-dropdown-menu a:hover {
+  background: rgba(255,255,255,0.08) !important;
+  color: var(--coin-gold-light) !important;
+}
+.gnav-dropdown-menu .gnav-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 0.3rem 0;
+}
+.global-nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  flex-shrink: 0;
+}
+.global-nav-logo img {
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+/* Mobile toggle for global nav */
+.global-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--coin-gold-light);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0;
+}
+@media (max-width: 800px) {
+  .global-nav-links { display: none; }
+  .global-nav-links.gnav-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--coin-navy);
+    padding: 0.75rem 1.5rem;
+    border-bottom: 2px solid var(--coin-gold);
+    gap: 0;
+    z-index: 1100;
+  }
+  .global-nav-links.gnav-open li { padding: 0.35rem 0; }
+  .global-nav-toggle { display: block; }
+  .gnav-dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 0 0 1rem !important;
+    min-width: auto !important;
+    background: transparent !important;
+  }
+  .gnav-dropdown-menu::before { display: none; }
+  .gnav-dropdown:hover .gnav-dropdown-menu,
+  .gnav-open .gnav-dropdown .gnav-dropdown-menu { display: block; }
+  .gnav-dropdown > a::after { content: ""; }
+  .gnav-dropdown-menu .gnav-divider { display: none; }
+}
+/* Push sidebar down so it doesn't overlap nav */
+.side-bar { top: 0 !important; }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  /* Only inject on just-the-docs pages (skip homepage which has its own nav) */
+  if (document.querySelector('.top-nav')) return;
+
+  var nav = document.createElement('nav');
+  nav.className = 'global-top-nav';
+  nav.innerHTML = '<div class="global-nav-inner">'
+    + '<a href="/" class="global-nav-site-name">Coin Show Near Me</a>'
+    + '<button class="global-nav-toggle" id="gnav-toggle" aria-label="Menu">&#9776;</button>'
+    + '<ul class="global-nav-links" id="gnav-links">'
+    + '<li class="gnav-dropdown"><a href="/states/">Find Shows</a>'
+    + '<div class="gnav-dropdown-menu"><a href="/states/">Browse by State</a><a href="/coin-shows-this-weekend/">This Weekend</a><div class="gnav-divider"></div><a href="/#featured">Major Shows</a></div></li>'
+    + '<li class="gnav-dropdown"><a href="/tools/melt-value-calculator/">Tools</a>'
+    + '<div class="gnav-dropdown-menu"><a href="/tools/melt-value-calculator/">Melt Value Calculator</a><a href="/tools/sales-tax-guide/">Sales Tax by State</a></div></li>'
+    + '<li class="gnav-dropdown"><a href="/guides/">Guides</a>'
+    + '<div class="gnav-dropdown-menu"><a href="/guides/beginners-guide/">Beginner\'s Guide</a><a href="/guides/inherited-coin-collection/">Inherited Coins</a></div></li>'
+    + '<li><a href="/dealers/">Find a Dealer</a></li>'
+    + '<li><a href="/blog/">Blog</a></li>'
+    + '<li><a href="/contact/">Contact</a></li>'
+    + '<li><a href="/#signup" class="gnav-cta">Sign Up</a></li>'
+    + '</ul>'
+    + '<a href="/" class="global-nav-logo"><img src="/assets/images/logo.png" alt="Coin Show Near Me"></a>'
+    + '</div>';
+
+  document.body.insertBefore(nav, document.body.firstChild);
+
+  var toggle = document.getElementById('gnav-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      document.getElementById('gnav-links').classList.toggle('gnav-open');
+    });
+  }
+});
+</script>
