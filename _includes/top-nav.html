@@ -1,0 +1,36 @@
+<nav class="global-top-nav">
+  <div class="global-nav-inner">
+    <a href="/" class="global-nav-site-name">Coin Show Near Me</a>
+    <button class="global-nav-toggle" onclick="document.getElementById('gnav-links').classList.toggle('gnav-open')" aria-label="Menu">&#9776;</button>
+    <ul class="global-nav-links" id="gnav-links">
+      <li class="gnav-dropdown">
+        <a href="/states/">Find Shows</a>
+        <div class="gnav-dropdown-menu">
+          <a href="/states/">Browse by State</a>
+          <a href="/coin-shows-this-weekend/">This Weekend</a>
+          <div class="gnav-divider"></div>
+          <a href="/#featured">Major Shows</a>
+        </div>
+      </li>
+      <li class="gnav-dropdown">
+        <a href="/tools/melt-value-calculator/">Tools</a>
+        <div class="gnav-dropdown-menu">
+          <a href="/tools/melt-value-calculator/">Melt Value Calculator</a>
+          <a href="/tools/sales-tax-guide/">Sales Tax by State</a>
+        </div>
+      </li>
+      <li class="gnav-dropdown">
+        <a href="/guides/">Guides</a>
+        <div class="gnav-dropdown-menu">
+          <a href="/guides/beginners-guide/">Beginner's Guide</a>
+          <a href="/guides/inherited-coin-collection/">Inherited Coins</a>
+        </div>
+      </li>
+      <li><a href="/dealers/">Find a Dealer</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/#signup" class="gnav-cta">Sign Up</a></li>
+    </ul>
+    <a href="/" class="global-nav-logo"><img src="{{ site.baseurl }}/assets/images/logo.png" alt="Coin Show Near Me"></a>
+  </div>
+</nav>
