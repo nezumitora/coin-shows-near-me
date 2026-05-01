@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "Melt Value Calculator"
-seo_title: "Coin Melt Value Calculator — Silver & Gold Coin Melt Values | Coin Show Near Me"
-seo_description: "Calculate the melt value of US silver and gold coins. Instant calculator for pre-1965 silver quarters, dimes, half dollars, silver dollars, and gold coins. Get an offer from a local dealer."
+seo_title: "Coin Melt Value Calculator — US, Canadian, British & World Coin Melt Values | Coin Show Near Me"
+seo_description: "Calculate the melt value of US, Canadian, British and world silver and gold coins. Instant calculator for pre-1965 silver, pre-1933 gold, Maple Leafs, Sovereigns, Krugerrands, and more."
 permalink: /tools/melt-value-calculator/
 parent: "Tools"
 nav_order: 1
@@ -127,11 +127,44 @@ breadcrumb_current: "Melt Value Calculator"
     color: #6b7280;
     margin-top: 0.25rem;
   }
+  /* Tab styles */
+  .calc-tabs {
+    display: flex;
+    gap: 0;
+    margin: 1rem 0 0;
+    border-bottom: 2px solid #e5e7eb;
+  }
+  .calc-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .calc-tab:hover { color: #374151; }
+  .calc-tab.active {
+    color: #1a2332;
+    border-bottom-color: #b8860b;
+  }
+  .tab-panel { display: none; padding-top: 0.75rem; }
+  .tab-panel.active { display: block; }
+  .tab-section-title {
+    margin: 0.75rem 0 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a2332;
+  }
 </style>
 
 # Coin Melt Value Calculator
 
-Calculate the **metal melt value** of your US silver and gold coins instantly. Spot prices are loaded automatically and updated every hour — or enter your own.
+Calculate the **metal melt value** of your coins instantly. Covers US, Canadian, British, and world silver & gold coins. Spot prices load automatically and update every hour.
 
 <div class="spot-ticker" id="calc-spot-ticker" style="display:none;">
   <div class="spot-ticker-item">
@@ -173,60 +206,233 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
   <div class="spot-note" id="gold-spot-note">Loading live price...</div>
 </div>
 
-<h3 style="margin:1rem 0 0.5rem;font-size:1rem;">Silver Coins (90% Silver, Pre-1965)</h3>
-
-<div class="field-group">
-  <label class="field-label" for="qty-dimes">Roosevelt/Mercury Dimes</label>
-  <input class="field-input" type="number" id="qty-dimes" value="0" min="0">
+<div class="calc-tabs">
+  <button class="calc-tab active" data-tab="us">US Silver</button>
+  <button class="calc-tab" data-tab="usgold">US Gold</button>
+  <button class="calc-tab" data-tab="canadian">Canadian</button>
+  <button class="calc-tab" data-tab="british">British</button>
+  <button class="calc-tab" data-tab="world">World</button>
 </div>
 
+<!-- US Silver Tab -->
+<div class="tab-panel active" id="tab-us">
+<div class="tab-section-title">90% Silver (Pre-1965)</div>
+<div class="field-group">
+  <label class="field-label" for="qty-dimes">Roosevelt / Mercury Dimes</label>
+  <input class="field-input" type="number" id="qty-dimes" value="0" min="0">
+</div>
 <div class="field-group">
   <label class="field-label" for="qty-quarters">Washington Quarters</label>
   <input class="field-input" type="number" id="qty-quarters" value="0" min="0">
 </div>
-
 <div class="field-group">
   <label class="field-label" for="qty-halves">Walking Liberty / Franklin / Kennedy Halves (Pre-1965)</label>
   <input class="field-input" type="number" id="qty-halves" value="0" min="0">
 </div>
-
 <div class="field-group">
   <label class="field-label" for="qty-morgan">Morgan / Peace Silver Dollars</label>
   <input class="field-input" type="number" id="qty-morgan" value="0" min="0">
 </div>
-
 <div class="field-group">
   <label class="field-label" for="qty-ase">American Silver Eagles (1 oz .999)</label>
   <input class="field-input" type="number" id="qty-ase" value="0" min="0">
 </div>
 
-<h3 style="margin:1rem 0 0.5rem;font-size:1rem;">40% Silver (1965-1970 Kennedy Halves)</h3>
-
+<div class="tab-section-title">40% Silver</div>
 <div class="field-group">
-  <label class="field-label" for="qty-40halves">40% Kennedy Half Dollars</label>
+  <label class="field-label" for="qty-40halves">40% Kennedy Half Dollars (1965-1970)</label>
   <input class="field-input" type="number" id="qty-40halves" value="0" min="0">
 </div>
 
-<h3 style="margin:1rem 0 0.5rem;font-size:1rem;">Gold Coins</h3>
-
+<div class="tab-section-title">35% Silver (War Nickels)</div>
 <div class="field-group">
-  <label class="field-label" for="qty-age-1oz">American Gold Eagle (1 oz)</label>
+  <label class="field-label" for="qty-war-nickels">War Nickels (1942-1945, large mintmark above Monticello)</label>
+  <input class="field-input" type="number" id="qty-war-nickels" value="0" min="0">
+</div>
+</div>
+
+<!-- US Gold Tab -->
+<div class="tab-panel" id="tab-usgold">
+<div class="tab-section-title">American Gold Eagles</div>
+<div class="field-group">
+  <label class="field-label" for="qty-age-1oz">Gold Eagle (1 oz)</label>
   <input class="field-input" type="number" id="qty-age-1oz" value="0" min="0">
 </div>
-
 <div class="field-group">
-  <label class="field-label" for="qty-age-half">American Gold Eagle (1/2 oz)</label>
+  <label class="field-label" for="qty-age-half">Gold Eagle (1/2 oz)</label>
   <input class="field-input" type="number" id="qty-age-half" value="0" min="0">
 </div>
-
 <div class="field-group">
-  <label class="field-label" for="qty-age-quarter">American Gold Eagle (1/4 oz)</label>
+  <label class="field-label" for="qty-age-quarter">Gold Eagle (1/4 oz)</label>
   <input class="field-input" type="number" id="qty-age-quarter" value="0" min="0">
 </div>
-
 <div class="field-group">
-  <label class="field-label" for="qty-age-tenth">American Gold Eagle (1/10 oz)</label>
+  <label class="field-label" for="qty-age-tenth">Gold Eagle (1/10 oz)</label>
   <input class="field-input" type="number" id="qty-age-tenth" value="0" min="0">
+</div>
+
+<div class="tab-section-title">Gold Buffalo</div>
+<div class="field-group">
+  <label class="field-label" for="qty-buffalo-gold">Gold Buffalo (1 oz .9999)</label>
+  <input class="field-input" type="number" id="qty-buffalo-gold" value="0" min="0">
+</div>
+
+<div class="tab-section-title">Pre-1933 US Gold</div>
+<div class="field-group">
+  <label class="field-label" for="qty-gold-1">$1 Gold (Type I/II/III, 1849-1889)</label>
+  <input class="field-input" type="number" id="qty-gold-1" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-gold-250">$2.50 Quarter Eagle (1796-1929)</label>
+  <input class="field-input" type="number" id="qty-gold-250" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-gold-3">$3 Gold (1854-1889)</label>
+  <input class="field-input" type="number" id="qty-gold-3" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-gold-5">$5 Half Eagle (1795-1929)</label>
+  <input class="field-input" type="number" id="qty-gold-5" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-gold-10">$10 Eagle (1795-1933)</label>
+  <input class="field-input" type="number" id="qty-gold-10" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-gold-20">$20 Double Eagle (1849-1933)</label>
+  <input class="field-input" type="number" id="qty-gold-20" value="0" min="0">
+</div>
+</div>
+
+<!-- Canadian Tab -->
+<div class="tab-panel" id="tab-canadian">
+<div class="tab-section-title">Canadian Silver (80%, Pre-1968)</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-dimes">Canadian Dimes (Pre-1968, 80% silver)</label>
+  <input class="field-input" type="number" id="qty-ca-dimes" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-quarters">Canadian Quarters (Pre-1968, 80% silver)</label>
+  <input class="field-input" type="number" id="qty-ca-quarters" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-halves">Canadian Half Dollars (Pre-1968, 80% silver)</label>
+  <input class="field-input" type="number" id="qty-ca-halves" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-dollars">Canadian Silver Dollars (Pre-1968, 80% silver)</label>
+  <input class="field-input" type="number" id="qty-ca-dollars" value="0" min="0">
+</div>
+
+<div class="tab-section-title">Canadian Maple Leafs</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-sml">Silver Maple Leaf (1 oz .9999)</label>
+  <input class="field-input" type="number" id="qty-ca-sml" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-gml-1oz">Gold Maple Leaf (1 oz .9999)</label>
+  <input class="field-input" type="number" id="qty-ca-gml-1oz" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-gml-half">Gold Maple Leaf (1/2 oz)</label>
+  <input class="field-input" type="number" id="qty-ca-gml-half" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-gml-quarter">Gold Maple Leaf (1/4 oz)</label>
+  <input class="field-input" type="number" id="qty-ca-gml-quarter" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-ca-gml-tenth">Gold Maple Leaf (1/10 oz)</label>
+  <input class="field-input" type="number" id="qty-ca-gml-tenth" value="0" min="0">
+</div>
+</div>
+
+<!-- British Tab -->
+<div class="tab-panel" id="tab-british">
+<div class="tab-section-title">British Gold</div>
+<div class="field-group">
+  <label class="field-label" for="qty-sovereign">Gold Sovereign (0.2354 oz)</label>
+  <input class="field-input" type="number" id="qty-sovereign" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-britannia-gold">Gold Britannia (1 oz .9999)</label>
+  <input class="field-input" type="number" id="qty-britannia-gold" value="0" min="0">
+</div>
+
+<div class="tab-section-title">British Silver</div>
+<div class="field-group">
+  <label class="field-label" for="qty-britannia-silver">Silver Britannia (1 oz .999)</label>
+  <input class="field-input" type="number" id="qty-britannia-silver" value="0" min="0">
+</div>
+
+<div class="tab-section-title">Pre-1947 Sterling Silver (50% silver)</div>
+<div class="field-group">
+  <label class="field-label" for="qty-uk-sixpence">Sixpence (Pre-1947)</label>
+  <input class="field-input" type="number" id="qty-uk-sixpence" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-uk-shilling">Shilling (Pre-1947)</label>
+  <input class="field-input" type="number" id="qty-uk-shilling" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-uk-florin">Florin / Two Shillings (Pre-1947)</label>
+  <input class="field-input" type="number" id="qty-uk-florin" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-uk-halfcrown">Half Crown (Pre-1947)</label>
+  <input class="field-input" type="number" id="qty-uk-halfcrown" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-uk-crown">Crown (Pre-1947)</label>
+  <input class="field-input" type="number" id="qty-uk-crown" value="0" min="0">
+</div>
+</div>
+
+<!-- World Tab -->
+<div class="tab-panel" id="tab-world">
+<div class="tab-section-title">World Gold Bullion (1 oz)</div>
+<div class="field-group">
+  <label class="field-label" for="qty-krugerrand">South African Krugerrand (1 oz)</label>
+  <input class="field-input" type="number" id="qty-krugerrand" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-philharmonic">Austrian Philharmonic (1 oz .9999)</label>
+  <input class="field-input" type="number" id="qty-philharmonic" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-kangaroo">Australian Kangaroo (1 oz .9999)</label>
+  <input class="field-input" type="number" id="qty-kangaroo" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-panda-gold">Chinese Gold Panda (30g / ~0.9645 oz)</label>
+  <input class="field-input" type="number" id="qty-panda-gold" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-libertad-gold">Mexican Gold Libertad (1 oz .999)</label>
+  <input class="field-input" type="number" id="qty-libertad-gold" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-centenario">Mexican 50 Peso Centenario (1.2057 oz)</label>
+  <input class="field-input" type="number" id="qty-centenario" value="0" min="0">
+</div>
+
+<div class="tab-section-title">World Silver Bullion (1 oz)</div>
+<div class="field-group">
+  <label class="field-label" for="qty-kookaburra">Australian Kookaburra (1 oz .999)</label>
+  <input class="field-input" type="number" id="qty-kookaburra" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-libertad-silver">Mexican Silver Libertad (1 oz .999)</label>
+  <input class="field-input" type="number" id="qty-libertad-silver" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-philharmonic-silver">Austrian Silver Philharmonic (1 oz .999)</label>
+  <input class="field-input" type="number" id="qty-philharmonic-silver" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-panda-silver">Chinese Silver Panda (30g / ~0.9645 oz)</label>
+  <input class="field-input" type="number" id="qty-panda-silver" value="0" min="0">
+</div>
 </div>
 
 <button class="calc-btn" id="calc-btn" type="button">Calculate Melt Value</button>
@@ -240,7 +446,7 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
 <h3 style="font-size:1rem;margin-bottom:0.5rem;">Breakdown</h3>
 <table class="coin-table">
   <thead>
-    <tr><th>Coin</th><th>Qty</th><th>Silver/Gold (oz)</th><th>Melt Value</th></tr>
+    <tr><th>Coin</th><th>Qty</th><th>Metal (oz)</th><th>Melt Value</th></tr>
   </thead>
   <tbody id="breakdown-body"></tbody>
 </table>
@@ -252,43 +458,45 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
 <h2>Get an Offer on Your Coins</h2>
 <p style="font-size:0.9rem;color:#6b7280;margin:0 0 0.75rem;">Have coins to sell? Fill out this form and a local coin dealer will contact you with an offer. No obligation.</p>
 
-<form class="offer-form" id="offer-form" novalidate>
+<form class="offer-form" id="offer-form" action="https://formspree.io/f/mykleozw" method="POST">
+  <input type="hidden" name="_subject" value="Coin Show Near Me — Melt Value Offer Request">
+  <input type="hidden" name="form_type" value="melt_value_offer">
   <div class="field-group">
     <label class="field-label" for="offer-name">Your Name *</label>
-    <input class="field-input" type="text" id="offer-name" required>
+    <input class="field-input" type="text" id="offer-name" name="name" required>
     <div class="offer-error" data-for="name"></div>
   </div>
 
   <div class="field-group">
     <label class="field-label" for="offer-email">Email Address *</label>
-    <input class="field-input" type="email" id="offer-email" required>
+    <input class="field-input" type="email" id="offer-email" name="email" required>
     <div class="offer-error" data-for="email"></div>
   </div>
 
   <div class="field-group">
     <label class="field-label" for="offer-phone">Phone Number</label>
-    <input class="field-input" type="tel" id="offer-phone">
+    <input class="field-input" type="tel" id="offer-phone" name="phone">
   </div>
 
   <div class="field-group">
     <label class="field-label" for="offer-zip">ZIP Code *</label>
-    <input class="field-input" type="text" id="offer-zip" maxlength="10" required>
+    <input class="field-input" type="text" id="offer-zip" name="zip" maxlength="10" required>
     <div class="offer-error" data-for="zip"></div>
   </div>
 
   <div class="field-group">
     <label class="field-label" for="offer-description">What do you have to sell? *</label>
-    <textarea class="field-input" id="offer-description" rows="4" placeholder="e.g., 50 pre-1965 Washington quarters, 10 Morgan silver dollars, a bag of wheat pennies..." required></textarea>
+    <textarea class="field-input" id="offer-description" name="description" rows="4" placeholder="e.g., 50 pre-1965 Washington quarters, 10 Morgan silver dollars, 5 Gold Eagles..." required></textarea>
     <div class="offer-error" data-for="description"></div>
   </div>
 
   <div class="field-group">
     <label class="field-label" for="offer-melt">Estimated Melt Value (auto-filled)</label>
-    <input class="field-input" type="text" id="offer-melt" readonly style="background:#f3f4f6;">
+    <input class="field-input" type="text" id="offer-melt" name="estimated_melt_value" readonly style="background:#f3f4f6;">
   </div>
 
   <div style="display:flex;align-items:flex-start;gap:0.4rem;font-size:0.85rem;color:#6b7280;">
-    <input type="checkbox" id="offer-consent" style="margin-top:0.2rem;">
+    <input type="checkbox" id="offer-consent" style="margin-top:0.2rem;" required>
     <label for="offer-consent">I agree to be contacted by a coin dealer about my coins. *</label>
   </div>
   <div class="offer-error" data-for="consent"></div>
@@ -305,28 +513,73 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
 
 <script>
 (function() {
-  /* Silver content in troy ounces per coin (90% silver coins) */
-  var SILVER_CONTENT = {
-    dimes:    0.07234,   /* 2.5g x 0.900 / 31.1035 */
-    quarters: 0.18084,   /* 6.25g x 0.900 / 31.1035 */
-    halves:   0.36169,   /* 12.5g x 0.900 / 31.1035 */
-    morgan:   0.77344,   /* 26.73g x 0.900 / 31.1035 */
-    ase:      1.00000,   /* 1 troy oz .999 fine */
-    halves40: 0.14792    /* 11.5g x 0.400 / 31.1035 */
-  };
+  /* Tab switching */
+  var tabs = document.querySelectorAll('.calc-tab');
+  var panels = document.querySelectorAll('.tab-panel');
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener('click', function() {
+      for (var j = 0; j < tabs.length; j++) { tabs[j].classList.remove('active'); }
+      for (var j = 0; j < panels.length; j++) { panels[j].classList.remove('active'); }
+      this.classList.add('active');
+      var target = document.getElementById('tab-' + this.getAttribute('data-tab'));
+      if (target) target.classList.add('active');
+    });
+  }
 
-  var GOLD_CONTENT = {
-    age1oz:    0.9167,   /* AGE is 22k (91.67% gold), but contains exactly 1 oz fine gold */
-    ageHalf:   0.5000,
-    ageQtr:    0.2500,
-    ageTenth:  0.1000
-  };
-
-  /* Actually AGE contains exact fine gold weights: */
-  GOLD_CONTENT.age1oz = 1.0000;
-  GOLD_CONTENT.ageHalf = 0.5000;
-  GOLD_CONTENT.ageQtr = 0.2500;
-  GOLD_CONTENT.ageTenth = 0.1000;
+  /* Coin data: { id, name, oz, metal } */
+  var COINS = [
+    /* US Silver */
+    { id: 'qty-dimes',       name: 'Roosevelt/Mercury Dimes',        oz: 0.07234, metal: 'silver' },
+    { id: 'qty-quarters',    name: 'Washington Quarters',            oz: 0.18084, metal: 'silver' },
+    { id: 'qty-halves',      name: 'Half Dollars (90%)',             oz: 0.36169, metal: 'silver' },
+    { id: 'qty-morgan',      name: 'Morgan/Peace Dollars',           oz: 0.77344, metal: 'silver' },
+    { id: 'qty-ase',         name: 'American Silver Eagles',         oz: 1.00000, metal: 'silver' },
+    { id: 'qty-40halves',    name: '40% Kennedy Halves',             oz: 0.14792, metal: 'silver' },
+    { id: 'qty-war-nickels', name: 'War Nickels (35%)',              oz: 0.05626, metal: 'silver' },
+    /* US Gold */
+    { id: 'qty-age-1oz',       name: 'Gold Eagle 1 oz',             oz: 1.0000, metal: 'gold' },
+    { id: 'qty-age-half',      name: 'Gold Eagle 1/2 oz',           oz: 0.5000, metal: 'gold' },
+    { id: 'qty-age-quarter',   name: 'Gold Eagle 1/4 oz',           oz: 0.2500, metal: 'gold' },
+    { id: 'qty-age-tenth',     name: 'Gold Eagle 1/10 oz',          oz: 0.1000, metal: 'gold' },
+    { id: 'qty-buffalo-gold',  name: 'Gold Buffalo 1 oz',           oz: 1.0000, metal: 'gold' },
+    { id: 'qty-gold-1',        name: '$1 Gold (1849-1889)',          oz: 0.04837, metal: 'gold' },
+    { id: 'qty-gold-250',      name: '$2.50 Quarter Eagle',         oz: 0.12094, metal: 'gold' },
+    { id: 'qty-gold-3',        name: '$3 Gold (1854-1889)',          oz: 0.14512, metal: 'gold' },
+    { id: 'qty-gold-5',        name: '$5 Half Eagle',               oz: 0.24187, metal: 'gold' },
+    { id: 'qty-gold-10',       name: '$10 Eagle',                   oz: 0.48375, metal: 'gold' },
+    { id: 'qty-gold-20',       name: '$20 Double Eagle',            oz: 0.96750, metal: 'gold' },
+    /* Canadian */
+    { id: 'qty-ca-dimes',       name: 'Canadian Dimes (80%)',       oz: 0.06000, metal: 'silver' },
+    { id: 'qty-ca-quarters',    name: 'Canadian Quarters (80%)',    oz: 0.15000, metal: 'silver' },
+    { id: 'qty-ca-halves',      name: 'Canadian Half Dollars (80%)',oz: 0.30000, metal: 'silver' },
+    { id: 'qty-ca-dollars',     name: 'Canadian Silver Dollars (80%)',oz: 0.60000, metal: 'silver' },
+    { id: 'qty-ca-sml',         name: 'Silver Maple Leaf',          oz: 1.00000, metal: 'silver' },
+    { id: 'qty-ca-gml-1oz',     name: 'Gold Maple Leaf 1 oz',      oz: 1.00000, metal: 'gold' },
+    { id: 'qty-ca-gml-half',    name: 'Gold Maple Leaf 1/2 oz',    oz: 0.50000, metal: 'gold' },
+    { id: 'qty-ca-gml-quarter', name: 'Gold Maple Leaf 1/4 oz',    oz: 0.25000, metal: 'gold' },
+    { id: 'qty-ca-gml-tenth',   name: 'Gold Maple Leaf 1/10 oz',   oz: 0.10000, metal: 'gold' },
+    /* British */
+    { id: 'qty-sovereign',       name: 'Gold Sovereign',            oz: 0.23542, metal: 'gold' },
+    { id: 'qty-britannia-gold',  name: 'Gold Britannia 1 oz',       oz: 1.00000, metal: 'gold' },
+    { id: 'qty-britannia-silver',name: 'Silver Britannia 1 oz',     oz: 1.00000, metal: 'silver' },
+    { id: 'qty-uk-sixpence',    name: 'UK Sixpence (Pre-1947)',     oz: 0.04547, metal: 'silver' },
+    { id: 'qty-uk-shilling',    name: 'UK Shilling (Pre-1947)',     oz: 0.09094, metal: 'silver' },
+    { id: 'qty-uk-florin',      name: 'UK Florin (Pre-1947)',       oz: 0.18188, metal: 'silver' },
+    { id: 'qty-uk-halfcrown',   name: 'UK Half Crown (Pre-1947)',   oz: 0.22737, metal: 'silver' },
+    { id: 'qty-uk-crown',       name: 'UK Crown (Pre-1947)',        oz: 0.45473, metal: 'silver' },
+    /* World Gold */
+    { id: 'qty-krugerrand',       name: 'Krugerrand 1 oz',          oz: 1.00000, metal: 'gold' },
+    { id: 'qty-philharmonic',     name: 'Philharmonic 1 oz',        oz: 1.00000, metal: 'gold' },
+    { id: 'qty-kangaroo',         name: 'Kangaroo 1 oz',            oz: 1.00000, metal: 'gold' },
+    { id: 'qty-panda-gold',       name: 'Gold Panda 30g',           oz: 0.96450, metal: 'gold' },
+    { id: 'qty-libertad-gold',    name: 'Gold Libertad 1 oz',       oz: 1.00000, metal: 'gold' },
+    { id: 'qty-centenario',       name: '50 Peso Centenario',       oz: 1.20565, metal: 'gold' },
+    /* World Silver */
+    { id: 'qty-kookaburra',       name: 'Kookaburra 1 oz',          oz: 1.00000, metal: 'silver' },
+    { id: 'qty-libertad-silver',  name: 'Silver Libertad 1 oz',     oz: 1.00000, metal: 'silver' },
+    { id: 'qty-philharmonic-silver',name: 'Silver Philharmonic 1 oz',oz: 1.00000, metal: 'silver' },
+    { id: 'qty-panda-silver',     name: 'Silver Panda 30g',         oz: 0.96450, metal: 'silver' }
+  ];
 
   var calcBtn = document.getElementById('calc-btn');
   var resultBox = document.getElementById('result-box');
@@ -335,45 +588,35 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
   var breakdownArea = document.getElementById('breakdown-area');
   var breakdownBody = document.getElementById('breakdown-body');
 
-  function getVal(id) { return parseFloat(document.getElementById(id).value) || 0; }
+  function getVal(id) {
+    var el = document.getElementById(id);
+    return el ? (parseFloat(el.value) || 0) : 0;
+  }
 
   function formatUSD(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
   calcBtn.addEventListener('click', function() {
     var spotSilver = getVal('spot-silver');
     var spotGold = getVal('spot-gold');
-
-    var rows = [
-      { name: 'Roosevelt/Mercury Dimes', qty: getVal('qty-dimes'), oz: SILVER_CONTENT.dimes, metal: 'silver' },
-      { name: 'Washington Quarters', qty: getVal('qty-quarters'), oz: SILVER_CONTENT.quarters, metal: 'silver' },
-      { name: 'Half Dollars (90%)', qty: getVal('qty-halves'), oz: SILVER_CONTENT.halves, metal: 'silver' },
-      { name: 'Morgan/Peace Dollars', qty: getVal('qty-morgan'), oz: SILVER_CONTENT.morgan, metal: 'silver' },
-      { name: 'American Silver Eagles', qty: getVal('qty-ase'), oz: SILVER_CONTENT.ase, metal: 'silver' },
-      { name: '40% Kennedy Halves', qty: getVal('qty-40halves'), oz: SILVER_CONTENT.halves40, metal: 'silver' },
-      { name: 'Gold Eagle 1 oz', qty: getVal('qty-age-1oz'), oz: GOLD_CONTENT.age1oz, metal: 'gold' },
-      { name: 'Gold Eagle 1/2 oz', qty: getVal('qty-age-half'), oz: GOLD_CONTENT.ageHalf, metal: 'gold' },
-      { name: 'Gold Eagle 1/4 oz', qty: getVal('qty-age-quarter'), oz: GOLD_CONTENT.ageQtr, metal: 'gold' },
-      { name: 'Gold Eagle 1/10 oz', qty: getVal('qty-age-tenth'), oz: GOLD_CONTENT.ageTenth, metal: 'gold' }
-    ];
-
     var total = 0;
     var totalSilverOz = 0;
     var totalGoldOz = 0;
     var html = '';
 
-    rows.forEach(function(r) {
-      if (r.qty <= 0) return;
-      var spot = r.metal === 'gold' ? spotGold : spotSilver;
-      var metalOz = r.qty * r.oz;
+    COINS.forEach(function(c) {
+      var qty = getVal(c.id);
+      if (qty <= 0) return;
+      var spot = c.metal === 'gold' ? spotGold : spotSilver;
+      var metalOz = qty * c.oz;
       var value = metalOz * spot;
       total += value;
-      if (r.metal === 'silver') totalSilverOz += metalOz;
+      if (c.metal === 'silver') totalSilverOz += metalOz;
       else totalGoldOz += metalOz;
 
       html += '<tr>' +
-        '<td>' + r.name + '</td>' +
-        '<td>' + r.qty + '</td>' +
-        '<td>' + metalOz.toFixed(4) + ' oz ' + r.metal + '</td>' +
+        '<td>' + c.name + '</td>' +
+        '<td>' + qty + '</td>' +
+        '<td>' + metalOz.toFixed(4) + ' oz ' + c.metal + '</td>' +
         '<td>' + formatUSD(value) + '</td>' +
         '</tr>';
     });
@@ -390,7 +633,6 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
       breakdownBody.innerHTML = html;
       breakdownArea.style.display = 'block';
 
-      /* Auto-fill the offer form */
       document.getElementById('offer-melt').value = formatUSD(total);
     } else {
       resultBox.style.display = 'none';
@@ -398,40 +640,26 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
     }
   });
 
-  /* Offer form */
+  /* Offer form — submit via Formspree */
   var offerForm = document.getElementById('offer-form');
   var offerSuccess = document.getElementById('offer-success');
 
   offerForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    var valid = true;
-
-    function setErr(field, msg) {
-      var el = document.querySelector('.offer-error[data-for="' + field + '"]');
-      if (el) { el.textContent = msg; el.style.display = msg ? 'block' : 'none'; }
-      if (msg) valid = false;
-    }
-
-    var name = document.getElementById('offer-name').value.trim();
-    var email = document.getElementById('offer-email').value.trim();
-    var zip = document.getElementById('offer-zip').value.trim();
-    var desc = document.getElementById('offer-description').value.trim();
-    var consent = document.getElementById('offer-consent').checked;
-
-    setErr('name', name ? '' : 'Please enter your name.');
-    setErr('email', email.includes('@') ? '' : 'Please enter a valid email.');
-    setErr('zip', zip.length >= 5 ? '' : 'Please enter your ZIP code.');
-    setErr('description', desc ? '' : 'Please describe what you have to sell.');
-    setErr('consent', consent ? '' : 'You must agree to be contacted.');
-
-    if (!valid) return;
-
-    /* For now, show success. In production, this would POST to an API. */
-    offerForm.style.display = 'none';
-    offerSuccess.style.display = 'block';
+    var data = new FormData(offerForm);
+    fetch(offerForm.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+      if (response.ok) {
+        offerForm.style.display = 'none';
+        offerSuccess.style.display = 'block';
+      }
+    });
   });
 
-  /* Auto-load spot prices from pre-fetched JSON */
+  /* Auto-load spot prices */
   function formatTickerPrice(price) {
     if (price == null) return '--';
     return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -451,27 +679,25 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
   fetch('/assets/data/spot-prices.json')
     .then(function(r) { return r.json(); })
     .then(function(data) {
-      /* Update calculator input fields */
       if (data.silver) {
         document.getElementById('spot-silver').value = data.silver.toFixed(2);
-        document.getElementById('silver-spot-note').textContent = 'Live price loaded · Updated ' + timeAgo(data.updated_at);
+        document.getElementById('silver-spot-note').textContent = 'Live price loaded \u00b7 Updated ' + timeAgo(data.updated_at);
       } else {
         document.getElementById('silver-spot-note').textContent = 'Enter today\'s silver spot price per troy ounce.';
       }
       if (data.gold) {
         document.getElementById('spot-gold').value = data.gold.toFixed(2);
-        document.getElementById('gold-spot-note').textContent = 'Live price loaded · Updated ' + timeAgo(data.updated_at);
+        document.getElementById('gold-spot-note').textContent = 'Live price loaded \u00b7 Updated ' + timeAgo(data.updated_at);
       } else {
         document.getElementById('gold-spot-note').textContent = 'Enter today\'s gold spot price per troy ounce.';
       }
 
-      /* Update ticker display */
       var el = function(id) { return document.getElementById(id); };
       el('calc-spot-gold-display').textContent = formatTickerPrice(data.gold);
       el('calc-spot-silver-display').textContent = formatTickerPrice(data.silver);
       el('calc-spot-platinum-display').textContent = formatTickerPrice(data.platinum);
       el('calc-spot-palladium-display').textContent = formatTickerPrice(data.palladium);
-      var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' · Spot prices per troy oz' : 'Spot prices per troy oz';
+      var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' \u00b7 Spot prices per troy oz' : 'Spot prices per troy oz';
       el('calc-spot-updated').textContent = updated;
       el('calc-spot-ticker').style.display = 'flex';
     })
@@ -484,22 +710,62 @@ Calculate the **metal melt value** of your US silver and gold coins instantly. S
 
 ---
 
-## US Coin Silver Content Reference
+## Coin Silver & Gold Content Reference
 
-Not sure about the silver content of your coins? Here's a quick reference:
+### US Coins
 
-| Coin | Years | Composition | Silver Weight (troy oz) |
+| Coin | Years | Composition | Metal Weight (troy oz) |
 |------|-------|-------------|------------------------|
-| Roosevelt Dime | 1946-1964 | 90% Silver | 0.0723 oz |
-| Mercury Dime | 1916-1945 | 90% Silver | 0.0723 oz |
+| Roosevelt/Mercury Dime | 1916-1964 | 90% Silver | 0.0723 oz |
 | Washington Quarter | 1932-1964 | 90% Silver | 0.1808 oz |
-| Walking Liberty Half | 1916-1947 | 90% Silver | 0.3617 oz |
-| Franklin Half Dollar | 1948-1963 | 90% Silver | 0.3617 oz |
-| Kennedy Half Dollar | 1964 | 90% Silver | 0.3617 oz |
+| Walking Liberty / Franklin / Kennedy Half | 1916-1964 | 90% Silver | 0.3617 oz |
 | Kennedy Half Dollar | 1965-1970 | 40% Silver | 0.1479 oz |
-| Morgan Silver Dollar | 1878-1921 | 90% Silver | 0.7734 oz |
-| Peace Silver Dollar | 1921-1935 | 90% Silver | 0.7734 oz |
+| War Nickel | 1942-1945 | 35% Silver | 0.0563 oz |
+| Morgan / Peace Dollar | 1878-1935 | 90% Silver | 0.7734 oz |
 | American Silver Eagle | 1986-present | 99.9% Silver | 1.0000 oz |
+| $1 Gold | 1849-1889 | 90% Gold | 0.0484 oz |
+| $2.50 Quarter Eagle | 1796-1929 | 90% Gold | 0.1209 oz |
+| $5 Half Eagle | 1795-1929 | 90% Gold | 0.2419 oz |
+| $10 Eagle | 1795-1933 | 90% Gold | 0.4838 oz |
+| $20 Double Eagle | 1849-1933 | 90% Gold | 0.9675 oz |
+| Gold Eagle | 1986-present | 91.67% Gold | 1.0000 oz (fine) |
+| Gold Buffalo | 2006-present | 99.99% Gold | 1.0000 oz |
+
+### Canadian Coins
+
+| Coin | Composition | Metal Weight (troy oz) |
+|------|-------------|------------------------|
+| Dime (Pre-1968) | 80% Silver | 0.0600 oz |
+| Quarter (Pre-1968) | 80% Silver | 0.1500 oz |
+| Half Dollar (Pre-1968) | 80% Silver | 0.3000 oz |
+| Silver Dollar (Pre-1968) | 80% Silver | 0.6000 oz |
+| Silver Maple Leaf | 99.99% Silver | 1.0000 oz |
+| Gold Maple Leaf | 99.99% Gold | 1.0000 oz |
+
+### British Coins
+
+| Coin | Composition | Metal Weight (troy oz) |
+|------|-------------|------------------------|
+| Sixpence (Pre-1947) | 50% Silver | 0.0455 oz |
+| Shilling (Pre-1947) | 50% Silver | 0.0909 oz |
+| Florin (Pre-1947) | 50% Silver | 0.1819 oz |
+| Half Crown (Pre-1947) | 50% Silver | 0.2274 oz |
+| Crown (Pre-1947) | 50% Silver | 0.4547 oz |
+| Gold Sovereign | 91.67% Gold | 0.2354 oz |
+| Gold Britannia | 99.99% Gold | 1.0000 oz |
+
+### World Bullion
+
+| Coin | Country | Metal Weight (troy oz) |
+|------|---------|------------------------|
+| Krugerrand | South Africa | 1.0000 oz gold |
+| Philharmonic | Austria | 1.0000 oz gold or silver |
+| Kangaroo | Australia | 1.0000 oz gold |
+| Kookaburra | Australia | 1.0000 oz silver |
+| Libertad | Mexico | 1.0000 oz gold or silver |
+| 50 Peso Centenario | Mexico | 1.2057 oz gold |
+| Gold Panda | China | 30g (~0.9645 oz) gold |
+| Silver Panda | China | 30g (~0.9645 oz) silver |
 
 ## What is Melt Value?
 
@@ -528,7 +794,7 @@ Coin shows are the best place to get competitive offers on your coins. Multiple 
   "@type": "WebApplication",
   "name": "Coin Melt Value Calculator",
   "url": "{{ site.url }}{{ site.baseurl }}/tools/melt-value-calculator/",
-  "description": "Calculate the melt value of US silver and gold coins based on current spot prices.",
+  "description": "Calculate the melt value of US, Canadian, British and world silver and gold coins based on current spot prices.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "offers": {
@@ -549,15 +815,7 @@ Coin shows are the best place to get competitive offers on your coins. Multiple 
       "name": "What is the melt value of a coin?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The melt value of a coin is the value of the precious metal it contains, based on the current spot price. It represents the minimum intrinsic value of a coin — what the metal itself would be worth if melted down. For example, a pre-1965 Washington quarter contains approximately 0.1808 troy ounces of silver."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between melt value and collector value?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Melt value is the floor price for a coin — the value of its metal content alone. Many coins are worth significantly more than melt value due to rarity, condition (grade), key dates, and collector demand. For example, Morgan silver dollars typically sell well above melt value because of their popularity with collectors."
+        "text": "The melt value of a coin is the value of the precious metal it contains, based on the current spot price. It represents the minimum intrinsic value of a coin — what the metal itself would be worth if melted down."
       }
     },
     {
@@ -566,6 +824,22 @@ Coin shows are the best place to get competitive offers on your coins. Multiple 
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Pre-1965 Washington quarters contain 90% silver and have approximately 0.1808 troy ounces of silver content. At current spot prices, this makes each quarter worth significantly more than its 25-cent face value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a War Nickel and does it contain silver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "War Nickels (1942-1945) contain 35% silver. They were minted with silver to conserve nickel for the war effort. You can identify them by the large mintmark (P, D, or S) above the dome of Monticello on the reverse. Each contains about 0.0563 troy ounces of silver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much gold is in a pre-1933 US gold coin?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pre-1933 US gold coins are 90% gold. A $20 Double Eagle contains 0.9675 oz of gold, a $10 Eagle contains 0.4838 oz, a $5 Half Eagle contains 0.2419 oz, and a $2.50 Quarter Eagle contains 0.1209 oz. These coins often carry significant collector premiums above melt value."
       }
     },
     {
