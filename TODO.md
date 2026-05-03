@@ -30,6 +30,25 @@ Know of a coin show not in the directory? Open an issue with:
 
 - [ ] **Full URL path and slug audit** — generate a complete map of every page URL on the Jekyll site before building WordPress. Every URL must match 1:1 in WordPress permalinks. Any URL that changes needs a 301 redirect. No URL changes = no SEO loss.
 
+## SEO — Backlink Directory Registrations
+
+Research and register Coin Show Near Me on coin collecting, numismatic, and hobby-related directories to build backlinks and traffic.
+
+- [ ] Google Business Profile — verify listing optimized (if applicable as a directory site)
+- [ ] ANA — American Numismatic Association (money.org) — member/resource listing
+- [ ] PNG — Professional Numismatists Guild (pngdealers.org) — directory listing
+- [ ] PCGS Coin Forum / community links (pcgs.com) — resource listing
+- [ ] NGC Coin community (ngccoin.com) — resource/directory listing
+- [ ] CoinTalk forum resource listing (cointalk.com) — numismatic community
+- [ ] Coin World (coinworld.com) — numismatic publication, resource directory
+- [ ] Numismatic News (numismaticnews.net) — hobby publication directory
+- [ ] Reddit r/coins sidebar/wiki — community resource listing
+- [ ] Coin Dealer Directory (coindealerdirectory.com) — if accepting related listings
+- [ ] Hobby-related directories (hobbydb.com, collectorsweekly.com)
+- [ ] Crunchbase (crunchbase.com) — free company profile
+- [ ] Bing Places for Business (bingplaces.com) — free
+- [ ] Apple Business Connect (businessconnect.apple.com) — free
+
 ## Roadmap
 
 - Interactive map view
