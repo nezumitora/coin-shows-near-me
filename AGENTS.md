@@ -115,3 +115,24 @@ Dashboard inbox: `~/Git/business-dashboard/inbox/`
 - **SSH:** `ssh -i ~/.ssh/hetzner_server root@204.168.137.38` (from Milo machine)
 - **CRM login:** Cloudron SSO at https://crm.cloud.ewastefreepickup.com (NOT admin/admin123)
 - **Payment:** Chase Business Preferred
+
+<!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:ca08a54f -->
+## Beads Issue Tracker
+
+This project can use **bd (beads)** for issue tracking. Run `bd prime` when task-graph context is needed.
+
+### Quick Reference
+
+```bash
+bd ready                # Find available work
+bd show <id>            # View issue details
+bd update <id> --claim  # Claim work
+bd close <id>           # Complete work
+```
+
+### Rules
+
+- Keep the existing inbox and project `TODO.md` workflow unless Milo explicitly asks to migrate a task into Beads.
+- Do not auto-push, merge, or deploy changes. Push only with explicit user approval.
+- Run relevant quality checks before claiming code changes are complete.
+<!-- END BEADS INTEGRATION -->
