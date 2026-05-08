@@ -17,6 +17,7 @@ Know of a coin show not in the directory? Open an issue with:
 - [ ] Add upcoming shows as dates are confirmed by organizers
 - [ ] Verify TBD shows when organizers announce 2026 dates
 - [ ] Expand state pages with additional local shows
+- [ ] Review saved Instagram item for Coin Shows relevance. Instagram often blocks bot fetching, so open directly or use a screenshot/summary before creating website/content/operations tasks. Source: inbox/2026-05-05_165001_milo-bot-coinshows.json
 
 ## Logo & Branding
 
