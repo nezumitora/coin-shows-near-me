@@ -112,7 +112,8 @@ Dashboard inbox: `~/Git/business-dashboard/inbox/`
 | EspoCRM | crm.cloud.ewastefreepickup.com | Included |
 | Email | info@ewastefreepickup.com (Cloudron mail + Gmail relay) | $0 |
 
-- **SSH:** `ssh -i ~/.ssh/hetzner_server root@204.168.137.38` (from Milo machine)
+- **SSH (AI agents):** use limited `deploy` access only when explicitly approved for WordPress work; never use root/admin SSH from an agent session.
+- **SSH (admin/root):** root access is manual-admin only, not for AI agents.
 - **CRM login:** Cloudron SSO at https://crm.cloud.ewastefreepickup.com (NOT admin/admin123)
 - **Payment:** Chase Business Preferred
 
