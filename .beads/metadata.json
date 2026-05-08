@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "coin_shows_near_me_aidevops_20260507",
+  "project_id": "3d4ec993-6bed-4ccc-9de8-640214d2f1c1"
+}

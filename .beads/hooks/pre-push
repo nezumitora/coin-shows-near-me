@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# aidevops-pre-push-guards
+# Managed by .agents/scripts/install-pre-push-guards.sh — do not edit.
+# Chains installed aidevops pre-push guards in order.
+# Bypass all:  git push --no-verify
+# Bypass each: PRIVACY_GUARD_DISABLE=1, COMPLEXITY_GUARD_DISABLE=1,
+#              SCOPE_GUARD_DISABLE=1, CREDENTIAL_GUARD_DISABLE=1,
+#              DUP_TODO_GUARD_DISABLE=1, or AIDEVOPS_PREPUSH_REPO_VERIFY=0
+
+set -u
+
+_git_root=$(git rev-parse --show-toplevel 2>/dev/null || true)
+_exit_code=0
+
+# Read all ref lines from stdin once; each guard gets a replay.
+_stdin_data=$(cat)
+
+# guard:privacy
+_privacy_hook=""
+if [[ -n "$_git_root" && -f "${_git_root}/.agents/hooks/privacy-guard-pre-push.sh" ]]; then
+  _privacy_hook="${_git_root}/.agents/hooks/privacy-guard-pre-push.sh"
+elif [[ -f "/Users/milohiss/.aidevops/agents/hooks/privacy-guard-pre-push.sh" ]]; then
+  _privacy_hook="/Users/milohiss/.aidevops/agents/hooks/privacy-guard-pre-push.sh"
+fi
+if [[ -n "$_privacy_hook" ]]; then
+  printf '%s\n' "$_stdin_data" | "$_privacy_hook" "$@" || _exit_code=$?
+else
+  printf '[pre-push][WARN] privacy hook not found -- skipping\n' >&2
+fi
+
+# guard:complexity
+_complexity_hook=""
+if [[ -n "$_git_root" && -f "${_git_root}/.agents/hooks/complexity-regression-pre-push.sh" ]]; then
+  _complexity_hook="${_git_root}/.agents/hooks/complexity-regression-pre-push.sh"
+elif [[ -f "/Users/milohiss/.aidevops/agents/hooks/complexity-regression-pre-push.sh" ]]; then
+  _complexity_hook="/Users/milohiss/.aidevops/agents/hooks/complexity-regression-pre-push.sh"
+fi
+if [[ -n "$_complexity_hook" ]]; then
+  printf '%s\n' "$_stdin_data" | "$_complexity_hook" "$@" || _exit_code=$?
+else
+  printf '[pre-push][WARN] complexity hook not found -- skipping\n' >&2
+fi
+
+exit "$_exit_code"
+
+# --- BEGIN BEADS INTEGRATION v1.0.3 ---
+# This section is managed by beads. Do not remove these markers.
+if command -v bd >/dev/null 2>&1; then
+  export BD_GIT_HOOK=1
+  _bd_timeout=${BEADS_HOOK_TIMEOUT:-300}
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "$_bd_timeout" bd hooks run pre-push "$@"
+    _bd_exit=$?
+    if [ $_bd_exit -eq 124 ]; then
+      echo >&2 "beads: hook 'pre-push' timed out after ${_bd_timeout}s — continuing without beads"
+      _bd_exit=0
+    fi
+  else
+    bd hooks run pre-push "$@"
+    _bd_exit=$?
+  fi
+  if [ $_bd_exit -eq 3 ]; then
+    echo >&2 "beads: database not initialized — skipping hook 'pre-push'"
+    _bd_exit=0
+  fi
+  if [ $_bd_exit -ne 0 ]; then exit $_bd_exit; fi
+fi
+# --- END BEADS INTEGRATION v1.0.3 ---

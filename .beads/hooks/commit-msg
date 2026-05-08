@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# aidevops-task-id-guard
+# Managed by .agents/scripts/install-task-id-guard.sh — do not edit.
+# Dispatcher that calls the aidevops task-id collision guard.
+# Bypass with --no-verify or TASK_ID_GUARD_DISABLE=1.
+
+set -u
+
+# Prefer the repo-local hook when available, fall back to deployed.
+_repo_hook=""
+if git_dir=$(git rev-parse --show-toplevel 2>/dev/null); then
+	_repo_hook="${git_dir}/.agents/hooks/task-id-collision-guard.sh"
+fi
+_deployed_hook="/Users/milohiss/.aidevops/agents/hooks/task-id-collision-guard.sh"
+
+if [[ -n "$_repo_hook" && -f "$_repo_hook" ]]; then
+	exec "$_repo_hook" "$1"
+elif [[ -f "$_deployed_hook" ]]; then
+	exec "$_deployed_hook" "$1"
+else
+	printf '[task-id-guard][WARN] hook not installed — allowing commit\n' >&2
+	exit 0
+fi
