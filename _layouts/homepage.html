@@ -6,7 +6,11 @@
 <title>{{ page.seo_title | default: page.title }}</title>
 {% include seo-meta.html %}
 <meta name="google-site-verification" content="{{ site.google_site_verification }}">
-<link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png" type="image/png">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/images/favicon-32x32.png?v=local-flat-simple-20260603-2">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/images/favicon-16x16.png?v=local-flat-simple-20260603-2">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/images/apple-touch-icon.png?v=local-flat-simple-20260603-2">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ site.baseurl }}/assets/images/favicon-192x192.png?v=local-flat-simple-20260603-2">
+<link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico?v=local-flat-simple-20260603-2">
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-19GQEC65D5"></script>
@@ -31,7 +35,8 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy: #1a2332;
+  --coinshows-navy: #0E2338;
+  --navy: var(--coinshows-navy);
   --navy-light: #2c3e50;
   --navy-mid: #34495e;
   --gold: #b8860b;
@@ -301,6 +306,15 @@ a:hover { color: var(--gold-light); }
 .dealer-form select:focus,
 .dealer-form textarea:focus { border-color: var(--gold-light); }
 .dealer-form textarea { min-height: 70px; resize: vertical; }
+.offer-disclaimer {
+  color: #cbd5e1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(218,165,32,0.35);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
 .dealer-form .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -335,10 +349,40 @@ a:hover { color: var(--gold-light); }
 /* === Hero === */
 .hero {
   background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 40%, #4a6fa5 70%, #7ba0cc 85%, var(--cream) 100%);
-  padding: 3.5rem 1.5rem 3rem;
-  text-align: center;
+  padding: 2.5rem 1.5rem 2.25rem;
+  text-align: left;
   color: #fff;
   position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  width: min(760px, 68vw);
+  height: min(520px, 46vw);
+  background-image: url("{{ site.baseurl }}/assets/images/coinshows-buffalo-head-front-transparent-gold-navy.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.14;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  filter: drop-shadow(0 20px 34px rgba(0,0,0,0.24));
+}
+.hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero-primary {
+  min-width: 0;
 }
 .hero h1 {
   font-size: 2.4rem;
@@ -351,17 +395,15 @@ a:hover { color: var(--gold-light); }
 .hero-subtitle {
   font-size: 1.15rem;
   color: #c8d6e5;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
   line-height: 1.5;
 }
 .hero-stats {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   flex-wrap: wrap;
 }
 .hero-stat {
@@ -378,6 +420,110 @@ a:hover { color: var(--gold-light); }
   color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+.hero-action-stage {
+  max-width: 340px;
+  margin: 0 0 1rem;
+}
+.hero-action-stage .search-wrap {
+  margin: 0;
+  max-width: 340px;
+  width: 100%;
+}
+.hero-right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 310px;
+}
+.hero-offer-cta {
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  padding: 1.45rem;
+  background: rgba(26,35,50,0.74);
+  border: 1px solid rgba(218,165,32,0.5);
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  width: 100%;
+  margin-top: 7.5rem;
+}
+.hero-offer-cta > * {
+  position: relative;
+  z-index: 1;
+}
+.hero-logo-note {
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  margin-top: 0.75rem;
+}
+.hero-offer-cta h2 {
+  color: var(--gold-light);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.hero-offer-cta p {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 0.9rem;
+}
+.hero-offer-cta .hero-offer-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.62rem 1rem;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+.hero-offer-cta .hero-offer-btn:hover {
+  background: var(--gold-light);
+  color: #fff;
+}
+#quote-section {
+  scroll-margin-top: 130px;
+}
+@media (max-width: 800px) {
+  .hero {
+    text-align: center;
+  }
+  .hero::before {
+    left: 50%;
+    top: 55%;
+    width: 440px;
+    height: 320px;
+    opacity: 0.12;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero-subtitle,
+  .hero-action-stage {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-action-stage,
+  .hero-action-stage .search-wrap {
+    max-width: 600px;
+  }
+  .hero-stats {
+    justify-content: center;
+  }
+  .hero-right-side {
+    max-width: 320px;
+    margin: 0 auto;
+    min-height: 260px;
+  }
+  .hero-offer-cta {
+    text-align: center;
+    margin-top: 6rem;
+  }
 }
 
 /* === Search Bar === */
@@ -417,12 +563,21 @@ a:hover { color: var(--gold-light); }
 /* === Spot Ticker === */
 .spot-ticker {
   display: flex;
+  grid-column: 1 / -1;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 0.9rem;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0;
+  max-width: 780px;
+  width: 100%;
+  margin: 1.15rem auto 0;
+  padding: 0.85rem 1rem;
   font-size: 0.85rem;
+  background: rgba(26, 35, 50, 0.72);
+  border: 1px solid rgba(218,165,32,0.45);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  backdrop-filter: blur(8px);
 }
 .spot-ticker-item {
   display: flex;
@@ -430,24 +585,87 @@ a:hover { color: var(--gold-light); }
   gap: 0.4rem;
 }
 .spot-ticker-label {
-  color: #94a3b8;
+  color: #f0e6c8;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-weight: 600;
+  font-weight: 800;
 }
 .spot-ticker-price {
-  color: var(--gold-light);
-  font-weight: 700;
-  font-size: 0.95rem;
+  color: #ffd56a;
+  font-weight: 800;
+  font-size: 1rem;
 }
-.spot-ticker-sep { color: #475569; }
+.spot-ticker-sep { color: rgba(240,230,200,0.5); }
 .spot-ticker-updated {
   width: 100%;
   text-align: center;
-  color: #c8d6e5;
-  font-size: 0.7rem;
+  color: #e2e8f0;
+  font-size: 0.72rem;
+  font-weight: 600;
   margin-top: 0.25rem;
+}
+
+/* === Sponsored Placements Preview === */
+.sponsor-preview-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0;
+}
+.sponsor-preview-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+.sponsor-preview-header { margin-bottom: 1rem; }
+.sponsor-preview-eyebrow {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.sponsor-preview-header h2 {
+  color: var(--navy);
+  font-size: 1.3rem;
+  margin: 0.2rem 0;
+}
+.sponsor-preview-header p,
+.sponsor-preview-note {
+  color: var(--text-mid);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.sponsor-preview-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+.sponsor-preview-slide {
+  background: var(--warm-gray);
+  border: 1px dashed #c9b68f;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.sponsor-preview-slide h3 {
+  color: var(--navy);
+  font-size: 1rem;
+  margin-bottom: 0.45rem;
+}
+.sponsor-preview-slide p {
+  color: var(--text-mid);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+.sponsor-preview-note {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 800px) {
+  .sponsor-preview-track { grid-template-columns: 1fr; }
 }
 
 /* === Filter Bar === */
@@ -1069,6 +1287,7 @@ a:hover { color: var(--gold-light); }
   .hero { padding: 2.5rem 1rem 2rem; }
   .hero h1 { font-size: 1.7rem; }
   .hero-subtitle { font-size: 1rem; }
+  .hero-offer-cta { padding: 0.85rem; }
   .hero-stats { gap: 1.25rem; }
   .hero-stat-num { font-size: 1.4rem; }
 
@@ -1107,50 +1326,91 @@ a:hover { color: var(--gold-light); }
 
 <!-- Hero Section -->
 <section class="hero">
-  <h1>Find <span>Coin Shows</span> Near You</h1>
-  <p class="hero-subtitle">The most complete directory of coin shows in the United States. Browse {{ site.data.shows | size }}+ shows across all 50 states.</p>
+  <div class="hero-inner">
+    <div class="hero-primary">
+      <h1>Find <span>Coin Shows</span> Near You</h1>
+      <p class="hero-subtitle">The most complete directory of coin shows in the United States. Browse {{ site.data.shows | size }}+ shows across all 50 states.</p>
 
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="hero-stat-num">{{ site.data.shows | size }}+</span>
-      <span class="hero-stat-label">Shows Listed</span>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">{{ site.data.shows | size }}+</span>
+          <span class="hero-stat-label">Shows Listed</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">50</span>
+          <span class="hero-stat-label">States</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">160+</span>
+          <span class="hero-stat-label">Cities</span>
+        </div>
+      </div>
+
+      <div class="hero-action-stage">
+        <div class="search-wrap">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" class="search-input" id="show-search" placeholder="Search by show name, city, or state...">
+        </div>
+      </div>
+
     </div>
-    <div class="hero-stat">
-      <span class="hero-stat-num">50</span>
-      <span class="hero-stat-label">States</span>
+
+    <div class="hero-right-side" aria-hidden="false">
+      <aside class="hero-offer-cta">
+        <h2>Get Offers Before the Show</h2>
+        <p>Get offers on your coin collection or bullion from dealers before you attend the show.</p>
+        <a class="hero-offer-btn" href="#quote-section">Get Dealer Quotes</a>
+      </aside>
     </div>
-    <div class="hero-stat">
-      <span class="hero-stat-num">160+</span>
-      <span class="hero-stat-label">Cities</span>
+
+    <div class="spot-ticker" id="spot-ticker">
+      <div class="spot-ticker-item">
+        <span class="spot-ticker-label">Gold</span>
+        <span class="spot-ticker-price" id="spot-gold-price">--</span>
+      </div>
+      <span class="spot-ticker-sep">|</span>
+      <div class="spot-ticker-item">
+        <span class="spot-ticker-label">Silver</span>
+        <span class="spot-ticker-price" id="spot-silver-price">--</span>
+      </div>
+      <span class="spot-ticker-sep">|</span>
+      <div class="spot-ticker-item">
+        <span class="spot-ticker-label">Platinum</span>
+        <span class="spot-ticker-price" id="spot-platinum-price">--</span>
+      </div>
+      <span class="spot-ticker-sep">|</span>
+      <div class="spot-ticker-item">
+        <span class="spot-ticker-label">Palladium</span>
+        <span class="spot-ticker-price" id="spot-palladium-price">--</span>
+      </div>
+      <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
     </div>
   </div>
+</section>
 
-  <div class="search-wrap">
-    <span class="search-icon">&#128269;</span>
-    <input type="text" class="search-input" id="show-search" placeholder="Search by show name, city, or state...">
-  </div>
-
-  <div class="spot-ticker" id="spot-ticker">
-    <div class="spot-ticker-item">
-      <span class="spot-ticker-label">Gold</span>
-      <span class="spot-ticker-price" id="spot-gold-price">--</span>
+<!-- Sponsored Placements Preview -->
+<section class="sponsor-preview-section" aria-label="Sponsored industry placements preview">
+  <div class="sponsor-preview-card">
+    <div class="sponsor-preview-header">
+      <div class="sponsor-preview-eyebrow">Coming Soon</div>
+      <h2>Sponsored Dealer &amp; Industry Partner Placements</h2>
+      <p>Sponsored dealer and industry partner placements coming soon.</p>
     </div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item">
-      <span class="spot-ticker-label">Silver</span>
-      <span class="spot-ticker-price" id="spot-silver-price">--</span>
+    <div class="sponsor-preview-track">
+      <div class="sponsor-preview-slide">
+        <h3>Dealer Spotlight</h3>
+        <p>Placeholder for future friendly dealer or beta partner features. No real dealer is listed yet.</p>
+      </div>
+      <div class="sponsor-preview-slide">
+        <h3>Coin &amp; Bullion Services</h3>
+        <p>Future placements may include coin insurance, safe/security, storage, auction, grading, and related services.</p>
+      </div>
+      <div class="sponsor-preview-slide">
+        <h3>Industry Partners</h3>
+        <p>Future placements may include grading, storage, auction, security, and other coin/bullion industry services.</p>
+      </div>
     </div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item">
-      <span class="spot-ticker-label">Platinum</span>
-      <span class="spot-ticker-price" id="spot-platinum-price">--</span>
-    </div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item">
-      <span class="spot-ticker-label">Palladium</span>
-      <span class="spot-ticker-price" id="spot-palladium-price">--</span>
-    </div>
-    <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
+    <p class="sponsor-preview-note">This is a placeholder preview only. Paid placements, beta partners, and live sponsor content need separate approval before publishing.</p>
   </div>
 </section>
 
@@ -1325,7 +1585,7 @@ a:hover { color: var(--gold-light); }
 </section>
 
 <!-- Dealer Portal -->
-<div class="dealer-section">
+<div class="dealer-section" id="quote-section">
   <div class="dealer-card">
     <div class="dealer-info">
       <h3>Get Quotes Before the Show</h3>
@@ -1353,6 +1613,7 @@ a:hover { color: var(--gold-light); }
           <option value="other">Other</option>
         </select>
         <textarea name="message" placeholder="Describe what you have or what you're looking for..."></textarea>
+        <p class="offer-disclaimer">This offer request tool is still being tested. Submitting a request does not guarantee a dealer response or final offer. Any offer, appraisal, sale, or purchase is between you and the dealer.</p>
         <button type="submit">Submit Inquiry</button>
       </form>
       <div class="dealer-success" id="dealer-success">
@@ -1528,6 +1789,27 @@ a:hover { color: var(--gold-light); }
 
 /* Quote form (Get Quotes Before the Show) */
 (function() {
+  var quoteLinks = document.querySelectorAll('a[href="#quote-section"]');
+  var quoteSection = document.getElementById('quote-section');
+  if (quoteLinks.length && quoteSection) {
+    Array.prototype.forEach.call(quoteLinks, function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var stickyHeader = document.querySelector('.sticky-header');
+        var stickyFilter = document.querySelector('.filter-section');
+        var stickyHeight = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
+        var filterHeight = stickyFilter ? stickyFilter.getBoundingClientRect().height : 0;
+        var offset = stickyHeight + filterHeight + 32;
+        var targetTop = quoteSection.getBoundingClientRect().top + window.pageYOffset;
+        var top = Math.max(0, targetTop - offset);
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.style.scrollBehavior = 'auto';
+        window.scrollTo(0, top);
+        history.replaceState(null, '', '#quote-section');
+      });
+    });
+  }
+
   var form = document.getElementById('dealer-form');
   if (form) {
     form.addEventListener('submit', function(e) {

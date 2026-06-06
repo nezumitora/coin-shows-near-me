@@ -168,7 +168,7 @@ New to the hobby? Here are terms you'll hear at every show:
 - **Best for:** Serious collectors, rare coin buyers, selling high-value items
 - **Frequency:** Annual or semi-annual
 - **Examples:** [FUN Convention](/shows/fun-convention/), [Long Beach Expo](/shows/long-beach-expo/), [Whitman Coin Expo](/shows/whitman-coin-expo/)
-- **See featured shows:** [Major coin shows](//#featured)
+- **See featured shows:** [Major coin shows](/major-shows/)
 
 ---
 

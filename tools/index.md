@@ -24,3 +24,9 @@ Calculate the precious metal value of your silver and gold coins based on curren
 ## [State Sales Tax Guide](/tools/sales-tax-guide/)
 
 Find out if your state taxes purchases of coins, bullion, and precious metals. Covers all 50 states with exemption details, thresholds, and links to tax authority websites.
+
+---
+
+## [Collection Tracker](/tools/collection-tracker/)
+
+Coming soon: a collection tracking tool to help collectors organize coins, bullion, purchase price, melt value, notes, photos, and collection totals using a database or Google Sheets-style workflow.

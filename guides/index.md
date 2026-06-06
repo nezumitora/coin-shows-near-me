@@ -33,3 +33,9 @@ Inherited coins from a loved one? The most important thing: **don't clean them.*
 - [State Sales Tax Guide](/tools/sales-tax-guide/) — find out if your state taxes precious metals purchases
 - [Coin Shows This Weekend](/coin-shows-this-weekend/) — find a show happening soon
 - [Browse All Shows by State](/states/) — the most complete directory of US coin shows
+
+<div class="public-cta" style="margin-top:1.5rem;">
+  <h2>Find Coin Shows Near You</h2>
+  <p>Ready to use these tips in person? Browse upcoming coin shows by state and plan your next visit.</p>
+  <a href="/states/">Browse Shows by State</a>
+</div>

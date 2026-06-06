@@ -1,6 +1,6 @@
 <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-  <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-wrap:wrap;font-size:0.85rem;color:#6b7280;">
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;">
+  <div itemscope itemtype="https://schema.org/BreadcrumbList" style="display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:0 0 1rem;font-size:0.85rem;color:#6b7280;">
+    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;">
       <a itemprop="item" href="{{ site.baseurl }}/" style="color:#4b5563;text-decoration:none;">
         <span itemprop="name">Home</span>
       </a>
@@ -8,9 +8,9 @@
       {% if page.breadcrumb_parent or page.breadcrumb_current %}
       <span style="margin:0 0.4rem;color:#9ca3af;">/</span>
       {% endif %}
-    </li>
+    </span>
     {% if page.breadcrumb_parent %}
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;">
+    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;">
       <a itemprop="item" href="{{ site.baseurl }}{{ page.breadcrumb_parent_url }}" style="color:#4b5563;text-decoration:none;">
         <span itemprop="name">{{ page.breadcrumb_parent }}</span>
       </a>
@@ -18,13 +18,13 @@
       {% if page.breadcrumb_current %}
       <span style="margin:0 0.4rem;color:#9ca3af;">/</span>
       {% endif %}
-    </li>
+    </span>
     {% endif %}
     {% if page.breadcrumb_current %}
-    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;">
+    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="display:flex;align-items:center;">
       <span itemprop="name" style="color:#111827;font-weight:500;">{{ page.breadcrumb_current }}</span>
       <meta itemprop="position" content="{% if page.breadcrumb_parent %}3{% else %}2{% endif %}">
-    </li>
+    </span>
     {% endif %}
-  </ol>
+  </div>
 </nav>

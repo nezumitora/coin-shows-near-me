@@ -13,11 +13,23 @@ breadcrumb_current: "Find a Dealer"
 
 Browse trusted coin dealers, bullion sellers, and auction houses. Search by name, location, or filter by type.
 
-<div style="margin:1.5rem 0;">
+<div class="dealer-feature-grid" style="margin:0 0 1.25rem;">
+  <div class="dealer-feature-card">
+    <h2 style="margin-top:0 !important;">For Collectors</h2>
+    <p>Compare dealer types, specialties, and locations before you buy or sell. Coin shows are still one of the easiest ways to get multiple opinions in one room.</p>
+  </div>
+  <div class="dealer-feature-card">
+    <h2 style="margin-top:0 !important;">For Dealers</h2>
+    <p>Want to be included or receive future dealer updates? Use the listing CTA below and tell us what you specialize in.</p>
+  </div>
+</div>
+
+<div class="dealer-search-panel" style="margin:1rem 0 1.25rem;">
+<div style="margin:0 0 1rem;">
   <input type="text" id="dealer-search" placeholder="Search by dealer name, city, or state..." style="width:100%;max-width:500px;padding:0.75rem 1rem;border:2px solid #e5ddd0;border-radius:8px;font-size:1rem;outline:none;" onfocus="this.style.borderColor='#b8860b'" onblur="this.style.borderColor='#e5ddd0'">
 </div>
 
-<div style="display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+<div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
   <button class="dealer-filter-btn active" data-filter="all" style="padding:0.4rem 1rem;border:1px solid #e5ddd0;border-radius:20px;font-size:0.85rem;cursor:pointer;background:#1a2332;color:#fff;font-weight:600;">All Dealers</button>
   <button class="dealer-filter-btn" data-filter="brick-and-mortar" style="padding:0.4rem 1rem;border:1px solid #e5ddd0;border-radius:20px;font-size:0.85rem;cursor:pointer;background:#fff;color:#555;">Brick & Mortar</button>
   <button class="dealer-filter-btn" data-filter="online" style="padding:0.4rem 1rem;border:1px solid #e5ddd0;border-radius:20px;font-size:0.85rem;cursor:pointer;background:#fff;color:#555;">Online</button>
@@ -25,6 +37,7 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
 </div>
 
 <div style="margin-bottom:1rem;font-size:0.9rem;color:#555;" id="dealer-results-count">Showing all dealers</div>
+</div>
 
 <div id="dealer-grid">
 {% for dealer in site.data.dealers %}
@@ -65,7 +78,7 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
 
 ## Are You a Dealer?
 
-<div style="background:linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);color:#f1f5f9;padding:2rem;border-radius:10px;border:2px solid #b8860b;margin:1.5rem 0;">
+<div class="public-cta" style="margin:1.5rem 0;">
   <h3 style="color:#daa520;font-size:1.2rem;font-weight:700;margin:0 0 0.5rem;">Get Listed in Our Directory</h3>
   <p style="color:#cbd5e1;font-size:0.92rem;line-height:1.6;margin:0 0 1rem;">Join our growing directory of trusted coin dealers. Whether you're an online seller, a brick-and-mortar shop, or an auction house — get discovered by collectors looking for dealers near them and online.</p>
   <ul style="list-style:none;padding:0;margin:0 0 1.25rem;">
@@ -74,7 +87,7 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
     <li style="color:#94a3b8;font-size:0.85rem;padding:0.25rem 0;padding-left:1.25rem;position:relative;"><span style="position:absolute;left:0;color:#daa520;font-weight:700;">&#10003;</span> Receive pre-show offer requests from sellers</li>
     <li style="color:#94a3b8;font-size:0.85rem;padding:0.25rem 0;padding-left:1.25rem;position:relative;"><span style="position:absolute;left:0;color:#daa520;font-weight:700;">&#10003;</span> Link to your website and show your specialties</li>
   </ul>
-  <a href="/#signup" class="cta-btn" style="display:inline-block;background:#b8860b;color:#fff;padding:0.65rem 2rem;border-radius:6px;font-weight:700;font-size:0.95rem;text-decoration:none;">Register as a Dealer</a>
+  <a href="/contact/" class="cta-btn" style="display:inline-block;background:#b8860b;color:#fff;padding:0.65rem 2rem;border-radius:6px;font-weight:700;font-size:0.95rem;text-decoration:none;">Contact Us to Be Listed</a>
 </div>
 
 ## How to Choose a Dealer
