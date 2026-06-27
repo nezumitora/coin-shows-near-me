@@ -23,11 +23,11 @@
       "addressRegion": {{ include.show.state | jsonify }},
       "addressCountry": "US"
     }
-  }{% if include.show.organizer and include.show.organizer != "" %},
+  }{% assign organizer_website = include.show.website | default: "" | strip %}{% assign has_organizer_url = false %}{% if organizer_website contains "https://" %}{% assign has_organizer_url = true %}{% elsif organizer_website contains "http://" %}{% assign has_organizer_url = true %}{% endif %}{% if include.show.organizer and include.show.organizer != "" and has_organizer_url %},
   "organizer": {
     "@type": "Organization",
-    "name": {{ include.show.organizer | jsonify }}{% if include.show.website and include.show.website != "" %},
-    "url": {{ include.show.website | jsonify }}{% endif %}
+    "name": {{ include.show.organizer | jsonify }},
+    "url": {{ organizer_website | jsonify }}
   }{% endif %}
 }
 </script>

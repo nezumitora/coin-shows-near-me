@@ -17,8 +17,8 @@ Heading to a coin show or buying bullion online? Whether you pay sales tax on go
 
 Use the search below to find your state's tax rules, or browse the full list.
 
-<div style="margin:1.5rem 0;">
-  <input type="text" id="state-tax-search" placeholder="Search by state name..." style="width:100%;max-width:500px;padding:0.75rem 1rem;border:2px solid #e5ddd0;border-radius:8px;font-size:1rem;outline:none;" onfocus="this.style.borderColor='#b8860b'" onblur="this.style.borderColor='#e5ddd0'">
+<div class="tax-search-panel">
+  <input type="text" id="state-tax-search" placeholder="Search by state name..." style="padding:0.75rem 1rem;border:2px solid #e5ddd0;border-radius:8px;font-size:1rem;outline:none;" onfocus="this.style.borderColor='#b8860b'" onblur="this.style.borderColor='#e5ddd0'">
 </div>
 
 <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem;flex-wrap:wrap;">

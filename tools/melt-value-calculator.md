@@ -15,15 +15,24 @@ breadcrumb_current: "Melt Value Calculator"
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin: 1.5rem 0;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
   }
+  .calc-container > * { min-width: 0; }
   @media (max-width: 768px) {
     .calc-container { grid-template-columns: 1fr; }
   }
   .calc-panel {
-    border: 1px solid #e5e7eb;
-    border-radius: 0.75rem;
-    padding: 1.25rem;
-    background: #f9fafb;
+    border: 1px solid #e5ddd0;
+    border-radius: 1rem;
+    padding: 1.35rem;
+    background: linear-gradient(180deg, #fffdf8 0%, #f8f2e8 100%);
+    box-shadow: 0 10px 22px rgba(14, 35, 56, 0.07);
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
   }
   .calc-panel h2 {
     margin-top: 0;
@@ -47,6 +56,7 @@ breadcrumb_current: "Melt Value Calculator"
     font-size: 0.95rem;
     background: #fff;
     outline: none;
+    box-sizing: border-box;
   }
   .field-input:focus, .field-select:focus {
     border-color: #4b5563;
@@ -55,7 +65,7 @@ breadcrumb_current: "Melt Value Calculator"
   .calc-btn {
     display: inline-block;
     padding: 0.5rem 1.25rem;
-    background: #4b5563;
+    background: var(--coinshows-navy, #0E2338);
     color: #fff;
     border: none;
     border-radius: 999px;
@@ -64,19 +74,22 @@ breadcrumb_current: "Melt Value Calculator"
     cursor: pointer;
     margin-top: 0.25rem;
   }
-  .calc-btn:hover { background: #374151; }
+  .calc-btn:hover { background: #2c3e50; }
   .result-box {
     margin-top: 1rem;
     padding: 1rem;
-    background: #ecfdf5;
-    border: 1px solid #a7f3d0;
-    border-radius: 0.5rem;
+    background: linear-gradient(180deg, #fff9ed 0%, #faf6ed 100%);
+    border: 1px solid rgba(184, 134, 11, 0.35);
+    border-left: 5px solid var(--coinshows-navy, #0E2338);
+    border-radius: 0.75rem;
     display: none;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
   .result-box .big-number {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #065f46;
+    color: var(--coinshows-navy, #0E2338);
     margin: 0;
   }
   .result-box .detail {
@@ -86,23 +99,59 @@ breadcrumb_current: "Melt Value Calculator"
   }
   .coin-table {
     width: 100%;
+    min-width: 0;
     border-collapse: collapse;
     margin: 1rem 0;
     font-size: 0.9rem;
+    table-layout: fixed;
+  }
+  .coin-table-wrap {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid rgba(184, 134, 11, 0.35);
+    border-radius: 0.75rem;
+    background: #faf6ed;
+    overscroll-behavior-x: contain;
+    box-sizing: border-box;
+    box-shadow: 0 8px 18px rgba(14, 35, 56, 0.06);
+  }
+  .coin-table-wrap .coin-table {
+    margin: 0;
+    max-width: 100%;
   }
   .coin-table th, .coin-table td {
     padding: 0.5rem 0.6rem;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid #eadfca;
     text-align: left;
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
   .coin-table th {
-    background: #f3f4f6;
-    font-weight: 600;
+    background: linear-gradient(180deg, var(--coinshows-navy, #0E2338) 0%, #1a3652 100%);
+    border-bottom: 2px solid #b8860b;
+    color: #fff;
+    font-weight: 800;
     font-size: 0.8rem;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: #6b7280;
   }
-  .coin-table tr:hover { background: #f9fafb; }
+  .coin-table th:first-child { border-left: 4px solid #b8860b; }
+  .coin-table th:last-child { color: #ffd46b; }
+  .coin-table td {
+    background: #fffaf0;
+    color: #1f2937;
+  }
+  .coin-table td:last-child {
+    color: var(--coinshows-navy, #0E2338);
+    font-weight: 800;
+  }
+  .coin-table tbody tr:nth-child(even) td { background: #f7eedf; }
+  .coin-table tr:hover td { background: #f3e3c7; }
   .offer-form {
     display: flex;
     flex-direction: column;
@@ -133,6 +182,9 @@ breadcrumb_current: "Melt Value Calculator"
     gap: 0;
     margin: 1rem 0 0;
     border-bottom: 2px solid #e5e7eb;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .calc-tab {
     padding: 0.5rem 1rem;
@@ -160,11 +212,70 @@ breadcrumb_current: "Melt Value Calculator"
     font-weight: 700;
     color: #1a2332;
   }
+  .calc-intro-card {
+    background: #faf6ed;
+    border: 1px solid #e5ddd0;
+    border-left: 5px solid #b8860b;
+    border-radius: 1rem;
+    margin: 0 0 1.25rem;
+    padding: 1rem 1.15rem;
+  }
+  .calc-intro-card p { margin: 0; }
+  .calc-panel-accent {
+    background: linear-gradient(180deg, #f8f2e8 0%, #ffffff 100%);
+  }
+  @media (max-width: 640px) {
+    .calc-tabs { overflow-x: auto; }
+    .calc-tab { padding: 0.5rem 0.75rem; }
+    .coin-table-wrap { overflow-x: auto; }
+    .coin-table { min-width: 0; width: 100%; font-size: 0.86rem; table-layout: fixed; }
+    .coin-table thead { display: none; }
+    .coin-table,
+    .coin-table tbody,
+    .coin-table tr,
+    .coin-table td { display: block; width: 100%; }
+    .coin-table tr {
+      background: #fffaf0;
+      border-bottom: 1px solid #e5ddd0;
+      border-left: 4px solid #b8860b;
+      padding: 0.55rem 0.65rem;
+    }
+    .coin-table tr:nth-child(even) { background: #f7eedf; }
+    .coin-table tr:last-child { border-bottom: 0; }
+    .coin-table td {
+      background: transparent !important;
+      border-bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.22rem 0;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+    .coin-table td::before {
+      content: attr(data-label);
+      color: var(--coinshows-navy, #0E2338);
+      flex: 0 0 6.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .coin-table td:first-child {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .coin-table td:first-child::before { display: none; }
+  }
 </style>
 
 # Coin Melt Value Calculator
 
 Calculate the **metal melt value** of your coins instantly. Covers US, Canadian, British, and world silver & gold coins. Spot prices load automatically and update every hour.
+
+<div class="calc-intro-card">
+  <p><strong>Tip:</strong> Use melt value as your baseline before asking dealers for offers. Rare dates, condition, and grading can add value above metal content.</p>
+</div>
 
 <div class="spot-ticker" id="calc-spot-ticker" style="display:none;">
   <div class="spot-ticker-item">
@@ -444,6 +555,7 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 
 <div id="breakdown-area" style="display:none;margin-top:1rem;">
 <h3 style="font-size:1rem;margin-bottom:0.5rem;">Breakdown</h3>
+<div class="coin-table-wrap">
 <table class="coin-table">
   <thead>
     <tr><th>Coin</th><th>Qty</th><th>Metal (oz)</th><th>Melt Value</th></tr>
@@ -451,10 +563,11 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
   <tbody id="breakdown-body"></tbody>
 </table>
 </div>
+</div>
 
 </div>
 
-<div class="calc-panel">
+<div class="calc-panel calc-panel-accent">
 <h2>Get an Offer on Your Coins</h2>
 <p style="font-size:0.9rem;color:#6b7280;margin:0 0 0.75rem;">Have coins to sell? Fill out this form and a local coin dealer will contact you with an offer. No obligation.</p>
 
@@ -614,10 +727,10 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
       else totalGoldOz += metalOz;
 
       html += '<tr>' +
-        '<td>' + c.name + '</td>' +
-        '<td>' + qty + '</td>' +
-        '<td>' + metalOz.toFixed(4) + ' oz ' + c.metal + '</td>' +
-        '<td>' + formatUSD(value) + '</td>' +
+        '<td data-label="Coin">' + c.name + '</td>' +
+        '<td data-label="Qty">' + qty + '</td>' +
+        '<td data-label="Metal">' + metalOz.toFixed(4) + ' oz ' + c.metal + '</td>' +
+        '<td data-label="Value">' + formatUSD(value) + '</td>' +
         '</tr>';
     });
 

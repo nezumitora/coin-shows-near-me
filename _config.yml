@@ -3,7 +3,7 @@ description: "Find coin shows near you. Complete directory of 190+ coin shows ac
 url: "https://coinshownearme.com"
 baseurl: ""
 
-logo: "/assets/images/logo.png"
+logo: "/assets/images/coinshows-buffalo-head-front-transparent-gold-navy.png"
 
 remote_theme: just-the-docs/just-the-docs
 
@@ -25,9 +25,7 @@ tagline: "Find upcoming coin shows in your area"
 nav_sort: order
 nav_external_links: []
 
-aux_links:
-  "Sign Up":
-    - "/#signup"
+aux_links: {}
 aux_links_new_tab: false
 
 google_site_verification: ZW60JDUpZFD9rhZv8KgiklQ65RSr5jyyxku3686lHbo

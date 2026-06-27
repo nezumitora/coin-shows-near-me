@@ -78,21 +78,44 @@ At a typical coin show, sellers walk from table to table, showing the same coins
 
 <form class="notify-form" id="portal-form" action="https://formspree.io/f/mykleozw" method="POST">
 <input type="hidden" name="_subject" value="Coin Show Near Me — Portal Interest">
-<input type="hidden" name="source" value="portal-landing-page">
+<input type="hidden" name="source" value="Website">
+<input type="hidden" name="formName" value="portalInterest">
+<input type="hidden" name="ctaCode" value="portal_interest_signup">
+<input type="hidden" name="sourceDetail" value="Portal landing page interest form">
+<input type="hidden" name="pageUrl" value="">
+<input type="hidden" name="referringUrl" value="">
+<input type="hidden" name="submittedAt" value="">
+<input type="hidden" name="contactConsentTimestamp" value="">
+<input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
+<input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
+<input type="hidden" name="reminderConsentTimestamp" value="">
+<input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
 <div class="form-row">
 <input type="text" name="name" placeholder="Name" style="background:#fff;color:#111;">
 <input type="email" name="email" placeholder="Email address" required style="background:#fff;color:#111;">
 </div>
 <div class="form-row" style="margin-top:0.5rem;">
-<select name="role" style="flex:1;min-width:200px;padding:0.6rem 0.75rem;border:1px solid var(--coin-border);border-radius:6px;font-size:0.9rem;background:#fff;color:#111;">
+<select name="coinContactRoles" required style="flex:1;min-width:200px;padding:0.6rem 0.75rem;border:1px solid var(--coin-border);border-radius:6px;font-size:0.9rem;background:#fff;color:#111;">
 <option value="">I am a...</option>
-<option value="dealer">Coin Dealer</option>
-<option value="collector">Collector / Seller</option>
-<option value="promoter">Show Promoter</option>
+<option value="attendee">Attending a coin show</option>
+<option value="dealerVendor">Coin dealer / vendor</option>
+<option value="showOrganizer">Show organizer / promoter</option>
+<option value="venueContact">Venue contact</option>
+<option value="advertiserSponsor">Advertiser / sponsor</option>
+<option value="sellerOfferRequest">Selling coins / request an offer</option>
+<option value="generalInquiry">General question</option>
 </select>
 <button type="submit">Notify Me</button>
 </div>
 <textarea name="message" placeholder="Anything you'd like us to know — your dealer credentials, shows you attend, what you collect (optional)" style="background:#fff;color:#111;margin-top:0.5rem;"></textarea>
+<label style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.5rem;font-size:0.8rem;line-height:1.4;color:#334155;">
+<input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;">
+<span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
+</label>
+<label style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.35rem;font-size:0.8rem;line-height:1.4;color:#334155;">
+<input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;">
+<span>Send me reminders about coin shows near me.</span>
+</label>
 </form>
 <div class="notify-success" id="portal-success" style="background:#065f46;margin-top:0.5rem;">
 Thank you! We'll notify you when the dealer portal launches.
@@ -124,6 +147,24 @@ var form = document.getElementById('portal-form');
 if (form) {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
+    var now = new Date().toISOString();
+    var contactConsentText = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
+    function setFormValue(name, value) {
+      var field = form.querySelector('[name="' + name + '"]');
+      if (field) { field.value = value; }
+    }
+    setFormValue('pageUrl', window.location.href);
+    setFormValue('referringUrl', document.referrer || '');
+    setFormValue('submittedAt', now);
+    setFormValue('contactConsentVersion', 'coin-contact-consent-v1');
+    setFormValue('contactConsentText', contactConsentText);
+    setFormValue('reminderConsentVersion', 'coin-show-reminder-v1');
+    if (form.querySelector('[name="contactConsent"]').checked) {
+      setFormValue('contactConsentTimestamp', now);
+    }
+    if (form.querySelector('[name="showReminderOptIn"]').checked) {
+      setFormValue('reminderConsentTimestamp', now);
+    }
     var data = new FormData(form);
     fetch(form.action, {
       method: 'POST',
