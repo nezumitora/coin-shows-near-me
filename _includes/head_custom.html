@@ -62,10 +62,23 @@
   border-radius: 0 !important;
   margin: 0.75rem 0 0.5rem !important;
   padding-top: 0.5rem !important;
+  position: relative !important;
+}
+.site-header::before {
+  content: "";
+  display: block;
+  width: 138px;
+  height: 138px;
+  margin: 0 auto 0.35rem;
+  background-image: url("/assets/images/coinshows-shield-transparent-20260625.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
 }
 .site-logo {
-  width: 136px !important;
-  height: 136px !important;
+  width: 1px !important;
+  height: 1px !important;
   margin: 0 auto 0.5rem auto;
   border-radius: 0;
   background-color: transparent !important;
@@ -114,6 +127,7 @@
   color: var(--coin-navy) !important;
   border-bottom: 2px solid var(--coin-gold) !important;
   padding-bottom: 0.5rem;
+  clear: both;
 }
 .main-content h2 {
   color: var(--coin-navy-light) !important;
@@ -172,9 +186,92 @@
 
 /* Show cards (used on state/city pages) */
 .show-card {
-  border-color: var(--coin-border) !important;
-  background: var(--coin-gold-bg) !important;
+  border: 1px solid #d1b879 !important;
+  background: linear-gradient(180deg, #fffdfa 0%, #f7efe0 100%) !important;
   border-radius: 0.5rem !important;
+  box-shadow: 0 7px 18px rgba(14,35,56,0.10) !important;
+}
+
+.breadcrumb-nav {
+  display: block;
+  clear: both;
+  position: relative;
+  z-index: 2;
+  margin: 0.25rem 0 1.1rem !important;
+  padding: 0.35rem 0;
+}
+.breadcrumb-nav + h1 {
+  margin-top: 0.35rem !important;
+}
+
+.main-content table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border: 1px solid #d8c08a !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  background: #fffdfa !important;
+  box-shadow: 0 7px 18px rgba(14,35,56,0.08) !important;
+}
+.main-content table th,
+.main-content table td {
+  padding: 0.85rem 1rem !important;
+  border-bottom: 1px solid #eadfca !important;
+}
+.main-content table tr:last-child th,
+.main-content table tr:last-child td {
+  border-bottom: 0 !important;
+}
+.main-content table th,
+.main-content table td:first-child {
+  background: #f7efe0 !important;
+  color: var(--coin-navy) !important;
+  font-weight: 750 !important;
+}
+
+.show-detail-card {
+  border: 1px solid #d1b879 !important;
+  border-radius: 14px !important;
+  padding: 1.25rem !important;
+  margin: 1.25rem 0 !important;
+  background: linear-gradient(180deg, #fffdfa 0%, #f7efe0 100%) !important;
+  box-shadow: 0 10px 24px rgba(14,35,56,0.10) !important;
+}
+.show-detail-table {
+  width: 100%;
+  margin: 0 !important;
+}
+.show-detail-actions {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d8c08a;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.main-content .public-cta,
+.main-content .notify-section,
+.main-content .tool-card,
+.main-content .guide-card,
+.main-content .dealer-card,
+.main-content .content-card,
+.main-content .public-card,
+.main-content .contact-card,
+.main-content .dealer-feature-card,
+.main-content .dealer-search-panel,
+.main-content .dealer-card-item,
+.main-content .major-show-card,
+.main-content .tax-card,
+.main-content .calc-intro-card,
+.main-content .coin-table-wrap {
+  border: 1px solid #d1b879 !important;
+  background: linear-gradient(180deg, #fffdfa 0%, #f7efe0 100%) !important;
+  box-shadow: 0 8px 20px rgba(14,35,56,0.10) !important;
+}
+.main-content .coin-table-wrap {
+  border-radius: 12px !important;
+  overflow: auto !important;
 }
 
 /* Launch banner */
@@ -705,11 +802,11 @@ body.public-page .dealer-feature-grid {
   gap: 1rem;
 }
 body.public-page .public-cta {
-  background: linear-gradient(135deg, var(--coinshows-navy) 0%, var(--coin-navy-light) 100%);
-  border: 1px solid rgba(218, 165, 32, 0.5);
+  background: linear-gradient(180deg, #fffdfa 0%, #f7efe0 100%) !important;
+  border: 1px solid #d1b879 !important;
   border-left: 5px solid var(--coin-gold);
   border-radius: 14px;
-  color: #e2e8f0;
+  color: var(--coinshows-navy) !important;
   padding: 1.25rem;
   box-shadow: 0 12px 26px rgba(14, 35, 56, 0.12);
 }
@@ -722,13 +819,79 @@ body.public-page .public-cta--compact {
 body.public-page .public-cta h2,
 body.public-page .public-cta h3 {
   border: 0 !important;
-  color: var(--coin-gold-light) !important;
+  color: var(--coinshows-navy) !important;
   margin: 0 0 0.45rem !important;
   padding: 0 !important;
 }
 body.public-page .public-cta p,
 body.public-page .public-cta li {
-  color: #dbe7f3;
+  color: #1f2937 !important;
+  font-weight: 650;
+  text-shadow: none;
+}
+body.public-page .contact-form-brand {
+  display: block;
+  margin-bottom: 0.25rem;
+  min-height: 176px;
+  padding-right: 220px;
+  position: relative;
+}
+body.public-page .contact-form-brand img {
+  height: 200px;
+  position: absolute;
+  right: 0;
+  top: -1.4rem;
+  width: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(14,35,56,0.18));
+}
+body.public-page .contact-form-brand-copy {
+  color: var(--coinshows-navy);
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+body.public-page .contact-form-brand-copy h3 {
+  font-size: 1.25rem !important;
+  margin: 0 0 0.35rem !important;
+}
+body.public-page .contact-form-brand-copy p {
+  margin-bottom: 0.55rem !important;
+}
+body.public-page .contact-form-use-list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.15rem 0 0;
+}
+body.public-page .contact-form-use-list span {
+  align-items: center;
+  color: #1f2937;
+  display: flex;
+  font-size: 0.95rem;
+  font-weight: 750;
+  gap: 0.45rem;
+  line-height: 1.3;
+}
+body.public-page .contact-form-use-list span::before {
+  background: var(--coin-gold);
+  border-radius: 50%;
+  content: "";
+  flex: 0 0 auto;
+  height: 0.42rem;
+  width: 0.42rem;
+}
+@media (max-width: 640px) {
+  body.public-page .contact-form-brand {
+    min-height: 0;
+    padding-right: 0;
+  }
+  body.public-page .contact-form-brand img {
+    display: block;
+    height: 168px;
+    margin-left: auto;
+    position: static;
+    width: 168px;
+  }
 }
 body.public-page .public-cta a,
 body.public-page .public-button {

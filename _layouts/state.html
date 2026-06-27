@@ -38,7 +38,8 @@ layout: default
 
 <div class="public-cta" style="margin:1.5rem 0;">
 <h2>Get Dealer Quotes Before the Show</h2>
-<p style="margin:0 0 0.5rem;font-size:1rem;">Bringing coins to a {{ page.state_name }} show? Check melt value first, then ask dealers what they may pay before you travel.</p>
+{% assign state_article = "a" %}{% assign an_states = "Alabama,Alaska,Arizona,Arkansas,Idaho,Illinois,Indiana,Iowa,Ohio,Oklahoma,Oregon" | split: "," %}{% if an_states contains page.state_name %}{% assign state_article = "an" %}{% endif %}
+<p style="margin:0 0 0.5rem;font-size:1rem;color:#f8fafc;font-weight:650;line-height:1.55;">Bringing coins to {{ state_article }} {{ page.state_name }} show? Check melt value first, then ask dealers what they may pay before you travel.</p>
 <a href="{{ site.baseurl }}/tools/melt-value-calculator/">Get Offers on Your Coins</a>
 </div>
 
