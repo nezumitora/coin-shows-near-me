@@ -1,5 +1,8 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Jun 29, 2026
+- v0.9.1: Replaced browser favicon/app icons with simplified GPT buffalo-head icon for clearer tab display.
+
 ## Apr 29, 2026
 - v0.8.2: Blog page + Dealer Directory
   - **Blog** coming soon page at `/blog/` with sign-up CTA and preview of upcoming content topics
