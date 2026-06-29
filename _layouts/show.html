@@ -117,15 +117,15 @@ layout: default
     <input type="hidden" name="show_name" value="{{ show.name }}">
     <input type="hidden" name="show_id" value="{{ show.id }}">
     <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
       <input type="email" name="email" placeholder="Email address" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;">
       <input type="tel" name="phone" placeholder="Mobile number (optional)" style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;">
     </div>
-    <label style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
+    <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
       <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
       <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
     </label>
-    <label style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
+    <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
       <input type="checkbox" name="showReminderOptIn" id="sms-consent-show" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
       <span>Send me reminders about coin shows near me. <a href="/legal/terms-of-use/#sms-terms" style="color:var(--coin-gold-light);text-decoration:underline;">SMS Terms</a> &amp; <a href="/legal/privacy-policy/" style="color:var(--coin-gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
     </label>

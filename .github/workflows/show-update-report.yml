@@ -1,0 +1,29 @@
+name: Show Update Report
+
+on:
+  schedule:
+    # Weekly, Monday 8:25 AM UTC. Review-only: does not commit or publish.
+    - cron: '25 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate review-only show update report
+        env:
+          MAX_URL_CHECKS: '80'
+        run: ruby _scripts/show-update-report.rb
+
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: show-update-report
+          path: tmp/show-update-report.md
+          if-no-files-found: error

@@ -749,6 +749,7 @@ body.public-page .main-content main {
 }
 body.public-page .main-content main * {
   box-sizing: border-box;
+  min-width: 0;
 }
 body.public-page .table-wrapper,
 body.public-page .main-content main > .table-wrapper {
@@ -1076,6 +1077,87 @@ body.public-page .global-top-nav {
   body.public-page .table-wrapper,
   body.public-page .main-content main > .table-wrapper {
     max-width: calc(100% - 2.5rem);
+  }
+}
+@media (max-width: 520px) {
+  body.public-page .main-content-wrap {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  body.public-page .public-hero-inner {
+    min-height: 0;
+    padding: 1rem 1rem 1.15rem !important;
+  }
+  body.public-page .public-hero-logo {
+    display: none;
+  }
+  body.public-page .main-content main > *:not(.breadcrumb-nav):not(.breadcrumbs):not(h1) {
+    margin-left: 0.9rem !important;
+    margin-right: 0.9rem !important;
+  }
+  body.public-page .show-detail-card,
+  body.public-page .notify-section,
+  body.public-page .public-card,
+  body.public-page .contact-card,
+  body.public-page .public-cta {
+    padding: 0.95rem !important;
+  }
+  body.public-page .show-detail-table,
+  body.public-page .show-detail-table tbody,
+  body.public-page .show-detail-table tr,
+  body.public-page .show-detail-table td {
+    display: block;
+    width: 100% !important;
+  }
+  body.public-page .show-detail-table td:first-child {
+    padding-bottom: 0.1rem !important;
+    white-space: normal !important;
+  }
+  body.public-page .show-detail-table td:last-child {
+    overflow-wrap: anywhere;
+    padding-top: 0.1rem !important;
+  }
+  body.public-page .show-detail-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  body.public-page .show-detail-actions a {
+    justify-content: center;
+    margin-left: 0 !important;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+  body.public-page .notify-form,
+  body.public-page .notify-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  body.public-page .notify-form input,
+  body.public-page .notify-form select,
+  body.public-page .notify-form textarea,
+  body.public-page .notify-form button {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  body.public-page .mobile-consent-label {
+    align-items: flex-start !important;
+    display: grid !important;
+    gap: 0.55rem !important;
+    grid-template-columns: 1.15rem minmax(0, 1fr) !important;
+    width: 100% !important;
+  }
+  body.public-page .mobile-consent-label input[type="checkbox"] {
+    flex: 0 0 auto !important;
+    height: 1rem !important;
+    margin-top: 0.15rem !important;
+    width: 1rem !important;
+  }
+  body.public-page .mobile-consent-label span {
+    display: block;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 }
 </style>

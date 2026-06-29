@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jun 29, 2026
+- v0.9.3: Suppressed invalid Event schema for partial/TBD dates, converted valid event dates to ISO 8601, tightened mobile form/card overflow rules, and added a weekly review-only show update report workflow.
 - v0.9.2: Added the live Instagram profile link to the contact page and footers.
 
 ## Jun 29, 2026

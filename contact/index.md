@@ -84,11 +84,11 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
 <option value="other">Other</option>
 </select>
 <textarea name="message" placeholder="Your message..." style="background:#fff;color:#111;margin-top:0.5rem;"></textarea>
-<label style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.5rem;font-size:0.8rem;line-height:1.4;color:#334155;">
+<label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.5rem;font-size:0.8rem;line-height:1.4;color:#334155;">
 <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;">
 <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
 </label>
-<label style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.35rem;font-size:0.8rem;line-height:1.4;color:#334155;">
+<label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.35rem;font-size:0.8rem;line-height:1.4;color:#334155;">
 <input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;">
 <span>Send me reminders about coin shows near me.</span>
 </label>
