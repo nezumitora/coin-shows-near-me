@@ -24,12 +24,9 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
   </div>
   <div class="contact-card">
     <h2 style="margin-top:0 !important;">Follow Along</h2>
-    <p style="margin-bottom:0.5rem;">Social profiles are coming soon. These are placeholders for the local preview.</p>
+    <p style="margin-bottom:0.5rem;">Follow along for coin show updates, directory notes, and collecting resources.</p>
     <div class="contact-socials">
-      <a class="contact-social-link" href="#" aria-label="Facebook coming soon"><span class="contact-social-icon">f</span> Facebook</a>
-      <a class="contact-social-link" href="#" aria-label="Instagram coming soon"><span class="contact-social-icon">◎</span> Instagram</a>
-      <a class="contact-social-link" href="#" aria-label="X Twitter coming soon"><span class="contact-social-icon">𝕏</span> X/Twitter</a>
-      <a class="contact-social-link" href="#" aria-label="LinkedIn coming soon"><span class="contact-social-icon">in</span> LinkedIn</a>
+      <a class="contact-social-link" href="https://www.instagram.com/coinshowsnearme" target="_blank" rel="noopener noreferrer" aria-label="Follow Coin Shows Near Me on Instagram"><span class="contact-social-icon">◎</span> Instagram</a>
     </div>
   </div>
 </div>

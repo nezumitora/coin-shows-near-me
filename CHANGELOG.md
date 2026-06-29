@@ -1,6 +1,9 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jun 29, 2026
+- v0.9.2: Added the live Instagram profile link to the contact page and footers.
+
+## Jun 29, 2026
 - v0.9.1: Replaced browser favicon/app icons with simplified GPT buffalo-head icon for clearer tab display.
 
 ## Apr 29, 2026

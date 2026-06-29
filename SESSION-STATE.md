@@ -1,9 +1,10 @@
 # Session State
 
-**Last updated:** 2026-06-29 12:15 (PDT)
-**Session:** favicon replacement
+**Last updated:** 2026-06-29 13:20 (PDT)
+**Session:** Instagram link update
 
 ## Completed today
+- Added Coin Shows Instagram profile link `https://www.instagram.com/coinshowsnearme` to contact page social card, homepage footer, and inner-page footer; bumped visible site version to v0.9.2. Pending build/commit/deploy verification.
 - Created linked worktree `/Users/milohiss/Git/_worktrees/coin-shows-near-me-favicon-comparison-20260629` on branch `favicon-comparison-20260629`.
 - Added two local favicon comparison pages: `/favicon-test-gpt.html` using `assets/images/favicon-test-gpt.png` and `/favicon-test-nano.html` using `assets/images/favicon-test-nano.png`.
 - Started local preview server on port `4175`; both test pages return 200 via `http://127.0.0.1:4175/`.
@@ -17,10 +18,10 @@
 - Clarified `AGENTS.md` SSH guidance so AI agents do not use root/admin SSH.
 
 ## In progress
-- Deploying GPT favicon to live site after explicit user approval.
+- Deploying Instagram link to live site after explicit user approval.
 
 ## Next up
-- Commit, merge to main, push to GitHub Pages, and verify live favicon references.
+- Commit, merge to main, push to GitHub Pages, and verify live Instagram link.
 - Review the pending Instagram inbox item manually if it becomes relevant to Coin Shows content or strategy.
 
 ## Open decisions
