@@ -1,4 +1,4 @@
-# Weekly show-update automation plan
+# Show-update automation plan
 
 Goal: keep show listings fresh without blindly overwriting manual edits or publishing unreviewed scraped content.
 
@@ -28,3 +28,15 @@ Goal: keep show listings fresh without blindly overwriting manual edits or publi
 - Added `_scripts/show-update-report.rb` to generate a review-only freshness report.
 - Added `.github/workflows/show-update-report.yml` to run weekly and on manual dispatch.
 - The workflow uploads an artifact only; it does not commit, push, publish, email, text, or submit forms.
+
+## Implemented in v0.9.4 worktree
+
+- Changed the report workflow to run daily because the site is live and accuracy is urgent.
+- Expanded the report to check every stored organizer/source URL by default.
+- Added source-domain inventory and CSV artifacts so the user can see which sites/listings are being checked.
+
+## Next urgent phase
+
+- Add comparison-only external source configs after exact source URLs are approved.
+- Each external source should produce a “missing from our site / differs from our site” report first.
+- Do not auto-edit `_data/shows.yml` until reports are trustworthy and updates are manually reviewed.

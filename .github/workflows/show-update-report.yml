@@ -2,8 +2,8 @@ name: Show Update Report
 
 on:
   schedule:
-    # Weekly, Monday 8:25 AM UTC. Review-only: does not commit or publish.
-    - cron: '25 8 * * 1'
+    # Daily 8:25 AM UTC. Review-only: does not commit or publish.
+    - cron: '25 8 * * *'
   workflow_dispatch:
 
 permissions:
@@ -18,12 +18,16 @@ jobs:
 
       - name: Generate review-only show update report
         env:
-          MAX_URL_CHECKS: '80'
+          MAX_URL_CHECKS: '0'
+          REQUEST_DELAY_SECONDS: '0.5'
         run: ruby _scripts/show-update-report.rb
 
       - name: Upload report artifact
         uses: actions/upload-artifact@v4
         with:
           name: show-update-report
-          path: tmp/show-update-report.md
+          path: |
+            tmp/show-update-report.md
+            tmp/show-source-inventory.csv
+            tmp/show-url-checks.csv
           if-no-files-found: error
