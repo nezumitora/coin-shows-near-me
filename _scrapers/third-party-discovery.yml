@@ -1,0 +1,46 @@
+# Report-only third-party discovery sources.
+#
+# These URLs were already present in README.md historical source notes.
+# Third-party directories are lead sources, not source-of-truth data. Any
+# date/venue changes found here must be confirmed against an official organizer
+# or club source before updating `_data/shows.yml`.
+
+- key: coinzip-arkansas
+  provider: CoinZip
+  state: AR
+  url: https://www.coinzip.com/arkansas-coin-shows
+
+- key: coinzip-illinois
+  provider: CoinZip
+  state: IL
+  url: https://www.coinzip.com/illinois-coin-shows
+
+- key: coinshows-usa-illinois
+  provider: CoinShows-USA
+  state: IL
+  url: https://www.coinshows-usa.com/Illinois
+
+- key: coinzip-pennsylvania
+  provider: CoinZip
+  state: PA
+  url: https://www.coinzip.com/pennsylvania-coin-shows
+
+- key: coinshows-usa-pennsylvania
+  provider: CoinShows-USA
+  state: PA
+  url: https://www.coinshows-usa.com/Pennsylvania
+
+- key: coinzip-ohio
+  provider: CoinZip
+  state: OH
+  url: https://www.coinzip.com/ohio-coin-shows
+
+- key: coinzip-new-york
+  provider: CoinZip
+  state: NY
+  url: https://www.coinzip.com/new-york-coin-shows
+
+- key: coinzip-tennessee
+  provider: CoinZip
+  state: TN
+  url: https://www.coinzip.com/tennessee-coin-shows

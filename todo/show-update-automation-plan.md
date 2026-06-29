@@ -46,3 +46,10 @@ Goal: keep show listings fresh without blindly overwriting manual edits or publi
 - Added `_scrapers/external-sources.yml` with three report-only sources already present in `_data/shows.yml`: FUN Topics, Pacific Expos LLC, and Michigan Coin Club.
 - Added `_scripts/external-source-compare.rb` to fetch those source pages, compare configured show names/dates, and write review artifacts.
 - Added `.github/workflows/external-source-comparison.yml` to run the comparison daily and on manual dispatch.
+
+## Implemented in v0.9.7 worktree
+
+- Added `_scrapers/third-party-discovery.yml` for CoinZip and CoinShows-USA URLs already present in `README.md` historical source notes.
+- Added `_scripts/third-party-discovery-report.rb` to create report-only third-party discovery artifacts.
+- Added `.github/workflows/third-party-discovery.yml` to run the discovery report daily and on manual dispatch.
+- Third-party directory findings are leads only; official organizer/club confirmation is required before changing show data.

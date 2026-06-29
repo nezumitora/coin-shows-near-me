@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jun 29, 2026
+- v0.9.7: Added report-only third-party discovery workflow for known CoinZip and CoinShows-USA source URLs from historical README notes.
 - v0.9.6: Added report-only external source comparison config, script, and daily workflow for FUN Topics, Pacific Expos LLC, and Michigan Coin Club.
 - v0.9.5: Excluded internal prompt/task library folders from the public Jekyll build.
 - v0.9.4: Added prompt-library folders and expanded the show-update report into a daily source inventory/URL-check automation with CSV artifacts.
