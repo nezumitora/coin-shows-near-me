@@ -41,3 +41,5 @@ exclude:
   - LICENSE
   - AGENTS.md
   - inbox/
+  - prompts/
+  - todo/
