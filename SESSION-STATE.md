@@ -1,12 +1,14 @@
 # Session State
 
-**Last updated:** 2026-06-29 16:15 (PDT)
-**Session:** third-party discovery sources
+**Last updated:** 2026-06-29 16:35 (PDT)
+**Session:** checkpoint after v0.9.7 deploy
 
 ## Completed today
 - Deployed v0.9.5 to GitHub Pages; live contact page verified showing `v0.9.5`.
 - Started v0.9.6: added report-only external comparison config/script/workflow for FUN Topics, Pacific Expos LLC, and Michigan Coin Club using URLs already present in `_data/shows.yml`.
-- Started v0.9.7: added report-only third-party discovery config/script/workflow for CoinZip and CoinShows-USA URLs already present in `README.md` historical source notes.
+- Deployed v0.9.7 to GitHub Pages; live contact page verified showing `v0.9.7`.
+- v0.9.7 added report-only third-party discovery config/script/workflow for CoinZip and CoinShows-USA URLs already present in `README.md` historical source notes; manual workflow run succeeded.
+- v0.9.6 external comparison workflow is active and report-only for FUN Topics, Pacific Expos LLC, and Michigan Coin Club.
 - v0.9.4/v0.9.5 added prompt library, daily show source inventory/URL-check report artifacts, and excluded internal prompt/task folders from public Jekyll build.
 - v0.9.3 fixed Event schema for partial/TBD dates, converted valid dates to ISO 8601, and tightened mobile form/card overflow rules.
 - Added Coin Shows Instagram profile link `https://www.instagram.com/coinshowsnearme` and favicon updates; earlier versions v0.9.1-v0.9.2 deployed.
@@ -24,12 +26,13 @@
 - Clarified `AGENTS.md` SSH guidance so AI agents do not use root/admin SSH.
 
 ## In progress
-- Verify and commit v0.9.7 third-party discovery work; no auto-updates to show data yet.
+- No active code changes. Automation is report-only; no auto-updates to show data yet.
 
 ## Next up
-- Push v0.9.7 only after approval, then review third-party discovery artifacts for missing/changed show leads.
+- Review third-party discovery artifacts for missing/changed show leads.
+- Improve CoinZip/CoinShows-USA parsing because first local report showed mostly generic directory/category links.
 - Continue whole-site mobile QA and verify GSC Event fix validation.
 
 ## Open decisions
-- Need exact external source URLs approved before comparison scrapers beyond URLs already stored in `_data/shows.yml`.
+- Need exact/approved source URLs before adding more comparison scrapers beyond URLs already stored in repo/data.
 - Local `jekyll` command is missing; GitHub Pages builds are the verified deploy path.
