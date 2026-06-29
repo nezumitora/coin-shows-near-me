@@ -1,0 +1,35 @@
+# Report-only external comparison sources for Coin Shows Near Me.
+#
+# Rules:
+# - Use only approved/public URLs. Do not add guessed URLs.
+# - Prefer organizer/club sites over third-party directories.
+# - This config must never auto-update `_data/shows.yml`; it feeds reports only.
+# - Add new sources in small batches so each parser/report can be reviewed.
+
+- key: fun-topics
+  name: Florida United Numismatists
+  source_type: organizer
+  url: http://www.funtopics.com/
+  expected_show_ids:
+    - fun-convention
+    - summer-fun
+  notes: Existing source URL used by FUN Convention and Summer FUN listings.
+
+- key: pacific-expos
+  name: Pacific Expos LLC
+  source_type: organizer
+  url: https://pacificexposllc.com/
+  expected_show_ids:
+    - north-county-monthly-coin-show
+    - buena-park-coin-show
+  notes: Existing source URL used by North County Monthly Coin Show and Buena Park Coin Show listings.
+
+- key: michigan-coin-club
+  name: Michigan Coin Club
+  source_type: organizer
+  url: https://michigancoinclub.org/
+  expected_show_ids:
+    - lansing-coin-club-spring-show
+    - msns-spring-convention
+    - michigan-premier-coin-show
+  notes: Existing source URL used by Michigan coin show listings.

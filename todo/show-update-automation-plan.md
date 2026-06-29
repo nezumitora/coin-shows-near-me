@@ -40,3 +40,9 @@ Goal: keep show listings fresh without blindly overwriting manual edits or publi
 - Add comparison-only external source configs after exact source URLs are approved.
 - Each external source should produce a “missing from our site / differs from our site” report first.
 - Do not auto-edit `_data/shows.yml` until reports are trustworthy and updates are manually reviewed.
+
+## Implemented in v0.9.6 worktree
+
+- Added `_scrapers/external-sources.yml` with three report-only sources already present in `_data/shows.yml`: FUN Topics, Pacific Expos LLC, and Michigan Coin Club.
+- Added `_scripts/external-source-compare.rb` to fetch those source pages, compare configured show names/dates, and write review artifacts.
+- Added `.github/workflows/external-source-comparison.yml` to run the comparison daily and on manual dispatch.

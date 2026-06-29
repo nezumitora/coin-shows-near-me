@@ -1,0 +1,31 @@
+name: External Source Comparison
+
+on:
+  schedule:
+    # Daily 9:10 AM UTC. Report-only: does not commit, publish, email, text, or submit forms.
+    - cron: '10 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate external source comparison report
+        env:
+          REQUEST_DELAY_SECONDS: '1.0'
+        run: ruby _scripts/external-source-compare.rb
+
+      - name: Upload comparison artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-source-comparison
+          path: |
+            tmp/external-source-comparison.md
+            tmp/external-source-comparison.csv
+          if-no-files-found: error
