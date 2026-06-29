@@ -1,12 +1,13 @@
 # Session State
 
-**Last updated:** 2026-06-29 15:20 (PDT)
-**Session:** prompt library and show-update automation
+**Last updated:** 2026-06-29 15:25 (PDT)
+**Session:** checkpoint after v0.9.5 deploy
 
 ## Completed today
-- Added Coin Shows Instagram profile link `https://www.instagram.com/coinshowsnearme` to contact page social card, homepage footer, and inner-page footer; bumped visible site version to v0.9.2. Pending build/commit/deploy verification.
-- Started v0.9.3 worktree fixes: Event schema now emits only for specific dates and converts valid dates to ISO 8601; mobile form/card overflow CSS tightened; weekly review-only show-update report workflow/script added.
-- Started v0.9.4: added prompt-library structure and expanded show-update reporting to daily source inventory/URL checks with CSV artifacts.
+- Deployed v0.9.5 to GitHub Pages; live contact page verified showing `v0.9.5`.
+- v0.9.4/v0.9.5 added prompt library, daily show source inventory/URL-check report artifacts, and excluded internal prompt/task folders from public Jekyll build.
+- v0.9.3 fixed Event schema for partial/TBD dates, converted valid dates to ISO 8601, and tightened mobile form/card overflow rules.
+- Added Coin Shows Instagram profile link `https://www.instagram.com/coinshowsnearme` and favicon updates; earlier versions v0.9.1-v0.9.2 deployed.
 - Processed inbox task `2026-06-29_143123_milohiss-automation-schema-mobile-qa.json` into `inbox/processed/` after acting on it.
 - Created linked worktree `/Users/milohiss/Git/_worktrees/coin-shows-near-me-favicon-comparison-20260629` on branch `favicon-comparison-20260629`.
 - Added two local favicon comparison pages: `/favicon-test-gpt.html` using `assets/images/favicon-test-gpt.png` and `/favicon-test-nano.html` using `assets/images/favicon-test-nano.png`.
@@ -21,13 +22,12 @@
 - Clarified `AGENTS.md` SSH guidance so AI agents do not use root/admin SSH.
 
 ## In progress
-- Verify v0.9.4 automation script and prompt files before commit/push.
+- Planning external comparison-source scrapers in report-only mode; no auto-updates to show data yet.
 
 ## Next up
-- Commit/push v0.9.4 after verification.
-- Review daily report artifacts, then add approved external comparison sources.
-- Continue whole-site mobile QA once a local preview/browser path is available.
+- Review daily report artifacts, then add approved external comparison sources for missing/changed shows.
+- Continue whole-site mobile QA and verify GSC Event fix validation.
 
 ## Open decisions
-- Need exact external source URLs approved before building comparison scrapers beyond the URLs already stored in `_data/shows.yml`.
-- Local `jekyll` command is missing, so full local build preview is not verified yet.
+- Need exact external source URLs approved before comparison scrapers beyond URLs already stored in `_data/shows.yml`.
+- Local `jekyll` command is missing; GitHub Pages builds are the verified deploy path.
