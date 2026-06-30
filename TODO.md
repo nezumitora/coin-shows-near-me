@@ -17,6 +17,8 @@ Know of a coin show not in the directory? Open an issue with:
 - [ ] Add upcoming shows as dates are confirmed by organizers
 - [ ] Verify TBD shows when organizers announce 2026 dates
 - [ ] Expand state pages with additional local shows
+- [ ] Add operating company/entity wording to Privacy Policy, Terms, and legal pages using the business entity/DBA decision; do not list personal name or home address.
+- [ ] Create dealer acquisition plan: identify target coin dealers, add/claim dealer profiles, invite dealers to submit or update listings, and track outreach/results.
 - [ ] Review saved Instagram item for Coin Shows relevance. Instagram often blocks bot fetching, so open directly or use a screenshot/summary before creating website/content/operations tasks. Source: inbox/2026-05-05_165001_milo-bot-coinshows.json
 
 ## Logo & Branding
