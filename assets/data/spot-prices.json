@@ -1,9 +1,9 @@
 {
-  "gold": 4023.0,
-  "silver": 59.5,
-  "platinum": 1555.0,
-  "palladium": 1228.0,
+  "gold": 4020.600098,
+  "silver": 59.362,
+  "platinum": 1562.0,
+  "palladium": 1238.0,
   "currency": "USD",
   "source": "gold-api.com",
-  "updated_at": "2026-06-30T17:10:06Z"
+  "updated_at": "2026-06-30T20:10:42Z"
 }
