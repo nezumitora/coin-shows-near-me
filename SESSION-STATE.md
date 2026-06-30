@@ -1,14 +1,15 @@
 # Session State
 
-**Last updated:** 2026-06-29 16:55 (PDT)
-**Session:** v0.9.8 third-party discovery status fix
+**Last updated:** 2026-06-29 17:30 (PDT)
+**Session:** v0.9.8 deployed and verified
 
 ## Completed today
 - Deployed v0.9.5 to GitHub Pages; live contact page verified showing `v0.9.5`.
 - Started v0.9.6: added report-only external comparison config/script/workflow for FUN Topics, Pacific Expos LLC, and Michigan Coin Club using URLs already present in `_data/shows.yml`.
 - Deployed v0.9.7 to GitHub Pages; live contact page verified showing `v0.9.7`.
 - v0.9.7 added report-only third-party discovery config/script/workflow for CoinZip and CoinShows-USA URLs already present in `README.md` historical source notes; manual workflow run succeeded.
-- Started v0.9.8 to make third-party reports detect redirected NotFound pages, final URLs, and generic directory pages before asking Milo to review leads.
+- Deployed v0.9.8 to GitHub Pages; live contact page verified showing `v0.9.8`.
+- v0.9.8 third-party report now detects redirected NotFound/404 pages, shows original/final URLs, and adds a plain-English “What Milo should check” section.
 - v0.9.6 external comparison workflow is active and report-only for FUN Topics, Pacific Expos LLC, and Michigan Coin Club.
 - v0.9.4/v0.9.5 added prompt library, daily show source inventory/URL-check report artifacts, and excluded internal prompt/task folders from public Jekyll build.
 - v0.9.3 fixed Event schema for partial/TBD dates, converted valid dates to ISO 8601, and tightened mobile form/card overflow rules.
@@ -27,11 +28,12 @@
 - Clarified `AGENTS.md` SSH guidance so AI agents do not use root/admin SSH.
 
 ## In progress
-- Verify v0.9.8 third-party discovery report status classification; automation remains report-only with no auto-updates to show data.
+- No active code changes. Automation remains report-only with no auto-updates to show data.
 
 ## Next up
 - Review third-party discovery artifacts for missing/changed show leads.
-- Improve CoinZip/CoinShows-USA parsing because first local report showed mostly generic directory/category links.
+- Find current working CoinZip/CoinShows-USA source URLs; current historical state URLs redirect to NotFound/404 pages.
+- Improve CoinZip/CoinShows-USA parsing only after working source URLs are found.
 - Continue whole-site mobile QA and verify GSC Event fix validation.
 
 ## Open decisions
