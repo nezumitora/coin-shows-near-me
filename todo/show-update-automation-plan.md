@@ -58,3 +58,9 @@ Goal: keep show listings fresh without blindly overwriting manual edits or publi
 
 - Improved `_scripts/third-party-discovery-report.rb` to show final redirected URLs and classify source pages as `not_found`, `generic_directory`, `needs_parser`, or `review_leads`.
 - Added a “What Milo should check” report section so the artifact is easier to review without coding knowledge.
+
+## Implemented in v0.9.9 worktree
+
+- Added `docs/third-party-directory-sop.md` for safe third-party directory use, fake-entry risk checks, and verification rules.
+- Updated CoinZip discovery URLs from dead historical state paths to current working category URLs.
+- Changed the scheduled discovery workflow delay to 10 seconds to respect CoinZip `robots.txt` crawl-delay guidance.

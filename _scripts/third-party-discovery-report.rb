@@ -74,9 +74,9 @@ def candidate_links(html)
   html.scan(/<a\b[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/mi).map do |href, label_html|
     label = text_from_html(label_html)
     next if label.length < 8
-    next unless normalized(label).include?('coin') || normalized(href).include?('coin')
+    next unless href.include?('/Listing/Details/')
 
-    [label, href]
+    href.sub(%r{(/Listing/Details/\d+).*}, '\1')
   end.compact.uniq.first(40)
 end
 
@@ -91,15 +91,6 @@ def source_status(fetch_result, candidate_dates, links)
   return ['not_found', 'HTTP 404 from source'] if fetch_result.fetch(:status).to_s == '404'
   return ['fetch_error', fetch_result.fetch(:detail)] if fetch_result.fetch(:status).to_s == 'error'
   return ['skip', fetch_result.fetch(:detail)] if fetch_result.fetch(:status).to_s == 'skip'
-
-  generic_link_labels = links.map { |label, _href| normalized(label) }
-  generic_links_only = links.any? && generic_link_labels.all? do |label|
-    ['us coin shows', 'coin club events', 'world coin shows', 'click here'].include?(label)
-  end
-
-  if candidate_dates.empty? && generic_links_only
-    return ['generic_directory', 'Only generic directory/category links found']
-  end
 
   if candidate_dates.empty? && links.empty?
     return ['needs_parser', 'No dates or coin-show links found']
@@ -145,7 +136,7 @@ sources.each do |source|
     local_matches.length,
     (local_shows.length - local_matches.length),
     candidate_dates.join('; '),
-    links.map { |label, href| "#{label} => #{href}" }.join(' || ')
+    links.join(' || ')
   ]
 
   summaries << {
@@ -198,7 +189,7 @@ File.write(REPORT_PATH, <<~MD)
 
   ## Candidate coin-show links seen
 
-  #{summaries.map { |source| "### #{source[:provider]} #{source[:state]}\n#{source[:links].map { |label, href| "- #{label}: #{href}" }.join("\n")}" }.join("\n\n")}
+  #{summaries.map { |source| "### #{source[:provider]} #{source[:state]}\n#{source[:links].map { |href| "- Lead detail URL: #{href}" }.join("\n")}" }.join("\n\n")}
 
   ## Next actions
 

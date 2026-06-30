@@ -18,7 +18,9 @@ jobs:
 
       - name: Generate third-party discovery report
         env:
-          REQUEST_DELAY_SECONDS: '1.0'
+          # CoinZip robots.txt requests Crawl-delay: 10. Keep the report slow
+          # and review-only so we do not hammer third-party directories.
+          REQUEST_DELAY_SECONDS: '10.0'
         run: ruby _scripts/third-party-discovery-report.rb
 
       - name: Upload discovery artifacts

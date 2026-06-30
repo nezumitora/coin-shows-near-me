@@ -1,19 +1,22 @@
 # Report-only third-party discovery sources.
 #
-# These URLs were already present in README.md historical source notes.
+# These providers were already present in README.md historical source notes.
 # Third-party directories are lead sources, not source-of-truth data. Any
 # date/venue changes found here must be confirmed against an official organizer
 # or club source before updating `_data/shows.yml`.
+#
+# Do not copy third-party descriptions, tables, photos, or listing text. Use
+# these pages only to find leads, then verify facts independently.
 
 - key: coinzip-arkansas
   provider: CoinZip
   state: AR
-  url: https://www.coinzip.com/arkansas-coin-shows
+  url: https://www.coinzip.com/Browse/C160534-C161243/US-Coin-Shows-Arkansas
 
 - key: coinzip-illinois
   provider: CoinZip
   state: IL
-  url: https://www.coinzip.com/illinois-coin-shows
+  url: https://www.coinzip.com/Browse/C160534-C161273/US-Coin-Shows-Illinois
 
 - key: coinshows-usa-illinois
   provider: CoinShows-USA
@@ -23,7 +26,7 @@
 - key: coinzip-pennsylvania
   provider: CoinZip
   state: PA
-  url: https://www.coinzip.com/pennsylvania-coin-shows
+  url: https://www.coinzip.com/Browse/C160534-C161348/US-Coin-Shows-Pennsylvania
 
 - key: coinshows-usa-pennsylvania
   provider: CoinShows-USA
@@ -33,14 +36,14 @@
 - key: coinzip-ohio
   provider: CoinZip
   state: OH
-  url: https://www.coinzip.com/ohio-coin-shows
+  url: https://www.coinzip.com/Browse/C160534-C161339/US-Coin-Shows-Ohio
 
 - key: coinzip-new-york
   provider: CoinZip
   state: NY
-  url: https://www.coinzip.com/new-york-coin-shows
+  url: https://www.coinzip.com/Browse/C160534-C161330/US-Coin-Shows-New-York
 
 - key: coinzip-tennessee
   provider: CoinZip
   state: TN
-  url: https://www.coinzip.com/tennessee-coin-shows
+  url: https://www.coinzip.com/Browse/C160534-C161360/US-Coin-Shows-Tennessee
