@@ -76,7 +76,7 @@ At a typical coin show, sellers walk from table to table, showing the same coins
 <h3>Be the first to know when the portal launches</h3>
 <p>Whether you're a dealer, collector, or show promoter — sign up and we'll notify you when the portal is ready.</p>
 
-<form class="notify-form" id="portal-form" action="https://formspree.io/f/mykleozw" method="POST">
+<form class="notify-form" id="portal-form" action="#" data-form-key="mykleozw" method="POST">
 <input type="hidden" name="_subject" value="Coin Show Near Me — Portal Interest">
 <input type="hidden" name="source" value="Website">
 <input type="hidden" name="formName" value="portalInterest">
@@ -165,8 +165,9 @@ if (form) {
     if (form.querySelector('[name="showReminderOptIn"]').checked) {
       setFormValue('reminderConsentTimestamp', now);
     }
+    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
     var data = new FormData(form);
-    fetch(form.action, {
+    fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }

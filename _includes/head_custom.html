@@ -10,6 +10,44 @@
 <meta name="google-site-verification" content="DqU8VGv1svEy5GVzQoi1vn1My7ubNJgeHdBQfokkNbk">
 {% include seo-meta.html %}
 
+<!-- Form spam preflight: hides static Formspree endpoint from simple bots and blocks fast/honeypot submits before quota is used. -->
+<script>
+  window.coinFormAction = function(form) {
+    var key = form.getAttribute('data-form-key') || ['myk', 'leoz', 'w'].join('');
+    return ['https://formspree.io', 'f', key].join('/');
+  };
+  window.coinFormSpamCheck = function(form) {
+    var loadedAt = Number(form.getAttribute('data-loaded-at') || '0');
+    var elapsed = Date.now() - loadedAt;
+    var trap = form.querySelector('[name="website_url"]');
+    if (trap && trap.value.trim() !== '') { return false; }
+    if (loadedAt && elapsed < 2500) {
+      alert('Please wait a moment before submitting.');
+      return false;
+    }
+    return true;
+  };
+  document.addEventListener('DOMContentLoaded', function() {
+    var forms = document.querySelectorAll('form[data-form-key]');
+    Array.prototype.forEach.call(forms, function(form) {
+      form.setAttribute('data-loaded-at', String(Date.now()));
+      if (!form.querySelector('[name="website_url"]')) {
+        var trap = document.createElement('input');
+        trap.type = 'text';
+        trap.name = 'website_url';
+        trap.tabIndex = -1;
+        trap.autocomplete = 'off';
+        trap.setAttribute('aria-hidden', 'true');
+        trap.style.position = 'absolute';
+        trap.style.left = '-9999px';
+        trap.style.height = '1px';
+        trap.style.width = '1px';
+        form.appendChild(trap);
+      }
+    });
+  });
+</script>
+
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-19GQEC65D5"></script>
 <script>

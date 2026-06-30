@@ -1603,7 +1603,7 @@ a:hover { color: var(--gold-light); }
   <div class="reminder-cta-card" id="reminder-cta-grid">
     <h3>Never Miss a Coin Show</h3>
     <p>Get a reminder a week before upcoming shows near you — by email or text.</p>
-    <form class="reminder-form" id="reminder-form-grid" action="https://formspree.io/f/mykleozw" method="POST">
+    <form class="reminder-form" id="reminder-form-grid" action="#" data-form-key="mykleozw" method="POST">
       <input type="hidden" name="_subject" value="Coin Show Near Me — Show Reminder Signup">
       <input type="hidden" name="form_type" value="show_reminder">
       <input type="hidden" name="source" value="Website">
@@ -1771,7 +1771,7 @@ a:hover { color: var(--gold-light); }
       </ul>
     </div>
     <div>
-      <form class="dealer-form" id="dealer-form" action="https://formspree.io/f/mykleozw" method="POST">
+      <form class="dealer-form" id="dealer-form" action="#" data-form-key="mykleozw" method="POST">
         <input type="hidden" name="_subject" value="Coin Show Near Me — Attendee Wants a Quote">
         <input type="hidden" name="source" value="Website">
         <input type="hidden" name="formName" value="quoteBeforeShow">
@@ -1822,7 +1822,7 @@ a:hover { color: var(--gold-light); }
   <div class="cta-inner">
     <h2>Stay in the <span>Loupe</span></h2>
     <p>Get notified when we launch new features, or submit a show we're missing.</p>
-    <form class="cta-form" id="notify-form" action="https://formspree.io/f/mykleozw" method="POST">
+    <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
       <input type="hidden" name="_subject" value="Coin Show Near Me — New Signup">
       <input type="hidden" name="source" value="Website">
       <input type="hidden" name="formName" value="homepageSignup">
@@ -1873,7 +1873,7 @@ a:hover { color: var(--gold-light); }
     <div class="dealer-signup-form" id="dealer-signup-form">
       <h3>Dealer Registration</h3>
       <p>Get listed in our directory and connect with attendees looking to buy, sell, or get appraisals at your shows.</p>
-      <form class="cta-form" id="dealer-reg-form" action="https://formspree.io/f/mykleozw" method="POST">
+      <form class="cta-form" id="dealer-reg-form" action="#" data-form-key="mykleozw" method="POST">
         <input type="hidden" name="_subject" value="Coin Show Near Me — Dealer Registration">
         <input type="hidden" name="form_type" value="dealer_registration">
         <input type="hidden" name="source" value="Website">
@@ -1940,7 +1940,7 @@ a:hover { color: var(--gold-light); }
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.9.9</div>
+    <div class="footer-version">v0.9.10</div>
   </div>
 </footer>
 
@@ -1949,6 +1949,41 @@ a:hover { color: var(--gold-light); }
 var COIN_CONTACT_CONSENT_VERSION = 'coin-contact-consent-v1';
 var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
 var COIN_REMINDER_CONSENT_VERSION = 'coin-show-reminder-v1';
+
+window.coinFormAction = function(form) {
+  var key = form.getAttribute('data-form-key') || ['myk', 'leoz', 'w'].join('');
+  return ['https://formspree.io', 'f', key].join('/');
+};
+window.coinFormSpamCheck = function(form) {
+  var loadedAt = Number(form.getAttribute('data-loaded-at') || '0');
+  var elapsed = Date.now() - loadedAt;
+  var trap = form.querySelector('[name="website_url"]');
+  if (trap && trap.value.trim() !== '') { return false; }
+  if (loadedAt && elapsed < 2500) {
+    alert('Please wait a moment before submitting.');
+    return false;
+  }
+  return true;
+};
+document.addEventListener('DOMContentLoaded', function() {
+  var forms = document.querySelectorAll('form[data-form-key]');
+  Array.prototype.forEach.call(forms, function(form) {
+    form.setAttribute('data-loaded-at', String(Date.now()));
+    if (!form.querySelector('[name="website_url"]')) {
+      var trap = document.createElement('input');
+      trap.type = 'text';
+      trap.name = 'website_url';
+      trap.tabIndex = -1;
+      trap.autocomplete = 'off';
+      trap.setAttribute('aria-hidden', 'true');
+      trap.style.position = 'absolute';
+      trap.style.left = '-9999px';
+      trap.style.height = '1px';
+      trap.style.width = '1px';
+      form.appendChild(trap);
+    }
+  });
+});
 
 function setFormValue(form, name, value) {
   var field = form.querySelector('[name="' + name + '"]');
@@ -2077,8 +2112,9 @@ function fillCrmFormMetadata(form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       fillCrmFormMetadata(form);
+      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       var data = new FormData(form);
-      fetch(form.action, {
+      fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
@@ -2120,8 +2156,9 @@ function fillCrmFormMetadata(form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       fillCrmFormMetadata(form);
+      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       var data = new FormData(form);
-      fetch(form.action, {
+      fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
@@ -2158,8 +2195,9 @@ function fillCrmFormMetadata(form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       fillCrmFormMetadata(form);
+      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       var data = new FormData(form);
-      fetch(form.action, {
+      fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
@@ -2181,8 +2219,9 @@ function fillCrmFormMetadata(form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       fillCrmFormMetadata(form);
+      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       var data = new FormData(form);
-      fetch(form.action, {
+      fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }

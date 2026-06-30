@@ -1,7 +1,7 @@
 # Session State
 
-**Last updated:** 2026-06-29 18:15 (PDT)
-**Session:** v0.9.9 deployed and verified
+**Last updated:** 2026-06-29 18:45 (PDT)
+**Session:** v0.9.10 form spam protection
 
 ## Completed today
 - Deployed v0.9.5 to GitHub Pages; live contact page verified showing `v0.9.5`.
@@ -13,6 +13,7 @@
 - Deployed v0.9.9 to GitHub Pages; live contact page verified showing `v0.9.9`.
 - v0.9.9 added third-party directory SOP, working CoinZip category URLs, copyright-safer lead URL output, and 10-second discovery crawl delay.
 - Updated Third-Party Discovery workflow run succeeded for `b10f9cf`.
+- Started v0.9.10 form spam protection to reduce Formspree quota waste by hiding static endpoints and rejecting honeypot/too-fast submissions before fetch.
 - v0.9.6 external comparison workflow is active and report-only for FUN Topics, Pacific Expos LLC, and Michigan Coin Club.
 - v0.9.4/v0.9.5 added prompt library, daily show source inventory/URL-check report artifacts, and excluded internal prompt/task folders from public Jekyll build.
 - v0.9.3 fixed Event schema for partial/TBD dates, converted valid dates to ISO 8601, and tightened mobile form/card overflow rules.
@@ -31,12 +32,13 @@
 - Clarified `AGENTS.md` SSH guidance so AI agents do not use root/admin SSH.
 
 ## In progress
-- No active code changes. Automation remains report-only with no auto-updates to show data.
+- Verify and deploy v0.9.10 form spam protection. Automation remains report-only with no auto-updates to show data.
 
 ## Next up
 - Review CoinZip lead detail URLs from the v0.9.9 artifact and verify any promising leads against official/independent sources before data edits.
 - Find current working CoinShows-USA source URLs; current historical state URLs redirect to provider 404 pages.
 - Improve source-specific parsing and verification fields after working sources are stable.
+- Add true Cloudflare Turnstile server-side validation through a Worker/Formspree bridge when Cloudflare account access supports Worker/Turnstile setup.
 - Continue whole-site mobile QA and verify GSC Event fix validation.
 
 ## Open decisions

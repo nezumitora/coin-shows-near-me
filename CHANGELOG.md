@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jun 29, 2026
+- v0.9.10: Added pre-submit form spam protection that hides the Formspree endpoint from simple bots, blocks honeypot fills, and rejects too-fast submissions before Formspree quota is used.
 - v0.9.9: Added third-party directory verification SOP and updated CoinZip discovery to working category URLs with crawl-delay respect.
 - v0.9.8: Improved third-party discovery reports to show final redirected URLs and classify NotFound/generic directory pages before review.
 - v0.9.7: Added report-only third-party discovery workflow for known CoinZip and CoinShows-USA source URLs from historical README notes.

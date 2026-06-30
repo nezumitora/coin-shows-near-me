@@ -45,7 +45,7 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
 </div>
 </div>
 
-<form class="notify-form" id="contact-form" action="https://formspree.io/f/mykleozw" method="POST">
+<form class="notify-form" id="contact-form" action="#" data-form-key="mykleozw" method="POST">
 <input type="hidden" name="_subject" value="Coin Show Near Me — Contact Form">
 <input type="hidden" name="form_type" value="contact">
 <input type="hidden" name="source" value="Website">
@@ -140,8 +140,9 @@ if (form) {
     if (form.querySelector('[name="showReminderOptIn"]').checked) {
       setFormValue('reminderConsentTimestamp', now);
     }
+    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
     var data = new FormData(form);
-    fetch(form.action, {
+    fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }

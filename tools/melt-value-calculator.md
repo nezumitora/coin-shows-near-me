@@ -571,7 +571,7 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 <h2>Get an Offer on Your Coins</h2>
 <p style="font-size:0.9rem;color:#6b7280;margin:0 0 0.75rem;">Have coins to sell? Fill out this form and a local coin dealer will contact you with an offer. No obligation.</p>
 
-<form class="offer-form" id="offer-form" action="https://formspree.io/f/mykleozw" method="POST">
+<form class="offer-form" id="offer-form" action="#" data-form-key="mykleozw" method="POST">
   <input type="hidden" name="_subject" value="Coin Show Near Me — Melt Value Offer Request">
   <input type="hidden" name="form_type" value="melt_value_offer">
   <div class="field-group">
@@ -759,8 +759,9 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 
   offerForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(offerForm)) { return; }
     var data = new FormData(offerForm);
-    fetch(offerForm.action, {
+    fetch(window.coinFormAction ? window.coinFormAction(offerForm) : offerForm.action, {
       method: 'POST',
       body: data,
       headers: { 'Accept': 'application/json' }
