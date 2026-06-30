@@ -53,3 +53,8 @@ Goal: keep show listings fresh without blindly overwriting manual edits or publi
 - Added `_scripts/third-party-discovery-report.rb` to create report-only third-party discovery artifacts.
 - Added `.github/workflows/third-party-discovery.yml` to run the discovery report daily and on manual dispatch.
 - Third-party directory findings are leads only; official organizer/club confirmation is required before changing show data.
+
+## Implemented in v0.9.8 worktree
+
+- Improved `_scripts/third-party-discovery-report.rb` to show final redirected URLs and classify source pages as `not_found`, `generic_directory`, `needs_parser`, or `review_leads`.
+- Added a “What Milo should check” report section so the artifact is easier to review without coding knowledge.
