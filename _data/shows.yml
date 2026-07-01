@@ -2131,9 +2131,13 @@
   venue: Music City Center
   frequency: Annual (October)
   next_date: October 2026
-  website: https://imexshow.com/
+  website: https://imex.show/imex-for-collectors-numismatists/
   organizer: IMEX
-  notes: A new major international show.
+  notes: A new major international show. Official IMEX schedule currently lists September 3-6, 2025 at Music City Center; no official 2026 date verified yet.
+  source_url: https://imex.show/imex-for-collectors-numismatists/
+  source_type: official_show_page
+  last_verified: '2026-06-30'
+  verification_notes: Official IMEX collector and schedule pages verified the show, Music City Center venue, collector admission details, and September 3-6, 2025 schedule; previous imexshow.com URL no longer resolves.
 - id: texas-numismatic-association-convention
   name: Texas Numismatic Association Convention
   state: TX

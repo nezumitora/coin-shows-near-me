@@ -855,9 +855,9 @@ Find upcoming coin shows near you, including local and regional coin shows acros
 - **Venue:** Music City Center
 - **Frequency:** Annual (October)
 - **Next Scheduled Date:** October 2026 (Dates TBD)
-- **Website:** https://imexshow.com/
+- **Website:** https://imex.show/imex-for-collectors-numismatists/
 - **Organizer/Club:** IMEX
-- **Notes:** A new major international show.
+- **Notes:** A new major international show. Official IMEX pages currently list September 3–6, 2025 at Music City Center; no official 2026 date verified yet.
 
 ### Knoxville Coin & Currency Show
 - **City/State:** Knoxville, Tennessee
