@@ -2162,6 +2162,22 @@
   website: http://www.houstoncoinshow.org/
   organizer: Greater Houston Coin Club
   notes: ''
+- id: waco-coin-show
+  name: Waco Coin Show
+  state: TX
+  state_name: Texas
+  city: Bellmead
+  city_slug: bellmead-tx
+  venue: Bellmead Civic Center, 3900 Parrish Street, Bellmead, TX 76705
+  frequency: Annual (September)
+  next_date: September 25, 2026
+  website: ''
+  organizer: Waco Coin Club
+  notes: 'Dates: September 25-26, 2026; hours: Fri 12PM-6PM, Sat 9AM-4PM; admission $3, free for kids under 12; free parking; 24-hour security; hourly prizes and club raffle; buying, selling, trading, and collector education with returning and new coin dealers.'
+  source_url: ''
+  source_type: direct_promoter_submission
+  last_verified: '2026-07-02'
+  verification_notes: Venue address verified against the official City of Bellmead facilities listing for the Auditorium/Bellmead Civic Center at 3900 Parrish Street; show dates, hours, admission, parking, security, prizes, raffle, and dealer details are from the Kyle Kampe/Waco Coin Club contact-form submission received June 15, 2026; no official public Waco Coin Club event page was found during review.
 - id: texas-numismatic-association-coin-currency-show
   name: Texas Numismatic Association Coin & Currency Show
   state: TX
