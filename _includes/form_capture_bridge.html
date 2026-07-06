@@ -29,6 +29,12 @@
     if (digits.length === 11 && digits.charAt(0) === '1') { return '+' + digits; }
     return value;
   };
+  window.coinFormatEspoDateTime = function(value) {
+    if (!value) { return ''; }
+    var date = new Date(value);
+    if (isNaN(date.getTime())) { return ''; }
+    return date.toISOString().slice(0, 19).replace('T', ' ');
+  };
   window.coinSplitName = function(name, fallbackEmail) {
     var clean = (name || '').trim();
     if (!clean) { clean = (fallbackEmail || '').split('@')[0] || 'Coin Shows Lead'; }
@@ -55,9 +61,11 @@
     var role = window.coinGetFormValue(form, 'coinContactRoles');
     var formType = window.coinGetFormValue(form, 'form_type');
     var showOptIn = window.coinGetFormValue(form, 'showReminderOptIn') === 'yes' || formType === 'show_reminder';
+    var contactConsent = window.coinGetFormValue(form, 'contactConsent') === 'yes';
     var rawSmsConsent = window.coinGetFormValue(form, 'sms_consent');
     var phone = window.coinNormalizePhone(window.coinGetFormValue(form, 'phone'));
-    var smsOptedIn = rawSmsConsent.toLowerCase() === 'yes';
+    var smsOptedIn = rawSmsConsent.toLowerCase() === 'yes' || (phone && contactConsent && showOptIn);
+    var consentAt = window.coinFormatEspoDateTime(window.coinGetFormValue(form, 'reminderConsentTimestamp') || window.coinGetFormValue(form, 'contactConsentTimestamp') || window.coinGetFormValue(form, 'submittedAt'));
     if (!role && formType === 'show_reminder') { role = 'attendee'; }
     if (!role && formType === 'dealer_registration') { role = 'dealerVendor'; }
     if (!role && formType === 'contact') { role = window.coinGetFormValue(form, 'reason') === 'submit-show' ? 'showOrganizer' : 'generalInquiry'; }
@@ -78,6 +86,9 @@
       interestedShowNameOrPage: window.coinGetFormValue(form, 'show_name') || window.coinGetFormValue(form, 'sourceDetail') || window.coinGetFormValue(form, 'reason') || 'Coin Show Near Me form submission',
       reminderRegionOrState: window.coinGetFormValue(form, 'show_city') || window.coinGetFormValue(form, 'referringUrl'),
       smsConsentStatus: smsOptedIn ? 'optedIn' : 'unknown',
+      consentSource: 'websiteForm',
+      consentUpdatedAt: consentAt,
+      consentNotes: 'Coin Show Near Me form capture. SMS opted in only when phone is provided with explicit SMS consent or checked contact + reminder consent.',
       cReferringUrl: window.coinGetFormValue(form, 'referringUrl') || window.coinGetFormValue(form, 'pageUrl') || window.location.href,
       cFormCtaSourceDetail: sourceParts.join('; '),
       cConsentWordingShown: window.coinGetFormValue(form, 'contactConsentText') || window.coinGetFormValue(form, 'sms_consent')
