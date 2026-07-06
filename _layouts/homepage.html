@@ -31,6 +31,8 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "wdaqvs8glu");
 </script>
 
+{% include form_capture_bridge.html %}
+
 <style>
 /* === Reset & Base === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1950,41 +1952,6 @@ var COIN_CONTACT_CONSENT_VERSION = 'coin-contact-consent-v1';
 var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
 var COIN_REMINDER_CONSENT_VERSION = 'coin-show-reminder-v1';
 
-window.coinFormAction = function(form) {
-  var key = form.getAttribute('data-form-key') || ['myk', 'leoz', 'w'].join('');
-  return ['https://formspree.io', 'f', key].join('/');
-};
-window.coinFormSpamCheck = function(form) {
-  var loadedAt = Number(form.getAttribute('data-loaded-at') || '0');
-  var elapsed = Date.now() - loadedAt;
-  var trap = form.querySelector('[name="website_url"]');
-  if (trap && trap.value.trim() !== '') { return false; }
-  if (loadedAt && elapsed < 2500) {
-    alert('Please wait a moment before submitting.');
-    return false;
-  }
-  return true;
-};
-document.addEventListener('DOMContentLoaded', function() {
-  var forms = document.querySelectorAll('form[data-form-key]');
-  Array.prototype.forEach.call(forms, function(form) {
-    form.setAttribute('data-loaded-at', String(Date.now()));
-    if (!form.querySelector('[name="website_url"]')) {
-      var trap = document.createElement('input');
-      trap.type = 'text';
-      trap.name = 'website_url';
-      trap.tabIndex = -1;
-      trap.autocomplete = 'off';
-      trap.setAttribute('aria-hidden', 'true');
-      trap.style.position = 'absolute';
-      trap.style.left = '-9999px';
-      trap.style.height = '1px';
-      trap.style.width = '1px';
-      form.appendChild(trap);
-    }
-  });
-});
-
 function setFormValue(form, name, value) {
   var field = form.querySelector('[name="' + name + '"]');
   if (field) {
@@ -2113,16 +2080,9 @@ function fillCrmFormMetadata(form) {
       e.preventDefault();
       fillCrmFormMetadata(form);
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      var data = new FormData(form);
-      fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function(response) {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('notify-success').style.display = 'block';
-        }
+      window.coinSubmitForm(form).then(function() {
+        form.style.display = 'none';
+        document.getElementById('notify-success').style.display = 'block';
       });
     });
   }
@@ -2157,16 +2117,9 @@ function fillCrmFormMetadata(form) {
       e.preventDefault();
       fillCrmFormMetadata(form);
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      var data = new FormData(form);
-      fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function(response) {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('dealer-success').style.display = 'block';
-        }
+      window.coinSubmitForm(form).then(function() {
+        form.style.display = 'none';
+        document.getElementById('dealer-success').style.display = 'block';
       });
     });
   }
@@ -2196,16 +2149,9 @@ function fillCrmFormMetadata(form) {
       e.preventDefault();
       fillCrmFormMetadata(form);
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      var data = new FormData(form);
-      fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function(response) {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('dealer-reg-success').style.display = 'block';
-        }
+      window.coinSubmitForm(form).then(function() {
+        form.style.display = 'none';
+        document.getElementById('dealer-reg-success').style.display = 'block';
       });
     });
   }
@@ -2220,16 +2166,9 @@ function fillCrmFormMetadata(form) {
       e.preventDefault();
       fillCrmFormMetadata(form);
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      var data = new FormData(form);
-      fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function(response) {
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('reminder-grid-success').style.display = 'block';
-        }
+      window.coinSubmitForm(form).then(function() {
+        form.style.display = 'none';
+        document.getElementById('reminder-grid-success').style.display = 'block';
       });
     });
   }

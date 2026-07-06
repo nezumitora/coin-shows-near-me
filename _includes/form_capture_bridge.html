@@ -1,0 +1,126 @@
+<!-- Formspree + EspoCRM lead capture bridge. Keeps Formspree email delivery and also writes leads to EspoCRM. -->
+<script>
+  window.coinCrmLeadCaptureUrl = 'https://crm.cloud.ewastefreepickup.com/api/v1/LeadCapture/932a3f00d09027ab8';
+  window.coinFormAction = function(form) {
+    var key = form.getAttribute('data-form-key') || ['myk', 'leoz', 'w'].join('');
+    return ['https://formspree.io', 'f', key].join('/');
+  };
+  window.coinFormSpamCheck = function(form) {
+    var loadedAt = Number(form.getAttribute('data-loaded-at') || '0');
+    var elapsed = Date.now() - loadedAt;
+    var trap = form.querySelector('[name="website_url"]');
+    if (trap && trap.value.trim() !== '') { return false; }
+    if (loadedAt && elapsed < 2500) {
+      alert('Please wait a moment before submitting.');
+      return false;
+    }
+    return true;
+  };
+  window.coinGetFormValue = function(form, name) {
+    var field = form.querySelector('[name="' + name + '"]');
+    if (!field) { return ''; }
+    if (field.type === 'checkbox') { return field.checked ? field.value : ''; }
+    return (field.value || '').trim();
+  };
+  window.coinNormalizePhone = function(value) {
+    var digits = (value || '').replace(/\D+/g, '');
+    if (!digits) { return ''; }
+    if (digits.length === 10) { return '+1' + digits; }
+    if (digits.length === 11 && digits.charAt(0) === '1') { return '+' + digits; }
+    return value;
+  };
+  window.coinSplitName = function(name, fallbackEmail) {
+    var clean = (name || '').trim();
+    if (!clean) { clean = (fallbackEmail || '').split('@')[0] || 'Coin Shows Lead'; }
+    var parts = clean.split(/\s+/);
+    var first = parts.shift() || clean;
+    return { firstName: first, lastName: parts.join(' ') };
+  };
+  window.coinBuildDescription = function(form) {
+    var rows = [];
+    var fields = form.querySelectorAll('input, select, textarea');
+    Array.prototype.forEach.call(fields, function(field) {
+      if (!field.name || field.name === 'website_url') { return; }
+      var value = field.type === 'checkbox' ? (field.checked ? field.value : '') : field.value;
+      rows.push(field.name + ': ' + (value || ''));
+    });
+    rows.push('');
+    rows.push('No SMS/reminder/marketing automation was triggered by this website form capture.');
+    return rows.join('\n');
+  };
+  window.coinBuildCrmLeadPayload = function(form) {
+    var email = window.coinGetFormValue(form, 'email');
+    var name = window.coinGetFormValue(form, 'name') || window.coinGetFormValue(form, 'dealer_name');
+    var split = window.coinSplitName(name, email);
+    var role = window.coinGetFormValue(form, 'coinContactRoles');
+    var formType = window.coinGetFormValue(form, 'form_type');
+    var showOptIn = window.coinGetFormValue(form, 'showReminderOptIn') === 'yes' || formType === 'show_reminder';
+    var rawSmsConsent = window.coinGetFormValue(form, 'sms_consent');
+    var phone = window.coinNormalizePhone(window.coinGetFormValue(form, 'phone'));
+    var smsOptedIn = rawSmsConsent.toLowerCase() === 'yes';
+    if (!role && formType === 'show_reminder') { role = 'attendee'; }
+    if (!role && formType === 'dealer_registration') { role = 'dealerVendor'; }
+    if (!role && formType === 'contact') { role = window.coinGetFormValue(form, 'reason') === 'submit-show' ? 'showOrganizer' : 'generalInquiry'; }
+    var sourceParts = [];
+    ['formName', 'ctaCode', 'sourceDetail', 'show_id', 'reason', 'specialty'].forEach(function(name) {
+      var value = window.coinGetFormValue(form, name);
+      if (value) { sourceParts.push(value); }
+    });
+    var payload = {
+      firstName: split.firstName,
+      lastName: split.lastName,
+      emailAddress: email,
+      accountName: window.coinGetFormValue(form, 'business_name'),
+      description: window.coinBuildDescription(form),
+      source: 'Web Site',
+      coinContactRoles: role ? [role] : ['generalInquiry'],
+      showReminderOptIn: showOptIn,
+      interestedShowNameOrPage: window.coinGetFormValue(form, 'show_name') || window.coinGetFormValue(form, 'sourceDetail') || window.coinGetFormValue(form, 'reason') || 'Coin Show Near Me form submission',
+      reminderRegionOrState: window.coinGetFormValue(form, 'show_city') || window.coinGetFormValue(form, 'referringUrl'),
+      smsConsentStatus: smsOptedIn ? 'optedIn' : 'unknown',
+      cReferringUrl: window.coinGetFormValue(form, 'referringUrl') || window.coinGetFormValue(form, 'pageUrl') || window.location.href,
+      cFormCtaSourceDetail: sourceParts.join('; '),
+      cConsentWordingShown: window.coinGetFormValue(form, 'contactConsentText') || window.coinGetFormValue(form, 'sms_consent')
+    };
+    if (phone) { payload.phoneNumber = phone; }
+    if (smsOptedIn && phone) { payload.preferredReminderChannel = 'sms'; }
+    return payload;
+  };
+  window.coinSubmitForm = function(form) {
+    var formspreeData = new FormData(form);
+    var formspreeRequest = fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
+      method: 'POST',
+      body: formspreeData,
+      headers: { 'Accept': 'application/json' }
+    });
+    var crmRequest = fetch(window.coinCrmLeadCaptureUrl, {
+      method: 'POST',
+      body: JSON.stringify(window.coinBuildCrmLeadPayload(form)),
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+    });
+    return Promise.all([formspreeRequest, crmRequest]).then(function(responses) {
+      if (!responses[0].ok) { throw new Error('Form notification failed'); }
+      if (!responses[1].ok) { throw new Error('CRM lead capture failed'); }
+      return responses;
+    });
+  };
+  document.addEventListener('DOMContentLoaded', function() {
+    var forms = document.querySelectorAll('form[data-form-key]');
+    Array.prototype.forEach.call(forms, function(form) {
+      form.setAttribute('data-loaded-at', String(Date.now()));
+      if (!form.querySelector('[name="website_url"]')) {
+        var trap = document.createElement('input');
+        trap.type = 'text';
+        trap.name = 'website_url';
+        trap.tabIndex = -1;
+        trap.autocomplete = 'off';
+        trap.setAttribute('aria-hidden', 'true');
+        trap.style.position = 'absolute';
+        trap.style.left = '-9999px';
+        trap.style.height = '1px';
+        trap.style.width = '1px';
+        form.appendChild(trap);
+      }
+    });
+  });
+</script>

@@ -574,6 +574,11 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 <form class="offer-form" id="offer-form" action="#" data-form-key="mykleozw" method="POST">
   <input type="hidden" name="_subject" value="Coin Show Near Me — Melt Value Offer Request">
   <input type="hidden" name="form_type" value="melt_value_offer">
+  <input type="hidden" name="source" value="Website">
+  <input type="hidden" name="formName" value="meltValueOffer">
+  <input type="hidden" name="coinContactRoles" value="sellerOfferRequest">
+  <input type="hidden" name="ctaCode" value="melt_value_offer_request">
+  <input type="hidden" name="sourceDetail" value="Melt value calculator offer request">
   <div class="field-group">
     <label class="field-label" for="offer-name">Your Name *</label>
     <input class="field-input" type="text" id="offer-name" name="name" required>
@@ -609,7 +614,7 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
   </div>
 
   <div style="display:flex;align-items:flex-start;gap:0.4rem;font-size:0.85rem;color:#6b7280;">
-    <input type="checkbox" id="offer-consent" style="margin-top:0.2rem;" required>
+    <input type="checkbox" id="offer-consent" name="contactConsent" value="yes" style="margin-top:0.2rem;" required>
     <label for="offer-consent">I agree to be contacted by a coin dealer about my coins. *</label>
   </div>
   <div class="offer-error" data-for="consent"></div>
@@ -760,16 +765,9 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
   offerForm.addEventListener('submit', function(e) {
     e.preventDefault();
     if (window.coinFormSpamCheck && !window.coinFormSpamCheck(offerForm)) { return; }
-    var data = new FormData(offerForm);
-    fetch(window.coinFormAction ? window.coinFormAction(offerForm) : offerForm.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(function(response) {
-      if (response.ok) {
-        offerForm.style.display = 'none';
-        offerSuccess.style.display = 'block';
-      }
+    window.coinSubmitForm(offerForm).then(function() {
+      offerForm.style.display = 'none';
+      offerSuccess.style.display = 'block';
     });
   });
 
