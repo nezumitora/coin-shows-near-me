@@ -141,16 +141,9 @@ if (form) {
       setFormValue('reminderConsentTimestamp', now);
     }
     if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-    var data = new FormData(form);
-    fetch(window.coinFormAction ? window.coinFormAction(form) : form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(function(response) {
-      if (response.ok) {
-        form.style.display = 'none';
-        document.getElementById('contact-success').style.display = 'block';
-      }
+    window.coinSubmitForm(form).then(function() {
+      form.style.display = 'none';
+      document.getElementById('contact-success').style.display = 'block';
     });
   });
 }
