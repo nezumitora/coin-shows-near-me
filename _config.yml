@@ -36,10 +36,15 @@ exclude:
   - _scrapers/
   - Gemfile
   - Gemfile.lock
+  - README.md
+  - SESSION-STATE.md
   - TODO.md
   - CHANGELOG.md
   - LICENSE
   - AGENTS.md
+  - .agents/
+  - .beads/
+  - docs/
   - inbox/
   - prompts/
   - todo/

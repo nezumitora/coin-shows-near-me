@@ -1,7 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jun 29, 2026
-- v0.9.11: Security hardening review: removed public client-side CRM lead capture, kept static forms Formspree-only until a server-side bridge exists, replaced risky dynamic `innerHTML` rendering in the widget/weekend/search/melt calculator paths with DOM/text rendering, added safer widget/embed link protections, and kept page-load impact minimal.
+- v0.9.11: Security hardening review: removed public client-side CRM lead capture, kept static forms Formspree-only until a server-side bridge exists, excluded internal README/docs/session/source-review notes from the public Jekyll build, replaced risky dynamic `innerHTML` rendering in the widget/weekend/search/melt calculator paths with DOM/text rendering, added safer widget/embed link protections, and kept page-load impact minimal.
 - v0.9.10: Added pre-submit form spam protection that hides the Formspree endpoint from simple bots, blocks honeypot fills, and rejects too-fast submissions before Formspree quota is used.
 - v0.9.9: Added third-party directory verification SOP and updated CoinZip discovery to working category URLs with crawl-delay respect.
 - v0.9.8: Improved third-party discovery reports to show final redirected URLs and classify NotFound/generic directory pages before review.

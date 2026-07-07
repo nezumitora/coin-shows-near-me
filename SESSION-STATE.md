@@ -1,10 +1,10 @@
 # Session State
 
-**Last updated:** 2026-07-07 16:22 (PDT)
+**Last updated:** 2026-07-07 16:35 (PDT)
 **Session:** v0.9.11 security hardening review
 
 ## Completed today
-- Built v0.9.11 security hardening in linked worktree `/Users/milohiss/Git/_worktrees/coin-shows-security-review-20260707` on branch `security/custom-code-review-20260707`: removed public client-side CRM lead capture, kept static forms Formspree-only until a server-side bridge exists, replaced risky dynamic `innerHTML` rendering in widget/weekend/search/melt-calculator paths with DOM/text rendering, added safer new-tab/embed protections, removed a password-like docs example, and kept page-load impact minimal.
+- Built v0.9.11 security hardening in linked worktree `/Users/milohiss/Git/_worktrees/coin-shows-security-review-20260707` on branch `security/custom-code-review-20260707`: removed public client-side CRM lead capture, kept static forms Formspree-only until a server-side bridge exists, excluded internal README/docs/session/source-review notes from the public Jekyll build, replaced risky dynamic `innerHTML` rendering in widget/weekend/search/melt-calculator paths with DOM/text rendering, added safer new-tab/embed protections, removed a password-like docs example, and kept page-load impact minimal.
 - Deployed v0.9.5 to GitHub Pages; live contact page verified showing `v0.9.5`.
 - Started v0.9.6: added report-only external comparison config/script/workflow for FUN Topics, Pacific Expos LLC, and Michigan Coin Club using URLs already present in `_data/shows.yml`.
 - Deployed v0.9.7 to GitHub Pages; live contact page verified showing `v0.9.7`.
