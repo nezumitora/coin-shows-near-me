@@ -1630,7 +1630,7 @@ a:hover { color: var(--gold-light); }
         </label>
         <label class="consent-label">
           <input type="checkbox" name="showReminderOptIn" id="sms-consent-grid" value="yes" required>
-          <span>Send me reminders about coin shows near me. <a href="/legal/terms-of-use/#sms-terms" target="_blank">SMS Terms</a> &amp; <a href="/legal/privacy-policy/" target="_blank">Privacy Policy</a>.</span>
+          <span>Send me reminders about coin shows near me. <a href="/legal/terms-of-use/#sms-terms" target="_blank" rel="noopener noreferrer">SMS Terms</a> &amp; <a href="/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span>
         </label>
       </div>
       <button type="submit">Remind Me</button>
@@ -1942,7 +1942,7 @@ a:hover { color: var(--gold-light); }
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.9.10</div>
+    <div class="footer-version">v0.9.11</div>
   </div>
 </footer>
 
@@ -2029,7 +2029,11 @@ function fillCrmFormMetadata(form) {
     if (searchNote && searchNoteText) {
       if (searchTerm) {
         searchNote.style.display = 'block';
-        searchNoteText.innerHTML = '<strong>' + visible + '</strong> matching show' + (visible === 1 ? '' : 's') + ' found. Showing matching shows below.';
+        searchNoteText.textContent = '';
+        var visibleCount = document.createElement('strong');
+        visibleCount.textContent = String(visible);
+        searchNoteText.appendChild(visibleCount);
+        searchNoteText.appendChild(document.createTextNode(' matching show' + (visible === 1 ? '' : 's') + ' found. Showing matching shows below.'));
       } else {
         searchNote.style.display = 'none';
       }

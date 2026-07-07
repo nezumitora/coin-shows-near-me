@@ -719,7 +719,7 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
     var total = 0;
     var totalSilverOz = 0;
     var totalGoldOz = 0;
-    var html = '';
+    var rows = [];
 
     COINS.forEach(function(c) {
       var qty = getVal(c.id);
@@ -731,12 +731,12 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
       if (c.metal === 'silver') totalSilverOz += metalOz;
       else totalGoldOz += metalOz;
 
-      html += '<tr>' +
-        '<td data-label="Coin">' + c.name + '</td>' +
-        '<td data-label="Qty">' + qty + '</td>' +
-        '<td data-label="Metal">' + metalOz.toFixed(4) + ' oz ' + c.metal + '</td>' +
-        '<td data-label="Value">' + formatUSD(value) + '</td>' +
-        '</tr>';
+      rows.push({
+        coin: c.name,
+        qty: String(qty),
+        metal: metalOz.toFixed(4) + ' oz ' + c.metal,
+        value: formatUSD(value)
+      });
     });
 
     if (total > 0) {
@@ -748,7 +748,28 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
       if (totalGoldOz > 0) parts.push(totalGoldOz.toFixed(4) + ' oz gold');
       resultDetail.textContent = 'Total metal content: ' + parts.join(' + ');
 
-      breakdownBody.innerHTML = html;
+      breakdownBody.textContent = '';
+      rows.forEach(function(row) {
+        var tr = document.createElement('tr');
+        var coinTd = document.createElement('td');
+        var qtyTd = document.createElement('td');
+        var metalTd = document.createElement('td');
+        var valueTd = document.createElement('td');
+
+        coinTd.setAttribute('data-label', 'Coin');
+        qtyTd.setAttribute('data-label', 'Qty');
+        metalTd.setAttribute('data-label', 'Metal');
+        valueTd.setAttribute('data-label', 'Value');
+        coinTd.textContent = row.coin;
+        qtyTd.textContent = row.qty;
+        metalTd.textContent = row.metal;
+        valueTd.textContent = row.value;
+        tr.appendChild(coinTd);
+        tr.appendChild(qtyTd);
+        tr.appendChild(metalTd);
+        tr.appendChild(valueTd);
+        breakdownBody.appendChild(tr);
+      });
       breakdownArea.style.display = 'block';
 
       document.getElementById('offer-melt').value = formatUSD(total);

@@ -114,7 +114,7 @@ Dashboard inbox: `~/Git/business-dashboard/inbox/`
 
 - **SSH (AI agents):** use limited `deploy` access only when explicitly approved for WordPress work; never use root/admin SSH from an agent session.
 - **SSH (admin/root):** root access is manual-admin only, not for AI agents.
-- **CRM login:** Cloudron SSO at https://crm.cloud.ewastefreepickup.com (NOT admin/admin123)
+- **CRM login:** Cloudron SSO at https://crm.cloud.ewastefreepickup.com (never use default/demo credentials)
 - **Payment:** Chase Business Preferred
 
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:ca08a54f -->

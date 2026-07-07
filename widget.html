@@ -392,7 +392,7 @@
 
     <div class="csw-footer">
       <span class="csw-footer-mark"></span>
-      Powered by <a href="https://yourbrand.com" target="_blank">YourBrand</a>
+      Powered by <a href="https://yourbrand.com" target="_blank" rel="noopener noreferrer">YourBrand</a>
     </div>
 
   </div>
@@ -435,11 +435,26 @@
       // ------------------------------------
       // FOOTER BRANDING
       // ------------------------------------
-      footerEl.innerHTML =
-        '<span class="csw-footer-mark"></span>' +
-        'Powered by <a href="' + CONFIG.poweredByUrl +
-        '" target="_blank" rel="noopener noreferrer">' +
-        CONFIG.poweredByName + "</a>";
+      function safeHttpUrl(value) {
+        try {
+          const url = new URL(value, window.location.href);
+          return url.protocol === "http:" || url.protocol === "https:" ? url.href : "";
+        } catch (err) {
+          return "";
+        }
+      }
+
+      footerEl.textContent = "";
+      const footerMarkEl = document.createElement("span");
+      const footerLinkEl = document.createElement("a");
+      footerMarkEl.className = "csw-footer-mark";
+      footerLinkEl.href = safeHttpUrl(CONFIG.poweredByUrl) || "https://coinshownearme.com";
+      footerLinkEl.target = "_blank";
+      footerLinkEl.rel = "noopener noreferrer";
+      footerLinkEl.textContent = CONFIG.poweredByName;
+      footerEl.appendChild(footerMarkEl);
+      footerEl.appendChild(document.createTextNode("Powered by "));
+      footerEl.appendChild(footerLinkEl);
 
       // ------------------------------------
       // READ URL PARAMETERS FOR DEALER NAME/LOGO
@@ -487,7 +502,12 @@
       function renderStateDropdown(shows) {
         const states = [...new Set(shows.map(s => s.state))].sort();
 
-        stateFilterEl.innerHTML = `<option value="all">All States</option>`;
+        stateFilterEl.textContent = "";
+
+        const allOption = document.createElement("option");
+        allOption.value = "all";
+        allOption.textContent = "All States";
+        stateFilterEl.appendChild(allOption);
 
         states.forEach(state => {
           const opt = document.createElement("option");
@@ -498,10 +518,13 @@
       }
 
       function renderShowList(shows) {
-        showsListEl.innerHTML = "";
+        showsListEl.textContent = "";
 
         if (!shows.length) {
-          showsListEl.innerHTML = `<li class="csw-empty">No matching shows.</li>`;
+          const emptyLi = document.createElement("li");
+          emptyLi.className = "csw-empty";
+          emptyLi.textContent = "No matching shows.";
+          showsListEl.appendChild(emptyLi);
           return;
         }
 
@@ -511,31 +534,56 @@
           const dateInfo = show.next_date && show.next_date !== "TBD"
             ? show.next_date
             : (show.frequency || "Check website for dates");
-          li.innerHTML = `
-            <div class="csw-show-name">${show.show_name}</div>
-            <div class="csw-show-meta">${dateInfo} &bull; ${show.city}, ${show.state}</div>
-            <div class="csw-show-venue">${show.venue_name}</div>
-            ${
-              show.website_url
-                ? `<div class="csw-show-link"><a href="${show.website_url}" target="_blank">Show website</a></div>`
-                : ""
+          const nameEl = document.createElement("div");
+          const metaEl = document.createElement("div");
+          const venueEl = document.createElement("div");
+          nameEl.className = "csw-show-name";
+          metaEl.className = "csw-show-meta";
+          venueEl.className = "csw-show-venue";
+          nameEl.textContent = show.show_name || "Coin show";
+          metaEl.textContent = dateInfo + " • " + (show.city || "") + ", " + (show.state || "");
+          venueEl.textContent = show.venue_name || "Venue details pending";
+          li.appendChild(nameEl);
+          li.appendChild(metaEl);
+          li.appendChild(venueEl);
+
+          if (show.website_url) {
+            const href = safeHttpUrl(show.website_url);
+
+            if (href) {
+              const linkWrapperEl = document.createElement("div");
+              const linkEl = document.createElement("a");
+              linkWrapperEl.className = "csw-show-link";
+              linkEl.href = href;
+              linkEl.target = "_blank";
+              linkEl.rel = "noopener noreferrer";
+              linkEl.textContent = "Show website";
+              linkWrapperEl.appendChild(linkEl);
+              li.appendChild(linkWrapperEl);
             }
-          `;
+          }
+
           showsListEl.appendChild(li);
         });
       }
 
       function updateShowSelect(shows) {
-        showSelectEl.innerHTML = "";
+        showSelectEl.textContent = "";
 
         if (!shows.length) {
-          showSelectEl.innerHTML = `<option value="">No shows available</option>`;
+          const noShowsOption = document.createElement("option");
+          noShowsOption.value = "";
+          noShowsOption.textContent = "No shows available";
+          showSelectEl.appendChild(noShowsOption);
           showSelectEl.disabled = true;
           return;
         }
 
         showSelectEl.disabled = false;
-        showSelectEl.innerHTML = `<option value="">Select show</option>`;
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.textContent = "Select show";
+        showSelectEl.appendChild(defaultOption);
 
         shows.forEach(show => {
           const opt = document.createElement("option");
@@ -634,8 +682,11 @@
           applyFilters();
         })
         .catch(err => {
-          showsListEl.innerHTML =
-            `<li class="csw-empty">Failed to load show data.</li>`;
+          showsListEl.textContent = "";
+          const errorLi = document.createElement("li");
+          errorLi.className = "csw-empty";
+          errorLi.textContent = "Failed to load show data.";
+          showsListEl.appendChild(errorLi);
         });
 
       stateFilterEl.addEventListener("change", applyFilters);

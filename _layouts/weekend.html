@@ -59,12 +59,52 @@ layout: default
     return start.toLocaleDateString('en-US', opts) + ' - ' + end.toLocaleDateString('en-US', opts);
   }
 
+  function applyStyles(element, styles) {
+    Object.keys(styles).forEach(function(key) {
+      element.style[key] = styles[key];
+    });
+  }
+
   function renderCard(show) {
-    return '<div style="border:1px solid #e5e7eb;border-radius:0.5rem;padding:1rem;margin-bottom:0.75rem;background:#f9fafb;">' +
-      '<h3 style="margin:0 0 0.25rem;font-size:1.1rem;"><a href="' + baseurl + '/shows/' + show.id + '/" style="color:#111827;text-decoration:none;">' + show.name + '</a></h3>' +
-      '<p style="margin:0 0 0.25rem;color:#6b7280;font-size:0.9rem;">' + show.city + ', ' + show.state_name + ' &mdash; ' + show.venue + '</p>' +
-      '<p style="margin:0;font-size:0.9rem;"><strong>Date:</strong> ' + show.next_date + '</p>' +
-      '</div>';
+    var card = document.createElement('div');
+    var title = document.createElement('h3');
+    var link = document.createElement('a');
+    var location = document.createElement('p');
+    var dateLine = document.createElement('p');
+    var dateLabel = document.createElement('strong');
+
+    applyStyles(card, {
+      border: '1px solid #e5e7eb',
+      borderRadius: '0.5rem',
+      padding: '1rem',
+      marginBottom: '0.75rem',
+      background: '#f9fafb'
+    });
+    applyStyles(title, { margin: '0 0 0.25rem', fontSize: '1.1rem' });
+    applyStyles(link, { color: '#111827', textDecoration: 'none' });
+    applyStyles(location, { margin: '0 0 0.25rem', color: '#6b7280', fontSize: '0.9rem' });
+    applyStyles(dateLine, { margin: '0', fontSize: '0.9rem' });
+
+    link.href = baseurl + '/shows/' + encodeURIComponent(show.id) + '/';
+    link.textContent = show.name || 'Coin show';
+    location.textContent = (show.city || '') + ', ' + (show.state_name || '') + ' — ' + (show.venue || 'Venue details pending');
+    dateLabel.textContent = 'Date: ';
+    dateLine.appendChild(dateLabel);
+    dateLine.appendChild(document.createTextNode(show.next_date || 'TBD'));
+    title.appendChild(link);
+    card.appendChild(title);
+    card.appendChild(location);
+    card.appendChild(dateLine);
+
+    return card;
+  }
+
+  function renderCards(containerId, items) {
+    var container = document.getElementById(containerId);
+    container.textContent = '';
+    items.forEach(function(show) {
+      container.appendChild(renderCard(show));
+    });
   }
 
   var today = new Date();
@@ -117,20 +157,20 @@ layout: default
     var el = document.getElementById('this-weekend');
     el.style.display = 'block';
     document.getElementById('this-weekend-heading').textContent = 'This Weekend (' + formatRange(thisWE.fri, thisWE.sun) + ')';
-    document.getElementById('this-weekend-list').innerHTML = thisWeekendShows.map(renderCard).join('');
+    renderCards('this-weekend-list', thisWeekendShows);
   }
 
   if (nextWeekendShows.length > 0) {
     var el2 = document.getElementById('next-weekend');
     el2.style.display = 'block';
     document.getElementById('next-weekend-heading').textContent = 'Next Weekend (' + formatRange(nextWE.fri, nextWE.sun) + ')';
-    document.getElementById('next-weekend-list').innerHTML = nextWeekendShows.map(renderCard).join('');
+    renderCards('next-weekend-list', nextWeekendShows);
   }
 
   if (upcomingShows.length > 0) {
     var el3 = document.getElementById('upcoming-weekends');
     el3.style.display = 'block';
-    document.getElementById('upcoming-list').innerHTML = upcomingShows.map(renderCard).join('');
+    renderCards('upcoming-list', upcomingShows);
   }
 })();
 </script>
