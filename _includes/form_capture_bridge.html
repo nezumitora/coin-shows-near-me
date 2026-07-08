@@ -1,6 +1,6 @@
-<!-- Formspree + EspoCRM lead capture bridge. Keeps Formspree email delivery and also writes leads to EspoCRM. -->
+<!-- Formspree form handling. EspoCRM Lead Capture must stay server-side; do not expose Lead Capture URLs in browser code. -->
 <script>
-  window.coinCrmLeadCaptureUrl = 'https://crm.cloud.ewastefreepickup.com/api/v1/LeadCapture/932a3f00d09027ab8';
+  window.coinCrmLeadCaptureUrl = '';
   window.coinFormAction = function(form) {
     var key = form.getAttribute('data-form-key') || ['myk', 'leoz', 'w'].join('');
     return ['https://formspree.io', 'f', key].join('/');
@@ -104,14 +104,8 @@
       body: formspreeData,
       headers: { 'Accept': 'application/json' }
     });
-    var crmRequest = fetch(window.coinCrmLeadCaptureUrl, {
-      method: 'POST',
-      body: JSON.stringify(window.coinBuildCrmLeadPayload(form)),
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
-    });
-    return Promise.all([formspreeRequest, crmRequest]).then(function(responses) {
+    return Promise.all([formspreeRequest]).then(function(responses) {
       if (!responses[0].ok) { throw new Error('Form notification failed'); }
-      if (!responses[1].ok) { throw new Error('CRM lead capture failed'); }
       return responses;
     });
   };

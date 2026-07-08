@@ -1,9 +1,10 @@
 # Session State
 
-**Last updated:** 2026-06-29 18:45 (PDT)
-**Session:** v0.9.10 form spam protection
+**Last updated:** 2026-07-08 16:05 (PDT)
+**Session:** v0.9.11 Lead Capture redaction
 
 ## Completed today
+- v0.9.11 redacted the exposed browser-side Coin Shows EspoCRM Lead Capture URL after the old key was rotated and disabled in EspoCRM; public forms now continue Formspree notification only until a server-side Worker bridge is approved.
 - Deployed v0.9.5 to GitHub Pages; live contact page verified showing `v0.9.5`.
 - Started v0.9.6: added report-only external comparison config/script/workflow for FUN Topics, Pacific Expos LLC, and Michigan Coin Club using URLs already present in `_data/shows.yml`.
 - Deployed v0.9.7 to GitHub Pages; live contact page verified showing `v0.9.7`.
@@ -32,13 +33,14 @@
 - Clarified `AGENTS.md` SSH guidance so AI agents do not use root/admin SSH.
 
 ## In progress
-- Verify and deploy v0.9.10 form spam protection. Automation remains report-only with no auto-updates to show data.
+- Verify and deploy v0.9.11 Lead Capture redaction. Automation remains report-only with no auto-updates to show data.
 
 ## Next up
 - Review CoinZip lead detail URLs from the v0.9.9 artifact and verify any promising leads against official/independent sources before data edits.
 - Find current working CoinShows-USA source URLs; current historical state URLs redirect to provider 404 pages.
 - Improve source-specific parsing and verification fields after working sources are stable.
 - Add true Cloudflare Turnstile server-side validation through a Worker/Formspree bridge when Cloudflare account access supports Worker/Turnstile setup.
+- Build a server-side Cloudflare Worker bridge before re-enabling EspoCRM forwarding for Coin Shows forms; never expose the rotated Lead Capture URL in public HTML/JavaScript.
 - Continue whole-site mobile QA and verify GSC Event fix validation.
 
 ## Open decisions
