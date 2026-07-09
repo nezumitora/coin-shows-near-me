@@ -150,9 +150,12 @@
   city_slug: anaheim-ca
   venue: Embassy Suites Anaheim North, 3100 E Frontera St
   frequency: Monthly (1st Sunday)
-  next_date: December 7, 2025
+  next_date: August 2, 2026
   website: https://pacificexposllc.com/
   organizer: Pacific Expos LLC
+  source_url: https://pacificexposllc.com/
+  last_verified: '2026-07-09'
+  verification_notes: Official Pacific Expos LLC homepage lists North County Monthly Coin Show as Aug 2, 2026, Sunday 9am-4pm at Embassy Suites, 3100 E. Frontera St, Anaheim, CA; reviewed as Anaheim-only data patch with no automated publishing.
   notes: 30+ dealers; free parking and hourly prize drawings.
 - id: the-arcadia-coin-currency-and-collectibles-show
   name: The Arcadia Coin, Currency and Collectibles Show
