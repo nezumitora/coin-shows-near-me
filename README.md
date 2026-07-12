@@ -121,7 +121,8 @@ Find upcoming coin shows near you, including local and regional coin shows acros
 - **City/State:** Anaheim, California
 - **Venue:** Embassy Suites Anaheim – North, 3100 E Frontera St, Anaheim, CA 92806
 - **Frequency:** Monthly (1st Sunday, except months with Buena Park Coin Show)
-- **Next Scheduled Date:** December 7, 2025 (check site for ongoing monthly dates)
+- **Next Scheduled Date:** August 2, 2026 (verified on Pacific Expos LLC NCMCS Dates/Dealers/Map page July 11, 2026)
+- **Official Future Dates:** August 2, October 4, November 1, and December 6, 2026; January 3, February 7, April 4, May 2, and July 4, 2027 (9am–4pm; verified on Pacific Expos LLC NCMCS Dates/Dealers/Map page July 11, 2026)
 - **Website:** https://pacificexposllc.com/
 - **Organizer/Club:** Pacific Expos LLC
 - **Notes:** 30+ dealers; free parking & hourly prize drawings.
