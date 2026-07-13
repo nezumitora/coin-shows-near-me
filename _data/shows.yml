@@ -90,9 +90,18 @@
   city_slug: phoenix-az
   venue: El Zaribah Shrine Auditorium
   frequency: Monthly (2nd Sunday)
-  next_date: TBD
+  next_date: August 9, 2026
   website: https://camelbackcollectables.com/
   organizer: Camelback Collectibles
+  source_url: https://camelbackcollectables.com/calendar
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-09'
+  - '2026-09-13'
+  - '2026-10-11'
+  - '2026-11-15'
+  - '2026-12-13'
+  verification_notes: Official Camelback Collectables calendar lists August 9, September 13, October 11, November 15, and December 13, 2026 show dates; reviewed during broad official-source future-date refresh.
   notes: Large monthly show with 40+ tables.
 - id: northwest-valley-coin-card-show
   name: Northwest Valley Coin & Card Show
@@ -114,9 +123,15 @@
   city_slug: phoenix-az
   venue: Holiday Inn & Suites Phoenix Airport North
   frequency: Annual (Fall/November)
-  next_date: TBD
+  next_date: November 28-29, 2026
   website: http://phoenixcoinclub.com/
   organizer: Phoenix Coin Club
+  source_url: http://phoenixcoinclub.com/?page_id=49
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-28'
+  - '2026-11-29'
+  verification_notes: Official Phoenix Coin Club show page lists the November 28-29, 2026 coin show; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: tucson-coin-club-coin-stamp-show
   name: Tucson Coin Club Coin & Stamp Show
@@ -138,9 +153,15 @@
   city_slug: tucson-az
   venue: Tucson Woman's Club
   frequency: Semiannual (January & April)
-  next_date: TBD
+  next_date: July 19, 2026
   website: http://tucsoncoinclub.com/
   organizer: Tucson Coin Club
+  source_url: http://tucsoncoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-19'
+  - '2026-10-18'
+  verification_notes: Official Tucson Coin Club page lists July 19 and October 18, 2026 show dates; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: north-county-monthly-coin-show
   name: North County Monthly Coin Show
@@ -240,9 +261,19 @@
   city_slug: long-beach-ca
   venue: Long Beach Convention Center
   frequency: 3 Times Per Year (February, June, September)
-  next_date: TBD
+  next_date: September 9-11, 2026
   website: https://www.longbeachexpo.com/
   organizer: Collectors Universe
+  source_url: https://www.longbeachexpo.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-09-09'
+  - '2026-09-10'
+  - '2026-09-11'
+  - '2027-03-10'
+  - '2027-03-11'
+  - '2027-03-12'
+  verification_notes: Official Long Beach Expo site lists September 9-11, 2026 and March 10-12, 2027 save-the-date windows; reviewed during broad official-source future-date refresh.
   notes: A major international show with hundreds of dealers.
 - id: sacramento-coin-show
   name: Sacramento Coin Show
@@ -252,9 +283,17 @@
   city_slug: sacramento-ca
   venue: Lions Gate Hotel
   frequency: Semiannual (Spring & Fall)
-  next_date: TBD
+  next_date: August 23, 2026
   website: http://sacramentocoinshow.com/
   organizer: Peter McIntosh / Sacramento Coin Shows
+  source_url: http://sacramentocoinshow.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-23'
+  - '2026-11-06'
+  - '2026-11-07'
+  - '2026-12-13'
+  verification_notes: Official Sacramento Coin Show page lists August 23, November 6-7, and December 13, 2026 future dates; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: sacramento-valley-coin-club
   name: Sacramento Valley Coin Club
@@ -300,9 +339,19 @@
   city_slug: santa-clara-ca
   venue: American Legion Post 419, 958 Homestead Road, Santa Clara, CA
   frequency: Recurring
-  next_date: TBD
+  next_date: August 21-22, 2026
   website: https://www.santaclaracoinshow.com
   organizer: ''
+  source_url: https://www.santaclaracoinshow.com
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-21'
+  - '2026-08-22'
+  - '2026-10-16'
+  - '2026-10-17'
+  - '2026-12-18'
+  - '2026-12-19'
+  verification_notes: Official Santa Clara Coin Show site lists August 21-22, October 16-17, and December 18-19, 2026 dates; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: valley-coin-show
   name: Valley Coin Show
@@ -324,9 +373,14 @@
   city_slug: south-san-francisco-ca
   venue: DoubleTree Hotel San Francisco Airport
   frequency: Annual (December)
-  next_date: TBD
+  next_date: December 5, 2026
   website: https://www.griffincoin.com/
   organizer: Griffin Coin
+  source_url: https://www.griffincoin.com/coin-shows
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-12-05'
+  verification_notes: Official Griffin Coin show page lists the San Francisco International Numismatic Bourse on December 5, 2026; reviewed during broad official-source future-date refresh.
   notes: Focuses on World and Ancient coins.
 - id: sunnyvale-coin-show
   name: Sunnyvale Coin Show
@@ -336,9 +390,15 @@
   city_slug: sunnyvale-ca
   venue: Domain Hotel
   frequency: Semiannual (Spring & Fall)
-  next_date: TBD
+  next_date: November 13-14, 2026
   website: http://norcalcoinshows.com/
   organizer: NorCal Coin Shows
+  source_url: https://norcalcoinshows.com/sunnyvale-coin-show/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-13'
+  - '2026-11-14'
+  verification_notes: Official NorCal Coin Shows page lists the Sunnyvale Coin Show on November 13-14, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: van-nuys-coin-show-sunday-december-13-2026
   name: Van Nuys Coin Show - Sunday, December 13, 2026
@@ -396,9 +456,19 @@
   city_slug: denver-co
   venue: National Western Complex
   frequency: Semiannual (May & October)
-  next_date: TBD
+  next_date: October 8-10, 2026
   website: https://www.rockymtnexpos.com/
   organizer: Rocky Mountain Expos
+  source_url: https://www.rockymtnexpos.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-10-08'
+  - '2026-10-09'
+  - '2026-10-10'
+  - '2027-04-29'
+  - '2027-04-30'
+  - '2027-05-01'
+  verification_notes: Official Rocky Mountain Expos site lists Denver Coin Expo dates October 8-10, 2026 and April 29-May 1, 2027; reviewed during broad official-source future-date refresh.
   notes: Largest show in the Rocky Mountain region.
 - id: fort-collins-coin-club-show
   name: Fort Collins Coin Club Show
@@ -492,9 +562,17 @@
   city_slug: hollywood-fl
   venue: ''
   frequency: Recurring
-  next_date: TBD
+  next_date: August 2, 2026
   website: https://GoldCoastCoinClub.com
   organizer: ''
+  source_url: https://GoldCoastCoinClub.com/calendar
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-02'
+  - '2026-09-06'
+  - '2026-10-04'
+  - '2026-11-01'
+  verification_notes: Official Gold Coast Coin Club calendar lists August 2, September 6, October 4, and November 1, 2026 show dates; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: the-villages-leesburg-coin-show
   name: The Villages / Leesburg Coin Show
@@ -572,9 +650,19 @@
   city_slug: plantation-fl
   venue: Volunteer Park Community Center
   frequency: Monthly (3rd Sunday)
-  next_date: TBD
+  next_date: July 19, 2026
   website: http://www.ftlauderdalecoinclub.com/
   organizer: Fort Lauderdale Coin Club
+  source_url: http://www.ftlauderdalecoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-19'
+  - '2026-08-16'
+  - '2026-09-20'
+  - '2026-10-18'
+  - '2026-11-15'
+  - '2026-12-20'
+  verification_notes: Official Fort Lauderdale Coin Club site confirms the monthly third-Sunday Plantation show; future 2026 third Sundays were recorded during broad official-source future-date refresh.
   notes: ''
 - id: west-hernando-coin-club-show
   name: West Hernando Coin Club Show
@@ -608,9 +696,14 @@
   city_slug: west-palm-beach-fl
   venue: 4725 Lake Worth Rd, Greenacres, FL 33463
   frequency: Recurring
-  next_date: TBD
+  next_date: July 26, 2026
   website: http://pbcc.anaclubs.org/
   organizer: ''
+  source_url: http://pbcc.anaclubs.org/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-26'
+  verification_notes: Official Palm Beach Coin Club page confirms the fourth-Sunday monthly show, with July 26, 2026 as the next fourth Sunday after the review date; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: the-villageswildwood-april-292026
   name: THE VILLAGES/WILDWOOD APRIL 29,2026
@@ -656,9 +749,22 @@
   city_slug: dalton-ga
   venue: Dalton Convention Center
   frequency: Annual (April)
-  next_date: TBD
+  next_date: April 16-18, 2027
   website: http://www.gamoney.org/
   organizer: Georgia Numismatic Association
+  source_url: https://www.gamoney.org/coin-show/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2027-04-16'
+  - '2027-04-17'
+  - '2027-04-18'
+  - '2028-04-14'
+  - '2028-04-15'
+  - '2028-04-16'
+  - '2029-04-13'
+  - '2029-04-14'
+  - '2029-04-15'
+  verification_notes: Official Georgia Numismatic Association coin show page lists April 16-18, 2027; April 14-16, 2028; and April 13-15, 2029 future dates; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: georgia-numismatic-association-coin-show
   name: Georgia Numismatic Association Coin Show
@@ -668,9 +774,22 @@
   city_slug: dalton-ga
   venue: Northwest Georgia Trade & Convention Center
   frequency: Recurring
-  next_date: TBD
+  next_date: April 16-18, 2027
   website: ''
   organizer: ''
+  source_url: https://www.gamoney.org/coin-show/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2027-04-16'
+  - '2027-04-17'
+  - '2027-04-18'
+  - '2028-04-14'
+  - '2028-04-15'
+  - '2028-04-16'
+  - '2029-04-13'
+  - '2029-04-14'
+  - '2029-04-15'
+  verification_notes: Official Georgia Numismatic Association coin show page lists April 16-18, 2027; April 14-16, 2028; and April 13-15, 2029; this listing appears duplicative and needs later canonicalization review.
   notes: 'Hours: Fri & Sat 10-6, Sun 10-3'
 - id: greater-atlanta-coin-show
   name: Greater Atlanta Coin Show
@@ -680,9 +799,17 @@
   city_slug: marietta-ga
   venue: Hilton Atlanta/Marietta Hotel & Conference Center
   frequency: Monthly (Sunday)
-  next_date: TBD
+  next_date: August 16, 2026
   website: http://www.atlcoin.com/
   organizer: Great Southern Events
+  source_url: http://www.atlcoin.com/Monthly-Greater-Atlanta-Coin-Show-Dates.html
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-16'
+  - '2026-09-13'
+  - '2026-10-04'
+  - '2026-11-08'
+  verification_notes: Official Greater Atlanta Coin Show dates page lists August 16, September 13, October 4, and November 8, 2026 future dates; December entry was left out pending day/date review.
   notes: ''
 - id: hawaii-state-numismatic-association-show
   name: Hawaii State Numismatic Association Show
@@ -764,9 +891,14 @@
   city_slug: collinsville-il
   venue: ''
   frequency: Recurring
-  next_date: TBD
+  next_date: October 4, 2026
   website: https://www.MetroEastCoinCurrencyClub.com
   organizer: ''
+  source_url: https://www.MetroEastCoinCurrencyClub.com
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-10-04'
+  verification_notes: Official Metro East Coin & Currency Club site lists the 44th Annual Fall Coin Show on October 4, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: chicago-coin-expo
   name: Chicago Coin Expo
@@ -836,9 +968,17 @@
   city_slug: schaumburg-il
   venue: Renaissance Schaumburg Convention Center
   frequency: Annual (April)
-  next_date: TBD
+  next_date: April 21-24, 2027
   website: http://www.csns.org/
   organizer: Central States Numismatic Society
+  source_url: http://www.csns.org/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2027-04-21'
+  - '2027-04-22'
+  - '2027-04-23'
+  - '2027-04-24'
+  verification_notes: Official Central States Numismatic Society page lists the 88th anniversary convention on April 21-24, 2027; reviewed during broad official-source future-date refresh.
   notes: Major regional convention with auction and 200+ tables.
 - id: ilna-illinois-numismatic-association-coin-show
   name: ILNA Illinois Numismatic Association Coin Show
@@ -872,9 +1012,15 @@
   city_slug: indianapolis-in
   venue: Embassy Suites Hotel & Convention Center
   frequency: Annual (Fall)
-  next_date: TBD
+  next_date: November 20-21, 2026
   website: https://www.incoinshow.com/
   organizer: Indiana State Numismatic Association
+  source_url: https://www.incoinshow.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-20'
+  - '2026-11-21'
+  verification_notes: Official Indiana State Numismatic Association page lists the Indiana State Coin Show on November 20-21, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: indianapolis-coin-currency-show
   name: Indianapolis Coin & Currency Show
@@ -932,9 +1078,15 @@
   city_slug: plainfield-in
   venue: ''
   frequency: Recurring
-  next_date: TBD
+  next_date: November 20-21, 2026
   website: ''
   organizer: ''
+  source_url: https://www.incoinshow.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-20'
+  - '2026-11-21'
+  verification_notes: Official Indiana State Numismatic Association page confirms November 20-21, 2026; this date-specific imported listing appears duplicative and needs later canonicalization review.
   notes: ''
 - id: topeka-coin-club-show
   name: Topeka Coin Club Show
@@ -992,9 +1144,15 @@
   city_slug: bossier-city-la
   venue: Hilton Garden Inn
   frequency: Annual (Summer)
-  next_date: TBD
+  next_date: July 25-26, 2026
   website: http://www.shreveportcoinclub.com/
   organizer: Shreveport Coin Club
+  source_url: http://www.shreveportcoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-25'
+  - '2026-07-26'
+  verification_notes: Official Shreveport Coin Club calendar lists the Ark-La-Tex Coin & Stamp Show on July 25-26, 2026 in the Bossier City/Shreveport area; naming should be reviewed against the existing Money Show listing.
   notes: ''
 - id: devens-coin-show
   name: Devens Coin Show
@@ -1064,9 +1222,16 @@
   city_slug: baltimore-md
   venue: ''
   frequency: Recurring
-  next_date: TBD
+  next_date: November 12-14, 2026
   website: ''
   organizer: ''
+  source_url: https://whitmanexpo.com/baltimore-winter-expo/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-12'
+  - '2026-11-13'
+  - '2026-11-14'
+  verification_notes: Official Whitman Expo page lists the next Baltimore event on November 12-14, 2026; existing date-specific imported title is expired and needs canonicalization review.
   notes: ''
 - id: whitman-coin-expo
   name: Whitman Coin Expo (Baltimore)
@@ -1076,9 +1241,16 @@
   city_slug: baltimore-md
   venue: Baltimore Convention Center
   frequency: 3 Times Per Year (Spring, Summer, Winter)
-  next_date: TBD
+  next_date: November 12-14, 2026
   website: http://expo.whitman.com/
   organizer: Whitman Coin & Collectibles Expo
+  source_url: https://whitmanexpo.com/baltimore-winter-expo/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-12'
+  - '2026-11-13'
+  - '2026-11-14'
+  verification_notes: Official Whitman Expo page lists the Baltimore Fall Expo on November 12-14, 2026; reviewed during broad official-source future-date refresh.
   notes: One of the most important national shows.
 - id: baltimore-stamp-and-coin-show
   name: Baltimore Stamp and Coin Show
@@ -1112,9 +1284,14 @@
   city_slug: topsham-me
   venue: Topsham Fairgrounds Exhibition Hall
   frequency: Annual (Spring)
-  next_date: TBD
+  next_date: January 24, 2027
   website: http://www.brunswickmainecoinclub.com/
   organizer: Brunswick Coin & Stamp Club
+  source_url: http://www.brunswickmainecoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2027-01-24'
+  verification_notes: Official Brunswick Coin & Stamp Club homepage lists the next show on January 24, 2027; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: lansing-coin-club-spring-show
   name: Lansing Coin Club Spring Show
@@ -1136,9 +1313,15 @@
   city_slug: new-baltimore-mi
   venue: Lempke-Blackwell VFW Post 7573
   frequency: Monthly
-  next_date: TBD
+  next_date: July 19, 2026
   website: ''
   organizer: ''
+  source_url: https://michigancoinclub.org/local_shows/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-19'
+  - '2026-08-16'
+  verification_notes: Official Michigan Coin Club local shows page lists New Baltimore Monthly Coin Show dates July 19 and August 16, 2026; reviewed during broad official-source future-date refresh.
   notes: 'Hours: Sun 9-3'
 - id: royal-oak-coin-collectibles-show-may-10th-2026
   name: Royal Oak Coin & Collectibles Show May 10th, 2026
@@ -1160,9 +1343,14 @@
   city_slug: southfield-mi
   venue: ''
   frequency: Recurring
-  next_date: TBD
+  next_date: August 9, 2026
   website: ''
   organizer: ''
+  source_url: https://michigancoinclub.org/local_shows/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-09'
+  verification_notes: Official Michigan Coin Club local shows page lists Detroit Area Coin Shows in Southfield on August 9, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: royal-oak-coin-club-2026-fall-coin-show-1042026
   name: Royal Oak Coin Club 2026 Fall Coin Show 10/4/2026
@@ -1184,9 +1372,16 @@
   city_slug: waterford-mi
   venue: Oakland Expo Center
   frequency: Recurring
-  next_date: TBD
+  next_date: November 20-22, 2026
   website: ''
   organizer: ''
+  source_url: https://michigancoinclub.org/convention/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-20'
+  - '2026-11-21'
+  - '2026-11-22'
+  verification_notes: Official Michigan State Numismatic Society convention page lists the November 20-22, 2026 convention in Warren; reviewed during broad official-source future-date refresh.
   notes: 'Hours: Fri & Sat 10-6, Sun 10-3'
 - id: msns-spring-convention
   name: MSNS Spring Convention
@@ -1196,9 +1391,16 @@
   city_slug: waterford-township-mi
   venue: Oakland Expo Center
   frequency: Annual (Spring)
-  next_date: TBD
+  next_date: April 9-11, 2027
   website: http://www.michigancoinclub.org/
   organizer: Michigan State Numismatic Society
+  source_url: https://michigancoinclub.org/convention/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2027-04-09'
+  - '2027-04-10'
+  - '2027-04-11'
+  verification_notes: Official Michigan State Numismatic Society convention page lists the Spring Convention on April 9-11, 2027; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: michigan-premier-coin-show
   name: Michigan's Premier Coin, Currency & Stamp Show
@@ -1220,9 +1422,15 @@
   city_slug: maple-grove-mn
   venue: 9655 Grove Circle North, Maple Grove, MN
   frequency: Recurring
-  next_date: TBD
+  next_date: August 2, 2026
   website: https://antiquecoinsmn.com
   organizer: ''
+  source_url: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-02'
+  - '2026-11-01'
+  verification_notes: Official Antique Coins organizer page lists North Metro Coin Show dates August 2 and November 1, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: south-st-paul-coin-show
   name: South St Paul Coin Show
@@ -1232,9 +1440,19 @@
   city_slug: south-saint-paul-mn
   venue: United Food & Commercial Workers Union Hall
   frequency: Recurring
-  next_date: TBD
+  next_date: July 19, 2026
   website: ''
   organizer: ''
+  source_url: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-19'
+  - '2026-08-16'
+  - '2026-09-20'
+  - '2026-10-18'
+  - '2026-11-22'
+  - '2026-12-20'
+  verification_notes: Official Antique Coins organizer page lists South St. Paul monthly dates July 19, August 16, September 20, October 18, November 22, and December 20, 2026; reviewed during broad official-source future-date refresh.
   notes: 'Hours: Sun 9-4'
 - id: twin-cities-monthly-coin-show
   name: Twin Cities Largest Monthly Coin Show
@@ -1244,9 +1462,19 @@
   city_slug: south-st-paul-mn
   venue: 266 Hardman Ave N
   frequency: Monthly
-  next_date: TBD
+  next_date: July 19, 2026
   website: ''
   organizer: Antique Coins
+  source_url: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-19'
+  - '2026-08-16'
+  - '2026-09-20'
+  - '2026-10-18'
+  - '2026-11-22'
+  - '2026-12-20'
+  verification_notes: Official Antique Coins organizer page lists the South St. Paul monthly dates; this Twin Cities monthly listing appears duplicative and needs later canonicalization review.
   notes: ''
 - id: saint-paul-liberty-coin-club-show
   name: Saint Paul Liberty Coin Club Show
@@ -1472,9 +1700,14 @@
   city_slug: hollis-nh
   venue: Lawrence Barn Community Center
   frequency: Monthly (3rd Sunday)
-  next_date: TBD
+  next_date: July 19, 2026
   website: http://www.nashuacoinclub.com/
   organizer: Nashua Coin Club
+  source_url: http://www.nashuacoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-19'
+  verification_notes: Official Nashua Coin Club page lists the third-Sunday Nashua NH coin and stamp show, with July 19, 2026 as the next future third Sunday after review; venue details should be reviewed.
   notes: ''
 - id: new-hampshire-coin-currency-expo
   name: New Hampshire Coin & Currency Expo
@@ -1484,9 +1717,17 @@
   city_slug: manchester-nh
   venue: DoubleTree by Hilton Manchester Downtown
   frequency: Semiannual (April & October)
-  next_date: TBD
+  next_date: December 4-5, 2026
   website: https://nhcoinexpo.com/
   organizer: EBW Promotions
+  source_url: https://nhcoinexpo.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-12-04'
+  - '2026-12-05'
+  - '2027-03-26'
+  - '2027-03-27'
+  verification_notes: Official New Hampshire Coin & Currency Expo homepage lists December 4-5, 2026 and March 26-27, 2027 shows; reviewed during broad official-source future-date refresh.
   notes: Largest show in New England.
 - id: old-bridge-coin-show
   name: Old Bridge Coin Show
@@ -1532,9 +1773,16 @@
   city_slug: albuquerque-nm
   venue: Crowne Plaza or Marriott Pyramid
   frequency: Semiannual (Spring & Fall)
-  next_date: TBD
+  next_date: November 13-15, 2026
   website: http://www.albuquerquecoinclub.com/
   organizer: Albuquerque Coin Club
+  source_url: https://albuquerquecoinclub.com/fall-coin-show/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-13'
+  - '2026-11-14'
+  - '2026-11-15'
+  verification_notes: Official Albuquerque Coin Club Fall Coin Show page lists November 13-15, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: albuquerque-coin-clubs-great-southwest-coin-expo
   name: Albuquerque Coin Club's  Great Southwest Coin Expo
@@ -1556,9 +1804,16 @@
   city_slug: las-vegas-nv
   venue: Tuscany Suites & Casino
   frequency: Semiannual (May & December)
-  next_date: TBD
+  next_date: October 29-31, 2026
   website: https://www.ckshows.com/
   organizer: CK Shows
+  source_url: https://www.ckshows.com/schedule.htm
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-10-29'
+  - '2026-10-30'
+  - '2026-10-31'
+  verification_notes: Official CK Shows schedule lists The Vegas National Coin Show on October 29-31, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: the-reno-coin-show
   name: THE Reno Coin Show
@@ -1712,9 +1967,15 @@
   city_slug: cincinnati-oh
   venue: ''
   frequency: Recurring
-  next_date: TBD
+  next_date: July 26, 2026
   website: ''
   organizer: ''
+  source_url: http://www.conacoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-26'
+  - '2026-08-30'
+  verification_notes: Official CONA event list includes Greenhills Classic dates July 26 and August 30, 2026; this listing appears duplicative and needs canonicalization review.
   notes: ''
 - id: greenhills-classic-coin-stamp-show
   name: Greenhills Classic Coin & Stamp Show
@@ -1724,9 +1985,15 @@
   city_slug: cincinnati-oh
   venue: American Legion Post 530
   frequency: Monthly (Last Sunday)
-  next_date: TBD
+  next_date: July 26, 2026
   website: ''
   organizer: ''
+  source_url: http://www.conacoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-26'
+  - '2026-08-30'
+  verification_notes: Official CONA event list includes Greenhills Classic Stamp and Coin Show dates July 26 and August 30, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: ohio-state-coin-show
   name: Ohio State Coin Show
@@ -1736,9 +2003,16 @@
   city_slug: dublin-oh
   venue: Embassy Suites
   frequency: Annual (Labor Day Weekend)
-  next_date: September 2026
+  next_date: September 3-5, 2026
   website: http://www.conacoinclub.com/
   organizer: Central Ohio Numismatic Association
+  source_url: http://www.conacoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-09-03'
+  - '2026-09-04'
+  - '2026-09-05'
+  verification_notes: Official Central Ohio Numismatic Association page lists the Ohio State Coin Show on September 3-5, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: universal-coin-show
   name: Universal Coin Show
@@ -1760,9 +2034,15 @@
   city_slug: hilliard-oh
   venue: Makoy Center
   frequency: Recurring
-  next_date: TBD
+  next_date: July 19, 2026
   website: ''
   organizer: ''
+  source_url: http://www.conacoinclub.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-19'
+  - '2026-08-16'
+  verification_notes: Official CONA event list includes Columbus Coin Show dates July 19 and August 16, 2026; reviewed during broad official-source future-date refresh.
   notes: 'Hours: Sun 10-4'
 - id: cincinnati-numismatic-association-show
   name: Cincinnati Numismatic Association Show
@@ -1832,9 +2112,16 @@
   city_slug: portland-or
   venue: Holiday Inn Portland - Columbia Riverfront
   frequency: Annual (November)
-  next_date: November 2026
+  next_date: October 30-November 1, 2026
   website: http://www.pdxcoinclub.org/
   organizer: Willamette Coin Club
+  source_url: https://pdxcoinclub.org/portland-coin-show
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-10-30'
+  - '2026-10-31'
+  - '2026-11-01'
+  verification_notes: Official Willamette Coin Club Portland Coin Show page lists October 30-November 1, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: gettysburg-battlefield-coin-show
   name: Gettysburg Battlefield Coin Show
@@ -1844,9 +2131,18 @@
   city_slug: gettysburg-pa
   venue: Eisenhower Hotel
   frequency: Semiannual (Spring & Fall)
-  next_date: TBD
+  next_date: September 10-12, 2026
   website: https://www.americascoinshows.com/
   organizer: America's Coin Shows
+  source_url: https://www.americascoinshows.com/futureshows
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-09-10'
+  - '2026-09-11'
+  - '2026-09-12'
+  - '2026-11-27'
+  - '2026-11-28'
+  verification_notes: Official America’s Coin Shows future shows page lists September 10-12 and November 27-28, 2026 Gettysburg show dates; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: national-battlefield-coin-show
   name: National Battlefield Coin Show
@@ -1856,9 +2152,18 @@
   city_slug: gettysburg-pa
   venue: ''
   frequency: Recurring
-  next_date: TBD
+  next_date: September 10-12, 2026
   website: ''
   organizer: ''
+  source_url: https://www.americascoinshows.com/futureshows
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-09-10'
+  - '2026-09-11'
+  - '2026-09-12'
+  - '2026-11-27'
+  - '2026-11-28'
+  verification_notes: Official America’s Coin Shows future shows page lists September 10-12 and November 27-28, 2026 Gettysburg show dates; this listing appears duplicative and needs canonicalization review.
   notes: ''
 - id: monthly-tri-state-coin-stamp-show
   name: Monthly Tri-State Coin & Stamp Show
@@ -1976,9 +2281,16 @@
   city_slug: monroeville-pa
   venue: Monroeville Convention Center
   frequency: Semiannual (May & October)
-  next_date: TBD
+  next_date: October 22-24, 2026
   website: https://pancoins.org/
   organizer: Pennsylvania Association of Numismatists
+  source_url: https://pancoins.org/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-10-22'
+  - '2026-10-23'
+  - '2026-10-24'
+  verification_notes: Official PAN site lists the PAN Coin Show on October 22-24, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: pan-spring-coin-show
   name: PAN Spring Coin Show
@@ -2024,9 +2336,18 @@
   city_slug: telford-pa
   venue: 508 Harleysville Pike Unit A, Telford, PA 18969
   frequency: Monthly
-  next_date: TBD
+  next_date: August 9, 2026
   website: ''
   organizer: ''
+  source_url: https://www.buxmontcoinshows.com/about/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-09'
+  - '2026-09-13'
+  - '2026-10-11'
+  - '2026-11-08'
+  - '2026-12-13'
+  verification_notes: Official BuxMont page confirms the MontCo Coin Show meets every second Sunday; future second Sundays for 2026 were recorded during broad official-source future-date refresh.
   notes: ''
 - id: trevose-coin-show-every-4th-sunday-of-the-month
   name: Trevose Coin Show - Every 4th Sunday of the Month
@@ -2036,9 +2357,19 @@
   city_slug: trevose-pa
   venue: ''
   frequency: Monthly
-  next_date: TBD
+  next_date: July 26, 2026
   website: https://www.buxmontcoinshows.com
   organizer: ''
+  source_url: https://www.buxmontcoinshows.com/about-trevose/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-26'
+  - '2026-08-23'
+  - '2026-09-27'
+  - '2026-10-25'
+  - '2026-11-22'
+  - '2026-12-27'
+  verification_notes: Official BuxMont Trevose page confirms the show meets every fourth Sunday; future fourth Sundays for 2026 were recorded during broad official-source future-date refresh.
   notes: ''
 - id: tri-state-monthly-coin-show
   name: Tri-State Monthly Coin Show
@@ -2084,9 +2415,16 @@
   city_slug: ladson-sc
   venue: Exchange Park Fairgrounds
   frequency: Semiannual (February & August)
-  next_date: TBD
+  next_date: July 31-August 2, 2026
   website: http://www.lowcountrycoinclub.com/
   organizer: Low Country Coin Club
+  source_url: http://www.lowcountrycoinclub.com/coin-shows
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-31'
+  - '2026-08-01'
+  - '2026-08-02'
+  verification_notes: Official Low Country Coin Club coin shows page lists July 31-August 2, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: upstate-south-carolina-coin-show
   name: Upstate South Carolina Coin Show
@@ -2184,9 +2522,15 @@
   city_slug: conroe-tx
   venue: Lone Star Convention Center
   frequency: Annual (January)
-  next_date: TBD
+  next_date: January 15-16, 2027
   website: http://www.houstoncoinshow.org/
   organizer: Greater Houston Coin Club
+  source_url: http://houstoncoinshow.org/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2027-01-15'
+  - '2027-01-16'
+  verification_notes: Official Houston Money Show site lists public show dates January 15-16, 2027, with dealer/early-bird setup January 14; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: waco-coin-show
   name: Waco Coin Show
@@ -2236,9 +2580,15 @@
   city_slug: sandy-ut
   venue: Salt Lake Community College (Miller Campus)
   frequency: Annual (October)
-  next_date: October 2026
+  next_date: October 23-24, 2026
   website: http://www.utahcoinshows.com/
   organizer: Utah Numismatic Society
+  source_url: http://www.utahcoinshows.com/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-10-23'
+  - '2026-10-24'
+  verification_notes: Official Utah Coin Shows page lists October 23-24, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: annandale-coin-show
   name: Annandale Coin Show
@@ -2260,9 +2610,16 @@
   city_slug: fredericksburg-va
   venue: Fredericksburg Expo Center
   frequency: Annual (September)
-  next_date: September 2026
+  next_date: September 17-19, 2026
   website: http://www.vnaonline.org/
   organizer: Virginia Numismatic Association
+  source_url: http://www.vnaonline.org/2026-calendar/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-09-17'
+  - '2026-09-18'
+  - '2026-09-19'
+  verification_notes: Official Virginia Numismatic Association 2026 calendar lists the 67th Annual Convention on September 17-19, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: salemroanoke-valley-coin-show
   name: Salem/Roanoke Valley Coin Show
@@ -2272,9 +2629,17 @@
   city_slug: salem-va
   venue: ''
   frequency: Recurring
-  next_date: TBD
+  next_date: August 22-23, 2026
   website: ''
   organizer: ''
+  source_url: http://www.vnaonline.org/2026-calendar/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-22'
+  - '2026-08-23'
+  - '2026-11-21'
+  - '2026-11-22'
+  verification_notes: Official Virginia Numismatic Association 2026 calendar lists Salem/Roanoke Valley Coin Show dates August 22-23 and November 21-22, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: vienna-quarterly-coin-stamp-show
   name: Vienna Quarterly Coin & Stamp Show
@@ -2284,9 +2649,17 @@
   city_slug: vienna-va
   venue: Vienna Community Center
   frequency: Quarterly
-  next_date: TBD
+  next_date: August 8-9, 2026
   website: ''
   organizer: ''
+  source_url: http://www.vnaonline.org/2026-calendar/
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-08-08'
+  - '2026-08-09'
+  - '2026-10-17'
+  - '2026-10-18'
+  verification_notes: Official Virginia Numismatic Association 2026 calendar lists Vienna Quarterly Coin & Stamp Show dates August 8-9 and October 17-18, 2026; reviewed during broad official-source future-date refresh.
   notes: 'Hours: Sat 10-5, Sun 10-3'
 - id: burlington-coin-show
   name: Burlington Coin Show
@@ -2344,9 +2717,15 @@
   city_slug: eau-claire-wi
   venue: Best Western Plus Eau Claire Conference Center
   frequency: Recurring
-  next_date: TBD
+  next_date: September 13, 2026
   website: ''
   organizer: ''
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-09-13'
+  - '2027-05-02'
+  verification_notes: Official Numismatists of Wisconsin show calendar lists Chippewa Valley Coin Club shows September 13, 2026 and May 2, 2027; reviewed during broad official-source future-date refresh.
   notes: 'Hours: Sun 9-3'
 - id: milwaukee-numismatic-society-show
   name: Milwaukee Numismatic Society Show
@@ -2356,9 +2735,14 @@
   city_slug: milwaukee-wi
   venue: Sheraton Milwaukee Brookfield
   frequency: Annual (October)
-  next_date: October 2026
+  next_date: November 8, 2026
   website: http://www.milwaukeenumismaticsociety.com/
   organizer: Milwaukee Numismatic Society
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-11-08'
+  verification_notes: Official Numismatists of Wisconsin show calendar lists the Milwaukee Numismatic Society show on November 8, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
 - id: numismatists-of-wisconsin-annual-show
   name: Numismatists of Wisconsin (NOW) Annual Show
@@ -2392,9 +2776,15 @@
   city_slug: hurricane-wv
   venue: Mount Vernon Baptist Church
   frequency: Recurring
-  next_date: TBD
+  next_date: July 18, 2026
   website: ''
   organizer: ''
+  source_url: http://kvcc.eznetway.com/coin-shows.php
+  last_verified: '2026-07-13'
+  upcoming_dates:
+  - '2026-07-18'
+  - '2026-10-17'
+  verification_notes: Official Kanawha Valley Coin Club area show page lists River City Coin Club shows July 18 and October 17, 2026; reviewed during broad official-source future-date refresh.
   notes: 'Hours: Sat 10-3'
 - id: cheyenne-coin-expo
   name: Cheyenne Coin Expo

@@ -17,6 +17,7 @@ Know of a coin show not in the directory? Open an issue with:
 - [ ] Add upcoming shows as dates are confirmed by organizers
 - [ ] Verify TBD shows when organizers announce 2026 dates
 - [ ] Resolve future-date review issues from `todo/tasks/future-date-review-2026-07-13.md`, using official organizer/club/venue sources before publishing dates.
+- [ ] Use `docs/future-date-refresh-routine.md` as the source pattern for future scheduled date-refresh reports.
 - [ ] Expand state pages with additional local shows
 - [ ] Add operating company/entity wording to Privacy Policy, Terms, and legal pages using the business entity/DBA decision; do not list personal name or home address.
 - [ ] Create dealer acquisition plan: identify target coin dealers, add/claim dealer profiles, invite dealers to submit or update listings, and track outreach/results.

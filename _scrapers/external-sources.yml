@@ -33,3 +33,62 @@
     - msns-spring-convention
     - michigan-premier-coin-show
   notes: Existing source URL used by Michigan coin show listings.
+
+- key: vna-calendar
+  name: Virginia Numismatic Association 2026 Calendar
+  source_type: association-calendar
+  url: http://www.vnaonline.org/2026-calendar/
+  expected_show_ids:
+    - vna-convention-coin-show
+    - salemroanoke-valley-coin-show
+    - vienna-quarterly-coin-stamp-show
+  notes: High-value state association calendar found during 2026-07-13 broad future-date refresh.
+
+- key: numismatists-of-wisconsin-calendar
+  name: Numismatists of Wisconsin Show Calendar
+  source_type: association-calendar
+  url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  expected_show_ids:
+    - chippewa-valley-coin-club-cvcc-coin-show
+    - milwaukee-numismatic-society-show
+    - numismatists-of-wisconsin-annual-show
+  notes: High-value regional calendar found during 2026-07-13 broad future-date refresh.
+
+- key: cona-events
+  name: Central Ohio Numismatic Association Events
+  source_type: association-calendar
+  url: http://www.conacoinclub.com/
+  expected_show_ids:
+    - ohio-state-coin-show
+    - 3rd-sunday-columbus-coin-show
+    - greenhills-classic-coin-stamp-show
+    - cincinnati-greenhills-classic-coin-currency-stamp-jewelry-and-watch-show
+  notes: High-value Ohio source found during 2026-07-13 broad future-date refresh.
+
+- key: buxmont-coin-shows
+  name: BuxMont Coin Shows
+  source_type: promoter
+  url: https://www.buxmontcoinshows.com
+  expected_show_ids:
+    - montco-coin-show-meets-every-2nd-sunday-each-month
+    - trevose-coin-show-every-4th-sunday-of-the-month
+  notes: Recurring MontCo/Trevose source found during 2026-07-13 broad future-date refresh.
+
+- key: antique-coins-mn
+  name: Antique Coins MN Show Organizer
+  source_type: promoter
+  url: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
+  expected_show_ids:
+    - north-metro-coin-show
+    - south-st-paul-coin-show
+    - twin-cities-monthly-coin-show
+  notes: Recurring Minnesota source found during 2026-07-13 broad future-date refresh.
+
+- key: georgia-numismatic-association
+  name: Georgia Numismatic Association Coin Show
+  source_type: association-calendar
+  url: https://www.gamoney.org/coin-show/
+  expected_show_ids:
+    - georgia-numismatic-association-show
+    - georgia-numismatic-association-coin-show
+  notes: Long-range official source found during 2026-07-13 broad future-date refresh.
