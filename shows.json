@@ -17,7 +17,7 @@
     "state_name": "Alabama",
     "venue": "Foley Civic Center",
     "frequency": "Annual (January)",
-    "next_date": "January 2026"
+    "next_date": "TBD"
   },
   {
     "id": "madison-county-coin-show",
@@ -27,7 +27,7 @@
     "state_name": "Alabama",
     "venue": "Kurt's Trucks Complex",
     "frequency": "Semiannual (January & Summer)",
-    "next_date": "January 2026"
+    "next_date": "TBD"
   },
   {
     "id": "central-alabama-coin-show",
@@ -57,7 +57,7 @@
     "state_name": "Arkansas",
     "venue": "Four Points by Sheraton Little Rock Midtown",
     "frequency": "Annual (July)",
-    "next_date": "July 2026"
+    "next_date": "TBD"
   },
   {
     "id": "apnscc-coin-show-sat-july-18th-9am-6pm-sun-july-19th-9am-4pm",
@@ -77,7 +77,7 @@
     "state_name": "Arizona",
     "venue": "El Zaribah Shrine Auditorium",
     "frequency": "Monthly (2nd Sunday)",
-    "next_date": "December 14, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "northwest-valley-coin-card-show",
@@ -87,7 +87,7 @@
     "state_name": "Arizona",
     "venue": "Doubletree by Hilton",
     "frequency": "Recurring",
-    "next_date": "Apr 18th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "phoenix-coin-club-coin-show",
@@ -107,7 +107,7 @@
     "state_name": "Arizona",
     "venue": "Tucson Womans Club",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "tucson-coin-club-coin-show",
@@ -117,7 +117,7 @@
     "state_name": "Arizona",
     "venue": "Tucson Woman's Club",
     "frequency": "Semiannual (January & April)",
-    "next_date": "January 2026"
+    "next_date": "TBD"
   },
   {
     "id": "north-county-monthly-coin-show",
@@ -158,7 +158,10 @@
     "state_name": "California",
     "venue": "Retail Clerks Hall, 8550 Stanton Ave",
     "frequency": "3 Times Per Year (March, June, September)",
-    "next_date": "March 7-8, 2026"
+    "next_date": "September 12-13, 2026",
+    "upcoming_dates": [
+      "2026-09-12"
+    ]
   },
   {
     "id": "east-bayconcord-coin-show",
@@ -188,7 +191,7 @@
     "state_name": "California",
     "venue": "Elk's Lodge #2121",
     "frequency": "Annual (July)",
-    "next_date": "July 2026"
+    "next_date": "TBD"
   },
   {
     "id": "long-beach-expo",
@@ -198,7 +201,7 @@
     "state_name": "California",
     "venue": "Long Beach Convention Center",
     "frequency": "3 Times Per Year (February, June, September)",
-    "next_date": "February 18-20, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "sacramento-coin-show",
@@ -228,7 +231,7 @@
     "state_name": "California",
     "venue": "San Fernando Masonic Lodge 343",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "san-fernando-coin-collectibles-expo",
@@ -256,9 +259,9 @@
     "city": "Sherman Oaks",
     "state": "CA",
     "state_name": "California",
-    "venue": "Courtyard by Marriott \u2014 4th Floor Ballroom",
+    "venue": "Courtyard by Marriott — 4th Floor Ballroom",
     "frequency": "Recurring",
-    "next_date": "Apr 18th - 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "san-francisco-international-numismatic-bourse",
@@ -268,7 +271,7 @@
     "state_name": "California",
     "venue": "DoubleTree Hotel San Francisco Airport",
     "frequency": "Annual (December)",
-    "next_date": "December 2025"
+    "next_date": "TBD"
   },
   {
     "id": "sunnyvale-coin-show",
@@ -328,7 +331,7 @@
     "state_name": "Colorado",
     "venue": "National Western Complex",
     "frequency": "Semiannual (May & October)",
-    "next_date": "May 2026"
+    "next_date": "TBD"
   },
   {
     "id": "fort-collins-coin-club-show",
@@ -348,7 +351,7 @@
     "state_name": "Connecticut",
     "venue": "Hartford Hotel & Conference Center",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "naugatuck-coin-currency-show",
@@ -358,7 +361,7 @@
     "state_name": "Connecticut",
     "venue": "American Legion",
     "frequency": "Recurring",
-    "next_date": "Apr 18th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "orange-collectibles-show",
@@ -368,7 +371,7 @@
     "state_name": "Connecticut",
     "venue": "American Legion Post 127",
     "frequency": "Monthly (2nd Sunday)",
-    "next_date": "December 14, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "mansfield-numismatic-society-coin-show",
@@ -388,7 +391,7 @@
     "state_name": "Delaware",
     "venue": "Nur Shrine Temple",
     "frequency": "Annual (January)",
-    "next_date": "January 2026"
+    "next_date": "TBD"
   },
   {
     "id": "clearwater-coin-show",
@@ -398,7 +401,7 @@
     "state_name": "Florida",
     "venue": "Countryside Recreation Center",
     "frequency": "Recurring",
-    "next_date": "Apr 18th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "gold-coast-coin-collectibles-show",
@@ -428,7 +431,10 @@
     "state_name": "Florida",
     "venue": "Orange County Convention Center",
     "frequency": "Annual (January)",
-    "next_date": "January 8-11, 2026"
+    "next_date": "January 7-10, 2027",
+    "upcoming_dates": [
+      "2027-01-07"
+    ]
   },
   {
     "id": "summer-fun",
@@ -438,7 +444,7 @@
     "state_name": "Florida",
     "venue": "Orange County Convention Center",
     "frequency": "Annual (July)",
-    "next_date": "July 9-11, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "3rd-sunday-ft-lauderdale-coin-stamp-show",
@@ -448,7 +454,7 @@
     "state_name": "Florida",
     "venue": "Volunteer Park",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "fort-lauderdale-coin-show-3rd-sundays-monthly-9am-3pm",
@@ -468,7 +474,7 @@
     "state_name": "Florida",
     "venue": "Volunteer Park Community Center",
     "frequency": "Monthly (3rd Sunday)",
-    "next_date": "December 21, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "west-hernando-coin-club-show",
@@ -478,7 +484,7 @@
     "state_name": "Florida",
     "venue": "St. Joan of Arc Church Hall",
     "frequency": "Semiannual (January & July)",
-    "next_date": "January 2026"
+    "next_date": "TBD"
   },
   {
     "id": "coinacopia-tampas-coin-show",
@@ -538,7 +544,7 @@
     "state_name": "Georgia",
     "venue": "Dalton Convention Center",
     "frequency": "Annual (April)",
-    "next_date": "April 17-19, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "georgia-numismatic-association-coin-show",
@@ -548,7 +554,7 @@
     "state_name": "Georgia",
     "venue": "Northwest Georgia Trade & Convention Center",
     "frequency": "Recurring",
-    "next_date": "Apr 17th - 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "greater-atlanta-coin-show",
@@ -558,7 +564,7 @@
     "state_name": "Georgia",
     "venue": "Hilton Atlanta/Marietta Hotel & Conference Center",
     "frequency": "Monthly (Sunday)",
-    "next_date": "December 14, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "hawaii-state-numismatic-association-show",
@@ -588,7 +594,7 @@
     "state_name": "Iowa",
     "venue": "Quality Inn",
     "frequency": "Recurring",
-    "next_date": "Apr 17th - 18th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "southern-idaho-coin-club-coin-show",
@@ -608,7 +614,7 @@
     "state_name": "Idaho",
     "venue": "The Riverside Hotel",
     "frequency": "Annual (May)",
-    "next_date": "May 2026"
+    "next_date": "TBD"
   },
   {
     "id": "cicero-berwyn-coin-stamp-bourse",
@@ -618,7 +624,7 @@
     "state_name": "Illinois",
     "venue": "Sokol-Tabor Hall",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "metro-east-coin-currency-club-coin-show",
@@ -638,7 +644,7 @@
     "state_name": "Illinois",
     "venue": "Local 150 Union Hall",
     "frequency": "Monthly (2nd Sunday)",
-    "next_date": "December 14, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "greater-chicago-coin-currency-collectibles-show",
@@ -668,7 +674,17 @@
     "state_name": "Illinois",
     "venue": "Orland Park Civic Center",
     "frequency": "Monthly (1st Sunday)",
-    "next_date": "December 7, 2025"
+    "next_date": "TBD"
+  },
+  {
+    "id": "peotone-coin-currency-show",
+    "name": "Peotone Coin & Currency Show",
+    "city": "Peotone",
+    "state": "IL",
+    "state_name": "Illinois",
+    "venue": "",
+    "frequency": "Recurring",
+    "next_date": "TBD"
   },
   {
     "id": "csns-convention",
@@ -678,7 +694,7 @@
     "state_name": "Illinois",
     "venue": "Renaissance Schaumburg Convention Center",
     "frequency": "Annual (April)",
-    "next_date": "April 22-25, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "ilna-illinois-numismatic-association-coin-show",
@@ -738,7 +754,7 @@
     "state_name": "Indiana",
     "venue": "UAW Union Hall 685",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "lafayette-indiana-coin-show",
@@ -788,7 +804,7 @@
     "state_name": "Kentucky",
     "venue": "Hilton Garden Inn Louisville Airport",
     "frequency": "Semiannual (April & November)",
-    "next_date": "April 2026"
+    "next_date": "TBD"
   },
   {
     "id": "owensboro-coin-show-sat-may-9th-9-3",
@@ -808,7 +824,7 @@
     "state_name": "Louisiana",
     "venue": "Hilton Garden Inn",
     "frequency": "Annual (Summer)",
-    "next_date": "July 2026"
+    "next_date": "TBD"
   },
   {
     "id": "devens-coin-show",
@@ -818,7 +834,7 @@
     "state_name": "Massachusetts",
     "venue": "Devens Common Center",
     "frequency": "Monthly (Last Sunday)",
-    "next_date": "December 28, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "bay-state-coin-show",
@@ -828,7 +844,7 @@
     "state_name": "Massachusetts",
     "venue": "Best Western Royal Plaza Hotel",
     "frequency": "Annual (July)",
-    "next_date": "July 2026"
+    "next_date": "TBD"
   },
   {
     "id": "north-attleborough-monthly-coin-collectibles-show",
@@ -838,7 +854,7 @@
     "state_name": "Massachusetts",
     "venue": "Elks Lodge #1011",
     "frequency": "Monthly",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "the-waterloocedar-valley-coin-show",
@@ -858,7 +874,7 @@
     "state_name": "Massachusetts",
     "venue": "VFW Post 1385",
     "frequency": "Monthly (3rd Wednesday)",
-    "next_date": "December 17, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "whitman-coin-collectibles-expo-jun-11th-13th-2026",
@@ -878,7 +894,7 @@
     "state_name": "Maryland",
     "venue": "Baltimore Convention Center",
     "frequency": "3 Times Per Year (Spring, Summer, Winter)",
-    "next_date": "March 5-7, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "baltimore-stamp-and-coin-show",
@@ -908,7 +924,7 @@
     "state_name": "Maine",
     "venue": "Topsham Fairgrounds Exhibition Hall",
     "frequency": "Annual (Spring)",
-    "next_date": "May 2026"
+    "next_date": "TBD"
   },
   {
     "id": "lansing-coin-club-spring-show",
@@ -918,7 +934,7 @@
     "state_name": "Michigan",
     "venue": "Royal Scot Golf & Bowl",
     "frequency": "Annual (Spring)",
-    "next_date": "March 15, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "new-baltimore-monthly-coin-show",
@@ -928,7 +944,7 @@
     "state_name": "Michigan",
     "venue": "Lempke-Blackwell VFW Post 7573",
     "frequency": "Monthly",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "royal-oak-coin-collectibles-show-may-10th-2026",
@@ -968,7 +984,7 @@
     "state_name": "Michigan",
     "venue": "Oakland Expo Center",
     "frequency": "Recurring",
-    "next_date": "Apr 17th - 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "msns-spring-convention",
@@ -978,7 +994,7 @@
     "state_name": "Michigan",
     "venue": "Oakland Expo Center",
     "frequency": "Annual (Spring)",
-    "next_date": "April 16-19, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "michigan-premier-coin-show",
@@ -988,7 +1004,7 @@
     "state_name": "Michigan",
     "venue": "Hellenic Cultural Center",
     "frequency": "Semiannual",
-    "next_date": "March 6-7, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "north-metro-coin-show",
@@ -1008,7 +1024,7 @@
     "state_name": "Minnesota",
     "venue": "United Food & Commercial Workers Union Hall",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "twin-cities-monthly-coin-show",
@@ -1023,7 +1039,7 @@
   {
     "id": "saint-paul-liberty-coin-club-show",
     "name": "Saint Paul Liberty Coin Club Show",
-    "city": "St Anthony Village High School  \u00a03303 33rd Ave NE  \u00a0St. Anthony",
+    "city": "St Anthony Village High School   3303 33rd Ave NE   St. Anthony",
     "state": "MN",
     "state_name": "Minnesota",
     "venue": "",
@@ -1058,7 +1074,7 @@
     "state_name": "Missouri",
     "venue": "St. Charles Convention Center",
     "frequency": "Annual (July)",
-    "next_date": "July 2026"
+    "next_date": "TBD"
   },
   {
     "id": "hicomo-coin-club-coin-show",
@@ -1068,7 +1084,7 @@
     "state_name": "Missouri",
     "venue": "Wheatland School Building",
     "frequency": "Recurring",
-    "next_date": "Apr 18th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "annual-mississippi-mna-coin-currency-card-show",
@@ -1088,7 +1104,7 @@
     "state_name": "Mississippi",
     "venue": "Mississippi Coast Coliseum",
     "frequency": "Annual (May)",
-    "next_date": "May 2026"
+    "next_date": "TBD"
   },
   {
     "id": "western-montana-coin-show",
@@ -1148,7 +1164,7 @@
     "state_name": "North Carolina",
     "venue": "NC State Fairgrounds",
     "frequency": "Annual (June)",
-    "next_date": "June 2026"
+    "next_date": "TBD"
   },
   {
     "id": "red-river-valley-coin-club-show",
@@ -1168,7 +1184,7 @@
     "state_name": "Nebraska",
     "venue": "Lancaster Event Center",
     "frequency": "Annual (Spring)",
-    "next_date": "April 2026"
+    "next_date": "TBD"
   },
   {
     "id": "omaha-coin-club-show",
@@ -1188,7 +1204,7 @@
     "state_name": "Nebraska",
     "venue": "Bel Air Banquet Room",
     "frequency": "Monthly",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "the-omaha-monthly-coin-collectibles-show-meets-3rd-sunday-monthly",
@@ -1208,7 +1224,7 @@
     "state_name": "New Hampshire",
     "venue": "Lawrence Barn Community Center",
     "frequency": "Monthly (3rd Sunday)",
-    "next_date": "December 21, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "new-hampshire-coin-currency-expo",
@@ -1218,7 +1234,7 @@
     "state_name": "New Hampshire",
     "venue": "DoubleTree by Hilton Manchester Downtown",
     "frequency": "Semiannual (April & October)",
-    "next_date": "April 2026"
+    "next_date": "TBD"
   },
   {
     "id": "old-bridge-coin-show",
@@ -1228,7 +1244,7 @@
     "state_name": "New Jersey",
     "venue": "Old Bridge First Aid and Rescue Bldg.",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "garden-state-coin-currency-show",
@@ -1238,7 +1254,7 @@
     "state_name": "New Jersey",
     "venue": "PAL Building",
     "frequency": "Monthly (1st Sunday)",
-    "next_date": "December 7, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "watchung-hills-coin-club-show",
@@ -1268,7 +1284,7 @@
     "state_name": "New Mexico",
     "venue": "Marriott Pyramid North",
     "frequency": "Recurring",
-    "next_date": "Apr 17th - 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "vegas-national-coin-show",
@@ -1318,7 +1334,7 @@
     "state_name": "New York",
     "venue": "The Knights in Columbus Hall",
     "frequency": "Monthly",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "the-big-flats-coin-club-show",
@@ -1338,7 +1354,7 @@
     "state_name": "New York",
     "venue": "Holiday Inn & Suites",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "melville-coin-stamp-collectibles-show",
@@ -1348,7 +1364,7 @@
     "state_name": "New York",
     "venue": "Catapano Engineering Hall",
     "frequency": "Monthly (2nd & 4th Sunday)",
-    "next_date": "December 14, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "nyinc",
@@ -1358,7 +1374,7 @@
     "state_name": "New York",
     "venue": "InterContinental New York Barclay",
     "frequency": "Annual (January)",
-    "next_date": "January 15-18, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "rochester-numismatic-association-show",
@@ -1418,7 +1434,7 @@
     "state_name": "Ohio",
     "venue": "American Legion Post 530",
     "frequency": "Monthly (Last Sunday)",
-    "next_date": "December 28, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "ohio-state-coin-show",
@@ -1448,7 +1464,7 @@
     "state_name": "Ohio",
     "venue": "Makoy Center",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "cincinnati-numismatic-association-show",
@@ -1458,7 +1474,7 @@
     "state_name": "Ohio",
     "venue": "Sharonville Convention Center",
     "frequency": "Annual (Spring)",
-    "next_date": "April 2026"
+    "next_date": "TBD"
   },
   {
     "id": "the-ohio-coin-and-collectibles-show",
@@ -1478,7 +1494,7 @@
     "state_name": "Oklahoma",
     "venue": "Stephens County Fairgrounds",
     "frequency": "Annual (March)",
-    "next_date": "March 2026"
+    "next_date": "TBD"
   },
   {
     "id": "oklahoma-numismatic-association-convention",
@@ -1488,7 +1504,7 @@
     "state_name": "Oklahoma",
     "venue": "Holiday Inn Hotel & Suites",
     "frequency": "Annual (May)",
-    "next_date": "May 2026"
+    "next_date": "TBD"
   },
   {
     "id": "were-back-norman-ok-coin-show-friday-512026-to-saturday-522026",
@@ -1518,7 +1534,7 @@
     "state_name": "Pennsylvania",
     "venue": "Eisenhower Hotel",
     "frequency": "Semiannual (Spring & Fall)",
-    "next_date": "April 3-4, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "national-battlefield-coin-show",
@@ -1538,7 +1554,7 @@
     "state_name": "Pennsylvania",
     "venue": "Sheraton Hotewl Bucks County",
     "frequency": "Monthly",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "tri-state-coin-stamp-and-paper-money-show-august-16th-2026",
@@ -1628,7 +1644,7 @@
     "state_name": "Pennsylvania",
     "venue": "Monroeville Convention Center",
     "frequency": "Semiannual (May & October)",
-    "next_date": "May 28-30, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "pan-spring-coin-show",
@@ -1648,7 +1664,7 @@
     "state_name": "Pennsylvania",
     "venue": "Venue varies",
     "frequency": "Periodic",
-    "next_date": "December 7, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "scranton-coin-club-show",
@@ -1658,7 +1674,7 @@
     "state_name": "Pennsylvania",
     "venue": "Oblates of St. Josephs Seminary",
     "frequency": "Recurring",
-    "next_date": "Apr 18th - 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "montco-coin-show-meets-every-2nd-sunday-each-month",
@@ -1688,7 +1704,7 @@
     "state_name": "Pennsylvania",
     "venue": "Sheraton Bucks County",
     "frequency": "Monthly (3rd or 4th Sunday)",
-    "next_date": "December 21, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "blackstone-valley-coin-club-show-ri",
@@ -1718,7 +1734,7 @@
     "state_name": "South Carolina",
     "venue": "Exchange Park Fairgrounds",
     "frequency": "Semiannual (February & August)",
-    "next_date": "February 2026"
+    "next_date": "TBD"
   },
   {
     "id": "upstate-south-carolina-coin-show",
@@ -1728,7 +1744,7 @@
     "state_name": "South Carolina",
     "venue": "Spartanburg Memorial Auditorium",
     "frequency": "Annual (February)",
-    "next_date": "February 2026"
+    "next_date": "TBD"
   },
   {
     "id": "sumter-2026-annual-coin-and-currency-show",
@@ -1758,7 +1774,7 @@
     "state_name": "Tennessee",
     "venue": "Camp Jordan Arena",
     "frequency": "Semiannual (March & November)",
-    "next_date": "March 6-8, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "knoxville-coin-currency-show",
@@ -1768,7 +1784,7 @@
     "state_name": "Tennessee",
     "venue": "Rothchild Conference Center",
     "frequency": "Monthly",
-    "next_date": "December 6, 2025"
+    "next_date": "TBD"
   },
   {
     "id": "imex-show",
@@ -1788,7 +1804,7 @@
     "state_name": "Texas",
     "venue": "Arlington Convention Center",
     "frequency": "Annual (May/June)",
-    "next_date": "May 2026"
+    "next_date": "TBD"
   },
   {
     "id": "houston-money-show",
@@ -1798,7 +1814,17 @@
     "state_name": "Texas",
     "venue": "Lone Star Convention Center",
     "frequency": "Annual (January)",
-    "next_date": "January 2026"
+    "next_date": "TBD"
+  },
+  {
+    "id": "waco-coin-show",
+    "name": "Waco Coin Show",
+    "city": "Bellmead",
+    "state": "TX",
+    "state_name": "Texas",
+    "venue": "Bellmead Civic Center, 3900 Parrish Street, Bellmead, TX 76705",
+    "frequency": "Annual (September)",
+    "next_date": "September 25, 2026"
   },
   {
     "id": "texas-numismatic-association-coin-currency-show",
@@ -1818,7 +1844,7 @@
     "state_name": "Texas",
     "venue": "Forest Hill Civic Center",
     "frequency": "6 Times Per Year (Jan, Mar, May, Jul, Sep, Nov)",
-    "next_date": "January 2026"
+    "next_date": "TBD"
   },
   {
     "id": "utah-numismatic-society-coin-show",
@@ -1868,7 +1894,7 @@
     "state_name": "Virginia",
     "venue": "Vienna Community Center",
     "frequency": "Quarterly",
-    "next_date": "Apr 18th - 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "burlington-coin-show",
@@ -1888,7 +1914,7 @@
     "state_name": "Washington",
     "venue": "Kent Commons",
     "frequency": "Annual (January)",
-    "next_date": "January 2026"
+    "next_date": "TBD"
   },
   {
     "id": "northwest-token-medal-society-show",
@@ -1898,7 +1924,7 @@
     "state_name": "Washington",
     "venue": "VFW Post #318 Hall",
     "frequency": "Recurring",
-    "next_date": "Apr 18th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "pnna-spring-convention",
@@ -1908,7 +1934,7 @@
     "state_name": "Washington",
     "venue": "Tukwila Community Center",
     "frequency": "Annual (April)",
-    "next_date": "April 2026"
+    "next_date": "TBD"
   },
   {
     "id": "chippewa-valley-coin-club-cvcc-coin-show",
@@ -1918,7 +1944,7 @@
     "state_name": "Wisconsin",
     "venue": "Best Western Plus Eau Claire Conference Center",
     "frequency": "Recurring",
-    "next_date": "Apr 19th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "milwaukee-numismatic-society-show",
@@ -1938,7 +1964,7 @@
     "state_name": "Wisconsin",
     "venue": "Oshkosh Convention Center",
     "frequency": "Annual (May)",
-    "next_date": "May 2026"
+    "next_date": "TBD"
   },
   {
     "id": "kanawha-valley-coin-club-show",
@@ -1958,7 +1984,7 @@
     "state_name": "West Virginia",
     "venue": "Mount Vernon Baptist Church",
     "frequency": "Recurring",
-    "next_date": "Apr 18th, 2026"
+    "next_date": "TBD"
   },
   {
     "id": "cheyenne-coin-expo",
