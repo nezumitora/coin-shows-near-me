@@ -1,6 +1,8 @@
 # Report-only third-party discovery sources.
 #
-# These providers were already present in README.md historical source notes.
+# CoinZip state category URLs were discovered from the public CoinZip US Coin
+# Shows category page on 2026-07-15. CoinShows-USA URLs below were historical
+# sources and currently redirect to 404, retained only as broken-source evidence.
 # Third-party directories are lead sources, not source-of-truth data. Any
 # date/venue changes found here must be confirmed against an official organizer
 # or club source before updating `_data/shows.yml`.
@@ -8,42 +10,207 @@
 # Do not copy third-party descriptions, tables, photos, or listing text. Use
 # these pages only to find leads, then verify facts independently.
 
+- key: coinzip-alabama
+  provider: CoinZip
+  state: AL
+  url: https://www.coinzip.com/Browse/C160534-C161234/US-Coin-Shows-Alabama
+
+- key: coinzip-arizona
+  provider: CoinZip
+  state: AZ
+  url: https://www.coinzip.com/Browse/C160534-C161240/US-Coin-Shows-Arizona
+
 - key: coinzip-arkansas
   provider: CoinZip
   state: AR
   url: https://www.coinzip.com/Browse/C160534-C161243/US-Coin-Shows-Arkansas
+
+- key: coinzip-california
+  provider: CoinZip
+  state: CA
+  url: https://www.coinzip.com/Browse/C160534-C161246/US-Coin-Shows-California
+
+- key: coinzip-colorado
+  provider: CoinZip
+  state: CO
+  url: https://www.coinzip.com/Browse/C160534-C161249/US-Coin-Shows-Colorado
+
+- key: coinzip-connecticut
+  provider: CoinZip
+  state: CT
+  url: https://www.coinzip.com/Browse/C160534-C161252/US-Coin-Shows-Connecticut
+
+- key: coinzip-florida
+  provider: CoinZip
+  state: FL
+  url: https://www.coinzip.com/Browse/C160534-C161261/US-Coin-Shows-Florida
+
+- key: coinzip-georgia
+  provider: CoinZip
+  state: GA
+  url: https://www.coinzip.com/Browse/C160534-C161264/US-Coin-Shows-Georgia
+
+- key: coinzip-idaho
+  provider: CoinZip
+  state: ID
+  url: https://www.coinzip.com/Browse/C160534-C161270/US-Coin-Shows-Idaho
 
 - key: coinzip-illinois
   provider: CoinZip
   state: IL
   url: https://www.coinzip.com/Browse/C160534-C161273/US-Coin-Shows-Illinois
 
-- key: coinshows-usa-illinois
-  provider: CoinShows-USA
-  state: IL
-  url: https://www.coinshows-usa.com/Illinois
-
-- key: coinzip-pennsylvania
+- key: coinzip-indiana
   provider: CoinZip
-  state: PA
-  url: https://www.coinzip.com/Browse/C160534-C161348/US-Coin-Shows-Pennsylvania
+  state: IN
+  url: https://www.coinzip.com/Browse/C160534-C161276/US-Coin-Shows-Indiana
 
-- key: coinshows-usa-pennsylvania
-  provider: CoinShows-USA
-  state: PA
-  url: https://www.coinshows-usa.com/Pennsylvania
-
-- key: coinzip-ohio
+- key: coinzip-iowa
   provider: CoinZip
-  state: OH
-  url: https://www.coinzip.com/Browse/C160534-C161339/US-Coin-Shows-Ohio
+  state: IA
+  url: https://www.coinzip.com/Browse/C160534-C161279/US-Coin-Shows-Iowa
+
+- key: coinzip-kansas
+  provider: CoinZip
+  state: KS
+  url: https://www.coinzip.com/Browse/C160534-C161282/US-Coin-Shows-Kansas
+
+- key: coinzip-kentucky
+  provider: CoinZip
+  state: KY
+  url: https://www.coinzip.com/Browse/C160534-C161285/US-Coin-Shows-Kentucky
+
+- key: coinzip-louisiana
+  provider: CoinZip
+  state: LA
+  url: https://www.coinzip.com/Browse/C160534-C161288/US-Coin-Shows-Louisiana
+
+- key: coinzip-maine
+  provider: CoinZip
+  state: ME
+  url: https://www.coinzip.com/Browse/C160534-C161291/US-Coin-Shows-Maine
+
+- key: coinzip-maryland
+  provider: CoinZip
+  state: MD
+  url: https://www.coinzip.com/Browse/C160534-C161294/US-Coin-Shows-Maryland
+
+- key: coinzip-massachusetts
+  provider: CoinZip
+  state: MA
+  url: https://www.coinzip.com/Browse/C160534-C161297/US-Coin-Shows-Massachusetts
+
+- key: coinzip-michigan
+  provider: CoinZip
+  state: MI
+  url: https://www.coinzip.com/Browse/C160534-C161300/US-Coin-Shows-Michigan
+
+- key: coinzip-minnesota
+  provider: CoinZip
+  state: MN
+  url: https://www.coinzip.com/Browse/C160534-C161303/US-Coin-Shows-Minnesota
+
+- key: coinzip-mississippi
+  provider: CoinZip
+  state: MS
+  url: https://www.coinzip.com/Browse/C160534-C161306/US-Coin-Shows-Mississippi
+
+- key: coinzip-missouri
+  provider: CoinZip
+  state: MO
+  url: https://www.coinzip.com/Browse/C160534-C161309/US-Coin-Shows-Missouri
+
+- key: coinzip-nebraska
+  provider: CoinZip
+  state: NE
+  url: https://www.coinzip.com/Browse/C160534-C161315/US-Coin-Shows-Nebraska
+
+- key: coinzip-nevada
+  provider: CoinZip
+  state: NV
+  url: https://www.coinzip.com/Browse/C160534-C161318/US-Coin-Shows-Nevada
+
+- key: coinzip-new-hampshire
+  provider: CoinZip
+  state: NH
+  url: https://www.coinzip.com/Browse/C160534-C161321/US-Coin-Shows-New-Hampshire
+
+- key: coinzip-new-jersey
+  provider: CoinZip
+  state: NJ
+  url: https://www.coinzip.com/Browse/C160534-C161324/US-Coin-Shows-New-Jersey
+
+- key: coinzip-new-mexico
+  provider: CoinZip
+  state: NM
+  url: https://www.coinzip.com/Browse/C160534-C161327/US-Coin-Shows-New-Mexico
 
 - key: coinzip-new-york
   provider: CoinZip
   state: NY
   url: https://www.coinzip.com/Browse/C160534-C161330/US-Coin-Shows-New-York
 
+- key: coinzip-north-carolina
+  provider: CoinZip
+  state: NC
+  url: https://www.coinzip.com/Browse/C160534-C161333/US-Coin-Shows-North-Carolina
+
+- key: coinzip-ohio
+  provider: CoinZip
+  state: OH
+  url: https://www.coinzip.com/Browse/C160534-C161339/US-Coin-Shows-Ohio
+
+- key: coinzip-oklahoma
+  provider: CoinZip
+  state: OK
+  url: https://www.coinzip.com/Browse/C160534-C161342/US-Coin-Shows-Oklahoma
+
+- key: coinzip-pennsylvania
+  provider: CoinZip
+  state: PA
+  url: https://www.coinzip.com/Browse/C160534-C161348/US-Coin-Shows-Pennsylvania
+
+- key: coinzip-south-carolina
+  provider: CoinZip
+  state: SC
+  url: https://www.coinzip.com/Browse/C160534-C161354/US-Coin-Shows-South-Carolina
+
 - key: coinzip-tennessee
   provider: CoinZip
   state: TN
   url: https://www.coinzip.com/Browse/C160534-C161360/US-Coin-Shows-Tennessee
+
+- key: coinzip-texas
+  provider: CoinZip
+  state: TX
+  url: https://www.coinzip.com/Browse/C160534-C161363/US-Coin-Shows-Texas
+
+- key: coinzip-virginia
+  provider: CoinZip
+  state: VA
+  url: https://www.coinzip.com/Browse/C160534-C161372/US-Coin-Shows-Virginia
+
+- key: coinzip-washington
+  provider: CoinZip
+  state: WA
+  url: https://www.coinzip.com/Browse/C160534-C161375/US-Coin-Shows-Washington
+
+- key: coinzip-west-virginia
+  provider: CoinZip
+  state: WV
+  url: https://www.coinzip.com/Browse/C160534-C161378/US-Coin-Shows-West-Virginia
+
+- key: coinzip-wisconsin
+  provider: CoinZip
+  state: WI
+  url: https://www.coinzip.com/Browse/C160534-C161381/US-Coin-Shows-Wisconsin
+
+- key: coinshows-usa-illinois
+  provider: CoinShows-USA
+  state: IL
+  url: https://www.coinshows-usa.com/Illinois
+
+- key: coinshows-usa-pennsylvania
+  provider: CoinShows-USA
+  state: PA
+  url: https://www.coinshows-usa.com/Pennsylvania

@@ -13,8 +13,10 @@ CONFIG_PATH = '_scrapers/third-party-discovery.yml'
 SHOWS_PATH = '_data/shows.yml'
 REPORT_PATH = 'tmp/third-party-discovery-report.md'
 CSV_PATH = 'tmp/third-party-discovery-report.csv'
+LEAD_DETAILS_PATH = 'tmp/third-party-lead-details.csv'
 REQUEST_TIMEOUT = 12
 REQUEST_DELAY_SECONDS = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '1.0'))
+MAX_LEAD_DETAILS = Integer(ENV.fetch('MAX_LEAD_DETAILS', '0'))
 
 DATE_PATTERNS = [
   /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z.]*\s+\d{1,2}(?:\s*[-–]\s*\d{1,2})?,?\s+\d{4}\b/i,
@@ -70,14 +72,49 @@ def date_candidates(text)
   DATE_PATTERNS.flat_map { |pattern| text.scan(pattern) }.map { |date| date.is_a?(Array) ? date.first : date }.uniq.first(40)
 end
 
-def candidate_links(html)
+def candidate_links(html, base_url)
+  base_uri = URI.parse(base_url)
+
   html.scan(/<a\b[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/mi).map do |href, label_html|
     label = text_from_html(label_html)
     next if label.length < 8
     next unless href.include?('/Listing/Details/')
 
-    href.sub(%r{(/Listing/Details/\d+).*}, '\1')
+    URI.join(base_uri, href.sub(%r{(/Listing/Details/\d+).*}, '\1')).to_s
   end.compact.uniq.first(40)
+rescue URI::InvalidURIError
+  []
+end
+
+def page_title(html)
+  title = html[/<h1\b[^>]*>(.*?)<\/h1>/mi, 1] || html[/<title\b[^>]*>(.*?)<\/title>/mi, 1]
+  text_from_html(title.to_s)
+end
+
+def page_location(html)
+  heading = html[/<h2\b[^>]*>(.*?)<\/h2>/mi, 1]
+  text_from_html(heading.to_s)
+end
+
+def external_links(html, base_url)
+  base_host = URI.parse(base_url).host.to_s.downcase.sub(/^www\./, '')
+  html.scan(/<a\b[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/mi).map do |href, label_html|
+    next if href.start_with?('mailto:', 'tel:', 'javascript:', '#')
+
+    url = URI.join(base_url, href).to_s
+    host = URI.parse(url).host.to_s.downcase.sub(/^www\./, '')
+    next if host.empty? || host == base_host
+
+    label = text_from_html(label_html)
+    label = host if label.empty?
+    "#{label}: #{url}"
+  rescue URI::InvalidURIError
+    nil
+  end.compact.uniq.first(12)
+end
+
+def zip_code(text)
+  text[/\b\d{5}(?:-\d{4})?\b/]
 end
 
 def source_status(fetch_result, candidate_dates, links)
@@ -106,6 +143,7 @@ shows = YAML.load_file(SHOWS_PATH)
 shows_by_state = shows.group_by { |show| show.fetch('state') }
 generated_at = Time.now.utc.iso8601
 rows = []
+lead_rows = []
 summaries = []
 
 sources.each do |source|
@@ -116,9 +154,9 @@ sources.each do |source|
   local_shows = shows_by_state.fetch(source.fetch('state'), [])
   local_matches = local_shows.select { |show| source_text.include?(normalized(show.fetch('name'))) }
   candidate_dates = date_candidates(text)
-  links = candidate_links(html)
-  review_status, review_detail = source_status(fetch_result, candidate_dates, links)
   final_url = fetch_result.fetch(:final_url)
+  links = candidate_links(html, final_url)
+  review_status, review_detail = source_status(fetch_result, candidate_dates, links)
   redirect_chain = fetch_result.fetch(:redirects).join(' -> ')
 
   rows << [
@@ -156,6 +194,26 @@ sources.each do |source|
     links: links
   }
 
+  links.first(MAX_LEAD_DETAILS.positive? ? MAX_LEAD_DETAILS : 0).each do |lead_url|
+    lead_fetch = fetch_html(lead_url)
+    lead_html = lead_fetch.fetch(:body)
+    lead_text = text_from_html(lead_html)
+    lead_rows << [
+      source.fetch('key'),
+      source.fetch('provider'),
+      source.fetch('state'),
+      lead_url,
+      lead_fetch.fetch(:status),
+      lead_fetch.fetch(:detail),
+      page_title(lead_html),
+      page_location(lead_html),
+      zip_code(lead_text),
+      date_candidates(lead_text).join('; '),
+      external_links(lead_html, lead_url).join(' || ')
+    ]
+    sleep REQUEST_DELAY_SECONDS if REQUEST_DELAY_SECONDS.positive?
+  end
+
   sleep REQUEST_DELAY_SECONDS if REQUEST_DELAY_SECONDS.positive?
 end
 
@@ -164,6 +222,11 @@ FileUtils.mkdir_p(File.dirname(REPORT_PATH))
 CSV.open(CSV_PATH, 'w') do |csv|
   csv << %w[source_key provider state original_url final_url fetch_status fetch_detail review_status review_detail redirect_chain local_state_show_count local_name_matches local_unmatched_count candidate_dates candidate_links]
   rows.each { |row| csv << row }
+end
+
+CSV.open(LEAD_DETAILS_PATH, 'w') do |csv|
+  csv << %w[source_key provider state lead_url fetch_status fetch_detail title location zip_code candidate_dates external_links]
+  lead_rows.each { |row| csv << row }
 end
 
 File.write(REPORT_PATH, <<~MD)
@@ -197,8 +260,10 @@ File.write(REPORT_PATH, <<~MD)
   - Treat unmatched names and new links as leads only.
   - Confirm date/venue on official organizer or club pages before editing.
   - Promote reliable third-party pages into source-specific parsers only after report quality is reviewed.
+  - Lead detail CSV: `#{LEAD_DETAILS_PATH}`#{MAX_LEAD_DETAILS.positive? ? '' : ' (set `MAX_LEAD_DETAILS` to fetch detail pages)'}
 MD
 
 puts "Wrote #{REPORT_PATH}"
 puts "Wrote #{CSV_PATH}"
-puts "Report-only third-party sources=#{sources.length}"
+puts "Wrote #{LEAD_DETAILS_PATH}"
+puts "Report-only third-party sources=#{sources.length} lead_details=#{lead_rows.length}"

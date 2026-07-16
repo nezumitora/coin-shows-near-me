@@ -14,4 +14,19 @@
   {% if include.show.notes and include.show.notes != "" %}
   <p style="margin:0.25rem 0 0;font-size:0.85rem;color:#6b7280;font-style:italic;">{{ include.show.notes }}</p>
   {% endif %}
+  {% assign show_has_social = false %}{% if include.show.instagram or include.show.facebook or include.show.youtube or include.show.x or include.show.twitter %}{% assign show_has_social = true %}{% endif %}
+  {% assign card_website_is_facebook = false %}{% if include.show.website and include.show.website contains "facebook.com" %}{% assign card_website_is_facebook = true %}{% endif %}
+  {% assign card_website_is_instagram = false %}{% if include.show.website and include.show.website contains "instagram.com" %}{% assign card_website_is_instagram = true %}{% endif %}
+  {% if show_has_social or card_website_is_facebook or card_website_is_instagram %}
+  <p style="margin:0.35rem 0 0;font-size:0.8rem;color:#6b7280;">
+    <strong>Social:</strong>
+    {% if include.show.instagram %}<a href="{{ include.show.instagram }}" target="_blank" rel="noopener noreferrer">Instagram</a>{% endif %}
+    {% if include.show.facebook %}<a href="{{ include.show.facebook }}" target="_blank" rel="noopener noreferrer">Facebook</a>{% endif %}
+    {% if include.show.youtube %}<a href="{{ include.show.youtube }}" target="_blank" rel="noopener noreferrer">YouTube</a>{% endif %}
+    {% if include.show.x %}<a href="{{ include.show.x }}" target="_blank" rel="noopener noreferrer">X</a>{% endif %}
+    {% if include.show.twitter %}<a href="{{ include.show.twitter }}" target="_blank" rel="noopener noreferrer">Twitter</a>{% endif %}
+    {% if card_website_is_facebook %}<a href="{{ include.show.website }}" target="_blank" rel="noopener noreferrer">Facebook</a>{% endif %}
+    {% if card_website_is_instagram %}<a href="{{ include.show.website }}" target="_blank" rel="noopener noreferrer">Instagram</a>{% endif %}
+  </p>
+  {% endif %}
 </div>

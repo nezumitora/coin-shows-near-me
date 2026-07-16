@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Milwaukee Numismatic Society Show — Milwaukee, Wisconsin Coin Show"
-seo_title: "Milwaukee Numismatic Society Show — Milwaukee, Wisconsin | Coin Show Near Me"
-seo_description: "Milwaukee Numismatic Society Show in Milwaukee, Wisconsin. Annual (October) coin show at Sheraton Milwaukee Brookfield. Get dates, venue details, and more."
+title: "Milwaukee Numismatic Society Show — Brookfield, Wisconsin Coin Show"
+seo_title: "Milwaukee Numismatic Society Show — Brookfield, Wisconsin | Coin Show Near Me"
+seo_description: "Milwaukee Numismatic Society Show in Brookfield, Wisconsin. Annual (October) coin show at Sheraton Milwaukee Brookfield Hotel, Brookfield Ballroom, 375 S. Moorland Rd, Brookfield, WI 53005. Get dates, venue details, and more."
 permalink: /shows/milwaukee-numismatic-society-show/
 show_id: "milwaukee-numismatic-society-show"
 breadcrumb_parent: "Wisconsin"

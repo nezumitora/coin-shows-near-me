@@ -62,6 +62,10 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
   </div>
   <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
     <a href="{{ dealer.website }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Visit Website &rarr;</a>
+    {% if dealer.instagram %}<a href="{{ dealer.instagram }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Instagram</a>{% endif %}
+    {% if dealer.facebook %}<a href="{{ dealer.facebook }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Facebook</a>{% endif %}
+    {% if dealer.youtube %}<a href="{{ dealer.youtube }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">YouTube</a>{% endif %}
+    {% if dealer.x %}<a href="{{ dealer.x }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">X</a>{% endif %}
     {% if dealer.ships_nationwide %}
     <span style="font-size:0.75rem;color:#888;">Ships nationwide</span>
     {% endif %}
@@ -69,6 +73,8 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
 </div>
 {% endfor %}
 </div>
+
+{% include ad-placeholder.html %}
 
 <div id="dealer-no-results" style="display:none;text-align:center;padding:2rem;color:#888;">
   <p>No dealers match your search.</p>

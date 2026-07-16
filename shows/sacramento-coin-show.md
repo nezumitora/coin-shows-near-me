@@ -2,7 +2,7 @@
 layout: show
 title: "Sacramento Coin Show — Sacramento, California Coin Show"
 seo_title: "Sacramento Coin Show — Sacramento, California | Coin Show Near Me"
-seo_description: "Sacramento Coin Show in Sacramento, California. Semiannual (Spring & Fall) coin show at Lions Gate Hotel. Get dates, venue details, and more."
+seo_description: "Sacramento Coin Show in Sacramento, California. Semiannual (Spring & Fall) coin show at Lions Gate Hotel, 3410 Westover Street, McClellan, CA 95652. Get dates, venue details, and more."
 permalink: /shows/sacramento-coin-show/
 show_id: "sacramento-coin-show"
 breadcrumb_parent: "California"

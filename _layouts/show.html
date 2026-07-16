@@ -51,6 +51,23 @@ layout: default
       <td style="padding:0.4rem 0;"><a href="{{ show.website }}" target="_blank" rel="noopener noreferrer">{{ show.website }}</a></td>
     </tr>
     {% endif %}
+    {% assign has_social = false %}{% if show.instagram or show.facebook or show.youtube or show.x or show.twitter %}{% assign has_social = true %}{% endif %}
+    {% assign website_is_facebook = false %}{% if show.website and show.website contains "facebook.com" %}{% assign website_is_facebook = true %}{% endif %}
+    {% assign website_is_instagram = false %}{% if show.website and show.website contains "instagram.com" %}{% assign website_is_instagram = true %}{% endif %}
+    {% if has_social or website_is_facebook or website_is_instagram %}
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Social</td>
+      <td style="padding:0.4rem 0;display:flex;gap:0.65rem;flex-wrap:wrap;">
+        {% if show.instagram %}<a href="{{ show.instagram }}" target="_blank" rel="noopener noreferrer">Instagram</a>{% endif %}
+        {% if show.facebook %}<a href="{{ show.facebook }}" target="_blank" rel="noopener noreferrer">Facebook</a>{% endif %}
+        {% if show.youtube %}<a href="{{ show.youtube }}" target="_blank" rel="noopener noreferrer">YouTube</a>{% endif %}
+        {% if show.x %}<a href="{{ show.x }}" target="_blank" rel="noopener noreferrer">X</a>{% endif %}
+        {% if show.twitter %}<a href="{{ show.twitter }}" target="_blank" rel="noopener noreferrer">Twitter</a>{% endif %}
+        {% if website_is_facebook %}<a href="{{ show.website }}" target="_blank" rel="noopener noreferrer">Facebook</a>{% endif %}
+        {% if website_is_instagram %}<a href="{{ show.website }}" target="_blank" rel="noopener noreferrer">Instagram</a>{% endif %}
+      </td>
+    </tr>
+    {% endif %}
   </table>
   <div class="show-detail-actions">
     {% if show.venue and show.venue != "" %}
@@ -66,6 +83,8 @@ layout: default
     {% endif %}{% endfor %}
   </div>
 </div>
+
+{% include ad-placeholder.html %}
 
 {% if show.notes and show.notes != "" %}
 <p><em>{{ show.notes }}</em></p>
