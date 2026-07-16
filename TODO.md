@@ -15,6 +15,7 @@ Know of a coin show not in the directory? Open an issue with:
 ## Current
 
 - [ ] **HIGH PRIORITY: Complete nationwide 2026-2027 show refresh** — gather every active U.S. coin show from official organizer/club/state-association calendars first, use third-party directories only as leads, verify show name/date/venue/address/organizer/source URL before publishing, and track uncertain leads separately.
+- [ ] **Improve source discovery reliability** — for each state, run source-discovery passes that search for official regional promoter calendars and club/event pages for every TBD listing before marking a state launch-ready; Arcadia/California Coin Events was the first missed-source example to fold into this process.
 - [ ] Add upcoming shows as dates are confirmed by organizers
 - [ ] Verify TBD shows when organizers announce 2026 dates
 - [ ] Resolve future-date review issues from `todo/tasks/future-date-review-2026-07-13.md`, using official organizer/club/venue sources before publishing dates.
