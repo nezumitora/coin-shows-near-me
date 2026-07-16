@@ -1,7 +1,7 @@
 # Session State
 
-**Last updated:** 2026-07-15 17:31 (PDT)
-**Session:** v0.9.12 show listing verification pass
+**Last updated:** 2026-07-15 20:37 (PDT)
+**Session:** nationwide show refresh priority
 
 ## Completed today
 - v0.9.12 added optional social link rendering for show detail cards, show listing cards, and dealer cards.
@@ -14,16 +14,20 @@
 - Committed feature/report changes as `28a5749 Add social links and sponsor placeholders` with no show data edits.
 - Started official-source verification and corrected confirmed details for 25 future listings in `_data/shows.yml`.
 - Confirmed corrections include Tucson, Gold Coast, Fort Lauderdale, Palm Beach, Greater Atlanta, Metro East, Nashua, Brunswick, North/South Metro, Portland, Sacramento, San Francisco International, Milwaukee, Low Country, Michigan, Ohio, Wisconsin, and West Virginia source-backed entries.
+- Committed verified corrections as `c4e6da7 Verify upcoming show listing details`.
+- Started nationwide refresh: inventoried current coverage and updated Arkansas State, APNSCC, WNY, and Knoxville listings from source/lead pages.
 
 ## In progress
-- Continue official-source verification for remaining future listings; current uncommitted changes are listing-data corrections only.
+- Highest priority: complete nationwide U.S. show discovery/verification from official sources, with third-party directories used only as leads.
 
 ## Next up
 - Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.
 - Add official sources for the 181 listings now queued by the review-only verification report.
 - Add real sponsored ad links later with `rel="sponsored nofollow noopener noreferrer"`.
 - Re-run verification report after data corrections and commit only confirmed listing fixes.
+- Build source coverage state-by-state and add verified new/current shows in batches.
 
 ## Open decisions
 - Many listings lack official source URLs, so automated future-show verification will be partial until sources are added.
 - Local Jekyll build still needs repo-specific Ruby setup/Gemfile; GitHub Pages remains the likely build gate.
+- Third-party directory leads without official organizer confirmation should be marked in verification notes and revisited, not treated as fully official.

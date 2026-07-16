@@ -64,24 +64,37 @@
   state_name: Arkansas
   city: Little Rock
   city_slug: little-rock-ar
-  venue: Four Points by Sheraton Little Rock Midtown
-  frequency: Annual (July)
-  next_date: TBD
-  website: https://www.arkansasnumismaticsociety.org/
-  organizer: Arkansas Numismatic Society
-  notes: ''
+  venue: Statehouse Convention Center, 101 E. Markham St., Little Rock, AR 72201
+  frequency: Annual
+  next_date: October 1-3, 2026
+  website: https://tulsacoinshow.com/
+  organizer: Mid America Coins / Tulsa Coin Show
+  source_url: https://tulsacoinshow.com/wp-content/uploads/2025/12/Arkansas-State-Show-Application-2026-3.pdf
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-10-01'
+  - '2026-10-02'
+  - '2026-10-03'
+  verification_notes: Official Tulsa Coin Show / Mid America Coins Arkansas application PDF lists the 1st Annual Arkansas State Coin Show at Statehouse Convention Center, 101 E. Markham St., Little Rock, October 1-3, 2026; CoinZip lead also matched these details.
+  notes: 'Hours: Thu-Fri 10-5, Sat 10-4. Dealer setup Sep 30 noon-5; early birds Sep 30 2-5. Contact Mike Boyer at Mid America Coins, 918-787-2646.'
 - id: apnscc-coin-show-sat-july-18th-9am-6pm-sun-july-19th-9am-4pm
-  name: APNSCC Coin Show - Sat. July 18th 9a.m. - 6p.m. Sun. July 19th 9a.m. - 4p.m.
+  name: APNSCC Coin Show
   state: AR
   state_name: Arkansas
-  city: Wyndham Hotel 700 Rogers Ave. Fort Smith
-  city_slug: wyndham-hotel-700-rogers-ave-fort-smith-ar
-  venue: ''
+  city: Fort Smith
+  city_slug: fort-smith-ar
+  venue: Wyndham Hotel, 700 Rogers Ave., Fort Smith, AR 72901
   frequency: Recurring
-  next_date: TBD
+  next_date: July 18-19, 2026
   website: ''
-  organizer: ''
-  notes: ''
+  organizer: APNSCC
+  source_url: https://www.coinzip.com/Listing/Details/244255
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-07-18'
+  - '2026-07-19'
+  verification_notes: CoinZip lead lists APNSCC Coin Show at Wyndham Hotel, 700 Rogers Ave., Fort Smith, July 18-19, 2026; no separate official organizer page found in this pass, so keep source as lead-level until confirmed elsewhere.
+  notes: 'Hours: Sat 9-6, Sun 9-4. Free parking and free admission; early bird passes $10. ANACS submissions listed.'
 - id: camelback-collectibles-coin-show
   name: Camelback Collectibles Coin Show
   state: AZ
@@ -1828,17 +1841,22 @@
   organizer: ''
   notes: ''
 - id: wny-coin-show-meetings-4th-sunday-each-month
-  name: WNY COIN + SHOW - Meetings 4th Sunday each Month
+  name: WNY Coin Show
   state: NY
   state_name: New York
   city: Batavia
   city_slug: batavia-ny
   venue: ''
-  frequency: Recurring
-  next_date: TBD
+  frequency: Monthly (4th Sunday, except December)
+  next_date: July 26, 2026
   website: ''
-  organizer: ''
-  notes: ''
+  organizer: WNY Coin Show
+  source_url: https://www.coinzip.com/Listing/Details/299936
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-07-26'
+  verification_notes: CoinZip lead lists WNY Coin Show in Batavia on July 26, 2026 and describes the show as the fourth Sunday each month except December; no separate official organizer page found in this pass.
+  notes: 'Coin and stamp show with 26 vendors. Exact venue/address still needs official-source confirmation before marking fully verified.'
 - id: canandaigua-coin-show
   name: Canandaigua Coin Show
   state: NY
@@ -2480,12 +2498,18 @@
   state_name: Tennessee
   city: Knoxville
   city_slug: knoxville-tn
-  venue: Rothchild Conference Center
+  venue: Rothchild Catering & Conference Center
   frequency: Monthly
-  next_date: TBD
+  next_date: September 11-12, 2026
   website: ''
-  organizer: ''
-  notes: ''
+  organizer: Knoxville Coin Show
+  source_url: https://www.coinzip.com/Listing/Details/291194
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-09-11'
+  - '2026-09-12'
+  verification_notes: CoinZip Tennessee source lists Knoxville Coin & Currency Show leads for September 11-12, 2026 at Rothchild Catering & Conference Center; no separate official organizer page found in this pass.
+  notes: 'Hours: 9-4. Contact listed as Robert, 865-660-8692. Best to arrive by 2:30pm.'
 - id: imex-show
   name: IMEX (International Money Exposition)
   state: TN
