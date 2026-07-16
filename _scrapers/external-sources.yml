@@ -92,3 +92,36 @@
     - georgia-numismatic-association-show
     - georgia-numismatic-association-coin-show
   notes: Long-range official source found during 2026-07-13 broad future-date refresh.
+
+- key: ck-shows
+  name: CK Shows / Las Vegas Coin Shows
+  source_type: promoter
+  url: https://ckshows.com/
+  expected_show_ids:
+    - vegas-national-coin-show
+  notes: Official Las Vegas show promoter source discovered from CoinZip US Coin Shows page during nationwide refresh.
+
+- key: great-american-coin-collectibles-show
+  name: Great American Coin and Collectibles Show
+  source_type: promoter
+  url: https://www.gacc.show/
+  expected_show_ids:
+    - great-american-coin-collectibles-show
+  notes: Official Coin World / Shepherd Expos source discovered from CoinZip US Coin Shows page during nationwide refresh.
+
+- key: cleveland-coin-expo
+  name: Cleveland Coin Expo Calendar
+  source_type: promoter
+  url: https://clevelandcoinexpo.com/calender.html
+  expected_show_ids:
+    - cleveland-coin-expo-2nd-saturdays-monthly-9am-2pm
+    - cleveland-coin-expo-meets-2nd-saturday-of-each-month
+  notes: Official monthly show calendar discovered from CoinZip US Coin Shows page during nationwide refresh; duplicate Cleveland records need canonicalization.
+
+- key: central-states-numismatic-society
+  name: Central States Numismatic Society Convention
+  source_type: association-calendar
+  url: https://www.csns.org/convention
+  expected_show_ids:
+    - csns-convention
+  notes: Official CSNS convention source rechecked during nationwide refresh.

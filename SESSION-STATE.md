@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-15 20:53 (PDT)
+**Last updated:** 2026-07-15 20:56 (PDT)
 **Session:** nationwide show refresh priority
 
 ## Completed today
@@ -18,6 +18,7 @@
 - Started nationwide refresh: inventoried current coverage and updated Arkansas State, APNSCC, WNY, and Knoxville listings from source/lead pages.
 - Committed first nationwide refresh batch as `5501d58 Start nationwide show refresh`.
 - Expanded third-party discovery config from 8 historical sources to 39 CoinZip state category sources plus 2 broken CoinShows-USA evidence URLs; added optional lead-detail CSV extraction.
+- Added official-source updates for Great American Coin and Collectibles Show, CSNS Convention, and Cleveland Coin Expo records; added CK/GACCS/Cleveland/CSNS sources to comparison config.
 
 ## In progress
 - Run expanded nationwide lead discovery, prioritize states with low future coverage, and verify new/current shows against official sources before data edits.

@@ -913,6 +913,26 @@
   - '2026-10-04'
   verification_notes: Official Metro East Coin & Currency Club events page lists the 44th Annual Fall Coin Show on October 4, 2026 at American Legion Post 365, 1022 Vandalia Street; rechecked during official-source listing verification.
   notes: 'Hours: Sun 9-3. Free admission, free parking, raffle prizes, and 36 dealer tables listed by organizer.'
+- id: great-american-coin-collectibles-show
+  name: Great American Coin and Collectibles Show
+  state: IL
+  state_name: Illinois
+  city: Rosemont
+  city_slug: rosemont-il
+  venue: Donald E. Stephens Convention Center, 5555 N River Rd, Rosemont, IL 60018
+  frequency: Annual
+  next_date: September 30-October 3, 2026
+  website: https://www.gacc.show/
+  organizer: Coin World and Shepherd Expos Management
+  source_url: https://www.gacc.show/
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-09-30'
+  - '2026-10-01'
+  - '2026-10-02'
+  - '2026-10-03'
+  verification_notes: Official GACCS site lists the Great American Coin and Collectibles Show on September 30-October 3, 2026 at Donald E. Stephens Convention Center, 5555 N River Rd, Rosemont, IL; added during nationwide official-source refresh.
+  notes: Dealer-to-dealer trading day, large bourse, and Heritage Auctions viewing listed by organizer; attendee registration details still pending.
 - id: chicago-coin-expo
   name: Chicago Coin Expo
   state: IL
@@ -979,20 +999,20 @@
   state_name: Illinois
   city: Schaumburg
   city_slug: schaumburg-il
-  venue: Renaissance Schaumburg Convention Center
+  venue: Renaissance Schaumburg Hotel and Convention Center, 1551 North Thoreau Drive, Schaumburg, IL 60173
   frequency: Annual (April)
   next_date: April 21-24, 2027
-  website: http://www.csns.org/
+  website: https://www.csns.org/
   organizer: Central States Numismatic Society
-  source_url: http://www.csns.org/
-  last_verified: '2026-07-13'
+  source_url: https://www.csns.org/convention
+  last_verified: '2026-07-15'
   upcoming_dates:
   - '2027-04-21'
   - '2027-04-22'
   - '2027-04-23'
   - '2027-04-24'
-  verification_notes: Official Central States Numismatic Society page lists the 88th anniversary convention on April 21-24, 2027; reviewed during broad official-source future-date refresh.
-  notes: Major regional convention with auction and 200+ tables.
+  verification_notes: Official Central States Numismatic Society convention page lists the 88th anniversary convention on April 21-24, 2027 at Renaissance Schaumburg Hotel and Convention Center; rechecked during nationwide official-source refresh.
+  notes: Major regional convention with Heritage Auctions, 415+ booth bourse, free parking, and CSNS member/youth admission rules listed by organizer.
 - id: ilna-illinois-numismatic-association-coin-show
   name: ILNA Illinois Numismatic Association Coin Show
   state: IL
@@ -1947,24 +1967,42 @@
   state_name: Ohio
   city: Broadview Heights
   city_slug: broadview-heights-oh
-  venue: 5025 Mill Rd, Broadview Heights, OH
-  frequency: Monthly
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  venue: St. Michael's Woodside, 5025 Mill Rd, Broadview Heights, OH 44147
+  frequency: Monthly (2nd Saturday)
+  next_date: August 8, 2026
+  website: https://clevelandcoinexpo.com/
+  organizer: Cleveland Coin Expo
+  source_url: https://clevelandcoinexpo.com/calender.html
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-08-08'
+  - '2026-09-12'
+  - '2026-10-10'
+  - '2026-11-14'
+  - '2026-12-12'
+  verification_notes: Official Cleveland Coin Expo calendar lists second-Saturday 2026 dates, St. Michael's Woodside address, and 9am-2pm free admission hours; updated during nationwide official-source refresh.
+  notes: Free general admission 9am-2pm. Kids receive a free coin. Duplicate Cleveland listing below needs later canonicalization.
 - id: cleveland-coin-expo-meets-2nd-saturday-of-each-month
   name: Cleveland Coin Expo - Meets 2nd Saturday of Each Month
   state: OH
   state_name: Ohio
   city: Broadview Heights
   city_slug: broadview-heights-oh
-  venue: 5025 Mill Rd, Broadview Heights, OH
+  venue: St. Michael's Woodside, 5025 Mill Rd, Broadview Heights, OH 44147
   frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  next_date: August 8, 2026
+  website: https://clevelandcoinexpo.com/
+  organizer: Cleveland Coin Expo
+  source_url: https://clevelandcoinexpo.com/calender.html
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-08-08'
+  - '2026-09-12'
+  - '2026-10-10'
+  - '2026-11-14'
+  - '2026-12-12'
+  verification_notes: Official Cleveland Coin Expo calendar lists second-Saturday 2026 dates, St. Michael's Woodside address, and 9am-2pm free admission hours; this appears duplicative with the other Cleveland Coin Expo record and needs later canonicalization.
+  notes: Free general admission 9am-2pm. Kids receive a free coin. Duplicate listing; keep until canonicalization review.
 - id: 43rd-annual-greater-cincinnati-numismatic-exposition
   name: 43rd Annual Greater Cincinnati Numismatic Exposition
   state: OH
