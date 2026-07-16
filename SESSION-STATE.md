@@ -1,48 +1,25 @@
 # Session State
 
-**Last updated:** 2026-07-08 16:05 (PDT)
-**Session:** v0.9.11 Lead Capture redaction
+**Last updated:** 2026-07-15 16:16 (PDT)
+**Session:** v0.9.12 social links, sponsor placeholders, tools update
 
 ## Completed today
-- v0.9.11 redacted the exposed browser-side Coin Shows EspoCRM Lead Capture URL after the old key was rotated and disabled in EspoCRM; public forms now continue Formspree notification only until a server-side Worker bridge is approved.
-- Deployed v0.9.5 to GitHub Pages; live contact page verified showing `v0.9.5`.
-- Started v0.9.6: added report-only external comparison config/script/workflow for FUN Topics, Pacific Expos LLC, and Michigan Coin Club using URLs already present in `_data/shows.yml`.
-- Deployed v0.9.7 to GitHub Pages; live contact page verified showing `v0.9.7`.
-- v0.9.7 added report-only third-party discovery config/script/workflow for CoinZip and CoinShows-USA URLs already present in `README.md` historical source notes; manual workflow run succeeded.
-- Deployed v0.9.8 to GitHub Pages; live contact page verified showing `v0.9.8`.
-- v0.9.8 third-party report now detects redirected NotFound/404 pages, shows original/final URLs, and adds a plain-English “What Milo should check” section.
-- Deployed v0.9.9 to GitHub Pages; live contact page verified showing `v0.9.9`.
-- v0.9.9 added third-party directory SOP, working CoinZip category URLs, copyright-safer lead URL output, and 10-second discovery crawl delay.
-- Updated Third-Party Discovery workflow run succeeded for `b10f9cf`.
-- Started v0.9.10 form spam protection to reduce Formspree quota waste by hiding static endpoints and rejecting honeypot/too-fast submissions before fetch.
-- v0.9.6 external comparison workflow is active and report-only for FUN Topics, Pacific Expos LLC, and Michigan Coin Club.
-- v0.9.4/v0.9.5 added prompt library, daily show source inventory/URL-check report artifacts, and excluded internal prompt/task folders from public Jekyll build.
-- v0.9.3 fixed Event schema for partial/TBD dates, converted valid dates to ISO 8601, and tightened mobile form/card overflow rules.
-- Added Coin Shows Instagram profile link `https://www.instagram.com/coinshowsnearme` and favicon updates; earlier versions v0.9.1-v0.9.2 deployed.
-- Processed inbox task `2026-06-29_143123_milohiss-automation-schema-mobile-qa.json` into `inbox/processed/` after acting on it.
-- Created linked worktree `/Users/milohiss/Git/_worktrees/coin-shows-near-me-favicon-comparison-20260629` on branch `favicon-comparison-20260629`.
-- Added two local favicon comparison pages: `/favicon-test-gpt.html` using `assets/images/favicon-test-gpt.png` and `/favicon-test-nano.html` using `assets/images/favicon-test-nano.png`.
-- Started local preview server on port `4175`; both test pages return 200 via `http://127.0.0.1:4175/`.
-- User chose GPT favicon option. Generated replacement `favicon.ico`, 16/32/48/180/192 PNG assets, added source image `assets/images/favicon-source-gpt-20260629.png`, updated favicon cache-buster, and bumped visible site version to v0.9.1.
-- Live verification found homepage has its own favicon links separate from `_includes/head_custom.html`; updated homepage favicon cache-busters too so the homepage browser tab uses the new icon.
-- Started safe aidevops setup in linked worktree `coin-shows-near-me-aidevops-20260507`.
-- Added aidevops project config and AI-training opt-out attributes.
-- Enabled planning, git workflow, code quality, time tracking, beads, SOPS, and security.
-- Left database automation off because this is a static Jekyll/GitHub Pages site, not a database-backed app.
-- Removed generated local-path helper links and database folders before commit because this is a public repo.
-- Clarified `AGENTS.md` SSH guidance so AI agents do not use root/admin SSH.
+- v0.9.12 added optional social link rendering for show detail cards, show listing cards, and dealer cards.
+- Added reusable sponsor banner placeholder include and placed it on homepage, show detail pages, dealer directory, and tools page.
+- Split dealer signup website/social fields and added a show social-media submission field.
+- Updated Tools page copy for the planned private, local-first coin and bullion collection app.
+- Expanded the review-only show update report with future/past specific-date counts and a manual source-verification queue CSV.
+- Updated visible version from v0.9.11 to v0.9.12 in homepage and sidebar footer, and added CHANGELOG entry.
+- Verification: `git diff --check` passed; `ruby -c _scripts/show-update-report.rb` passed; `MAX_URL_CHECKS=0 REQUEST_DELAY_SECONDS=0 ruby _scripts/show-update-report.rb` completed; local `bundle exec jekyll build` blocked because this worktree has no Gemfile/.bundle.
 
 ## In progress
-- Verify and deploy v0.9.11 Lead Capture redaction. Automation remains report-only with no auto-updates to show data.
+- Commit v0.9.12 feature/report checkpoint, then begin a separate show-listing verification pass before any listing data updates.
 
 ## Next up
-- Review CoinZip lead detail URLs from the v0.9.9 artifact and verify any promising leads against official/independent sources before data edits.
-- Find current working CoinShows-USA source URLs; current historical state URLs redirect to provider 404 pages.
-- Improve source-specific parsing and verification fields after working sources are stable.
-- Add true Cloudflare Turnstile server-side validation through a Worker/Formspree bridge when Cloudflare account access supports Worker/Turnstile setup.
-- Build a server-side Cloudflare Worker bridge before re-enabling EspoCRM forwarding for Coin Shows forms; never expose the rotated Lead Capture URL in public HTML/JavaScript.
-- Continue whole-site mobile QA and verify GSC Event fix validation.
+- Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.
+- Add official sources for the 181 listings now queued by the review-only verification report.
+- Add real sponsored ad links later with `rel="sponsored nofollow noopener noreferrer"`.
 
 ## Open decisions
-- Need exact/approved source URLs before adding more comparison scrapers beyond URLs already stored in repo/data.
-- Local `jekyll` command is missing; GitHub Pages builds are the verified deploy path.
+- Many listings lack official source URLs, so automated future-show verification will be partial until sources are added.
+- Local Jekyll build still needs repo-specific Ruby setup/Gemfile; GitHub Pages remains the likely build gate.

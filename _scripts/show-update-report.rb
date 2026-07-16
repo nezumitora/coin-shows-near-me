@@ -13,6 +13,7 @@ require 'yaml'
 REPORT_PATH = 'tmp/show-update-report.md'
 SOURCE_INVENTORY_PATH = 'tmp/show-source-inventory.csv'
 URL_CHECK_PATH = 'tmp/show-url-checks.csv'
+VERIFICATION_QUEUE_PATH = 'tmp/show-verification-queue.csv'
 REQUEST_TIMEOUT = 8
 MAX_URL_CHECKS = Integer(ENV.fetch('MAX_URL_CHECKS', '0'))
 REQUEST_DELAY_SECONDS = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '0.5'))
@@ -23,9 +24,13 @@ now = Time.now.utc
 specific = []
 partial = []
 tbd = []
+future_specific = []
+past_specific = []
+invalid_specific = []
 missing_url = []
 source_domains = Hash.new(0)
 source_inventory = []
+verification_queue = []
 
 shows.each do |show|
   date_text = show.fetch('next_date', '').to_s.strip
@@ -33,6 +38,16 @@ shows.each do |show|
     tbd << show
   elsif date_text.include?(',')
     specific << show
+    begin
+      parsed_date = Date.parse(date_text)
+      if parsed_date >= now.to_date
+        future_specific << show
+      else
+        past_specific << show
+      end
+    rescue Date::Error
+      invalid_specific << show
+    end
   else
     partial << show
   end
@@ -49,6 +64,19 @@ shows.each do |show|
     source_domains[domain] += 1
     source_inventory << [show.fetch('id'), show.fetch('name'), show.fetch('city'), show.fetch('state'), show.fetch('next_date'), domain, website]
   end
+
+  verification_reason = if website.empty?
+                          'missing official/source URL'
+                        elsif date_text.empty? || date_text == 'TBD'
+                          'TBD/missing date needs source review'
+                        elsif !date_text.include?(',')
+                          'partial date needs exact source review'
+                        elsif invalid_specific.include?(show)
+                          'specific date could not be parsed'
+                        elsif past_specific.include?(show)
+                          'specific date appears to be past'
+                        end
+  verification_queue << [show.fetch('id'), show.fetch('name'), show.fetch('city'), show.fetch('state'), date_text, verification_reason, website] if verification_reason
 end
 
 def check_url(url)
@@ -89,6 +117,11 @@ CSV.open(URL_CHECK_PATH, 'w') do |csv|
   url_results.each { |row| csv << row }
 end
 
+CSV.open(VERIFICATION_QUEUE_PATH, 'w') do |csv|
+  csv << %w[id name city state next_date reason source_url]
+  verification_queue.each { |row| csv << row }
+end
+
 File.write(REPORT_PATH, <<~MD)
   # Coin Shows update report
 
@@ -100,13 +133,22 @@ File.write(REPORT_PATH, <<~MD)
 
   - Total listings: #{shows.length}
   - Specific dates eligible for Event schema: #{specific.length}
+  - Future specific dates with source URLs: #{future_specific.count { |show| !show.fetch('website', '').to_s.strip.empty? }}
+  - Specific dates that appear past/stale: #{past_specific.length}
+  - Specific dates that failed date parsing: #{invalid_specific.length}
   - Partial dates needing human/source review: #{partial.length}
   - TBD/missing dates needing human/source review: #{tbd.length}
   - Listings missing organizer/source URL: #{missing_url.length}
+  - Listings queued for manual/source verification: #{verification_queue.length}
   - Organizer/source URLs currently in `_data/shows.yml`: #{source_inventory.length}
   - Organizer/source URLs checked this run: #{url_results.length}
   - Source inventory CSV: `#{SOURCE_INVENTORY_PATH}`
   - URL check CSV: `#{URL_CHECK_PATH}`
+  - Verification queue CSV: `#{VERIFICATION_QUEUE_PATH}`
+
+  ## Verification policy
+
+  Future show dates should be treated as verified only when an official organizer/source URL exists and the date is still current. Listings with missing source URLs, TBD dates, partial dates, invalid date text, or past specific dates are queued for manual/source review instead of being silently trusted.
 
   ## Current source domains
 
@@ -119,6 +161,10 @@ File.write(REPORT_PATH, <<~MD)
   ## Partial dates to review
 
   #{partial.map { |show| "- #{show.fetch('id')}: #{show.fetch('name')} — #{show.fetch('next_date')}" }.join("\n")}
+
+  ## Past or invalid specific dates to review
+
+  #{(past_specific + invalid_specific).map { |show| "- #{show.fetch('id')}: #{show.fetch('name')} — #{show.fetch('next_date')}" }.join("\n")}
 
   ## TBD or missing dates to review
 
@@ -138,4 +184,5 @@ MD
 puts "Wrote #{REPORT_PATH}"
 puts "Wrote #{SOURCE_INVENTORY_PATH}"
 puts "Wrote #{URL_CHECK_PATH}"
-puts "Review-only summary: total=#{shows.length} specific=#{specific.length} partial=#{partial.length} tbd=#{tbd.length} missing_url=#{missing_url.length} source_urls=#{source_inventory.length} checked=#{url_results.length}"
+puts "Wrote #{VERIFICATION_QUEUE_PATH}"
+puts "Review-only summary: total=#{shows.length} specific=#{specific.length} future_specific=#{future_specific.length} past_specific=#{past_specific.length} partial=#{partial.length} tbd=#{tbd.length} missing_url=#{missing_url.length} queued=#{verification_queue.length} source_urls=#{source_inventory.length} checked=#{url_results.length}"

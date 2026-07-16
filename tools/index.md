@@ -29,4 +29,10 @@ Find out if your state taxes purchases of coins, bullion, and precious metals. C
 
 ## [Collection Tracker](/tools/collection-tracker/)
 
-Coming soon: a collection tracking tool to help collectors organize coins, bullion, purchase price, melt value, notes, photos, and collection totals using a database or Google Sheets-style workflow.
+Coming soon: a coin and bullion collection app for tracking coins, rounds, bars, slabs, purchase price, actual metal weight, sales/trades, wishlist items, stack goals, notes, photos, and collection totals.
+
+This future app is planned as a private, local-first collector tool: no required login, no required cloud database, and exportable backups.
+
+---
+
+{% include ad-placeholder.html %}

@@ -933,6 +933,34 @@ a:hover { color: var(--gold-light); }
   z-index: 1;
 }
 
+.ad-placeholder {
+  border: 2px dashed rgba(184,134,11,0.55);
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin: 1.5rem auto;
+  max-width: 1120px;
+  background: linear-gradient(135deg, rgba(14,35,56,0.96), rgba(31,48,70,0.96));
+  color: #f8fafc;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(14,35,56,0.16);
+}
+.ad-placeholder-label {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(218,165,32,0.16);
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ad-placeholder strong,
+.ad-placeholder span { display: block; }
+.ad-placeholder span { color: #cbd5e1; margin: 0.35rem 0 0.85rem; }
+.ad-placeholder a { color: var(--gold-light); font-weight: 800; text-decoration: none; }
+
 @media (min-width: 1120px) {
   .card-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .show-card { min-height: 156px; }
@@ -1572,6 +1600,8 @@ a:hover { color: var(--gold-light); }
   </div>
 </section>
 
+{% include ad-placeholder.html %}
+
 <!-- Filter Bar -->
 <section class="filter-section" id="filter-section">
   <div class="filter-inner">
@@ -1850,6 +1880,7 @@ a:hover { color: var(--gold-light); }
         <option value="sellerOfferRequest">Selling coins / request an offer</option>
         <option value="generalInquiry">General question</option>
       </select>
+      <input type="text" name="show_social_media" placeholder="Show social media links (optional)">
       <textarea name="message" placeholder="Questions, show submissions, or feedback (optional)"></textarea>
       <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
         <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
@@ -1899,7 +1930,8 @@ a:hover { color: var(--gold-light); }
           <input type="email" name="email" placeholder="Email address" required>
           <input type="text" name="phone" placeholder="Phone (optional)">
         </div>
-        <input type="text" name="website" placeholder="Website or social media (optional)">
+        <input type="text" name="website" placeholder="Website (optional)">
+        <input type="text" name="social_media" placeholder="Social media links (Instagram, Facebook, YouTube, X — optional)">
         <select name="specialty">
           <option value="" disabled selected>Primary specialty</option>
           <option value="us-coins">US Coins</option>
@@ -1942,7 +1974,7 @@ a:hover { color: var(--gold-light); }
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.9.11</div>
+    <div class="footer-version">v0.9.12</div>
   </div>
 </footer>
 

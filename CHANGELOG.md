@@ -1,5 +1,8 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Jul 15, 2026
+- v0.9.12: Added optional show/dealer social link rendering, future sponsor banner placeholders, clearer dealer/social submission fields, updated the tools page with the planned private coin and bullion collection app, and expanded the review-only show update report with a source-verification queue.
+
 ## Jul 8, 2026
 - v0.9.11: Removed the exposed browser-side EspoCRM Lead Capture URL after rotating the Coin Shows capture key; CRM forwarding stays disabled until a server-side Cloudflare Worker bridge is approved.
 
