@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-15 22:18 (PDT)
+**Last updated:** 2026-07-16 00:02 (PDT)
 **Session:** nationwide show refresh priority
 
 ## Completed today
@@ -22,9 +22,10 @@
 - Added 9 more official/promoter sources to the report-only comparison config and included third-party lead-detail CSV in the scheduled discovery artifact upload.
 - Verified PA/CA/OH lead batch from official club pages and added/updated Lehigh County Coin Expo, Sacramento Valley Coin Club Fall Coin Show, and OH-KAN Coin Club Show; regenerated affected state/city/show pages.
 - Added v0.9.13 verified agent-side source batch: Florida, Pennsylvania, California, and Ohio source reviews added/updated 14 more show records and expanded official source monitoring to 37 sources.
+- Added v0.9.14 NY/MI/IL/NC verified source batch: updated NYINC, Melville, Royal Oak, Raleigh, ILNA, Orland Park, and Peotone records and added their official source monitors.
 
 ## In progress
-- Continue remaining unverified PA/FL/CA/OH leads and then expand to the next highest-gap states from official/promoter/state/club sources.
+- Continue remaining unverified leads, prioritizing states with the largest unmatched official-source gaps after the v0.9.14 batch.
 
 ## Next up
 - Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.

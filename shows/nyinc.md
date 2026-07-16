@@ -2,7 +2,7 @@
 layout: show
 title: "New York International Numismatic Convention (NYINC) — New York, New York Coin Show"
 seo_title: "New York International Numismatic Convention (NYINC) — New York, New York | Coin Show Near Me"
-seo_description: "New York International Numismatic Convention (NYINC) in New York, New York. Annual (January) coin show at InterContinental New York Barclay. Get dates, venue details, and more."
+seo_description: "New York International Numismatic Convention (NYINC) in New York, New York. Annual (January) coin show at InterContinental New York Barclay, 111 E 48th St, New York, NY 10017. Get dates, venue details, and more."
 permalink: /shows/nyinc/
 show_id: "nyinc"
 breadcrumb_parent: "New York"

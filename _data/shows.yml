@@ -1227,10 +1227,20 @@
   city_slug: orland-park-il
   venue: Orland Park Civic Center
   frequency: Monthly (1st Sunday)
-  next_date: TBD
-  website: ''
+  next_date: August 2, 2026
+  website: http://www.ilnaclub.org/shows.html
   organizer: ''
-  notes: ''
+  source_url: http://www.ilnaclub.org/shows.html
+  source_type: association-calendar
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-08-02'
+  - '2026-09-06'
+  - '2026-10-04'
+  - '2026-11-01'
+  - '2026-12-06'
+  verification_notes: Official Illinois Numismatic Association show calendar confirms Orland Park First Sunday Show dates for August through December 2026; venue/address/hours still need direct promoter confirmation.
+  notes: Official association calendar confirms dates/city; venue and hours pending official promoter/source confirmation.
 - id: peotone-coin-currency-show
   name: Peotone Coin & Currency Show
   state: IL
@@ -1239,10 +1249,18 @@
   city_slug: peotone-il
   venue: ''
   frequency: Recurring
-  next_date: TBD
-  website: ''
+  next_date: August 16, 2026
+  website: http://www.ilnaclub.org/shows.html
   organizer: ''
-  notes: ''
+  source_url: http://www.ilnaclub.org/shows.html
+  source_type: association-calendar
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-08-16'
+  - '2026-10-04'
+  - '2026-12-20'
+  verification_notes: Official Illinois Numismatic Association show calendar confirms Peotone Coin & Currency Show dates for August 16, October 4, and December 20, 2026; venue/address/hours still need direct promoter confirmation.
+  notes: Official association calendar confirms dates/city; venue and hours pending official promoter/source confirmation.
 - id: csns-convention
   name: Central States Numismatic Society (CSNS) Convention
   state: IL
@@ -1267,14 +1285,22 @@
   name: ILNA Illinois Numismatic Association Coin Show
   state: IL
   state_name: Illinois
-  city: Sept 17th-19th @ Countryside
-  city_slug: sept-17th-19th-countryside-il
-  venue: ''
-  frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  city: Countryside
+  city_slug: countryside-il
+  venue: IUOE Building, Countryside, IL
+  frequency: Annual (September)
+  next_date: September 17-19, 2026
+  website: http://www.ilnaclub.org/
+  organizer: Illinois Numismatic Association
+  source_url: http://www.ilnaclub.org/show.html
+  source_type: association-calendar
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-09-17'
+  - '2026-09-18'
+  - '2026-09-19'
+  verification_notes: Official Illinois Numismatic Association annual show page lists September 17-19, 2026 at the IUOE Building in Countryside; street address/hours not available in accessible official text.
+  notes: Official association source confirms dates and venue name; hours pending.
 - id: 71st-street-coin-show-may-3rd-2026-please-note-first-sunday-this-month
   name: 71st Street Coin Show May 3rd, 2026  **Please Note First Sunday this Month
   state: IN
@@ -1607,17 +1633,24 @@
   verification_notes: Official Michigan State Numismatic Society local shows page lists New Baltimore Monthly Coin Show dates July 19 and August 16, 2026, venue address, hours, and contact; rechecked during official-source listing verification.
   notes: 'Hours: Sun 9-3'
 - id: royal-oak-coin-collectibles-show-may-10th-2026
-  name: Royal Oak Coin & Collectibles Show May 10th, 2026
+  name: Royal Oak Coins & Collectibles Show
   state: MI
   state_name: Michigan
   city: Royal Oak
   city_slug: royal-oak-mi
-  venue: ''
+  venue: Royal Oak Detroit Elks Lodge #34, 2401 E 4th St, Royal Oak, MI 48067
   frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  next_date: August 9, 2026
+  website: https://michigancoinclub.org/
+  organizer: Armand Keywell
+  source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238/
+  source_type: association-calendar
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-08-09'
+  - '2026-09-13'
+  verification_notes: Official Michigan State Numismatic Society event page verifies the Royal Oak Coins & Collectibles Show on August 9 and September 13, 2026 at Royal Oak Detroit Elks Lodge #34; May-specific lead was not used.
+  notes: 'Hours: Sun 10-3.'
 - id: detroit-area-coin-shows
   name: Detroit Area Coin Shows
   state: MI
@@ -1909,12 +1942,19 @@
   state_name: North Carolina
   city: Raleigh
   city_slug: raleigh-nc
-  venue: NC State Fairgrounds
+  venue: Exposition Center, NC State Fairgrounds, 4285 Trinity Rd, Raleigh, NC
   frequency: Annual (June)
-  next_date: TBD
-  website: http://www.raleighcoinclub.org/
+  next_date: June 26-28, 2026
+  website: https://www.raleighcoinclub.org/expo
   organizer: Raleigh Coin Club
-  notes: ''
+  source_url: https://www.raleighcoinclub.org/expo
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-06-26'
+  - '2026-06-27'
+  - '2026-06-28'
+  verification_notes: Official Raleigh Coin Club Expo page confirms June 26-28, 2026 at the Exposition Center, NC State Fairgrounds, 4285 Trinity Rd, with public hours; verified during North Carolina lead review.
+  notes: 'Hours: Fri 10-6, Sat 10-5, Sun 10-3.'
 - id: red-river-valley-coin-club-show
   name: Red River Valley Coin Club Show
   state: ND
@@ -2181,24 +2221,47 @@
   state_name: New York
   city: Melville
   city_slug: melville-ny
-  venue: Catapano Engineering Hall
+  venue: 535 Route 110 / Broadhollow Rd, Melville, NY 11747
   frequency: Monthly (2nd & 4th Sunday)
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  next_date: July 26, 2026
+  website: https://melvillecoinshow.com/
+  organizer: Melville Coin Show / George Schultheis
+  source_url: https://melvillecoinshow.com/
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-07-26'
+  - '2026-08-09'
+  - '2026-08-23'
+  - '2026-09-13'
+  - '2026-09-27'
+  - '2026-10-11'
+  - '2026-10-25'
+  - '2026-11-08'
+  - '2026-11-22'
+  - '2026-12-13'
+  - '2026-12-27'
+  verification_notes: Official Melville Coin Show site and 2026 flyer confirm 2026 second/fourth Sunday dates, address, hours, contact, free admission, free parking, and free appraisals.
+  notes: 'Hours: Sun 8-1.'
 - id: nyinc
   name: New York International Numismatic Convention (NYINC)
   state: NY
   state_name: New York
   city: New York
   city_slug: new-york-ny
-  venue: InterContinental New York Barclay
+  venue: InterContinental New York Barclay, 111 E 48th St, New York, NY 10017
   frequency: Annual (January)
-  next_date: TBD
-  website: http://www.nyinc.info/
+  next_date: January 14-17, 2027
+  website: https://nyinc.info/
   organizer: NYINC
-  notes: Premier world and ancient coin show.
+  source_url: https://nyinc.info/events/
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2027-01-14'
+  - '2027-01-15'
+  - '2027-01-16'
+  - '2027-01-17'
+  verification_notes: Official NYINC events page confirms January 14-17, 2027 bourse dates at InterContinental New York Barclay, with public and early-bird hours.
+  notes: 'Premier world and ancient coin show. Hours: Thu early bird 12-6:30, Fri-Sat 10-6:30, Sun 10-2:30.'
 - id: rochester-numismatic-association-show
   name: Rochester Numismatic Association Show
   state: NY

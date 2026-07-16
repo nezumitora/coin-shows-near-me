@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 15, 2026
+- v0.9.14: Added the next verified NY/MI/IL/NC source batch, including NYINC, Melville, Royal Oak, Raleigh, ILNA, Orland Park, and Peotone source-backed updates.
 - v0.9.13: Added the next officially verified nationwide coin-show batch from agent-side PA/FL/CA/OH source review, expanded official source monitoring, and regenerated directory pages.
 - v0.9.12: Added optional show/dealer social link rendering, future sponsor banner placeholders, clearer dealer/social submission fields, updated the tools page with the planned private coin and bullion collection app, and expanded the review-only show update report with a source-verification queue.
 

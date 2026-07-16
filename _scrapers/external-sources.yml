@@ -327,3 +327,54 @@
   expected_show_ids:
     - greater-johnstown-coin-club-show
   notes: Official club source verified after Pennsylvania lead review.
+
+- key: nyinc-events
+  name: New York International Numismatic Convention Events
+  source_type: promoter
+  url: https://nyinc.info/events/
+  expected_show_ids:
+    - nyinc
+  notes: Official convention source verified after New York lead review.
+
+- key: melville-coin-show
+  name: Melville Coin Show
+  source_type: promoter
+  url: https://melvillecoinshow.com/
+  expected_show_ids:
+    - melville-coin-stamp-collectibles-show
+  notes: Official show source verified after New York lead review.
+
+- key: illinois-numismatic-association-shows
+  name: Illinois Numismatic Association Show Calendar
+  source_type: association-calendar
+  url: http://www.ilnaclub.org/shows.html
+  expected_show_ids:
+    - orland-park-coin-show
+    - peotone-coin-currency-show
+  notes: Official association calendar source verified after Illinois lead review.
+
+- key: illinois-numismatic-association-annual-show
+  name: Illinois Numismatic Association Annual Show
+  source_type: association-calendar
+  url: http://www.ilnaclub.org/show.html
+  expected_show_ids:
+    - ilna-illinois-numismatic-association-coin-show
+  notes: Official annual show source verified after Illinois lead review.
+
+- key: michigan-state-numismatic-society-events
+  name: Michigan State Numismatic Society Events
+  source_type: association-calendar
+  url: https://michigancoinclub.org/events/
+  expected_show_ids:
+    - royal-oak-coin-collectibles-show-may-10th-2026
+    - new-baltimore-monthly-coin-show
+    - detroit-area-coin-shows
+  notes: Official MSNS event source verified after Michigan lead review.
+
+- key: raleigh-coin-club-expo
+  name: Raleigh Coin Club Expo
+  source_type: club-calendar
+  url: https://www.raleighcoinclub.org/expo
+  expected_show_ids:
+    - raleigh-money-expo
+  notes: Official club source verified after North Carolina lead review.
