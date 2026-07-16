@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Brunswick Coin & Stamp Club Show — Topsham, Maine Coin Show"
-seo_title: "Brunswick Coin & Stamp Club Show — Topsham, Maine | Coin Show Near Me"
-seo_description: "Brunswick Coin & Stamp Club Show in Topsham, Maine. Annual (Spring) coin show at Topsham Fairgrounds Exhibition Hall. Get dates, venue details, and more."
+title: "Brunswick Coin & Stamp Club Show — Augusta, Maine Coin Show"
+seo_title: "Brunswick Coin & Stamp Club Show — Augusta, Maine | Coin Show Near Me"
+seo_description: "Brunswick Coin & Stamp Club Show in Augusta, Maine. Annual coin show at Augusta Elks Lodge, 397 Civic Center Drive, Augusta, ME. Get dates, venue details, and more."
 permalink: /shows/brunswick-coin-stamp-club-show/
 show_id: "brunswick-coin-stamp-club-show"
 breadcrumb_parent: "Maine"

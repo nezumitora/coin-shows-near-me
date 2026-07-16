@@ -30,4 +30,5 @@ jobs:
           path: |
             tmp/third-party-discovery-report.md
             tmp/third-party-discovery-report.csv
+            tmp/third-party-lead-details.csv
           if-no-files-found: error

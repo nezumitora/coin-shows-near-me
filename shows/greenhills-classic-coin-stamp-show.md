@@ -2,7 +2,7 @@
 layout: show
 title: "Greenhills Classic Coin & Stamp Show — Cincinnati, Ohio Coin Show"
 seo_title: "Greenhills Classic Coin & Stamp Show — Cincinnati, Ohio | Coin Show Near Me"
-seo_description: "Greenhills Classic Coin & Stamp Show in Cincinnati, Ohio. Monthly (Last Sunday) coin show at American Legion Post 530. Get dates, venue details, and more."
+seo_description: "Greenhills Classic Coin & Stamp Show in Cincinnati, Ohio. Monthly (Last Sunday) coin show at American Legion, 11100 Winton Road, Cincinnati, OH 45218. Get dates, venue details, and more."
 permalink: /shows/greenhills-classic-coin-stamp-show/
 show_id: "greenhills-classic-coin-stamp-show"
 breadcrumb_parent: "Ohio"

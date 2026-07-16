@@ -231,17 +231,20 @@
   verification_notes: Official Pacific Expos LLC home page lists the next Buena Park Coin Show as September 12 & 13, 2026 at Retail Clerk’s Hall, 8550 Stanton, Buena Park, California; hours Saturday 10am-5pm and Sunday 10am-4pm; reviewed during future-date cleanup.
   notes: '50+ dealers, free parking, free hourly coin drawings. Official next date: September 12-13, 2026. Hours: Saturday 10am-5pm, Sunday 10am-4pm.'
 - id: east-bayconcord-coin-show
-  name: East Bay/Concord Coin Show
+  name: East Bay / Concord Coin Show
   state: CA
   state_name: California
   city: Concord
   city_slug: concord-ca
-  venue: ''
-  frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  venue: Concord Plaza Hotel, 45 John Glenn Dr, Concord, CA 94520
+  frequency: Annual (June)
+  next_date: June 2026
+  website: https://norcalcoinshows.com/
+  organizer: NorCal Coin Shows / BG Productions
+  source_url: https://norcalcoinshows.com/east-bay-coin-show/
+  last_verified: '2026-07-15'
+  verification_notes: Official NorCal Coin Shows East Bay page confirms the Concord Coin Show at Concord Plaza Hotel, 45 John Glenn Dr.; exact text-readable dates/hours need follow-up because the official page exposes only the show month in fetched text.
+  notes: Official promoter page confirms venue and show; exact date/hours pending text-readable official confirmation.
 - id: cupertino-coin-club-annual-coin-show
   name: Cupertino Coin Club Annual Coin Show
   state: CA
@@ -309,17 +312,24 @@
   verification_notes: Official Sacramento Coin Show page lists August 23, November 6-7, and December 13, 2026 future dates, Lions Gate Hotel address, hours, and presenter contact; rechecked during official-source listing verification.
   notes: 'Hours: Aug 23 and Dec 13 Sun 10-4; Nov 6-7 Fri/Sat 10-5 and 10-4. Presenter contact listed as Peter McIntosh, (916) 317-9055.'
 - id: sacramento-valley-coin-club
-  name: Sacramento Valley Coin Club
+  name: Sacramento Valley Coin Club Fall Coin Show
   state: CA
   state_name: California
   city: Sacramento
   city_slug: sacramento-ca
-  venue: 3410 Westover Street, Sacramento, CA
-  frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  venue: Four Points by Sheraton, 4900 Duckhorn Dr, Sacramento, CA 95834
+  frequency: Annual (September)
+  next_date: September 24-26, 2026
+  website: https://sacvalcc.org/
+  organizer: Sacramento Valley Coin Club
+  source_url: https://sacvalcc.org/coin-show/
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-09-24'
+  - '2026-09-25'
+  - '2026-09-26'
+  verification_notes: Official Sacramento Valley Coin Club coin show page lists the Sacramento Fall Coin Show 2026 on September 24-26 at Four Points by Sheraton, 4900 Duckhorn Dr.; verified from official club page after CoinZip lead review.
+  notes: 'Hours: Thu 3-6, Fri 10-5, Sat 10-4. Official page notes over 30 dealers, hourly door prizes, Saturday treasure hunt for kids, and a coupon.'
 - id: san-fernando-coin-collectible-expo
   name: San Fernando Coin & Collectible Expo
   state: CA
@@ -354,7 +364,7 @@
   frequency: Recurring
   next_date: August 21-22, 2026
   website: https://www.santaclaracoinshow.com
-  organizer: ''
+  organizer: Santa Clara Coin Show
   source_url: https://www.santaclaracoinshow.com
   last_verified: '2026-07-13'
   upcoming_dates:
@@ -364,8 +374,8 @@
   - '2026-10-17'
   - '2026-12-18'
   - '2026-12-19'
-  verification_notes: Official Santa Clara Coin Show site lists August 21-22, October 16-17, and December 18-19, 2026 dates; reviewed during broad official-source future-date refresh.
-  notes: ''
+  verification_notes: Official Santa Clara Coin Show site lists August 21-22, October 16-17, and December 18-19, 2026 dates, American Legion Post 419 venue, and Friday/Saturday public hours; rechecked during agent-side lead verification.
+  notes: 'Hours: Fri 10-5, Sat 10-4.'
 - id: valley-coin-show
   name: Valley Coin Show
   state: CA
@@ -401,7 +411,7 @@
   state_name: California
   city: Sunnyvale
   city_slug: sunnyvale-ca
-  venue: Domain Hotel
+  venue: The Domain Hotel, Sunnyvale, CA
   frequency: Semiannual (Spring & Fall)
   next_date: November 13-14, 2026
   website: http://norcalcoinshows.com/
@@ -412,7 +422,119 @@
   - '2026-11-13'
   - '2026-11-14'
   verification_notes: Official NorCal Coin Shows page lists the Sunnyvale Coin Show on November 13-14, 2026; reviewed during broad official-source future-date refresh.
-  notes: ''
+  notes: Official promoter page confirms November 13-14, 2026 dates; text-readable hours not found during agent-side verification.
+- id: vacaville-coin-show
+  name: Vacaville Coin Show
+  state: CA
+  state_name: California
+  city: Vacaville
+  city_slug: vacaville-ca
+  venue: Vacaville Elks Lodge, 302 Parker Street, Vacaville, CA
+  frequency: Annual (July)
+  next_date: July 19, 2026
+  website: https://www.griffincoin.com/
+  organizer: Portsmouth Square Company / Griffin Coin
+  source_url: https://www.griffincoin.com/coin-shows
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-07-19'
+  verification_notes: Official Griffin Coin show page lists Vacaville Coin Show on July 19, 2026 at Vacaville Elks Lodge, 302 Parker Street, with hours and admission; verified during California lead review.
+  notes: 'Hours: Sun 9-3:30.'
+- id: coinarama-san-diego-coin-show
+  name: COINARAMA San Diego Coin Show
+  state: CA
+  state_name: California
+  city: San Diego
+  city_slug: san-diego-ca
+  venue: Liberty Station Conference Center, 2600 Laning Road, San Diego, CA
+  frequency: Semiannual
+  next_date: July 18-19, 2026
+  website: https://www.coinarama.com/
+  organizer: San Diego County Numismatists / SDCICNC
+  source_url: https://www.coinarama.com/
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-07-18'
+  - '2026-07-19'
+  - '2027-01-23'
+  - '2027-01-24'
+  - '2027-07-10'
+  - '2027-07-11'
+  verification_notes: Official COINARAMA site lists July 18-19, 2026 plus January 23-24 and July 10-11, 2027 dates at Liberty Station Conference Center; verified during California lead review.
+  notes: 'Hours: Sat 10-6, Sun 10-5.'
+- id: fresno-numismatic-society-coin-show
+  name: Fresno Numismatic Society Annual Coin Show
+  state: CA
+  state_name: California
+  city: Fresno
+  city_slug: fresno-ca
+  venue: American Legion Post 509, 3509 N. First Street, Fresno, CA 93726
+  frequency: Annual (October)
+  next_date: October 2-3, 2026
+  website: https://fresnocoinclub.com/
+  organizer: Fresno Numismatic Society
+  source_url: https://fresnocoinclub.com/coin-show/
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-10-02'
+  - '2026-10-03'
+  verification_notes: Official Fresno Numismatic Society coin show page lists the 59th annual coin show October 2-3, 2026 at American Legion Post 509; verified during California lead review.
+  notes: 'Hours: Fri/Sat 10-5.'
+- id: diablo-numismatic-society-coin-show
+  name: Diablo Numismatic Society Coin Show
+  state: CA
+  state_name: California
+  city: Walnut Creek
+  city_slug: walnut-creek-ca
+  venue: Elks Lodge, 1475 Creekside Dr, Walnut Creek, CA 94596
+  frequency: Annual (October)
+  next_date: October 9-10, 2026
+  website: https://www.diablocoinclub.org/
+  organizer: Diablo Numismatic Society
+  source_url: https://www.diablocoinclub.org/coin-show
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-10-09'
+  - '2026-10-10'
+  verification_notes: Official Diablo Numismatic Society coin show page confirms the Contra Costa/Walnut Creek lead as October 9-10, 2026 at Elks Lodge, 1475 Creekside Dr.; verified during California lead review.
+  notes: Official source confirms date and venue; text-readable hours not found during this pass.
+- id: heartland-coin-club-coin-show
+  name: Heartland Coin Club Coin Show
+  state: CA
+  state_name: California
+  city: El Cajon
+  city_slug: el-cajon-ca
+  venue: Elks Lodge, 1400 E Washington Ave, El Cajon, CA 92019
+  frequency: Semiannual
+  next_date: October 17-18, 2026
+  website: http://www.heartlandcoinclub.com/
+  organizer: Heartland Coin Club
+  source_url: http://www.heartlandcoinclub.com/coinshow.html
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-10-17'
+  - '2026-10-18'
+  - '2027-05-15'
+  - '2027-05-16'
+  verification_notes: Official Heartland Coin Club show page lists October 17-18, 2026 and May 15-16, 2027 at Elks Lodge, 1400 E Washington Ave.; verified during California lead review.
+  notes: 'Hours: Sat 10-5, Sun 9-4.'
+- id: marin-coin-show
+  name: Marin Coin Show
+  state: CA
+  state_name: California
+  city: Novato
+  city_slug: novato-ca
+  venue: Best Western Novato Oaks Inn, 215 Alameda del Prado, Novato, CA 94949
+  frequency: Annual (November)
+  next_date: November 22, 2026
+  website: https://www.griffincoin.com/
+  organizer: Portsmouth Square Company / Griffin Coin
+  source_url: https://www.griffincoin.com/coin-shows
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-11-22'
+  verification_notes: Official Griffin Coin show page lists Marin Coin Show on November 22, 2026 at Best Western Novato Oaks Inn, 215 Alameda del Prado; verified during California lead review.
+  notes: 'Hours: Sun 9:30-4.'
 - id: van-nuys-coin-show-sunday-december-13-2026
   name: Van Nuys Coin Show - Sunday, December 13, 2026
   state: CA
@@ -556,17 +678,24 @@
   organizer: Wilmington Coin Club
   notes: ''
 - id: clearwater-coin-show
-  name: Clearwater Coin Show
+  name: St. Pete / Clearwater Coin Show
   state: FL
   state_name: Florida
-  city: Clearwater
-  city_slug: clearwater-fl
-  venue: Countryside Recreation Center
-  frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: 'Hours: Sat 9:30-2:30'
+  city: Dunedin
+  city_slug: dunedin-fl
+  venue: Dunedin Community Center, 1920 Pinehurst Rd, Dunedin, FL 34698
+  frequency: Annual (September)
+  next_date: September 18-19, 2026
+  website: http://funtopics.com/calendar.html
+  organizer: Arnie Fugate / ShowsClearwater
+  source_url: http://funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-09-18'
+  - '2026-09-19'
+  verification_notes: Official Florida United Numismatists statewide calendar lists the St Pete/Clearwater Coin Show September 18-19, 2026 at Dunedin Community Center, 1920 Pinehurst Rd.; verified during Florida lead review.
+  notes: Official statewide calendar confirms date and venue; hours not listed in fetched source.
 - id: gold-coast-coin-collectibles-show
   name: Gold Coast Coin & Collectibles Show
   state: FL
@@ -591,14 +720,18 @@
   name: The Villages / Leesburg Coin Show
   state: FL
   state_name: Florida
-  city: Leesburg
-  city_slug: leesburg-fl
-  venue: ''
+  city: Okahumpka
+  city_slug: okahumpka-fl
+  venue: Fraternal Order of Eagles, 27150 Haywood Worm Farm Rd, Okahumpka, FL 34762
   frequency: Recurring
   next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  website: http://funtopics.com/calendar.html
+  organizer: Arnie Fugate
+  source_url: http://funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-07-15'
+  verification_notes: Official Florida United Numismatists statewide calendar lists The Villages Leesburg Show at Fraternal Order of Eagles, 27150 Haywood Worm Farm Rd, with 2026 dates through June 25; no later future date was found, so next date remains TBD.
+  notes: Check official FUN calendar for the next published date before traveling.
 - id: fun-convention
   name: FUN Convention (Florida United Numismatists)
   state: FL
@@ -695,12 +828,123 @@
   state_name: Florida
   city: Tampa
   city_slug: tampa-fl
-  venue: 13336 N Central Ave, Tampa, FL
+  venue: Central Professional Building, 13336 N Central Ave, Tampa, FL 33612
   frequency: Recurring
+  next_date: September 5, 2026
+  website: http://funtopics.com/calendar.html
+  organizer: Andrew Lydic / Coinacopia
+  source_url: http://funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-09-05'
+  verification_notes: Official Florida United Numismatists statewide calendar lists Coinacopia Coin Show at Central Professional Building, 13336 N Central Ave, including 2026 recurrence entries; verified during Florida lead review.
+  notes: Official statewide calendar confirms venue and recurrence; hours not listed in fetched source.
+- id: first-sunday-coin-show-apopka
+  name: 1st Sunday Coin Show
+  state: FL
+  state_name: Florida
+  city: Apopka
+  city_slug: apopka-fl
+  venue: Apopka Community Center, 519 S. Central Ave, Apopka, FL 32703
+  frequency: Monthly (1st Sunday)
+  next_date: August 2, 2026
+  website: http://www.centralfloridacoinclub.org
+  organizer: Central Florida Coin Club
+  source_url: http://www.centralfloridacoinclub.org
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-08-02'
+  - '2026-09-06'
+  - '2026-10-04'
+  - '2026-11-01'
+  verification_notes: Official Central Florida Coin Club site lists 1st Sunday Coin Show dates through November 1, 2026 at Apopka Community Center, 519 S. Central Ave.; verified during Florida lead review.
+  notes: 'Hours: Sun 9:30-3.'
+- id: tallahassee-coin-club-two-day-show
+  name: Tallahassee Coin Club Annual Two-Day Show
+  state: FL
+  state_name: Florida
+  city: Tallahassee
+  city_slug: tallahassee-fl
+  venue: Tallahassee Senior Center, 1400 N. Monroe St, Tallahassee, FL 32303
+  frequency: Annual (August)
+  next_date: August 22-23, 2026
+  website: http://www.TallahasseeCoinClub.com
+  organizer: Tallahassee Coin Club
+  source_url: http://www.TallahasseeCoinClub.com
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-08-22'
+  - '2026-08-23'
+  verification_notes: Official Tallahassee Coin Club homepage/calendar and the official FUN statewide calendar list the August 22-23, 2026 two-day show at Tallahassee Senior Center; verified during Florida lead review.
+  notes: Official sources confirm dates and venue; hours not listed in fetched source.
+- id: pasco-county-coin-club-show
+  name: Pasco County Coin Club Coin & Collectibles Show
+  state: FL
+  state_name: Florida
+  city: Hudson
+  city_slug: hudson-fl
+  venue: Elks Lodge, 9135 Denton Ave, Hudson, FL 34667
+  frequency: Recurring
+  next_date: September 12, 2026
+  website: http://funtopics.com/calendar.html
+  organizer: Pasco County Coin Club
+  source_url: http://funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-09-12'
+  verification_notes: Official Florida United Numismatists statewide calendar lists Pasco County Coin Club Coin & Collectibles Show dates in 2026 at Elks Lodge, 9135 Denton Ave; direct Pasco source was not readable during review.
+  notes: Official statewide calendar confirms venue and September 12, 2026 future date; hours not listed in fetched source.
+- id: tampa-bay-coin-club-fall-show
+  name: Tampa Bay Coin Club Fall Show
+  state: FL
+  state_name: Florida
+  city: Tampa
+  city_slug: tampa-fl
+  venue: Sons of Italy Lodge, 3315 W Lemon St, Tampa, FL 33609
+  frequency: Annual (October)
+  next_date: October 17, 2026
+  website: https://tampabaycoinclub.com/
+  organizer: Tampa Bay Coin Club
+  source_url: https://tampabaycoinclub.com/coin-shows/
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-10-17'
+  verification_notes: Official Tampa Bay Coin Club coin shows page lists the Fall Show on October 17, 2026 at Sons of Italy Lodge, 3315 W Lemon St.; verified during Florida lead review.
+  notes: 'Hours: Sat 9-3.'
+- id: brandon-coin-club-show
+  name: Brandon Coin Club Show
+  state: FL
+  state_name: Florida
+  city: Brandon
+  city_slug: brandon-fl
+  venue: St Andrews United Methodist Church, 3315 S Bryan Rd, Brandon, FL 33511
+  frequency: Annual
   next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  website: http://funtopics.com/calendar.html
+  organizer: Brandon Coin Club
+  source_url: http://funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-07-15'
+  verification_notes: Official Florida United Numismatists statewide calendar listed the Brandon Coin Club Show on April 11, 2026 at St Andrews United Methodist Church; no later future date was found, so next date remains TBD.
+  notes: Past 2026 listing verified; check official FUN calendar for the next future date.
+- id: greater-jacksonville-coin-club-show
+  name: Greater Jacksonville Coin Club Show
+  state: FL
+  state_name: Florida
+  city: Jacksonville
+  city_slug: jacksonville-fl
+  venue: Ramallah Club, 3130 Parental Home Rd, Jacksonville, FL 32216
+  frequency: Annual
+  next_date: TBD
+  website: http://funtopics.com/calendar.html
+  organizer: Greater Jacksonville Coin Club
+  source_url: http://funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-07-15'
+  verification_notes: Official Florida United Numismatists statewide calendar listed the Greater Jacksonville Coin Club Show on May 28-30, 2026 at Ramallah Club; Tallahassee club calendar also referenced the May 28-30 listing. No later future date was found.
+  notes: Past 2026 listing verified; check official FUN calendar for the next future date.
 - id: palm-beach-coin-show
   name: Palm Beach Coin Show
   state: FL
@@ -719,17 +963,23 @@
   verification_notes: Official Palm Beach Coin Club page confirms the fourth-Sunday monthly show, American Polish Club address, July 26, 2026 listing, hours, and contact phone; rechecked during official-source listing verification.
   notes: 'Hours: Sun 9-3. Official page lists Tony Swicer contact phone (561) 964-7236.'
 - id: the-villageswildwood-april-292026
-  name: THE VILLAGES/WILDWOOD APRIL 29,2026
+  name: The Villages / Wildwood Coin Show
   state: FL
   state_name: Florida
   city: Wildwood
   city_slug: wildwood-fl
-  venue: ''
+  venue: American Legion Post 18, 401 E Gulf Atlantic Hwy, Wildwood, FL 34785
   frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  next_date: September 23, 2026
+  website: http://funtopics.com/calendar.html
+  organizer: Mark Graff
+  source_url: http://funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-09-23'
+  verification_notes: Official Florida United Numismatists statewide calendar lists The Villages/Wildwood Coin Show at American Legion Post 18, 401 E Gulf Atlantic Hwy, including a September 23, 2026 future date; verified during Florida lead review.
+  notes: 'Hours for September 23 listing: 12-5.'
 - id: the-villageswildwood-may-272026
   name: THE VILLAGES/WILDWOOD MAY 27,2026
   state: FL
@@ -2124,6 +2374,23 @@
   website: ''
   organizer: ''
   notes: ''
+- id: oh-kan-coin-club-show
+  name: OH-KAN Coin Club Show
+  state: OH
+  state_name: Ohio
+  city: Gallipolis
+  city_slug: gallipolis-oh
+  venue: Quality Inn, Rt 7, Gallipolis, OH
+  frequency: Annual (October)
+  next_date: October 4, 2026
+  website: https://www.kvcc.eznetway.com/coin-shows.php
+  organizer: OH-KAN Coin Club
+  source_url: https://www.kvcc.eznetway.com/coin-shows.php
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-10-04'
+  verification_notes: Official Kanawha Valley Coin Club area show page lists the OH-KAN Coin Club show on October 4, 2026, 10am-3pm, at Quality Inn on Rt 7 in Gallipolis, Ohio; verified from official area show page after CoinZip lead review.
+  notes: 'Hours: Sun 10-3.'
 - id: duncan-coin-club-annual-show
   name: Duncan Coin Club Annual Show
   state: OK
@@ -2221,6 +2488,23 @@
   - '2026-11-28'
   verification_notes: Official America’s Coin Shows future shows page lists September 10-12 and November 27-28, 2026 Gettysburg show dates; this listing appears duplicative and needs canonicalization review.
   notes: ''
+- id: lehigh-county-coin-expo
+  name: Lehigh County Coin Expo
+  state: PA
+  state_name: Pennsylvania
+  city: Schnecksville
+  city_slug: schnecksville-pa
+  venue: Schnecksville Fire Company, 4550 Old Packhouse Rd, Schnecksville, PA 18078
+  frequency: Annual (November)
+  next_date: November 21, 2026
+  website: https://www.abcoinclub.com/
+  organizer: Allentown Bethlehem Coin Club
+  source_url: https://www.abcoinclub.com/event/lehigh-county-coin-expo-2/
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-11-21'
+  verification_notes: Official Allentown Bethlehem Coin Club event page lists Lehigh County Coin Expo on November 21, 2026, 10am-3pm, at Schnecksville Fire Company, 4550 Old Packhouse Rd.; verified from official club calendar after CoinZip lead review.
+  notes: 'Hours: Sat 10-3. Venue phone listed as 610-434-0222.'
 - id: monthly-tri-state-coin-stamp-show
   name: Monthly Tri-State Coin & Stamp Show
   state: PA
@@ -2385,16 +2669,16 @@
   organizer: ''
   notes: 'Hours: Sat 9-5, Sun 9-3'
 - id: montco-coin-show-meets-every-2nd-sunday-each-month
-  name: MontCo Coin Show - Meets Every 2nd Sunday each Month
+  name: Montgomery County Coin Show / MontCo Coin Show
   state: PA
   state_name: Pennsylvania
   city: Telford
   city_slug: telford-pa
-  venue: 508 Harleysville Pike Unit A, Telford, PA 18969
-  frequency: Monthly
+  venue: Franconia Heritage Banquet & Conference Center, 508 Harleysville Pike Unit A, Telford, PA 18969
+  frequency: Monthly (2nd Sunday)
   next_date: August 9, 2026
-  website: ''
-  organizer: ''
+  website: https://www.buxmontcoinshows.com/
+  organizer: BuxMont Coin Shows
   source_url: https://www.buxmontcoinshows.com/about/
   last_verified: '2026-07-13'
   upcoming_dates:
@@ -2403,19 +2687,19 @@
   - '2026-10-11'
   - '2026-11-08'
   - '2026-12-13'
-  verification_notes: Official BuxMont page confirms the MontCo Coin Show meets every second Sunday; future second Sundays for 2026 were recorded during broad official-source future-date refresh.
-  notes: ''
+  verification_notes: Official BuxMont page confirms the Montgomery County/MontCo Coin Show meets every second Sunday at Franconia Heritage Banquet & Conference Center, 508 Harleysville Pike Unit A; future second Sundays for 2026 were recorded and rechecked during PA lead verification.
+  notes: 'Hours: Sun 10-3.'
 - id: trevose-coin-show-every-4th-sunday-of-the-month
-  name: Trevose Coin Show - Every 4th Sunday of the Month
+  name: Trevose Coin Show
   state: PA
   state_name: Pennsylvania
   city: Trevose
   city_slug: trevose-pa
-  venue: ''
-  frequency: Monthly
+  venue: Trevose Fire Hall, 4900 E. Street Rd., Trevose, PA 19053
+  frequency: Monthly (4th Sunday)
   next_date: July 26, 2026
   website: https://www.buxmontcoinshows.com
-  organizer: ''
+  organizer: BuxMont Coin Shows
   source_url: https://www.buxmontcoinshows.com/about-trevose/
   last_verified: '2026-07-13'
   upcoming_dates:
@@ -2425,8 +2709,43 @@
   - '2026-10-25'
   - '2026-11-22'
   - '2026-12-27'
-  verification_notes: Official BuxMont Trevose page confirms the show meets every fourth Sunday; future fourth Sundays for 2026 were recorded during broad official-source future-date refresh.
-  notes: ''
+  verification_notes: Official BuxMont Trevose page confirms the show meets every fourth Sunday at Trevose Fire Hall, 4900 E. Street Rd.; future fourth Sundays for 2026 were recorded and rechecked during PA lead verification.
+  notes: 'Hours: Sun 10-3.'
+- id: harrisburg-coin-club-fall-coin-show
+  name: Harrisburg Coin Club Fall Coin Show
+  state: PA
+  state_name: Pennsylvania
+  city: Harrisburg
+  city_slug: harrisburg-pa
+  venue: Scottish Rite Entertainment Complex of Harrisburg, 2701 North Third Street, Harrisburg, PA 17110
+  frequency: Annual (September)
+  next_date: September 25-26, 2026
+  website: https://harrisburgcoinclub.com/
+  organizer: Harrisburg Coin Club
+  source_url: https://harrisburgcoinclub.com/coin-show/
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-09-25'
+  - '2026-09-26'
+  verification_notes: Official Harrisburg Coin Club show page lists the Fall Coin Show September 25-26, 2026 at Scottish Rite Entertainment Complex with public hours and show details; verified during PA lead review.
+  notes: 'Hours: Fri 9-5, Sat 9-4.'
+- id: greater-johnstown-coin-club-show
+  name: Annual Johnstown Coin Show
+  state: PA
+  state_name: Pennsylvania
+  city: Johnstown
+  city_slug: johnstown-pa
+  venue: Richland Township Fire Department, 1321 Scalp Ave, Johnstown, PA
+  frequency: Annual (August)
+  next_date: August 16, 2026
+  website: http://johnstown-jim.org/coinclub/
+  organizer: Greater Johnstown Coin Club
+  source_url: http://johnstown-jim.org/coinclub/coinshow.htm
+  last_verified: '2026-07-15'
+  upcoming_dates:
+  - '2026-08-16'
+  verification_notes: Official Greater Johnstown Coin Club show page lists the Annual Johnstown Coin Show on August 16, 2026 at Richland Township Fire Department, 1321 Scalp Ave.; verified during PA lead review.
+  notes: 'Hours: Sun 9-4. Official page lists free admission and free parking.'
 - id: tri-state-monthly-coin-show
   name: Tri-State Monthly Coin Show
   state: PA

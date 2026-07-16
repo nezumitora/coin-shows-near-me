@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-15 20:56 (PDT)
+**Last updated:** 2026-07-15 22:18 (PDT)
 **Session:** nationwide show refresh priority
 
 ## Completed today
@@ -19,15 +19,18 @@
 - Committed first nationwide refresh batch as `5501d58 Start nationwide show refresh`.
 - Expanded third-party discovery config from 8 historical sources to 39 CoinZip state category sources plus 2 broken CoinShows-USA evidence URLs; added optional lead-detail CSV extraction.
 - Added official-source updates for Great American Coin and Collectibles Show, CSNS Convention, and Cleveland Coin Expo records; added CK/GACCS/Cleveland/CSNS sources to comparison config.
+- Added 9 more official/promoter sources to the report-only comparison config and included third-party lead-detail CSV in the scheduled discovery artifact upload.
+- Verified PA/CA/OH lead batch from official club pages and added/updated Lehigh County Coin Expo, Sacramento Valley Coin Club Fall Coin Show, and OH-KAN Coin Club Show; regenerated affected state/city/show pages.
+- Added v0.9.13 verified agent-side source batch: Florida, Pennsylvania, California, and Ohio source reviews added/updated 14 more show records and expanded official source monitoring to 37 sources.
 
 ## In progress
-- Run expanded nationwide lead discovery, prioritize states with low future coverage, and verify new/current shows against official sources before data edits.
+- Continue remaining unverified PA/FL/CA/OH leads and then expand to the next highest-gap states from official/promoter/state/club sources.
 
 ## Next up
 - Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.
 - Add official sources for the 181 listings now queued by the review-only verification report.
 - Add real sponsored ad links later with `rel="sponsored nofollow noopener noreferrer"`.
-- Re-run verification report after data corrections and commit only confirmed listing fixes.
+- Commit only if Milo explicitly asks; otherwise continue verified source batches.
 - Build source coverage state-by-state and add verified new/current shows in batches.
 
 ## Open decisions

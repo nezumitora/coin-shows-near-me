@@ -125,3 +125,205 @@
   expected_show_ids:
     - csns-convention
   notes: Official CSNS convention source rechecked during nationwide refresh.
+
+- key: long-beach-expo
+  name: Long Beach Expo
+  source_type: promoter
+  url: https://www.longbeachexpo.com/
+  expected_show_ids:
+    - long-beach-expo
+  notes: Official long-range California source already used by the Long Beach listing.
+
+- key: rocky-mountain-expos
+  name: Rocky Mountain Expos
+  source_type: promoter
+  url: https://www.rockymtnexpos.com/
+  expected_show_ids:
+    - denver-coin-expo
+  notes: Official Denver Coin Expo promoter source with multiple future show windows.
+
+- key: whitman-expo
+  name: Whitman Baltimore Expo
+  source_type: promoter
+  url: https://whitmanexpo.com/baltimore-winter-expo/
+  expected_show_ids:
+    - whitman-coin-expo
+    - whitman-coin-collectibles-expo-jun-11th-13th-2026
+  notes: Official Baltimore Whitman Expo source already used by duplicate Whitman records; duplicate records need canonicalization.
+
+- key: pan-coins
+  name: Pennsylvania Association of Numismatists
+  source_type: association-calendar
+  url: https://pancoins.org/
+  expected_show_ids:
+    - pan-coin-show
+  notes: Official PAN source for Pennsylvania show verification.
+
+- key: houston-money-show
+  name: Houston Money Show
+  source_type: promoter
+  url: http://houstoncoinshow.org/
+  expected_show_ids:
+    - houston-money-show
+  notes: Official Houston Money Show source already used by the Houston listing.
+
+- key: utah-numismatic-society
+  name: Utah Numismatic Society Coin Show
+  source_type: association-calendar
+  url: http://www.utahcoinshows.com/
+  expected_show_ids:
+    - utah-numismatic-society-coin-show
+  notes: Official Utah show source already used by the Sandy listing.
+
+- key: sacramento-coin-show
+  name: Sacramento Coin Show
+  source_type: promoter
+  url: http://sacramentocoinshow.com/
+  expected_show_ids:
+    - sacramento-coin-show
+  notes: Official Sacramento source already used by the Sacramento listing.
+
+- key: griffin-coin-shows
+  name: Griffin Coin Company Show Calendar
+  source_type: promoter
+  url: https://www.griffincoin.com/coin-shows
+  expected_show_ids:
+    - san-francisco-international-numismatic-bourse
+  notes: Official/promoter source used by the San Francisco International listing.
+
+- key: norcal-coin-shows
+  name: NorCal Coin Shows
+  source_type: promoter
+  url: https://norcalcoinshows.com/sunnyvale-coin-show/
+  expected_show_ids:
+    - sunnyvale-coin-show
+  notes: Official/promoter source used by the Sunnyvale listing.
+
+- key: sacramento-valley-coin-club
+  name: Sacramento Valley Coin Club Coin Show
+  source_type: club-calendar
+  url: https://sacvalcc.org/coin-show/
+  expected_show_ids:
+    - sacramento-valley-coin-club
+  notes: Official club source verified after California lead review.
+
+- key: allentown-bethlehem-coin-club
+  name: Allentown Bethlehem Coin Club Events
+  source_type: club-calendar
+  url: https://www.abcoinclub.com/events/
+  expected_show_ids:
+    - lehigh-county-coin-expo
+  notes: Official club event calendar verified after Pennsylvania lead review.
+
+- key: kanawha-valley-coin-club-area-shows
+  name: Kanawha Valley Coin Club Area Shows
+  source_type: club-calendar
+  url: https://www.kvcc.eznetway.com/coin-shows.php
+  expected_show_ids:
+    - oh-kan-coin-club-show
+    - river-city-coin-club-coin-show
+  notes: Official club area-show page verified after Ohio lead review.
+
+- key: central-florida-coin-club
+  name: Central Florida Coin Club
+  source_type: club-calendar
+  url: http://www.centralfloridacoinclub.org
+  expected_show_ids:
+    - first-sunday-coin-show-apopka
+  notes: Official club source verified after Florida lead review.
+
+- key: florida-united-numismatists-calendar
+  name: Florida United Numismatists Statewide Calendar
+  source_type: association-calendar
+  url: http://funtopics.com/calendar.html
+  expected_show_ids:
+    - pasco-county-coin-club-show
+    - clearwater-coin-show
+    - the-villages-leesburg-coin-show
+    - coinacopia-tampas-coin-show
+    - brandon-coin-club-show
+    - greater-jacksonville-coin-club-show
+    - the-villageswildwood-april-292026
+  notes: Official statewide association calendar used for Florida leads where direct organizer pages were unavailable.
+
+- key: tallahassee-coin-club
+  name: Tallahassee Coin Club
+  source_type: club-calendar
+  url: http://www.TallahasseeCoinClub.com
+  expected_show_ids:
+    - tallahassee-coin-club-two-day-show
+  notes: Official club source verified after Florida lead review.
+
+- key: tampa-bay-coin-club
+  name: Tampa Bay Coin Club Shows
+  source_type: club-calendar
+  url: https://tampabaycoinclub.com/coin-shows/
+  expected_show_ids:
+    - tampa-bay-coin-club-fall-show
+  notes: Official club source verified after Florida lead review.
+
+- key: griffin-coin-shows-expanded
+  name: Griffin Coin Company Regional Shows
+  source_type: promoter
+  url: https://www.griffincoin.com/coin-shows
+  expected_show_ids:
+    - vacaville-coin-show
+    - marin-coin-show
+    - san-francisco-international-numismatic-bourse
+  notes: Official promoter source verified for additional California leads.
+
+- key: coinarama-san-diego
+  name: COINARAMA San Diego
+  source_type: promoter
+  url: https://www.coinarama.com/
+  expected_show_ids:
+    - coinarama-san-diego-coin-show
+  notes: Official show source verified after California lead review.
+
+- key: fresno-numismatic-society
+  name: Fresno Numismatic Society Coin Show
+  source_type: club-calendar
+  url: https://fresnocoinclub.com/coin-show/
+  expected_show_ids:
+    - fresno-numismatic-society-coin-show
+  notes: Official club source verified after California lead review.
+
+- key: diablo-numismatic-society
+  name: Diablo Numismatic Society Coin Show
+  source_type: club-calendar
+  url: https://www.diablocoinclub.org/coin-show
+  expected_show_ids:
+    - diablo-numismatic-society-coin-show
+  notes: Official club source verified after California lead review.
+
+- key: heartland-coin-club
+  name: Heartland Coin Club Coin Show
+  source_type: club-calendar
+  url: http://www.heartlandcoinclub.com/coinshow.html
+  expected_show_ids:
+    - heartland-coin-club-coin-show
+  notes: Official club source verified after California lead review.
+
+- key: norcal-east-bay-coin-show
+  name: NorCal East Bay Coin Show
+  source_type: promoter
+  url: https://norcalcoinshows.com/east-bay-coin-show/
+  expected_show_ids:
+    - east-bayconcord-coin-show
+  notes: Official promoter source verified for venue/month; exact text-readable dates remain follow-up.
+
+- key: harrisburg-coin-club
+  name: Harrisburg Coin Club Show
+  source_type: club-calendar
+  url: https://harrisburgcoinclub.com/coin-show/
+  expected_show_ids:
+    - harrisburg-coin-club-fall-coin-show
+  notes: Official club source verified after Pennsylvania lead review.
+
+- key: greater-johnstown-coin-club
+  name: Greater Johnstown Coin Club Show
+  source_type: club-calendar
+  url: http://johnstown-jim.org/coinclub/coinshow.htm
+  expected_show_ids:
+    - greater-johnstown-coin-club-show
+  notes: Official club source verified after Pennsylvania lead review.
