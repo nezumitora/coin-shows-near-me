@@ -378,3 +378,11 @@
   expected_show_ids:
     - raleigh-money-expo
   notes: Official club source verified after North Carolina lead review.
+
+- key: california-coin-events-arcadia
+  name: California Coin Events Arcadia Coin Show
+  source_type: promoter
+  url: https://californiacoinevents.com/arcadia-coin-show
+  expected_show_ids:
+    - the-arcadia-coin-currency-and-collectibles-show
+  notes: Official promoter source added after manual gap report showed Arcadia still had TBD data.

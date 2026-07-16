@@ -202,17 +202,23 @@
   verification_notes: Official Pacific Expos LLC page confirms the August 2, 2026 North County Monthly Coin Show, 9am-4pm hours, Embassy Suites address, admission, free parking note, and phone; prior dates remain from the NCMCS dates page.
   notes: '30+ dealers; free parking and hourly prize drawings. Official upcoming dates: Aug 2, Oct 4, Nov 1, and Dec 6, 2026; Jan 3, Feb 7, Apr 4, May 2, and Jul 4, 2027. Hours: 9am-4pm. Official page lists phone 714-271-8946.'
 - id: the-arcadia-coin-currency-and-collectibles-show
-  name: The Arcadia Coin, Currency and Collectibles Show
+  name: Arcadia Coin Show
   state: CA
   state_name: California
   city: Arcadia
   city_slug: arcadia-ca
-  venue: ''
-  frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  venue: Masonic Lodge, 50 West Duarte Road, Arcadia, CA
+  frequency: Annual (August)
+  next_date: August 29-30, 2026
+  website: https://californiacoinevents.com/arcadia-coin-show
+  organizer: California Coin Events / Arcadia Coin, Currency and Collectibles Show
+  source_url: https://californiacoinevents.com/arcadia-coin-show
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-08-29'
+  - '2026-08-30'
+  verification_notes: Official California Coin Events Arcadia Coin Show page lists August 29-30, 2026, Masonic Lodge at 50 West Duarte Road, public hours, admission, free parking, and show contact; canonical name shortened to match the official source after source discovery gap review.
+  notes: 'Hours: Sat 10-5, Sun 10-4. Admission $4; free parking. Official page lists show contact Scott at (818) 667-2329.'
 - id: buena-park-coin-show
   name: Buena Park Coin Show
   state: CA

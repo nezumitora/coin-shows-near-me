@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-16 00:31 (PDT)
+**Last updated:** 2026-07-16 00:52 (PDT)
 **Session:** nationwide show refresh priority
 
 ## Completed today
@@ -24,9 +24,10 @@
 - Added v0.9.13 verified agent-side source batch: Florida, Pennsylvania, California, and Ohio source reviews added/updated 14 more show records and expanded official source monitoring to 37 sources.
 - Added v0.9.14 NY/MI/IL/NC verified source batch: updated NYINC, Melville, Royal Oak, Raleigh, ILNA, Orland Park, and Peotone records and added their official source monitors.
 - Published v0.9.14 live: pushed branch `social-ads-tools-20260715`, merged PR #73 (`b60fb00`), and verified GitHub Pages deployment run `29476634056` completed successfully.
+- Started v0.9.15 reliability fix after Arcadia CA source gap: verified Arcadia from California Coin Events, added the official source monitor, and added a launch-readiness task to discover regional promoter calendars for every TBD listing.
 
 ## In progress
-- Live site is on v0.9.14; continue remaining unverified leads in the next batch.
+- v0.9.15 Arcadia reliability fix is local; run checks and publish when ready.
 
 ## Next up
 - Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.
