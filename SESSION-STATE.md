@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-16 00:02 (PDT)
+**Last updated:** 2026-07-16 00:31 (PDT)
 **Session:** nationwide show refresh priority
 
 ## Completed today
@@ -23,15 +23,16 @@
 - Verified PA/CA/OH lead batch from official club pages and added/updated Lehigh County Coin Expo, Sacramento Valley Coin Club Fall Coin Show, and OH-KAN Coin Club Show; regenerated affected state/city/show pages.
 - Added v0.9.13 verified agent-side source batch: Florida, Pennsylvania, California, and Ohio source reviews added/updated 14 more show records and expanded official source monitoring to 37 sources.
 - Added v0.9.14 NY/MI/IL/NC verified source batch: updated NYINC, Melville, Royal Oak, Raleigh, ILNA, Orland Park, and Peotone records and added their official source monitors.
+- Published v0.9.14 live: pushed branch `social-ads-tools-20260715`, merged PR #73 (`b60fb00`), and verified GitHub Pages deployment run `29476634056` completed successfully.
 
 ## In progress
-- Continue remaining unverified leads, prioritizing states with the largest unmatched official-source gaps after the v0.9.14 batch.
+- Live site is on v0.9.14; continue remaining unverified leads in the next batch.
 
 ## Next up
 - Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.
 - Add official sources for the 181 listings now queued by the review-only verification report.
 - Add real sponsored ad links later with `rel="sponsored nofollow noopener noreferrer"`.
-- Commit only if Milo explicitly asks; otherwise continue verified source batches.
+- Next checkpoint should start from merged main after PR #73 if continuing launch-ready work.
 - Build source coverage state-by-state and add verified new/current shows in batches.
 
 ## Open decisions
