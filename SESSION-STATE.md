@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-15 20:37 (PDT)
+**Last updated:** 2026-07-15 20:53 (PDT)
 **Session:** nationwide show refresh priority
 
 ## Completed today
@@ -16,9 +16,11 @@
 - Confirmed corrections include Tucson, Gold Coast, Fort Lauderdale, Palm Beach, Greater Atlanta, Metro East, Nashua, Brunswick, North/South Metro, Portland, Sacramento, San Francisco International, Milwaukee, Low Country, Michigan, Ohio, Wisconsin, and West Virginia source-backed entries.
 - Committed verified corrections as `c4e6da7 Verify upcoming show listing details`.
 - Started nationwide refresh: inventoried current coverage and updated Arkansas State, APNSCC, WNY, and Knoxville listings from source/lead pages.
+- Committed first nationwide refresh batch as `5501d58 Start nationwide show refresh`.
+- Expanded third-party discovery config from 8 historical sources to 39 CoinZip state category sources plus 2 broken CoinShows-USA evidence URLs; added optional lead-detail CSV extraction.
 
 ## In progress
-- Highest priority: complete nationwide U.S. show discovery/verification from official sources, with third-party directories used only as leads.
+- Run expanded nationwide lead discovery, prioritize states with low future coverage, and verify new/current shows against official sources before data edits.
 
 ## Next up
 - Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.
