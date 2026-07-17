@@ -88,8 +88,7 @@
   url: https://www.gamoney.org/coin-show/
   expected_show_ids:
     - georgia-numismatic-association-show
-    - georgia-numismatic-association-coin-show
-  notes: Long-range official source found during 2026-07-13 broad future-date refresh.
+  notes: Long-range official source for the canonical GNA listing; the duplicate import now redirects to it.
 
 - key: ck-shows
   name: CK Shows / Las Vegas Coin Shows
@@ -145,8 +144,7 @@
   url: https://whitmanexpo.com/baltimore-winter-expo/
   expected_show_ids:
     - whitman-coin-expo
-    - whitman-coin-collectibles-expo-jun-11th-13th-2026
-  notes: Official Baltimore Whitman Expo source already used by duplicate Whitman records; duplicate records need canonicalization.
+  notes: Official Baltimore Whitman Expo source for the canonical listing; the expired date-specific import now redirects to it.
 
 - key: pan-coins
   name: Pennsylvania Association of Numismatists
@@ -361,12 +359,13 @@
 - key: michigan-state-numismatic-society-events
   name: Michigan State Numismatic Society Events
   source_type: association-calendar
-  url: https://michigancoinclub.org/events/
+  url: https://michigancoinclub.org/local_shows/
   expected_show_ids:
+    - first-annual-lansing-coin-show
     - royal-oak-coins-collectibles-show
     - new-baltimore-monthly-coin-show
     - detroit-area-coin-shows
-  notes: Official MSNS event source verified after Michigan lead review.
+  notes: Official MSNS local-show calendar exposes the listed event names and dates for comparison.
 
 - key: raleigh-coin-club-expo
   name: Raleigh Coin Club Expo

@@ -1,5 +1,8 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Jul 16, 2026
+- v0.9.24: Added the official First Annual Lansing Coin Show, published Cupertino's exact 2027 date, removed Raleigh's expired date, canonicalized Georgia and Whitman duplicates, linked more official event pages, and added an independently reviewed source registry so official evidence counts while third-party directory leads remain queued.
+
 ## Jul 15, 2026
 - v0.9.23: Rejected invalid, reversed, or implausibly long multi-day date ranges and preserved the correction form's exact visible consent wording in submitted metadata.
 - v0.9.22: Canonicalized six more verified duplicate clusters—Tucson, Royal Oak, South St. Paul, Cleveland, Greenhills, and the Texas Numismatic Association—while preserving eight additional legacy URLs as redirects.

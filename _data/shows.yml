@@ -253,14 +253,16 @@
   city_slug: cupertino-ca
   venue: St Joseph of Cupertino Church, 10110 N De Anza Blvd, Cupertino, CA
   frequency: Annual
-  next_date: TBD
+  next_date: April 25, 2027
   website: https://cupertinocoinclub.org/annual-show/
   organizer: Cupertino Coin Club
   source_url: https://cupertinocoinclub.org/annual-show/
   source_type: official-club-page
   last_verified: '2026-07-16'
-  verification_notes: Official Cupertino Coin Club Annual Show page says the 2027 Cupertino Coin Club Coin Show date is TBD and confirms the St Joseph of Cupertino Church venue.
-  notes: Official club page confirms the venue and says the 2027 show date is TBD.
+  upcoming_dates:
+  - '2027-04-25'
+  verification_notes: Official Cupertino Coin Club Annual Show page lists the 2027 Cupertino Coin Club Coin Show on April 25, 2027 at St Joseph of Cupertino Church, 10110 N De Anza Blvd.; rechecked after the club published the exact date.
+  notes: 'Hours: Sun 10-5. Admission $5; ages 17 and under free. Free parking and youth activities.'
 - id: fremont-coin-club-show
   name: Fremont Coin Club Show
   state: CA
@@ -1030,33 +1032,10 @@
   - '2029-04-13'
   - '2029-04-14'
   - '2029-04-15'
-  verification_notes: Official Georgia Numismatic Association coin show page lists April 16-18, 2027; April 14-16, 2028; and April 13-15, 2029 future dates; reviewed during broad official-source future-date refresh.
-  notes: ''
-- id: georgia-numismatic-association-coin-show
-  name: Georgia Numismatic Association Coin Show
-  state: GA
-  state_name: Georgia
-  city: Dalton
-  city_slug: dalton-ga
-  venue: Northwest Georgia Trade & Convention Center
-  frequency: Recurring
-  next_date: April 16-18, 2027
-  website: ''
-  organizer: ''
-  source_url: https://www.gamoney.org/coin-show/
-  last_verified: '2026-07-13'
-  upcoming_dates:
-  - '2027-04-16'
-  - '2027-04-17'
-  - '2027-04-18'
-  - '2028-04-14'
-  - '2028-04-15'
-  - '2028-04-16'
-  - '2029-04-13'
-  - '2029-04-14'
-  - '2029-04-15'
-  verification_notes: Official Georgia Numismatic Association coin show page lists April 16-18, 2027; April 14-16, 2028; and April 13-15, 2029; this listing appears duplicative and needs later canonicalization review.
-  notes: 'Hours: Fri & Sat 10-6, Sun 10-3'
+  aliases:
+  - georgia-numismatic-association-coin-show
+  verification_notes: Official Georgia Numismatic Association coin show page lists April 16-18, 2027; April 14-16, 2028; and April 13-15, 2029. The duplicate association-show import now redirects to this canonical record.
+  notes: 'Hours: Fri & Sat 10-6, Sun 10-3.'
 - id: greater-atlanta-coin-show
   name: Greater Atlanta Coin Show
   state: GA
@@ -1574,25 +1553,6 @@
   website: ''
   organizer: Blackstone Valley Coin Club
   notes: ''
-- id: whitman-coin-collectibles-expo-jun-11th-13th-2026
-  name: Whitman Coin & Collectibles Expo Jun 11th - 13th, 2026
-  state: MD
-  state_name: Maryland
-  city: Baltimore
-  city_slug: baltimore-md
-  venue: ''
-  frequency: Recurring
-  next_date: November 12-14, 2026
-  website: ''
-  organizer: ''
-  source_url: https://whitmanexpo.com/baltimore-winter-expo/
-  last_verified: '2026-07-13'
-  upcoming_dates:
-  - '2026-11-12'
-  - '2026-11-13'
-  - '2026-11-14'
-  verification_notes: Official Whitman Expo page lists the next Baltimore event on November 12-14, 2026; existing date-specific imported title is expired and needs canonicalization review.
-  notes: ''
 - id: whitman-coin-expo
   name: Whitman Coin Expo (Baltimore)
   state: MD
@@ -1610,7 +1570,9 @@
   - '2026-11-12'
   - '2026-11-13'
   - '2026-11-14'
-  verification_notes: Official Whitman Expo page lists the Baltimore Fall Expo on November 12-14, 2026; reviewed during broad official-source future-date refresh.
+  aliases:
+  - whitman-coin-collectibles-expo-jun-11th-13th-2026
+  verification_notes: Official Whitman Expo page lists the Baltimore Fall Expo on November 12-14, 2026. The expired date-specific import now redirects to this canonical record.
   notes: One of the most important national shows.
 - id: baltimore-stamp-and-coin-show
   name: Baltimore Stamp and Coin Show
@@ -1665,6 +1627,26 @@
   website: https://michigancoinclub.org/
   organizer: Lansing Coin Club
   notes: ''
+- id: first-annual-lansing-coin-show
+  name: First Annual Lansing Coin Show
+  state: MI
+  state_name: Michigan
+  city: Lansing
+  city_slug: lansing-mi
+  venue: Lansing Center, 333 E Michigan Ave, Lansing, MI 48933
+  frequency: Annual
+  next_date: July 23-25, 2026
+  website: https://michigancoinclub.org/events/1st-annual-lansing-coin-show/
+  organizer: Mid America Coins / Mike Boyer
+  source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show/
+  source_type: association-calendar
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-07-23'
+  - '2026-07-24'
+  - '2026-07-25'
+  verification_notes: Official Michigan State Numismatic Society event page lists the First Annual Lansing Coin Show on July 23-25, 2026 at the Lansing Center, 333 E Michigan Ave.
+  notes: 'Hours: Thu-Fri 10-5, Sat 10-3.'
 - id: new-baltimore-monthly-coin-show
   name: New Baltimore Monthly Coin Show
   state: MI
@@ -1674,14 +1656,15 @@
   venue: Lempke-Blackwell VFW Post 7573, 35011 23 Mile Rd, New Baltimore, MI 48047
   frequency: Monthly
   next_date: July 19, 2026
-  website: ''
+  website: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238-116/
   organizer: Mike Tremonti
-  source_url: https://michigancoinclub.org/local_shows/
-  last_verified: '2026-07-15'
+  source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238-116/
+  source_type: association-calendar
+  last_verified: '2026-07-16'
   upcoming_dates:
   - '2026-07-19'
   - '2026-08-16'
-  verification_notes: Official Michigan State Numismatic Society local shows page lists New Baltimore Monthly Coin Show dates July 19 and August 16, 2026, venue address, hours, and contact; rechecked during official-source listing verification.
+  verification_notes: Official Michigan State Numismatic Society event page lists New Baltimore Monthly Coin Show dates July 19 and August 16, 2026, venue address, hours, and contact.
   notes: 'Hours: Sun 9-3'
 - id: royal-oak-coins-collectibles-show
   name: Royal Oak Coins & Collectibles Show
@@ -1714,13 +1697,15 @@
   venue: New Hope Banquet Hall, 24222 W. Nine Mile Rd, Southfield, MI 48033
   frequency: Recurring
   next_date: August 9, 2026
-  website: ''
+  website: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-840/
   organizer: Larry Comer and David Nazzaro
-  source_url: https://michigancoinclub.org/local_shows/
-  last_verified: '2026-07-15'
+  source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-840/
+  source_type: association-calendar
+  last_verified: '2026-07-16'
   upcoming_dates:
   - '2026-08-09'
-  verification_notes: Official Michigan State Numismatic Society local shows page lists Detroit Area Coin Shows - Southfield on August 9, 2026, venue address, hours, and contacts; rechecked during official-source listing verification.
+  - '2026-09-13'
+  verification_notes: Official Michigan State Numismatic Society event page lists Detroit Area Coin Shows - Southfield on August 9 and September 13, 2026, with venue address, hours, and contacts.
   notes: 'Hours: Sun 9-3.'
 - id: michigan-state-numismatic-society-convention-coin-show
   name: Michigan State Numismatic Society Convention & Coin Show
@@ -1997,17 +1982,13 @@
   city_slug: raleigh-nc
   venue: Exposition Center, NC State Fairgrounds, 4285 Trinity Rd, Raleigh, NC
   frequency: Annual (June)
-  next_date: June 26-28, 2026
+  next_date: TBD
   website: https://www.raleighcoinclub.org/expo
   organizer: Raleigh Coin Club
   source_url: https://www.raleighcoinclub.org/expo
   last_verified: '2026-07-16'
-  upcoming_dates:
-  - '2026-06-26'
-  - '2026-06-27'
-  - '2026-06-28'
-  verification_notes: Official Raleigh Coin Club Expo page confirms June 26-28, 2026 at the Exposition Center, NC State Fairgrounds, 4285 Trinity Rd, with public hours; verified during North Carolina lead review.
-  notes: 'Hours: Fri 10-6, Sat 10-5, Sun 10-3.'
+  verification_notes: Official Raleigh Coin Club Expo page still lists only the completed June 26-28, 2026 event at the Exposition Center; no future date is posted, so the public listing now remains TBD.
+  notes: Annual June event; check the official club page for the next announced date.
 - id: red-river-valley-coin-club-show
   name: Red River Valley Coin Club Show
   state: ND
@@ -3086,7 +3067,7 @@
   venue: ''
   frequency: Recurring
   next_date: August 22-23, 2026
-  website: ''
+  website: http://www.vnaonline.org/2026-calendar/
   organizer: ''
   source_url: http://www.vnaonline.org/2026-calendar/
   last_verified: '2026-07-13'
@@ -3106,7 +3087,7 @@
   venue: Vienna Community Center
   frequency: Quarterly
   next_date: August 8-9, 2026
-  website: ''
+  website: http://www.vnaonline.org/2026-calendar/
   organizer: ''
   source_url: http://www.vnaonline.org/2026-calendar/
   last_verified: '2026-07-13'
@@ -3190,7 +3171,7 @@
   venue: Best Western Plus Eau Claire Conference Center, 3340 Mondovi Road, Eau Claire, WI 54701
   frequency: Recurring
   next_date: September 13, 2026
-  website: ''
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
   organizer: Chippewa Valley Coin Club
   source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
   last_verified: '2026-07-15'
@@ -3259,7 +3240,7 @@
   venue: Mount Vernon Baptist Church, 2150 Mt. Vernon Rd, Hurricane, WV
   frequency: Recurring
   next_date: July 18, 2026
-  website: ''
+  website: http://kvcc.eznetway.com/coin-shows.php
   organizer: River City Coin Club
   source_url: http://kvcc.eznetway.com/coin-shows.php
   last_verified: '2026-07-15'
