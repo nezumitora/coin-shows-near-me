@@ -1,0 +1,45 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pull-request-checks-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate data and generated pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check Ruby syntax
+        run: |
+          for file in _scripts/*.rb; do
+            ruby -c "$file"
+          done
+
+      - name: Run Ruby tests
+        run: |
+          for test_file in _scripts/*_test.rb; do
+            ruby "$test_file"
+          done
+
+      - name: Validate data and page inventory
+        run: ruby _scripts/validate-data.rb
+
+      - name: Verify generated pages are current
+        run: |
+          ruby _scripts/generate-pages.rb
+          git diff --exit-code -- states cities shows
+
+      - name: Check pull request whitespace
+        run: git diff --check "origin/${{ github.base_ref }}...HEAD"
