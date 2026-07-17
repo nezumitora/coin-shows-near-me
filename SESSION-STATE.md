@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-16 16:36 (PDT)
+**Last updated:** 2026-07-16 17:34 (PDT)
 **Session:** nationwide show refresh priority
 
 ## Completed today
@@ -46,15 +46,16 @@
 - v0.9.22 merged six additional source-confirmed duplicate clusters for Tucson, Royal Oak, South St. Paul, Cleveland, Greenhills, and TNA while retaining their old URLs as redirects.
 - v0.9.22 report: `total=195`, `aliases=23`, `specific=112`, `future_specific=111`, `past_specific=1`, `partial=3`, `tbd=80`, `missing_url=56`, `queued=96`, `source_urls=139`.
 - Checkpoint saved for the complete v0.9.22 local batch; only generated `tmp/` reports remain untracked.
+- v0.9.23 addressed PR #75 review findings by validating both ends of date ranges and preserving correction-specific consent metadata.
 
 ## In progress
-- v0.9.22 report/source/canonicalization work is verified locally; the user authorized a branch push and pull request for review.
+- PR #75 is open for v0.9.23; review fixes passed parser, syntax, report, generator, consent-metadata, and diff checks and are ready to push.
 
 ## Next up
 - Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.
 - Add official sources or explicit no-future-date evidence for the 96 listings now queued by the review-only verification report.
 - Add real sponsored ad links later with `rel="sponsored nofollow noopener noreferrer"`.
-- Next checkpoint should start from merged main after PR #73 if continuing launch-ready work.
+- After PR #75 merges, continue launch-ready work from refreshed main.
 - Build source coverage state-by-state and add verified new/current shows in batches.
 
 ## Open decisions

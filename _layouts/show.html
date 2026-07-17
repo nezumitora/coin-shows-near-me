@@ -174,8 +174,8 @@ layout: default
     <input type="hidden" name="referringUrl" value="">
     <input type="hidden" name="submittedAt" value="">
     <input type="hidden" name="contactConsentTimestamp" value="">
-    <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
+    <input type="hidden" name="contactConsentVersion" value="coin-show-correction-consent-v1">
+    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about this correction. Submitted updates are reviewed before publication.">
     <input type="hidden" name="show_name" value="{{ show.name }}">
     <input type="hidden" name="show_id" value="{{ show.id }}">
     <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
@@ -197,7 +197,6 @@ layout: default
 
 <script>
 (function() {
-  var contactConsentText = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
   function setFormValue(form, name, value) {
     var field = form.querySelector('[name="' + name + '"]');
     if (field) {
@@ -209,8 +208,6 @@ layout: default
     setFormValue(form, 'pageUrl', window.location.href);
     setFormValue(form, 'referringUrl', document.referrer || '');
     setFormValue(form, 'submittedAt', now);
-    setFormValue(form, 'contactConsentVersion', 'coin-contact-consent-v1');
-    setFormValue(form, 'contactConsentText', contactConsentText);
     setFormValue(form, 'reminderConsentVersion', 'coin-show-reminder-v1');
     var contactConsent = form.querySelector('[name="contactConsent"]');
     if (contactConsent && contactConsent.checked) {

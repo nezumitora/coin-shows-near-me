@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 15, 2026
+- v0.9.23: Rejected invalid, reversed, or implausibly long multi-day date ranges and preserved the correction form's exact visible consent wording in submitted metadata.
 - v0.9.22: Canonicalized six more verified duplicate clusters—Tucson, Royal Oak, South St. Paul, Cleveland, Greenhills, and the Texas Numismatic Association—while preserving eight additional legacy URLs as redirects.
 - v0.9.21: Fixed multi-day date parsing, added regression coverage, verified Iowa/Omaha and Sioux Falls listings, removed the compromised former TSNS source, corrected a misplaced Iowa record, and merged 15 legacy duplicate URLs into canonical show records with redirects.
 - v0.9.20: Added official-source updates for Summer FUN, Fort Lauderdale duplicate records, EAC, PA Tri-State/ONR/Scranton, and Texas TNA records, reducing more TBD listings while preserving duplicate/stale import notes.
