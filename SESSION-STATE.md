@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-16 23:59 (PDT)
+**Last updated:** 2026-07-17 07:52 (PDT)
 **Session:** v0.9.25 next official-source batch
 
 ## Completed today
@@ -10,10 +10,10 @@
 - Report: `total=198`, `aliases=25`, `future_specific=115`, `past_specific=0`, `tbd=80`, `missing_url=48`, `queued=87`, `source_urls=150`.
 - Validation passed: 34 Ruby assertions, syntax, YAML, aliases/IDs, 450-page generation, 79-row source comparison, diff check, and final audit.
 ## In progress
-- v0.9.25 is committed locally as `187922a` in `feature/auto-20260716-233741` and awaits approval to push/open a PR.
+- v0.9.25 commits `187922a` and `4fdb38b` are pushed; draft PR #77 is mergeable and awaits separate merge/deploy approval.
 
 ## Next up
-- Ask for approval to push and open the v0.9.25 review PR; do not merge or deploy without separate approval.
+- Review and approve PR #77 separately before merge/deploy; GitHub Pages will be the final build gate.
 - Continue the 87-item review queue later; new verified shows increased coverage but did not change the queue count.
 ## Open decisions
 - GitHub Pages remains the final Jekyll build gate because the repo has no Gemfile.
