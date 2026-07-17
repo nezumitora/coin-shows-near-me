@@ -250,6 +250,16 @@
     "next_date": "TBD"
   },
   {
+    "id": "san-francisco-coin-show",
+    "name": "San Francisco Coin Show",
+    "city": "San Francisco",
+    "state": "CA",
+    "state_name": "California",
+    "venue": "Gallery 308, Building A, Fort Mason Center for Arts & Culture, 2 Marina Blvd, San Francisco, CA 94123",
+    "frequency": "Annual (August)",
+    "next_date": "August 1, 2026"
+  },
+  {
     "id": "san-francisco-international-numismatic-bourse",
     "name": "San Francisco International Numismatic Bourse",
     "city": "South San Francisco",

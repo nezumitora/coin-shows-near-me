@@ -408,6 +408,25 @@
   - '2026-08-16'
   verification_notes: California Coin Events Valley Coin Show page lists August 15-16, 2026 at Courtyard by Marriott, 4th Floor Ballroom, 15433 Ventura Blvd.; verified during larger TBD info sweep.
   notes: 'Hours: Sat 10-5, Sun 10-4.'
+- id: san-francisco-coin-show
+  name: San Francisco Coin Show
+  state: CA
+  state_name: California
+  city: San Francisco
+  city_slug: san-francisco-ca
+  venue: Gallery 308, Building A, Fort Mason Center for Arts & Culture, 2 Marina Blvd, San Francisco, CA 94123
+  frequency: Annual (August)
+  next_date: August 1, 2026
+  website: https://www.sfcoinclub.com/sf-coin-show
+  organizer: San Francisco Coin Club / Witter Coin University
+  source_url: https://www.sfcoinclub.com/sf-coin-show
+  source_type: official-show-page
+  instagram: https://www.instagram.com/sfcoinclub/
+  last_verified: '2026-07-17'
+  upcoming_dates:
+  - '2026-08-01'
+  verification_notes: Official San Francisco Coin Club show page and its 2026 calendar link list Saturday, August 1, 2026 at Gallery 308, Building A, Fort Mason Center, 2 Marina Blvd, San Francisco, CA 94123; verified after reviewing the club's Instagram lead.
+  notes: 'Hours: early bird 8:30am, general admission 10am-4pm. Admission: $50 early bird or $10 general, paid at the door. Rare coins, currency, bullion, and collectibles; armed security will be present.'
 - id: san-francisco-international-numismatic-bourse
   name: San Francisco International Numismatic Bourse
   state: CA
