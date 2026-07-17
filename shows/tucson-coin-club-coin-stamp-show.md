@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Tucson Coin Club Coin & Stamp Show — Tucson, Arizona Coin Show"
-seo_title: "Tucson Coin Club Coin & Stamp Show — Tucson, Arizona | Coin Show Near Me"
-seo_description: "Tucson Coin Club Coin & Stamp Show in Tucson, Arizona. Recurring coin show at Tucson Womans Club. Get dates, venue details, and more."
+layout: null
+title: "Tucson Coin Club Coin Show — Listing moved"
 permalink: /shows/tucson-coin-club-coin-stamp-show/
-show_id: "tucson-coin-club-coin-stamp-show"
-breadcrumb_parent: "Arizona"
-breadcrumb_parent_url: "/states/arizona/"
-breadcrumb_current: "Tucson Coin Club Coin & Stamp Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/tucson-coin-club-coin-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/tucson-coin-club-coin-show/">
+<title>Tucson Coin Club Coin Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/tucson-coin-club-coin-show/">Tucson Coin Club Coin Show</a>.</p>
+  </body>
+</html>

@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Texas Numismatic Association Coin & Currency Show — Fort Worth, Texas Coin Show"
-seo_title: "Texas Numismatic Association Coin & Currency Show — Fort Worth, Texas | Coin Show Near Me"
-seo_description: "Texas Numismatic Association Coin & Currency Show in Fort Worth, Texas. Recurring coin show at . Get dates, venue details, and more."
+layout: null
+title: "Texas Numismatic Association Convention — Listing moved"
 permalink: /shows/texas-numismatic-association-coin-currency-show/
-show_id: "texas-numismatic-association-coin-currency-show"
-breadcrumb_parent: "Texas"
-breadcrumb_parent_url: "/states/texas/"
-breadcrumb_current: "Texas Numismatic Association Coin & Currency Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/texas-numismatic-association-convention/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/texas-numismatic-association-convention/">
+<title>Texas Numismatic Association Convention — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/texas-numismatic-association-convention/">Texas Numismatic Association Convention</a>.</p>
+  </body>
+</html>

@@ -1,6 +1,13 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 15, 2026
+- v0.9.22: Canonicalized six more verified duplicate clusters—Tucson, Royal Oak, South St. Paul, Cleveland, Greenhills, and the Texas Numismatic Association—while preserving eight additional legacy URLs as redirects.
+- v0.9.21: Fixed multi-day date parsing, added regression coverage, verified Iowa/Omaha and Sioux Falls listings, removed the compromised former TSNS source, corrected a misplaced Iowa record, and merged 15 legacy duplicate URLs into canonical show records with redirects.
+- v0.9.20: Added official-source updates for Summer FUN, Fort Lauderdale duplicate records, EAC, PA Tri-State/ONR/Scranton, and Texas TNA records, reducing more TBD listings while preserving duplicate/stale import notes.
+- v0.9.19: Applied another verified TBD cleanup batch for AZ, CA, CO, ID, MA, MI, PA, TX, VA, WA, WI, and WV, adding official source URLs, venues, dates where verified, and TBD notes where future dates are not posted.
+- v0.9.18: Added per-show correction reporting CTAs/forms for visitor-submitted updates and corrected the Madison County Coin Club source URL while keeping the date TBD until a future public show date is officially posted.
+- v0.9.17: Applied a larger existing-listing info sweep across CA, DE, FL, IL, IN, MI, NC, NM, NV, OH, PA, SC, and WA, filling verified dates, venues, organizers, and source URLs while flagging duplicate/stale imports for later cleanup.
+- v0.9.16: Added the first verified TBD sweep batch for Fremont CA, Devens MA, and BNA Cheektowaga NY using promoter/club source pages.
 - v0.9.15: Verified the Arcadia Coin Show from California Coin Events and added a source-discovery reliability task so launch readiness checks include regional promoter calendars for every TBD listing.
 - v0.9.14: Added the next verified NY/MI/IL/NC source batch, including NYINC, Melville, Royal Oak, Raleigh, ILNA, Orland Park, and Peotone source-backed updates.
 - v0.9.13: Added the next officially verified nationwide coin-show batch from agent-side PA/FL/CA/OH source review, expanded official source monitoring, and regenerated directory pages.

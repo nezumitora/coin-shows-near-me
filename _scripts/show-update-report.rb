@@ -9,6 +9,7 @@ require 'net/http'
 require 'time'
 require 'uri'
 require 'yaml'
+require_relative 'show_date_parser'
 
 REPORT_PATH = 'tmp/show-update-report.md'
 SOURCE_INVENTORY_PATH = 'tmp/show-source-inventory.csv'
@@ -20,6 +21,7 @@ REQUEST_DELAY_SECONDS = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '0.5'))
 
 shows = YAML.load_file('_data/shows.yml')
 now = Time.now.utc
+alias_count = shows.sum { |show| Array(show['aliases']).length }
 
 specific = []
 partial = []
@@ -38,14 +40,14 @@ shows.each do |show|
     tbd << show
   elsif date_text.include?(',')
     specific << show
-    begin
-      parsed_date = Date.parse(date_text)
+    parsed_date = ShowDateParser.end_date(date_text)
+    if parsed_date
       if parsed_date >= now.to_date
         future_specific << show
       else
         past_specific << show
       end
-    rescue Date::Error
+    else
       invalid_specific << show
     end
   else
@@ -132,6 +134,7 @@ File.write(REPORT_PATH, <<~MD)
   ## Summary
 
   - Total listings: #{shows.length}
+  - Legacy listing URLs redirected after canonicalization: #{alias_count}
   - Specific dates eligible for Event schema: #{specific.length}
   - Future specific dates with source URLs: #{future_specific.count { |show| !show.fetch('website', '').to_s.strip.empty? }}
   - Specific dates that appear past/stale: #{past_specific.length}
@@ -185,4 +188,4 @@ puts "Wrote #{REPORT_PATH}"
 puts "Wrote #{SOURCE_INVENTORY_PATH}"
 puts "Wrote #{URL_CHECK_PATH}"
 puts "Wrote #{VERIFICATION_QUEUE_PATH}"
-puts "Review-only summary: total=#{shows.length} specific=#{specific.length} future_specific=#{future_specific.length} past_specific=#{past_specific.length} partial=#{partial.length} tbd=#{tbd.length} missing_url=#{missing_url.length} queued=#{verification_queue.length} source_urls=#{source_inventory.length} checked=#{url_results.length}"
+puts "Review-only summary: total=#{shows.length} aliases=#{alias_count} specific=#{specific.length} future_specific=#{future_specific.length} past_specific=#{past_specific.length} partial=#{partial.length} tbd=#{tbd.length} missing_url=#{missing_url.length} queued=#{verification_queue.length} source_urls=#{source_inventory.length} checked=#{url_results.length}"

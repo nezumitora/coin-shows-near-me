@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Cleveland Coin Expo - 2nd Saturdays Monthly - 9AM-2PM — Broadview Heights, Ohio Coin Show"
-seo_title: "Cleveland Coin Expo - 2nd Saturdays Monthly - 9AM-2PM — Broadview Heights, Ohio | Coin Show Near Me"
-seo_description: "Cleveland Coin Expo - 2nd Saturdays Monthly - 9AM-2PM in Broadview Heights, Ohio. Monthly (2nd Saturday) coin show at St. Michael's Woodside, 5025 Mill Rd, Broadview Heights, OH 44147. Get dates, venue details, and more."
+layout: null
+title: "Cleveland Coin Expo — Listing moved"
 permalink: /shows/cleveland-coin-expo-2nd-saturdays-monthly-9am-2pm/
-show_id: "cleveland-coin-expo-2nd-saturdays-monthly-9am-2pm"
-breadcrumb_parent: "Ohio"
-breadcrumb_parent_url: "/states/ohio/"
-breadcrumb_current: "Cleveland Coin Expo - 2nd Saturdays Monthly - 9AM-2PM"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/cleveland-coin-expo/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/cleveland-coin-expo/">
+<title>Cleveland Coin Expo — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/cleveland-coin-expo/">Cleveland Coin Expo</a>.</p>
+  </body>
+</html>

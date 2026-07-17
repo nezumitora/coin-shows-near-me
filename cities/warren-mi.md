@@ -2,7 +2,7 @@
 layout: city
 title: "Coin Shows in Warren, Michigan — 2026-2027"
 seo_title: "Coin Shows in Warren, Michigan — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Warren, Michigan. Dates, venues, and details for upcoming coin shows and numismatic events in Warren."
+seo_description: "Find 2 coin shows in Warren, Michigan. Dates, venues, and details for upcoming coin shows and numismatic events in Warren."
 permalink: /cities/warren-mi/
 city_slug: "warren-mi"
 city_name: "Warren"

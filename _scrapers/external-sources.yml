@@ -62,7 +62,6 @@
     - ohio-state-coin-show
     - 3rd-sunday-columbus-coin-show
     - greenhills-classic-coin-stamp-show
-    - cincinnati-greenhills-classic-coin-currency-stamp-jewelry-and-watch-show
   notes: High-value Ohio source found during 2026-07-13 broad future-date refresh.
 
 - key: buxmont-coin-shows
@@ -81,7 +80,6 @@
   expected_show_ids:
     - north-metro-coin-show
     - south-st-paul-coin-show
-    - twin-cities-monthly-coin-show
   notes: Recurring Minnesota source found during 2026-07-13 broad future-date refresh.
 
 - key: georgia-numismatic-association
@@ -114,9 +112,8 @@
   source_type: promoter
   url: https://clevelandcoinexpo.com/calender.html
   expected_show_ids:
-    - cleveland-coin-expo-2nd-saturdays-monthly-9am-2pm
-    - cleveland-coin-expo-meets-2nd-saturday-of-each-month
-  notes: Official monthly show calendar discovered from CoinZip US Coin Shows page during nationwide refresh; duplicate Cleveland records need canonicalization.
+    - cleveland-coin-expo
+  notes: Official monthly show calendar discovered during nationwide refresh; duplicate imports now redirect to the canonical Cleveland listing.
 
 - key: central-states-numismatic-society
   name: Central States Numismatic Society Convention
@@ -366,7 +363,7 @@
   source_type: association-calendar
   url: https://michigancoinclub.org/events/
   expected_show_ids:
-    - royal-oak-coin-collectibles-show-may-10th-2026
+    - royal-oak-coins-collectibles-show
     - new-baltimore-monthly-coin-show
     - detroit-area-coin-shows
   notes: Official MSNS event source verified after Michigan lead review.
@@ -386,3 +383,22 @@
   expected_show_ids:
     - the-arcadia-coin-currency-and-collectibles-show
   notes: Official promoter source added after manual gap report showed Arcadia still had TBD data.
+
+- key: iowa-numismatic-association-calendar
+  name: Iowa Numismatic Association Coin Shows Calendar
+  source_type: association-calendar
+  url: http://ina.anaclubs.org/Iowa_coin_shows.html
+  expected_show_ids:
+    - iowa-numismatic-association-coin-show
+    - fort-dodge-coin-club-coin-show
+    - the-waterloocedar-valley-coin-show
+    - original-monthly-coin-collectibles-show
+  notes: Official association calendar verified for Iowa events and its repeatedly listed Omaha regional show dates.
+
+- key: ama-coins-south-dakota-calendar
+  name: AMA Coins South Dakota Show Calendar
+  source_type: promoter-calendar
+  url: https://www.amacoins.com/south-dakota-coin-shows
+  expected_show_ids:
+    - ama-fall-coin-stamp-show
+  notes: Promoter calendar identifies the Sioux Falls event as the Midwest Gold & Silver Coin Show and provides exact dates, venue, and hours.

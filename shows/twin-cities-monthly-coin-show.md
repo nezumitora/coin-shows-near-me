@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Twin Cities Largest Monthly Coin Show — South Saint Paul, Minnesota Coin Show"
-seo_title: "Twin Cities Largest Monthly Coin Show — South Saint Paul, Minnesota | Coin Show Near Me"
-seo_description: "Twin Cities Largest Monthly Coin Show in South Saint Paul, Minnesota. Monthly coin show at United Food & Commercial Workers Union Hall, 266 Hardman Ave. N., South St. Paul, MN 55075. Get dates, venue details, and more."
+layout: null
+title: "South St Paul Coin Show — Listing moved"
 permalink: /shows/twin-cities-monthly-coin-show/
-show_id: "twin-cities-monthly-coin-show"
-breadcrumb_parent: "Minnesota"
-breadcrumb_parent_url: "/states/minnesota/"
-breadcrumb_current: "Twin Cities Largest Monthly Coin Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/south-st-paul-coin-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/south-st-paul-coin-show/">
+<title>South St Paul Coin Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/south-st-paul-coin-show/">South St Paul Coin Show</a>.</p>
+  </body>
+</html>

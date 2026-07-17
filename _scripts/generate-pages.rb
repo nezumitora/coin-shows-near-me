@@ -2,8 +2,9 @@
 # Generate state, city, and show pages from _data YAML files.
 # Run from repo root: ruby _scripts/generate-pages.rb
 
-require 'yaml'
+require 'cgi'
 require 'fileutils'
+require 'yaml'
 
 states = YAML.load_file('_data/states.yml')
 shows = YAML.load_file('_data/shows.yml')
@@ -126,8 +127,49 @@ shows.each do |show|
   File.write("shows/#{show['id']}.md", content.gsub(/^    /, ''))
 end
 
+# Preserve old listing URLs after duplicate records are merged into one canonical show.
+show_ids = shows.map { |show| show.fetch('id') }
+alias_pairs = shows.flat_map do |show|
+  Array(show['aliases']).map { |alias_id| [alias_id, show] }
+end
+alias_ids = alias_pairs.map(&:first)
+duplicate_aliases = alias_ids.group_by(&:itself).select { |_alias_id, values| values.length > 1 }.keys
+alias_collisions = alias_ids & show_ids
+
+abort "Duplicate show aliases: #{duplicate_aliases.join(', ')}" unless duplicate_aliases.empty?
+abort "Show aliases collide with canonical IDs: #{alias_collisions.join(', ')}" unless alias_collisions.empty?
+
+alias_pairs.each do |alias_id, show|
+  canonical_path = "/shows/#{show.fetch('id')}/"
+  show_name = CGI.escapeHTML(show.fetch('name'))
+  content = <<~MD
+    ---
+    layout: null
+    title: "#{show.fetch('name')} — Listing moved"
+    permalink: /shows/#{alias_id}/
+    sitemap: false
+    ---
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex,follow">
+        <meta http-equiv="refresh" content="0; url={{ site.baseurl }}#{canonical_path}">
+        <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}#{canonical_path}">
+        <title>#{show_name} — Listing moved</title>
+      </head>
+      <body>
+        <p>This listing was merged into <a href="{{ site.baseurl }}#{canonical_path}">#{show_name}</a>.</p>
+      </body>
+    </html>
+  MD
+
+  File.write("shows/#{alias_id}.md", content.gsub(/^    /, ''))
+end
+
 puts "Generated:"
 puts "  #{states.size} state pages + index"
 puts "  #{cities.size} city pages"
 puts "  #{shows.size} show pages"
-puts "  Total: #{states.size + 1 + cities.size + shows.size} pages"
+puts "  #{alias_pairs.size} show redirects"
+puts "  Total: #{states.size + 1 + cities.size + shows.size + alias_pairs.size} pages"

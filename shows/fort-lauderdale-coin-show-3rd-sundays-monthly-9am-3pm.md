@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "FORT LAUDERDALE COIN SHOW - 3rd Sundays Monthly - 9AM-3PM — Plantation, Florida Coin Show"
-seo_title: "FORT LAUDERDALE COIN SHOW - 3rd Sundays Monthly - 9AM-3PM — Plantation, Florida | Coin Show Near Me"
-seo_description: "FORT LAUDERDALE COIN SHOW - 3rd Sundays Monthly - 9AM-3PM in Plantation, Florida. Monthly coin show at 12050 W Sunrise Blvd, Plantation, FL 33323. Get dates, venue details, and more."
+layout: null
+title: "Fort Lauderdale Coin Club Show — Listing moved"
 permalink: /shows/fort-lauderdale-coin-show-3rd-sundays-monthly-9am-3pm/
-show_id: "fort-lauderdale-coin-show-3rd-sundays-monthly-9am-3pm"
-breadcrumb_parent: "Florida"
-breadcrumb_parent_url: "/states/florida/"
-breadcrumb_current: "FORT LAUDERDALE COIN SHOW - 3rd Sundays Monthly - 9AM-3PM"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/fort-lauderdale-coin-club-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/fort-lauderdale-coin-club-show/">
+<title>Fort Lauderdale Coin Club Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/fort-lauderdale-coin-club-show/">Fort Lauderdale Coin Club Show</a>.</p>
+  </body>
+</html>

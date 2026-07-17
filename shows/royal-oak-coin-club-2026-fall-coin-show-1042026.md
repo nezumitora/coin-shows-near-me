@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Royal Oak Coin Club 2026 Fall Coin Show 10/4/2026 — Warren, Michigan Coin Show"
-seo_title: "Royal Oak Coin Club 2026 Fall Coin Show 10/4/2026 — Warren, Michigan | Coin Show Near Me"
-seo_description: "Royal Oak Coin Club 2026 Fall Coin Show 10/4/2026 in Warren, Michigan. Recurring coin show at . Get dates, venue details, and more."
+layout: null
+title: "Royal Oak Coins & Collectibles Show — Listing moved"
 permalink: /shows/royal-oak-coin-club-2026-fall-coin-show-1042026/
-show_id: "royal-oak-coin-club-2026-fall-coin-show-1042026"
-breadcrumb_parent: "Michigan"
-breadcrumb_parent_url: "/states/michigan/"
-breadcrumb_current: "Royal Oak Coin Club 2026 Fall Coin Show 10/4/2026"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/royal-oak-coins-collectibles-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/royal-oak-coins-collectibles-show/">
+<title>Royal Oak Coins &amp; Collectibles Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/royal-oak-coins-collectibles-show/">Royal Oak Coins &amp; Collectibles Show</a>.</p>
+  </body>
+</html>

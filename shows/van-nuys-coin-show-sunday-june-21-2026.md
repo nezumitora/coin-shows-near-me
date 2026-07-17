@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Van Nuys Coin Show - Sunday, June 21, 2026 — Van Nuys, California Coin Show"
-seo_title: "Van Nuys Coin Show - Sunday, June 21, 2026 — Van Nuys, California | Coin Show Near Me"
-seo_description: "Van Nuys Coin Show - Sunday, June 21, 2026 in Van Nuys, California. Recurring coin show at . Get dates, venue details, and more."
+layout: null
+title: "Van Nuys Coin Show — Listing moved"
 permalink: /shows/van-nuys-coin-show-sunday-june-21-2026/
-show_id: "van-nuys-coin-show-sunday-june-21-2026"
-breadcrumb_parent: "California"
-breadcrumb_parent_url: "/states/california/"
-breadcrumb_current: "Van Nuys Coin Show - Sunday, June 21, 2026"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/van-nuys-coin-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/van-nuys-coin-show/">
+<title>Van Nuys Coin Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/van-nuys-coin-show/">Van Nuys Coin Show</a>.</p>
+  </body>
+</html>
