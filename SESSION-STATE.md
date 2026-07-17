@@ -1,20 +1,20 @@
 # Session State
 
-**Last updated:** 2026-07-16 20:36 (PDT)
-**Session:** v0.9.24 verified-source release
+**Last updated:** 2026-07-16 23:58 (PDT)
+**Session:** v0.9.25 next official-source batch
 
 ## Completed today
-- PR #75 merged as `fda67b5` with successful Pages run `29545599455`; v0.9.24 commit `a581599` was pushed and draft PR #76 opened.
-- v0.9.24 added Lansing, published Cupertino's April 25, 2027 date, cleared Raleigh's expired date, and canonicalized Georgia/Whitman duplicates with redirects.
-- Added a separate approved-source registry and tested shared-host, spoofed-host, lead-directory, malformed-URL, and path-traversal rejection.
-- Report: `total=194`, `aliases=25`, `future_specific=111`, `past_specific=0`, `tbd=80`, `missing_url=48`, `queued=87`, `source_urls=146`.
-- Validation passed: 20 Ruby assertions, syntax, YAML, aliases/IDs, page generation (443), external comparison, Secretlint, diff check, and final security audit.
+- PR #76 merged as `06ad815`; Pages run `29553467436` succeeded and live v0.9.24 plus redirects were verified.
+- v0.9.25 added four official future shows: Decorah, Dubuque Tri-State, Riverside Old Capitol, and Wilkes-Barre/Pittston.
+- External comparison now handles varied date formats and ties dates to the nearest configured show name on shared calendars.
+- Report: `total=198`, `aliases=25`, `future_specific=115`, `past_specific=0`, `tbd=80`, `missing_url=48`, `queued=87`, `source_urls=150`.
+- Validation passed: 34 Ruby assertions, syntax, YAML, aliases/IDs, 450-page generation, 79-row source comparison, diff check, and final audit.
 ## In progress
-- Draft PR #76 is mergeable with review labels and awaits user approval; no automated checks are currently reported.
+- v0.9.25 is verified locally in `feature/auto-20260716-233741`; create a local commit and stop before push.
 
 ## Next up
-- Review the 87-item official-source queue in small state batches.
-- Start a separate eWaste launch-readiness session for the requested tomorrow launch.
+- Ask for approval to push and open the v0.9.25 review PR; do not merge or deploy without separate approval.
+- Continue the 87-item review queue later; new verified shows increased coverage but did not change the queue count.
 ## Open decisions
-- Local Jekyll is unavailable without a Gemfile; GitHub Pages CI remains the final build gate.
+- GitHub Pages remains the final Jekyll build gate because the repo has no Gemfile.
 - Third-party leads stay unverified until an official source is approved separately.

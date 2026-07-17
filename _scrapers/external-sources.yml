@@ -387,12 +387,25 @@
   name: Iowa Numismatic Association Coin Shows Calendar
   source_type: association-calendar
   url: http://ina.anaclubs.org/Iowa_coin_shows.html
+  calendar_year: 2026
   expected_show_ids:
     - iowa-numismatic-association-coin-show
     - fort-dodge-coin-club-coin-show
     - the-waterloocedar-valley-coin-show
+    - decorah-area-coin-club-show
+    - tri-state-coin-show-dubuque
+    - old-capitol-coin-club-show
     - original-monthly-coin-collectibles-show
-  notes: Official association calendar verified for Iowa events and its repeatedly listed Omaha regional show dates.
+  notes: Official association calendar verified for current Iowa events and its repeatedly listed Omaha regional show dates.
+
+- key: northeastern-pennsylvania-coin-clubs
+  name: Northeastern Pennsylvania Coin Clubs Show Calendar
+  source_type: club-calendar
+  url: https://nepacoinclubs.com/
+  expected_show_ids:
+    - scranton-coin-club-show
+    - wilkes-barre-coin-show
+  notes: Official shared page for the Scranton, Wilkes Barre, and Wyoming Valley coin clubs and their annual shows.
 
 - key: ama-coins-south-dakota-calendar
   name: AMA Coins South Dakota Show Calendar

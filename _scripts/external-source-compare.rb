@@ -3,11 +3,13 @@
 # Report-only: does not edit data, publish pages, email, text, or submit forms.
 
 require 'csv'
+require 'cgi'
 require 'fileutils'
 require 'net/http'
 require 'time'
 require 'uri'
 require 'yaml'
+require_relative 'source_entry_matcher'
 
 CONFIG_PATH = '_scrapers/external-sources.yml'
 SHOWS_PATH = '_data/shows.yml'
@@ -17,7 +19,7 @@ REQUEST_TIMEOUT = 12
 REQUEST_DELAY_SECONDS = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '1.0'))
 
 DATE_PATTERNS = [
-  /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z.]*\s+\d{1,2}(?:\s*[-–]\s*\d{1,2})?,?\s+\d{4}\b/i,
+  /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z.]*\s+\d{1,2}(?:st|nd|rd|th)?(?:(?:\s*[-–—]\s*|\s+(?:and|to|through)\s+)\d{1,2}(?:st|nd|rd|th)?)?,?\s+\d{4}\b/i,
   /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/,
   /\b\d{4}-\d{2}-\d{2}\b/
 ].freeze
@@ -33,11 +35,11 @@ def fetch_text(url)
   end
 
   text = response.body.to_s.encode('UTF-8', invalid: :replace, undef: :replace, replace: ' ')
+  2.times { text = CGI.unescapeHTML(text) }
   text = text.gsub(/<script\b[^>]*>.*?<\/script>/mi, ' ')
              .gsub(/<style\b[^>]*>.*?<\/style>/mi, ' ')
              .gsub(/<[^>]+>/, ' ')
              .gsub(/&nbsp;|&#160;/, ' ')
-             .gsub(/&amp;/, '&')
              .gsub(/\s+/, ' ')
              .strip
 
@@ -66,6 +68,7 @@ sources.each do |source|
   candidates = date_candidates(text)
   source_text = normalized(text)
   missing_configured_ids = []
+  peer_names = source.fetch('expected_show_ids').map { |show_id| shows_by_id[show_id]&.fetch('name') }.compact
 
   source.fetch('expected_show_ids').each do |show_id|
     show = shows_by_id[show_id]
@@ -78,7 +81,7 @@ sources.each do |source|
     show_name = show.fetch('name')
     show_date = show.fetch('next_date', '').to_s
     name_found = source_text.include?(normalized(show_name))
-    date_found = !show_date.empty? && show_date != 'TBD' && source_text.include?(normalized(show_date))
+    date_found = SourceEntryMatcher.date_associated?(text, show_name, peer_names, show_date, source['calendar_year'])
     review_status = if status == 'error'
                       'source_fetch_error'
                     elsif name_found && (show_date == 'TBD' || date_found)

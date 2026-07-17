@@ -1119,6 +1119,60 @@
   last_verified: '2026-07-16'
   verification_notes: Official Iowa Numismatic Association calendar lists the Waterloo/Cedar Falls show on March 22, 2026; that date is past and no later date is posted, so next date remains TBD.
   notes: Corrected a stale import that had placed this Iowa show in Massachusetts with an invalid city.
+- id: decorah-area-coin-club-show
+  name: Decorah Area Coin Club Show
+  state: IA
+  state_name: Iowa
+  city: Decorah
+  city_slug: decorah-ia
+  venue: Danon Lansing Building, Fairgrounds, 900 E Main St, Decorah, IA
+  frequency: Annual
+  next_date: August 30, 2026
+  website: http://ina.anaclubs.org/Iowa_coin_shows.html
+  organizer: Decorah Area Coin Club
+  source_url: http://ina.anaclubs.org/Iowa_coin_shows.html
+  source_type: association-calendar
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-08-30'
+  verification_notes: Official Iowa Numismatic Association calendar lists the Decorah Area Coin Club Show on August 30, 2026 at the Danon Lansing Building at the fairgrounds, 900 E Main St, Decorah.
+  notes: 'Hours: Sun 9-2.'
+- id: tri-state-coin-show-dubuque
+  name: Tri-State Coin Show
+  state: IA
+  state_name: Iowa
+  city: Dubuque
+  city_slug: dubuque-ia
+  venue: Diamond Joe Casino, 302 Bell St, Dubuque, IA
+  frequency: Semiannual
+  next_date: October 18, 2026
+  website: http://ina.anaclubs.org/Iowa_coin_shows.html
+  organizer: Tri-State Coin Show
+  source_url: http://ina.anaclubs.org/Iowa_coin_shows.html
+  source_type: association-calendar
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-10-18'
+  verification_notes: Official Iowa Numismatic Association calendar lists the Tri-State Coin Show on October 18, 2026 at Diamond Joe Casino, 302 Bell St, Dubuque.
+  notes: 'Hours: Sun 9-3.'
+- id: old-capitol-coin-club-show
+  name: Old Capitol Coin Club Show
+  state: IA
+  state_name: Iowa
+  city: Riverside
+  city_slug: riverside-ia
+  venue: Riverside Casino, 3184 Highway 22, Riverside, IA
+  frequency: Annual
+  next_date: November 29, 2026
+  website: http://ina.anaclubs.org/Iowa_coin_shows.html
+  organizer: Old Capitol Coin Club
+  source_url: http://ina.anaclubs.org/Iowa_coin_shows.html
+  source_type: association-calendar
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-11-29'
+  verification_notes: Official Iowa Numismatic Association calendar lists the Old Capitol Coin Club Show on November 29, 2026 at Riverside Casino, 3184 Highway 22, Riverside.
+  notes: 'Hours: Sun 9-4.'
 - id: southern-idaho-coin-club-show
   name: Southern Idaho Coin Club Show
   state: ID
@@ -2704,6 +2758,25 @@
   last_verified: '2026-07-16'
   verification_notes: Official NEPA Coin Clubs page lists Scranton Coin Show on April 18-19, 2026 at St. Joseph's Oblates; those dates are past and no future official date was found.
   notes: 'Most recent official show was Apr 18-19, 2026. Hours: Sat 9-5, Sun 9-3. Keep TBD until next date is posted.'
+- id: wilkes-barre-coin-show
+  name: Wilkes-Barre Coin Show
+  state: PA
+  state_name: Pennsylvania
+  city: Pittston
+  city_slug: pittston-pa
+  venue: St. Joseph's Oblates, 1880 Rt. 315, Pittston, PA 18640
+  frequency: Annual
+  next_date: October 10-11, 2026
+  website: https://nepacoinclubs.com/
+  organizer: Wilkes Barre Coin Club
+  source_url: https://nepacoinclubs.com/
+  source_type: club-page
+  last_verified: '2026-07-16'
+  upcoming_dates:
+  - '2026-10-10'
+  - '2026-10-11'
+  verification_notes: Official NEPA Coin Clubs page lists the Wilkes-Barre Coin Show on October 10-11, 2026 at St. Joseph's Oblates, 1880 Rt. 315, Pittston.
+  notes: 'Hours: Sat 9-5, Sun 9-3. Free admission and parking.'
 - id: montco-coin-show-meets-every-2nd-sunday-each-month
   name: Montgomery County Coin Show / MontCo Coin Show
   state: PA
