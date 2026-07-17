@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "3rd Sunday Ft Lauderdale Coin & Stamp Show — Plantation, Florida Coin Show"
-seo_title: "3rd Sunday Ft Lauderdale Coin & Stamp Show — Plantation, Florida | Coin Show Near Me"
-seo_description: "3rd Sunday Ft Lauderdale Coin & Stamp Show in Plantation, Florida. Recurring coin show at Volunteer Park. Get dates, venue details, and more."
+layout: null
+title: "Fort Lauderdale Coin Club Show — Listing moved"
 permalink: /shows/3rd-sunday-ft-lauderdale-coin-stamp-show/
-show_id: "3rd-sunday-ft-lauderdale-coin-stamp-show"
-breadcrumb_parent: "Florida"
-breadcrumb_parent_url: "/states/florida/"
-breadcrumb_current: "3rd Sunday Ft Lauderdale Coin & Stamp Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/fort-lauderdale-coin-club-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/fort-lauderdale-coin-club-show/">
+<title>Fort Lauderdale Coin Club Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/fort-lauderdale-coin-club-show/">Fort Lauderdale Coin Club Show</a>.</p>
+  </body>
+</html>

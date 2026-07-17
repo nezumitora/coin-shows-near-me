@@ -2,7 +2,7 @@
 layout: show
 title: "Indiana State Coin Show — Indianapolis, Indiana Coin Show"
 seo_title: "Indiana State Coin Show — Indianapolis, Indiana | Coin Show Near Me"
-seo_description: "Indiana State Coin Show in Indianapolis, Indiana. Annual (Fall) coin show at Embassy Suites Hotel & Convention Center. Get dates, venue details, and more."
+seo_description: "Indiana State Coin Show in Indianapolis, Indiana. Annual (Fall) coin show at Embassy Suites Hotel and Convention Center by Hilton, Plainfield / Indianapolis Airport. Get dates, venue details, and more."
 permalink: /shows/indiana-state-coin-show/
 show_id: "indiana-state-coin-show"
 breadcrumb_parent: "Indiana"

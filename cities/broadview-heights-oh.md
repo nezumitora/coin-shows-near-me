@@ -2,7 +2,7 @@
 layout: city
 title: "Coin Shows in Broadview Heights, Ohio — 2026-2027"
 seo_title: "Coin Shows in Broadview Heights, Ohio — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Broadview Heights, Ohio. Dates, venues, and details for upcoming coin shows and numismatic events in Broadview Heights."
+seo_description: "Find 1 coin show in Broadview Heights, Ohio. Dates, venues, and details for upcoming coin shows and numismatic events in Broadview Heights."
 permalink: /cities/broadview-heights-oh/
 city_slug: "broadview-heights-oh"
 city_name: "Broadview Heights"

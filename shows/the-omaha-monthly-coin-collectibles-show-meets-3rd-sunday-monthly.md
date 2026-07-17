@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "The Omaha Monthly Coin & Collectibles Show - Meets 3rd Sunday Monthly — Omaha, Nebraska Coin Show"
-seo_title: "The Omaha Monthly Coin & Collectibles Show - Meets 3rd Sunday Monthly — Omaha, Nebraska | Coin Show Near Me"
-seo_description: "The Omaha Monthly Coin & Collectibles Show - Meets 3rd Sunday Monthly in Omaha, Nebraska. Monthly coin show at . Get dates, venue details, and more."
+layout: null
+title: "The Original Monthly Coin & Collectibles Show — Listing moved"
 permalink: /shows/the-omaha-monthly-coin-collectibles-show-meets-3rd-sunday-monthly/
-show_id: "the-omaha-monthly-coin-collectibles-show-meets-3rd-sunday-monthly"
-breadcrumb_parent: "Nebraska"
-breadcrumb_parent_url: "/states/nebraska/"
-breadcrumb_current: "The Omaha Monthly Coin & Collectibles Show - Meets 3rd Sunday Monthly"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/original-monthly-coin-collectibles-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/original-monthly-coin-collectibles-show/">
+<title>The Original Monthly Coin &amp; Collectibles Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/original-monthly-coin-collectibles-show/">The Original Monthly Coin &amp; Collectibles Show</a>.</p>
+  </body>
+</html>

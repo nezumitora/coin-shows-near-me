@@ -847,9 +847,10 @@ Find upcoming coin shows near you, including local and regional coin shows acros
 - **City/State:** East Ridge (Chattanooga), Tennessee
 - **Venue:** Camp Jordan Arena
 - **Frequency:** Semiannual (March & November)
-- **Next Scheduled Date:** March 6–8, 2026
-- **Website:** http://www.tsns.org/
+- **Next Scheduled Date:** TBD
+- **Website:** Unavailable — former domain removed because it now serves unrelated gambling content
 - **Organizer/Club:** Tennessee State Numismatic Society
+- **Notes:** Re-verify a new official organizer source and future date before traveling.
 
 ### IMEX (International Money Exposition)
 - **City/State:** Nashville, Tennessee

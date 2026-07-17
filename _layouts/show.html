@@ -81,6 +81,9 @@ layout: default
       {% if tax.bullion_exempt %}<span style="color:#16a34a;">&#10003;</span> Tax-Free State{% else %}<span style="color:#dc2626;">&#10005;</span> Taxed State{% endif %}
     </a>
     {% endif %}{% endfor %}
+    <a href="#update-show-info" style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
+      Update show info
+    </a>
   </div>
 </div>
 
@@ -155,9 +158,45 @@ layout: default
   </div>
 </div>
 
+<!-- Show Correction CTA -->
+<div id="update-show-info" style="background:#fff7ed;color:#431407;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid #fed7aa;">
+  <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#7c2d12;">See something wrong?</p>
+  <p style="margin:0 0 1rem;font-size:0.92rem;color:#7c2d12;">Send a correction for <strong>{{ show.name }}</strong>. We review submissions against official organizer, promoter, club, or venue sources before changing the public listing.</p>
+  <form id="show-correction-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
+    <input type="hidden" name="_subject" value="Coin Show Near Me — Show Info Correction">
+    <input type="hidden" name="form_type" value="show_correction">
+    <input type="hidden" name="source" value="Website">
+    <input type="hidden" name="formName" value="showCorrection">
+    <input type="hidden" name="coinContactRoles" value="showInfoReporter">
+    <input type="hidden" name="ctaCode" value="show_page_update_info">
+    <input type="hidden" name="sourceDetail" value="Individual show page correction form">
+    <input type="hidden" name="pageUrl" value="">
+    <input type="hidden" name="referringUrl" value="">
+    <input type="hidden" name="submittedAt" value="">
+    <input type="hidden" name="contactConsentTimestamp" value="">
+    <input type="hidden" name="contactConsentVersion" value="coin-show-correction-consent-v1">
+    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about this correction. Submitted updates are reviewed before publication.">
+    <input type="hidden" name="show_name" value="{{ show.name }}">
+    <input type="hidden" name="show_id" value="{{ show.id }}">
+    <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="email" name="email" placeholder="Email so we can verify if needed" required style="padding:0.6rem 0.8rem;border:1px solid #fed7aa;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+      <input type="url" name="official_source_url" placeholder="Official source URL" required style="padding:0.6rem 0.8rem;border:1px solid #fed7aa;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+    </div>
+    <textarea name="message" placeholder="What should be corrected? Include dates, venue, hours, organizer, and where you found it." required style="min-height:96px;padding:0.65rem 0.8rem;border:1px solid #fed7aa;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;resize:vertical;"></textarea>
+    <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#7c2d12;line-height:1.4;">
+      <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>I agree that Coin Show Near Me may contact me about this correction. Submitted updates are reviewed before publication.</span>
+    </label>
+    <button type="submit" style="background:#7c2d12;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:800;cursor:pointer;align-self:flex-start;">Send Correction</button>
+  </form>
+  <div id="show-correction-success" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
+    Thank you — we received the correction and will verify it before updating the listing.
+  </div>
+</div>
+
 <script>
 (function() {
-  var contactConsentText = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
   function setFormValue(form, name, value) {
     var field = form.querySelector('[name="' + name + '"]');
     if (field) {
@@ -169,8 +208,6 @@ layout: default
     setFormValue(form, 'pageUrl', window.location.href);
     setFormValue(form, 'referringUrl', document.referrer || '');
     setFormValue(form, 'submittedAt', now);
-    setFormValue(form, 'contactConsentVersion', 'coin-contact-consent-v1');
-    setFormValue(form, 'contactConsentText', contactConsentText);
     setFormValue(form, 'reminderConsentVersion', 'coin-show-reminder-v1');
     var contactConsent = form.querySelector('[name="contactConsent"]');
     if (contactConsent && contactConsent.checked) {
@@ -182,19 +219,22 @@ layout: default
     }
   }
 
-  /* Form submit */
-  var form = document.getElementById('show-reminder-form');
-  if (form) {
+  function attachForm(formId, successId) {
+    var form = document.getElementById(formId);
+    if (!form) { return; }
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       fillCrmFormMetadata(form);
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       window.coinSubmitForm(form).then(function() {
         form.style.display = 'none';
-        document.getElementById('show-reminder-success').style.display = 'block';
+        document.getElementById(successId).style.display = 'block';
       });
     });
   }
+
+  attachForm('show-reminder-form', 'show-reminder-success');
+  attachForm('show-correction-form', 'show-correction-success');
 })();
 </script>
 

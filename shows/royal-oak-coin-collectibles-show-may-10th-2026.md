@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Royal Oak Coins & Collectibles Show — Royal Oak, Michigan Coin Show"
-seo_title: "Royal Oak Coins & Collectibles Show — Royal Oak, Michigan | Coin Show Near Me"
-seo_description: "Royal Oak Coins & Collectibles Show in Royal Oak, Michigan. Recurring coin show at Royal Oak Detroit Elks Lodge. Get dates, venue details, and more."
+layout: null
+title: "Royal Oak Coins & Collectibles Show — Listing moved"
 permalink: /shows/royal-oak-coin-collectibles-show-may-10th-2026/
-show_id: "royal-oak-coin-collectibles-show-may-10th-2026"
-breadcrumb_parent: "Michigan"
-breadcrumb_parent_url: "/states/michigan/"
-breadcrumb_current: "Royal Oak Coins & Collectibles Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/royal-oak-coins-collectibles-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/royal-oak-coins-collectibles-show/">
+<title>Royal Oak Coins &amp; Collectibles Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/royal-oak-coins-collectibles-show/">Royal Oak Coins &amp; Collectibles Show</a>.</p>
+  </body>
+</html>

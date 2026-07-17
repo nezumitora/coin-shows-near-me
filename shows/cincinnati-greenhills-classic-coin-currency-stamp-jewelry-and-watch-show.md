@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Cincinnati Greenhills Classic Coin, Currency, Stamp, Jewelry and Watch Show — Cincinnati, Ohio Coin Show"
-seo_title: "Cincinnati Greenhills Classic Coin, Currency, Stamp, Jewelry and Watch Show — Cincinnati, Ohio | Coin Show Near Me"
-seo_description: "Cincinnati Greenhills Classic Coin, Currency, Stamp, Jewelry and Watch Show in Cincinnati, Ohio. Recurring coin show at . Get dates, venue details, and more."
+layout: null
+title: "Greenhills Classic Coin & Stamp Show — Listing moved"
 permalink: /shows/cincinnati-greenhills-classic-coin-currency-stamp-jewelry-and-watch-show/
-show_id: "cincinnati-greenhills-classic-coin-currency-stamp-jewelry-and-watch-show"
-breadcrumb_parent: "Ohio"
-breadcrumb_parent_url: "/states/ohio/"
-breadcrumb_current: "Cincinnati Greenhills Classic Coin, Currency, Stamp, Jewelry and Watch Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/greenhills-classic-coin-stamp-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/greenhills-classic-coin-stamp-show/">
+<title>Greenhills Classic Coin &amp; Stamp Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/greenhills-classic-coin-stamp-show/">Greenhills Classic Coin &amp; Stamp Show</a>.</p>
+  </body>
+</html>

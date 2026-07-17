@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Tri-State Coin, Stamp and Paper Money Show DECEMBER 20th, 2026 — Langhorne, Pennsylvania Coin Show"
-seo_title: "Tri-State Coin, Stamp and Paper Money Show DECEMBER 20th, 2026 — Langhorne, Pennsylvania | Coin Show Near Me"
-seo_description: "Tri-State Coin, Stamp and Paper Money Show DECEMBER 20th, 2026 in Langhorne, Pennsylvania. Recurring coin show at 400 N. Oxford Valley Rd, Langhorne, PA. Get dates, venue details, and more."
+layout: null
+title: "Tri-State Monthly Coin, Stamp & Paper Money Show — Listing moved"
 permalink: /shows/tri-state-coin-stamp-and-paper-money-show-december-20th-2026/
-show_id: "tri-state-coin-stamp-and-paper-money-show-december-20th-2026"
-breadcrumb_parent: "Pennsylvania"
-breadcrumb_parent_url: "/states/pennsylvania/"
-breadcrumb_current: "Tri-State Coin, Stamp and Paper Money Show DECEMBER 20th, 2026"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/monthly-tri-state-coin-stamp-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/monthly-tri-state-coin-stamp-show/">
+<title>Tri-State Monthly Coin, Stamp &amp; Paper Money Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/monthly-tri-state-coin-stamp-show/">Tri-State Monthly Coin, Stamp &amp; Paper Money Show</a>.</p>
+  </body>
+</html>
