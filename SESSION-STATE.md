@@ -1,20 +1,19 @@
 # Session State
 
-**Last updated:** 2026-07-17 09:33 (PDT)
-**Session:** v0.9.26 pull-request checks
+**Last updated:** 2026-07-17 11:00 (PDT)
+**Session:** SF Coin Show lead verification
 
 ## Completed today
-- PR #76 merged as `06ad815`; Pages run `29553467436` succeeded and live v0.9.24 plus redirects were verified.
-- v0.9.25 added four official future shows and improved shared-calendar matching.
-- v0.9.26 adds automatic PR checks using pinned checkout v7 without persisted credentials.
-- Data inventory validation removed 15 stale generated city pages left by earlier listing cleanup.
-- Validation passed: 34 Ruby assertions, syntax, 50-state/198-show/25-alias invariants, 450-page generation, and diff checks.
-- Final audit found no blockers; draft PR #77 is pushed, mergeable, and passes its automated check.
+- PR #77 merged as `070edf9`; v0.9.26 deployed successfully.
+- Fetched the user-provided @sfcoinclub post and profile using public mobile metadata.
+- Confirmed the stated lead: 1st Annual SF Coin Show, Saturday August 1, 2026, Fort Mason, 10am-4pm, presented by San Francisco Coin Club and Witter Coin University.
+- Verified the dedicated official show page: August 1, 2026 at Gallery 308, Building A, Fort Mason, 2 Marina Blvd, San Francisco, CA 94123.
+- Added the show and generated San Francisco pages as v0.9.27; 34 assertions and 199-show/452-page validation pass.
 
 ## In progress
 - None.
 ## Next up
-- Review and approve PR #77 separately after checks pass; GitHub Pages remains the final deployment gate.
+- Review the local v0.9.27 change and open a separate PR only with explicit approval.
 
 ## Open decisions
-- GitHub Pages remains the final Jekyll build gate because the repo has no Gemfile.
+- The monthly club meetings use Building C, Room C210; the coin show uses Gallery 308 in Building A.

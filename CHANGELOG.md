@@ -1,5 +1,8 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Jul 17, 2026
+- v0.9.27: Added the official San Francisco Coin Show on August 1, 2026 at Gallery 308, Building A, Fort Mason, using the San Francisco Coin Club's dedicated show page and calendar details.
+
 ## Jul 16, 2026
 - v0.9.26: Added automatic pull-request checks for Ruby syntax/tests, show and state data invariants, generated-page inventory/drift, and whitespace errors.
 - v0.9.25: Added four official source-backed future shows from the Iowa Numismatic Association and Northeastern Pennsylvania club calendars—Decorah, Dubuque, Riverside, and Wilkes-Barre/Pittston—and improved external comparison for varied date formats and multi-show page association.
