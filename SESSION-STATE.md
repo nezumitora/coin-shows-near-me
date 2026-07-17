@@ -1,20 +1,20 @@
 # Session State
 
-**Last updated:** 2026-07-16 20:36 (PDT)
-**Session:** v0.9.24 verified-source release
+**Last updated:** 2026-07-17 09:33 (PDT)
+**Session:** v0.9.26 pull-request checks
 
 ## Completed today
-- PR #75 merged as `fda67b5` with successful Pages run `29545599455`; v0.9.24 commit `a581599` was pushed and draft PR #76 opened.
-- v0.9.24 added Lansing, published Cupertino's April 25, 2027 date, cleared Raleigh's expired date, and canonicalized Georgia/Whitman duplicates with redirects.
-- Added a separate approved-source registry and tested shared-host, spoofed-host, lead-directory, malformed-URL, and path-traversal rejection.
-- Report: `total=194`, `aliases=25`, `future_specific=111`, `past_specific=0`, `tbd=80`, `missing_url=48`, `queued=87`, `source_urls=146`.
-- Validation passed: 20 Ruby assertions, syntax, YAML, aliases/IDs, page generation (443), external comparison, Secretlint, diff check, and final security audit.
-## In progress
-- Draft PR #76 is mergeable with review labels and awaits user approval; no automated checks are currently reported.
+- PR #76 merged as `06ad815`; Pages run `29553467436` succeeded and live v0.9.24 plus redirects were verified.
+- v0.9.25 added four official future shows and improved shared-calendar matching.
+- v0.9.26 adds automatic PR checks using pinned checkout v7 without persisted credentials.
+- Data inventory validation removed 15 stale generated city pages left by earlier listing cleanup.
+- Validation passed: 34 Ruby assertions, syntax, 50-state/198-show/25-alias invariants, 450-page generation, and diff checks.
+- Final audit found no blockers; draft PR #77 is pushed, mergeable, and passes its automated check.
 
+## In progress
+- None.
 ## Next up
-- Review the 87-item official-source queue in small state batches.
-- Start a separate eWaste launch-readiness session for the requested tomorrow launch.
+- Review and approve PR #77 separately after checks pass; GitHub Pages remains the final deployment gate.
+
 ## Open decisions
-- Local Jekyll is unavailable without a Gemfile; GitHub Pages CI remains the final build gate.
-- Third-party leads stay unverified until an official source is approved separately.
+- GitHub Pages remains the final Jekyll build gate because the repo has no Gemfile.

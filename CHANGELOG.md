@@ -1,6 +1,8 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 16, 2026
+- v0.9.26: Added automatic pull-request checks for Ruby syntax/tests, show and state data invariants, generated-page inventory/drift, and whitespace errors.
+- v0.9.25: Added four official source-backed future shows from the Iowa Numismatic Association and Northeastern Pennsylvania club calendars—Decorah, Dubuque, Riverside, and Wilkes-Barre/Pittston—and improved external comparison for varied date formats and multi-show page association.
 - v0.9.24: Added the official First Annual Lansing Coin Show, published Cupertino's exact 2027 date, removed Raleigh's expired date, canonicalized Georgia and Whitman duplicates, linked more official event pages, and added an independently reviewed source registry so official evidence counts while third-party directory leads remain queued.
 
 ## Jul 15, 2026
