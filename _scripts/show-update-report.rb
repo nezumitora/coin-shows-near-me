@@ -10,6 +10,7 @@ require 'time'
 require 'uri'
 require 'yaml'
 require_relative 'show_date_parser'
+require_relative 'show_source_policy'
 
 REPORT_PATH = 'tmp/show-update-report.md'
 SOURCE_INVENTORY_PATH = 'tmp/show-source-inventory.csv'
@@ -18,6 +19,9 @@ VERIFICATION_QUEUE_PATH = 'tmp/show-verification-queue.csv'
 REQUEST_TIMEOUT = 8
 MAX_URL_CHECKS = Integer(ENV.fetch('MAX_URL_CHECKS', '0'))
 REQUEST_DELAY_SECONDS = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '0.5'))
+def source_url_for(show)
+  ShowSourcePolicy.source_url_for(show)
+end
 
 shows = YAML.load_file('_data/shows.yml')
 now = Time.now.utc
@@ -54,20 +58,20 @@ shows.each do |show|
     partial << show
   end
 
-  website = show.fetch('website', '').to_s.strip
-  if website.empty?
+  source_url = source_url_for(show)
+  if source_url.empty?
     missing_url << show
   else
     begin
-      domain = URI.parse(website).host.to_s.downcase.sub(/^www\./, '')
+      domain = URI.parse(source_url).host.to_s.downcase.sub(/^www\./, '')
     rescue URI::InvalidURIError
       domain = 'invalid-url'
     end
     source_domains[domain] += 1
-    source_inventory << [show.fetch('id'), show.fetch('name'), show.fetch('city'), show.fetch('state'), show.fetch('next_date'), domain, website]
+    source_inventory << [show.fetch('id'), show.fetch('name'), show.fetch('city'), show.fetch('state'), show.fetch('next_date'), domain, source_url]
   end
 
-  verification_reason = if website.empty?
+  verification_reason = if source_url.empty?
                           'missing official/source URL'
                         elsif date_text.empty? || date_text == 'TBD'
                           'TBD/missing date needs source review'
@@ -78,7 +82,7 @@ shows.each do |show|
                         elsif past_specific.include?(show)
                           'specific date appears to be past'
                         end
-  verification_queue << [show.fetch('id'), show.fetch('name'), show.fetch('city'), show.fetch('state'), date_text, verification_reason, website] if verification_reason
+  verification_queue << [show.fetch('id'), show.fetch('name'), show.fetch('city'), show.fetch('state'), date_text, verification_reason, source_url] if verification_reason
 end
 
 def check_url(url)
@@ -97,13 +101,13 @@ rescue StandardError => e
 end
 
 url_results = []
-source_shows = shows.reject { |show| show.fetch('website', '').to_s.strip.empty? }
+source_shows = shows.reject { |show| source_url_for(show).empty? }
 source_shows = source_shows.first(MAX_URL_CHECKS) if MAX_URL_CHECKS.positive?
 source_shows.each do |show|
-  website = show.fetch('website', '').to_s.strip
+  source_url = source_url_for(show)
 
-  status, detail = check_url(website)
-  url_results << [show.fetch('id'), show.fetch('name'), website, status, detail]
+  status, detail = check_url(source_url)
+  url_results << [show.fetch('id'), show.fetch('name'), source_url, status, detail]
   sleep REQUEST_DELAY_SECONDS if REQUEST_DELAY_SECONDS.positive?
 end
 
@@ -136,7 +140,7 @@ File.write(REPORT_PATH, <<~MD)
   - Total listings: #{shows.length}
   - Legacy listing URLs redirected after canonicalization: #{alias_count}
   - Specific dates eligible for Event schema: #{specific.length}
-  - Future specific dates with source URLs: #{future_specific.count { |show| !show.fetch('website', '').to_s.strip.empty? }}
+  - Future specific dates with source URLs: #{future_specific.count { |show| !source_url_for(show).empty? }}
   - Specific dates that appear past/stale: #{past_specific.length}
   - Specific dates that failed date parsing: #{invalid_specific.length}
   - Partial dates needing human/source review: #{partial.length}
@@ -151,11 +155,11 @@ File.write(REPORT_PATH, <<~MD)
 
   ## Verification policy
 
-  Future show dates should be treated as verified only when an official organizer/source URL exists and the date is still current. Listings with missing source URLs, TBD dates, partial dates, invalid date text, or past specific dates are queued for manual/source review instead of being silently trusted.
+  Future show dates should be treated as verified only when an official organizer/source URL is listed in `_scrapers/approved-show-sources.yml` and the date is still current. Adding a URL to a listing does not approve it automatically. Listings with unapproved or missing source URLs, TBD dates, partial dates, invalid date text, or past specific dates are queued for manual/source review instead of being silently trusted.
 
   ## Current source domains
 
-  These are the exact source domains currently stored in `_data/shows.yml`; this workflow does not use unapproved third-party directories yet.
+  These are registry-approved source domains referenced by `_data/shows.yml`; unapproved third-party directories remain lead-only evidence.
 
   | Domain | Listings |
   |---|---:|

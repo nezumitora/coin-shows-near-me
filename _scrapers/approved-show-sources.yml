@@ -1,0 +1,116 @@
+# Registry of organizer, club, association, promoter, and venue sources that
+# may count as verification evidence in the show update report.
+#
+# Adding a URL to `_data/shows.yml` does not trust it automatically. A new
+# source host or shared-host page must be reviewed and added here separately.
+# Broad third-party directories belong in lead discovery, not this registry.
+
+approved_domains:
+  - abcoinclub.com
+  - alabamanumismaticsociety.org
+  - albuquerquecoinclub.com
+  - amacoins.com
+  - americascoinshows.com
+  - anchoragecoinclub.org
+  - annandalecoinshow.com
+  - antiquecoinsmn.com
+  - atlcoin.com
+  - baystatecoinshow.com
+  - brunswickmainecoinclub.com
+  - buxmontcoinshows.com
+  - californiacoinevents.com
+  - camelbackcollectables.com
+  - centralfloridacoinclub.org
+  - ckshows.com
+  - clevelandcoinexpo.com
+  - coinarama.com
+  - conacoinclub.com
+  - csns.org
+  - cupertinocoinclub.org
+  - diablocoinclub.org
+  - eacs.org
+  - ebwpromotions.com
+  - expo.whitman.com
+  - fortcollinscoinclub.com
+  - fresnocoinclub.com
+  - ftlauderdalecoinclub.com
+  - funtopics.com
+  - gacc.show
+  - gamoney.org
+  - goldcoastcoinclub.com
+  - griffincoin.com
+  - gsna.org
+  - harrisburgcoinclub.com
+  - heartlandcoinclub.com
+  - houstoncoinshow.org
+  - ilnaclub.org
+  - imex.show
+  - ina.anaclubs.org
+  - incoinshow.com
+  - johnstown-jim.org
+  - joplincoinclub.org
+  - kansasnumismaticassociation.org
+  - kvcc.eznetway.com
+  - lafayettecoinclub.tripod.com
+  - lksna.org
+  - longbeachexpo.com
+  - lowcountrycoinclub.com
+  - mansfieldnumismaticsociety.org
+  - mccc.anaclubs.org
+  - melvillecoinshow.com
+  - metroeastcoincurrencyclub.com
+  - michigancoinclub.org
+  - milwaukeenumismaticsociety.com
+  - msna.net
+  - nashuacoinclub.com
+  - ncna.club
+  - nenumismatic.org
+  - nepacoinclubs.com
+  - nhcoinexpo.com
+  - norcalcoinshows.com
+  - numismatistsofwisconsin.com
+  - nyinc.info
+  - omahacoinclub.org
+  - onrcoins.com
+  - pacificexposllc.com
+  - pancoins.org
+  - pbcc.anaclubs.org
+  - pdxcoinclub.org
+  - phoenixcoinclub.com
+  - pnna.org
+  - raleighcoinclub.org
+  - redrivervalleycoinclub.com
+  - renocoinshow.com
+  - rockymtnexpos.com
+  - sacramentocoinshow.com
+  - sacvalcc.org
+  - santaclaracoinshow.com
+  - shreveportcoinclub.com
+  - stampshows.com
+  - stcloudareacoinclub.com
+  - stlouisnumismatics.org
+  - suburbancoinshows.com
+  - sumtercoinclub.org
+  - tallahasseecoinclub.com
+  - tampabaycoinclub.com
+  - texasnumismatics.org
+  - the-bna.org
+  - the-ona.org
+  - the-rna.com
+  - tucsoncoinclub.com
+  - tulsacoinshow.com
+  - upstatesccoinshow.com
+  - utahcoinshows.com
+  - vnaonline.org
+  - westhernandocoinclub.com
+  - whccnj.org
+  - whitmanexpo.com
+  - wilmingtoncoinclub.org
+
+# Shared platforms must be approved at page-path level rather than trusting
+# every page on the host.
+approved_url_prefixes:
+  - https://www.facebook.com/GreenhillsClassicCoinShow/
+  - https://www.facebook.com/HawaiiStateNumismaticAssociation/
+  - https://www.facebook.com/SouthBaldwinNumismaticSociety/
+  - https://www.facebook.com/tristatecoinstamp/
