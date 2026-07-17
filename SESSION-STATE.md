@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-16 17:34 (PDT)
+**Last updated:** 2026-07-16 17:37 (PDT)
 **Session:** nationwide show refresh priority
 
 ## Completed today
@@ -47,9 +47,10 @@
 - v0.9.22 report: `total=195`, `aliases=23`, `specific=112`, `future_specific=111`, `past_specific=1`, `partial=3`, `tbd=80`, `missing_url=56`, `queued=96`, `source_urls=139`.
 - Checkpoint saved for the complete v0.9.22 local batch; only generated `tmp/` reports remain untracked.
 - v0.9.23 addressed PR #75 review findings by validating both ends of date ranges and preserving correction-specific consent metadata.
+- Pushed review-fix commit `a1613b3`; PR #75 is mergeable and the repository reported no automated PR checks.
 
 ## In progress
-- PR #75 is open for v0.9.23; review fixes passed parser, syntax, report, generator, consent-metadata, and diff checks and are ready to push.
+- PR #75 is open for v0.9.23 and ready for user approval; all available local checks and a follow-up audit passed.
 
 ## Next up
 - Add official social URLs to `_data/shows.yml` / `_data/dealers.yml` only after source verification.
