@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-16 23:58 (PDT)
+**Last updated:** 2026-07-16 23:59 (PDT)
 **Session:** v0.9.25 next official-source batch
 
 ## Completed today
@@ -10,7 +10,7 @@
 - Report: `total=198`, `aliases=25`, `future_specific=115`, `past_specific=0`, `tbd=80`, `missing_url=48`, `queued=87`, `source_urls=150`.
 - Validation passed: 34 Ruby assertions, syntax, YAML, aliases/IDs, 450-page generation, 79-row source comparison, diff check, and final audit.
 ## In progress
-- v0.9.25 is verified locally in `feature/auto-20260716-233741`; create a local commit and stop before push.
+- v0.9.25 is committed locally as `187922a` in `feature/auto-20260716-233741` and awaits approval to push/open a PR.
 
 ## Next up
 - Ask for approval to push and open the v0.9.25 review PR; do not merge or deploy without separate approval.
