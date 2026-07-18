@@ -2608,6 +2608,43 @@
   - '2026-11-01'
   verification_notes: Official Willamette Coin Club Portland Coin Show page lists October 30-November 1, 2026, Holiday Inn Portland at Columbia Riverfront address, public hours, admission, and parking; rechecked during official-source listing verification.
   notes: 'Hours: Fri 12-6, Sat 10-6, Sun 10-4. Admission $5; kids free.'
+- id: wilsonville-oregon-coin-currency-token-medal-show
+  name: Oregon Coin, Currency, Token & Medal Show
+  state: OR
+  state_name: Oregon
+  city: Wilsonville
+  city_slug: wilsonville-or
+  venue: Holiday Inn, 25425 SW 95th Ave, Wilsonville, OR
+  frequency: Recurring
+  next_date: September 13, 2026
+  website: https://www.pnna.org/wp/events/event-calendar/
+  organizer: Randy Van Wie
+  source_url: https://www.pnna.org/wp/events/event-calendar/
+  source_type: association-calendar
+  last_verified: '2026-07-17'
+  upcoming_dates:
+  - '2026-09-13'
+  verification_notes: Official Pacific Northwest Numismatic Association event calendar lists the Oregon Coin, Currency, Token & Medal Show on September 13, 2026 at the Holiday Inn, 25425 SW 95th Ave, Wilsonville.
+  notes: PNNA lists Randy Van Wie as the show contact.
+- id: cave-man-coin-club-show
+  name: Cave Man Coin Club Coin, Currency & Token Show
+  state: OR
+  state_name: Oregon
+  city: Grants Pass
+  city_slug: grants-pass-or
+  venue: Josephine County Fairgrounds, Redwood Hwy., Grants Pass, OR
+  frequency: Annual
+  next_date: September 19-20, 2026
+  website: https://www.pnna.org/wp/events/event-calendar/
+  organizer: Cave Man Coin Club
+  source_url: https://www.pnna.org/wp/events/event-calendar/
+  source_type: association-calendar
+  last_verified: '2026-07-17'
+  upcoming_dates:
+  - '2026-09-19'
+  - '2026-09-20'
+  verification_notes: Official Pacific Northwest Numismatic Association event calendar lists the Cave Man Coin Club Coin, Currency & Token Show on September 19-20, 2026 at the Josephine County Fairgrounds in Grants Pass.
+  notes: ''
 - id: gettysburg-battlefield-coin-show
   name: Gettysburg Battlefield Coin Show
   state: PA
@@ -3202,6 +3239,43 @@
   website: ''
   organizer: ''
   notes: ''
+- id: greater-tacoma-coin-show
+  name: Greater Tacoma Coin Show
+  state: WA
+  state_name: Washington
+  city: Tacoma
+  city_slug: tacoma-wa
+  venue: Holiday Inn Express, I-5 and Bridgeport Way, Tacoma, WA
+  frequency: Recurring
+  next_date: July 18, 2026
+  website: https://www.pnna.org/wp/events/event-calendar/
+  organizer: GNW Shows / David F. Schmidt
+  source_url: https://www.pnna.org/wp/events/event-calendar/
+  source_type: association-calendar
+  last_verified: '2026-07-17'
+  upcoming_dates:
+  - '2026-07-18'
+  - '2026-09-05'
+  verification_notes: Official Pacific Northwest Numismatic Association event calendar lists Greater Tacoma Coin Shows on July 18 and September 5, 2026 at the Holiday Inn Express near I-5 and Bridgeport Way in Tacoma.
+  notes: ''
+- id: tacoma-lakewood-coin-club-show
+  name: Tacoma-Lakewood Coin Club Show
+  state: WA
+  state_name: Washington
+  city: Tacoma
+  city_slug: tacoma-wa
+  venue: 'AMVETS Post #1, 5717 South Tyler Street, Tacoma, WA'
+  frequency: Annual
+  next_date: September 12, 2026
+  website: https://www.tlcc.info/coin-show/
+  organizer: Tacoma-Lakewood Coin Club
+  source_url: https://www.tlcc.info/coin-show/
+  source_type: official-club-page
+  last_verified: '2026-07-17'
+  upcoming_dates:
+  - '2026-09-12'
+  verification_notes: 'Official Tacoma-Lakewood Coin Club show page confirms its annual coin show on September 12, 2026 at AMVETS Post #1, 5717 South Tyler Street, Tacoma, with public hours from 10 AM to 4 PM.'
+  notes: 'Hours: Sat 10-4. Free entry with ID and free parking.'
 - id: boeing-employees-coin-club-show
   name: Boeing Employees Coin Club Show / Kent Valley Coin Show
   state: WA
