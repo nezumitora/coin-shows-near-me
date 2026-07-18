@@ -3264,7 +3264,7 @@
   state_name: Washington
   city: Tacoma
   city_slug: tacoma-wa
-  venue: AMVETS Post #1, 5717 South Tyler Street, Tacoma, WA
+  venue: 'AMVETS Post #1, 5717 South Tyler Street, Tacoma, WA'
   frequency: Annual
   next_date: September 12, 2026
   website: https://www.tlcc.info/coin-show/
@@ -3274,7 +3274,7 @@
   last_verified: '2026-07-17'
   upcoming_dates:
   - '2026-09-12'
-  verification_notes: Official Tacoma-Lakewood Coin Club show page confirms its annual coin show on September 12, 2026 at AMVETS Post #1, 5717 South Tyler Street, Tacoma, with public hours from 10 AM to 4 PM.
+  verification_notes: 'Official Tacoma-Lakewood Coin Club show page confirms its annual coin show on September 12, 2026 at AMVETS Post #1, 5717 South Tyler Street, Tacoma, with public hours from 10 AM to 4 PM.'
   notes: 'Hours: Sat 10-4. Free entry with ID and free parking.'
 - id: boeing-employees-coin-club-show
   name: Boeing Employees Coin Club Show / Kent Valley Coin Show
