@@ -1,5 +1,8 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Jul 29, 2026
+- v0.9.29: Added report-only show data-trust audit tooling with deterministic tests, and refreshed official-source classifications for the already-correct Long Beach Expo and FUN Convention records without changing their published dates.
+
 ## Jul 17, 2026
 - v0.9.28: Added four official source-backed Pacific Northwest listings for Wilsonville, Grants Pass, Greater Tacoma, and the Tacoma-Lakewood Coin Club using PNNA and club event pages.
 - v0.9.27: Added the official San Francisco Coin Show on August 1, 2026 at Gallery 308, Building A, Fort Mason, using the San Francisco Coin Club's dedicated show page and calendar details.
