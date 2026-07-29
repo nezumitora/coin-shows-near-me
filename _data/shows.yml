@@ -294,7 +294,8 @@
   website: https://www.longbeachexpo.com/
   organizer: Collectors Universe
   source_url: https://www.longbeachexpo.com/
-  last_verified: '2026-07-13'
+  source_type: official-show-page
+  last_verified: '2026-07-29'
   upcoming_dates:
   - '2026-09-09'
   - '2026-09-10'
@@ -302,7 +303,7 @@
   - '2027-03-10'
   - '2027-03-11'
   - '2027-03-12'
-  verification_notes: Official Long Beach Expo site lists September 9-11, 2026 and March 10-12, 2027 save-the-date windows; reviewed during broad official-source future-date refresh.
+  verification_notes: Official Long Beach Expo site lists September 9-11, 2026 and March 10-12, 2027 save-the-date windows; its detailed schedule still shows stale February information, so the homepage dates control.
   notes: A major international show with hundreds of dealers.
 - id: sacramento-coin-show
   name: Sacramento Coin Show
@@ -778,7 +779,8 @@
   website: http://www.funtopics.com/
   organizer: Florida United Numismatists
   source_url: http://www.funtopics.com/
-  last_verified: '2026-07-13'
+  source_type: official-association-page
+  last_verified: '2026-07-29'
   upcoming_dates:
   - '2027-01-07'
   verification_notes: Official Florida United Numismatists home page lists the 72nd annual FUN Convention as January 7-10, 2027 at the Orange County Convention Center, 9899 International Dr., Orlando, Florida; reviewed during future-date cleanup.
