@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "THE VILLAGES/WILDWOOD MAY 27,2026 — Wildwood, Florida Coin Show"
-seo_title: "THE VILLAGES/WILDWOOD MAY 27,2026 — Wildwood, Florida | Coin Show Near Me"
-seo_description: "THE VILLAGES/WILDWOOD MAY 27,2026 in Wildwood, Florida. Recurring coin show at . Get dates, venue details, and more."
+layout: null
+title: "The Villages / Wildwood Coin Show — Listing moved"
 permalink: /shows/the-villageswildwood-may-272026/
-show_id: "the-villageswildwood-may-272026"
-breadcrumb_parent: "Florida"
-breadcrumb_parent_url: "/states/florida/"
-breadcrumb_current: "THE VILLAGES/WILDWOOD MAY 27,2026"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/the-villageswildwood-april-292026/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/the-villageswildwood-april-292026/">
+<title>The Villages / Wildwood Coin Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/the-villageswildwood-april-292026/">The Villages / Wildwood Coin Show</a>.</p>
+  </body>
+</html>

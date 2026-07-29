@@ -2,7 +2,7 @@
 layout: show
 title: "PAN Coin Show — Monroeville, Pennsylvania Coin Show"
 seo_title: "PAN Coin Show — Monroeville, Pennsylvania | Coin Show Near Me"
-seo_description: "PAN Coin Show in Monroeville, Pennsylvania. Semiannual (May & October) coin show at Monroeville Convention Center. Get dates, venue details, and more."
+seo_description: "PAN Coin Show in Monroeville, Pennsylvania. Semiannual (May & October) coin show at Monroeville Convention Center, Monroeville, PA 15146. Get dates, venue details, and more."
 permalink: /shows/pan-coin-show/
 show_id: "pan-coin-show"
 breadcrumb_parent: "Pennsylvania"

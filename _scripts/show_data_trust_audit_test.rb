@@ -33,6 +33,13 @@ class ShowDataTrustAuditTest < Minitest::Test
     assert_equal Date.new(2026, 4, 18), state[:end_date]
   end
 
+  def test_supported_cross_month_date_range
+    state = ShowDataTrustAudit.date_text_classification('September 30-October 3, 2026')
+    assert_equal :specific, state[:precision]
+    assert_equal Date.new(2026, 9, 30), state[:start_date]
+    assert_equal Date.new(2026, 10, 3), state[:end_date]
+  end
+
   def test_partial_month_is_ambiguous_not_expired
     state = ShowDataTrustAudit.date_text_classification('July 2026')
     assert_equal :partial_month, state[:precision]
@@ -57,7 +64,7 @@ class ShowDataTrustAuditTest < Minitest::Test
     assert_includes issues.map(&:issue_type), 'expired_specific_date'
   end
 
-  def test_duplicate_candidates_are_classified_without_merging
+  def test_duplicate_candidates_ignore_city_only_overlap
     shows = [
       base_show('san-fernando-coin-collectible-expo', name: 'San Fernando Coin & Collectible Expo', city: 'San Fernando', state: 'CA'),
       base_show('san-fernando-coin-collectibles-expo', name: 'San Fernando Coin & Collectibles Expo', city: 'San Fernando', state: 'CA'),
@@ -67,12 +74,29 @@ class ShowDataTrustAuditTest < Minitest::Test
 
     candidates = ShowDataTrustAudit.duplicate_candidates(shows)
     assert candidates.any? { |candidate| candidate.classification == 'high-confidence' && candidate.listing_ids.include?('san-fernando-coin-collectible-expo') }
-    assert candidates.any? { |candidate| candidate.classification == 'low-confidence' && candidate.listing_ids.include?('orland-park-coin-show') }
+    refute candidates.any? { |candidate| candidate.listing_ids.include?('orland-park-coin-show') }
   end
 
   def test_tbd_date_contradiction
     issues = ShowDataTrustAudit.build_issues([base_show('dated-title', name: 'Coin Show May 3rd, 2026', next_date: 'TBD')], as_of: Date.new(2026, 7, 29))
     assert_includes issues.map(&:issue_type), 'tbd_date_contradiction'
+  end
+
+  def test_recurring_weekday_title_is_not_obsolete
+    issues = ShowDataTrustAudit.build_issues([base_show('recurring-title', name: 'First Sunday Coin Show', next_date: 'August 2, 2026')], as_of: Date.new(2026, 7, 29))
+    refute_includes issues.map(&:issue_type), 'obsolete_date_in_title'
+  end
+
+  def test_explicitly_historical_note_does_not_contradict_tbd
+    show = base_show('historical-note', next_date: 'TBD', notes: 'Past March 2026 show verified; no future date is posted.')
+    issues = ShowDataTrustAudit.build_issues([show], as_of: Date.new(2026, 7, 29))
+    refute_includes issues.map(&:issue_type), 'tbd_date_contradiction'
+  end
+
+  def test_saint_city_name_is_not_treated_as_an_address
+    show = base_show('saint-city', city: 'St. Anthony', venue: 'Village High School, 3303 33rd Ave NE')
+    issues = ShowDataTrustAudit.build_issues([show], as_of: Date.new(2026, 7, 29))
+    refute_includes issues.map(&:issue_type), 'missing_or_incomplete_venue'
   end
 
   def test_schema_diagnostics_for_partial_range_and_unparseable_dates

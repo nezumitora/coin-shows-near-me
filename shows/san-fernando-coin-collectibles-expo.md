@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "San Fernando Coin & Collectibles Expo — San Fernando, California Coin Show"
-seo_title: "San Fernando Coin & Collectibles Expo — San Fernando, California | Coin Show Near Me"
-seo_description: "San Fernando Coin & Collectibles Expo in San Fernando, California. Recurring coin show at . Get dates, venue details, and more."
+layout: null
+title: "San Fernando Coin & Collectible Expo — Listing moved"
 permalink: /shows/san-fernando-coin-collectibles-expo/
-show_id: "san-fernando-coin-collectibles-expo"
-breadcrumb_parent: "California"
-breadcrumb_parent_url: "/states/california/"
-breadcrumb_current: "San Fernando Coin & Collectibles Expo"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/san-fernando-coin-collectible-expo/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/san-fernando-coin-collectible-expo/">
+<title>San Fernando Coin &amp; Collectible Expo — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/san-fernando-coin-collectible-expo/">San Fernando Coin &amp; Collectible Expo</a>.</p>
+  </body>
+</html>
