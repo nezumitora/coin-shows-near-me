@@ -2038,13 +2038,9 @@ function fillCrmFormMetadata(form) {
   var activeState = 'all';
   var searchTerm = '';
   var stateAbbreviations = Object.create(null);
-
-  for (var cardIndex = 0; cardIndex < cards.length; cardIndex++) {
-    var cardState = (cards[cardIndex].getAttribute('data-state') || '').toLowerCase();
-    if (cardState) {
-      stateAbbreviations[cardState] = true;
-    }
-  }
+  {% for state in site.data.states %}
+  stateAbbreviations['{{ state.abbrev | downcase }}'] = true;
+  {% endfor %}
 
   function scrollToResults() {
     var stickyHeader = document.querySelector('.sticky-header');

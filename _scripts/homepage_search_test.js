@@ -1,17 +1,17 @@
 'use strict';
 
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 const test = require('node:test');
 const showMatchesSearch = require('../_includes/homepage-search-match.js');
 
-const stateAbbreviations = Object.assign(Object.create(null), {
-  az: true,
-  ca: true,
-  in: true,
-  mo: true,
-  mt: true,
-  or: true
-});
+const statesYaml = fs.readFileSync(path.join(__dirname, '../_data/states.yml'), 'utf8');
+const stateCodes = Array.from(statesYaml.matchAll(/^- abbrev: ([A-Z]{2})$/gm), (match) => match[1]);
+const stateAbbreviations = Object.create(null);
+for (const stateCode of stateCodes) {
+  stateAbbreviations[stateCode.toLowerCase()] = true;
+}
 
 const missouriShow = {
   name: 'Joplin Coin Club Show',
@@ -26,6 +26,21 @@ test('recognized state abbreviations receive exact-state precedence', () => {
   assert.equal(showMatchesSearch(missouriShow, 'MO', stateAbbreviations), true);
   assert.equal(showMatchesSearch({ ...missouriShow, state: 'MT' }, 'MO', stateAbbreviations), false);
   assert.equal(showMatchesSearch({ ...missouriShow, name: 'Fremont Coin Show', state: 'CA' }, 'mo', stateAbbreviations), false);
+});
+
+test('all 50 state abbreviations receive exact-state precedence', () => {
+  assert.equal(stateCodes.length, 50);
+  assert.equal(new Set(stateCodes).size, 50);
+
+  for (const stateCode of stateCodes) {
+    const otherState = stateCode === 'AL' ? 'AK' : 'AL';
+    const matchingShow = { ...missouriShow, state: stateCode };
+    const distractingShow = { ...missouriShow, name: `${stateCode} appears in this name`, state: otherState };
+
+    assert.equal(showMatchesSearch(matchingShow, stateCode, stateAbbreviations), true, `${stateCode} should match its state`);
+    assert.equal(showMatchesSearch(matchingShow, stateCode.toLowerCase(), stateAbbreviations), true, `${stateCode} should match lowercase input`);
+    assert.equal(showMatchesSearch(distractingShow, stateCode, stateAbbreviations), false, `${stateCode} should not match text in another state`);
+  }
 });
 
 test('partial full state names remain searchable', () => {
