@@ -21,6 +21,7 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 .show-submission-form * { box-sizing:border-box; }
 .show-submission-form { display:flex; flex-direction:column; gap:0.75rem; width:100%; min-width:0; }
 .show-submission-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.75rem; }
+.show-submission-wide { grid-column:1 / -1; }
 .show-submission-form label { display:flex; flex-direction:column; gap:0.3rem; color:#334155; font-size:0.82rem; font-weight:700; }
 .show-submission-form input,
 .show-submission-form select,
@@ -83,7 +84,7 @@ Use this form if you organize, promote, host, or represent a coin show that is m
     <label>Official contact email
       <input type="email" name="email" autocomplete="email" required>
     </label>
-    <label>Your role
+    <label class="show-submission-wide">Your role
       <select name="organizer_role" required>
         <option value="">Select your role</option>
         <option value="organizer">Organizer or promoter</option>
