@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "St. Louis Numismatic Association Show — St. Charles, Missouri Coin Show"
-seo_title: "St. Louis Numismatic Association Show — St. Charles, Missouri | Coin Show Near Me"
-seo_description: "St. Louis Numismatic Association Show in St. Charles, Missouri. Annual (July) coin show at St. Charles Convention Center. Get dates, venue details, and more."
+layout: null
+title: "Missouri Numismatic Society Annual Coin Show — Listing moved"
 permalink: /shows/st-louis-numismatic-association-show/
-show_id: "st-louis-numismatic-association-show"
-breadcrumb_parent: "Missouri"
-breadcrumb_parent_url: "/states/missouri/"
-breadcrumb_current: "St. Louis Numismatic Association Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/missouri-numismatic-society-annual-coin-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/missouri-numismatic-society-annual-coin-show/">
+<title>Missouri Numismatic Society Annual Coin Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/missouri-numismatic-society-annual-coin-show/">Missouri Numismatic Society Annual Coin Show</a>.</p>
+  </body>
+</html>

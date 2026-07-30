@@ -26,9 +26,11 @@
     "name": {{ include.show.venue | jsonify }},
     "address": {
       "@type": "PostalAddress",
+      {% if include.show.street_address and include.show.street_address != "" %}"streetAddress": {{ include.show.street_address | jsonify }},{% endif %}
       "addressLocality": {{ include.show.city | jsonify }},
       "addressRegion": {{ include.show.state | jsonify }},
-      "addressCountry": "US"
+      "addressCountry": "US"{% if include.show.postal_code and include.show.postal_code != "" %},
+      "postalCode": {{ include.show.postal_code | jsonify }}{% endif %}
     }
   }{% assign organizer_website = include.show.website | default: "" | strip %}{% assign has_organizer_url = false %}{% if organizer_website contains "https://" %}{% assign has_organizer_url = true %}{% elsif organizer_website contains "http://" %}{% assign has_organizer_url = true %}{% endif %}{% if include.show.organizer and include.show.organizer != "" and has_organizer_url %},
   "organizer": {
