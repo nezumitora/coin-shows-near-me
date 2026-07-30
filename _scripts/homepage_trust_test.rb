@@ -9,6 +9,8 @@ class HomepageTrustTest < Minitest::Test
   HOMEPAGE = File.read(File.join(ROOT, '_layouts/homepage.html'))
   SHOW_LAYOUT = File.read(File.join(ROOT, '_layouts/show.html'))
   SUBMIT_SHOW = File.read(File.join(ROOT, 'submit-show.md'))
+  FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
+  PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
   SHOWS = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
   AS_OF = Date.new(2026, 7, 29)
 
@@ -49,27 +51,43 @@ class HomepageTrustTest < Minitest::Test
     ], expired_ids.sort
   end
 
-  def test_homepage_keeps_directory_discovery_ahead_of_promotions
+  def test_homepage_keeps_search_first_and_requested_utilities_near_the_top
     filter_position = HOMEPAGE.index('<!-- Filter Bar -->')
-    spot_position = HOMEPAGE.index('<!-- Secondary market reference -->')
+    spot_position = HOMEPAGE.index('<!-- Top utilities -->')
+    reminder_position = HOMEPAGE.index('<!-- Reminder signup -->')
     show_cards_position = HOMEPAGE.index('<!-- Show Cards -->')
 
     refute_nil filter_position
     refute_nil show_cards_position
     refute_nil spot_position
+    refute_nil reminder_position
+    assert_operator spot_position, :<, reminder_position
+    assert_operator reminder_position, :<, filter_position
     assert_operator filter_position, :<, show_cards_position
-    assert_operator show_cards_position, :<, spot_position
     assert_includes HOMEPAGE, 'id="spot-ticker"'
     refute_includes HOMEPAGE, 'sponsor-preview-section'
     refute_includes HOMEPAGE, 'dealer-section'
     refute_includes HOMEPAGE, 'dealer-reg-form'
   end
 
-  def test_homepage_reminder_is_data_minimal
+  def test_homepage_reminder_collects_preferences_and_separate_sms_consent
     assert_includes HOMEPAGE, 'id="notify-form"'
+    assert_includes HOMEPAGE, 'name="first_name"'
+    assert_includes HOMEPAGE, 'name="last_name"'
     assert_includes HOMEPAGE, 'name="preferredState"'
-    refute_includes HOMEPAGE, 'name="name"'
+    assert_includes HOMEPAGE, 'name="interested_shows_locations"'
+    assert_includes HOMEPAGE, 'name="phone"'
+    assert_includes HOMEPAGE, 'name="sms_consent"'
     assert_equal 1, HOMEPAGE.scan(/<input[^>]+name="showReminderOptIn"/).length
+    assert_equal 1, HOMEPAGE.scan(/<input[^>]+name="sms_consent"/).length
+    assert_includes HOMEPAGE, 'smsConsentTimestamp'
+  end
+
+  def test_crm_bridge_never_infers_sms_consent
+    assert_includes FORM_BRIDGE, "rawSmsConsent.toLowerCase() === 'yes' && Boolean(phone)"
+    refute_includes FORM_BRIDGE, 'phone && contactConsent && showOptIn'
+    assert_includes FORM_BRIDGE, "window.coinGetFormValue(form, 'first_name')"
+    assert_includes FORM_BRIDGE, "window.coinGetFormValue(form, 'last_name')"
   end
 
   def test_show_pages_expose_verification_context
@@ -85,10 +103,19 @@ class HomepageTrustTest < Minitest::Test
     assert_includes SUBMIT_SHOW, 'id="show-submission-form"'
     assert_includes SUBMIT_SHOW, 'Every submission is reviewed manually.'
     assert_includes SUBMIT_SHOW, 'does not automatically create or verify a public listing'
+    assert_includes SUBMIT_SHOW, '<legend>Show location</legend>'
+    assert_includes SUBMIT_SHOW, 'https://coinshownearme.com/'
+  end
+
+  def test_listing_removal_is_manual_and_privacy_documented
+    assert_includes SHOW_LAYOUT, 'id="listing-removal-form"'
+    assert_includes SHOW_LAYOUT, 'Public event facts may remain listed'
+    assert_includes PRIVACY_POLICY, 'Public Event Information and Removal Requests'
+    assert_includes PRIVACY_POLICY, 'They are not automatically removed merely because a request is submitted.'
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.11.0</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.11.0'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.12.0</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.12.0'
   end
 end

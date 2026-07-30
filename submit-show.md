@@ -17,7 +17,9 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 </div>
 
 <style>
-.show-submission-form { display:flex; flex-direction:column; gap:0.75rem; }
+.show-submission-form,
+.show-submission-form * { box-sizing:border-box; }
+.show-submission-form { display:flex; flex-direction:column; gap:0.75rem; width:100%; min-width:0; }
 .show-submission-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.75rem; }
 .show-submission-form label { display:flex; flex-direction:column; gap:0.3rem; color:#334155; font-size:0.82rem; font-weight:700; }
 .show-submission-form input,
@@ -31,7 +33,22 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 .show-submission-form .submission-consent input { width:1rem; height:1rem; margin-top:0.15rem; flex:0 0 auto; accent-color:var(--coin-gold); }
 .show-submission-form button { align-self:flex-start; padding:0.7rem 1.3rem; border:0; border-radius:6px; background:var(--coin-navy); color:#fff; cursor:pointer; font-weight:800; }
 .show-submission-form button:hover { background:var(--coin-gold); }
-@media (max-width:700px) { .show-submission-grid { grid-template-columns:1fr; } }
+.show-submission-fieldset { min-width:0; margin:0; padding:1rem; border:1px solid #cbd5e1; border-radius:8px; background:#f8fafc; }
+.show-submission-fieldset legend { padding:0 0.35rem; color:var(--coin-navy); font-weight:800; }
+.show-submission-fieldset .show-submission-grid + .show-submission-grid,
+.show-submission-fieldset > label + .show-submission-grid { margin-top:0.75rem; }
+.show-submission-thanks { display:none; background:#ecfdf5; color:#14532d; padding:1rem; border:1px solid #86efac; border-radius:8px; margin-top:0.75rem; }
+.show-submission-thanks:focus { outline:3px solid rgba(184,134,11,0.35); outline-offset:3px; }
+.show-submission-thanks a { color:#14532d; font-weight:800; text-decoration:underline; overflow-wrap:anywhere; }
+.show-submission-copy { margin-top:0.75rem; padding:0.55rem 0.85rem !important; background:#14532d !important; }
+@media (max-width:700px) {
+  .show-submission-grid { grid-template-columns:1fr; }
+  .show-submission-fieldset { padding:0.8rem; }
+  .show-submission-form input,
+  .show-submission-form select,
+  .show-submission-form textarea,
+  .show-submission-form button { max-width:100%; }
+}
 </style>
 
 <div class="notify-section" style="margin:1rem 0;padding:1.25rem;">
@@ -51,15 +68,18 @@ Use this form if you organize, promote, host, or represent a coin show that is m
   <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me to review this show submission. Submitted details are reviewed before publication.">
 
   <div class="show-submission-grid">
-    <label>Your full name
-      <input type="text" name="contact_name" autocomplete="name" required>
+    <label>First name
+      <input type="text" name="first_name" autocomplete="given-name" required>
     </label>
-    <label>Organization, club, or venue
-      <input type="text" name="organization_name" required>
+    <label>Last name
+      <input type="text" name="last_name" autocomplete="family-name" required>
     </label>
   </div>
 
   <div class="show-submission-grid">
+    <label>Organization, club, or venue
+      <input type="text" name="organization_name" required>
+    </label>
     <label>Official contact email
       <input type="email" name="email" autocomplete="email" required>
     </label>
@@ -83,35 +103,38 @@ Use this form if you organize, promote, host, or represent a coin show that is m
     <label>Upcoming date or dates
       <input type="text" name="upcoming_dates" placeholder="Example: October 10–11, 2026" required>
     </label>
-    <label>Venue name
-      <input type="text" name="venue_name" required>
-    </label>
-  </div>
-
-  <label>Street address
-    <input type="text" name="street_address" autocomplete="street-address" required>
-  </label>
-
-  <div class="show-submission-grid">
-    <label>City
-      <input type="text" name="city" autocomplete="address-level2" required>
-    </label>
-    <label>State
-      <select name="state" autocomplete="address-level1" required>
-        <option value="">Select a state</option>
-        {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
-      </select>
-    </label>
-  </div>
-
-  <div class="show-submission-grid">
-    <label>ZIP code
-      <input type="text" name="postal_code" inputmode="numeric" autocomplete="postal-code" required>
-    </label>
     <label>Official public source URL
       <input type="url" name="official_source_url" placeholder="Show, club, promoter, association, or venue page" required>
     </label>
   </div>
+
+  <fieldset class="show-submission-fieldset">
+    <legend>Show location</legend>
+    <div class="show-submission-grid">
+      <label>Venue name
+        <input type="text" name="venue_name" required>
+      </label>
+      <label>Street address
+        <input type="text" name="street_address" autocomplete="street-address" required>
+      </label>
+    </div>
+    <div class="show-submission-grid">
+      <label>City
+        <input type="text" name="city" autocomplete="address-level2" required>
+      </label>
+      <label>State
+        <select name="state" autocomplete="address-level1" required>
+          <option value="">Select a state</option>
+          {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
+        </select>
+      </label>
+    </div>
+    <div class="show-submission-grid">
+      <label>ZIP code
+        <input type="text" name="postal_code" inputmode="numeric" autocomplete="postal-code" required>
+      </label>
+    </div>
+  </fieldset>
 
   <label>Public event details
     <textarea name="event_details" placeholder="Include public hours, admission, frequency, organizer name, and anything else visitors should know."></textarea>
@@ -124,12 +147,16 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 
   <button type="submit">Submit Show for Review</button>
 </form>
-<div class="notify-success" id="show-submission-success" style="display:none;background:#065f46;color:#fff;padding:0.9rem;border-radius:6px;margin-top:0.75rem;">
-  Thank you — the show was submitted for manual review. We may email you if we need clarification or stronger official-source evidence.
+<div class="show-submission-thanks" id="show-submission-success" role="status" tabindex="-1">
+  <strong>Thank you — your show was submitted for manual review.</strong>
+  <p style="margin:0.45rem 0 0;">We may email you if we need clarification or stronger official-source evidence.</p>
+  <p style="margin:0.75rem 0 0;">Help collectors find your event: add a link to <a id="directory-link" href="https://coinshownearme.com/">https://coinshownearme.com/</a> on your official show, club, or venue website.</p>
+  <button type="button" class="show-submission-copy" id="copy-directory-link">Copy directory link</button>
+  <span id="copy-directory-status" aria-live="polite" style="display:inline-block;margin-left:0.5rem;font-size:0.82rem;"></span>
 </div>
 </div>
 
-Already listed? Open the show page and use **Organize this show? Request verification** or **Update show info** instead.
+Already listed? Open the show page and use **Organize this show? Request verification**, **Update show info**, or **Request listing review or removal** instead.
 
 <script>
 (function() {
@@ -149,8 +176,27 @@ Already listed? Open the show page and use **Organize this show? Request verific
     if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
     window.coinSubmitForm(form).then(function() {
       form.style.display = 'none';
-      document.getElementById('show-submission-success').style.display = 'block';
+      var success = document.getElementById('show-submission-success');
+      success.style.display = 'block';
+      success.focus();
     });
   });
+
+  var copyButton = document.getElementById('copy-directory-link');
+  var copyStatus = document.getElementById('copy-directory-status');
+  if (copyButton) {
+    copyButton.addEventListener('click', function() {
+      var directoryUrl = 'https://coinshownearme.com/';
+      if (!navigator.clipboard || !navigator.clipboard.writeText) {
+        copyStatus.textContent = 'Select and copy the link above.';
+        return;
+      }
+      navigator.clipboard.writeText(directoryUrl).then(function() {
+        copyStatus.textContent = 'Link copied.';
+      }).catch(function() {
+        copyStatus.textContent = 'Select and copy the link above.';
+      });
+    });
+  }
 })();
 </script>

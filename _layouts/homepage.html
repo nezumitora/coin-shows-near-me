@@ -426,7 +426,7 @@ a:hover { color: var(--gold-light); }
 .market-strip-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem 2rem;
+  padding: 1rem 1.5rem;
 }
 .home-spot-ticker {
   display: flex;
@@ -905,6 +905,7 @@ a:hover { color: var(--gold-light); }
 }
 .cta-form input[type="text"],
 .cta-form input[type="email"],
+.cta-form input[type="tel"],
 .cta-form select {
   flex: 1;
   min-width: 180px;
@@ -936,6 +937,25 @@ a:hover { color: var(--gold-light); }
 }
 .cta-form textarea::placeholder { color: #94a3b8; }
 .cta-form textarea:focus { border-color: var(--gold-light); }
+.cta-consent {
+  display: grid;
+  grid-template-columns: 1.15rem minmax(0, 1fr);
+  gap: 0.55rem;
+  width: 100%;
+  margin: 0.25rem 0;
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  text-align: left;
+}
+.cta-consent input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.15rem;
+  accent-color: var(--gold);
+}
+.cta-consent a { color: var(--gold-light); text-decoration: underline; }
+.cta-form-note { width: 100%; color: #cbd5e1; font-size: 0.76rem; text-align: left; }
 .cta-form button {
   background: var(--gold);
   color: #fff;
@@ -1017,6 +1037,7 @@ a:hover { color: var(--gold-light); }
   .cta-form { flex-direction: column; }
   .cta-form input[type="email"],
   .cta-form input[type="text"],
+  .cta-form input[type="tel"],
   .cta-form select { min-width: 100%; }
 }
 
@@ -1102,6 +1123,72 @@ a:hover { color: var(--gold-light); }
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- Top utilities -->
+<section class="market-strip-section" aria-label="Current precious metal spot prices">
+  <div class="home-spot-ticker" id="spot-ticker">
+    <div class="spot-ticker-item"><span class="spot-ticker-label">Gold</span><span class="spot-ticker-price" id="spot-gold-price">--</span></div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item"><span class="spot-ticker-label">Silver</span><span class="spot-ticker-price" id="spot-silver-price">--</span></div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item"><span class="spot-ticker-label">Platinum</span><span class="spot-ticker-price" id="spot-platinum-price">--</span></div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item"><span class="spot-ticker-label">Palladium</span><span class="spot-ticker-price" id="spot-palladium-price">--</span></div>
+    <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
+  </div>
+</section>
+
+<!-- Reminder signup -->
+<section class="cta-section" id="signup">
+  <div class="cta-inner">
+    <h2>Never Miss a <span>Coin Show</span></h2>
+    <p>Choose email reminders, and optionally text messages, for shows and locations you care about.</p>
+    <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
+      <input type="hidden" name="_subject" value="Coin Show Near Me — Show Reminder Signup">
+      <input type="hidden" name="form_type" value="show_reminder">
+      <input type="hidden" name="source" value="Website">
+      <input type="hidden" name="formName" value="showReminder">
+      <input type="hidden" name="coinContactRoles" value="attendee">
+      <input type="hidden" name="ctaCode" value="homepage_show_reminder">
+      <input type="hidden" name="sourceDetail" value="Homepage show reminder form">
+      <input type="hidden" name="pageUrl" value="">
+      <input type="hidden" name="referringUrl" value="">
+      <input type="hidden" name="submittedAt" value="">
+      <input type="hidden" name="contactConsentTimestamp" value="">
+      <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
+      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may email me reminders about shows and locations I select. I can opt out anytime.">
+      <input type="hidden" name="contactConsent" value="yes">
+      <input type="hidden" name="reminderConsentTimestamp" value="">
+      <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v2">
+      <input type="hidden" name="smsConsentTimestamp" value="">
+      <input type="hidden" name="smsConsentVersion" value="coin-show-sms-consent-v1">
+      <input type="hidden" name="smsConsentText" value="I agree to receive recurring automated coin show reminder texts from Coin Show Near Me. Consent is not a condition of purchase. Message and data rates may apply. Reply STOP to opt out or HELP for help.">
+      <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required>
+      <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required>
+      <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
+      <input type="tel" name="phone" id="homepage-reminder-phone" placeholder="Mobile number (optional)" autocomplete="tel">
+      <select name="preferredState" required>
+        <option value="" disabled selected>Select your state</option>
+        {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
+      </select>
+      <textarea name="interested_shows_locations" placeholder="Specific shows, cities, or locations you're interested in (optional)"></textarea>
+      <label class="cta-consent">
+        <input type="checkbox" name="showReminderOptIn" value="yes" required>
+        <span>Email me reminders about shows and locations I select. I can opt out anytime. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+      </label>
+      <label class="cta-consent">
+        <input type="checkbox" name="sms_consent" id="homepage-sms-consent" value="yes">
+        <span>Also send recurring automated reminder texts. Consent is optional and not a condition of purchase. Message and data rates may apply. Reply STOP to opt out or HELP for help. <a href="/legal/terms-of-use/#sms-terms">SMS Terms</a>.</span>
+      </label>
+      <div class="cta-form-note">A mobile number is used for text reminders only when the separate SMS box is checked.</div>
+      <button type="submit">Set My Show Reminders</button>
+    </form>
+    <div class="cta-success" id="notify-success" role="status" tabindex="-1">
+      You're signed up! We'll use only the reminder channels you selected.
+    </div>
+    <p style="margin:1rem 0 0;font-size:0.82rem;">Are you an organizer of a show that we are missing? <a href="{{ site.baseurl }}/submit-show/" style="color:var(--gold-light);font-weight:800;text-decoration:underline;">Submit it for review</a>.</p>
   </div>
 </section>
 
@@ -1194,20 +1281,6 @@ a:hover { color: var(--gold-light); }
   <div class="no-results" id="no-results">
     <h3>No shows found</h3>
     <p>Try a different search or filter.</p>
-  </div>
-</section>
-
-<!-- Secondary market reference -->
-<section class="market-strip-section" aria-label="Current precious metal spot prices">
-  <div class="home-spot-ticker" id="spot-ticker">
-    <div class="spot-ticker-item"><span class="spot-ticker-label">Gold</span><span class="spot-ticker-price" id="spot-gold-price">--</span></div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item"><span class="spot-ticker-label">Silver</span><span class="spot-ticker-price" id="spot-silver-price">--</span></div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item"><span class="spot-ticker-label">Platinum</span><span class="spot-ticker-price" id="spot-platinum-price">--</span></div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item"><span class="spot-ticker-label">Palladium</span><span class="spot-ticker-price" id="spot-palladium-price">--</span></div>
-    <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
   </div>
 </section>
 
@@ -1314,46 +1387,6 @@ a:hover { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- CTA / Signup -->
-<section class="cta-section" id="signup">
-  <div class="cta-inner">
-    <h2>Never Miss a <span>Coin Show</span></h2>
-    <p>Get email reminders about upcoming coin shows in your selected state.</p>
-    <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
-      <input type="hidden" name="_subject" value="Coin Show Near Me — State Show Reminder Signup">
-      <input type="hidden" name="form_type" value="show_reminder">
-      <input type="hidden" name="source" value="Website">
-      <input type="hidden" name="formName" value="stateShowReminder">
-      <input type="hidden" name="coinContactRoles" value="attendee">
-      <input type="hidden" name="ctaCode" value="homepage_state_show_reminder">
-      <input type="hidden" name="sourceDetail" value="Homepage state show reminder form">
-      <input type="hidden" name="pageUrl" value="">
-      <input type="hidden" name="referringUrl" value="">
-      <input type="hidden" name="submittedAt" value="">
-      <input type="hidden" name="contactConsentTimestamp" value="">
-      <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me by email about this reminder request. I can opt out anytime.">
-      <input type="hidden" name="contactConsent" value="yes">
-      <input type="hidden" name="reminderConsentTimestamp" value="">
-      <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-      <input type="email" name="email" placeholder="Email address" required>
-      <select name="preferredState" required>
-        <option value="" disabled selected>Select your state</option>
-        {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
-      </select>
-      <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-        <input type="checkbox" name="showReminderOptIn" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-        <span>I agree that Coin Show Near Me may email me reminders about shows in my selected state. I can opt out anytime. See our <a href="/legal/privacy-policy/" style="color:var(--gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
-      </label>
-      <button type="submit">Set My Show Reminders</button>
-    </form>
-    <div class="cta-success" id="notify-success">
-      You're signed up! We'll email you about upcoming shows in your selected state.
-    </div>
-    <p style="margin:1rem 0 0;font-size:0.82rem;">Organize a show we are missing? <a href="{{ site.baseurl }}/submit-show/" style="color:var(--gold-light);font-weight:800;text-decoration:underline;">Submit it for review</a>.</p>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer class="site-footer">
   <div class="footer-inner">
@@ -1367,15 +1400,15 @@ a:hover { color: var(--gold-light); }
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.11.0</div>
+    <div class="footer-version">v0.12.0</div>
   </div>
 </footer>
 
 <!-- Scripts -->
 <script>
 var COIN_CONTACT_CONSENT_VERSION = 'coin-contact-consent-v1';
-var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may contact me by email about this reminder request. I can opt out anytime.';
-var COIN_REMINDER_CONSENT_VERSION = 'coin-show-reminder-v1';
+var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may email me reminders about shows and locations I select. I can opt out anytime.';
+var COIN_REMINDER_CONSENT_VERSION = 'coin-show-reminder-v2';
 
 function setFormValue(form, name, value) {
   var field = form.querySelector('[name="' + name + '"]');
@@ -1398,6 +1431,10 @@ function fillCrmFormMetadata(form) {
   var reminderConsent = form.querySelector('[name="showReminderOptIn"]');
   if (reminderConsent && reminderConsent.checked) {
     setFormValue(form, 'reminderConsentTimestamp', now);
+  }
+  var smsConsent = form.querySelector('[name="sms_consent"]');
+  if (smsConsent && smsConsent.checked) {
+    setFormValue(form, 'smsConsentTimestamp', now);
   }
 }
 
@@ -1507,13 +1544,27 @@ function fillCrmFormMetadata(form) {
 (function() {
   var form = document.getElementById('notify-form');
   if (form) {
+    var phone = document.getElementById('homepage-reminder-phone');
+    var smsConsent = document.getElementById('homepage-sms-consent');
+    function syncSmsRequirements() {
+      if (!phone || !smsConsent) { return; }
+      phone.required = smsConsent.checked;
+      smsConsent.required = phone.value.trim() !== '';
+    }
+    phone.addEventListener('input', syncSmsRequirements);
+    smsConsent.addEventListener('change', syncSmsRequirements);
+    syncSmsRequirements();
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      syncSmsRequirements();
+      if (!form.reportValidity()) { return; }
       fillCrmFormMetadata(form);
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       window.coinSubmitForm(form).then(function() {
         form.style.display = 'none';
-        document.getElementById('notify-success').style.display = 'block';
+        var success = document.getElementById('notify-success');
+        success.style.display = 'block';
+        success.focus();
       });
     });
   }

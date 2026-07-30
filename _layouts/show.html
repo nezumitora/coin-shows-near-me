@@ -130,6 +130,9 @@ layout: default
     <a href="#organizer-verification" style="display:inline-flex;align-items:center;gap:0.4rem;background:#eff6ff;color:#1e3a8a;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #bfdbfe;margin-left:0.5rem;transition:all 0.2s;">
       Organize this show? Request verification
     </a>
+    <a href="#listing-removal" style="display:inline-flex;align-items:center;gap:0.4rem;background:#f8fafc;color:#475569;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #cbd5e1;margin-left:0.5rem;transition:all 0.2s;">
+      Request listing review or removal
+    </a>
   </div>
 </div>
 
@@ -179,23 +182,30 @@ layout: default
     <input type="hidden" name="submittedAt" value="">
     <input type="hidden" name="contactConsentTimestamp" value="">
     <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
+    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may email me a reminder about this show. I can opt out anytime.">
     <input type="hidden" name="reminderConsentTimestamp" value="">
-    <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
+    <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v2">
+    <input type="hidden" name="smsConsentTimestamp" value="">
+    <input type="hidden" name="smsConsentVersion" value="coin-show-sms-consent-v1">
+    <input type="hidden" name="smsConsentText" value="I agree to receive recurring automated coin show reminder texts from Coin Show Near Me. Consent is not a condition of purchase. Message and data rates may apply. Reply STOP to opt out or HELP for help.">
     <input type="hidden" name="show_name" value="{{ show.name }}">
     <input type="hidden" name="show_id" value="{{ show.id }}">
     <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
     <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
+      <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
+    </div>
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
       <input type="email" name="email" placeholder="Email address" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;">
-      <input type="tel" name="phone" placeholder="Mobile number (optional)" style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;">
+      <input type="tel" name="phone" id="show-reminder-phone" placeholder="Mobile number (optional)" autocomplete="tel" style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
     </div>
     <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
-      <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
-      <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
+      <input type="checkbox" name="showReminderOptIn" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>Email me a reminder about this show. I can opt out anytime. See our <a href="/legal/privacy-policy/" style="color:var(--coin-gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
     </label>
     <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
-      <input type="checkbox" name="showReminderOptIn" id="sms-consent-show" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
-      <span>Send me reminders about coin shows near me. <a href="/legal/terms-of-use/#sms-terms" style="color:var(--coin-gold-light);text-decoration:underline;">SMS Terms</a> &amp; <a href="/legal/privacy-policy/" style="color:var(--coin-gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
+      <input type="checkbox" name="sms_consent" id="show-reminder-sms-consent" value="yes" style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>Also send recurring automated reminder texts. Consent is optional and not a condition of purchase. Message and data rates may apply. Reply STOP to opt out or HELP for help. <a href="/legal/terms-of-use/#sms-terms" style="color:var(--coin-gold-light);text-decoration:underline;">SMS Terms</a>.</span>
     </label>
     <button type="submit" style="background:var(--coin-gold);color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:700;cursor:pointer;align-self:flex-start;">Remind Me About This Show</button>
   </form>
@@ -226,11 +236,14 @@ layout: default
     <input type="hidden" name="show_id" value="{{ show.id }}">
     <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
     <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
-      <input type="text" name="contact_name" placeholder="Your full name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
-      <input type="text" name="organization_name" placeholder="Organization or club name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+      <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+      <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
     </div>
     <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="text" name="organization_name" placeholder="Organization or club name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
       <input type="email" name="email" placeholder="Official contact email" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+    </div>
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr;gap:0.5rem;">
       <select name="organizer_role" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
         <option value="">Your role</option>
         <option value="organizer">Organizer or promoter</option>
@@ -290,6 +303,55 @@ layout: default
   </div>
 </div>
 
+<!-- Listing Removal Review CTA -->
+<div id="listing-removal" style="background:#f8fafc;color:#1e293b;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid #cbd5e1;">
+  <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#334155;">Request a listing review or removal</p>
+  <p style="margin:0 0 1rem;font-size:0.92rem;color:#475569;">Use this form if this event is permanently closed, duplicated, published with private personal information, or should be reviewed for another reason. Public event facts may remain listed when they are accurate and lawfully sourced. Every request is reviewed manually.</p>
+  <form id="listing-removal-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
+    <input type="hidden" name="_subject" value="Coin Show Near Me — Listing Review or Removal Request">
+    <input type="hidden" name="form_type" value="listing_removal_request">
+    <input type="hidden" name="source" value="Website">
+    <input type="hidden" name="formName" value="listingRemovalRequest">
+    <input type="hidden" name="coinContactRoles" value="showInfoReporter">
+    <input type="hidden" name="ctaCode" value="show_page_listing_removal">
+    <input type="hidden" name="sourceDetail" value="Individual show page listing review or removal form">
+    <input type="hidden" name="pageUrl" value="">
+    <input type="hidden" name="referringUrl" value="">
+    <input type="hidden" name="submittedAt" value="">
+    <input type="hidden" name="contactConsentTimestamp" value="">
+    <input type="hidden" name="contactConsentVersion" value="coin-listing-removal-consent-v1">
+    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me to review this listing removal request. Submitting a request does not guarantee removal.">
+    <input type="hidden" name="show_name" value="{{ show.name }}">
+    <input type="hidden" name="show_id" value="{{ show.id }}">
+    <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+      <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+    </div>
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="email" name="email" placeholder="Contact email" autocomplete="email" required style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+      <select name="removal_reason" required style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+        <option value="">Reason for review</option>
+        <option value="permanentlyClosed">Event is permanently closed</option>
+        <option value="duplicate">Duplicate listing</option>
+        <option value="privatePersonalInformation">Private personal information is displayed</option>
+        <option value="notACoinShow">Not a coin show</option>
+        <option value="other">Other review reason</option>
+      </select>
+    </div>
+    <input type="url" name="official_source_url" placeholder="Public source supporting the request (optional)" style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+    <textarea name="removal_details" placeholder="Explain what should be removed or reviewed and why. Do not include passwords, identification documents, or sensitive personal information." required style="min-height:96px;padding:0.65rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;resize:vertical;min-width:0;"></textarea>
+    <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#475569;line-height:1.4;">
+      <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>I agree that Coin Show Near Me may contact me to review this request. Submitting a request does not guarantee removal. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+    </label>
+    <button type="submit" style="background:#334155;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:800;cursor:pointer;align-self:flex-start;">Request Listing Review</button>
+  </form>
+  <div id="listing-removal-success" role="status" tabindex="-1" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
+    Thank you — we received the request and will review the listing and supporting information.
+  </div>
+</div>
+
 <script>
 (function() {
   function setFormValue(form, name, value) {
@@ -303,7 +365,7 @@ layout: default
     setFormValue(form, 'pageUrl', window.location.href);
     setFormValue(form, 'referringUrl', document.referrer || '');
     setFormValue(form, 'submittedAt', now);
-    setFormValue(form, 'reminderConsentVersion', 'coin-show-reminder-v1');
+    setFormValue(form, 'reminderConsentVersion', 'coin-show-reminder-v2');
     var contactConsent = form.querySelector('[name="contactConsent"]');
     if (contactConsent && contactConsent.checked) {
       setFormValue(form, 'contactConsentTimestamp', now);
@@ -311,6 +373,10 @@ layout: default
     var reminderConsent = form.querySelector('[name="showReminderOptIn"]');
     if (reminderConsent && reminderConsent.checked) {
       setFormValue(form, 'reminderConsentTimestamp', now);
+    }
+    var smsConsent = form.querySelector('[name="sms_consent"]');
+    if (smsConsent && smsConsent.checked) {
+      setFormValue(form, 'smsConsentTimestamp', now);
     }
   }
 
@@ -323,7 +389,9 @@ layout: default
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       window.coinSubmitForm(form).then(function() {
         form.style.display = 'none';
-        document.getElementById(successId).style.display = 'block';
+        var success = document.getElementById(successId);
+        success.style.display = 'block';
+        if (success.focus) { success.focus(); }
       });
     });
   }
@@ -331,6 +399,20 @@ layout: default
   attachForm('show-reminder-form', 'show-reminder-success');
   attachForm('organizer-verification-form', 'organizer-verification-success');
   attachForm('show-correction-form', 'show-correction-success');
+  attachForm('listing-removal-form', 'listing-removal-success');
+
+  var reminderPhone = document.getElementById('show-reminder-phone');
+  var reminderSmsConsent = document.getElementById('show-reminder-sms-consent');
+  function syncReminderSmsRequirements() {
+    if (!reminderPhone || !reminderSmsConsent) { return; }
+    reminderPhone.required = reminderSmsConsent.checked;
+    reminderSmsConsent.required = reminderPhone.value.trim() !== '';
+  }
+  if (reminderPhone && reminderSmsConsent) {
+    reminderPhone.addEventListener('input', syncReminderSmsRequirements);
+    reminderSmsConsent.addEventListener('change', syncReminderSmsRequirements);
+    syncReminderSmsRequirements();
+  }
 })();
 </script>
 

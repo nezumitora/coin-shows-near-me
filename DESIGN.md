@@ -3,11 +3,11 @@
 ## Product focus
 
 - The homepage's primary action is finding a coin show.
-- Search and state filters appear before promotions, forms, tools, and educational content.
-- Do not place sponsor previews, dealer offers, reminders, or spot prices above directory results.
+- Search remains the first homepage action.
+- Keep a compact spot-price reference and the “Never Miss a Coin Show” reminder directly after the search hero and before state filters.
 - Do not place sponsor previews or dealer promotions on the homepage.
-- Keep spot prices as a compact secondary reference after the directory results.
-- Keep the homepage reminder form below discovery content and collect only the email address and state needed for the reminder.
+- Reminder forms collect separate first and last names, email, selected state, optional show/location interests, and an optional mobile number.
+- Email-reminder and SMS consent remain separate; never infer SMS consent from a phone number or another checkbox.
 
 ## Listing trust
 
@@ -17,6 +17,8 @@
 - Link to the source used for verification when available without calling every source official.
 - Remind visitors to verify details before traveling and provide a correction path.
 - Organizer-verification and new-show submissions are reviewed manually against public official-source evidence; submitting a form never verifies or publishes a listing automatically.
+- Listing-removal requests are manually reviewed; accurate public event facts may remain while private personal information and supported corrections receive separate consideration.
+- New-show forms group venue/address fields under a clear Show location heading and use overflow-safe form controls.
 
 ## Visual hierarchy
 

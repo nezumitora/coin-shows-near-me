@@ -13,7 +13,7 @@ breadcrumb_current: "Privacy Policy"
 # Privacy Policy
 
 **Effective Date:** April 15, 2026
-**Last Updated:** April 15, 2026
+**Last Updated:** July 30, 2026
 
 This Privacy Policy describes how Coin Show Near Me ("we," "us," or "our") collects, uses, shares, and protects your personal information when you use our website at coinshownearme.com and all related services (the "Platform").
 
@@ -27,7 +27,9 @@ This Privacy Policy describes how Coin Show Near Me ("we," "us," or "our") colle
 - **Dealer registration:** Business name, license information (if provided), shows you plan to attend, areas of specialty
 - **Collection submissions:** Descriptions of coins, currency, bullion, and collectibles; photographs of items; estimated values
 - **Offer requests:** Contact information and item details shared between Sellers and Dealers
-- **Show submissions:** Event name, dates, venue, organizer contact information (for Promoters)
+- **Show submissions and organizer requests:** Event name, dates, venue, public source links, organizer role, and contact information needed to review a submission or verification request
+- **Show reminders:** Name, email address, selected state, shows or locations of interest, and an optional mobile number when you separately choose text reminders
+- **Listing review or removal requests:** Contact information, reason for the request, supporting public source links, and the details you provide for manual review
 - **Contact forms:** Any information you submit through forms on the Platform
 
 ### 1.2 Information Collected Automatically
@@ -48,6 +50,8 @@ We use your information to:
 - Display event listings and dealer directories
 - Process and respond to form submissions
 - Send transactional communications (offer notifications, account updates)
+- Send coin show reminders through the email and/or text channels you expressly select
+- Review organizer-verification, correction, and listing-removal requests
 - Improve the Platform and develop new features
 - Prevent fraud and enforce our Terms of Use
 - Comply with legal obligations
@@ -81,6 +85,12 @@ In the event of a merger, acquisition, or sale of assets, your information may b
 ## 4. Data Retention
 
 We retain your information for as long as your account is active or as needed to provide services. You may request deletion of your account and associated data at any time by contacting us. We may retain certain information as required by law or for legitimate business purposes (e.g., dispute resolution).
+
+Reminder and consent records may be retained as needed to honor your preferences, document consent, process opt-outs, and comply with legal obligations. Reply **STOP** to an eligible text message to opt out of SMS reminders, use an email unsubscribe option when provided, or [contact us](/contact/).
+
+### Public Event Information and Removal Requests
+
+Coin show names, dates, venues, cities, public organizer or club names, and official public source links are event facts gathered from public sources or submitted for publication. They are not automatically removed merely because a request is submitted. We manually review requests involving closed events, duplicates, inaccurate information, private personal information, or other supported concerns. We may correct, limit, or remove information when appropriate while retaining accurate public event facts where lawful and useful to the directory.
 
 ---
 
