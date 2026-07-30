@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Gettysburg Battlefield Coin Show — Gettysburg, Pennsylvania Coin Show"
-seo_title: "Gettysburg Battlefield Coin Show — Gettysburg, Pennsylvania | Coin Show Near Me"
-seo_description: "Gettysburg Battlefield Coin Show in Gettysburg, Pennsylvania. Semiannual (Spring & Fall) coin show at Eisenhower Hotel. Get dates, venue details, and more."
+layout: null
+title: "National Battlefield Coin Show — Listing moved"
 permalink: /shows/gettysburg-battlefield-coin-show/
-show_id: "gettysburg-battlefield-coin-show"
-breadcrumb_parent: "Pennsylvania"
-breadcrumb_parent_url: "/states/pennsylvania/"
-breadcrumb_current: "Gettysburg Battlefield Coin Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/national-battlefield-coin-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/national-battlefield-coin-show/">
+<title>National Battlefield Coin Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/national-battlefield-coin-show/">National Battlefield Coin Show</a>.</p>
+  </body>
+</html>

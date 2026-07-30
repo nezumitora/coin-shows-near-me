@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Orland Park Coin & Stamp Show — Orland Park, Illinois Coin Show"
-seo_title: "Orland Park Coin & Stamp Show — Orland Park, Illinois | Coin Show Near Me"
-seo_description: "Orland Park Coin & Stamp Show in Orland Park, Illinois. Recurring coin show at . Get dates, venue details, and more."
+layout: null
+title: "Orland Park Coin Show — Listing moved"
 permalink: /shows/orland-park-coin-stamp-show/
-show_id: "orland-park-coin-stamp-show"
-breadcrumb_parent: "Illinois"
-breadcrumb_parent_url: "/states/illinois/"
-breadcrumb_current: "Orland Park Coin & Stamp Show"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/orland-park-coin-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/orland-park-coin-show/">
+<title>Orland Park Coin Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/orland-park-coin-show/">Orland Park Coin Show</a>.</p>
+  </body>
+</html>

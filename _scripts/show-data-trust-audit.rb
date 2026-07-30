@@ -23,8 +23,9 @@ require 'yaml'
 
 module ShowDataTrustAudit
   MONTH_PATTERN = /(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)/i.freeze
-  DATED_TITLE_PATTERN = /\b(20\d{2}|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\b/i.freeze
-  ADDRESS_IN_CITY_PATTERN = /\d{2,}|\b(Hotel|Ave|Avenue|Street|St\.?|Road|Rd\.?|Drive|Dr\.?|Center|Centre|Hall)\b/i.freeze
+  DATED_TITLE_PATTERN = /\b(20\d{2}|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b/i.freeze
+  HISTORICAL_OR_PENDING_NOTE_PATTERN = /\b(?:past|most recent|pending|keep TBD|exact date TBD|no future|no official.*date|see you in 20\d{2})\b/i.freeze
+  ADDRESS_IN_CITY_PATTERN = /\d{2,}|\b(Hotel|Ave|Avenue|Street|Road|Rd\.?|Drive|Dr\.?|Center|Centre|Hall)\b/i.freeze
   THIRD_PARTY_DOMAINS = %w[coinzip.com coinshows-usa.com numismaticnews.net coinworld.com eventbrite.com].freeze
   STOP_WORDS = %w[the and of annual monthly coin show coins currency collectibles collectible club stamp stamps money meets each month please note first second third fourth].to_set.freeze
 
@@ -79,6 +80,24 @@ module ShowDataTrustAudit
           start_date = Date.strptime("#{month} #{start_day}, #{year}", format)
           end_date = Date.strptime("#{month} #{end_day}, #{year}", format)
           return { start_date: start_date, end_date: end_date }
+        rescue ArgumentError
+          next
+        end
+      end
+    end
+
+    cross_month_range_match = normalized.match(/\A(#{MONTH_PATTERN})\s+(\d{1,2})\s*-\s*(#{MONTH_PATTERN})\s+(\d{1,2}),\s*(20\d{2})\z/i)
+    if cross_month_range_match
+      start_month = cross_month_range_match[1]
+      start_day = cross_month_range_match[2]
+      end_month = cross_month_range_match[3]
+      end_day = cross_month_range_match[4]
+      year = cross_month_range_match[5]
+      formats.each do |format|
+        begin
+          start_date = Date.strptime("#{start_month} #{start_day}, #{year}", format)
+          end_date = Date.strptime("#{end_month} #{end_day}, #{year}", format)
+          return { start_date: start_date, end_date: end_date } if end_date >= start_date
         rescue ArgumentError
           next
         end
@@ -151,6 +170,9 @@ module ShowDataTrustAudit
 
       left_tokens = title_tokens(left.fetch('name', ''))
       right_tokens = title_tokens(right.fetch('name', ''))
+      city_tokens = title_tokens(left.fetch('city', ''))
+      left_tokens -= city_tokens
+      right_tokens -= city_tokens
       next if left_tokens.empty? || right_tokens.empty?
 
       overlap = left_tokens & right_tokens
@@ -183,6 +205,8 @@ module ShowDataTrustAudit
       notes = show.fetch('notes', '').to_s
       venue = show.fetch('venue', '').to_s
       city = show.fetch('city', '').to_s
+      dated_name = name.match?(DATED_TITLE_PATTERN)
+      dated_notes = notes.match?(DATED_TITLE_PATTERN) && !notes.match?(HISTORICAL_OR_PENDING_NOTE_PATTERN)
 
       if date_state[:precision] == :specific && date_state[:end_date] < as_of
         issues << Issue.new(listing_id: id, issue_type: 'expired_specific_date', reason: 'specific date or date range ended before audit date', current_value: next_date, evidence_source_state: state[:confidence], confidence: 'high', recommended_next_action: 'review official/direct source for next date; do not change indexing until expert feedback')
@@ -192,11 +216,11 @@ module ShowDataTrustAudit
         issues << Issue.new(listing_id: id, issue_type: 'unparseable_date', reason: 'date is neither TBD, supported partial month/year, nor supported specific date/range', current_value: next_date, evidence_source_state: state[:confidence], confidence: 'high', recommended_next_action: 'normalize after source verification')
       end
 
-      if name.match?(DATED_TITLE_PATTERN)
+      if dated_name
         issues << Issue.new(listing_id: id, issue_type: 'obsolete_date_in_title', reason: 'listing title contains date/month/day wording that can become stale', current_value: name, evidence_source_state: state[:confidence], confidence: 'medium', recommended_next_action: 'verify whether this is one occurrence or recurring show before retitling')
       end
 
-      if next_date.strip.casecmp('TBD').zero? && (name.match?(DATED_TITLE_PATTERN) || notes.match?(/\b(20\d{2}|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\b/i))
+      if next_date.strip.casecmp('TBD').zero? && (dated_name || dated_notes)
         issues << Issue.new(listing_id: id, issue_type: 'tbd_date_contradiction', reason: 'next_date is TBD while title or notes contain date-like text', current_value: "name=#{name}; notes=#{notes}", evidence_source_state: state[:confidence], confidence: 'medium', recommended_next_action: 'verify current date and separate historical title text from current date fields')
       end
 

@@ -1,12 +1,19 @@
 ---
-layout: show
-title: "Indiana State Coin Show Nov 20th - 21st, 2026 — Plainfield, Indiana Coin Show"
-seo_title: "Indiana State Coin Show Nov 20th - 21st, 2026 — Plainfield, Indiana | Coin Show Near Me"
-seo_description: "Indiana State Coin Show Nov 20th - 21st, 2026 in Plainfield, Indiana. Recurring coin show at Embassy Suites Hotel and Convention Center by Hilton, Plainfield / Indianapolis Airport. Get dates, venue details, and more."
+layout: null
+title: "Indiana State Coin Show — Listing moved"
 permalink: /shows/indiana-state-coin-show-nov-20th-21st-2026/
-show_id: "indiana-state-coin-show-nov-20th-21st-2026"
-breadcrumb_parent: "Indiana"
-breadcrumb_parent_url: "/states/indiana/"
-breadcrumb_current: "Indiana State Coin Show Nov 20th - 21st, 2026"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/shows/indiana-state-coin-show/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/shows/indiana-state-coin-show/">
+<title>Indiana State Coin Show — Listing moved</title>
+  </head>
+  <body>
+<p>This listing was merged into <a href="{{ site.baseurl }}/shows/indiana-state-coin-show/">Indiana State Coin Show</a>.</p>
+  </body>
+</html>

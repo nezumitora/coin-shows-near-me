@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 29, 2026
+- v0.9.30: Resolved twenty-two expired-date records and Concord's partial date; corrected frequencies, venues, cities, and stale titles; strengthened source classifications; and merged six verified duplicate schedules while preserving redirects.
 - v0.9.29: Added report-only show data-trust audit tooling with deterministic tests, and refreshed official-source classifications for the already-correct Long Beach Expo and FUN Convention records without changing their published dates.
 
 ## Jul 17, 2026

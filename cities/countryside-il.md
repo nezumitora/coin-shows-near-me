@@ -2,7 +2,7 @@
 layout: city
 title: "Coin Shows in Countryside, Illinois — 2026-2027"
 seo_title: "Coin Shows in Countryside, Illinois — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Countryside, Illinois. Dates, venues, and details for upcoming coin shows and numismatic events in Countryside."
+seo_description: "Find 3 coin shows in Countryside, Illinois. Dates, venues, and details for upcoming coin shows and numismatic events in Countryside."
 permalink: /cities/countryside-il/
 city_slug: "countryside-il"
 city_name: "Countryside"
