@@ -240,117 +240,6 @@ a:hover { color: var(--gold-light); }
 .construction-banner strong { color: var(--gold); }
 .construction-banner a { color: var(--gold); font-weight: 600; text-decoration: underline; }
 
-/* === Dealer Portal Section === */
-.dealer-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem 3rem;
-}
-.dealer-card {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  color: #f1f5f9;
-  padding: 2.5rem;
-  border-radius: 12px;
-  border-left: 4px solid var(--gold);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
-}
-.dealer-info h3 {
-  color: var(--gold-light);
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-.dealer-info p {
-  color: #cbd5e1;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
-}
-.dealer-info ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.dealer-info li {
-  color: #94a3b8;
-  font-size: 0.85rem;
-  padding: 0.3rem 0;
-  padding-left: 1.25rem;
-  position: relative;
-}
-.dealer-info li::before {
-  content: "\2713";
-  position: absolute;
-  left: 0;
-  color: var(--gold-light);
-  font-weight: 700;
-}
-.dealer-form { display: flex; flex-direction: column; gap: 0.6rem; }
-.dealer-form input,
-.dealer-form select,
-.dealer-form textarea {
-  width: 100%;
-  min-width: 0;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 8px;
-  font-size: 0.88rem;
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  outline: none;
-  font-family: inherit;
-}
-.dealer-form input::placeholder,
-.dealer-form textarea::placeholder { color: #94a3b8; }
-.dealer-form select { color: #94a3b8; }
-.dealer-form select option { background: var(--navy); color: #fff; }
-.dealer-form input:focus,
-.dealer-form select:focus,
-.dealer-form textarea:focus { border-color: var(--gold-light); }
-.dealer-form textarea { min-height: 70px; resize: vertical; }
-.offer-disclaimer {
-  color: #cbd5e1;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(218,165,32,0.35);
-  border-radius: 8px;
-  padding: 0.75rem;
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-.dealer-form .form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.6rem;
-}
-.dealer-form button {
-  background: var(--gold);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.dealer-form button:hover { background: var(--gold-light); }
-.dealer-success {
-  display: none;
-  background: #065f46;
-  color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  text-align: center;
-}
-@media (max-width: 768px) {
-  .dealer-card { grid-template-columns: 1fr; gap: 1.5rem; }
-  .dealer-form .form-row { grid-template-columns: 1fr; }
-}
-
 /* === Hero === */
 .hero {
   background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 40%, #4a6fa5 70%, #7ba0cc 85%, var(--cream) 100%);
@@ -465,9 +354,6 @@ a:hover { color: var(--gold-light); }
   font-weight: 800;
 }
 .hero-search-results-note button:hover { background: var(--gold-light); }
-#quote-section {
-  scroll-margin-top: 130px;
-}
 @media (max-width: 800px) {
   .hero {
     text-align: center;
@@ -535,6 +421,32 @@ a:hover { color: var(--gold-light); }
   font-weight: 800;
   letter-spacing: 0.03em;
 }
+
+/* === Secondary market reference === */
+.market-strip-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+.home-spot-ticker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(184,134,11,0.35);
+  border-radius: 10px;
+  background: #fffdfa;
+  color: var(--text-mid);
+  box-shadow: 0 5px 16px var(--shadow);
+  font-size: 0.8rem;
+}
+.home-spot-ticker .spot-ticker-item { display: flex; align-items: center; gap: 0.35rem; }
+.home-spot-ticker .spot-ticker-label { color: var(--text-light); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+.home-spot-ticker .spot-ticker-price { color: var(--gold); font-size: 0.9rem; font-weight: 800; }
+.home-spot-ticker .spot-ticker-sep { color: var(--border); }
+.home-spot-ticker .spot-ticker-updated { flex-basis: 100%; color: var(--text-light); font-size: 0.68rem; text-align: center; }
 
 /* === Listing trust explainer === */
 .listing-trust-intro {
@@ -1045,70 +957,6 @@ a:hover { color: var(--gold-light); }
   margin-top: 1rem;
   font-size: 0.9rem;
 }
-.dealer-toggle {
-  margin: 1.5rem 0 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-.dealer-toggle label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  cursor: pointer;
-  color: #94a3b8;
-  font-size: 0.9rem;
-  user-select: none;
-}
-.dealer-toggle input[type="checkbox"] {
-  width: 1.1rem;
-  height: 1.1rem;
-  accent-color: var(--gold);
-  cursor: pointer;
-}
-.dealer-signup-form {
-  display: none;
-  margin-top: 1.25rem;
-  text-align: left;
-}
-.dealer-signup-form.visible { display: block; }
-.dealer-signup-form h3 {
-  color: var(--gold-light);
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-.dealer-signup-form p {
-  color: #94a3b8;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-.dealer-signup-form .cta-form { flex-direction: column; }
-.dealer-signup-form .cta-form .form-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  width: 100%;
-}
-.dealer-signup-form .cta-form select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  background: rgba(255,255,255,0.1);
-  color: #94a3b8;
-  outline: none;
-  font-family: inherit;
-}
-.dealer-signup-form .cta-form select option { background: var(--navy); color: #fff; }
-.dealer-signup-form .cta-form select:focus { border-color: var(--gold-light); }
-@media (max-width: 768px) {
-  .dealer-signup-form .cta-form .form-row-2 { grid-template-columns: 1fr; }
-}
-
 /* === Footer === */
 .site-footer {
   background: var(--navy);
@@ -1175,21 +1023,14 @@ a:hover { color: var(--gold-light); }
 @media (max-width: 520px) {
   body { overflow-x: hidden; }
   .hero,
-  .dealer-section,
   .cta-section,
   .shows-section,
   .featured-section,
   .states-section,
   .info-section,
-  .listing-trust-intro { padding-left: 0.85rem; padding-right: 0.85rem; }
-  .dealer-card,
+  .listing-trust-intro,
+  .market-strip-section { padding-left: 0.85rem; padding-right: 0.85rem; }
   .cta-inner { max-width: 100%; }
-  .dealer-card { padding: 1rem; }
-  .dealer-form .form-row,
-  .dealer-signup-form .cta-form .form-row-2 { grid-template-columns: 1fr; }
-  .dealer-form input,
-  .dealer-form select,
-  .dealer-form textarea,
   .cta-form input,
   .cta-form select,
   .cta-form textarea,
@@ -1199,7 +1040,6 @@ a:hover { color: var(--gold-light); }
   }
   .consent-label,
   .mobile-consent-label,
-  .dealer-form label,
   .cta-form label {
     display: grid !important;
     gap: 0.55rem !important;
@@ -1208,7 +1048,6 @@ a:hover { color: var(--gold-light); }
   }
   .consent-label input[type="checkbox"],
   .mobile-consent-label input[type="checkbox"],
-  .dealer-form label input[type="checkbox"],
   .cta-form label input[type="checkbox"] {
     height: 1rem !important;
     margin-top: 0.15rem !important;
@@ -1216,7 +1055,6 @@ a:hover { color: var(--gold-light); }
   }
   .consent-label span,
   .mobile-consent-label span,
-  .dealer-form label span,
   .cta-form label span {
     min-width: 0;
     overflow-wrap: anywhere;
@@ -1359,6 +1197,20 @@ a:hover { color: var(--gold-light); }
   </div>
 </section>
 
+<!-- Secondary market reference -->
+<section class="market-strip-section" aria-label="Current precious metal spot prices">
+  <div class="home-spot-ticker" id="spot-ticker">
+    <div class="spot-ticker-item"><span class="spot-ticker-label">Gold</span><span class="spot-ticker-price" id="spot-gold-price">--</span></div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item"><span class="spot-ticker-label">Silver</span><span class="spot-ticker-price" id="spot-silver-price">--</span></div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item"><span class="spot-ticker-label">Platinum</span><span class="spot-ticker-price" id="spot-platinum-price">--</span></div>
+    <span class="spot-ticker-sep">|</span>
+    <div class="spot-ticker-item"><span class="spot-ticker-label">Palladium</span><span class="spot-ticker-price" id="spot-palladium-price">--</span></div>
+    <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
+  </div>
+</section>
+
 <!-- Featured Shows -->
 <section class="featured-section">
   <div class="featured-inner">
@@ -1462,175 +1314,46 @@ a:hover { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- Dealer Portal -->
-<div class="dealer-section" id="quote-section">
-  <div class="dealer-card">
-    <div class="dealer-info">
-      <h3>Get Quotes Before the Show</h3>
-      <p>Planning to sell or get an appraisal at an upcoming coin show? Tell us what you have and which show you're attending — we'll connect you with verified dealers who can give you offers before you walk through the door.</p>
-      <ul>
-        <li>Get competing offers from multiple dealers</li>
-        <li>Know what your collection is worth before you go</li>
-        <li>No more lugging coins table to table hoping for a fair price</li>
-        <li>Free — no obligation, no fees</li>
-      </ul>
-    </div>
-    <div>
-      <form class="dealer-form" id="dealer-form" action="#" data-form-key="mykleozw" method="POST">
-        <input type="hidden" name="_subject" value="Coin Show Near Me — Attendee Wants a Quote">
-        <input type="hidden" name="source" value="Website">
-        <input type="hidden" name="formName" value="quoteBeforeShow">
-        <input type="hidden" name="coinContactRoles" value="sellerOfferRequest">
-        <input type="hidden" name="ctaCode" value="homepage_quote_before_show">
-        <input type="hidden" name="sourceDetail" value="Homepage Get Quotes Before the Show form">
-        <input type="hidden" name="pageUrl" value="">
-        <input type="hidden" name="referringUrl" value="">
-        <input type="hidden" name="submittedAt" value="">
-        <input type="hidden" name="contactConsentTimestamp" value="">
-        <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-        <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-        <input type="hidden" name="reminderConsentTimestamp" value="">
-        <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Email address" required>
-        </div>
-        <input type="text" name="show" placeholder="Which show are you attending? (name, city, or state)">
-        <select name="interest">
-          <option value="" disabled selected>What are you looking to do?</option>
-          <option value="sell">Sell coins or collection</option>
-          <option value="appraisal">Get an appraisal</option>
-          <option value="buy">Buy specific coins</option>
-          <option value="other">Other</option>
-        </select>
-        <textarea name="message" placeholder="Describe what you have or what you're looking for..."></textarea>
-        <p class="offer-disclaimer">This offer request tool is still being tested. Submitting a request does not guarantee a dealer response or final offer. Any offer, appraisal, sale, or purchase is between you and the dealer.</p>
-        <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-          <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-          <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-        </label>
-        <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-          <input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;accent-color:var(--gold);">
-          <span>Send me reminders about coin shows near me.</span>
-        </label>
-        <button type="submit">Submit Inquiry</button>
-      </form>
-      <div class="dealer-success" id="dealer-success">
-        Thank you! We'll connect you with dealers attending your show. Check your email for next steps.
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- CTA / Signup -->
 <section class="cta-section" id="signup">
   <div class="cta-inner">
-    <h2>Stay in the <span>Loupe</span></h2>
-    <p>Get notified when we launch new features, or submit a show we're missing.</p>
+    <h2>Never Miss a <span>Coin Show</span></h2>
+    <p>Get email reminders about upcoming coin shows in your selected state.</p>
     <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
-      <input type="hidden" name="_subject" value="Coin Show Near Me — New Signup">
+      <input type="hidden" name="_subject" value="Coin Show Near Me — State Show Reminder Signup">
+      <input type="hidden" name="form_type" value="show_reminder">
       <input type="hidden" name="source" value="Website">
-      <input type="hidden" name="formName" value="homepageSignup">
-      <input type="hidden" name="ctaCode" value="homepage_stay_in_loupe">
-      <input type="hidden" name="sourceDetail" value="Homepage Stay in the Loupe signup form">
+      <input type="hidden" name="formName" value="stateShowReminder">
+      <input type="hidden" name="coinContactRoles" value="attendee">
+      <input type="hidden" name="ctaCode" value="homepage_state_show_reminder">
+      <input type="hidden" name="sourceDetail" value="Homepage state show reminder form">
       <input type="hidden" name="pageUrl" value="">
       <input type="hidden" name="referringUrl" value="">
       <input type="hidden" name="submittedAt" value="">
       <input type="hidden" name="contactConsentTimestamp" value="">
       <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
+      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me by email about this reminder request. I can opt out anytime.">
       <input type="hidden" name="reminderConsentTimestamp" value="">
       <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-      <input type="text" name="name" placeholder="Name (optional)">
       <input type="email" name="email" placeholder="Email address" required>
-      <select name="coinContactRoles" required>
-        <option value="" disabled selected>I am...</option>
-        <option value="attendee">Attending a coin show</option>
-        <option value="dealerVendor">Coin dealer / vendor</option>
-        <option value="showOrganizer">Show organizer / promoter</option>
-        <option value="venueContact">Venue contact</option>
-        <option value="advertiserSponsor">Advertiser / sponsor</option>
-        <option value="sellerOfferRequest">Selling coins / request an offer</option>
-        <option value="generalInquiry">General question</option>
+      <select name="preferredState" required>
+        <option value="" disabled selected>Select your state</option>
+        {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
       </select>
-      <input type="text" name="show_social_media" placeholder="Show social media links (optional)">
-      <textarea name="message" placeholder="Questions, show submissions, or feedback (optional)"></textarea>
       <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
         <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-        <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
+        <span>I agree that Coin Show Near Me may contact me by email about this reminder request. I can opt out anytime.</span>
       </label>
       <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-        <input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;accent-color:var(--gold);">
-        <span>Send me reminders about coin shows near me.</span>
+        <input type="checkbox" name="showReminderOptIn" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
+        <span>Send me email reminders about coin shows in my selected state. See our <a href="/legal/privacy-policy/" style="color:var(--gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
       </label>
-      <button type="submit">Sign Up for Updates</button>
+      <button type="submit">Set My Show Reminders</button>
     </form>
     <div class="cta-success" id="notify-success">
-      Thank you! We'll notify you when we launch. If you submitted a show or question, we'll get back to you shortly.
+      You're signed up! We'll email you about upcoming shows in your selected state.
     </div>
-
-    <div class="dealer-toggle">
-      <label>
-        <input type="checkbox" id="dealer-checkbox">
-        Are you a coin/bullion dealer?
-      </label>
-    </div>
-
-    <div class="dealer-signup-form" id="dealer-signup-form">
-      <h3>Dealer Registration</h3>
-      <p>Get listed in our directory and connect with attendees looking to buy, sell, or get appraisals at your shows.</p>
-      <form class="cta-form" id="dealer-reg-form" action="#" data-form-key="mykleozw" method="POST">
-        <input type="hidden" name="_subject" value="Coin Show Near Me — Dealer Registration">
-        <input type="hidden" name="form_type" value="dealer_registration">
-        <input type="hidden" name="source" value="Website">
-        <input type="hidden" name="formName" value="dealerRegistration">
-        <input type="hidden" name="coinContactRoles" value="dealerVendor">
-        <input type="hidden" name="ctaCode" value="homepage_dealer_registration">
-        <input type="hidden" name="sourceDetail" value="Homepage dealer registration form">
-        <input type="hidden" name="pageUrl" value="">
-        <input type="hidden" name="referringUrl" value="">
-        <input type="hidden" name="submittedAt" value="">
-        <input type="hidden" name="contactConsentTimestamp" value="">
-        <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-        <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-        <input type="hidden" name="reminderConsentTimestamp" value="">
-        <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-        <div class="form-row-2">
-          <input type="text" name="dealer_name" placeholder="Your name" required>
-          <input type="text" name="business_name" placeholder="Business / dealer name" required>
-        </div>
-        <div class="form-row-2">
-          <input type="email" name="email" placeholder="Email address" required>
-          <input type="text" name="phone" placeholder="Phone (optional)">
-        </div>
-        <input type="text" name="website" placeholder="Website (optional)">
-        <input type="text" name="social_media" placeholder="Social media links (Instagram, Facebook, YouTube, X — optional)">
-        <select name="specialty">
-          <option value="" disabled selected>Primary specialty</option>
-          <option value="us-coins">US Coins</option>
-          <option value="world-coins">World / Foreign Coins</option>
-          <option value="bullion">Gold & Silver Bullion</option>
-          <option value="currency">Paper Currency</option>
-          <option value="tokens-medals">Tokens & Medals</option>
-          <option value="supplies">Supplies & Accessories</option>
-          <option value="full-service">Full Service (All of the Above)</option>
-        </select>
-        <textarea name="shows_attended" placeholder="Which shows do you regularly attend? (names, cities, or states)"></textarea>
-        <textarea name="message" placeholder="Anything else you'd like us to know? (optional)"></textarea>
-        <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-          <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-          <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-        </label>
-        <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-          <input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;accent-color:var(--gold);">
-          <span>Send me reminders about coin shows near me.</span>
-        </label>
-        <button type="submit">Register as a Dealer</button>
-      </form>
-      <div class="cta-success" id="dealer-reg-success">
-        Thank you for registering! We'll be in touch with details about our dealer directory and upcoming features.
-      </div>
-    </div>
+    <p style="margin:1rem 0 0;font-size:0.82rem;">Organize a show we are missing? <a href="{{ site.baseurl }}/submit-show/" style="color:var(--gold-light);font-weight:800;text-decoration:underline;">Submit it for review</a>.</p>
   </div>
 </section>
 
@@ -1654,7 +1377,7 @@ a:hover { color: var(--gold-light); }
 <!-- Scripts -->
 <script>
 var COIN_CONTACT_CONSENT_VERSION = 'coin-contact-consent-v1';
-var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
+var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may contact me by email about this reminder request. I can opt out anytime.';
 var COIN_REMINDER_CONSENT_VERSION = 'coin-show-reminder-v1';
 
 function setFormValue(form, name, value) {
@@ -1802,73 +1525,29 @@ function fillCrmFormMetadata(form) {
   }
 })();
 
-/* Quote form (Get Quotes Before the Show) */
+/* Spot prices */
 (function() {
-  var quoteLinks = document.querySelectorAll('a[href="#quote-section"]');
-  var quoteSection = document.getElementById('quote-section');
-  if (quoteLinks.length && quoteSection) {
-    Array.prototype.forEach.call(quoteLinks, function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        var stickyHeader = document.querySelector('.sticky-header');
-        var stickyFilter = document.querySelector('.filter-section');
-        var stickyHeight = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
-        var filterHeight = stickyFilter ? stickyFilter.getBoundingClientRect().height : 0;
-        var offset = stickyHeight + filterHeight + 32;
-        var targetTop = quoteSection.getBoundingClientRect().top + window.pageYOffset;
-        var top = Math.max(0, targetTop - offset);
-        document.documentElement.style.scrollBehavior = 'auto';
-        document.body.style.scrollBehavior = 'auto';
-        window.scrollTo(0, top);
-        history.replaceState(null, '', '#quote-section');
-      });
-    });
+  function formatPrice(price) {
+    if (typeof price !== 'number') { return '--'; }
+    return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
-
-  var form = document.getElementById('dealer-form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      fillCrmFormMetadata(form);
-      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      window.coinSubmitForm(form).then(function() {
-        form.style.display = 'none';
-        document.getElementById('dealer-success').style.display = 'block';
-      });
+  var updated = document.getElementById('spot-ticker-updated');
+  fetch('{{ site.baseurl }}/assets/data/spot-prices.json')
+    .then(function(response) {
+      if (!response.ok) { throw new Error('HTTP ' + response.status); }
+      return response.json();
+    })
+    .then(function(data) {
+      document.getElementById('spot-gold-price').textContent = formatPrice(data.gold);
+      document.getElementById('spot-silver-price').textContent = formatPrice(data.silver);
+      document.getElementById('spot-platinum-price').textContent = formatPrice(data.platinum);
+      document.getElementById('spot-palladium-price').textContent = formatPrice(data.palladium);
+      var updateDate = data.updated_at ? new Date(data.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+      updated.textContent = 'Reference prices per troy oz' + (updateDate ? ' · Updated ' + updateDate : '');
+    })
+    .catch(function() {
+      updated.textContent = 'Spot prices temporarily unavailable';
     });
-  }
-})();
-
-/* Dealer checkbox toggle */
-(function() {
-  var checkbox = document.getElementById('dealer-checkbox');
-  var dealerForm = document.getElementById('dealer-signup-form');
-  if (checkbox && dealerForm) {
-    checkbox.addEventListener('change', function() {
-      if (this.checked) {
-        dealerForm.classList.add('visible');
-        dealerForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else {
-        dealerForm.classList.remove('visible');
-      }
-    });
-  }
-})();
-
-/* Dealer registration form */
-(function() {
-  var form = document.getElementById('dealer-reg-form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      fillCrmFormMetadata(form);
-      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      window.coinSubmitForm(form).then(function() {
-        form.style.display = 'none';
-        document.getElementById('dealer-reg-success').style.display = 'block';
-      });
-    });
-  }
 })();
 
 </script>
