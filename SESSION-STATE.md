@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-29 20:57 (PDT)
+**Last updated:** 2026-07-29 21:37 (PDT)
 **Session:** v0.10.0 homepage focus and visible listing trust
 
 ## Completed today
@@ -12,7 +12,7 @@
 - Added Scheduled, Partial, Expired, and TBD statuses plus source and last-checked fields; committed as `382ea2b`.
 - Passed 46 Ruby tests/108 assertions, 6 search tests, data validation, generation, Jekyll build, rendered trust/search QA, and visual review.
 ## In progress
-- v0.10.0 is complete locally and ready for user review; nothing was pushed, merged, or deployed.
+- Checkpoint saved at 21:37 PDT; v0.10.0 is complete locally and nothing was pushed, merged, or deployed.
 ## Next up
 - After review, merge v0.9.31 only with separate approval, then prepare the v0.10.0 PR only with push approval.
 ## Open decisions
