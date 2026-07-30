@@ -127,6 +127,9 @@ layout: default
     <a href="#update-show-info" style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
       Update show info
     </a>
+    <a href="#organizer-verification" style="display:inline-flex;align-items:center;gap:0.4rem;background:#eff6ff;color:#1e3a8a;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #bfdbfe;margin-left:0.5rem;transition:all 0.2s;">
+      Organize this show? Request verification
+    </a>
   </div>
 </div>
 
@@ -199,6 +202,55 @@ layout: default
   <div id="show-reminder-success" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
     You're signed up! We'll remind you before {{ show.name }}.
   </div>
+</div>
+
+<!-- Organizer Verification CTA -->
+<div id="organizer-verification" style="background:#eff6ff;color:#172554;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid #bfdbfe;">
+  <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#1e3a8a;">Do you organize this show?</p>
+  <p style="margin:0 0 1rem;font-size:0.92rem;color:#1e3a8a;">Request organizer verification for <strong>{{ show.name }}</strong>. Every request is reviewed manually against an official show, promoter, club, or venue source. Submitting this form does not automatically verify or change the listing.</p>
+  <form id="organizer-verification-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
+    <input type="hidden" name="_subject" value="Coin Show Near Me — Organizer Verification Request">
+    <input type="hidden" name="form_type" value="organizer_verification">
+    <input type="hidden" name="source" value="Website">
+    <input type="hidden" name="formName" value="organizerVerification">
+    <input type="hidden" name="coinContactRoles" value="showOrganizer">
+    <input type="hidden" name="ctaCode" value="show_page_organizer_verification">
+    <input type="hidden" name="sourceDetail" value="Individual show page organizer verification form">
+    <input type="hidden" name="pageUrl" value="">
+    <input type="hidden" name="referringUrl" value="">
+    <input type="hidden" name="submittedAt" value="">
+    <input type="hidden" name="contactConsentTimestamp" value="">
+    <input type="hidden" name="contactConsentVersion" value="coin-organizer-verification-consent-v1">
+    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me to review this organizer verification request. Verification is manual and is not guaranteed.">
+    <input type="hidden" name="show_name" value="{{ show.name }}">
+    <input type="hidden" name="show_id" value="{{ show.id }}">
+    <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="text" name="contact_name" placeholder="Your full name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+      <input type="text" name="organization_name" placeholder="Organization or club name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+    </div>
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="email" name="email" placeholder="Official contact email" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+      <select name="organizer_role" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+        <option value="">Your role</option>
+        <option value="organizer">Organizer or promoter</option>
+        <option value="clubOfficer">Coin club officer</option>
+        <option value="venueContact">Venue representative</option>
+        <option value="authorizedStaff">Authorized show staff</option>
+      </select>
+    </div>
+    <input type="url" name="official_source_url" placeholder="Official show, club, promoter, or venue URL" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+    <textarea name="verification_details" placeholder="How can we confirm your connection to this show? Include an official contact page or other public evidence." required style="min-height:96px;padding:0.65rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;resize:vertical;"></textarea>
+    <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#1e3a8a;line-height:1.4;">
+      <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>I agree that Coin Show Near Me may contact me to review this organizer verification request. Verification is manual and is not guaranteed.</span>
+    </label>
+    <button type="submit" style="background:#1e3a8a;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:800;cursor:pointer;align-self:flex-start;">Request Organizer Verification</button>
+  </form>
+  <div id="organizer-verification-success" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
+    Thank you — we received your request. We will review the evidence before marking the listing as organizer verified.
+  </div>
+  <p style="margin:1rem 0 0;font-size:0.82rem;color:#1e3a8a;">Your show is not listed yet? <a href="{{ site.baseurl }}/submit-show/" style="color:#1e3a8a;font-weight:800;text-decoration:underline;">Submit a new show for review</a>.</p>
 </div>
 
 <!-- Show Correction CTA -->
@@ -277,6 +329,7 @@ layout: default
   }
 
   attachForm('show-reminder-form', 'show-reminder-success');
+  attachForm('organizer-verification-form', 'organizer-verification-success');
   attachForm('show-correction-form', 'show-correction-success');
 })();
 </script>

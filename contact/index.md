@@ -17,7 +17,7 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
     <h2 style="margin-top:0 !important;">Fastest Ways to Help</h2>
     <p style="margin-bottom:0.75rem;">Send the important details once, and we can route it to the right place.</p>
     <ul style="margin-bottom:0;">
-      <li><strong>Submit a show</strong> — name, date, venue, and organizer link.</li>
+      <li><strong><a href="/submit-show/">Submit a show</a></strong> — use the structured form for a missing event.</li>
       <li><strong>Report an error</strong> — tell us which listing needs a fix.</li>
       <li><strong>Dealer listing</strong> — share your shop, online store, or specialties.</li>
     </ul>
@@ -30,6 +30,8 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
     </div>
   </div>
 </div>
+
+<p style="margin:0 0 1.25rem;"><a href="/submit-show/" class="btn btn-primary">Submit a Missing Coin Show</a></p>
 
 <div class="notify-section" style="margin:1rem 0 1.25rem;padding:1.25rem;">
 <div class="contact-form-brand">
