@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-07-29 22:02 (PDT)
+**Last updated:** 2026-07-30 09:29 (PDT)
 **Session:** v0.11.0 reminders and organizer workflows
 
 ## Completed today
@@ -12,9 +12,9 @@
 - Updated navigation, contact links, design rules, changelog, visible version, and regression coverage.
 - Passed 48 Ruby tests/129 assertions, 6 search tests, data validation, deterministic generation, Jekyll build, localhost checks, rendered QA, and visual review.
 ## In progress
-- v0.11.0 is complete locally; save the final checkpoint without pushing, merging, or deploying.
+- v0.11.0 is complete locally and checkpointed for review; no code changes are pending.
 ## Next up
-- Review locally, then prepare a PR only after separate push approval.
+- Review the homepage, submit-show page, and organizer-verification show page locally; prepare a PR only after separate push approval.
 ## Open decisions
 - PR #82 still requires a separate merge decision; v0.11.0 remains local until push approval.
 - Expired-page redirect, canonical, sitemap, and index/noindex policy remains pending external expert feedback.
