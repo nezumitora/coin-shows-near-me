@@ -894,6 +894,12 @@ a:hover { color: var(--gold-light); }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.show-card-address {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin: -0.15rem 0 0.5rem;
+  line-height: 1.35;
+}
 .show-card-details {
   display: flex;
   flex-wrap: wrap;
@@ -1672,7 +1678,7 @@ a:hover { color: var(--gold-light); }
 
   <div class="card-grid" id="card-grid">
     {% for show in site.data.shows %}
-    <div class="show-card" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}">
+    <div class="show-card" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}" data-venue="{{ show.venue | downcase }}" data-address="{{ show.street_address | default: show.location_details | default: '' | downcase }}">
       <a href="{{ site.baseurl }}/shows/{{ show.id }}/" class="show-card-link" aria-label="{{ show.name }}"></a>
       <div class="show-card-header">
         <div class="show-card-name">
@@ -1683,6 +1689,11 @@ a:hover { color: var(--gold-light); }
       <div class="show-card-location">
         &#128205; {{ show.city }}, {{ show.state_name }}{% if show.venue and show.venue != "" %} &mdash; {{ show.venue }}{% endif %}
       </div>
+      {% if show.street_address and show.street_address != "" %}
+      <div class="show-card-address">{{ show.street_address }}, {{ show.city }}, {{ show.state }}{% if show.postal_code %} {{ show.postal_code }}{% endif %}</div>
+      {% elsif show.location_details and show.location_details != "" %}
+      <div class="show-card-address">General location: {{ show.location_details }}</div>
+      {% endif %}
       <div class="show-card-details">
         {% if show.next_date and show.next_date != "TBD" %}
         <span class="show-card-tag date-tag">{{ show.next_date }}</span>
@@ -1974,7 +1985,7 @@ a:hover { color: var(--gold-light); }
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.9.30</div>
+    <div class="footer-version">v0.9.31</div>
   </div>
 </footer>
 
@@ -2011,6 +2022,8 @@ function fillCrmFormMetadata(form) {
   }
 }
 
+{% include homepage-search-match.js %}
+
 /* State filter */
 (function() {
   var pills = document.querySelectorAll('.filter-pill');
@@ -2024,6 +2037,14 @@ function fillCrmFormMetadata(form) {
   var resultsBar = document.querySelector('.results-bar');
   var activeState = 'all';
   var searchTerm = '';
+  var stateAbbreviations = Object.create(null);
+
+  for (var cardIndex = 0; cardIndex < cards.length; cardIndex++) {
+    var cardState = (cards[cardIndex].getAttribute('data-state') || '').toLowerCase();
+    if (cardState) {
+      stateAbbreviations[cardState] = true;
+    }
+  }
 
   function scrollToResults() {
     var stickyHeader = document.querySelector('.sticky-header');
@@ -2043,11 +2064,14 @@ function fillCrmFormMetadata(form) {
       var stateMatch = (activeState === 'all') || (card.getAttribute('data-state') === activeState);
       var searchMatch = true;
       if (searchTerm) {
-        var name = card.getAttribute('data-name') || '';
-        var city = card.getAttribute('data-city') || '';
-        var stateName = card.getAttribute('data-state-name') || '';
-        var state = (card.getAttribute('data-state') || '').toLowerCase();
-        searchMatch = name.indexOf(searchTerm) !== -1 || city.indexOf(searchTerm) !== -1 || stateName.indexOf(searchTerm) !== -1 || state.indexOf(searchTerm) !== -1;
+        searchMatch = showMatchesSearch({
+          name: card.getAttribute('data-name'),
+          city: card.getAttribute('data-city'),
+          stateName: card.getAttribute('data-state-name'),
+          state: card.getAttribute('data-state'),
+          venue: card.getAttribute('data-venue'),
+          address: card.getAttribute('data-address')
+        }, searchTerm, stateAbbreviations);
       }
       if (stateMatch && searchMatch) {
         card.style.display = '';

@@ -34,6 +34,9 @@ jobs:
             ruby "$test_file"
           done
 
+      - name: Run homepage search tests
+        run: node --test _scripts/homepage_search_test.js
+
       - name: Validate data and page inventory
         run: ruby _scripts/validate-data.rb
 

@@ -1863,35 +1863,56 @@
   city: Joplin
   city_slug: joplin-mo
   venue: Butcher Block Event Center
+  address_status: unverified
   frequency: Semiannual
   next_date: TBD
-  website: http://joplincoinclub.org/
+  website: ''
   organizer: Joplin Coin Club
-  notes: ''
-- id: st-louis-numismatic-association-show
-  name: St. Louis Numismatic Association Show
+  last_verified: '2026-07-29'
+  verification_notes: The legacy organizer domain no longer resolves, and no current official or corroborated listing published a future Joplin Coin Club Show date or complete street address. A separate Route 66 show in Joplin has a different organizer and venue and was not substituted.
+  notes: Future date and complete street address are not currently published; verify directly with the organizer before traveling.
+- id: missouri-numismatic-society-annual-coin-show
+  aliases:
+  - st-louis-numismatic-association-show
+  name: Missouri Numismatic Society Annual Coin Show
   state: MO
   state_name: Missouri
   city: St. Charles
   city_slug: st-charles-mo
   venue: St. Charles Convention Center
-  frequency: Annual (July)
-  next_date: TBD
-  website: http://www.stlouisnumismatics.org/
-  organizer: St. Louis Numismatic Association
-  notes: ''
+  street_address: One Convention Center Plaza
+  postal_code: '63303'
+  frequency: Annual (August)
+  next_date: August 6-8, 2026
+  website: https://www.missourinumismaticsociety.org/annual-coin-show
+  organizer: Missouri Numismatic Society
+  source_url: https://www.missourinumismaticsociety.org/annual-coin-show
+  source_type: official-show-page
+  last_verified: '2026-07-29'
+  upcoming_dates:
+  - '2026-08-06'
+  - '2026-08-07'
+  - '2026-08-08'
+  verification_notes: The official Missouri Numismatic Society page confirms its 66th Annual Coin Show on August 6-8, 2026 at the St. Charles Convention Center. CoinShows-USA supplies the venue's complete One Convention Center Plaza, St. Charles, MO 63303 address. The former listing conflated this event with the separate St. Louis Numismatic Association.
+  notes: 'Hours: Thu-Fri 10-6, Sat 10-4. Admission is free; paid early-bird access is available.'
 - id: hicomo-coin-club-coin-show
-  name: Hicomo Coin Club Coin Show
+  name: HICOMO Coin Club Annual Show
   state: MO
   state_name: Missouri
   city: Wheatland
   city_slug: wheatland-mo
   venue: Wheatland School Building
-  frequency: Recurring
+  address_status: partial
+  location_details: Main Street near Highways 83 and 54, Wheatland, MO 65779
+  frequency: Annual
   next_date: TBD
   website: ''
-  organizer: ''
-  notes: 'Hours: Sat 10-3'
+  organizer: HICOMO Coin Club
+  source_url: https://www.coinzip.com/Listing/Details/168066/HICOMO-Coin-Club-Annual-Show-April-18-2026-10AM3PM
+  source_type: third-party-directory
+  last_verified: '2026-07-29'
+  verification_notes: An organizer-style expired CoinZip listing and flyer confirm the annual HICOMO show at Wheatland School Building on Main Street near Highways 83 and 54, Wheatland, MO 65779. No future date or numbered street address was published, so the next date remains TBD.
+  notes: Future date is not yet published. The most recent organizer-style listing gave Saturday hours of 10-3 and directions to the school at Highways 83 and 54.
 - id: annual-mississippi-mna-coin-currency-card-show
   name: Annual Mississippi (MNA) Coin Currency & Card Show
   state: MS

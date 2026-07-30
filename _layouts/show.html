@@ -21,14 +21,20 @@ layout: default
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Location</td>
       <td style="padding:0.4rem 0;">{{ show.city }}, {{ show.state_name }}</td>
     </tr>
+    {% if show.venue and show.venue != "" %}
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Venue</td>
       <td style="padding:0.4rem 0;">{{ show.venue }}</td>
     </tr>
-    {% if show.venue and show.venue != "" %}
+    {% endif %}
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Address</td>
-      <td style="padding:0.4rem 0;">{{ show.venue }}, {{ show.city }}, {{ show.state_name }}</td>
+      <td style="padding:0.4rem 0;">{% if show.street_address and show.street_address != "" %}{{ show.street_address }}, {{ show.city }}, {{ show.state }}{% if show.postal_code %} {{ show.postal_code }}{% endif %}{% elsif show.address_status == "unverified" or show.address_status == "partial" %}<em>Complete street address not yet verified</em>{% elsif show.venue and show.venue != "" %}{{ show.venue }}, {{ show.city }}, {{ show.state_name }}{% else %}<em>Venue and street address not yet verified</em>{% endif %}</td>
+    </tr>
+    {% if show.location_details and show.location_details != "" %}
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">General Location</td>
+      <td style="padding:0.4rem 0;">{{ show.location_details }}</td>
     </tr>
     {% endif %}
     <tr>
@@ -37,7 +43,7 @@ layout: default
     </tr>
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Next Date</td>
-      <td style="padding:0.4rem 0;">{% if show.next_date == "TBD" %}TBD &mdash; Check organizer website{% else %}{{ show.next_date }}{% endif %}</td>
+      <td style="padding:0.4rem 0;">{% if show.next_date == "TBD" %}{% if show.website and show.website != "" %}TBD &mdash; Check organizer website{% else %}TBD &mdash; Organizer has not published a future date{% endif %}{% else %}{{ show.next_date }}{% endif %}</td>
     </tr>
     {% if show.organizer and show.organizer != "" %}
     <tr>
@@ -70,7 +76,11 @@ layout: default
     {% endif %}
   </table>
   <div class="show-detail-actions">
-    {% if show.venue and show.venue != "" %}
+    {% if show.street_address and show.street_address != "" %}
+    <a href="https://www.google.com/maps/dir/?api=1&destination={{ show.street_address | url_encode }}+{{ show.city | url_encode }}+{{ show.state | url_encode }}+{{ show.postal_code | default: '' | url_encode }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;background:#1a2332;color:#fff;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.2s;">
+      &#128663; Get Driving Directions
+    </a>
+    {% elsif show.venue and show.venue != "" and show.address_status != "unverified" and show.address_status != "partial" %}
     <a href="https://www.google.com/maps/dir/?api=1&destination={{ show.venue | url_encode }}+{{ show.city | url_encode }}+{{ show.state_name | url_encode }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;background:#1a2332;color:#fff;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.2s;">
       &#128663; Get Driving Directions
     </a>

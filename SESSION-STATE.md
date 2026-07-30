@@ -1,20 +1,20 @@
 # Session State
 
-**Last updated:** 2026-07-29 16:51 (PDT)
-**Session:** v0.9.30 official-source trust correction batch
+**Last updated:** 2026-07-29 20:02 (PDT)
+**Session:** v0.9.31 Missouri search and address QA correction
 
 ## Completed today
-- Merged PR #80 as `fb2b846`; GitHub Pages passed and the live footer showed v0.9.29.
-- Updated v0.9.30 with 22 resolved expired dates plus corrected current dates, venues, frequencies, cities, and stale titles.
-- Merged six verified duplicate schedules and preserved all old show URLs as canonical redirects.
-- Normalized malformed city/address fields and regenerated 197 canonical shows, 31 redirects, 179 cities, and 50 states.
-- Improved audit date, title, city, and duplicate detection with regression tests.
-- Passed Ruby syntax, 40 tests/75 assertions, data validation, deterministic generation, whitespace, and privacy checks.
-- Trust audit improved from 284 to 187 rows; expired 25→3, unparseable 3→0, stale titles 10→0, contradictions 14→0, and duplicate pairs 7→0.
-- Committed `fbf691e`, pushed the branch, opened PR #81, and confirmed its required check passed.
+- v0.9.30 was merged as `ca2fc50`; Pages passed and representative live listings were verified.
+- User QA found exact `MO` search noise plus incomplete Missouri street addresses and TBD dates.
+- Confirmed exact state abbreviations need precedence while partial names such as `Arizon` should remain supported.
+- Confirmed the St. Charles event belongs to Missouri Numismatic Society, not the separate St. Louis association.
+- Verified MNS August 6-8, 2026 and HICOMO's general school address; Joplin's future date/address remain unavailable.
+- Implemented v0.9.31 exact-state search, address clarity, Missouri corrections, redirects, and visible version updates.
+- Passed 40 Ruby tests/75 assertions, 5 search tests, 9 rendered-query checks, generation, and data validation.
 ## In progress
-- PR #81 is ready for user review; no merge or deployment is authorized.
+- Preparing a local visual review and the explicit push/PR approval checkpoint.
 ## Next up
-- Give the user a plain-language PR review summary before any separate merge decision.
+- Show the user the local review, then push/open a PR only if explicitly approved.
 ## Open decisions
+- A future true St. Louis Numismatic Association show and Joplin's complete address/date remain unverified.
 - Expired-page redirect, canonical, sitemap, and index/noindex policy remains pending external expert feedback.
