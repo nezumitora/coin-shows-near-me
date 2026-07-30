@@ -1,20 +1,19 @@
 # Session State
 
-**Last updated:** 2026-07-30 09:29 (PDT)
-**Session:** v0.11.0 reminders and organizer workflows
+**Last updated:** 2026-07-30 11:20 (PDT)
+**Session:** v0.12.0 reminders, organizer forms, and listing review
 
 ## Completed today
-- v0.9.30 was merged as `ca2fc50`; v0.9.31 then added all-state abbreviation search and corrected verified Missouri listings.
-- PR #82 is open, mergeable, and passed its required validation check.
-- v0.10.0 added homepage-first discovery plus Scheduled, Partial, Expired, and TBD statuses, source links, and last-checked fields.
-- v0.11.0 restored compact post-results spot prices and an email/state-only reminder while removing homepage dealer promotions.
-- Added manually reviewed organizer verification on show pages and a structured `/submit-show/` workflow with official-source evidence requirements.
-- Updated navigation, contact links, design rules, changelog, visible version, and regression coverage.
-- Passed 48 Ruby tests/129 assertions, 6 search tests, data validation, deterministic generation, Jekyll build, localhost checks, rendered QA, and visual review.
+- v0.12.0 moved spot prices and reminder signup below the search hero, added names/show interests and separate optional SMS consent.
+- CRM payload mapping now prioritizes explicit first/last names and never infers SMS consent from phone or other consent.
+- Improved submit-show location layout and accessible thank-you promotion linking to `https://coinshownearme.com/`.
+- Added manually reviewed listing-removal requests plus public-event/privacy guidance.
+- Checkpointed implementation as `355c287` and layout polish as `4da8258`; nothing pushed or deployed.
+- Passed 50 Ruby tests/162 assertions, 6 search tests, data validation, deterministic generation, Jekyll build, localhost checks, and visual QA.
 ## In progress
-- v0.11.0 is complete locally and checkpointed for review; no code changes are pending.
+- v0.12.0 is complete locally; review pages at `http://127.0.0.1:4187/`, `/submit-show/`, and `/shows/local-review-test-coin-show/`.
 ## Next up
-- Review the homepage, submit-show page, and organizer-verification show page locally; prepare a PR only after separate push approval.
+- Await visual review; prepare a PR only after separate push approval.
 ## Open decisions
-- PR #82 still requires a separate merge decision; v0.11.0 remains local until push approval.
+- PR #82 still requires a separate merge decision; v0.12.0 remains local until push approval.
 - Expired-page redirect, canonical, sitemap, and index/noindex policy remains pending external expert feedback.
