@@ -69,6 +69,7 @@ class HomepageTrustTest < Minitest::Test
     assert_includes HOMEPAGE, 'id="notify-form"'
     assert_includes HOMEPAGE, 'name="preferredState"'
     refute_includes HOMEPAGE, 'name="name"'
+    assert_equal 1, HOMEPAGE.scan(/<input[^>]+name="showReminderOptIn"/).length
   end
 
   def test_show_pages_expose_verification_context

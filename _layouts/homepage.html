@@ -1333,6 +1333,7 @@ a:hover { color: var(--gold-light); }
       <input type="hidden" name="contactConsentTimestamp" value="">
       <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
       <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me by email about this reminder request. I can opt out anytime.">
+      <input type="hidden" name="contactConsent" value="yes">
       <input type="hidden" name="reminderConsentTimestamp" value="">
       <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
       <input type="email" name="email" placeholder="Email address" required>
@@ -1341,12 +1342,8 @@ a:hover { color: var(--gold-light); }
         {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
       </select>
       <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-        <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-        <span>I agree that Coin Show Near Me may contact me by email about this reminder request. I can opt out anytime.</span>
-      </label>
-      <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
         <input type="checkbox" name="showReminderOptIn" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-        <span>Send me email reminders about coin shows in my selected state. See our <a href="/legal/privacy-policy/" style="color:var(--gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
+        <span>I agree that Coin Show Near Me may email me reminders about shows in my selected state. I can opt out anytime. See our <a href="/legal/privacy-policy/" style="color:var(--gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
       </label>
       <button type="submit">Set My Show Reminders</button>
     </form>
@@ -1396,10 +1393,7 @@ function fillCrmFormMetadata(form) {
   setFormValue(form, 'contactConsentText', COIN_CONTACT_CONSENT_TEXT);
   setFormValue(form, 'reminderConsentVersion', COIN_REMINDER_CONSENT_VERSION);
 
-  var contactConsent = form.querySelector('[name="contactConsent"]');
-  if (contactConsent && contactConsent.checked) {
-    setFormValue(form, 'contactConsentTimestamp', now);
-  }
+  setFormValue(form, 'contactConsentTimestamp', now);
 
   var reminderConsent = form.querySelector('[name="showReminderOptIn"]');
   if (reminderConsent && reminderConsent.checked) {

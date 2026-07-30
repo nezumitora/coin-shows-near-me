@@ -1,20 +1,20 @@
 # Session State
 
-**Last updated:** 2026-07-29 21:47 (PDT)
+**Last updated:** 2026-07-29 22:02 (PDT)
 **Session:** v0.11.0 reminders and organizer workflows
 
 ## Completed today
-- v0.9.30 was merged as `ca2fc50`; Pages passed and representative live listings were verified.
-- v0.9.31 added exact search for all 50 state abbreviations and corrected verified Missouri listing details.
+- v0.9.30 was merged as `ca2fc50`; v0.9.31 then added all-state abbreviation search and corrected verified Missouri listings.
 - PR #82 is open, mergeable, and passed its required validation check.
-- Started a separate linked worktree from v0.9.31 for the expert's homepage and visible-trust recommendations.
-- Implemented v0.10.0 homepage-first discovery, removed above-results promotions/spot prices/reminder form, and added visible trust context.
-- Added Scheduled, Partial, Expired, and TBD statuses plus source and last-checked fields; committed as `382ea2b`.
-- Passed 46 Ruby tests/108 assertions, 6 search tests, data validation, generation, Jekyll build, rendered trust/search QA, and visual review.
+- v0.10.0 added homepage-first discovery plus Scheduled, Partial, Expired, and TBD statuses, source links, and last-checked fields.
+- v0.11.0 restored compact post-results spot prices and an email/state-only reminder while removing homepage dealer promotions.
+- Added manually reviewed organizer verification on show pages and a structured `/submit-show/` workflow with official-source evidence requirements.
+- Updated navigation, contact links, design rules, changelog, visible version, and regression coverage.
+- Passed 48 Ruby tests/129 assertions, 6 search tests, data validation, deterministic generation, Jekyll build, localhost checks, rendered QA, and visual review.
 ## In progress
-- Revising the local work as v0.11.0: restore secondary spot prices and an email-only reminder, remove homepage dealer promotions, and add manually reviewed organizer verification and show submission.
+- v0.11.0 is complete locally; save the final checkpoint without pushing, merging, or deploying.
 ## Next up
-- Update homepage/show/contact/navigation/design/tests, then build and visually review locally.
+- Review locally, then prepare a PR only after separate push approval.
 ## Open decisions
 - PR #82 still requires a separate merge decision; v0.11.0 remains local until push approval.
 - Expired-page redirect, canonical, sitemap, and index/noindex policy remains pending external expert feedback.
