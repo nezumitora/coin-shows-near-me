@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 29, 2026
+- v0.11.0: Restored compact spot prices and data-minimal state reminder signup below show discovery, removed homepage dealer promotions, and added manually reviewed organizer verification and structured show submission workflows.
 - v0.10.0: Refocused the homepage on show discovery, removed above-the-results promotions and spot-price distractions, and added clear listing status, verification-source, and last-checked information.
 - v0.9.31: Made exact two-letter state searches return only that state, added venue/address matching and regression tests, corrected the conflated Missouri Numismatic Society listing, and clarified verified versus unavailable Missouri street addresses and dates.
 - v0.9.30: Resolved twenty-two expired-date records and Concord's partial date; corrected frequencies, venues, cities, and stale titles; strengthened source classifications; and merged six verified duplicate schedules while preserving redirects.

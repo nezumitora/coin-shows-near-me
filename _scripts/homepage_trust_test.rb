@@ -8,6 +8,7 @@ class HomepageTrustTest < Minitest::Test
   ROOT = File.expand_path('..', __dir__)
   HOMEPAGE = File.read(File.join(ROOT, '_layouts/homepage.html'))
   SHOW_LAYOUT = File.read(File.join(ROOT, '_layouts/show.html'))
+  SUBMIT_SHOW = File.read(File.join(ROOT, 'submit-show.md'))
   SHOWS = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
   AS_OF = Date.new(2026, 7, 29)
 
@@ -50,14 +51,24 @@ class HomepageTrustTest < Minitest::Test
 
   def test_homepage_keeps_directory_discovery_ahead_of_promotions
     filter_position = HOMEPAGE.index('<!-- Filter Bar -->')
-    dealer_position = HOMEPAGE.index('<!-- Dealer Portal -->')
+    spot_position = HOMEPAGE.index('<!-- Secondary market reference -->')
+    show_cards_position = HOMEPAGE.index('<!-- Show Cards -->')
 
     refute_nil filter_position
-    refute_nil dealer_position
-    assert_operator filter_position, :<, dealer_position
-    refute_includes HOMEPAGE, 'id="spot-ticker"'
+    refute_nil show_cards_position
+    refute_nil spot_position
+    assert_operator filter_position, :<, show_cards_position
+    assert_operator show_cards_position, :<, spot_position
+    assert_includes HOMEPAGE, 'id="spot-ticker"'
     refute_includes HOMEPAGE, 'sponsor-preview-section'
-    refute_includes HOMEPAGE, 'id="reminder-cta-grid"'
+    refute_includes HOMEPAGE, 'dealer-section'
+    refute_includes HOMEPAGE, 'dealer-reg-form'
+  end
+
+  def test_homepage_reminder_is_data_minimal
+    assert_includes HOMEPAGE, 'id="notify-form"'
+    assert_includes HOMEPAGE, 'name="preferredState"'
+    refute_includes HOMEPAGE, 'name="name"'
   end
 
   def test_show_pages_expose_verification_context
@@ -67,8 +78,16 @@ class HomepageTrustTest < Minitest::Test
     assert_includes SHOW_LAYOUT, 'View the source used to check this listing'
   end
 
+  def test_organizer_workflows_require_manual_review
+    assert_includes SHOW_LAYOUT, 'id="organizer-verification-form"'
+    assert_includes SHOW_LAYOUT, 'does not automatically verify or change the listing'
+    assert_includes SUBMIT_SHOW, 'id="show-submission-form"'
+    assert_includes SUBMIT_SHOW, 'Every submission is reviewed manually.'
+    assert_includes SUBMIT_SHOW, 'does not automatically create or verify a public listing'
+  end
+
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.10.0</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.10.0'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.11.0</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.11.0'
   end
 end

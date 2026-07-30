@@ -5,6 +5,9 @@
 - The homepage's primary action is finding a coin show.
 - Search and state filters appear before promotions, forms, tools, and educational content.
 - Do not place sponsor previews, dealer offers, reminders, or spot prices above directory results.
+- Do not place sponsor previews or dealer promotions on the homepage.
+- Keep spot prices as a compact secondary reference after the directory results.
+- Keep the homepage reminder form below discovery content and collect only the email address and state needed for the reminder.
 
 ## Listing trust
 
@@ -13,6 +16,7 @@
 - Show the last-checked date when one is recorded; otherwise state that it is not recorded.
 - Link to the source used for verification when available without calling every source official.
 - Remind visitors to verify details before traveling and provide a correction path.
+- Organizer-verification and new-show submissions are reviewed manually against public official-source evidence; submitting a form never verifies or publishes a listing automatically.
 
 ## Visual hierarchy
 
