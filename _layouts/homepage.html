@@ -377,12 +377,9 @@ a:hover { color: var(--gold-light); }
   filter: drop-shadow(0 20px 34px rgba(0,0,0,0.24));
 }
 .hero-inner {
-  max-width: 1120px;
+  max-width: 760px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 2rem;
-  align-items: center;
+  text-align: center;
   position: relative;
   z-index: 1;
 }
@@ -402,7 +399,7 @@ a:hover { color: var(--gold-light); }
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  margin: 0 0 0.75rem clamp(0px, 14vw, 186px);
+  margin: 0 auto 0.75rem;
 }
 .hero-title-wrap::before,
 .hero-title-wrap::after {
@@ -429,39 +426,17 @@ a:hover { color: var(--gold-light); }
 .hero-subtitle {
   font-size: 1.15rem;
   color: #c8d6e5;
-  margin-bottom: 1.25rem;
-  max-width: 600px;
+  margin: 0 auto 1.25rem;
+  max-width: 650px;
   line-height: 1.5;
 }
-.hero-stats {
-  display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
-}
-.hero-stat {
-  text-align: center;
-}
-.hero-stat-num {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--gold-light);
-  display: block;
-}
-.hero-stat-label {
-  font-size: 0.8rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
 .hero-action-stage {
-  max-width: 340px;
-  margin: 0 0 1rem;
+  max-width: 680px;
+  margin: 0 auto;
 }
 .hero-action-stage .search-wrap {
   margin: 0;
-  max-width: 340px;
+  max-width: 680px;
   width: 100%;
 }
 .hero-search-results-note {
@@ -490,62 +465,6 @@ a:hover { color: var(--gold-light); }
   font-weight: 800;
 }
 .hero-search-results-note button:hover { background: var(--gold-light); }
-.hero-right-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-height: 310px;
-}
-.hero-offer-cta {
-  position: relative;
-  overflow: hidden;
-  text-align: left;
-  padding: 1.45rem;
-  background: rgba(26,35,50,0.74);
-  border: 1px solid rgba(218,165,32,0.5);
-  border-radius: 18px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-  width: 100%;
-  margin-top: 7.5rem;
-}
-.hero-offer-cta > * {
-  position: relative;
-  z-index: 1;
-}
-.hero-logo-note {
-  color: #cbd5e1;
-  font-size: 0.75rem;
-  line-height: 1.45;
-  margin-top: 0.75rem;
-}
-.hero-offer-cta h2 {
-  color: var(--gold-light);
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-.hero-offer-cta p {
-  color: #e2e8f0;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  margin-bottom: 0.9rem;
-}
-.hero-offer-cta .hero-offer-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: #fff;
-  font-weight: 700;
-  padding: 0.62rem 1rem;
-  border-radius: 8px;
-  font-size: 0.86rem;
-  text-decoration: none;
-}
-.hero-offer-cta .hero-offer-btn:hover {
-  background: var(--gold-light);
-  color: #fff;
-}
 #quote-section {
   scroll-margin-top: 130px;
 }
@@ -560,9 +479,6 @@ a:hover { color: var(--gold-light); }
     height: 320px;
     opacity: 0.12;
   }
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
   .hero-subtitle,
   .hero-action-stage {
     margin-left: auto;
@@ -575,18 +491,6 @@ a:hover { color: var(--gold-light); }
   .hero-title-wrap {
     margin-left: auto;
     margin-right: auto;
-  }
-  .hero-stats {
-    justify-content: center;
-  }
-  .hero-right-side {
-    max-width: 320px;
-    margin: 0 auto;
-    min-height: 260px;
-  }
-  .hero-offer-cta {
-    text-align: center;
-    margin-top: 6rem;
   }
 }
 
@@ -623,114 +527,26 @@ a:hover { color: var(--gold-light); }
   font-size: 1.1rem;
   pointer-events: none;
 }
-
-/* === Spot Ticker === */
-.spot-ticker {
-  display: flex;
-  grid-column: 1 / -1;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-  align-items: center;
-  justify-content: center;
-  max-width: 780px;
-  width: 100%;
-  margin: 1.15rem auto 0;
-  padding: 0.85rem 1rem;
-  font-size: 0.85rem;
-  background: rgba(26, 35, 50, 0.72);
-  border: 1px solid rgba(218,165,32,0.45);
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  backdrop-filter: blur(8px);
-}
-.spot-ticker-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.spot-ticker-label {
-  color: #f0e6c8;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+.search-label {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: #f8fafc;
+  font-size: 0.86rem;
   font-weight: 800;
-}
-.spot-ticker-price {
-  color: #ffd56a;
-  font-weight: 800;
-  font-size: 1rem;
-}
-.spot-ticker-sep { color: rgba(240,230,200,0.5); }
-.spot-ticker-updated {
-  width: 100%;
-  text-align: center;
-  color: #e2e8f0;
-  font-size: 0.72rem;
-  font-weight: 600;
-  margin-top: 0.25rem;
+  letter-spacing: 0.03em;
 }
 
-/* === Sponsored Placements Preview === */
-.sponsor-preview-section {
+/* === Listing trust explainer === */
+.listing-trust-intro {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 0;
-}
-.sponsor-preview-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 24px var(--shadow);
-}
-.sponsor-preview-header { margin-bottom: 1rem; }
-.sponsor-preview-eyebrow {
-  color: var(--gold);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.sponsor-preview-header h2 {
-  color: var(--navy);
-  font-size: 1.3rem;
-  margin: 0.2rem 0;
-}
-.sponsor-preview-header p,
-.sponsor-preview-note {
+  padding: 1rem 1.5rem 0.25rem;
   color: var(--text-mid);
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-.sponsor-preview-track {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-}
-.sponsor-preview-slide {
-  background: var(--warm-gray);
-  border: 1px dashed #c9b68f;
-  border-radius: 10px;
-  padding: 1rem;
-}
-.sponsor-preview-slide h3 {
-  color: var(--navy);
-  font-size: 1rem;
-  margin-bottom: 0.45rem;
-}
-.sponsor-preview-slide p {
-  color: var(--text-mid);
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   line-height: 1.55;
+  text-align: center;
 }
-.sponsor-preview-note {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
-}
-@media (max-width: 800px) {
-  .sponsor-preview-track { grid-template-columns: 1fr; }
-}
+.listing-trust-intro strong { color: var(--navy); }
 
 /* === Filter Bar === */
 .filter-section {
@@ -745,7 +561,7 @@ a:hover { color: var(--gold-light); }
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
@@ -754,6 +570,7 @@ a:hover { color: var(--gold-light); }
   font-size: 0.85rem;
   color: var(--text-mid);
   white-space: nowrap;
+  margin-top: 0.35rem;
 }
 .filter-pills {
   display: flex;
@@ -792,6 +609,7 @@ a:hover { color: var(--gold-light); }
   display: flex;
   gap: 0.25rem;
   margin-left: auto;
+  margin-top: 0.05rem;
 }
 .view-btn {
   padding: 0.4rem 0.75rem;
@@ -933,6 +751,29 @@ a:hover { color: var(--gold-light); }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.show-card-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+  margin-top: 0.55rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(184,134,11,0.22);
+  color: #6b7280;
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+.trust-status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.16rem 0.48rem;
+  font-weight: 800;
+}
+.trust-status--scheduled { background: #dcfce7; color: #166534; }
+.trust-status--partial { background: #e0f2fe; color: #075985; }
+.trust-status--tbd { background: #fef3c7; color: #854d0e; }
+.trust-status--expired { background: #fee2e2; color: #991b1b; }
 .show-card-link {
   position: absolute;
   inset: 0;
@@ -1297,107 +1138,6 @@ a:hover { color: var(--gold-light); }
   margin-top: 0.5rem;
 }
 
-/* === Reminder CTA Card (above show cards) === */
-.reminder-cta-card {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  border: 2px solid var(--gold);
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
-  color: #fff;
-  display: block;
-  max-width: 820px;
-  margin: 0 auto 1.15rem;
-}
-.reminder-cta-card h3 {
-  color: var(--gold-light);
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-  line-height: 1.3;
-}
-.reminder-cta-card p {
-  color: #cbd5e1;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-.reminder-cta-card .reminder-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
-}
-.reminder-cta-card .consent-group,
-.reminder-cta-card .reminder-form button,
-.reminder-cta-success { grid-column: 1 / -1; }
-.reminder-cta-card .reminder-form input[type="email"],
-.reminder-cta-card .reminder-form input[type="tel"] {
-  width: 100%;
-  padding: 0.6rem 0.8rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 6px;
-  font-size: 0.85rem;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  outline: none;
-  font-family: inherit;
-}
-.reminder-cta-card .reminder-form input::placeholder { color: #94a3b8; }
-.reminder-cta-card .reminder-form input:focus { border-color: var(--gold-light); }
-.reminder-cta-card .consent-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.reminder-cta-card .consent-label {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  cursor: pointer;
-  font-size: 0.75rem;
-  color: #94a3b8;
-  line-height: 1.4;
-}
-.reminder-cta-card .consent-label input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
-  margin-top: 0.1rem;
-  accent-color: var(--gold);
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.reminder-cta-card .consent-label a { color: var(--gold-light); text-decoration: underline; }
-.reminder-cta-card .consent-legal {
-  font-size: 0.65rem;
-  color: #64748b;
-  line-height: 1.4;
-  margin-top: 0.15rem;
-}
-.reminder-cta-card .reminder-form button {
-  background: var(--gold);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 0.6rem 1rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.reminder-cta-card .reminder-form button:hover { background: var(--gold-light); }
-.reminder-cta-card .reminder-form button:disabled {
-  background: #475569;
-  cursor: not-allowed;
-}
-.reminder-cta-success {
-  display: none;
-  background: #065f46;
-  color: #fff;
-  padding: 0.75rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
 /* === No Results === */
 .no-results {
   text-align: center;
@@ -1416,10 +1156,6 @@ a:hover { color: var(--gold-light); }
   .hero-title-wrap::before,
   .hero-title-wrap::after { height: 22px; }
   .hero-subtitle { font-size: 1rem; }
-  .hero-offer-cta { padding: 0.85rem; }
-  .hero-stats { gap: 1.25rem; }
-  .hero-stat-num { font-size: 1.4rem; }
-
   .filter-section { top: 90px; }
   .filter-pills { max-height: 40px; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .filter-pills::-webkit-scrollbar { display: none; }
@@ -1434,7 +1170,6 @@ a:hover { color: var(--gold-light); }
   .cta-form input[type="email"],
   .cta-form input[type="text"],
   .cta-form select { min-width: 100%; }
-  .reminder-cta-card .reminder-form { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
@@ -1446,9 +1181,8 @@ a:hover { color: var(--gold-light); }
   .featured-section,
   .states-section,
   .info-section,
-  .sponsor-preview-section { padding-left: 0.85rem; padding-right: 0.85rem; }
+  .listing-trust-intro { padding-left: 0.85rem; padding-right: 0.85rem; }
   .dealer-card,
-  .reminder-cta-card,
   .cta-inner { max-width: 100%; }
   .dealer-card { padding: 1rem; }
   .dealer-form .form-row,
@@ -1459,9 +1193,7 @@ a:hover { color: var(--gold-light); }
   .cta-form input,
   .cta-form select,
   .cta-form textarea,
-  .cta-form button,
-  .reminder-cta-card .reminder-form input,
-  .reminder-cta-card .reminder-form button {
+  .cta-form button {
     min-width: 0 !important;
     width: 100% !important;
   }
@@ -1505,7 +1237,7 @@ a:hover { color: var(--gold-light); }
 <div class="sticky-header">
   {% include top-nav.html %}
   <div class="construction-banner">
-    <strong>Site Under Construction</strong> &mdash; We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Please excuse any errors or incomplete information as we build things out. <a href="#signup">Let us know</a> if you spot something wrong.
+    <strong>Verify before traveling</strong> &mdash; Show details can change. Check each listing's source and last-checked date, or <a href="{{ site.baseurl }}/contact/">report a correction</a>.
   </div>
 </div>
 
@@ -1517,27 +1249,13 @@ a:hover { color: var(--gold-light); }
         <img class="hero-title-logo" src="{{ site.baseurl }}/assets/images/coinshows-title-gold-banknote-transparent-v3-sharp.png?v=20260626-3" alt="Coin Shows Near Me">
       </div>
       <h1>Find <span>Coin Shows</span> Near You</h1>
-      <p class="hero-subtitle">The most complete directory of coin shows in the United States. Browse {{ site.data.shows | size }}+ shows across all 50 states.</p>
-
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-num">{{ site.data.shows | size }}+</span>
-          <span class="hero-stat-label">Shows Listed</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">50</span>
-          <span class="hero-stat-label">States</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">160+</span>
-          <span class="hero-stat-label">Cities</span>
-        </div>
-      </div>
+      <p class="hero-subtitle">Search {{ site.data.shows | size }} coin shows across all 50 states by state abbreviation, state name, city, venue, or show name.</p>
 
       <div class="hero-action-stage">
+        <label class="search-label" for="show-search">Search the coin show directory</label>
         <div class="search-wrap">
           <span class="search-icon">&#128269;</span>
-          <input type="text" class="search-input" id="show-search" placeholder="Search by show name, city, or state...">
+          <input type="search" class="search-input" id="show-search" placeholder="Try CA, California, Anaheim, or a venue..." autocomplete="off">
         </div>
         <div class="hero-search-results-note" id="hero-search-results-note" aria-live="polite">
           <div id="hero-search-results-text">Showing matching shows below.</div>
@@ -1546,72 +1264,17 @@ a:hover { color: var(--gold-light); }
       </div>
 
     </div>
-
-    <div class="hero-right-side" aria-hidden="false">
-      <aside class="hero-offer-cta">
-        <h2>Get Offers Before the Show</h2>
-        <p>Get offers on your coin collection or bullion from dealers before you attend the show.</p>
-        <a class="hero-offer-btn" href="#quote-section">Get Dealer Quotes</a>
-      </aside>
-    </div>
-
-    <div class="spot-ticker" id="spot-ticker">
-      <div class="spot-ticker-item">
-        <span class="spot-ticker-label">Gold</span>
-        <span class="spot-ticker-price" id="spot-gold-price">--</span>
-      </div>
-      <span class="spot-ticker-sep">|</span>
-      <div class="spot-ticker-item">
-        <span class="spot-ticker-label">Silver</span>
-        <span class="spot-ticker-price" id="spot-silver-price">--</span>
-      </div>
-      <span class="spot-ticker-sep">|</span>
-      <div class="spot-ticker-item">
-        <span class="spot-ticker-label">Platinum</span>
-        <span class="spot-ticker-price" id="spot-platinum-price">--</span>
-      </div>
-      <span class="spot-ticker-sep">|</span>
-      <div class="spot-ticker-item">
-        <span class="spot-ticker-label">Palladium</span>
-        <span class="spot-ticker-price" id="spot-palladium-price">--</span>
-      </div>
-      <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
-    </div>
   </div>
 </section>
 
-<!-- Sponsored Placements Preview -->
-<section class="sponsor-preview-section" aria-label="Sponsored industry placements preview">
-  <div class="sponsor-preview-card">
-    <div class="sponsor-preview-header">
-      <div class="sponsor-preview-eyebrow">Coming Soon</div>
-      <h2>Sponsored Dealer &amp; Industry Partner Placements</h2>
-      <p>Sponsored dealer and industry partner placements coming soon.</p>
-    </div>
-    <div class="sponsor-preview-track">
-      <div class="sponsor-preview-slide">
-        <h3>Dealer Spotlight</h3>
-        <p>Placeholder for future friendly dealer or beta partner features. No real dealer is listed yet.</p>
-      </div>
-      <div class="sponsor-preview-slide">
-        <h3>Coin &amp; Bullion Services</h3>
-        <p>Future placements may include coin insurance, safe/security, storage, auction, grading, and related services.</p>
-      </div>
-      <div class="sponsor-preview-slide">
-        <h3>Industry Partners</h3>
-        <p>Future placements may include grading, storage, auction, security, and other coin/bullion industry services.</p>
-      </div>
-    </div>
-    <p class="sponsor-preview-note">This is a placeholder preview only. Paid placements, beta partners, and live sponsor content need separate approval before publishing.</p>
-  </div>
+<section class="listing-trust-intro" aria-label="How listing information is presented">
+  <strong>Clear listing status:</strong> Scheduled means a future date is listed, Partial means only part of the date is known, Expired means the listed date has passed, and TBD means no future date has been announced. Open a show to see its verification source and last-checked date.
 </section>
-
-{% include ad-placeholder.html %}
 
 <!-- Filter Bar -->
 <section class="filter-section" id="filter-section">
   <div class="filter-inner">
-    <span class="filter-label">Filter:</span>
+    <span class="filter-label">Filter by state:</span>
     <div class="filter-pills" id="filter-pills">
       <span class="filter-pill active" data-state="all">All States</span>
       {% for state in site.data.states %}
@@ -1637,45 +1300,6 @@ a:hover { color: var(--gold-light); }
 
 <!-- Show Cards -->
 <section class="shows-section">
-  <!-- Reminder CTA Card (above grid so show cards do not stretch to match the form) -->
-  <div class="reminder-cta-card" id="reminder-cta-grid">
-    <h3>Never Miss a Coin Show</h3>
-    <p>Get a reminder a week before upcoming shows near you — by email or text.</p>
-    <form class="reminder-form" id="reminder-form-grid" action="#" data-form-key="mykleozw" method="POST">
-      <input type="hidden" name="_subject" value="Coin Show Near Me — Show Reminder Signup">
-      <input type="hidden" name="form_type" value="show_reminder">
-      <input type="hidden" name="source" value="Website">
-      <input type="hidden" name="formName" value="showReminder">
-      <input type="hidden" name="coinContactRoles" value="attendee">
-      <input type="hidden" name="ctaCode" value="homepage_show_grid_reminder">
-      <input type="hidden" name="sourceDetail" value="Homepage show-grid reminder card">
-      <input type="hidden" name="pageUrl" value="">
-      <input type="hidden" name="referringUrl" value="">
-      <input type="hidden" name="submittedAt" value="">
-      <input type="hidden" name="contactConsentTimestamp" value="">
-      <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-      <input type="hidden" name="reminderConsentTimestamp" value="">
-      <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-      <input type="email" name="email" placeholder="Email address" required>
-      <input type="tel" name="phone" placeholder="Mobile number (optional, for text reminders)">
-      <div class="consent-group">
-        <label class="consent-label">
-          <input type="checkbox" name="contactConsent" value="yes" required>
-          <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-        </label>
-        <label class="consent-label">
-          <input type="checkbox" name="showReminderOptIn" id="sms-consent-grid" value="yes" required>
-          <span>Send me reminders about coin shows near me. <a href="/legal/terms-of-use/#sms-terms" target="_blank">SMS Terms</a> &amp; <a href="/legal/privacy-policy/" target="_blank">Privacy Policy</a>.</span>
-        </label>
-      </div>
-      <button type="submit">Remind Me</button>
-    </form>
-    <div class="reminder-cta-success" id="reminder-grid-success">
-      You're signed up! We'll remind you before upcoming shows.
-    </div>
-  </div>
-
   <div class="card-grid" id="card-grid">
     {% for show in site.data.shows %}
     <div class="show-card" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}" data-venue="{{ show.venue | downcase }}" data-address="{{ show.street_address | default: show.location_details | default: '' | downcase }}">
@@ -1707,6 +1331,25 @@ a:hover { color: var(--gold-light); }
       {% if show.notes and show.notes != "" %}
       <div class="show-card-notes">{{ show.notes }}</div>
       {% endif %}
+      <div class="show-card-trust">
+        {% assign latest_date = show.upcoming_dates | last %}
+        {% assign listing_expired = false %}
+        {% if latest_date %}
+          {% assign latest_date_key = latest_date | remove: "-" | plus: 0 %}
+          {% assign today_date_key = site.time | date: "%Y%m%d" | plus: 0 %}
+          {% if latest_date_key < today_date_key %}{% assign listing_expired = true %}{% endif %}
+        {% endif %}
+        {% if show.next_date == "TBD" %}
+        <span class="trust-status trust-status--tbd">Date TBD</span>
+        {% elsif listing_expired %}
+        <span class="trust-status trust-status--expired">Expired date</span>
+        {% elsif show.next_date contains "," %}
+        <span class="trust-status trust-status--scheduled">Scheduled</span>
+        {% else %}
+        <span class="trust-status trust-status--partial">Partial date</span>
+        {% endif %}
+        {% if show.last_verified %}<span>Checked {{ show.last_verified | date: "%b %-d, %Y" }}</span>{% else %}<span>Not yet source-checked</span>{% endif %}
+      </div>
     </div>
     {% endfor %}
   </div>
@@ -1748,6 +1391,25 @@ a:hover { color: var(--gold-light); }
             {% if show.notes and show.notes != "" %}
             <div class="show-card-notes">{{ show.notes }}</div>
             {% endif %}
+            <div class="show-card-trust">
+              {% assign latest_date = show.upcoming_dates | last %}
+              {% assign listing_expired = false %}
+              {% if latest_date %}
+                {% assign latest_date_key = latest_date | remove: "-" | plus: 0 %}
+                {% assign today_date_key = site.time | date: "%Y%m%d" | plus: 0 %}
+                {% if latest_date_key < today_date_key %}{% assign listing_expired = true %}{% endif %}
+              {% endif %}
+              {% if show.next_date == "TBD" %}
+              <span class="trust-status trust-status--tbd">Date TBD</span>
+              {% elsif listing_expired %}
+              <span class="trust-status trust-status--expired">Expired date</span>
+              {% elsif show.next_date contains "," %}
+              <span class="trust-status trust-status--scheduled">Scheduled</span>
+              {% else %}
+              <span class="trust-status trust-status--partial">Partial date</span>
+              {% endif %}
+              {% if show.last_verified %}<span>Checked {{ show.last_verified | date: "%b %-d, %Y" }}</span>{% else %}<span>Not yet source-checked</span>{% endif %}
+            </div>
           </div>
           {% endif %}
         {% endfor %}
@@ -1985,7 +1647,7 @@ a:hover { color: var(--gold-light); }
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.9.31</div>
+    <div class="footer-version">v0.10.0</div>
   </div>
 </footer>
 
@@ -2209,60 +1871,6 @@ function fillCrmFormMetadata(form) {
   }
 })();
 
-/* Reminder CTA — handle submit */
-(function() {
-  /* Form submit */
-  var form = document.getElementById('reminder-form-grid');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      fillCrmFormMetadata(form);
-      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      window.coinSubmitForm(form).then(function() {
-        form.style.display = 'none';
-        document.getElementById('reminder-grid-success').style.display = 'block';
-      });
-    });
-  }
-})();
-
-/* Spot prices */
-document.addEventListener('DOMContentLoaded', function() {
-  function formatPrice(price) {
-    if (price == null) return '--';
-    return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
-  function timeAgo(dateStr) {
-    var now = new Date();
-    var then = new Date(dateStr);
-    var mins = Math.round((now - then) / 60000);
-    if (mins < 1) return 'just now';
-    if (mins < 60) return mins + ' min ago';
-    var hrs = Math.round(mins / 60);
-    if (hrs < 24) return hrs + ' hr' + (hrs > 1 ? 's' : '') + ' ago';
-    var days = Math.round(hrs / 24);
-    return days + ' day' + (days > 1 ? 's' : '') + ' ago';
-  }
-  var jsonUrl = window.location.origin + '/assets/data/spot-prices.json';
-  fetch(jsonUrl)
-    .then(function(r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function(data) {
-      document.getElementById('spot-gold-price').textContent = formatPrice(data.gold);
-      document.getElementById('spot-silver-price').textContent = formatPrice(data.silver);
-      document.getElementById('spot-platinum-price').textContent = formatPrice(data.platinum);
-      document.getElementById('spot-palladium-price').textContent = formatPrice(data.palladium);
-      var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' . Spot prices per troy oz' : 'Spot prices per troy oz';
-      document.getElementById('spot-ticker-updated').textContent = updated;
-      window.SPOT_PRICES = data;
-    })
-    .catch(function(err) {
-      console.error('Spot prices failed:', err);
-      document.getElementById('spot-ticker-updated').textContent = 'Spot prices temporarily unavailable';
-    });
-});
 </script>
 
 <!-- Schema.org structured data -->

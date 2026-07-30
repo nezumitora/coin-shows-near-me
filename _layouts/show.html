@@ -18,6 +18,39 @@ layout: default
 <div class="show-detail-card">
   <table class="show-detail-table">
     <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Listing Status</td>
+      <td style="padding:0.4rem 0;">
+        {% assign latest_date = show.upcoming_dates | last %}
+        {% assign listing_expired = false %}
+        {% if latest_date %}
+          {% assign latest_date_key = latest_date | remove: "-" | plus: 0 %}
+          {% assign today_date_key = site.time | date: "%Y%m%d" | plus: 0 %}
+          {% if latest_date_key < today_date_key %}{% assign listing_expired = true %}{% endif %}
+        {% endif %}
+        {% if show.next_date == "TBD" %}
+        <span style="display:inline-block;padding:0.18rem 0.55rem;border-radius:999px;background:#fef3c7;color:#854d0e;font-size:0.78rem;font-weight:800;">Date TBD</span>
+        <span style="margin-left:0.35rem;color:#6b7280;">No future date has been announced.</span>
+        {% elsif listing_expired %}
+        <span style="display:inline-block;padding:0.18rem 0.55rem;border-radius:999px;background:#fee2e2;color:#991b1b;font-size:0.78rem;font-weight:800;">Expired date</span>
+        <span style="margin-left:0.35rem;color:#6b7280;">The listed date has passed and a new date is not yet recorded.</span>
+        {% elsif show.next_date contains "," %}
+        <span style="display:inline-block;padding:0.18rem 0.55rem;border-radius:999px;background:#dcfce7;color:#166534;font-size:0.78rem;font-weight:800;">Scheduled</span>
+        <span style="margin-left:0.35rem;color:#6b7280;">A future date is listed; verify before traveling.</span>
+        {% else %}
+        <span style="display:inline-block;padding:0.18rem 0.55rem;border-radius:999px;background:#e0f2fe;color:#075985;font-size:0.78rem;font-weight:800;">Partial date</span>
+        <span style="margin-left:0.35rem;color:#6b7280;">Only part of the future date is currently known.</span>
+        {% endif %}
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Last Checked</td>
+      <td style="padding:0.4rem 0;">{% if show.last_verified %}{{ show.last_verified | date: "%B %-d, %Y" }}{% else %}<em>No verification date recorded yet</em>{% endif %}</td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Verification Source</td>
+      <td style="padding:0.4rem 0;">{% if show.source_url and show.source_url != "" %}<a href="{{ show.source_url }}" target="_blank" rel="noopener noreferrer">View the source used to check this listing</a>{% else %}<em>No public verification source recorded yet</em>{% endif %}</td>
+    </tr>
+    <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Location</td>
       <td style="padding:0.4rem 0;">{{ show.city }}, {{ show.state_name }}</td>
     </tr>

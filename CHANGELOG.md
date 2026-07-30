@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 29, 2026
+- v0.10.0: Refocused the homepage on show discovery, removed above-the-results promotions and spot-price distractions, and added clear listing status, verification-source, and last-checked information.
 - v0.9.31: Made exact two-letter state searches return only that state, added venue/address matching and regression tests, corrected the conflated Missouri Numismatic Society listing, and clarified verified versus unavailable Missouri street addresses and dates.
 - v0.9.30: Resolved twenty-two expired-date records and Concord's partial date; corrected frequencies, venues, cities, and stale titles; strengthened source classifications; and merged six verified duplicate schedules while preserving redirects.
 - v0.9.29: Added report-only show data-trust audit tooling with deterministic tests, and refreshed official-source classifications for the already-correct Long Beach Expo and FUN Convention records without changing their published dates.
