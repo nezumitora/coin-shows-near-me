@@ -289,7 +289,10 @@
   state_name: California
   city: Long Beach
   city_slug: long-beach-ca
-  venue: Long Beach Convention Center
+  venue: Long Beach Convention & Entertainment Center - Hall C
+  street_address: 300 East Ocean Boulevard
+  postal_code: '90802'
+  address_status: verified
   frequency: 3 Times Per Year (February, June, September)
   next_date: September 9-11, 2026
   website: https://www.longbeachexpo.com/
@@ -304,7 +307,7 @@
   - '2027-03-10'
   - '2027-03-11'
   - '2027-03-12'
-  verification_notes: Official Long Beach Expo site lists September 9-11, 2026 and March 10-12, 2027 save-the-date windows; its detailed schedule still shows stale February information, so the homepage dates control.
+  verification_notes: Official Long Beach Expo site lists September 9-11, 2026 and March 10-12, 2027 save-the-date windows; its linked official ticket page identifies Hall C at 300 East Ocean Boulevard, Long Beach, CA 90802. The detailed schedule still shows stale February information, so the homepage dates control.
   notes: A major international show with hundreds of dealers.
 - id: sacramento-coin-show
   name: Sacramento Coin Show
@@ -772,6 +775,9 @@
   city: Orlando
   city_slug: orlando-fl
   venue: Orange County Convention Center
+  street_address: 9899 International Drive
+  postal_code: '32819'
+  address_status: verified
   frequency: Annual (January)
   next_date: January 7-10, 2027
   website: http://www.funtopics.com/

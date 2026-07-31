@@ -1,20 +1,20 @@
 # Session State
 
-**Last updated:** 2026-07-31 14:02 PDT
-**Session:** v0.12.2 local review recovery
+**Last updated:** 2026-07-31 15:17 PDT
+**Session:** v0.13.0 local review iteration
 
 ## Completed today
-- Classified current GSC evidence and added seven evidence-backed one-hop city redirects, including Westland→Warren and malformed Creating Collectors→Tucson.
-- Corrected Tucson Coin and Currency Expo from its official organizer site and registered the source.
-- Made `shows.json` deterministic from 197 YAML records and kept `widget.html` published but noindex.
-- Added redirect, feed-parity, indexing, and data-correction regression tests; final local validation passes.
-- Recovered the user review checkpoint and confirmed the older v0.9.35 Long Beach and FUN corrections are present equivalently in this branch.
+- Preserved the completed v0.12.2 GSC redirects, Tucson correction, deterministic feed, and widget noindex work.
+- Restored the two-column hero, consolidated one compact Stay in the Loupe form, and moved the navy/gold spot-price strip inside the hero.
+- Added combined date/state filters, accepted scheme-less public URLs, strengthened email tags, and improved the submit-show confirmation.
+- Added verified Long Beach/FUN street addresses and an unpublished non-sending local form-test listing.
+- Passed the pinned Jekyll build, 61 Ruby tests/323 assertions, 10 JavaScript tests, data validation, and desktop/mobile browser QA.
 
 ## In progress
-- Resume user visual review using the healthy localhost preview; the current rendered preview is v0.12.0, not final v0.12.2.
+- v0.13.0 is ready for visual review at `http://127.0.0.1:4188/`; missing addresses and directions now fail safely.
 
 ## Next up
-- Review the homepage, submit-show workflow, organizer verification, Long Beach listing, and FUN listing before preparing a current v0.12.2 preview.
+- Review the five supplied pages, then continue the official-source address audit and separately choose secured domain-mail hosting.
 
 ## Open decisions
-- User explicitly denied deployment; nothing may be pushed/deployed and no GSC control may change before review and separate approval.
+- User explicitly denied deployment; do not push/deploy, change GSC, or alter mail/DNS accounts before separate approval.

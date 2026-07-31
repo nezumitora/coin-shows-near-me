@@ -4,12 +4,22 @@ layout: default
 
 {% include breadcrumbs.html %}
 
-{% assign show = nil %}
-{% for s in site.data.shows %}
-  {% if s.id == page.show_id %}
-    {% assign show = s %}
-  {% endif %}
-{% endfor %}
+{% if page.review_fixture %}
+  {% assign show = site.data.review_show %}
+{% else %}
+  {% assign show = nil %}
+  {% for s in site.data.shows %}
+    {% if s.id == page.show_id %}
+      {% assign show = s %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if page.review_fixture %}
+<div style="background:#fef3c7;border:2px solid #d97706;border-radius:10px;padding:1rem;margin:0 0 1rem;color:#78350f;">
+  <strong>Local review test listing.</strong> Use fake details to test every form below. Submissions on this unpublished fixture stay in the browser and are not emailed or saved.
+</div>
+{% endif %}
 
 <h1>{{ show.name }}</h1>
 
@@ -62,7 +72,7 @@ layout: default
     {% endif %}
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Address</td>
-      <td style="padding:0.4rem 0;">{% if show.street_address and show.street_address != "" %}{{ show.street_address }}, {{ show.city }}, {{ show.state }}{% if show.postal_code %} {{ show.postal_code }}{% endif %}{% elsif show.address_status == "unverified" or show.address_status == "partial" %}<em>Complete street address not yet verified</em>{% elsif show.venue and show.venue != "" %}{{ show.venue }}, {{ show.city }}, {{ show.state_name }}{% else %}<em>Venue and street address not yet verified</em>{% endif %}</td>
+      <td style="padding:0.4rem 0;">{% if show.street_address and show.street_address != "" %}{{ show.street_address }}, {{ show.city }}, {{ show.state }}{% if show.postal_code %} {{ show.postal_code }}{% endif %}{% else %}<em>Complete street address not yet verified</em>{% endif %}</td>
     </tr>
     {% if show.location_details and show.location_details != "" %}
     <tr>
@@ -111,10 +121,6 @@ layout: default
   <div class="show-detail-actions">
     {% if show.street_address and show.street_address != "" %}
     <a href="https://www.google.com/maps/dir/?api=1&destination={{ show.street_address | url_encode }}+{{ show.city | url_encode }}+{{ show.state | url_encode }}+{{ show.postal_code | default: '' | url_encode }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;background:#1a2332;color:#fff;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.2s;">
-      &#128663; Get Driving Directions
-    </a>
-    {% elsif show.venue and show.venue != "" and show.address_status != "unverified" and show.address_status != "partial" %}
-    <a href="https://www.google.com/maps/dir/?api=1&destination={{ show.venue | url_encode }}+{{ show.city | url_encode }}+{{ show.state_name | url_encode }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;background:#1a2332;color:#fff;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.2s;">
       &#128663; Get Driving Directions
     </a>
     {% endif %}
@@ -170,7 +176,7 @@ layout: default
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:700;color:var(--coin-gold-light);">Interested in a Reminder?</p>
   <p style="margin:0 0 1rem;font-size:0.9rem;color:#cbd5e1;">Tell us you would like reminders for <strong>{{ show.name }}</strong> while we build the service. Joining records your interest; it does not activate recurring reminders.</p>
   <form id="show-reminder-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.5rem;">
-    <input type="hidden" name="_subject" value="Coin Show Near Me — Show Reminder Interest Request">
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Show Reminder] Interest request">
     <input type="hidden" name="form_type" value="show_reminder_interest">
     <input type="hidden" name="source" value="Website">
     <input type="hidden" name="formName" value="showReminderInterest">
@@ -209,7 +215,7 @@ layout: default
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#1e3a8a;">Do you organize this show?</p>
   <p style="margin:0 0 1rem;font-size:0.92rem;color:#1e3a8a;">Request organizer verification for <strong>{{ show.name }}</strong>. Every request is reviewed manually against an official show, promoter, club, or venue source. Submitting this form does not automatically verify or change the listing.</p>
   <form id="organizer-verification-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
-    <input type="hidden" name="_subject" value="Coin Show Near Me — Organizer Verification Request">
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Organizer Verification] Request">
     <input type="hidden" name="form_type" value="organizer_verification">
     <input type="hidden" name="source" value="Website">
     <input type="hidden" name="formName" value="organizerVerification">
@@ -261,7 +267,7 @@ layout: default
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#7c2d12;">See something wrong?</p>
   <p style="margin:0 0 1rem;font-size:0.92rem;color:#7c2d12;">Send a correction for <strong>{{ show.name }}</strong>. We review submissions against official organizer, promoter, club, or venue sources before changing the public listing.</p>
   <form id="show-correction-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
-    <input type="hidden" name="_subject" value="Coin Show Near Me — Show Info Correction">
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Show Correction] Information update">
     <input type="hidden" name="form_type" value="show_correction">
     <input type="hidden" name="source" value="Website">
     <input type="hidden" name="formName" value="showCorrection">
@@ -298,7 +304,7 @@ layout: default
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#334155;">Request a listing review or removal</p>
   <p style="margin:0 0 1rem;font-size:0.92rem;color:#475569;">Use this form if this event is permanently closed, duplicated, published with private personal information, or should be reviewed for another reason. Public event facts may remain listed when they are accurate and lawfully sourced. Every request is reviewed manually.</p>
   <form id="listing-removal-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
-    <input type="hidden" name="_subject" value="Coin Show Near Me — Listing Review or Removal Request">
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Listing Review] Removal or review request">
     <input type="hidden" name="form_type" value="listing_removal_request">
     <input type="hidden" name="source" value="Website">
     <input type="hidden" name="formName" value="listingRemovalRequest">
@@ -344,6 +350,7 @@ layout: default
 
 <script>
 (function() {
+  var localReviewMode = {% if page.review_fixture %}true{% else %}false{% endif %};
   function setFormValue(form, name, value) {
     var field = form.querySelector('[name="' + name + '"]');
     if (field) {
@@ -364,9 +371,19 @@ layout: default
   function attachForm(formId, successId) {
     var form = document.getElementById(formId);
     if (!form) { return; }
+    form.noValidate = true;
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      if (window.coinNormalizeFormUrls) { window.coinNormalizeFormUrls(form); }
+      if (!form.reportValidity()) { return; }
       fillCrmFormMetadata(form);
+      if (localReviewMode) {
+        form.style.display = 'none';
+        var localSuccess = document.getElementById(successId);
+        localSuccess.style.display = 'block';
+        if (localSuccess.focus) { localSuccess.focus(); }
+        return;
+      }
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       window.coinSubmitForm(form).then(function() {
         form.style.display = 'none';

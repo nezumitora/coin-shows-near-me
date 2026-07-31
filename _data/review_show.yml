@@ -1,0 +1,21 @@
+id: local-review-test-show
+name: Local Review Test Coin Show
+state: CA
+state_name: California
+city: Sample City
+city_slug: sample-city-ca
+venue: Sample Convention Hall
+street_address: 100 Test Plaza
+postal_code: '90000'
+address_status: test-fixture
+frequency: Preview only
+next_date: August 15-16, 2026
+upcoming_dates:
+  - '2026-08-15'
+  - '2026-08-16'
+website: https://example.invalid/local-review-test-show
+organizer: Preview Fixture Organization
+source_url: https://example.invalid/local-review-test-show
+source_type: local-review-fixture
+last_verified: '2026-07-31'
+notes: This fake listing exists only in unpublished local review builds. Its forms never send email or production requests.

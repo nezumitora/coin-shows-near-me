@@ -77,7 +77,7 @@ At a typical coin show, sellers walk from table to table, showing the same coins
 <p>Whether you're a dealer, collector, or show promoter — sign up and we'll notify you when the portal is ready.</p>
 
 <form class="notify-form" id="portal-form" action="#" data-form-key="mykleozw" method="POST">
-<input type="hidden" name="_subject" value="Coin Show Near Me — Portal Interest">
+<input type="hidden" name="_subject" value="[Coin Show Near Me][Portal Interest] Signup">
 <input type="hidden" name="source" value="Website">
 <input type="hidden" name="formName" value="portalInterest">
 <input type="hidden" name="ctaCode" value="portal_interest_signup">

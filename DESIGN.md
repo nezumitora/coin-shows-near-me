@@ -4,7 +4,9 @@
 
 - The homepage's primary action is finding a coin show.
 - Search remains the first homepage action.
-- Keep a compact spot-price reference and the reminder interest list directly after the search hero and before state filters.
+- Use the familiar two-column hero: show search first, one compact `Stay in the Loupe` reminder-interest card second, and the navy/gold spot-price strip directly below both.
+- Keep exactly one general reminder-interest form on the homepage; do not duplicate it lower on the page.
+- Provide combined `All Shows`, `This Weekend`, and `This Month` filters with one state selector rather than a crowded fifty-state pill row.
 - Do not place sponsor previews or dealer promotions on the homepage.
 - Reminder-interest forms collect separate first and last names, email, selected state, and optional show/location interests.
 - Do not collect mobile numbers or promise recurring reminder delivery until the delivery and opt-out systems receive separate approval.
@@ -20,6 +22,8 @@
 - Organizer-verification and new-show submissions are reviewed manually against public official-source evidence; submitting a form never verifies or publishes a listing automatically.
 - Listing-removal requests are manually reviewed; accurate public event facts may remain while private personal information and supported corrections receive separate consideration.
 - New-show forms group venue/address fields under a clear Show location heading and use overflow-safe form controls.
+- Show full street, city, state, and ZIP details only when verified; otherwise say the complete street address is not yet verified instead of repeating the venue as though it were an address.
+- Unpublished local review fixtures may exercise form states, but must never enter canonical show data, appear in the sitemap, send email, or deploy.
 
 ## Visual hierarchy
 

@@ -41,7 +41,8 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 .show-submission-thanks { display:none; background:#ecfdf5; color:#14532d; padding:1rem; border:1px solid #86efac; border-radius:8px; margin-top:0.75rem; }
 .show-submission-thanks:focus { outline:3px solid rgba(184,134,11,0.35); outline-offset:3px; }
 .show-submission-thanks a { color:#14532d; font-weight:800; text-decoration:underline; overflow-wrap:anywhere; }
-.show-submission-copy { margin-top:0.75rem; padding:0.55rem 0.85rem !important; background:#14532d !important; }
+.show-submission-copy { margin-top:0.75rem; padding:0.6rem 0.95rem !important; background:var(--coin-gold) !important; color:#fff !important; border-radius:6px !important; font-weight:800 !important; }
+.show-submission-copy:hover { background:var(--coin-gold-light) !important; color:#fff !important; }
 @media (max-width:700px) {
   .show-submission-grid { grid-template-columns:1fr; }
   .show-submission-fieldset { padding:0.8rem; }
@@ -53,8 +54,8 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 </style>
 
 <div class="notify-section" style="margin:1rem 0;padding:1.25rem;">
-<form class="show-submission-form" id="show-submission-form" action="#" data-form-key="mykleozw" method="POST">
-  <input type="hidden" name="_subject" value="Coin Show Near Me — New Show Submission">
+<form class="show-submission-form" id="show-submission-form" action="#" data-form-key="mykleozw" method="POST" novalidate>
+  <input type="hidden" name="_subject" value="[Coin Show Near Me][New Show] Submission for manual review">
   <input type="hidden" name="form_type" value="show_submission">
   <input type="hidden" name="source" value="Website">
   <input type="hidden" name="formName" value="showSubmission">
@@ -151,7 +152,7 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 <div class="show-submission-thanks" id="show-submission-success" role="status" tabindex="-1">
   <strong>Thank you — your show was submitted for manual review.</strong>
   <p style="margin:0.45rem 0 0;">We may email you if we need clarification or stronger official-source evidence.</p>
-  <p style="margin:0.75rem 0 0;">Help collectors find your event: add a link to <a id="directory-link" href="https://coinshownearme.com/">https://coinshownearme.com/</a> on your official show, club, or venue website.</p>
+  <p style="margin:0.75rem 0 0;">Help more collectors discover your event by linking to <a id="directory-link" href="https://coinshownearme.com/">Coin Show Near Me</a> from your official show, club, or venue website.</p>
   <button type="button" class="show-submission-copy" id="copy-directory-link">Copy directory link</button>
   <span id="copy-directory-status" aria-live="polite" style="display:inline-block;margin-left:0.5rem;font-size:0.82rem;"></span>
 </div>
@@ -169,6 +170,8 @@ Already listed? Open the show page and use **Organize this show? Request verific
   }
   form.addEventListener('submit', function(event) {
     event.preventDefault();
+    if (window.coinNormalizeFormUrls) { window.coinNormalizeFormUrls(form); }
+    if (!form.reportValidity()) { return; }
     var now = new Date().toISOString();
     setFormValue('pageUrl', window.location.href);
     setFormValue('referringUrl', document.referrer || '');

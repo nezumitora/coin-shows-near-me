@@ -572,7 +572,7 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 <p style="font-size:0.9rem;color:#6b7280;margin:0 0 0.75rem;">Have coins to sell? Fill out this form and a local coin dealer will contact you with an offer. No obligation.</p>
 
 <form class="offer-form" id="offer-form" action="#" data-form-key="mykleozw" method="POST">
-  <input type="hidden" name="_subject" value="Coin Show Near Me — Melt Value Offer Request">
+  <input type="hidden" name="_subject" value="[Coin Show Near Me][Offer Request] Melt value inquiry">
   <input type="hidden" name="form_type" value="melt_value_offer">
   <input type="hidden" name="source" value="Website">
   <input type="hidden" name="formName" value="meltValueOffer">

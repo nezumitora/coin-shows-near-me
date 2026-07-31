@@ -1137,6 +1137,7 @@ body.public-page .global-top-nav {
   body.public-page .show-detail-table tr,
   body.public-page .show-detail-table td {
     display: block;
+    box-sizing: border-box;
     width: 100% !important;
   }
   body.public-page .show-detail-table td:first-child {
@@ -1157,6 +1158,16 @@ body.public-page .global-top-nav {
     max-width: 100%;
     text-align: center;
     white-space: normal;
+  }
+  body.public-page .show-reminder-fields {
+    grid-template-columns: 1fr !important;
+  }
+  body.public-page .show-reminder-fields input,
+  body.public-page .show-reminder-fields select,
+  body.public-page .show-reminder-fields textarea {
+    box-sizing: border-box;
+    min-width: 0 !important;
+    width: 100% !important;
   }
   body.public-page .notify-form,
   body.public-page .notify-form .form-row {

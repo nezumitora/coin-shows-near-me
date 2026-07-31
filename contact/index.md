@@ -48,7 +48,7 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
 </div>
 
 <form class="notify-form" id="contact-form" action="#" data-form-key="mykleozw" method="POST">
-<input type="hidden" name="_subject" value="Coin Show Near Me — Contact Form">
+<input type="hidden" name="_subject" value="[Coin Show Near Me][Contact] Website message">
 <input type="hidden" name="form_type" value="contact">
 <input type="hidden" name="source" value="Website">
 <input type="hidden" name="formName" value="contactForm">

@@ -1,5 +1,6 @@
 <!-- Formspree form handling. EspoCRM Lead Capture must stay server-side; do not expose Lead Capture URLs in browser code. -->
 <script>
+  {% include form-url-normalize.js %}
   window.coinCrmLeadCaptureUrl = '';
   window.coinFormAction = function(form) {
     var key = form.getAttribute('data-form-key') || ['myk', 'leoz', 'w'].join('');

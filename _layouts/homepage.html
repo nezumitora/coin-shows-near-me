@@ -266,9 +266,13 @@ a:hover { color: var(--gold-light); }
   filter: drop-shadow(0 20px 34px rgba(0,0,0,0.24));
 }
 .hero-inner {
-  max-width: 760px;
+  max-width: 1120px;
   margin: 0 auto;
-  text-align: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: 2rem;
+  align-items: center;
+  text-align: left;
   position: relative;
   z-index: 1;
 }
@@ -286,14 +290,14 @@ a:hover { color: var(--gold-light); }
 .hero-title-wrap {
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.4rem;
-  margin: 0 auto 0.75rem;
+  margin: 0 0 0.75rem;
 }
 .hero-title-wrap::before,
 .hero-title-wrap::after {
   content: "";
-  width: min(520px, 82vw);
+  width: min(500px, 82vw);
   height: 34px;
   display: block;
   background-image: url("{{ site.baseurl }}/assets/images/coinshows-scroll-ornament-thin-gold-transparent-v2.png?v=20260626-2");
@@ -306,7 +310,7 @@ a:hover { color: var(--gold-light); }
 .hero-title-wrap::after { transform: scaleY(-1); }
 .hero-title-logo {
   display: block;
-  width: min(580px, 86vw);
+  width: min(540px, 86vw);
   max-height: 185px;
   object-fit: contain;
   filter: drop-shadow(0 12px 20px rgba(0,0,0,0.34));
@@ -315,17 +319,17 @@ a:hover { color: var(--gold-light); }
 .hero-subtitle {
   font-size: 1.15rem;
   color: #c8d6e5;
-  margin: 0 auto 1.25rem;
-  max-width: 650px;
+  margin: 0 0 1.25rem;
+  max-width: 600px;
   line-height: 1.5;
 }
 .hero-action-stage {
-  max-width: 680px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: 0;
 }
 .hero-action-stage .search-wrap {
   margin: 0;
-  max-width: 680px;
+  max-width: 600px;
   width: 100%;
 }
 .hero-search-results-note {
@@ -375,9 +379,11 @@ a:hover { color: var(--gold-light); }
     max-width: 600px;
   }
   .hero-title-wrap {
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
   }
+  .hero-inner { grid-template-columns: 1fr; }
 }
 
 /* === Search Bar === */
@@ -424,9 +430,11 @@ a:hover { color: var(--gold-light); }
 
 /* === Secondary market reference === */
 .market-strip-section {
-  max-width: 1200px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 1rem 0 0;
+  position: relative;
+  z-index: 1;
 }
 .home-spot-ticker {
   display: flex;
@@ -435,18 +443,18 @@ a:hover { color: var(--gold-light); }
   justify-content: center;
   gap: 0.65rem 0.9rem;
   padding: 0.75rem 1rem;
-  border: 1px solid rgba(184,134,11,0.35);
+  border: 1px solid rgba(218,165,32,0.7);
   border-radius: 10px;
-  background: #fffdfa;
-  color: var(--text-mid);
-  box-shadow: 0 5px 16px var(--shadow);
+  background: rgba(14,35,56,0.94);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.22);
   font-size: 0.8rem;
 }
 .home-spot-ticker .spot-ticker-item { display: flex; align-items: center; gap: 0.35rem; }
-.home-spot-ticker .spot-ticker-label { color: var(--text-light); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
-.home-spot-ticker .spot-ticker-price { color: var(--gold); font-size: 0.9rem; font-weight: 800; }
-.home-spot-ticker .spot-ticker-sep { color: var(--border); }
-.home-spot-ticker .spot-ticker-updated { flex-basis: 100%; color: var(--text-light); font-size: 0.68rem; text-align: center; }
+.home-spot-ticker .spot-ticker-label { color: #f8fafc; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+.home-spot-ticker .spot-ticker-price { color: var(--gold-light); font-size: 0.9rem; font-weight: 800; }
+.home-spot-ticker .spot-ticker-sep { color: rgba(255,255,255,0.35); }
+.home-spot-ticker .spot-ticker-updated { flex-basis: 100%; color: #cbd5e1; font-size: 0.68rem; text-align: center; }
 
 /* === Listing trust explainer === */
 .listing-trust-intro {
@@ -473,8 +481,8 @@ a:hover { color: var(--gold-light); }
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.8rem 1rem;
   flex-wrap: wrap;
 }
 .filter-label {
@@ -482,14 +490,16 @@ a:hover { color: var(--gold-light); }
   font-size: 0.85rem;
   color: var(--text-mid);
   white-space: nowrap;
-  margin-top: 0.35rem;
+  margin: 0;
 }
-.filter-pills {
+.filter-controls,
+.filter-group {
   display: flex;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.45rem;
   flex-wrap: wrap;
-  flex: 1;
 }
+.filter-controls { flex: 1; }
 .filter-pill {
   padding: 0.35rem 0.85rem;
   border: 1px solid var(--border);
@@ -508,6 +518,18 @@ a:hover { color: var(--gold-light); }
   color: #fff;
   border-color: var(--navy);
 }
+.filter-select {
+  min-width: 190px;
+  padding: 0.42rem 2.2rem 0.42rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--text-mid);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.filter-select:focus { border-color: var(--gold); outline: 3px solid rgba(218,165,32,0.14); }
 .filter-count {
   background: var(--gold-pale);
   color: var(--gold);
@@ -877,40 +899,42 @@ a:hover { color: var(--gold-light); }
 
 /* === CTA / Signup Section === */
 .cta-section {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  padding: 3rem 1.5rem;
-  text-align: center;
+  background: rgba(14,35,56,0.92);
+  border: 1px solid rgba(218,165,32,0.8);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: left;
   color: #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
 }
 .cta-inner {
-  max-width: 600px;
+  max-width: none;
   margin: 0 auto;
 }
 .cta-section h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.35rem;
 }
 .cta-section h2 span { color: var(--gold-light); }
 .cta-section p {
   color: #94a3b8;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 .cta-form {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .cta-form input[type="text"],
 .cta-form input[type="email"],
 .cta-form input[type="tel"],
 .cta-form select {
-  flex: 1;
-  min-width: 180px;
+  min-width: 0;
   max-width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.62rem 0.72rem;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
   font-size: 0.9rem;
@@ -922,9 +946,12 @@ a:hover { color: var(--gold-light); }
 .cta-form select option { background: var(--navy); color: #fff; }
 .cta-form input:focus,
 .cta-form select:focus { border-color: var(--gold-light); }
+.cta-form .cta-wide {
+  grid-column: 1 / -1;
+}
 .cta-form textarea {
   width: 100%;
-  min-height: 70px;
+  min-height: 52px;
   padding: 0.75rem 1rem;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
@@ -942,7 +969,7 @@ a:hover { color: var(--gold-light); }
   grid-template-columns: 1.15rem minmax(0, 1fr);
   gap: 0.55rem;
   width: 100%;
-  margin: 0.25rem 0;
+  margin: 0.15rem 0;
   color: #cbd5e1;
   font-size: 0.75rem;
   line-height: 1.45;
@@ -961,7 +988,7 @@ a:hover { color: var(--gold-light); }
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 0.75rem 2rem;
+  padding: 0.68rem 1.25rem;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
@@ -1025,8 +1052,9 @@ a:hover { color: var(--gold-light); }
   .hero-title-wrap::after { height: 22px; }
   .hero-subtitle { font-size: 1rem; }
   .filter-section { top: 90px; }
-  .filter-pills { max-height: 40px; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .filter-pills::-webkit-scrollbar { display: none; }
+  .filter-controls { width: 100%; }
+  .filter-group { width: 100%; }
+  .filter-select { flex: 1; min-width: 0; }
   .view-toggles { display: none; }
 
   .card-grid { grid-template-columns: 1fr; }
@@ -1034,7 +1062,8 @@ a:hover { color: var(--gold-light); }
   .state-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
   .info-inner { grid-template-columns: 1fr; gap: 2rem; }
 
-  .cta-form { flex-direction: column; }
+  .cta-form { grid-template-columns: 1fr; }
+  .cta-form .cta-wide { grid-column: auto; }
   .cta-form input[type="email"],
   .cta-form input[type="text"],
   .cta-form input[type="tel"],
@@ -1044,7 +1073,6 @@ a:hover { color: var(--gold-light); }
 @media (max-width: 520px) {
   body { overflow-x: hidden; }
   .hero,
-  .cta-section,
   .shows-section,
   .featured-section,
   .states-section,
@@ -1123,61 +1151,58 @@ a:hover { color: var(--gold-light); }
       </div>
 
     </div>
+    <!-- Single compact homepage signup form: do not duplicate this lower on the page. -->
+    <aside class="cta-section" id="signup" aria-labelledby="signup-title">
+      <div class="cta-inner">
+        <h2 id="signup-title">Stay in the <span>Loupe</span></h2>
+        <p><strong style="color:#fff;">Never miss a coin show.</strong> Tell us where you collect while we build reminder delivery. Joining records your interest; it does not activate recurring messages.</p>
+        <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
+          <input type="hidden" name="_subject" value="[Coin Show Near Me][Reminder Interest] Homepage request">
+          <input type="hidden" name="form_type" value="show_reminder_interest">
+          <input type="hidden" name="source" value="Website">
+          <input type="hidden" name="formName" value="showReminderInterest">
+          <input type="hidden" name="coinContactRoles" value="attendee">
+          <input type="hidden" name="ctaCode" value="homepage_reminder_interest">
+          <input type="hidden" name="sourceDetail" value="Homepage Stay in the Loupe reminder interest form">
+          <input type="hidden" name="pageUrl" value="">
+          <input type="hidden" name="referringUrl" value="">
+          <input type="hidden" name="submittedAt" value="">
+          <input type="hidden" name="contactConsentTimestamp" value="">
+          <input type="hidden" name="contactConsentVersion" value="coin-reminder-interest-consent-v1">
+          <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me about future reminder availability. No recurring reminder service is active yet.">
+          <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required>
+          <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required>
+          <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
+          <select name="preferredState" required>
+            <option value="" disabled selected>Select your state</option>
+            {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
+          </select>
+          <input class="cta-wide" type="text" name="interested_shows_locations" placeholder="Show, city, or region of interest (optional)">
+          <label class="cta-consent cta-wide">
+            <input type="checkbox" name="contactConsent" value="yes" required>
+            <span>Store my request and contact me about future reminder availability. No recurring reminder service is active yet. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+          </label>
+          <button class="cta-wide" type="submit">Join the Interest List</button>
+        </form>
+        <div class="cta-success" id="notify-success" role="status" tabindex="-1">
+          Thanks — we recorded your reminder interests. No recurring reminder service is active yet.
+        </div>
+      </div>
+    </aside>
   </div>
-</section>
-
-<!-- Top utilities -->
-<section class="market-strip-section" aria-label="Current precious metal spot prices">
-  <div class="home-spot-ticker" id="spot-ticker">
-    <div class="spot-ticker-item"><span class="spot-ticker-label">Gold</span><span class="spot-ticker-price" id="spot-gold-price">--</span></div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item"><span class="spot-ticker-label">Silver</span><span class="spot-ticker-price" id="spot-silver-price">--</span></div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item"><span class="spot-ticker-label">Platinum</span><span class="spot-ticker-price" id="spot-platinum-price">--</span></div>
-    <span class="spot-ticker-sep">|</span>
-    <div class="spot-ticker-item"><span class="spot-ticker-label">Palladium</span><span class="spot-ticker-price" id="spot-palladium-price">--</span></div>
-    <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
-  </div>
-</section>
-
-<!-- Reminder interest list -->
-<section class="cta-section" id="signup">
-  <div class="cta-inner">
-    <h2>Join the <span>Reminder Interest List</span></h2>
-    <p>Tell us which shows and locations matter to you while we build the reminder service. Joining records your interest; it does not activate recurring reminders.</p>
-    <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
-      <input type="hidden" name="_subject" value="Coin Show Near Me — Reminder Interest Request">
-      <input type="hidden" name="form_type" value="show_reminder_interest">
-      <input type="hidden" name="source" value="Website">
-      <input type="hidden" name="formName" value="showReminderInterest">
-      <input type="hidden" name="coinContactRoles" value="attendee">
-      <input type="hidden" name="ctaCode" value="homepage_reminder_interest">
-      <input type="hidden" name="sourceDetail" value="Homepage reminder interest form">
-      <input type="hidden" name="pageUrl" value="">
-      <input type="hidden" name="referringUrl" value="">
-      <input type="hidden" name="submittedAt" value="">
-      <input type="hidden" name="contactConsentTimestamp" value="">
-      <input type="hidden" name="contactConsentVersion" value="coin-reminder-interest-consent-v1">
-      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me about future reminder availability. No recurring reminder service is active yet.">
-      <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required>
-      <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required>
-      <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
-      <select name="preferredState" required>
-        <option value="" disabled selected>Select your state</option>
-        {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
-      </select>
-      <textarea name="interested_shows_locations" placeholder="Specific shows, cities, or locations you're interested in (optional)"></textarea>
-      <label class="cta-consent">
-        <input type="checkbox" name="contactConsent" value="yes" required>
-        <span>Store my request and contact me about future reminder availability. No recurring reminder service is active yet. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
-      </label>
-      <button type="submit">Join the Interest List</button>
-    </form>
-    <div class="cta-success" id="notify-success" role="status" tabindex="-1">
-      Thanks — we recorded your reminder interests. No recurring reminder service is active yet.
+  <!-- Compact market reference stays inside the hero. -->
+  <section class="market-strip-section" aria-label="Current precious metal spot prices">
+    <div class="home-spot-ticker" id="spot-ticker">
+      <div class="spot-ticker-item"><span class="spot-ticker-label">Gold</span><span class="spot-ticker-price" id="spot-gold-price">--</span></div>
+      <span class="spot-ticker-sep">|</span>
+      <div class="spot-ticker-item"><span class="spot-ticker-label">Silver</span><span class="spot-ticker-price" id="spot-silver-price">--</span></div>
+      <span class="spot-ticker-sep">|</span>
+      <div class="spot-ticker-item"><span class="spot-ticker-label">Platinum</span><span class="spot-ticker-price" id="spot-platinum-price">--</span></div>
+      <span class="spot-ticker-sep">|</span>
+      <div class="spot-ticker-item"><span class="spot-ticker-label">Palladium</span><span class="spot-ticker-price" id="spot-palladium-price">--</span></div>
+      <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
     </div>
-    <p style="margin:1rem 0 0;font-size:0.82rem;">Are you an organizer of a show that we are missing? <a href="{{ site.baseurl }}/submit-show/" style="color:var(--gold-light);font-weight:800;text-decoration:underline;">Submit it for review</a>.</p>
-  </div>
+  </section>
 </section>
 
 <section class="listing-trust-intro" aria-label="How listing information is presented">
@@ -1187,15 +1212,23 @@ a:hover { color: var(--gold-light); }
 <!-- Filter Bar -->
 <section class="filter-section" id="filter-section">
   <div class="filter-inner">
-    <span class="filter-label">Filter by state:</span>
-    <div class="filter-pills" id="filter-pills">
-      <span class="filter-pill active" data-state="all">All States</span>
-      {% for state in site.data.states %}
-        {% assign sc = site.data.shows | where: "state", state.abbrev | size %}
-        {% if sc > 0 %}
-        <span class="filter-pill" data-state="{{ state.abbrev }}">{{ state.abbrev }}<span class="filter-count">{{ sc }}</span></span>
-        {% endif %}
-      {% endfor %}
+    <div class="filter-controls">
+      <div class="filter-group" aria-label="Filter shows by date">
+        <span class="filter-label">When:</span>
+        <button type="button" class="filter-pill active" data-date-filter="all">All Shows</button>
+        <button type="button" class="filter-pill" data-date-filter="weekend">This Weekend</button>
+        <button type="button" class="filter-pill" data-date-filter="month">This Month</button>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="state-filter">State:</label>
+        <select class="filter-select" id="state-filter">
+          <option value="all">All States</option>
+          {% for state in site.data.states %}
+            {% assign sc = site.data.shows | where: "state", state.abbrev | size %}
+            {% if sc > 0 %}<option value="{{ state.abbrev }}">{{ state.name }} ({{ sc }})</option>{% endif %}
+          {% endfor %}
+        </select>
+      </div>
     </div>
     <div class="view-toggles">
       <button class="view-btn active" data-view="grid" title="Grid view">&#9638; Grid</button>
@@ -1215,7 +1248,7 @@ a:hover { color: var(--gold-light); }
 <section class="shows-section">
   <div class="card-grid" id="card-grid">
     {% for show in site.data.shows %}
-    <div class="show-card" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}" data-venue="{{ show.venue | downcase }}" data-address="{{ show.street_address | default: show.location_details | default: '' | downcase }}">
+    <div class="show-card" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}" data-venue="{{ show.venue | downcase }}" data-address="{{ show.street_address | default: show.location_details | default: '' | downcase }}" data-upcoming-dates="{{ show.upcoming_dates | join: ',' }}">
       <a href="{{ site.baseurl }}/shows/{{ show.id }}/" class="show-card-link" aria-label="{{ show.name }}"></a>
       <div class="show-card-header">
         <div class="show-card-name">
@@ -1388,7 +1421,7 @@ a:hover { color: var(--gold-light); }
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.12.2</div>
+    <div class="footer-version">v0.13.0</div>
   </div>
 </footer>
 
@@ -1419,9 +1452,9 @@ function fillCrmFormMetadata(form) {
 
 {% include homepage-search-match.js %}
 
-/* State filter */
+/* Combined date, state, and search filters */
 (function() {
-  var pills = document.querySelectorAll('.filter-pill');
+  var datePills = document.querySelectorAll('[data-date-filter]');
   var cards = document.querySelectorAll('.show-card');
   var countEl = document.getElementById('showing-count');
   var noResults = document.getElementById('no-results');
@@ -1430,7 +1463,9 @@ function fillCrmFormMetadata(form) {
   var searchNoteText = document.getElementById('hero-search-results-text');
   var searchNoteButton = document.getElementById('hero-search-results-button');
   var resultsBar = document.querySelector('.results-bar');
+  var stateSelect = document.getElementById('state-filter');
   var activeState = 'all';
+  var activeDateFilter = 'all';
   var searchTerm = '';
   var stateAbbreviations = Object.create(null);
   {% for state in site.data.states %}
@@ -1453,6 +1488,7 @@ function fillCrmFormMetadata(form) {
     for (var i = 0; i < cards.length; i++) {
       var card = cards[i];
       var stateMatch = (activeState === 'all') || (card.getAttribute('data-state') === activeState);
+      var dateMatch = showMatchesDateFilter(card.getAttribute('data-upcoming-dates'), activeDateFilter, new Date());
       var searchMatch = true;
       if (searchTerm) {
         searchMatch = showMatchesSearch({
@@ -1464,7 +1500,7 @@ function fillCrmFormMetadata(form) {
           address: card.getAttribute('data-address')
         }, searchTerm, stateAbbreviations);
       }
-      if (stateMatch && searchMatch) {
+      if (stateMatch && dateMatch && searchMatch) {
         card.style.display = '';
         visible++;
       } else {
@@ -1487,11 +1523,18 @@ function fillCrmFormMetadata(form) {
     searchNoteButton.addEventListener('click', scrollToResults);
   }
 
-  for (var i = 0; i < pills.length; i++) {
-    pills[i].addEventListener('click', function() {
-      for (var j = 0; j < pills.length; j++) { pills[j].classList.remove('active'); }
+  for (var i = 0; i < datePills.length; i++) {
+    datePills[i].addEventListener('click', function() {
+      for (var j = 0; j < datePills.length; j++) { datePills[j].classList.remove('active'); }
       this.classList.add('active');
-      activeState = this.getAttribute('data-state');
+      activeDateFilter = this.getAttribute('data-date-filter');
+      filterCards();
+    });
+  }
+
+  if (stateSelect) {
+    stateSelect.addEventListener('change', function() {
+      activeState = this.value;
       filterCards();
     });
   }

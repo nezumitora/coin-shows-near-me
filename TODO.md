@@ -24,6 +24,7 @@ Know of a coin show not in the directory? Open an issue with:
 - [ ] Turn organizer verification into the first outreach offer: confirm listing facts, show a visible evidence-backed verification state, provide a correction path, and only then optionally invite sharing or a backlink; never require a link or payment for verification.
 - [ ] Validate dealer demand with free registration/profile claiming before testing a clearly defined founding-dealer package; keep paid placement separate from verification and editorial trust.
 - [ ] **HIGH PRIORITY: Complete nationwide 2026-2027 show refresh** — gather every active U.S. coin show from official organizer/club/state-association calendars first, use third-party directories only as leads, verify show name/date/venue/address/organizer/source URL before publishing, and track uncertain leads separately.
+- [ ] **HIGH PRIORITY: Verify and normalize full addresses for the existing directory** — collect street, city, state, and ZIP from official organizer/club/venue sources for every show and future dealer profile; never infer or invent missing address components, and clearly label records still awaiting verification.
 - [ ] **Improve source discovery reliability** — for each state, run source-discovery passes that search for official regional promoter calendars and club/event pages for every TBD listing before marking a state launch-ready; Arcadia/California Coin Events was the first missed-source example to fold into this process.
 - [ ] Add upcoming shows as dates are confirmed by organizers
 - [ ] Verify TBD shows when organizers announce 2026 dates
@@ -41,7 +42,7 @@ Know of a coin show not in the directory? Open an issue with:
 - [ ] **Primary logo** — gold buffalo (no star) on navy background with "Coin Show Near Me" in white text below, straight line. Generate via AI image tool (ChatGPT/DALL-E or Nano), then clean up in Canva or similar. Remove watermark if using Nano free tier.
 - [ ] **Transparent buffalo watermark** — large buffalo silhouette as a transparent PNG for use as a background element in the "Stay in the Loupe" CTA section (5-10% opacity, covers ~75% of section). AI generators can't output transparent PNGs directly — generate on a solid background, then use remove.bg or Canva background remover.
 - [ ] **Favicon update** — create a simplified buffalo-head-only version for the browser tab icon (32x32 and 180x180 for Apple touch).
-- [ ] **Create email addresses** — set up legal@ and privacy@ (or a single contact@) for coinshownearme.com, then update /contact/ page and legal docs with the real addresses.
+- [ ] **Create secured domain email** — choose one protected primary `contact@` or `info@` mailbox with MFA and role aliases (`legal@`, `privacy@`, `dealers@`, and `promoters@`), document provider/cost/credential location in the dashboard, then update Formspree, `/contact/`, and legal pages after controlled delivery and reply-from-domain tests.
 - [ ] **Add transparent buffalo to CTA** — once the transparent PNG is ready, add it as a background image in the "Stay in the Loupe" signup section at low opacity.
 
 ## Pre-Launch / WordPress Migration

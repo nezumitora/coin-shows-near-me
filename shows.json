@@ -245,10 +245,10 @@
     "city": "Long Beach",
     "state": "CA",
     "state_name": "California",
-    "venue": "Long Beach Convention Center",
+    "venue": "Long Beach Convention & Entertainment Center - Hall C",
     "frequency": "3 Times Per Year (February, June, September)",
     "next_date": "September 9-11, 2026",
-    "postal_code": "",
+    "postal_code": "90802",
     "website": "https://www.longbeachexpo.com/"
   },
   {
@@ -584,7 +584,7 @@
     "venue": "Orange County Convention Center",
     "frequency": "Annual (January)",
     "next_date": "January 7-10, 2027",
-    "postal_code": "",
+    "postal_code": "32819",
     "website": "http://www.funtopics.com/"
   },
   {

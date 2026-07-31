@@ -14,6 +14,8 @@ class HomepageTrustTest < Minitest::Test
   FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
   PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
   TERMS_OF_USE = File.read(File.join(ROOT, 'legal/terms-of-use.md'))
+  REVIEW_TEST_PAGE = File.read(File.join(ROOT, 'review-test-show.md'))
+  REVIEW_SHOW = YAML.load_file(File.join(ROOT, '_data/review_show.yml'))
   SHOWS = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
   AS_OF = Date.new(2026, 7, 29)
 
@@ -56,21 +58,26 @@ class HomepageTrustTest < Minitest::Test
 
   def test_homepage_keeps_search_first_and_requested_utilities_near_the_top
     filter_position = HOMEPAGE.index('<!-- Filter Bar -->')
-    spot_position = HOMEPAGE.index('<!-- Top utilities -->')
-    reminder_position = HOMEPAGE.index('<!-- Reminder interest list -->')
+    spot_position = HOMEPAGE.index('<!-- Compact market reference stays inside the hero. -->')
+    reminder_position = HOMEPAGE.index('<!-- Single compact homepage signup form')
     show_cards_position = HOMEPAGE.index('<!-- Show Cards -->')
 
     refute_nil filter_position
     refute_nil show_cards_position
     refute_nil spot_position
     refute_nil reminder_position
-    assert_operator spot_position, :<, reminder_position
-    assert_operator reminder_position, :<, filter_position
+    assert_operator reminder_position, :<, spot_position
+    assert_operator spot_position, :<, filter_position
     assert_operator filter_position, :<, show_cards_position
     assert_includes HOMEPAGE, 'id="spot-ticker"'
     refute_includes HOMEPAGE, 'sponsor-preview-section'
     refute_includes HOMEPAGE, 'dealer-section'
     refute_includes HOMEPAGE, 'dealer-reg-form'
+    assert_includes HOMEPAGE, 'Stay in the <span>Loupe</span>'
+    assert_includes HOMEPAGE, 'This Weekend'
+    assert_includes HOMEPAGE, 'This Month'
+    assert_includes HOMEPAGE, 'id="state-filter"'
+    assert_includes HOMEPAGE, 'data-upcoming-dates='
   end
 
   def test_homepage_reminder_interest_collects_preferences_without_phone_or_sms
@@ -127,6 +134,35 @@ class HomepageTrustTest < Minitest::Test
     assert_includes SUBMIT_SHOW, 'does not automatically create or verify a public listing'
     assert_includes SUBMIT_SHOW, '<legend>Show location</legend>'
     assert_includes SUBMIT_SHOW, 'https://coinshownearme.com/'
+    assert_includes SUBMIT_SHOW, 'novalidate'
+    assert_includes SUBMIT_SHOW, 'coinNormalizeFormUrls'
+    assert_includes SUBMIT_SHOW, 'Help more collectors discover your event'
+    assert_includes SUBMIT_SHOW, '[Coin Show Near Me][New Show]'
+  end
+
+  def test_requested_featured_show_addresses_are_complete_and_verified
+    long_beach = SHOWS.find { |show| show.fetch('id') == 'long-beach-expo' }
+    fun = SHOWS.find { |show| show.fetch('id') == 'fun-convention' }
+
+    assert_equal '300 East Ocean Boulevard', long_beach.fetch('street_address')
+    assert_equal '90802', long_beach.fetch('postal_code')
+    assert_equal '9899 International Drive', fun.fetch('street_address')
+    assert_equal '32819', fun.fetch('postal_code')
+  end
+
+  def test_show_pages_do_not_present_venue_only_locations_as_verified_addresses
+    assert_includes SHOW_LAYOUT, '<em>Complete street address not yet verified</em>'
+    refute_includes SHOW_LAYOUT, 'destination={{ show.venue | url_encode }}'
+  end
+
+  def test_local_review_fixture_cannot_publish_or_send_forms
+    assert_includes REVIEW_TEST_PAGE, 'published: false'
+    assert_includes REVIEW_TEST_PAGE, 'sitemap: false'
+    assert_includes REVIEW_TEST_PAGE, 'review_fixture: true'
+    assert_equal 'local-review-test-show', REVIEW_SHOW.fetch('id')
+    refute_includes SHOWS.map { |show| show.fetch('id') }, REVIEW_SHOW.fetch('id')
+    assert_includes SHOW_LAYOUT, 'var localReviewMode = {% if page.review_fixture %}true{% else %}false{% endif %};'
+    assert_includes SHOW_LAYOUT, 'Submissions on this unpublished fixture stay in the browser'
   end
 
   def test_listing_removal_is_manual_and_privacy_documented
@@ -137,7 +173,7 @@ class HomepageTrustTest < Minitest::Test
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.12.2</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.12.2'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.13.0</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.13.0'
   end
 end
