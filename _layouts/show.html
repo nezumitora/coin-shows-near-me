@@ -130,13 +130,13 @@ layout: default
       {% if tax.bullion_exempt %}<span style="color:#16a34a;">&#10003;</span> Tax-Free State{% else %}<span style="color:#dc2626;">&#10005;</span> Taxed State{% endif %}
     </a>
     {% endif %}{% endfor %}
-    <a href="#update-show-info" style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
-      Update show info
+    <a href="#update-show-info" data-show-workflow-target="update-show-info" style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
+      Correct show information
     </a>
-    <a href="#organizer-verification" style="display:inline-flex;align-items:center;gap:0.4rem;background:#eff6ff;color:#1e3a8a;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #bfdbfe;margin-left:0.5rem;transition:all 0.2s;">
-      Organize this show? Request verification
+    <a href="#organizer-verification" data-show-workflow-target="organizer-verification" style="display:inline-flex;align-items:center;gap:0.4rem;background:#eff6ff;color:#1e3a8a;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #bfdbfe;margin-left:0.5rem;transition:all 0.2s;">
+      I organize this show — verify my role
     </a>
-    <a href="#listing-removal" style="display:inline-flex;align-items:center;gap:0.4rem;background:#f8fafc;color:#475569;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #cbd5e1;margin-left:0.5rem;transition:all 0.2s;">
+    <a href="#listing-removal" data-show-workflow-target="listing-removal" style="display:inline-flex;align-items:center;gap:0.4rem;background:#f8fafc;color:#475569;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #cbd5e1;margin-left:0.5rem;transition:all 0.2s;">
       Request listing review or removal
     </a>
   </div>
@@ -210,8 +210,19 @@ layout: default
   </div>
 </div>
 
+<section class="show-workflow-intro" aria-labelledby="show-workflow-title">
+  <h2 id="show-workflow-title">Update or manage this listing</h2>
+  <p>Choose the one request that matches what you need. Only that form will open.</p>
+</section>
+
 <!-- Organizer Verification CTA -->
-<div id="organizer-verification" style="background:#eff6ff;color:#172554;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid #bfdbfe;">
+<details id="organizer-verification" class="show-workflow-card show-workflow-organizer">
+  <summary>
+    <span class="show-workflow-kicker">For organizers, clubs, venues, and authorized staff</span>
+    <span class="show-workflow-title">I organize this show — request verification</span>
+    <span class="show-workflow-description">Use this form only to prove your connection to the show and request a verified organizer role.</span>
+  </summary>
+  <div class="show-workflow-body">
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#1e3a8a;">Do you organize this show?</p>
   <p style="margin:0 0 1rem;font-size:0.92rem;color:#1e3a8a;">Request organizer verification for <strong>{{ show.name }}</strong>. Every request is reviewed manually against an official show, promoter, club, or venue source. Submitting this form does not automatically verify or change the listing.</p>
   <form id="organizer-verification-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
@@ -260,10 +271,17 @@ layout: default
     Thank you — we received your request. We will review the evidence before marking the listing as organizer verified.
   </div>
   <p style="margin:1rem 0 0;font-size:0.82rem;color:#1e3a8a;">Your show is not listed yet? <a href="{{ site.baseurl }}/submit-show/" style="color:#1e3a8a;font-weight:800;text-decoration:underline;">Submit a new show for review</a>.</p>
-</div>
+  </div>
+</details>
 
 <!-- Show Correction CTA -->
-<div id="update-show-info" style="background:#fff7ed;color:#431407;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid #fed7aa;">
+<details id="update-show-info" class="show-workflow-card show-workflow-correction">
+  <summary>
+    <span class="show-workflow-kicker">For visitors or organizers reporting incorrect details</span>
+    <span class="show-workflow-title">Something is wrong — send a correction</span>
+    <span class="show-workflow-description">Use this form for an incorrect date, venue, address, hours, organizer, or other listing fact.</span>
+  </summary>
+  <div class="show-workflow-body">
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#7c2d12;">See something wrong?</p>
   <p style="margin:0 0 1rem;font-size:0.92rem;color:#7c2d12;">Send a correction for <strong>{{ show.name }}</strong>. We review submissions against official organizer, promoter, club, or venue sources before changing the public listing.</p>
   <form id="show-correction-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
@@ -297,10 +315,17 @@ layout: default
   <div id="show-correction-success" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
     Thank you — we received the correction and will verify it before updating the listing.
   </div>
-</div>
+  </div>
+</details>
 
 <!-- Listing Removal Review CTA -->
-<div id="listing-removal" style="background:#f8fafc;color:#1e293b;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid #cbd5e1;">
+<details id="listing-removal" class="show-workflow-card show-workflow-removal">
+  <summary>
+    <span class="show-workflow-kicker">For closures, duplicates, privacy concerns, or removal requests</span>
+    <span class="show-workflow-title">Request a listing review or removal</span>
+    <span class="show-workflow-description">Use this form when the event closed, is duplicated, exposes private information, or should be reviewed for removal.</span>
+  </summary>
+  <div class="show-workflow-body">
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#334155;">Request a listing review or removal</p>
   <p style="margin:0 0 1rem;font-size:0.92rem;color:#475569;">Use this form if this event is permanently closed, duplicated, published with private personal information, or should be reviewed for another reason. Public event facts may remain listed when they are accurate and lawfully sourced. Every request is reviewed manually.</p>
   <form id="listing-removal-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
@@ -346,11 +371,55 @@ layout: default
   <div id="listing-removal-success" role="status" tabindex="-1" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
     Thank you — we received the request and will review the listing and supporting information.
   </div>
-</div>
+  </div>
+</details>
 
 <script>
 (function() {
   var localReviewMode = {% if page.review_fixture %}true{% else %}false{% endif %};
+  var workflowCards = document.querySelectorAll('.show-workflow-card');
+
+  function openShowWorkflow(workflowId, shouldScroll) {
+    var selected = document.getElementById(workflowId);
+    if (!selected || !selected.classList.contains('show-workflow-card')) { return; }
+    for (var i = 0; i < workflowCards.length; i++) {
+      workflowCards[i].open = workflowCards[i] === selected;
+    }
+    if (shouldScroll) {
+      window.requestAnimationFrame(function() {
+        selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var summary = selected.querySelector('summary');
+        if (summary) { summary.focus({ preventScroll: true }); }
+      });
+    }
+  }
+
+  var workflowTriggers = document.querySelectorAll('[data-show-workflow-target]');
+  for (var workflowTriggerIndex = 0; workflowTriggerIndex < workflowTriggers.length; workflowTriggerIndex++) {
+    workflowTriggers[workflowTriggerIndex].addEventListener('click', function(event) {
+      event.preventDefault();
+      var workflowId = this.getAttribute('data-show-workflow-target');
+      window.history.pushState(null, '', '#' + workflowId);
+      openShowWorkflow(workflowId, true);
+    });
+  }
+
+  for (var workflowCardIndex = 0; workflowCardIndex < workflowCards.length; workflowCardIndex++) {
+    workflowCards[workflowCardIndex].addEventListener('toggle', function() {
+      if (!this.open) { return; }
+      for (var i = 0; i < workflowCards.length; i++) {
+        if (workflowCards[i] !== this) { workflowCards[i].open = false; }
+      }
+    });
+  }
+
+  function openWorkflowFromHash() {
+    openShowWorkflow(window.location.hash.replace(/^#/, ''), true);
+  }
+
+  window.addEventListener('hashchange', openWorkflowFromHash);
+  if (window.location.hash) { openWorkflowFromHash(); }
+
   function setFormValue(form, name, value) {
     var field = form.querySelector('[name="' + name + '"]');
     if (field) {

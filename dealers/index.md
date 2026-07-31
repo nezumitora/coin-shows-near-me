@@ -13,6 +13,14 @@ breadcrumb_current: "Find a Dealer"
 
 Browse trusted coin dealers, bullion sellers, and auction houses. Search by name, location, or filter by type.
 
+<aside id="dealer-top-cta" aria-labelledby="dealer-top-cta-title" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:#fff7e6;border:1px solid #daa520;border-radius:10px;padding:0.85rem 1rem;margin:0 0 1.25rem;">
+  <div style="flex:1;min-width:220px;">
+    <h2 id="dealer-top-cta-title" style="margin:0 0 0.2rem !important;font-size:1rem !important;color:#1a2332;">Are you a coin dealer?</h2>
+    <p style="margin:0;color:#555;font-size:0.88rem;line-height:1.45;">Request a free directory listing so collectors can find your business, website, and specialties.</p>
+  </div>
+  <a href="#dealer-listing-cta" style="display:inline-block;background:#b8860b;color:#fff;padding:0.55rem 1rem;border-radius:6px;font-size:0.88rem;font-weight:800;text-decoration:none;white-space:nowrap;">Get Added to the Directory</a>
+</aside>
+
 <div class="dealer-feature-grid" style="margin:0 0 1.25rem;">
   <div class="dealer-feature-card">
     <h2 style="margin-top:0 !important;">For Collectors</h2>
@@ -20,13 +28,13 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
   </div>
   <div class="dealer-feature-card">
     <h2 style="margin-top:0 !important;">For Dealers</h2>
-    <p>Want to be included or receive future dealer updates? Use the listing CTA below and tell us what you specialize in.</p>
+    <p>Want to be included or receive future dealer updates? Use either listing button and tell us what you specialize in.</p>
   </div>
 </div>
 
 <div class="dealer-search-panel" style="margin:1rem 0 1.25rem;">
 <div style="margin:0 0 1rem;">
-  <input type="text" id="dealer-search" placeholder="Search by dealer name, city, or state..." style="width:100%;max-width:500px;padding:0.75rem 1rem;border:2px solid #e5ddd0;border-radius:8px;font-size:1rem;outline:none;" onfocus="this.style.borderColor='#b8860b'" onblur="this.style.borderColor='#e5ddd0'">
+  <input type="text" id="dealer-search" placeholder="Search by dealer name, city, or state..." style="box-sizing:border-box;width:100%;max-width:500px;padding:0.75rem 1rem;border:2px solid #e5ddd0;border-radius:8px;font-size:1rem;outline:none;" onfocus="this.style.borderColor='#b8860b'" onblur="this.style.borderColor='#e5ddd0'">
 </div>
 
 <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
@@ -84,7 +92,7 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
 
 ## Are You a Dealer?
 
-<div class="public-cta" style="margin:1.5rem 0;">
+<div class="public-cta" id="dealer-listing-cta" style="margin:1.5rem 0;scroll-margin-top:6rem;">
   <h3 style="color:#daa520;font-size:1.2rem;font-weight:700;margin:0 0 0.5rem;">Get Listed in Our Directory</h3>
   <p style="color:#cbd5e1;font-size:0.92rem;line-height:1.6;margin:0 0 1rem;">Join our growing directory of trusted coin dealers. Whether you're an online seller, a brick-and-mortar shop, or an auction house — get discovered by collectors looking for dealers near them and online.</p>
   <ul style="list-style:none;padding:0;margin:0 0 1.25rem;">

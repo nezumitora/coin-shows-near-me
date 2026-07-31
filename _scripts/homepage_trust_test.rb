@@ -10,6 +10,7 @@ class HomepageTrustTest < Minitest::Test
   SHOW_LAYOUT = File.read(File.join(ROOT, '_layouts/show.html'))
   SUBMIT_SHOW = File.read(File.join(ROOT, 'submit-show.md'))
   CONTACT_PAGE = File.read(File.join(ROOT, 'contact/index.md'))
+  DEALERS_PAGE = File.read(File.join(ROOT, 'dealers/index.md'))
   PORTAL_PAGE = File.read(File.join(ROOT, 'portal/index.md'))
   FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
   PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
@@ -140,6 +141,29 @@ class HomepageTrustTest < Minitest::Test
     assert_includes SUBMIT_SHOW, '[Coin Show Near Me][New Show]'
   end
 
+  def test_dealer_directory_has_compact_listing_cta_before_search
+    top_cta_position = DEALERS_PAGE.index('id="dealer-top-cta"')
+    search_position = DEALERS_PAGE.index('id="dealer-search"')
+
+    refute_nil top_cta_position
+    refute_nil search_position
+    assert_operator top_cta_position, :<, search_position
+    assert_includes DEALERS_PAGE, 'href="#dealer-listing-cta"'
+    assert_includes DEALERS_PAGE, 'id="dealer-listing-cta"'
+    assert_includes DEALERS_PAGE, 'Get Added to the Directory'
+  end
+
+  def test_show_management_actions_open_one_clearly_labeled_workflow
+    assert_includes SHOW_LAYOUT, '<details id="organizer-verification"'
+    assert_includes SHOW_LAYOUT, '<details id="update-show-info"'
+    assert_includes SHOW_LAYOUT, '<details id="listing-removal"'
+    assert_includes SHOW_LAYOUT, 'Choose the one request that matches what you need.'
+    assert_includes SHOW_LAYOUT, 'I organize this show — request verification'
+    assert_includes SHOW_LAYOUT, 'Something is wrong — send a correction'
+    assert_includes SHOW_LAYOUT, 'data-show-workflow-target="update-show-info"'
+    assert_includes SHOW_LAYOUT, 'workflowCards[i].open = workflowCards[i] === selected;'
+  end
+
   def test_requested_featured_show_addresses_are_complete_and_verified
     long_beach = SHOWS.find { |show| show.fetch('id') == 'long-beach-expo' }
     fun = SHOWS.find { |show| show.fetch('id') == 'fun-convention' }
@@ -173,7 +197,7 @@ class HomepageTrustTest < Minitest::Test
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.13.0</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.13.0'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.14.0</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.14.0'
   end
 end

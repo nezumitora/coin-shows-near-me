@@ -1,20 +1,20 @@
 # Session State
 
-**Last updated:** 2026-07-31 15:17 PDT
-**Session:** v0.13.0 local review iteration
+**Last updated:** 2026-07-31 15:59 PDT
+**Session:** v0.14.0 local review iteration
 
 ## Completed today
-- Preserved the completed v0.12.2 GSC redirects, Tucson correction, deterministic feed, and widget noindex work.
-- Restored the two-column hero, consolidated one compact Stay in the Loupe form, and moved the navy/gold spot-price strip inside the hero.
-- Added combined date/state filters, accepted scheme-less public URLs, strengthened email tags, and improved the submit-show confirmation.
-- Added verified Long Beach/FUN street addresses and an unpublished non-sending local form-test listing.
-- Passed the pinned Jekyll build, 61 Ruby tests/323 assertions, 10 JavaScript tests, data validation, and desktop/mobile browser QA.
+- Preserved the committed v0.13.0 homepage, filtering, form, address, and local-fixture checkpoint at `f5ff22d`.
+- Added a compact dealer-listing CTA above dealer search while retaining the detailed lower CTA.
+- Replaced three stacked show-management forms with distinct single-open correction, organizer-verification, and listing-review workflows.
+- Verified all three local fixture workflows succeed with zero external submissions on desktop and mobile.
+- Fixed mobile overflow, passed all build/tests/data checks, and logged a cautious Ahrefs audit without removal or disavow action.
 
 ## In progress
-- v0.13.0 is ready for visual review at `http://127.0.0.1:4188/`; missing addresses and directions now fail safely.
+- v0.14.0 is ready for user review at `http://127.0.0.1:4188/`; no code change is pending.
 
 ## Next up
-- Review the five supplied pages, then continue the official-source address audit and separately choose secured domain-mail hosting.
+- Review `/dealers/` and `/review/test-show/`, then separately continue address, domain-mail, and backlink-audit work.
 
 ## Open decisions
-- User explicitly denied deployment; do not push/deploy, change GSC, or alter mail/DNS accounts before separate approval.
+- Do not push/deploy, change GSC, disavow links, or alter mail/DNS accounts before separate approval.

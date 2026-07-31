@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 31, 2026
+- v0.14.0: Added a compact top-of-page dealer listing CTA and replaced the three stacked show-management forms with clearly labeled, single-open workflows for corrections, organizer verification, and listing review or removal.
 - v0.13.0: Restored the familiar two-column homepage hero, consolidated signup into one compact Stay in the Loupe card, returned the navy/gold spot-price strip to the hero, added weekend/month/state show filters, accepted scheme-less form URLs, clarified submission confirmation styling and email tags, added verified Long Beach/FUN street addresses, and introduced a non-sending unpublished test listing for local form review.
 - v0.12.2: Added seven evidence-backed one-hop city redirects, corrected the Tucson Coin and Currency Expo from its official source, kept the embeddable widget out of search results, and made `shows.json` a deterministic, validated projection of the canonical show data.
 
