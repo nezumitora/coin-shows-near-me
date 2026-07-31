@@ -1,20 +1,20 @@
 # Session State
 
-**Last updated:** 2026-07-31 09:43 PDT
-**Session:** v0.12.1 directory lifecycle and GSC follow-up
+**Last updated:** 2026-07-31 10:58 PDT
+**Session:** v0.12.1 GSC URL evidence checkpoint
 
 ## Completed today
-- Preserved the completed, local-only v0.12.1 reminder-interest safety revision.
-- Recorded expert guidance for recurring/one-time event pages, organizer verification, backlink outreach, and dealer monetization in the directory SOP.
-- Added evidence-first GSC tasks for 233 noindex, two 404, two 403, and one redirect reports.
-- Repository review found only 32 intentional noindex alias pages; the reported 233 require exact GSC examples before any indexing change.
+- Preserved local-only v0.12.1 and recorded the reusable directory-expert guidance in `621a8ec`.
+- GSC 404 validation failed with two URLs: `/cities/westland-mi/` crawled 2026-07-24 and `/states/{search_term}` crawled 2026-07-12.
+- The placeholder was removed on 2026-07-18 after its last crawl; do not restart validation until the remaining URL fix is deployed.
+- Westland was deleted after the verified show moved to Warren; `/cities/warren-mi/` is the clear successor and needs a redirect.
+- A parity audit found `shows.json` substantially stale: 197 YAML records, 199 JSON records, 30 missing IDs, 32 extra IDs, and 164 core-field mismatches.
 
 ## In progress
-- Documentation and TODO changes passed data validation, 28 trust/audit tests, and diff checks.
+- Collecting noindex, 403, and redirect GSC examples; no validation or live indexing change has been started.
 
 ## Next up
-- Export exact GSC examples, suppress expired Event schema, and map retired public URLs to true successors.
-- Await separate approval before pushing or preparing a PR.
+- Capture noindex examples, then implement/test the Westland redirect and a deterministic `shows.json` sync fix separately.
 
 ## Open decisions
-- No changes are pushed or deployed; do not weaken indexing or security rules without URL-level evidence.
+- Nothing is pushed or deployed; GSC validation waits for verified deployment.
