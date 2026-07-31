@@ -18,6 +18,10 @@ Goal: keep show dates fresh without guessing, copying a third-party directory, o
 - Keep stable show URLs; log duplicate/imported/date-in-title records for later canonicalization instead of deleting them during a date refresh.
 - Change expired or unconfirmed dates to `TBD` rather than guessing.
 - Add `source_url`, `last_verified`, `upcoming_dates`, and `verification_notes` when a source confirms dates.
+- For a credible recurring series, keep the canonical page indexable, preserve date history, and label it as a past event awaiting the next confirmed date.
+- Do not emit scheduled Event schema for a date that has already passed or for a `TBD` listing.
+- Redirect only a duplicate, renamed page, or other URL with a clear equivalent destination; never redirect unrelated expired events to the homepage.
+- For a permanently removed one-time event with no useful history or successor, remove it from internal links and the sitemap and return a genuine 404 or 410.
 
 ## Report-only checks
 

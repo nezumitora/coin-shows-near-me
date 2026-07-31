@@ -54,3 +54,47 @@ Each report should include:
 - CoinShows-USA — historical source in repo; current state URLs redirect to a provider 404 page and need updated working URLs before use.
 
 Most other source domains currently in repo data are official clubs, promoters, venues, or associations rather than broad third-party directories.
+
+## Listing lifecycle guidance
+
+This section records the directory-operator guidance received on 2026-07-31. Reuse the decision pattern for future event directories, but adapt the fields and verification sources to the industry.
+
+### Recurring event series
+
+- Keep one stable, indexable URL for the series when credible evidence shows the event continues.
+- Update the same page when a new date is confirmed instead of creating a new date-specific URL.
+- If the last date passed and the next date is not confirmed, label the page clearly as a past event awaiting its next date.
+- Keep a visible date history when it helps users and organizers understand the series.
+- Do not invent the next date from words such as `annual`, `monthly`, or `first annual`; verify the recurrence rule or next occurrence.
+
+### One-time, renamed, duplicate, or cancelled events
+
+- Keep an old page when it still has useful historical information, meaningful links, or a genuine successor.
+- Use a permanent redirect only when there is a clear equivalent destination, such as a duplicate or renamed canonical listing.
+- Use a real 404 or 410 for a thin, inaccurate, permanently removed page with no replacement.
+- Never redirect unrelated expired listings to the homepage merely to avoid a 404; that is confusing and can be treated as a soft 404.
+- Remove retired URLs from internal links and sitemaps after the intended status is verified.
+
+## Organizer verification and outreach
+
+Offer useful verification before asking for a backlink:
+
+1. Ask the organizer to confirm the show name, date, venue, address, organizer identity, official URL, and preferred contact method.
+2. Record the source and verification date without publishing private contact details.
+3. Apply a visible verification state only after the evidence standard is met.
+4. Give the organizer a simple correction/update path.
+5. After delivering a useful, accurate listing, optionally invite the organizer to share or link to it.
+
+Do not make verification contingent on a backlink, payment, or promotional commitment.
+
+## Dealer onboarding and monetization sequence
+
+1. Start with free dealer registration or profile claiming to learn what dealers actually value.
+2. Measure profile claims, updates, show associations, referral interest, and organizer/dealer feedback.
+3. Test a limited founding-dealer package only after repeated demand is visible.
+4. State exactly what a paid package includes; never imply ranking, verification, or editorial preference can be bought.
+5. Keep verification criteria independent from sponsorship or payment status.
+
+## Operating priority
+
+Accurate data and direct organizer relationships come before new scrapers, portals, or monetization tools. Build automation only after the manual workflow exposes a repeated bottleneck that can be tested safely.

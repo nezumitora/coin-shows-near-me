@@ -1,20 +1,20 @@
 # Session State
 
-**Last updated:** 2026-07-30 20:16 (PDT)
-**Session:** v0.12.1 reminder-interest safety revision
+**Last updated:** 2026-07-31 09:43 PDT
+**Session:** v0.12.1 directory lifecycle and GSC follow-up
 
 ## Completed today
-- v0.12.0 moved spot prices and reminder signup below the search hero and added names/show interests.
-- CRM payload mapping now prioritizes explicit first/last names and never infers SMS consent from phone or other consent.
-- Improved submit-show location layout and accessible thank-you promotion linking to `https://coinshownearme.com/`.
-- Added manually reviewed listing-removal requests plus public-event/privacy guidance.
-- User approved v0.12.1: reminder forms are accurate interest lists; mobile/SMS and unrelated reminder opt-ins are removed.
-- Updated consent, privacy, terms, design guidance, tests, changelog, and visible version to v0.12.1 in `48c3420`.
-- Passed 52 Ruby tests/192 assertions, 6 search tests, data validation, deterministic generation, and whitespace checks.
+- Preserved the completed, local-only v0.12.1 reminder-interest safety revision.
+- Recorded expert guidance for recurring/one-time event pages, organizer verification, backlink outreach, and dealer monetization in the directory SOP.
+- Added evidence-first GSC tasks for 233 noindex, two 404, two 403, and one redirect reports.
+- Repository review found only 32 intentional noindex alias pages; the reported 233 require exact GSC examples before any indexing change.
+
 ## In progress
-- v0.12.1 is complete and committed locally.
+- Documentation and TODO changes passed data validation, 28 trust/audit tests, and diff checks.
+
 ## Next up
+- Export exact GSC examples, suppress expired Event schema, and map retired public URLs to true successors.
 - Await separate approval before pushing or preparing a PR.
+
 ## Open decisions
-- Nothing is pushed or deployed; a full Jekyll build is unavailable locally because the repo has no Gemfile and the cached image lacks `jekyll-remote-theme`.
-- Expired-page redirect, canonical, sitemap, and index/noindex policy remains pending external expert feedback.
+- No changes are pushed or deployed; do not weaken indexing or security rules without URL-level evidence.

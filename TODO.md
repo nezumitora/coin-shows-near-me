@@ -14,6 +14,13 @@ Know of a coin show not in the directory? Open an issue with:
 
 ## Current
 
+- [ ] **HIGH PRIORITY: Reconcile the 2026-07-27 Google Search Console indexing report before changing index rules** — export the exact example URLs, last-crawl dates, source sitemap, inspection result, and selected canonical for both 404s, both 403s, the redirect, and a representative sample of the 233 noindex URLs. Current source explains only 32 intentional noindex alias pages, so do not bulk-remove noindex until the deployed-page discrepancy is proven.
+- [ ] **HIGH PRIORITY: Stop expired dates from emitting scheduled Event schema** — add an explicit future-date guard and regression tests for expired, TBD, partial, range, and future dates; review APNSCC, First Annual Lansing, and WNY against official/direct evidence and set unconfirmed next dates to TBD without deleting qualified recurring-series pages.
+- [ ] Build a version-controlled public-URL retirement map for deleted or corrected city/show slugs; add one-hop redirects only for exact successors and use genuine 404/410 responses for removed one-time content instead of broad homepage redirects.
+- [ ] Add rendered SEO validation: every sitemap URL must return 200, remain indexable, use a consistent canonical, and not be an alias; alias destinations must resolve and expired dates must not emit scheduled Event schema.
+- [ ] Diagnose each GSC 403 using the exact reported URL, crawl time, response headers, hostname, and Cloudflare/GitHub Pages evidence before changing any security rule.
+- [ ] Turn organizer verification into the first outreach offer: confirm listing facts, show a visible evidence-backed verification state, provide a correction path, and only then optionally invite sharing or a backlink; never require a link or payment for verification.
+- [ ] Validate dealer demand with free registration/profile claiming before testing a clearly defined founding-dealer package; keep paid placement separate from verification and editorial trust.
 - [ ] **HIGH PRIORITY: Complete nationwide 2026-2027 show refresh** — gather every active U.S. coin show from official organizer/club/state-association calendars first, use third-party directories only as leads, verify show name/date/venue/address/organizer/source URL before publishing, and track uncertain leads separately.
 - [ ] **Improve source discovery reliability** — for each state, run source-discovery passes that search for official regional promoter calendars and club/event pages for every TBD listing before marking a state launch-ready; Arcadia/California Coin Events was the first missed-source example to fold into this process.
 - [ ] Add upcoming shows as dates are confirmed by organizers
