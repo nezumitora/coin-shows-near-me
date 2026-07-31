@@ -28,7 +28,7 @@ This Privacy Policy describes how Coin Show Near Me ("we," "us," or "our") colle
 - **Collection submissions:** Descriptions of coins, currency, bullion, and collectibles; photographs of items; estimated values
 - **Offer requests:** Contact information and item details shared between Sellers and Dealers
 - **Show submissions and organizer requests:** Event name, dates, venue, public source links, organizer role, and contact information needed to review a submission or verification request
-- **Show reminders:** Name, email address, selected state, shows or locations of interest, and an optional mobile number when you separately choose text reminders
+- **Reminder interest requests:** Name, email address, selected state, and shows or locations of interest. These forms do not collect a mobile number
 - **Listing review or removal requests:** Contact information, reason for the request, supporting public source links, and the details you provide for manual review
 - **Contact forms:** Any information you submit through forms on the Platform
 
@@ -50,7 +50,7 @@ We use your information to:
 - Display event listings and dealer directories
 - Process and respond to form submissions
 - Send transactional communications (offer notifications, account updates)
-- Send coin show reminders through the email and/or text channels you expressly select
+- Record reminder interests and contact you about future reminder availability. No recurring reminder service is currently active
 - Review organizer-verification, correction, and listing-removal requests
 - Improve the Platform and develop new features
 - Prevent fraud and enforce our Terms of Use
@@ -86,7 +86,7 @@ In the event of a merger, acquisition, or sale of assets, your information may b
 
 We retain your information for as long as your account is active or as needed to provide services. You may request deletion of your account and associated data at any time by contacting us. We may retain certain information as required by law or for legitimate business purposes (e.g., dispute resolution).
 
-Reminder and consent records may be retained as needed to honor your preferences, document consent, process opt-outs, and comply with legal obligations. Reply **STOP** to an eligible text message to opt out of SMS reminders, use an email unsubscribe option when provided, or [contact us](/contact/).
+Reminder-interest and consent records may be retained as needed to document your request, contact you about future availability, honor withdrawal requests, and comply with legal obligations. You may withdraw your request by [contacting us](/contact/). The current reminder-interest forms do not collect mobile numbers or activate recurring email or text messages.
 
 ### Public Event Information and Removal Requests
 

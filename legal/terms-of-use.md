@@ -13,7 +13,7 @@ breadcrumb_current: "Terms of Use"
 # Terms of Use
 
 **Effective Date:** April 15, 2026
-**Last Updated:** April 29, 2026
+**Last Updated:** July 30, 2026
 
 Please read these Terms of Use ("Terms") carefully before using the Coin Show Near Me website located at coinshownearme.com (the "Site"), including all subdomains, pages, tools, services, and features offered through the Site (collectively, the "Platform"). The Platform is operated by Coin Show Near Me ("we," "us," or "our").
 
@@ -174,39 +174,23 @@ You agree not to submit content that is:
 
 ---
 
-## 9. SMS and Email Messaging Terms {#sms-terms}
+## 9. Reminder Interest List Terms {#sms-terms}
 
-### 9.1 Consent to Receive Messages
+### 9.1 How the Interest List Works
 
-By providing your mobile phone number and checking the SMS consent box on our Platform, you expressly consent to receive recurring automated text messages (SMS/MMS) from Coin Show Near Me related to coin show reminders, event updates, and related notifications. Consent is not a condition of any purchase. You may receive approximately 2 to 4 messages per month, though frequency may vary.
+By providing your email address and checking the consent box on a reminder-interest form, you ask us to record the shows and locations that interest you. Joining the list does not activate or guarantee a recurring reminder service.
 
-### 9.2 Message and Data Rates
+### 9.2 Contact About Availability
 
-Message and data rates may apply depending on your mobile carrier and plan. Coin Show Near Me is not responsible for any charges incurred from your carrier as a result of receiving text messages.
+You permit us to contact you about future reminder availability or to reconfirm your preferences and consent. You may withdraw this request at any time by [contacting us](/contact/).
 
-### 9.3 How to Opt Out
+### 9.3 No Current SMS Reminder Program
 
-You may opt out of receiving text messages at any time by replying **STOP** to any message you receive from us. After opting out, you will receive one final confirmation message. You will no longer receive text messages from us unless you re-subscribe.
+We do not currently collect mobile numbers through reminder-interest forms or offer an automated SMS reminder program. If email or text reminders are introduced later, we will update the applicable disclosures and obtain any additional consent required before sending recurring messages.
 
-### 9.4 Help
+### 9.4 Privacy
 
-For help with text messages, reply **HELP** to any message you receive from us, or [contact us](/contact/).
-
-### 9.5 Supported Carriers
-
-Major US carriers are supported, including but not limited to AT&T, Verizon, T-Mobile, Sprint, and their affiliates. Coin Show Near Me is not responsible for delayed or undelivered messages due to carrier issues.
-
-### 9.6 Email Communications
-
-By providing your email address through any form on the Platform, you consent to receive email communications from Coin Show Near Me, including coin show reminders, event updates, and feature announcements. You may unsubscribe from email communications at any time by clicking the "unsubscribe" link included in every email or by [contacting us](/contact/).
-
-### 9.7 Privacy
-
-Your phone number and email address will not be shared with third parties for marketing purposes. For more information on how we handle your data, see our [Privacy Policy](/legal/privacy-policy/).
-
-### 9.8 Modifications
-
-We reserve the right to modify this SMS messaging program at any time. Any changes will be reflected in an updated version of these Terms.
+For more information about how we handle reminder-interest information, see our [Privacy Policy](/legal/privacy-policy/).
 
 ---
 

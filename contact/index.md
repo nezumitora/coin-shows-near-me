@@ -59,9 +59,7 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
 <input type="hidden" name="submittedAt" value="">
 <input type="hidden" name="contactConsentTimestamp" value="">
 <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-<input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-<input type="hidden" name="reminderConsentTimestamp" value="">
-<input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
+<input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may email me about this inquiry.">
 <div class="form-row">
 <input type="text" name="name" placeholder="Your name" style="background:#fff;color:#111;">
 <input type="email" name="email" placeholder="Email address" required style="background:#fff;color:#111;">
@@ -88,11 +86,7 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
 <textarea name="message" placeholder="Your message..." style="background:#fff;color:#111;margin-top:0.5rem;"></textarea>
 <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.5rem;font-size:0.8rem;line-height:1.4;color:#334155;">
 <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;">
-<span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-</label>
-<label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.35rem;font-size:0.8rem;line-height:1.4;color:#334155;">
-<input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;">
-<span>Send me reminders about coin shows near me.</span>
+<span>I agree that Coin Show Near Me may email me about this inquiry.</span>
 </label>
 <button type="submit">Send Message</button>
 </form>
@@ -125,7 +119,7 @@ if (form) {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var now = new Date().toISOString();
-    var contactConsentText = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
+    var contactConsentText = 'I agree that Coin Show Near Me may email me about this inquiry.';
     function setFormValue(name, value) {
       var field = form.querySelector('[name="' + name + '"]');
       if (field) { field.value = value; }
@@ -135,12 +129,8 @@ if (form) {
     setFormValue('submittedAt', now);
     setFormValue('contactConsentVersion', 'coin-contact-consent-v1');
     setFormValue('contactConsentText', contactConsentText);
-    setFormValue('reminderConsentVersion', 'coin-show-reminder-v1');
     if (form.querySelector('[name="contactConsent"]').checked) {
       setFormValue('contactConsentTimestamp', now);
-    }
-    if (form.querySelector('[name="showReminderOptIn"]').checked) {
-      setFormValue('reminderConsentTimestamp', now);
     }
     if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
     window.coinSubmitForm(form).then(function() {

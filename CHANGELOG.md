@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 30, 2026
+- v0.12.1: Reframed reminder signup as an accurate interest list, removed mobile-number, SMS, and unrelated reminder opt-ins, documented that recurring delivery is not active, and aligned consent, privacy, terms, tests, and design guidance.
 - v0.12.0: Moved spot prices and reminder signup near the top, added explicit optional SMS consent and richer reminder preferences, improved organizer name/location handling and post-submit promotion, and added manually reviewed listing-removal requests with updated privacy guidance.
 
 ## Jul 29, 2026

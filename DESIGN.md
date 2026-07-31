@@ -4,10 +4,11 @@
 
 - The homepage's primary action is finding a coin show.
 - Search remains the first homepage action.
-- Keep a compact spot-price reference and the “Never Miss a Coin Show” reminder directly after the search hero and before state filters.
+- Keep a compact spot-price reference and the reminder interest list directly after the search hero and before state filters.
 - Do not place sponsor previews or dealer promotions on the homepage.
-- Reminder forms collect separate first and last names, email, selected state, optional show/location interests, and an optional mobile number.
-- Email-reminder and SMS consent remain separate; never infer SMS consent from a phone number or another checkbox.
+- Reminder-interest forms collect separate first and last names, email, selected state, and optional show/location interests.
+- Do not collect mobile numbers or promise recurring reminder delivery until the delivery and opt-out systems receive separate approval.
+- Clearly state that joining records interest and does not activate a recurring reminder service.
 
 ## Listing trust
 

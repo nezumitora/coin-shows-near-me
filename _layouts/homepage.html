@@ -1140,53 +1140,41 @@ a:hover { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- Reminder signup -->
+<!-- Reminder interest list -->
 <section class="cta-section" id="signup">
   <div class="cta-inner">
-    <h2>Never Miss a <span>Coin Show</span></h2>
-    <p>Choose email reminders, and optionally text messages, for shows and locations you care about.</p>
+    <h2>Join the <span>Reminder Interest List</span></h2>
+    <p>Tell us which shows and locations matter to you while we build the reminder service. Joining records your interest; it does not activate recurring reminders.</p>
     <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
-      <input type="hidden" name="_subject" value="Coin Show Near Me — Show Reminder Signup">
-      <input type="hidden" name="form_type" value="show_reminder">
+      <input type="hidden" name="_subject" value="Coin Show Near Me — Reminder Interest Request">
+      <input type="hidden" name="form_type" value="show_reminder_interest">
       <input type="hidden" name="source" value="Website">
-      <input type="hidden" name="formName" value="showReminder">
+      <input type="hidden" name="formName" value="showReminderInterest">
       <input type="hidden" name="coinContactRoles" value="attendee">
-      <input type="hidden" name="ctaCode" value="homepage_show_reminder">
-      <input type="hidden" name="sourceDetail" value="Homepage show reminder form">
+      <input type="hidden" name="ctaCode" value="homepage_reminder_interest">
+      <input type="hidden" name="sourceDetail" value="Homepage reminder interest form">
       <input type="hidden" name="pageUrl" value="">
       <input type="hidden" name="referringUrl" value="">
       <input type="hidden" name="submittedAt" value="">
       <input type="hidden" name="contactConsentTimestamp" value="">
-      <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may email me reminders about shows and locations I select. I can opt out anytime.">
-      <input type="hidden" name="contactConsent" value="yes">
-      <input type="hidden" name="reminderConsentTimestamp" value="">
-      <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v2">
-      <input type="hidden" name="smsConsentTimestamp" value="">
-      <input type="hidden" name="smsConsentVersion" value="coin-show-sms-consent-v1">
-      <input type="hidden" name="smsConsentText" value="I agree to receive recurring automated coin show reminder texts from Coin Show Near Me. Consent is not a condition of purchase. Message and data rates may apply. Reply STOP to opt out or HELP for help.">
+      <input type="hidden" name="contactConsentVersion" value="coin-reminder-interest-consent-v1">
+      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me about future reminder availability. No recurring reminder service is active yet.">
       <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required>
       <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required>
       <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
-      <input type="tel" name="phone" id="homepage-reminder-phone" placeholder="Mobile number (optional)" autocomplete="tel">
       <select name="preferredState" required>
         <option value="" disabled selected>Select your state</option>
         {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
       </select>
       <textarea name="interested_shows_locations" placeholder="Specific shows, cities, or locations you're interested in (optional)"></textarea>
       <label class="cta-consent">
-        <input type="checkbox" name="showReminderOptIn" value="yes" required>
-        <span>Email me reminders about shows and locations I select. I can opt out anytime. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+        <input type="checkbox" name="contactConsent" value="yes" required>
+        <span>Store my request and contact me about future reminder availability. No recurring reminder service is active yet. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
       </label>
-      <label class="cta-consent">
-        <input type="checkbox" name="sms_consent" id="homepage-sms-consent" value="yes">
-        <span>Also send recurring automated reminder texts. Consent is optional and not a condition of purchase. Message and data rates may apply. Reply STOP to opt out or HELP for help. <a href="/legal/terms-of-use/#sms-terms">SMS Terms</a>.</span>
-      </label>
-      <div class="cta-form-note">A mobile number is used for text reminders only when the separate SMS box is checked.</div>
-      <button type="submit">Set My Show Reminders</button>
+      <button type="submit">Join the Interest List</button>
     </form>
     <div class="cta-success" id="notify-success" role="status" tabindex="-1">
-      You're signed up! We'll use only the reminder channels you selected.
+      Thanks — we recorded your reminder interests. No recurring reminder service is active yet.
     </div>
     <p style="margin:1rem 0 0;font-size:0.82rem;">Are you an organizer of a show that we are missing? <a href="{{ site.baseurl }}/submit-show/" style="color:var(--gold-light);font-weight:800;text-decoration:underline;">Submit it for review</a>.</p>
   </div>
@@ -1400,15 +1388,14 @@ a:hover { color: var(--gold-light); }
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.12.0</div>
+    <div class="footer-version">v0.12.1</div>
   </div>
 </footer>
 
 <!-- Scripts -->
 <script>
-var COIN_CONTACT_CONSENT_VERSION = 'coin-contact-consent-v1';
-var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may email me reminders about shows and locations I select. I can opt out anytime.';
-var COIN_REMINDER_CONSENT_VERSION = 'coin-show-reminder-v2';
+var COIN_CONTACT_CONSENT_VERSION = 'coin-reminder-interest-consent-v1';
+var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may store this request and contact me about future reminder availability. No recurring reminder service is active yet.';
 
 function setFormValue(form, name, value) {
   var field = form.querySelector('[name="' + name + '"]');
@@ -1424,17 +1411,9 @@ function fillCrmFormMetadata(form) {
   setFormValue(form, 'submittedAt', now);
   setFormValue(form, 'contactConsentVersion', COIN_CONTACT_CONSENT_VERSION);
   setFormValue(form, 'contactConsentText', COIN_CONTACT_CONSENT_TEXT);
-  setFormValue(form, 'reminderConsentVersion', COIN_REMINDER_CONSENT_VERSION);
-
-  setFormValue(form, 'contactConsentTimestamp', now);
-
-  var reminderConsent = form.querySelector('[name="showReminderOptIn"]');
-  if (reminderConsent && reminderConsent.checked) {
-    setFormValue(form, 'reminderConsentTimestamp', now);
-  }
-  var smsConsent = form.querySelector('[name="sms_consent"]');
-  if (smsConsent && smsConsent.checked) {
-    setFormValue(form, 'smsConsentTimestamp', now);
+  var contactConsent = form.querySelector('[name="contactConsent"]');
+  if (contactConsent && contactConsent.checked) {
+    setFormValue(form, 'contactConsentTimestamp', now);
   }
 }
 
@@ -1544,19 +1523,8 @@ function fillCrmFormMetadata(form) {
 (function() {
   var form = document.getElementById('notify-form');
   if (form) {
-    var phone = document.getElementById('homepage-reminder-phone');
-    var smsConsent = document.getElementById('homepage-sms-consent');
-    function syncSmsRequirements() {
-      if (!phone || !smsConsent) { return; }
-      phone.required = smsConsent.checked;
-      smsConsent.required = phone.value.trim() !== '';
-    }
-    phone.addEventListener('input', syncSmsRequirements);
-    smsConsent.addEventListener('change', syncSmsRequirements);
-    syncSmsRequirements();
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      syncSmsRequirements();
       if (!form.reportValidity()) { return; }
       fillCrmFormMetadata(form);
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }

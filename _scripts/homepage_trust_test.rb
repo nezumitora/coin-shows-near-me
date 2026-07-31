@@ -9,8 +9,11 @@ class HomepageTrustTest < Minitest::Test
   HOMEPAGE = File.read(File.join(ROOT, '_layouts/homepage.html'))
   SHOW_LAYOUT = File.read(File.join(ROOT, '_layouts/show.html'))
   SUBMIT_SHOW = File.read(File.join(ROOT, 'submit-show.md'))
+  CONTACT_PAGE = File.read(File.join(ROOT, 'contact/index.md'))
+  PORTAL_PAGE = File.read(File.join(ROOT, 'portal/index.md'))
   FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
   PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
+  TERMS_OF_USE = File.read(File.join(ROOT, 'legal/terms-of-use.md'))
   SHOWS = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
   AS_OF = Date.new(2026, 7, 29)
 
@@ -54,7 +57,7 @@ class HomepageTrustTest < Minitest::Test
   def test_homepage_keeps_search_first_and_requested_utilities_near_the_top
     filter_position = HOMEPAGE.index('<!-- Filter Bar -->')
     spot_position = HOMEPAGE.index('<!-- Top utilities -->')
-    reminder_position = HOMEPAGE.index('<!-- Reminder signup -->')
+    reminder_position = HOMEPAGE.index('<!-- Reminder interest list -->')
     show_cards_position = HOMEPAGE.index('<!-- Show Cards -->')
 
     refute_nil filter_position
@@ -70,17 +73,36 @@ class HomepageTrustTest < Minitest::Test
     refute_includes HOMEPAGE, 'dealer-reg-form'
   end
 
-  def test_homepage_reminder_collects_preferences_and_separate_sms_consent
+  def test_homepage_reminder_interest_collects_preferences_without_phone_or_sms
     assert_includes HOMEPAGE, 'id="notify-form"'
     assert_includes HOMEPAGE, 'name="first_name"'
     assert_includes HOMEPAGE, 'name="last_name"'
     assert_includes HOMEPAGE, 'name="preferredState"'
     assert_includes HOMEPAGE, 'name="interested_shows_locations"'
-    assert_includes HOMEPAGE, 'name="phone"'
-    assert_includes HOMEPAGE, 'name="sms_consent"'
-    assert_equal 1, HOMEPAGE.scan(/<input[^>]+name="showReminderOptIn"/).length
-    assert_equal 1, HOMEPAGE.scan(/<input[^>]+name="sms_consent"/).length
-    assert_includes HOMEPAGE, 'smsConsentTimestamp'
+    assert_includes HOMEPAGE, 'name="contactConsent"'
+    assert_includes HOMEPAGE, 'No recurring reminder service is active yet.'
+    refute_includes HOMEPAGE, 'name="phone"'
+    refute_includes HOMEPAGE, 'name="sms_consent"'
+    refute_includes HOMEPAGE, 'name="showReminderOptIn"'
+    refute_includes HOMEPAGE, 'smsConsentTimestamp'
+  end
+
+  def test_show_reminder_interest_does_not_collect_phone_or_promise_delivery
+    assert_includes SHOW_LAYOUT, 'id="show-reminder-form"'
+    assert_includes SHOW_LAYOUT, 'No recurring reminder service is active yet.'
+    refute_includes SHOW_LAYOUT, 'name="phone"'
+    refute_includes SHOW_LAYOUT, 'name="sms_consent"'
+    refute_includes SHOW_LAYOUT, 'name="showReminderOptIn"'
+    assert_includes PRIVACY_POLICY, 'do not collect mobile numbers or activate recurring email or text messages'
+    assert_includes TERMS_OF_USE, 'No Current SMS Reminder Program'
+  end
+
+  def test_contact_and_portal_forms_do_not_add_reminder_opt_ins
+    [CONTACT_PAGE, PORTAL_PAGE].each do |page|
+      refute_includes page, 'name="showReminderOptIn"'
+      refute_includes page, 'reminderConsentTimestamp'
+      refute_includes page, 'If I provide a phone number'
+    end
   end
 
   def test_crm_bridge_never_infers_sms_consent
@@ -115,7 +137,7 @@ class HomepageTrustTest < Minitest::Test
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.12.0</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.12.0'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.12.1</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.12.1'
   end
 end
