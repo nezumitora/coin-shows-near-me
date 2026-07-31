@@ -4,10 +4,15 @@
 
 require 'cgi'
 require 'fileutils'
+require 'json'
 require 'yaml'
+require_relative 'show_feed'
 
 states = YAML.load_file('_data/states.yml')
 shows = YAML.load_file('_data/shows.yml')
+city_redirects = YAML.load_file('_data/city_redirects.yml')
+
+abort '_data/city_redirects.yml must contain an array' unless city_redirects.is_a?(Array)
 
 # --- State pages ---
 FileUtils.mkdir_p('states')
@@ -102,6 +107,56 @@ cities.each do |city_slug, city_shows|
   File.write("cities/#{city_slug}.md", content.gsub(/^    /, ''))
 end
 
+# Preserve exact old city URLs after a listing moves or a malformed slug is fixed.
+canonical_city_slugs = cities.keys
+legacy_city_slugs = city_redirects.map { |redirect| redirect.fetch('legacy_slug') }
+duplicate_legacy_city_slugs = legacy_city_slugs.group_by(&:itself).select { |_slug, values| values.length > 1 }.keys
+city_redirect_collisions = legacy_city_slugs & canonical_city_slugs
+missing_city_destinations = city_redirects.map do |redirect|
+  destination = redirect.fetch('canonical_slug')
+  destination unless canonical_city_slugs.include?(destination)
+end.compact
+city_redirect_chains = city_redirects.map do |redirect|
+  destination = redirect.fetch('canonical_slug')
+  destination if legacy_city_slugs.include?(destination)
+end.compact
+
+abort "Duplicate legacy city slugs: #{duplicate_legacy_city_slugs.join(', ')}" unless duplicate_legacy_city_slugs.empty?
+abort "City redirects collide with canonical slugs: #{city_redirect_collisions.join(', ')}" unless city_redirect_collisions.empty?
+abort "Missing city redirect destinations: #{missing_city_destinations.join(', ')}" unless missing_city_destinations.empty?
+abort "City redirect chains are not allowed: #{city_redirect_chains.join(', ')}" unless city_redirect_chains.empty?
+
+city_redirects.each do |redirect|
+  legacy_slug = redirect.fetch('legacy_slug')
+  canonical_slug = redirect.fetch('canonical_slug')
+  canonical_city = cities.fetch(canonical_slug).first.fetch('city')
+  canonical_city_html = CGI.escapeHTML(canonical_city)
+  canonical_path = "/cities/#{canonical_slug}/"
+  content = <<~MD
+    ---
+    layout: null
+    title: "Coin show city page moved"
+    permalink: /cities/#{legacy_slug}/
+    sitemap: false
+    ---
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex,follow">
+        <meta http-equiv="refresh" content="0; url={{ site.baseurl }}#{canonical_path}">
+        <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}#{canonical_path}">
+        <title>Coin show city page moved</title>
+      </head>
+      <body>
+        <p>This city listing moved to <a href="{{ site.baseurl }}#{canonical_path}">#{canonical_city_html} coin shows</a>.</p>
+      </body>
+    </html>
+  MD
+
+  File.write("cities/#{legacy_slug}.md", content.gsub(/^    /, ''))
+end
+
 # --- Show pages ---
 FileUtils.mkdir_p('shows')
 
@@ -167,9 +222,13 @@ alias_pairs.each do |alias_id, show|
   File.write("shows/#{alias_id}.md", content.gsub(/^    /, ''))
 end
 
+File.write('shows.json', JSON.pretty_generate(ShowFeed.build(shows)) + "\n")
+
 puts "Generated:"
 puts "  #{states.size} state pages + index"
 puts "  #{cities.size} city pages"
+puts "  #{city_redirects.size} city redirects"
 puts "  #{shows.size} show pages"
 puts "  #{alias_pairs.size} show redirects"
-puts "  Total: #{states.size + 1 + cities.size + shows.size + alias_pairs.size} pages"
+puts "  #{shows.size} show feed records"
+puts "  Total: #{states.size + 1 + cities.size + city_redirects.size + shows.size + alias_pairs.size} pages"

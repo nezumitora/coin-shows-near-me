@@ -2,8 +2,10 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'json'
 require 'yaml'
 require_relative 'show_date_parser'
+require_relative 'show_feed'
 
 SLUG_PATTERN = /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/.freeze
 
@@ -25,9 +27,11 @@ end
 errors = []
 states = YAML.load_file('_data/states.yml')
 shows = YAML.load_file('_data/shows.yml')
+city_redirects = YAML.load_file('_data/city_redirects.yml')
 
 errors << '_data/states.yml must contain an array' unless states.is_a?(Array)
 errors << '_data/shows.yml must contain an array' unless shows.is_a?(Array)
+errors << '_data/city_redirects.yml must contain an array' unless city_redirects.is_a?(Array)
 
 if errors.empty?
   errors << "Expected 50 states, found #{states.length}" unless states.length == 50
@@ -111,12 +115,51 @@ if errors.empty?
   errors << "Duplicate show aliases: #{duplicate_aliases.join(', ')}" unless duplicate_aliases.empty?
   errors << "Show aliases collide with canonical IDs: #{alias_collisions.join(', ')}" unless alias_collisions.empty?
 
+  canonical_city_slugs = shows.map { |show| show['city_slug'] }.uniq
+  city_redirects.each_with_index do |redirect, index|
+    unless redirect.is_a?(Hash)
+      errors << "City redirect #{index + 1} must be a mapping"
+      next
+    end
+
+    legacy_slug = redirect['legacy_slug'].to_s
+    canonical_slug = redirect['canonical_slug'].to_s
+    errors << "City redirect #{index + 1} has an invalid legacy_slug" unless legacy_slug.match?(SLUG_PATTERN)
+    errors << "City redirect #{index + 1} has an invalid canonical_slug" unless canonical_slug.match?(SLUG_PATTERN)
+  end
+
+  valid_city_redirects = city_redirects.select { |redirect| redirect.is_a?(Hash) }
+  legacy_city_slugs = valid_city_redirects.map { |redirect| redirect['legacy_slug'] }
+  canonical_redirect_slugs = valid_city_redirects.map { |redirect| redirect['canonical_slug'] }
+  duplicate_city_redirects = duplicate_values(legacy_city_slugs)
+  city_redirect_collisions = legacy_city_slugs & canonical_city_slugs
+  missing_city_destinations = canonical_redirect_slugs - canonical_city_slugs
+  city_redirect_chains = canonical_redirect_slugs & legacy_city_slugs
+  errors << "Duplicate legacy city slugs: #{duplicate_city_redirects.join(', ')}" unless duplicate_city_redirects.empty?
+  errors << "City redirects collide with canonical slugs: #{city_redirect_collisions.join(', ')}" unless city_redirect_collisions.empty?
+  errors << "Missing city redirect destinations: #{missing_city_destinations.join(', ')}" unless missing_city_destinations.empty?
+  errors << "City redirect chains are not allowed: #{city_redirect_chains.join(', ')}" unless city_redirect_chains.empty?
+
   expected_states = (states.map { |state| state['slug'] } + ['index']).sort
-  expected_cities = shows.map { |show| show['city_slug'] }.uniq.sort
+  expected_cities = (canonical_city_slugs + legacy_city_slugs).uniq.sort
   expected_shows = (show_ids + aliases).sort
   compare_pages(errors, 'state', expected_states, page_slugs('states'))
   compare_pages(errors, 'city', expected_cities, page_slugs('cities'))
   compare_pages(errors, 'show', expected_shows, page_slugs('shows'))
+
+  begin
+    actual_feed = JSON.parse(File.read('shows.json'))
+    expected_feed = ShowFeed.build(shows)
+    errors << 'shows.json does not match the deterministic _data/shows.yml projection' unless actual_feed == expected_feed
+    feed_ids = actual_feed.map { |record| record.is_a?(Hash) ? record['id'] : nil }.compact
+    errors << 'shows.json contains duplicate IDs' unless duplicate_values(feed_ids).empty?
+    errors << 'shows.json IDs do not match canonical show IDs' unless feed_ids.sort == show_ids.sort
+    errors << 'shows.json must not include alias IDs' unless (feed_ids & aliases).empty?
+  rescue Errno::ENOENT
+    errors << 'shows.json is missing'
+  rescue JSON::ParserError => e
+    errors << "shows.json is invalid JSON: #{e.message}"
+  end
 end
 
 unless errors.empty?
@@ -125,4 +168,4 @@ unless errors.empty?
   exit 1
 end
 
-puts "Data validation passed: #{states.length} states, #{shows.length} shows, #{shows.sum { |show| Array(show['aliases']).length }} aliases."
+puts "Data validation passed: #{states.length} states, #{shows.length} shows, #{shows.sum { |show| Array(show['aliases']).length }} aliases, #{city_redirects.length} city redirects."

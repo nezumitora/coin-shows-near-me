@@ -590,16 +590,24 @@
   notes: 'Hours: Sun 10-4.'
 - id: tucson-coin-and-currency-expo
   name: Tucson Coin and Currency Expo
-  state: CO
-  state_name: Colorado
-  city: Creating Collectors
-  city_slug: creating-collectors-co
-  venue: ''
-  frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  state: AZ
+  state_name: Arizona
+  city: Tucson
+  city_slug: tucson-az
+  venue: Casino Del Sol, 5655 W Valencia Rd, Tucson, AZ 85757
+  frequency: Annual
+  next_date: January 21-23, 2027
+  website: https://tucsoncoinshow.com/
+  organizer: Old Pueblo Coin
+  source_url: https://tucsoncoinshow.com/
+  source_type: official-show-page
+  last_verified: '2026-07-31'
+  upcoming_dates:
+  - '2027-01-21'
+  - '2027-01-22'
+  - '2027-01-23'
+  verification_notes: Official Tucson Coin and Currency Expo site lists January 21-23, 2027 at Casino Del Sol, 5655 W Valencia Rd, Tucson, Arizona; its contact page identifies Old Pueblo Coin. The malformed Colorado city value came from the event slogan rather than a location.
+  notes: Official site lists public hours Friday 9-5 and Saturday 9-4; confirm Thursday access details with the organizer before traveling.
 - id: denver-coin-expo
   name: Denver Coin Expo
   state: CO

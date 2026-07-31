@@ -1,15 +1,19 @@
 ---
-layout: city
-title: "Coin Shows in Creating Collectors, Colorado — 2026-2027"
-seo_title: "Coin Shows in Creating Collectors, Colorado — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Creating Collectors, Colorado. Dates, venues, and details for upcoming coin shows and numismatic events in Creating Collectors."
+layout: null
+title: "Coin show city page moved"
 permalink: /cities/creating-collectors-co/
-city_slug: "creating-collectors-co"
-city_name: "Creating Collectors"
-state_name: "Colorado"
-state_slug: "colorado"
-breadcrumb_parent: "Colorado"
-breadcrumb_parent_url: "/states/colorado/"
-breadcrumb_current: "Creating Collectors"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/cities/tucson-az/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/cities/tucson-az/">
+<title>Coin show city page moved</title>
+  </head>
+  <body>
+<p>This city listing moved to <a href="{{ site.baseurl }}/cities/tucson-az/">Tucson coin shows</a>.</p>
+  </body>
+</html>

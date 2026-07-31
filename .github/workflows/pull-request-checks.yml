@@ -40,10 +40,10 @@ jobs:
       - name: Validate data and page inventory
         run: ruby _scripts/validate-data.rb
 
-      - name: Verify generated pages are current
+      - name: Verify generated pages and feed are current
         run: |
           ruby _scripts/generate-pages.rb
-          git diff --exit-code -- states cities shows
+          git diff --exit-code -- states cities shows shows.json
 
       - name: Check pull request whitespace
         run: git diff --check "origin/${{ github.base_ref }}...HEAD"

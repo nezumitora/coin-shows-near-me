@@ -1,9 +1,15 @@
+---
+layout: null
+permalink: /widget.html
+sitemap: false
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Coin Show Finder Widget</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
   <style>
     :root {
       --csw-bg: #ffffff;
@@ -498,10 +504,13 @@
       }
 
       function renderShowList(shows) {
-        showsListEl.innerHTML = "";
+        showsListEl.textContent = "";
 
         if (!shows.length) {
-          showsListEl.innerHTML = `<li class="csw-empty">No matching shows.</li>`;
+          const emptyItem = document.createElement("li");
+          emptyItem.className = "csw-empty";
+          emptyItem.textContent = "No matching shows.";
+          showsListEl.appendChild(emptyItem);
           return;
         }
 
@@ -511,16 +520,44 @@
           const dateInfo = show.next_date && show.next_date !== "TBD"
             ? show.next_date
             : (show.frequency || "Check website for dates");
-          li.innerHTML = `
-            <div class="csw-show-name">${show.show_name}</div>
-            <div class="csw-show-meta">${dateInfo} &bull; ${show.city}, ${show.state}</div>
-            <div class="csw-show-venue">${show.venue_name}</div>
-            ${
-              show.website_url
-                ? `<div class="csw-show-link"><a href="${show.website_url}" target="_blank">Show website</a></div>`
-                : ""
+
+          const name = document.createElement("div");
+          name.className = "csw-show-name";
+          name.textContent = show.name;
+          li.appendChild(name);
+
+          const meta = document.createElement("div");
+          meta.className = "csw-show-meta";
+          meta.textContent = `${dateInfo} • ${show.city}, ${show.state}`;
+          li.appendChild(meta);
+
+          const venue = document.createElement("div");
+          venue.className = "csw-show-venue";
+          venue.textContent = show.venue;
+          li.appendChild(venue);
+
+          let websiteUrl = "";
+          try {
+            const parsedWebsite = new URL(show.website);
+            if (parsedWebsite.protocol === "http:" || parsedWebsite.protocol === "https:") {
+              websiteUrl = parsedWebsite.href;
             }
-          `;
+          } catch (error) {
+            websiteUrl = "";
+          }
+
+          if (websiteUrl) {
+            const linkWrapper = document.createElement("div");
+            linkWrapper.className = "csw-show-link";
+            const link = document.createElement("a");
+            link.href = websiteUrl;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "Show website";
+            linkWrapper.appendChild(link);
+            li.appendChild(linkWrapper);
+          }
+
           showsListEl.appendChild(li);
         });
       }
@@ -540,7 +577,7 @@
         shows.forEach(show => {
           const opt = document.createElement("option");
           opt.value = show.id;
-          opt.textContent = `${show.show_name} – ${show.city}, ${show.state}`;
+          opt.textContent = `${show.name} – ${show.city}, ${show.state}`;
           showSelectEl.appendChild(opt);
         });
       }
@@ -603,7 +640,7 @@
           `Email: ${emailInput.value}`,
           `Phone: ${phoneInput.value || "N/A"}`,
           "",
-          `Show: ${selectedShow ? selectedShow.show_name : showSelectEl.value}`,
+          `Show: ${selectedShow ? selectedShow.name : showSelectEl.value}`,
           "",
           `Notes: ${notesInput.value || "(none)"}`,
           "",
@@ -634,8 +671,11 @@
           applyFilters();
         })
         .catch(err => {
-          showsListEl.innerHTML =
-            `<li class="csw-empty">Failed to load show data.</li>`;
+          showsListEl.textContent = "";
+          const errorItem = document.createElement("li");
+          errorItem.className = "csw-empty";
+          errorItem.textContent = "Failed to load show data.";
+          showsListEl.appendChild(errorItem);
         });
 
       stateFilterEl.addEventListener("change", applyFilters);

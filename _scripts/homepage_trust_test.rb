@@ -137,7 +137,7 @@ class HomepageTrustTest < Minitest::Test
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.12.1</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.12.1'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.12.2</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.12.2'
   end
 end
