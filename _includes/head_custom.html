@@ -1171,6 +1171,226 @@ body.public-page .show-workflow-body {
   border-top: 1px solid var(--workflow-border);
   padding: 1.25rem;
 }
+body.public-page a.dealer-listing-button,
+body.public-page a.dealer-listing-button:visited,
+body.public-page a.dealer-listing-button:hover {
+  color: #fff !important;
+}
+body.public-page .dealer-listing-form {
+  border-top: 1px solid rgba(218, 165, 32, 0.45);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  scroll-margin-top: 6rem;
+}
+body.public-page .dealer-listing-grid,
+body.public-page .listing-review-contact-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+body.public-page .dealer-listing-form label,
+body.public-page .listing-review-card label {
+  color: inherit;
+  display: grid;
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.3rem;
+}
+body.public-page .dealer-listing-form label span,
+body.public-page .listing-review-card label span {
+  font-weight: 400;
+}
+body.public-page .dealer-listing-form input:not([type="checkbox"]),
+body.public-page .dealer-listing-form select,
+body.public-page .dealer-listing-form textarea,
+body.public-page .listing-review-card input:not([type="checkbox"]),
+body.public-page .listing-review-card select,
+body.public-page .listing-review-card textarea {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #111827;
+  font: inherit;
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
+  width: 100%;
+}
+body.public-page .dealer-listing-form textarea,
+body.public-page .listing-review-card textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+body.public-page .dealer-listing-wide {
+  grid-column: 1 / -1;
+}
+body.public-page .dealer-listing-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.2rem;
+  margin: 0.9rem 0;
+}
+body.public-page .dealer-listing-options label,
+body.public-page .dealer-listing-consent,
+body.public-page .listing-review-confirm,
+body.public-page .listing-review-consent {
+  align-items: start;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1rem minmax(0, 1fr);
+}
+body.public-page .dealer-listing-submit,
+body.public-page .listing-review-submit {
+  background: #b8860b;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-top: 0.9rem;
+  padding: 0.7rem 1.1rem;
+}
+body.public-page .listing-review-card {
+  background: #f8fafc;
+  border: 2px solid #d1b879;
+  border-radius: 12px;
+  margin: 2rem 0;
+  overflow: hidden;
+  scroll-margin-top: 6rem;
+}
+body.public-page .listing-review-card > summary {
+  background: #fff7ed;
+  cursor: pointer;
+  display: grid;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 1.1rem 1.25rem;
+}
+body.public-page .listing-review-card > summary::-webkit-details-marker {
+  display: none;
+}
+body.public-page .listing-review-card > summary::after {
+  color: #7c2d12;
+  content: "Open the review form";
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-top: 0.25rem;
+}
+body.public-page .listing-review-card[open] > summary::after {
+  content: "Form open";
+}
+body.public-page .listing-review-kicker,
+body.public-page .listing-review-title,
+body.public-page .listing-review-description {
+  display: block;
+}
+body.public-page .listing-review-kicker {
+  color: #7c2d12;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+body.public-page .listing-review-title {
+  color: #1a2332;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+body.public-page .listing-review-description {
+  color: #475569;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+body.public-page .listing-review-body {
+  padding: 1.25rem;
+}
+body.public-page .listing-review-instructions {
+  background: #fffbeb;
+  border: 1px solid #f4d58d;
+  border-radius: 8px;
+  color: #713f12;
+  margin-bottom: 1rem;
+  padding: 0.8rem 0.9rem;
+}
+body.public-page .listing-review-card fieldset {
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  margin: 0 0 1rem;
+  padding: 1rem;
+}
+body.public-page .listing-review-card legend {
+  color: #1a2332;
+  font-weight: 800;
+  padding: 0 0.4rem;
+}
+body.public-page .listing-review-column-headings,
+body.public-page .listing-review-row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+}
+body.public-page .listing-review-column-headings {
+  background: #1a2332;
+  border-radius: 8px 8px 0 0;
+  color: #fff;
+  padding: 0.65rem 0.85rem;
+}
+body.public-page .listing-review-row {
+  border: 1px solid #dbe3ec;
+  border-top: 0;
+  padding: 0.85rem;
+}
+body.public-page .listing-review-current {
+  align-content: start;
+  display: grid;
+  gap: 0.25rem;
+}
+body.public-page .listing-review-current span {
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+body.public-page .listing-review-current strong {
+  color: #1e293b;
+  overflow-wrap: anywhere;
+}
+body.public-page .listing-review-proposed {
+  display: grid;
+  gap: 0.45rem;
+}
+body.public-page .listing-review-proposed input[readonly],
+body.public-page .listing-review-proposed textarea[readonly] {
+  background: #eef2f7;
+  color: #475569;
+}
+body.public-page .listing-review-confirm {
+  color: #475569 !important;
+  font-size: 0.76rem !important;
+  font-weight: 600 !important;
+}
+body.public-page .listing-review-location-grid {
+  grid-template-columns: minmax(0, 2fr) minmax(4rem, 0.6fr) minmax(5rem, 0.8fr);
+}
+body.public-page .listing-review-location-confirm {
+  grid-column: 1 / -1;
+}
+body.public-page .listing-review-evidence {
+  margin-top: 1rem !important;
+}
+body.public-page #listing-review-removal-fields {
+  margin: 0.8rem 0;
+}
+body.public-page #listing-review-success {
+  background: #065f46;
+  border-radius: 6px;
+  color: #fff;
+  display: none;
+  margin-top: 0.75rem;
+  padding: 0.85rem;
+}
 @media (max-width: 800px) {
   body.public-page .main-content-wrap {
     padding: 1.25rem 1rem 2.5rem !important;
@@ -1203,6 +1423,12 @@ body.public-page .show-workflow-body {
   body.public-page .table-wrapper,
   body.public-page .main-content main > .table-wrapper {
     max-width: calc(100% - 2.5rem);
+  }
+  body.public-page .listing-review-column-headings {
+    display: none;
+  }
+  body.public-page .listing-review-row {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 520px) {
@@ -1264,6 +1490,15 @@ body.public-page .show-workflow-body {
     box-sizing: border-box;
     min-width: 0 !important;
     width: 100% !important;
+  }
+  body.public-page .dealer-listing-grid,
+  body.public-page .listing-review-contact-grid,
+  body.public-page .listing-review-location-grid {
+    grid-template-columns: 1fr;
+  }
+  body.public-page .dealer-listing-wide,
+  body.public-page .listing-review-location-confirm {
+    grid-column: auto;
   }
   body.public-page .show-workflow-card > summary {
     padding: 1rem;

@@ -13,6 +13,7 @@ class HomepageTrustTest < Minitest::Test
   DEALERS_PAGE = File.read(File.join(ROOT, 'dealers/index.md'))
   PORTAL_PAGE = File.read(File.join(ROOT, 'portal/index.md'))
   FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
+  LISTING_REVIEW_FORM = File.read(File.join(ROOT, '_includes/show-listing-review-form.html'))
   PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
   TERMS_OF_USE = File.read(File.join(ROOT, 'legal/terms-of-use.md'))
   REVIEW_TEST_PAGE = File.read(File.join(ROOT, 'review-test-show.md'))
@@ -128,8 +129,8 @@ class HomepageTrustTest < Minitest::Test
   end
 
   def test_organizer_workflows_require_manual_review
-    assert_includes SHOW_LAYOUT, 'id="organizer-verification-form"'
-    assert_includes SHOW_LAYOUT, 'does not automatically verify or change the listing'
+    assert_includes LISTING_REVIEW_FORM, '<option value="organizerVerification">'
+    assert_includes LISTING_REVIEW_FORM, 'Submitted changes, verification, and removal requests are reviewed manually.'
     assert_includes SUBMIT_SHOW, 'id="show-submission-form"'
     assert_includes SUBMIT_SHOW, 'Every submission is reviewed manually.'
     assert_includes SUBMIT_SHOW, 'does not automatically create or verify a public listing'
@@ -148,20 +149,28 @@ class HomepageTrustTest < Minitest::Test
     refute_nil top_cta_position
     refute_nil search_position
     assert_operator top_cta_position, :<, search_position
-    assert_includes DEALERS_PAGE, 'href="#dealer-listing-cta"'
+    assert_includes DEALERS_PAGE, 'href="#dealer-listing-form"'
     assert_includes DEALERS_PAGE, 'id="dealer-listing-cta"'
+    assert_includes DEALERS_PAGE, 'id="dealer-listing-form"'
     assert_includes DEALERS_PAGE, 'Get Added to the Directory'
+    assert_includes DEALERS_PAGE, 'Submit Dealer Listing for Review'
+    assert_includes DEALERS_PAGE, 'name="dealer_type"'
+    assert_includes DEALERS_PAGE, 'name="specialty"'
+    refute_includes DEALERS_PAGE, 'Contact Us to Be Listed'
   end
 
-  def test_show_management_actions_open_one_clearly_labeled_workflow
-    assert_includes SHOW_LAYOUT, '<details id="organizer-verification"'
-    assert_includes SHOW_LAYOUT, '<details id="update-show-info"'
-    assert_includes SHOW_LAYOUT, '<details id="listing-removal"'
-    assert_includes SHOW_LAYOUT, 'Choose the one request that matches what you need.'
-    assert_includes SHOW_LAYOUT, 'I organize this show — request verification'
-    assert_includes SHOW_LAYOUT, 'Something is wrong — send a correction'
-    assert_includes SHOW_LAYOUT, 'data-show-workflow-target="update-show-info"'
-    assert_includes SHOW_LAYOUT, 'workflowCards[i].open = workflowCards[i] === selected;'
+  def test_show_management_uses_one_prefilled_review_workflow
+    assert_includes SHOW_LAYOUT, '{% include show-listing-review-form.html show=show review_fixture=page.review_fixture %}'
+    assert_includes SHOW_LAYOUT, 'data-listing-review-trigger'
+    assert_includes LISTING_REVIEW_FORM, 'id="listing-review-form"'
+    assert_includes LISTING_REVIEW_FORM, 'Current listing information is shown on the left.'
+    assert_includes LISTING_REVIEW_FORM, 'Correct as shown'
+    assert_includes LISTING_REVIEW_FORM, 'data-confirm-target="review-show-name"'
+    assert_includes LISTING_REVIEW_FORM, '<option value="correction">'
+    assert_includes LISTING_REVIEW_FORM, '<option value="organizerVerification">'
+    assert_includes LISTING_REVIEW_FORM, '<option value="reviewRemoval">'
+    assert_includes LISTING_REVIEW_FORM, 'name="proposed_street_address"'
+    assert_includes LISTING_REVIEW_FORM, 'name="proposed_notes"'
   end
 
   def test_requested_featured_show_addresses_are_complete_and_verified
@@ -186,18 +195,19 @@ class HomepageTrustTest < Minitest::Test
     assert_equal 'local-review-test-show', REVIEW_SHOW.fetch('id')
     refute_includes SHOWS.map { |show| show.fetch('id') }, REVIEW_SHOW.fetch('id')
     assert_includes SHOW_LAYOUT, 'var localReviewMode = {% if page.review_fixture %}true{% else %}false{% endif %};'
+    assert_includes LISTING_REVIEW_FORM, 'var localReviewMode = {% if include.review_fixture %}true{% else %}false{% endif %};'
     assert_includes SHOW_LAYOUT, 'Submissions on this unpublished fixture stay in the browser'
   end
 
   def test_listing_removal_is_manual_and_privacy_documented
-    assert_includes SHOW_LAYOUT, 'id="listing-removal-form"'
-    assert_includes SHOW_LAYOUT, 'Public event facts may remain listed'
+    assert_includes LISTING_REVIEW_FORM, '<option value="reviewRemoval">'
+    assert_includes LISTING_REVIEW_FORM, 'Changes, verification, and removal requests are reviewed manually and are not guaranteed.'
     assert_includes PRIVACY_POLICY, 'Public Event Information and Removal Requests'
     assert_includes PRIVACY_POLICY, 'They are not automatically removed merely because a request is submitted.'
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.14.0</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.14.0'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.15.0</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.15.0'
   end
 end

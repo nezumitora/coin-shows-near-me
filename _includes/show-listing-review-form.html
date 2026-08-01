@@ -1,0 +1,276 @@
+<details id="listing-review" class="listing-review-card">
+  <summary>
+    <span class="listing-review-kicker">One form for every listing request</span>
+    <span class="listing-review-title">Review, correct, verify, or request removal</span>
+    <span class="listing-review-description">Current listing information is shown on the left. Confirm it or enter a corrected value on the right.</span>
+  </summary>
+  <div class="listing-review-body">
+    <div class="listing-review-instructions">
+      <strong>How this works:</strong> Every field starts marked <em>Correct as shown</em>. Uncheck only the fields that need changes, then edit the value beside them.
+    </div>
+    <form id="listing-review-form" action="#" data-form-key="mykleozw" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="[Coin Show Near Me][Listing Review] Request">
+      <input type="hidden" name="form_type" value="show_listing_review">
+      <input type="hidden" name="source" value="Website">
+      <input type="hidden" name="formName" value="showListingReview">
+      <input type="hidden" name="coinContactRoles" value="showInfoReporter">
+      <input type="hidden" name="ctaCode" value="show_page_listing_review">
+      <input type="hidden" name="sourceDetail" value="Unified show listing review form">
+      <input type="hidden" name="pageUrl" value="">
+      <input type="hidden" name="referringUrl" value="">
+      <input type="hidden" name="submittedAt" value="">
+      <input type="hidden" name="contactConsentTimestamp" value="">
+      <input type="hidden" name="contactConsentVersion" value="coin-listing-review-consent-v1">
+      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me to review the listing. Submitted changes, verification, and removal requests are reviewed manually.">
+      <input type="hidden" name="show_id" value="{{ include.show.id }}">
+      <input type="hidden" name="show_name" value="{{ include.show.name | escape }}">
+      <input type="hidden" name="show_city" value="{{ include.show.city | escape }}, {{ include.show.state_name | escape }}">
+
+      <fieldset class="listing-review-request">
+        <legend>What do you need?</legend>
+        <div class="listing-review-contact-grid">
+          <label>Request type
+            <select name="request_type" required>
+              <option value="">Choose one</option>
+              <option value="confirm">Confirm the current listing is correct</option>
+              <option value="correction">Correct listing information</option>
+              <option value="organizerVerification">Verify my organizer or official role</option>
+              <option value="reviewRemoval">Request review or removal</option>
+            </select>
+          </label>
+          <label>Your relationship to this show
+            <select name="relationship_to_show" required>
+              <option value="">Choose one</option>
+              <option value="visitor">Visitor or collector</option>
+              <option value="organizer">Organizer or promoter</option>
+              <option value="clubOfficer">Coin club officer</option>
+              <option value="venueContact">Venue representative</option>
+              <option value="authorizedStaff">Authorized show staff</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label>First name<input type="text" name="first_name" autocomplete="given-name" required></label>
+          <label>Last name<input type="text" name="last_name" autocomplete="family-name" required></label>
+          <label>Contact email<input type="email" name="email" autocomplete="email" required></label>
+          <label>Organization or club <span>(required for organizer verification)</span><input type="text" name="organization_name" autocomplete="organization"></label>
+        </div>
+      </fieldset>
+
+      <div class="listing-review-column-headings" aria-hidden="true">
+        <strong>Current listing</strong>
+        <strong>Confirmed or corrected information</strong>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Show name</span><strong>{{ include.show.name }}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-name">Show name</label>
+          <input id="review-show-name" type="text" name="proposed_show_name" value="{{ include.show.name | escape }}" data-current-value="{{ include.show.name | escape }}" readonly required>
+          <label class="listing-review-confirm"><input type="checkbox" name="show_name_is_correct" value="yes" data-confirm-target="review-show-name" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Date</span><strong>{{ include.show.next_date }}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-date">Date or date range</label>
+          <input id="review-show-date" type="text" name="proposed_next_date" value="{{ include.show.next_date | escape }}" data-current-value="{{ include.show.next_date | escape }}" readonly required>
+          <label class="listing-review-confirm"><input type="checkbox" name="next_date_is_correct" value="yes" data-confirm-target="review-show-date" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Venue</span><strong>{% if include.show.venue and include.show.venue != "" %}{{ include.show.venue }}{% else %}Not listed{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-venue">Venue</label>
+          <input id="review-show-venue" type="text" name="proposed_venue" value="{{ include.show.venue | default: '' | escape }}" data-current-value="{{ include.show.venue | default: '' | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="venue_is_correct" value="yes" data-confirm-target="review-show-venue" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Street address</span><strong>{% if include.show.street_address and include.show.street_address != "" %}{{ include.show.street_address }}{% else %}Not yet verified{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-address">Street address</label>
+          <input id="review-show-address" type="text" name="proposed_street_address" value="{{ include.show.street_address | default: '' | escape }}" data-current-value="{{ include.show.street_address | default: '' | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="street_address_is_correct" value="yes" data-confirm-target="review-show-address" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>City, state, ZIP</span><strong>{{ include.show.city }}, {{ include.show.state }}{% if include.show.postal_code %} {{ include.show.postal_code }}{% endif %}</strong></div>
+        <div class="listing-review-proposed listing-review-location-grid">
+          <label for="review-show-city">City<input id="review-show-city" type="text" name="proposed_city" value="{{ include.show.city | escape }}" data-current-value="{{ include.show.city | escape }}" readonly required></label>
+          <label for="review-show-state">State<input id="review-show-state" type="text" name="proposed_state" value="{{ include.show.state | escape }}" data-current-value="{{ include.show.state | escape }}" maxlength="2" readonly required></label>
+          <label for="review-show-postal">ZIP<input id="review-show-postal" type="text" name="proposed_postal_code" value="{{ include.show.postal_code | default: '' | escape }}" data-current-value="{{ include.show.postal_code | default: '' | escape }}" inputmode="numeric" readonly></label>
+          <label class="listing-review-confirm listing-review-location-confirm"><input type="checkbox" name="location_is_correct" value="yes" data-confirm-target="review-show-city,review-show-state,review-show-postal" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Frequency</span><strong>{{ include.show.frequency }}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-frequency">Frequency</label>
+          <input id="review-show-frequency" type="text" name="proposed_frequency" value="{{ include.show.frequency | escape }}" data-current-value="{{ include.show.frequency | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="frequency_is_correct" value="yes" data-confirm-target="review-show-frequency" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Organizer</span><strong>{% if include.show.organizer and include.show.organizer != "" %}{{ include.show.organizer }}{% else %}Not listed{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-organizer">Organizer</label>
+          <input id="review-show-organizer" type="text" name="proposed_organizer" value="{{ include.show.organizer | default: '' | escape }}" data-current-value="{{ include.show.organizer | default: '' | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="organizer_is_correct" value="yes" data-confirm-target="review-show-organizer" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Website</span><strong>{% if include.show.website and include.show.website != "" %}{{ include.show.website }}{% else %}Not listed{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-website">Website</label>
+          <input id="review-show-website" type="url" name="proposed_website" value="{{ include.show.website | default: '' | escape }}" data-current-value="{{ include.show.website | default: '' | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="website_is_correct" value="yes" data-confirm-target="review-show-website" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Hours and public notes</span><strong>{% if include.show.notes and include.show.notes != "" %}{{ include.show.notes }}{% else %}Not listed{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-notes">Hours and public notes</label>
+          <textarea id="review-show-notes" name="proposed_notes" data-current-value="{{ include.show.notes | default: '' | escape }}" readonly>{{ include.show.notes | default: '' | escape }}</textarea>
+          <label class="listing-review-confirm"><input type="checkbox" name="notes_are_correct" value="yes" data-confirm-target="review-show-notes" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <fieldset class="listing-review-evidence">
+        <legend>Evidence and explanation</legend>
+        <label>Official show, club, promoter, or venue URL <span>(required for corrections and organizer verification)</span>
+          <input type="url" name="official_source_url" placeholder="www.example.com/show-page">
+        </label>
+        <div id="listing-review-removal-fields" hidden>
+          <label>Reason for review or removal
+            <select name="removal_reason">
+              <option value="">Choose one</option>
+              <option value="permanentlyClosed">Event is permanently closed</option>
+              <option value="duplicate">Duplicate listing</option>
+              <option value="privatePersonalInformation">Private personal information is displayed</option>
+              <option value="notACoinShow">Not a coin show</option>
+              <option value="other">Other review reason</option>
+            </select>
+          </label>
+        </div>
+        <label>Explain the request
+          <textarea name="request_details" placeholder="Explain what you corrected, how we can verify your role, or why the listing should be reviewed. Optional when simply confirming everything is correct."></textarea>
+        </label>
+      </fieldset>
+
+      <label class="mobile-consent-label listing-review-consent">
+        <input type="checkbox" name="contactConsent" value="yes" required>
+        <span>Store this request and contact me to review the listing. Changes, verification, and removal requests are reviewed manually and are not guaranteed. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+      </label>
+      <button type="submit" class="listing-review-submit">Submit Listing Review</button>
+    </form>
+    <div id="listing-review-success" role="status" tabindex="-1">
+      Thank you — your listing review request was recorded for manual review.
+    </div>
+  </div>
+</details>
+
+<script>
+(function() {
+  var reviewCard = document.getElementById('listing-review');
+  var reviewForm = document.getElementById('listing-review-form');
+  if (!reviewCard || !reviewForm) { return; }
+
+  function openReviewForm(event) {
+    if (event) { event.preventDefault(); }
+    reviewCard.open = true;
+    if (window.location.hash !== '#listing-review') {
+      window.history.pushState(null, '', '#listing-review');
+    }
+    window.requestAnimationFrame(function() {
+      reviewCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      reviewCard.querySelector('summary').focus({ preventScroll: true });
+    });
+  }
+
+  var triggers = document.querySelectorAll('[data-listing-review-trigger]');
+  for (var triggerIndex = 0; triggerIndex < triggers.length; triggerIndex++) {
+    triggers[triggerIndex].addEventListener('click', openReviewForm);
+  }
+  if (window.location.hash === '#listing-review') { openReviewForm(); }
+
+  var confirmationBoxes = reviewForm.querySelectorAll('[data-confirm-target]');
+  function setFieldConfirmation(checkbox) {
+    var targetIds = checkbox.getAttribute('data-confirm-target').split(',');
+    for (var targetIndex = 0; targetIndex < targetIds.length; targetIndex++) {
+      var target = document.getElementById(targetIds[targetIndex]);
+      if (!target) { continue; }
+      target.readOnly = checkbox.checked;
+      if (checkbox.checked) { target.value = target.getAttribute('data-current-value') || ''; }
+    }
+  }
+  for (var confirmationIndex = 0; confirmationIndex < confirmationBoxes.length; confirmationIndex++) {
+    confirmationBoxes[confirmationIndex].addEventListener('change', function() { setFieldConfirmation(this); });
+    setFieldConfirmation(confirmationBoxes[confirmationIndex]);
+  }
+
+  var requestType = reviewForm.querySelector('[name="request_type"]');
+  var sourceUrl = reviewForm.querySelector('[name="official_source_url"]');
+  var organizationName = reviewForm.querySelector('[name="organization_name"]');
+  var requestDetails = reviewForm.querySelector('[name="request_details"]');
+  var removalFields = document.getElementById('listing-review-removal-fields');
+  var removalReason = reviewForm.querySelector('[name="removal_reason"]');
+  function updateRequestRequirements() {
+    var selectedType = requestType.value;
+    sourceUrl.required = selectedType === 'correction' || selectedType === 'organizerVerification';
+    organizationName.required = selectedType === 'organizerVerification';
+    requestDetails.required = selectedType !== 'confirm';
+    removalFields.hidden = selectedType !== 'reviewRemoval';
+    removalReason.required = selectedType === 'reviewRemoval';
+  }
+  requestType.addEventListener('change', updateRequestRequirements);
+  updateRequestRequirements();
+
+  reviewForm.noValidate = true;
+  reviewForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    updateRequestRequirements();
+    if (window.coinNormalizeFormUrls) { window.coinNormalizeFormUrls(reviewForm); }
+    if (!reviewForm.reportValidity()) { return; }
+
+    var selectedType = requestType.value;
+    var subjectLabels = {
+      confirm: 'Confirmation',
+      correction: 'Correction',
+      organizerVerification: 'Organizer Verification',
+      reviewRemoval: 'Review or Removal'
+    };
+    reviewForm.querySelector('[name="_subject"]').value = '[Coin Show Near Me][Listing ' + subjectLabels[selectedType] + '] Request';
+    reviewForm.querySelector('[name="form_type"]').value = 'show_listing_' + selectedType;
+    var relationship = reviewForm.querySelector('[name="relationship_to_show"]').value;
+    reviewForm.querySelector('[name="coinContactRoles"]').value = ['organizer', 'clubOfficer', 'venueContact', 'authorizedStaff'].indexOf(relationship) !== -1 ? 'showOrganizer' : 'showInfoReporter';
+
+    var now = new Date().toISOString();
+    reviewForm.querySelector('[name="pageUrl"]').value = window.location.href;
+    reviewForm.querySelector('[name="referringUrl"]').value = document.referrer || '';
+    reviewForm.querySelector('[name="submittedAt"]').value = now;
+    reviewForm.querySelector('[name="contactConsentTimestamp"]').value = now;
+
+    function showSuccess() {
+      reviewForm.style.display = 'none';
+      var success = document.getElementById('listing-review-success');
+      success.style.display = 'block';
+      success.focus();
+    }
+    var localReviewMode = {% if include.review_fixture %}true{% else %}false{% endif %};
+    if (localReviewMode) {
+      showSuccess();
+      return;
+    }
+    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(reviewForm)) { return; }
+    window.coinSubmitForm(reviewForm).then(showSuccess);
+  });
+})();
+</script>

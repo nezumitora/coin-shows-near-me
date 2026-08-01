@@ -18,7 +18,7 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
     <h2 id="dealer-top-cta-title" style="margin:0 0 0.2rem !important;font-size:1rem !important;color:#1a2332;">Are you a coin dealer?</h2>
     <p style="margin:0;color:#555;font-size:0.88rem;line-height:1.45;">Request a free directory listing so collectors can find your business, website, and specialties.</p>
   </div>
-  <a href="#dealer-listing-cta" style="display:inline-block;background:#b8860b;color:#fff;padding:0.55rem 1rem;border-radius:6px;font-size:0.88rem;font-weight:800;text-decoration:none;white-space:nowrap;">Get Added to the Directory</a>
+  <a href="#dealer-listing-form" class="dealer-listing-button" style="display:inline-block;background:#b8860b;color:#fff;padding:0.55rem 1rem;border-radius:6px;font-size:0.88rem;font-weight:800;text-decoration:none;white-space:nowrap;">Get Added to the Directory</a>
 </aside>
 
 <div class="dealer-feature-grid" style="margin:0 0 1.25rem;">
@@ -94,14 +94,68 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
 
 <div class="public-cta" id="dealer-listing-cta" style="margin:1.5rem 0;scroll-margin-top:6rem;">
   <h3 style="color:#daa520;font-size:1.2rem;font-weight:700;margin:0 0 0.5rem;">Get Listed in Our Directory</h3>
-  <p style="color:#cbd5e1;font-size:0.92rem;line-height:1.6;margin:0 0 1rem;">Join our growing directory of trusted coin dealers. Whether you're an online seller, a brick-and-mortar shop, or an auction house — get discovered by collectors looking for dealers near them and online.</p>
+  <p style="color:#cbd5e1;font-size:0.92rem;line-height:1.6;margin:0 0 1rem;">Submit your details here for manual review. You will not be sent to another page, and submitting does not automatically publish or verify a listing.</p>
   <ul style="list-style:none;padding:0;margin:0 0 1.25rem;">
     <li style="color:#94a3b8;font-size:0.85rem;padding:0.25rem 0;padding-left:1.25rem;position:relative;"><span style="position:absolute;left:0;color:#daa520;font-weight:700;">&#10003;</span> Free listing in our dealer directory</li>
     <li style="color:#94a3b8;font-size:0.85rem;padding:0.25rem 0;padding-left:1.25rem;position:relative;"><span style="position:absolute;left:0;color:#daa520;font-weight:700;">&#10003;</span> Get matched with attendees at shows you attend</li>
     <li style="color:#94a3b8;font-size:0.85rem;padding:0.25rem 0;padding-left:1.25rem;position:relative;"><span style="position:absolute;left:0;color:#daa520;font-weight:700;">&#10003;</span> Receive pre-show offer requests from sellers</li>
     <li style="color:#94a3b8;font-size:0.85rem;padding:0.25rem 0;padding-left:1.25rem;position:relative;"><span style="position:absolute;left:0;color:#daa520;font-weight:700;">&#10003;</span> Link to your website and show your specialties</li>
   </ul>
-  <a href="/contact/" class="cta-btn" style="display:inline-block;background:#b8860b;color:#fff;padding:0.65rem 2rem;border-radius:6px;font-weight:700;font-size:0.95rem;text-decoration:none;">Contact Us to Be Listed</a>
+  <form id="dealer-listing-form" class="dealer-listing-form" action="#" data-form-key="mykleozw" method="POST" novalidate>
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Dealer Listing] Manual review request">
+    <input type="hidden" name="form_type" value="dealer_registration">
+    <input type="hidden" name="source" value="Website">
+    <input type="hidden" name="formName" value="dealerListingRequest">
+    <input type="hidden" name="coinContactRoles" value="dealerVendor">
+    <input type="hidden" name="ctaCode" value="dealer_directory_listing">
+    <input type="hidden" name="sourceDetail" value="Find a Coin Dealer directory listing form">
+    <input type="hidden" name="pageUrl" value="">
+    <input type="hidden" name="referringUrl" value="">
+    <input type="hidden" name="submittedAt" value="">
+    <input type="hidden" name="contactConsentTimestamp" value="">
+    <input type="hidden" name="contactConsentVersion" value="coin-dealer-listing-consent-v1">
+    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me to review the proposed dealer listing. Submission does not guarantee publication or verification.">
+    <div class="dealer-listing-grid">
+      <label>First name<input type="text" name="first_name" autocomplete="given-name" required></label>
+      <label>Last name<input type="text" name="last_name" autocomplete="family-name" required></label>
+      <label>Dealer or business name<input type="text" name="business_name" autocomplete="organization" required></label>
+      <label>Contact email<input type="email" name="email" autocomplete="email" required></label>
+      <label>Phone <span>(optional)</span><input type="tel" name="phone" autocomplete="tel"></label>
+      <label>Website<input type="url" name="website" placeholder="www.example.com" required></label>
+      <label>Dealer type
+        <select name="dealer_type" required>
+          <option value="">Select dealer type</option>
+          <option value="brick-and-mortar">Brick-and-mortar shop</option>
+          <option value="online">Online dealer</option>
+          <option value="both">Online and storefront</option>
+          <option value="auction-house">Auction house</option>
+          <option value="show-dealer">Coin show dealer</option>
+        </select>
+      </label>
+      <label>City<input type="text" name="city" autocomplete="address-level2" required></label>
+      <label>State
+        <select name="state" autocomplete="address-level1" required>
+          <option value="">Select state</option>
+          {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>Specialties<input type="text" name="specialty" placeholder="US coins, bullion, currency, appraisals" required></label>
+      <label class="dealer-listing-wide">Social profile or additional public URL <span>(optional)</span><input type="url" name="social_url" placeholder="www.instagram.com/yourdealer"></label>
+      <label class="dealer-listing-wide">Directory description<textarea name="description" placeholder="Briefly describe what you sell, buy, or specialize in." required></textarea></label>
+    </div>
+    <div class="dealer-listing-options">
+      <label><input type="checkbox" name="accepts_trade_ins" value="yes"> Buys coins or accepts trade-ins</label>
+      <label><input type="checkbox" name="ships_nationwide" value="yes"> Ships nationwide</label>
+    </div>
+    <label class="mobile-consent-label dealer-listing-consent">
+      <input type="checkbox" name="contactConsent" value="yes" required>
+      <span>Store this request and contact me to review the proposed dealer listing. Submission does not guarantee publication or verification. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+    </label>
+    <button type="submit" class="dealer-listing-submit">Submit Dealer Listing for Review</button>
+  </form>
+  <div id="dealer-listing-success" role="status" tabindex="-1" style="display:none;background:#065f46;color:#fff;padding:0.85rem;border-radius:6px;margin-top:0.75rem;">
+    Thank you — your dealer listing request was recorded for manual review.
+  </div>
 </div>
 
 ## How to Choose a Dealer
@@ -183,6 +237,35 @@ Whether you're buying your first silver coin or selling a valuable collection, h
       this.classList.add('active');
       activeFilter = this.getAttribute('data-filter');
       filterCards();
+    });
+  }
+
+  var dealerForm = document.getElementById('dealer-listing-form');
+  if (dealerForm) {
+    dealerForm.noValidate = true;
+    dealerForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (window.coinNormalizeFormUrls) { window.coinNormalizeFormUrls(dealerForm); }
+      if (!dealerForm.reportValidity()) { return; }
+      var now = new Date().toISOString();
+      ['pageUrl', 'referringUrl', 'submittedAt', 'contactConsentTimestamp'].forEach(function(name) {
+        var field = dealerForm.querySelector('[name="' + name + '"]');
+        if (!field) { return; }
+        field.value = name === 'referringUrl' ? (document.referrer || '') : (name === 'pageUrl' ? window.location.href : now);
+      });
+      var isLocalReview = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost';
+      function showSuccess() {
+        dealerForm.style.display = 'none';
+        var success = document.getElementById('dealer-listing-success');
+        success.style.display = 'block';
+        success.focus();
+      }
+      if (isLocalReview) {
+        showSuccess();
+        return;
+      }
+      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(dealerForm)) { return; }
+      window.coinSubmitForm(dealerForm).then(showSuccess);
     });
   }
 })();

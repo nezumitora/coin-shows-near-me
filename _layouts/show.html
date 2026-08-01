@@ -130,14 +130,8 @@ layout: default
       {% if tax.bullion_exempt %}<span style="color:#16a34a;">&#10003;</span> Tax-Free State{% else %}<span style="color:#dc2626;">&#10005;</span> Taxed State{% endif %}
     </a>
     {% endif %}{% endfor %}
-    <a href="#update-show-info" data-show-workflow-target="update-show-info" style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
-      Correct show information
-    </a>
-    <a href="#organizer-verification" data-show-workflow-target="organizer-verification" style="display:inline-flex;align-items:center;gap:0.4rem;background:#eff6ff;color:#1e3a8a;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #bfdbfe;margin-left:0.5rem;transition:all 0.2s;">
-      I organize this show — verify my role
-    </a>
-    <a href="#listing-removal" data-show-workflow-target="listing-removal" style="display:inline-flex;align-items:center;gap:0.4rem;background:#f8fafc;color:#475569;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #cbd5e1;margin-left:0.5rem;transition:all 0.2s;">
-      Request listing review or removal
+    <a href="#listing-review" data-listing-review-trigger style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
+      Review, correct, or manage this listing
     </a>
   </div>
 </div>
@@ -210,6 +204,10 @@ layout: default
   </div>
 </div>
 
+{% include show-listing-review-form.html show=show review_fixture=page.review_fixture %}
+
+{% comment %}
+Legacy separate forms retained during local review; the unified include above is the only rendered listing workflow.
 <section class="show-workflow-intro" aria-labelledby="show-workflow-title">
   <h2 id="show-workflow-title">Update or manage this listing</h2>
   <p>Choose the one request that matches what you need. Only that form will open.</p>
@@ -373,52 +371,11 @@ layout: default
   </div>
   </div>
 </details>
+{% endcomment %}
 
 <script>
 (function() {
   var localReviewMode = {% if page.review_fixture %}true{% else %}false{% endif %};
-  var workflowCards = document.querySelectorAll('.show-workflow-card');
-
-  function openShowWorkflow(workflowId, shouldScroll) {
-    var selected = document.getElementById(workflowId);
-    if (!selected || !selected.classList.contains('show-workflow-card')) { return; }
-    for (var i = 0; i < workflowCards.length; i++) {
-      workflowCards[i].open = workflowCards[i] === selected;
-    }
-    if (shouldScroll) {
-      window.requestAnimationFrame(function() {
-        selected.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        var summary = selected.querySelector('summary');
-        if (summary) { summary.focus({ preventScroll: true }); }
-      });
-    }
-  }
-
-  var workflowTriggers = document.querySelectorAll('[data-show-workflow-target]');
-  for (var workflowTriggerIndex = 0; workflowTriggerIndex < workflowTriggers.length; workflowTriggerIndex++) {
-    workflowTriggers[workflowTriggerIndex].addEventListener('click', function(event) {
-      event.preventDefault();
-      var workflowId = this.getAttribute('data-show-workflow-target');
-      window.history.pushState(null, '', '#' + workflowId);
-      openShowWorkflow(workflowId, true);
-    });
-  }
-
-  for (var workflowCardIndex = 0; workflowCardIndex < workflowCards.length; workflowCardIndex++) {
-    workflowCards[workflowCardIndex].addEventListener('toggle', function() {
-      if (!this.open) { return; }
-      for (var i = 0; i < workflowCards.length; i++) {
-        if (workflowCards[i] !== this) { workflowCards[i].open = false; }
-      }
-    });
-  }
-
-  function openWorkflowFromHash() {
-    openShowWorkflow(window.location.hash.replace(/^#/, ''), true);
-  }
-
-  window.addEventListener('hashchange', openWorkflowFromHash);
-  if (window.location.hash) { openWorkflowFromHash(); }
 
   function setFormValue(form, name, value) {
     var field = form.querySelector('[name="' + name + '"]');
@@ -464,9 +421,6 @@ layout: default
   }
 
   attachForm('show-reminder-form', 'show-reminder-success');
-  attachForm('organizer-verification-form', 'organizer-verification-success');
-  attachForm('show-correction-form', 'show-correction-success');
-  attachForm('listing-removal-form', 'listing-removal-success');
 })();
 </script>
 

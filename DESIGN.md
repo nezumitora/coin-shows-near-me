@@ -8,7 +8,7 @@
 - Keep exactly one general reminder-interest form on the homepage; do not duplicate it lower on the page.
 - Provide combined `All Shows`, `This Weekend`, and `This Month` filters with one state selector rather than a crowded fifty-state pill row.
 - Do not place sponsor previews or dealer promotions on the homepage.
-- On the dealer directory, show a compact dealer-listing CTA above search while retaining the detailed listing CTA below the directory.
+- On the dealer directory, the compact CTA must jump directly to a dedicated dealer-listing form on the same page; do not route dealers through a generic contact page or a second CTA.
 - Reminder-interest forms collect separate first and last names, email, selected state, and optional show/location interests.
 - Do not collect mobile numbers or promise recurring reminder delivery until the delivery and opt-out systems receive separate approval.
 - Clearly state that joining records interest and does not activate a recurring reminder service.
@@ -25,7 +25,7 @@
 - New-show forms group venue/address fields under a clear Show location heading and use overflow-safe form controls.
 - Show full street, city, state, and ZIP details only when verified; otherwise say the complete street address is not yet verified instead of repeating the venue as though it were an address.
 - Unpublished local review fixtures may exercise form states, but must never enter canonical show data, appear in the sitemap, send email, or deploy.
-- Present correction, organizer-verification, and listing-review workflows as distinct collapsible choices; action links open only the selected form and clearly state who should use it.
+- Use one unified listing-review form for confirmations, corrections, organizer verification, and review/removal requests. Show current values beside prefilled proposed values, mark fields correct by default, and let users unlock only fields that need changes.
 
 ## Visual hierarchy
 
