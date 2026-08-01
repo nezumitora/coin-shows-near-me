@@ -1,10 +1,10 @@
 # Session State
 
-**Last updated:** 2026-07-31 19:13 PDT
+**Last updated:** 2026-07-31 19:15 PDT
 **Session:** v0.15.1 dealer-form refinement
 
 ## Completed today
-- Preserved the v0.15.0 feature and state checkpoints at `b04c918` and `b2b3d96`.
+- Saved the complete v0.15.1 local checkpoint in commit `80fd8d1`; nothing was pushed or deployed.
 - Changed dealer types to multi-select checkboxes and added conditional required physical-store address fields.
 - Split social profiles into separate CRM-friendly fields and aligned consent checkboxes with their text.
 - Reserved Organizer verified for checked official representatives while recording venue confirmations and dealer/community reports separately.
