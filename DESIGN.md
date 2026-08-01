@@ -8,7 +8,7 @@
 - Keep exactly one general reminder-interest form on the homepage; do not duplicate it lower on the page.
 - Provide combined `All Shows`, `This Weekend`, and `This Month` filters with one state selector rather than a crowded fifty-state pill row.
 - Do not place sponsor previews or dealer promotions on the homepage.
-- On the dealer directory, the compact CTA must jump directly to a dedicated dealer-listing form on the same page; do not route dealers through a generic contact page or a second CTA.
+- On the dealer directory, the compact CTA must jump directly to a dedicated dealer-listing form on the same page; do not route dealers through a generic contact page or a second CTA. Dealer types are multi-select, brick-and-mortar selection reveals a required physical address, and each social network has its own CRM-friendly field.
 - Reminder-interest forms collect separate first and last names, email, selected state, and optional show/location interests.
 - Do not collect mobile numbers or promise recurring reminder delivery until the delivery and opt-out systems receive separate approval.
 - Clearly state that joining records interest and does not activate a recurring reminder service.
@@ -21,6 +21,7 @@
 - Link to the source used for verification when available without calling every source official.
 - Remind visitors to verify details before traveling and provide a correction path.
 - Organizer-verification and new-show submissions are reviewed manually against public official-source evidence; submitting a form never verifies or publishes a listing automatically.
+- Anyone may submit reliable show confirmations or corrections, but `Organizer verified` is reserved for independently checked organizers, promoters, club officers, or authorized show staff. Record other accepted input with dated `Venue confirmed`, `Dealer reported`, or `Community reported` provenance without exposing the reporter's identity; dealer/community reports do not establish verification by themselves.
 - Listing-removal requests are manually reviewed; accurate public event facts may remain while private personal information and supported corrections receive separate consideration.
 - New-show forms group venue/address fields under a clear Show location heading and use overflow-safe form controls.
 - Show full street, city, state, and ZIP details only when verified; otherwise say the complete street address is not yet verified instead of repeating the venue as though it were an address.

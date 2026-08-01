@@ -1224,6 +1224,29 @@ body.public-page .listing-review-card textarea {
 body.public-page .dealer-listing-wide {
   grid-column: 1 / -1;
 }
+body.public-page .dealer-listing-section {
+  border: 1px solid rgba(218, 165, 32, 0.45);
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  padding: 0.9rem;
+}
+body.public-page .dealer-listing-section legend {
+  color: #f4cf69;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 0 0.35rem;
+}
+body.public-page .dealer-listing-section legend span {
+  color: #cbd5e1;
+  font-weight: 400;
+}
+body.public-page .dealer-listing-section > p {
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  margin: 0 0 0.75rem;
+}
 body.public-page .dealer-listing-options {
   display: flex;
   flex-wrap: wrap;
@@ -1238,6 +1261,11 @@ body.public-page .listing-review-consent {
   display: grid;
   gap: 0.5rem;
   grid-template-columns: 1rem minmax(0, 1fr);
+}
+body.public-page .dealer-listing-consent input[type="checkbox"],
+body.public-page .listing-review-consent input[type="checkbox"] {
+  align-self: start;
+  margin: 0.18rem 0 0;
 }
 body.public-page .dealer-listing-submit,
 body.public-page .listing-review-submit {
@@ -1312,6 +1340,9 @@ body.public-page .listing-review-instructions {
   color: #713f12;
   margin-bottom: 1rem;
   padding: 0.8rem 0.9rem;
+}
+body.public-page .listing-review-instructions p {
+  margin: 0.55rem 0 0;
 }
 body.public-page .listing-review-card fieldset {
   border: 1px solid #cbd5e1;

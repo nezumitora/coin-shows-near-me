@@ -11,6 +11,7 @@ class HomepageTrustTest < Minitest::Test
   SUBMIT_SHOW = File.read(File.join(ROOT, 'submit-show.md'))
   CONTACT_PAGE = File.read(File.join(ROOT, 'contact/index.md'))
   DEALERS_PAGE = File.read(File.join(ROOT, 'dealers/index.md'))
+  HEAD_CUSTOM = File.read(File.join(ROOT, '_includes/head_custom.html'))
   PORTAL_PAGE = File.read(File.join(ROOT, 'portal/index.md'))
   FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
   LISTING_REVIEW_FORM = File.read(File.join(ROOT, '_includes/show-listing-review-form.html'))
@@ -154,7 +155,22 @@ class HomepageTrustTest < Minitest::Test
     assert_includes DEALERS_PAGE, 'id="dealer-listing-form"'
     assert_includes DEALERS_PAGE, 'Get Added to the Directory'
     assert_includes DEALERS_PAGE, 'Submit Dealer Listing for Review'
-    assert_includes DEALERS_PAGE, 'name="dealer_type"'
+    refute_includes DEALERS_PAGE, '<select name="dealer_type"'
+    assert_includes DEALERS_PAGE, 'name="dealer_type_brick_and_mortar"'
+    assert_includes DEALERS_PAGE, 'name="dealer_type_online"'
+    assert_includes DEALERS_PAGE, 'name="dealer_type_auction_house"'
+    assert_includes DEALERS_PAGE, 'name="dealer_type_coin_show"'
+    assert_includes DEALERS_PAGE, 'id="dealer-physical-address"'
+    assert_includes DEALERS_PAGE, 'name="physical_street_address"'
+    assert_includes DEALERS_PAGE, 'name="physical_postal_code"'
+    assert_includes DEALERS_PAGE, 'updateDealerTypeRequirements'
+    assert_includes DEALERS_PAGE, 'name="social_facebook_url"'
+    assert_includes DEALERS_PAGE, 'name="social_instagram_url"'
+    assert_includes DEALERS_PAGE, 'name="social_youtube_url"'
+    assert_includes DEALERS_PAGE, 'name="social_tiktok_url"'
+    assert_includes DEALERS_PAGE, 'name="social_linkedin_url"'
+    assert_includes DEALERS_PAGE, 'name="social_x_url"'
+    assert_includes HEAD_CUSTOM, '.dealer-listing-consent input[type="checkbox"]'
     assert_includes DEALERS_PAGE, 'name="specialty"'
     refute_includes DEALERS_PAGE, 'Contact Us to Be Listed'
   end
@@ -169,6 +185,11 @@ class HomepageTrustTest < Minitest::Test
     assert_includes LISTING_REVIEW_FORM, '<option value="correction">'
     assert_includes LISTING_REVIEW_FORM, '<option value="organizerVerification">'
     assert_includes LISTING_REVIEW_FORM, '<option value="reviewRemoval">'
+    assert_includes LISTING_REVIEW_FORM, '<option value="dealerAtShow">'
+    assert_includes LISTING_REVIEW_FORM, 'name="confirmation_source_type"'
+    assert_includes LISTING_REVIEW_FORM, 'Organizer verified</strong> is reserved'
+    assert_includes LISTING_REVIEW_FORM, 'Venue confirmed</em>, <em>Dealer reported</em>, or <em>Community reported</em>'
+    assert_includes LISTING_REVIEW_FORM, 'relationshipField.setCustomValidity'
     assert_includes LISTING_REVIEW_FORM, 'name="proposed_street_address"'
     assert_includes LISTING_REVIEW_FORM, 'name="proposed_notes"'
   end
@@ -207,7 +228,7 @@ class HomepageTrustTest < Minitest::Test
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.15.0</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.15.0'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.15.1</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.15.1'
   end
 end

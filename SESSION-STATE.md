@@ -1,22 +1,21 @@
 # Session State
 
-**Last updated:** 2026-07-31 17:38 PDT
-**Session:** v0.15.0 unified-form iteration
+**Last updated:** 2026-07-31 19:13 PDT
+**Session:** v0.15.1 dealer-form refinement
 
 ## Completed today
-- Preserved the committed v0.14.0 local review checkpoint at `eaf31c4`.
-- Fixed the dealer CTA contrast and linked it directly to a dedicated same-page dealer listing form.
-- Consolidated show confirmation, correction, organizer verification, and review/removal into one prefilled comparison form.
-- Made explanation optional only for simple confirmations; other requests require details, and organizer verification also requires an organization.
-- Verified dealer and listing-review forms on desktop/mobile with correct conditional fields and zero external submissions.
-- Passed the Jekyll build, 63 Ruby tests/366 assertions, 10 JavaScript tests, generation, and data validation.
-- Saved the complete v0.15.0 local-review checkpoint in commit `b04c918`; nothing was pushed or deployed.
+- Preserved the v0.15.0 feature and state checkpoints at `b04c918` and `b2b3d96`.
+- Changed dealer types to multi-select checkboxes and added conditional required physical-store address fields.
+- Split social profiles into separate CRM-friendly fields and aligned consent checkboxes with their text.
+- Reserved Organizer verified for checked official representatives while recording venue confirmations and dealer/community reports separately.
+- Saved the verification evidence rules and ten sanitized directory-expert follow-up questions.
+- Passed build/browser QA, generation, data validation, 63 Ruby tests/406 assertions, and 10 JavaScript tests.
 
 ## In progress
-- v0.15.0 is ready for user review at `http://127.0.0.1:4188/`; no code change is pending.
+- v0.15.1 is ready for local review at `http://127.0.0.1:4188/`; no external form was submitted.
 
 ## Next up
-- Review `/dealers/` and `/review/test-show/`, then separately continue address, domain-mail, and backlink-audit work.
+- Review `/dealers/` and `/review/test-show/`, then send or refine the expert follow-up questions.
 
 ## Open decisions
 - Do not push/deploy, change GSC, disavow links, or alter mail/DNS accounts before separate approval.

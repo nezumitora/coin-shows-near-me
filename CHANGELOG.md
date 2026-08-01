@@ -1,6 +1,7 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
 ## Jul 31, 2026
+- v0.15.1: Changed dealer types to multi-select checkboxes, added conditional physical-store address fields and separate CRM-friendly social-profile fields, aligned consent checkboxes, and distinguished organizer verification from dated venue confirmations and dealer/community reports.
 - v0.15.0: Replaced the dealer-directory contact detour with a dedicated same-page listing form, fixed the unreadable dealer CTA text, and consolidated show confirmation, correction, organizer verification, and review/removal into one prefilled comparison form.
 - v0.14.0: Added a compact top-of-page dealer listing CTA and replaced the three stacked show-management forms with clearly labeled, single-open workflows for corrections, organizer verification, and listing review or removal.
 - v0.13.0: Restored the familiar two-column homepage hero, consolidated signup into one compact Stay in the Loupe card, returned the navy/gold spot-price strip to the hero, added weekend/month/state show filters, accepted scheme-less form URLs, clarified submission confirmation styling and email tags, added verified Long Beach/FUN street addresses, and introduced a non-sending unpublished test listing for local form review.

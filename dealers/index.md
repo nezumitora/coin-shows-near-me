@@ -122,25 +122,52 @@ Browse trusted coin dealers, bullion sellers, and auction houses. Search by name
       <label>Contact email<input type="email" name="email" autocomplete="email" required></label>
       <label>Phone <span>(optional)</span><input type="tel" name="phone" autocomplete="tel"></label>
       <label>Website<input type="url" name="website" placeholder="www.example.com" required></label>
-      <label>Dealer type
-        <select name="dealer_type" required>
-          <option value="">Select dealer type</option>
-          <option value="brick-and-mortar">Brick-and-mortar shop</option>
-          <option value="online">Online dealer</option>
-          <option value="both">Online and storefront</option>
-          <option value="auction-house">Auction house</option>
-          <option value="show-dealer">Coin show dealer</option>
-        </select>
-      </label>
-      <label>City<input type="text" name="city" autocomplete="address-level2" required></label>
-      <label>State
+      <fieldset class="dealer-listing-section dealer-listing-wide">
+        <legend>Dealer types <span>(select all that apply)</span></legend>
+        <div class="dealer-listing-options dealer-type-options">
+          <label><input type="checkbox" name="dealer_type_brick_and_mortar" value="yes" data-dealer-type="brick-and-mortar"> Brick-and-mortar shop</label>
+          <label><input type="checkbox" name="dealer_type_online" value="yes" data-dealer-type="online"> Online dealer</label>
+          <label><input type="checkbox" name="dealer_type_auction_house" value="yes" data-dealer-type="auction-house"> Auction house</label>
+          <label><input type="checkbox" name="dealer_type_coin_show" value="yes" data-dealer-type="coin-show"> Coin show dealer</label>
+        </div>
+      </fieldset>
+      <label>Primary city or service area<input type="text" name="city" autocomplete="address-level2" required></label>
+      <label>Primary state
         <select name="state" autocomplete="address-level1" required>
           <option value="">Select state</option>
           {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
         </select>
       </label>
       <label>Specialties<input type="text" name="specialty" placeholder="US coins, bullion, currency, appraisals" required></label>
-      <label class="dealer-listing-wide">Social profile or additional public URL <span>(optional)</span><input type="url" name="social_url" placeholder="www.instagram.com/yourdealer"></label>
+      <fieldset id="dealer-physical-address" class="dealer-listing-section dealer-listing-wide" hidden>
+        <legend>Physical store address</legend>
+        <p>Required when Brick-and-mortar shop is selected.</p>
+        <div class="dealer-listing-grid">
+          <label class="dealer-listing-wide">Street address<input type="text" name="physical_street_address" autocomplete="street-address"></label>
+          <label>Suite or unit <span>(optional)</span><input type="text" name="physical_address_line_2" autocomplete="address-line2"></label>
+          <label>City<input type="text" name="physical_city" autocomplete="address-level2"></label>
+          <label>State
+            <select name="physical_state" autocomplete="address-level1">
+              <option value="">Select state</option>
+              {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
+            </select>
+          </label>
+          <label>ZIP code<input type="text" name="physical_postal_code" autocomplete="postal-code" inputmode="numeric"></label>
+        </div>
+      </fieldset>
+      <fieldset class="dealer-listing-section dealer-listing-wide">
+        <legend>Social profiles <span>(optional)</span></legend>
+        <p>Use one field per profile so each account can be stored separately.</p>
+        <div class="dealer-listing-grid">
+          <label>Facebook<input type="url" name="social_facebook_url" placeholder="www.facebook.com/yourdealer"></label>
+          <label>Instagram<input type="url" name="social_instagram_url" placeholder="www.instagram.com/yourdealer"></label>
+          <label>YouTube<input type="url" name="social_youtube_url" placeholder="www.youtube.com/@yourdealer"></label>
+          <label>TikTok<input type="url" name="social_tiktok_url" placeholder="www.tiktok.com/@yourdealer"></label>
+          <label>LinkedIn<input type="url" name="social_linkedin_url" placeholder="www.linkedin.com/company/yourdealer"></label>
+          <label>X / Twitter<input type="url" name="social_x_url" placeholder="x.com/yourdealer"></label>
+          <label class="dealer-listing-wide">Other public profile<input type="url" name="social_other_url" placeholder="www.example.com/your-profile"></label>
+        </div>
+      </fieldset>
       <label class="dealer-listing-wide">Directory description<textarea name="description" placeholder="Briefly describe what you sell, buy, or specialize in." required></textarea></label>
     </div>
     <div class="dealer-listing-options">
@@ -242,9 +269,36 @@ Whether you're buying your first silver coin or selling a valuable collection, h
 
   var dealerForm = document.getElementById('dealer-listing-form');
   if (dealerForm) {
+    var dealerTypeBoxes = dealerForm.querySelectorAll('[data-dealer-type]');
+    var firstDealerType = dealerTypeBoxes[0];
+    var physicalAddress = document.getElementById('dealer-physical-address');
+    var physicalAddressFields = physicalAddress.querySelectorAll('[name="physical_street_address"], [name="physical_city"], [name="physical_state"], [name="physical_postal_code"]');
+
+    function updateDealerTypeRequirements() {
+      var anyTypeSelected = false;
+      var brickAndMortarSelected = false;
+      for (var typeIndex = 0; typeIndex < dealerTypeBoxes.length; typeIndex++) {
+        if (dealerTypeBoxes[typeIndex].checked) { anyTypeSelected = true; }
+        if (dealerTypeBoxes[typeIndex].getAttribute('data-dealer-type') === 'brick-and-mortar' && dealerTypeBoxes[typeIndex].checked) {
+          brickAndMortarSelected = true;
+        }
+      }
+      firstDealerType.setCustomValidity(anyTypeSelected ? '' : 'Select at least one dealer type.');
+      physicalAddress.hidden = !brickAndMortarSelected;
+      for (var addressIndex = 0; addressIndex < physicalAddressFields.length; addressIndex++) {
+        physicalAddressFields[addressIndex].required = brickAndMortarSelected;
+      }
+    }
+
+    for (var typeIndex = 0; typeIndex < dealerTypeBoxes.length; typeIndex++) {
+      dealerTypeBoxes[typeIndex].addEventListener('change', updateDealerTypeRequirements);
+    }
+    updateDealerTypeRequirements();
+
     dealerForm.noValidate = true;
     dealerForm.addEventListener('submit', function(event) {
       event.preventDefault();
+      updateDealerTypeRequirements();
       if (window.coinNormalizeFormUrls) { window.coinNormalizeFormUrls(dealerForm); }
       if (!dealerForm.reportValidity()) { return; }
       var now = new Date().toISOString();

@@ -7,6 +7,7 @@
   <div class="listing-review-body">
     <div class="listing-review-instructions">
       <strong>How this works:</strong> Every field starts marked <em>Correct as shown</em>. Uncheck only the fields that need changes, then edit the value beside them.
+      <p>Anyone with reliable information may submit a confirmation or correction. <strong>Organizer verified</strong> is reserved for an organizer, promoter, club officer, or authorized show staff member whose role is independently checked. After manual review, other input may be recorded as <em>Venue confirmed</em>, <em>Dealer reported</em>, or <em>Community reported</em> with the review date. Only independently checked evidence changes verification status; a submission never changes a listing or badge automatically.</p>
     </div>
     <form id="listing-review-form" action="#" data-form-key="mykleozw" method="POST" novalidate>
       <input type="hidden" name="_subject" value="[Coin Show Near Me][Listing Review] Request">
@@ -22,6 +23,7 @@
       <input type="hidden" name="contactConsentTimestamp" value="">
       <input type="hidden" name="contactConsentVersion" value="coin-listing-review-consent-v1">
       <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me to review the listing. Submitted changes, verification, and removal requests are reviewed manually.">
+      <input type="hidden" name="confirmation_source_type" value="">
       <input type="hidden" name="show_id" value="{{ include.show.id }}">
       <input type="hidden" name="show_name" value="{{ include.show.name | escape }}">
       <input type="hidden" name="show_city" value="{{ include.show.city | escape }}, {{ include.show.state_name | escape }}">
@@ -32,16 +34,17 @@
           <label>Request type
             <select name="request_type" required>
               <option value="">Choose one</option>
-              <option value="confirm">Confirm the current listing is correct</option>
+              <option value="confirm">Confirm details as an attendee or knowledgeable party</option>
               <option value="correction">Correct listing information</option>
-              <option value="organizerVerification">Verify my organizer or official role</option>
+              <option value="organizerVerification">Request Organizer verified status</option>
               <option value="reviewRemoval">Request review or removal</option>
             </select>
           </label>
           <label>Your relationship to this show
             <select name="relationship_to_show" required>
               <option value="">Choose one</option>
-              <option value="visitor">Visitor or collector</option>
+              <option value="visitor">Attendee, visitor, or collector</option>
+              <option value="dealerAtShow">Dealer or vendor at this show</option>
               <option value="organizer">Organizer or promoter</option>
               <option value="clubOfficer">Coin club officer</option>
               <option value="venueContact">Venue representative</option>
@@ -217,20 +220,36 @@
   }
 
   var requestType = reviewForm.querySelector('[name="request_type"]');
+  var relationshipField = reviewForm.querySelector('[name="relationship_to_show"]');
   var sourceUrl = reviewForm.querySelector('[name="official_source_url"]');
   var organizationName = reviewForm.querySelector('[name="organization_name"]');
   var requestDetails = reviewForm.querySelector('[name="request_details"]');
+  var confirmationSourceType = reviewForm.querySelector('[name="confirmation_source_type"]');
   var removalFields = document.getElementById('listing-review-removal-fields');
   var removalReason = reviewForm.querySelector('[name="removal_reason"]');
   function updateRequestRequirements() {
     var selectedType = requestType.value;
+    var relationship = relationshipField.value;
+    var organizerRelationships = ['organizer', 'clubOfficer', 'authorizedStaff'];
+    var sourceTypes = {
+      organizer: 'organizerRepresentative',
+      clubOfficer: 'organizerRepresentative',
+      authorizedStaff: 'organizerRepresentative',
+      venueContact: 'venueRepresentative',
+      dealerAtShow: 'dealerParticipant',
+      visitor: 'communityMember',
+      other: 'otherReporter'
+    };
     sourceUrl.required = selectedType === 'correction' || selectedType === 'organizerVerification';
     organizationName.required = selectedType === 'organizerVerification';
     requestDetails.required = selectedType !== 'confirm';
     removalFields.hidden = selectedType !== 'reviewRemoval';
     removalReason.required = selectedType === 'reviewRemoval';
+    relationshipField.setCustomValidity(selectedType === 'organizerVerification' && organizerRelationships.indexOf(relationship) === -1 ? 'Organizer verification is available only to an organizer, promoter, club officer, or authorized show staff member.' : '');
+    confirmationSourceType.value = sourceTypes[relationship] || '';
   }
   requestType.addEventListener('change', updateRequestRequirements);
+  relationshipField.addEventListener('change', updateRequestRequirements);
   updateRequestRequirements();
 
   reviewForm.noValidate = true;
@@ -249,8 +268,14 @@
     };
     reviewForm.querySelector('[name="_subject"]').value = '[Coin Show Near Me][Listing ' + subjectLabels[selectedType] + '] Request';
     reviewForm.querySelector('[name="form_type"]').value = 'show_listing_' + selectedType;
-    var relationship = reviewForm.querySelector('[name="relationship_to_show"]').value;
-    reviewForm.querySelector('[name="coinContactRoles"]').value = ['organizer', 'clubOfficer', 'venueContact', 'authorizedStaff'].indexOf(relationship) !== -1 ? 'showOrganizer' : 'showInfoReporter';
+    var relationship = relationshipField.value;
+    if (['organizer', 'clubOfficer', 'authorizedStaff'].indexOf(relationship) !== -1) {
+      reviewForm.querySelector('[name="coinContactRoles"]').value = 'showOrganizer';
+    } else if (relationship === 'dealerAtShow') {
+      reviewForm.querySelector('[name="coinContactRoles"]').value = 'dealerVendor';
+    } else {
+      reviewForm.querySelector('[name="coinContactRoles"]').value = 'showInfoReporter';
+    }
 
     var now = new Date().toISOString();
     reviewForm.querySelector('[name="pageUrl"]').value = window.location.href;
