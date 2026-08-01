@@ -56,15 +56,15 @@ Use the search below to find your state's tax rules, or browse the full list.
 
 ## Key Takeaways
 
-- **42 states** currently exempt precious metals bullion and coins from sales tax (fully or with a threshold)
+- **45 state entries** in this dataset are classified as exempt or conditionally exempt; the primary-source audit in our public roadmap will re-check every classification
 - **5 states** have no sales tax at all (Alaska, Delaware, Montana, New Hampshire, Oregon)
 - **5 states + DC** still tax precious metals with no exemption (Hawaii, Kentucky, Maine, New Mexico, Vermont, DC)
-- **5 states** exempt purchases above a threshold (California $2,000, Connecticut $1,000, Florida $500, Massachusetts $1,000, New York $1,000, South Carolina $50)
+- **6 states** exempt some qualifying purchases above a threshold (California $2,000, Connecticut $1,000, Florida $500, Massachusetts $1,000, New York $1,000, South Carolina $50)
 
 ## Tips for Coin Show Buyers
 
 1. **Know before you go** — check your state's rules above before buying at a coin show
-2. **Threshold bundling** — in threshold states, combine purchases into one transaction to exceed the minimum
+2. **Threshold conditions** — a minimum amount alone may not create an exemption; confirm the qualifying products, transaction rules, seller requirements, and local treatment
 3. **Keep receipts** — some states require documentation for the exemption, especially for large purchases
 4. **Online purchases** — buying from an out-of-state dealer may trigger "use tax" in your home state
 5. **Numismatic vs. bullion** — some states treat collector coins differently than bullion sold for metal value

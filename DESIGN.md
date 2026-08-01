@@ -25,6 +25,8 @@
 - Listing-removal requests are manually reviewed; accurate public event facts may remain while private personal information and supported corrections receive separate consideration.
 - New-show forms group venue/address fields under a clear Show location heading and use overflow-safe form controls.
 - Show full street, city, state, and ZIP details only when verified; otherwise say the complete street address is not yet verified instead of repeating the venue as though it were an address.
+- Give every show detail page a distinctive navy/gold Collector Share Kit. Use direct sharing only where the web platform supports it; for Instagram, TikTok, Snapchat, Whatnot, and YouTube, clearly label ready-to-paste caption copying instead of pretending there is a direct web-share endpoint. Never attach tracking parameters.
+- State pages may summarize coin and bullion tax treatment only from the dedicated tax dataset, must link to the state-specific guide and authority source, and must warn that definitions, local taxes, exemptions, and laws can change.
 - Unpublished local review fixtures may exercise form states, but must never enter canonical show data, appear in the sitemap, send email, or deploy.
 - Use one unified listing-review form for confirmations, corrections, organizer verification, and review/removal requests. Show current values beside prefilled proposed values, mark fields correct by default, and let users unlock only fields that need changes.
 

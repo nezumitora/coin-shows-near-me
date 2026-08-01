@@ -8,6 +8,8 @@ class HomepageTrustTest < Minitest::Test
   ROOT = File.expand_path('..', __dir__)
   HOMEPAGE = File.read(File.join(ROOT, '_layouts/homepage.html'))
   SHOW_LAYOUT = File.read(File.join(ROOT, '_layouts/show.html'))
+  STATE_LAYOUT = File.read(File.join(ROOT, '_layouts/state.html'))
+  STATE_TAX_LAYOUT = File.read(File.join(ROOT, '_layouts/state-tax.html'))
   SUBMIT_SHOW = File.read(File.join(ROOT, 'submit-show.md'))
   CONTACT_PAGE = File.read(File.join(ROOT, 'contact/index.md'))
   DEALERS_PAGE = File.read(File.join(ROOT, 'dealers/index.md'))
@@ -15,11 +17,14 @@ class HomepageTrustTest < Minitest::Test
   PORTAL_PAGE = File.read(File.join(ROOT, 'portal/index.md'))
   FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
   LISTING_REVIEW_FORM = File.read(File.join(ROOT, '_includes/show-listing-review-form.html'))
+  SHOW_SHARE = File.read(File.join(ROOT, '_includes/show-share.html'))
   PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
   TERMS_OF_USE = File.read(File.join(ROOT, 'legal/terms-of-use.md'))
   REVIEW_TEST_PAGE = File.read(File.join(ROOT, 'review-test-show.md'))
   REVIEW_SHOW = YAML.load_file(File.join(ROOT, '_data/review_show.yml'))
   SHOWS = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
+  STATE_TAX = YAML.load_file(File.join(ROOT, '_data/state_tax.yml'))
+  CONFIG = YAML.load_file(File.join(ROOT, '_config.yml'))
   AS_OF = Date.new(2026, 7, 29)
 
   def date_status(show)
@@ -81,6 +86,7 @@ class HomepageTrustTest < Minitest::Test
     assert_includes HOMEPAGE, 'This Month'
     assert_includes HOMEPAGE, 'id="state-filter"'
     assert_includes HOMEPAGE, 'data-upcoming-dates='
+    refute CONFIG.fetch('search_enabled'), 'unused theme search must stay disabled; homepage search is custom'
   end
 
   def test_homepage_reminder_interest_collects_preferences_without_phone_or_sms
@@ -127,6 +133,36 @@ class HomepageTrustTest < Minitest::Test
     assert_includes SHOW_LAYOUT, 'Last Checked'
     assert_includes SHOW_LAYOUT, 'Verification Source'
     assert_includes SHOW_LAYOUT, 'View the source used to check this listing'
+  end
+
+  def test_show_pages_offer_canonical_accessible_sharing
+    assert_includes SHOW_LAYOUT, '{% include show-share.html show=show %}'
+    assert_includes SHOW_SHARE, 'Collector share kit'
+    assert_includes SHOW_SHARE, 'Pass this show along'
+    assert_includes SHOW_SHARE, 'navigator.share'
+    assert_includes SHOW_SHARE, 'navigator.clipboard.writeText(value)'
+    assert_includes SHOW_SHARE, "copyValue(shareUrl, 'Link copied.'"
+    assert_includes SHOW_SHARE, 'link[rel="canonical"]'
+    assert_includes SHOW_SHARE, 'https://www.facebook.com/sharer/sharer.php?u='
+    assert_includes SHOW_SHARE, 'https://x.com/intent/tweet?text='
+    assert_includes SHOW_SHARE, 'mailto:?subject='
+    %w[Instagram TikTok Snapchat Whatnot YouTube].each do |platform|
+      assert_includes SHOW_SHARE, %(data-platform="#{platform}")
+    end
+    assert_includes SHOW_SHARE, 'ready-to-paste caption'
+    assert_includes SHOW_SHARE, 'aria-live="polite"'
+  end
+
+  def test_state_pages_link_tax_summaries_to_primary_source_guides
+    california = STATE_TAX.find { |entry| entry.fetch('abbrev') == 'CA' }
+
+    assert_includes STATE_LAYOUT, 'Coin and bullion sales tax in {{ page.state_name }}'
+    assert_includes STATE_LAYOUT, '/tools/sales-tax-guide/{{ state_tax.slug }}/'
+    assert_includes STATE_LAYOUT, 'General information only.'
+    assert_includes STATE_TAX_LAYOUT, '{{ tax.tax_authority_url }}'
+    assert_equal 'https://cdtfa.ca.gov/lawguides/vol1/sutr/1599.html', california.fetch('tax_authority_url')
+    assert_includes california.fetch('notes'), 'at least $2,000'
+    refute_includes california.fetch('details'), 'avoids the tax'
   end
 
   def test_organizer_workflows_require_manual_review
@@ -228,7 +264,7 @@ class HomepageTrustTest < Minitest::Test
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.15.1</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.15.1'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.16.0</div>'
+    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.16.0'
   end
 end

@@ -59,10 +59,11 @@
   bullion_exempt: true
   coins_exempt: true
   threshold: "$2,000"
-  notes: "Exempt when total sale exceeds $2,000. Sales under $2,000 are taxed at the full state + local rate."
-  effective_date: "Ongoing"
-  tax_authority_url: "https://www.cdtfa.ca.gov"
-  details: "California exempts sales of monetized bullion, nonmonetized gold or silver bullion, and numismatic coins from sales tax ONLY when the total sale amount exceeds $2,000. Sales of $2,000 or less are subject to the full state rate of 7.25% plus any local taxes (total can reach 10.25%+ in some areas). The $2,000 threshold applies per transaction, not per item. This means bundling purchases into a single transaction over $2,000 avoids the tax."
+  notes: "Collector coins are generally taxable. A sale of qualifying coins or bullion totaling at least $2,000 in one transaction may be exempt when all requirements of Regulation 1599 are met."
+  effective_date: "July 1, 2023 threshold"
+  source_checked: "July 31, 2026"
+  tax_authority_url: "https://cdtfa.ca.gov/lawguides/vol1/sutr/1599.html"
+  details: "California generally taxes coins sold as collector or investment items and gold or silver bullion. Regulation 1599 provides a bulk-sale exemption for qualifying monetized bullion, nonmonetized gold or silver bullion, and numismatic coins when the total market value is at least $2,000 in a single transaction and the regulation's other conditions are met. Legal tender exchanged solely as money is treated differently. Product definitions, seller requirements, and local rates matter, so verify the current regulation before relying on an exemption."
 
 - state: Colorado
   abbrev: CO

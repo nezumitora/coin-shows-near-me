@@ -23,6 +23,9 @@ Know of a coin show not in the directory? Open an issue with:
 - [x] Confirm the current GSC report has no 403 category or example URLs; no Cloudflare, GitHub Pages, or other security rule was weakened.
 - [ ] Turn organizer verification into the first outreach offer: confirm listing facts, show a visible evidence-backed verification state, provide a correction path, and only then optionally invite sharing or a backlink; never require a link or payment for verification.
 - [ ] Validate dealer demand with free registration/profile claiming before testing a clearly defined founding-dealer package; keep paid placement separate from verification and editorial trust.
+- [ ] Test a small direct numismatic sponsorship package only after recording a traffic baseline; label paid placements clearly, keep advertising separate from verification/ranking, and defer programmatic identity advertising unless its privacy and operational costs become justified.
+- [ ] **HIGH PRIORITY: Audit the existing 50-state coin and bullion sales-tax guide against primary government sources** — record an exact statute, regulation, or agency-guidance URL and source-checked date for every state/DC; verify product definitions, thresholds, seller conditions, local-tax caveats, and effective dates before promoting summaries as current.
+- [ ] Automate a monthly upcoming-show media package from verified directory data: produce an accessible slideshow/video, narration-ready script, podcast audio and transcript, show notes, chapter timestamps, and source links; keep every release in draft for human fact-checking before any YouTube, podcast, or social publication.
 - [ ] **HIGH PRIORITY: Complete nationwide 2026-2027 show refresh** — gather every active U.S. coin show from official organizer/club/state-association calendars first, use third-party directories only as leads, verify show name/date/venue/address/organizer/source URL before publishing, and track uncertain leads separately.
 - [ ] **HIGH PRIORITY: Verify and normalize full addresses for the existing directory** — collect street, city, state, and ZIP from official organizer/club/venue sources for every show and future dealer profile; never infer or invent missing address components, and clearly label records still awaiting verification.
 - [ ] **Improve source discovery reliability** — for each state, run source-discovery passes that search for official regional promoter calendars and club/event pages for every TBD listing before marking a state launch-ready; Arcadia/California Coin Events was the first missed-source example to fold into this process.
@@ -74,7 +77,7 @@ Research and register Coin Show Near Me on coin collecting, numismatic, and hobb
 - Interactive map view
 - Calendar export (iCal/Google Calendar)
 - Show-finder by date range
-- State sales tax guide for coins & precious metals
+- State sales tax guide for coins & precious metals (built; primary-source accuracy audit in progress)
 - Beginner's guide to coin shows
 - Estate / inherited coin collection guide
 - Coin show trip planner / driving directions

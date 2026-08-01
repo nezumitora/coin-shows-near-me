@@ -8,6 +8,17 @@ layout: default
 
 <p>{{ page.seo_description }}</p>
 
+{% assign state_tax = site.data.state_tax | where: "abbrev", page.state_abbrev | first %}
+{% if state_tax %}
+<section class="state-tax-brief" aria-labelledby="state-tax-brief-title">
+  <p class="state-tax-brief-kicker">Know before you buy</p>
+  <h2 id="state-tax-brief-title">Coin and bullion sales tax in {{ page.state_name }}</h2>
+  <p>{{ state_tax.notes }}</p>
+  <p><a href="{{ site.baseurl }}/tools/sales-tax-guide/{{ state_tax.slug }}/">Read the {{ page.state_name }} definitions, thresholds, source, and disclaimer &rarr;</a></p>
+  <p class="state-tax-brief-note">General information only. Product definitions, local taxes, and exemptions can change; verify the linked state authority before a transaction.</p>
+</section>
+{% endif %}
+
 {% assign state_shows = site.data.shows | where: "state", page.state_abbrev | sort: "name" %}
 
 {% if state_shows.size > 0 %}

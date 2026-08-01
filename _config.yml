@@ -14,7 +14,7 @@ plugins:
 
 markdown: kramdown
 
-search_enabled: true
+search_enabled: false
 nav_enabled: true
 
 # SEO

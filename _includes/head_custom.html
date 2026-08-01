@@ -1176,6 +1176,174 @@ body.public-page a.dealer-listing-button:visited,
 body.public-page a.dealer-listing-button:hover {
   color: #fff !important;
 }
+body.public-page .show-share {
+  background:
+    radial-gradient(circle at 94% 10%, rgba(218, 165, 32, 0.2) 0 3.75rem, transparent 3.85rem),
+    linear-gradient(135deg, #111a2b 0%, #1e2d48 100%);
+  border: 1px solid #b8860b;
+  border-left: 6px solid #daa520;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+  display: block;
+  margin: 1.25rem 0;
+  overflow: hidden;
+  padding: 1.25rem;
+}
+body.public-page .show-share-kicker {
+  color: #f4d06f;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.1rem;
+  text-transform: uppercase;
+}
+body.public-page .show-share h2 {
+  color: #fff !important;
+  font-size: 1.25rem;
+  margin: 0;
+}
+body.public-page .show-share-heading > p:last-child {
+  color: #dbe4f0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0.35rem 0 0;
+  max-width: 44rem;
+}
+body.public-page .show-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+body.public-page .show-share-button,
+body.public-page .show-share-button:visited {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #b8a36b;
+  border-radius: 7px;
+  box-sizing: border-box;
+  color: #172033;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  text-decoration: none;
+}
+body.public-page .show-share-button:hover,
+body.public-page .show-share-button:focus-visible {
+  background: #f4d06f;
+  border-color: #f4d06f;
+  color: #111a2b;
+}
+body.public-page .show-share-native {
+  background: #daa520;
+  border-color: #f4d06f;
+  color: #111a2b;
+}
+body.public-page .show-share-more {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(244, 208, 111, 0.45);
+  border-radius: 10px;
+  margin-top: 1rem;
+  padding: 0.75rem 0.85rem;
+}
+body.public-page .show-share-more summary {
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+body.public-page .show-share-more > p {
+  color: #dbe4f0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0.65rem 0;
+}
+body.public-page .show-share-social-actions {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+body.public-page .show-share-social-button {
+  align-items: center;
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #111a2b;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  gap: 0.42rem;
+  justify-content: center;
+  min-height: 2.65rem;
+  padding: 0.45rem 0.55rem;
+}
+body.public-page .show-share-social-button span {
+  align-items: center;
+  background: #111a2b;
+  border-radius: 50%;
+  color: #f4d06f;
+  display: inline-flex;
+  font-size: 0.58rem;
+  height: 1.65rem;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  width: 1.65rem;
+}
+body.public-page .show-share-social-button:hover,
+body.public-page .show-share-social-button:focus-visible {
+  background: #f4d06f;
+  border-color: #fff;
+}
+body.public-page .show-share-status {
+  color: #f4d06f;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 0.65rem 0 0;
+  min-height: 1em;
+}
+@media (max-width: 640px) {
+  body.public-page .show-share-button {
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+  body.public-page .show-share-social-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+body.public-page .state-tax-brief {
+  background: linear-gradient(135deg, #fffdf6 0%, #f8fafc 100%);
+  border: 1px solid #d1b879;
+  border-left: 5px solid #b8860b;
+  border-radius: 10px;
+  margin: 1.25rem 0 1.75rem;
+  padding: 1rem 1.15rem;
+}
+body.public-page .state-tax-brief-kicker {
+  color: #7c5b0a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.15rem;
+  text-transform: uppercase;
+}
+body.public-page .state-tax-brief h2 {
+  color: #172033;
+  font-size: 1.15rem;
+  margin: 0 0 0.45rem;
+}
+body.public-page .state-tax-brief p {
+  margin: 0.35rem 0;
+}
+body.public-page .state-tax-brief-note {
+  color: #64748b;
+  font-size: 0.76rem;
+}
 body.public-page .dealer-listing-form {
   border-top: 1px solid rgba(218, 165, 32, 0.45);
   margin-top: 1.25rem;
