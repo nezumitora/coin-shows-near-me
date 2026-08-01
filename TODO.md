@@ -22,6 +22,9 @@ Know of a coin show not in the directory? Open an issue with:
 - [x] **Make `_data/shows.yml` the enforced source for `shows.json`** — deterministic generation now emits exactly 197 canonical records, excludes aliases/internal notes, sanitizes website URLs, and fails validation/CI on any feed drift or ID mismatch.
 - [x] Confirm the current GSC report has no 403 category or example URLs; no Cloudflare, GitHub Pages, or other security rule was weakened.
 - [ ] Turn organizer verification into the first outreach offer: confirm listing facts, show a visible evidence-backed verification state, provide a correction path, and only then optionally invite sharing or a backlink; never require a link or payment for verification.
+- [ ] **HIGH PRIORITY: Track every verification as a separate evidence record** — the append-only record schema and public-provenance rules are documented; implement the protected EspoCRM synchronization so multiple organizer/venue/dealer/community records never overwrite earlier evidence.
+- [ ] **HIGH PRIORITY: Complete proposed-date CRM synchronization** — the form now uses validated ISO start/end dates plus explicit `Date TBD` and generates a four-digit-year review summary; add protected server-side revalidation and synchronize dates to EspoCRM only after manual acceptance.
+- [x] **Audit test-show submission routing** — documented browser-only fixture behavior, production Formspree routing, disabled browser-side EspoCRM capture, and a visible result summary that sends and saves nothing.
 - [ ] Validate dealer demand with free registration/profile claiming before testing a clearly defined founding-dealer package; keep paid placement separate from verification and editorial trust.
 - [ ] Test a small direct numismatic sponsorship package only after recording a traffic baseline; label paid placements clearly, keep advertising separate from verification/ranking, and defer programmatic identity advertising unless its privacy and operational costs become justified.
 - [ ] **HIGH PRIORITY: Audit the existing 50-state coin and bullion sales-tax guide against primary government sources** — record an exact statute, regulation, or agency-guidance URL and source-checked date for every state/DC; verify product definitions, thresholds, seller conditions, local-tax caveats, and effective dates before promoting summaries as current.
@@ -37,6 +40,7 @@ Know of a coin show not in the directory? Open an issue with:
 - [ ] Expand state pages with additional local shows
 - [ ] Add operating company/entity wording to Privacy Policy, Terms, and legal pages using the business entity/DBA decision; do not list personal name or home address.
 - [ ] Create dealer acquisition plan: identify target coin dealers, add/claim dealer profiles, invite dealers to submit or update listings, and track outreach/results.
+- [x] Defer dealer quote requests until a reviewed dealer workflow exists; show and city pages now provide only junk-silver melt-value education, disclose that dealer offers are unavailable, and link to the calculator.
 - [ ] Add server-side Cloudflare Turnstile validation via a Worker/Formspree bridge so invalid form submissions are rejected before they count against monthly Formspree quota.
 - [ ] Build a server-side Cloudflare Worker bridge before re-enabling EspoCRM forwarding for Coin Shows forms; the rotated Lead Capture URL is stored locally and must never be placed in public HTML/JavaScript.
 - [ ] Review saved Instagram item for Coin Shows relevance. Instagram often blocks bot fetching, so open directly or use a screenshot/summary before creating website/content/operations tasks. Source: inbox/2026-05-05_165001_milo-bot-coinshows.json
@@ -81,6 +85,8 @@ Research and register Coin Show Near Me on coin collecting, numismatic, and hobb
 - Beginner's guide to coin shows
 - Estate / inherited coin collection guide
 - Coin show trip planner / driving directions
+- Selling junk silver at a coin show guide — explain melt value, condition and numismatic premiums, safe handling, and how to use the melt-value calculator before attending; do not promise advance dealer offers.
+- Coin collection protection guide — compare safe types, installation and fire/water ratings, inventory documentation, and specialist coin/collectibles insurance options without endorsing an insurer before independent review.
 - Buffalo logo monogram pattern — create a micro version of the buffalo nickel logo as a repeating pattern (Gucci-style interlocking monogram). Use as subtle background texture for hero, section dividers, or card backgrounds.
 
 See `README.md` for the full show list.

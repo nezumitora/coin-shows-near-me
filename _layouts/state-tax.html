@@ -15,6 +15,7 @@ layout: default
 
 <p>{{ page.seo_description }}</p>
 
+{% if tax.source_checked %}
 <div style="border:1px solid #e5e7eb;border-radius:0.75rem;padding:1.25rem;margin:1.5rem 0;background:#f9fafb;">
   <table style="width:100%;border-collapse:collapse;">
     <tr>
@@ -25,9 +26,9 @@ layout: default
       <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Bullion Exempt?</td>
       <td style="padding:0.5rem 0;">
         {% if tax.bullion_exempt %}
-          <span style="color:#16a34a;font-weight:700;">Yes &mdash; Exempt</span>
+          <span style="color:#16a34a;font-weight:700;">{{ tax.bullion_label | default: "Qualifying products exempt" }}</span>
         {% else %}
-          <span style="color:#dc2626;font-weight:700;">No &mdash; Taxed</span>
+          <span style="color:#dc2626;font-weight:700;">{{ tax.bullion_label | default: "Generally taxed" }}</span>
         {% endif %}
       </td>
     </tr>
@@ -35,21 +36,21 @@ layout: default
       <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Coins Exempt?</td>
       <td style="padding:0.5rem 0;">
         {% if tax.coins_exempt %}
-          <span style="color:#16a34a;font-weight:700;">Yes &mdash; Exempt</span>
+          <span style="color:#16a34a;font-weight:700;">{{ tax.coins_label | default: "Qualifying products exempt" }}</span>
         {% else %}
-          <span style="color:#dc2626;font-weight:700;">No &mdash; Taxed</span>
+          <span style="color:#dc2626;font-weight:700;">{{ tax.coins_label | default: "Generally taxed" }}</span>
         {% endif %}
       </td>
     </tr>
     {% if tax.threshold and tax.threshold != "N/A" and tax.threshold != "$0" %}
     <tr>
       <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Minimum Threshold</td>
-      <td style="padding:0.5rem 0;">{{ tax.threshold }} per transaction</td>
+       <td style="padding:0.5rem 0;">{{ tax.threshold_label | default: tax.threshold }}</td>
     </tr>
     {% endif %}
     {% if tax.effective_date and tax.effective_date != "N/A" %}
     <tr>
-      <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Exemption Since</td>
+      <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Effective / Status</td>
       <td style="padding:0.5rem 0;">{{ tax.effective_date }}</td>
     </tr>
     {% endif %}
@@ -66,13 +67,19 @@ layout: default
 
 {% if tax.threshold and tax.threshold != "N/A" and tax.threshold != "$0" %}
 <div style="background:#fef3c7;border-radius:0.5rem;padding:1rem;margin:1.5rem 0;border-left:4px solid #f59e0b;">
-  <p style="margin:0;font-size:0.9rem;"><strong>Threshold note:</strong> The {{ tax.threshold }} amount applies per transaction, but the products, seller, and other statutory conditions may also affect eligibility. Verify the official state source before relying on an exemption.</p>
+  <p style="margin:0;font-size:0.9rem;"><strong>Threshold note:</strong> {{ tax.threshold_label | default: tax.threshold }}. Products, seller, documentation, and other statutory conditions may also affect eligibility. Verify the official state source before relying on an exemption.</p>
 </div>
 {% endif %}
 
 {% if tax.bullion_exempt == false %}
 <div style="background:#fef2f2;border-radius:0.5rem;padding:1rem;margin:1.5rem 0;border-left:4px solid #ef4444;">
   <p style="margin:0;font-size:0.9rem;"><strong>Tax note:</strong> {{ tax.state }} currently taxes some precious-metals purchases. Out-of-state purchases may create use-tax obligations, so verify the current rules before buying.</p>
+</div>
+{% endif %}
+{% else %}
+<div style="background:#fff7ed;border-radius:0.75rem;padding:1.25rem;margin:1.5rem 0;border:1px solid #fed7aa;border-left:4px solid #f97316;">
+  <p style="margin:0 0 0.5rem;font-weight:700;color:#9a3412;">Official confirmation pending</p>
+  <p style="margin:0;line-height:1.6;">We are re-checking this jurisdiction against an exact current statute, regulation, or tax-agency publication. Until that review is complete, we are not displaying a settled exempt-or-taxed classification, threshold, or product list.</p>
 </div>
 {% endif %}
 
@@ -95,7 +102,7 @@ layout: default
 <p>Heading to a {{ tax.state }} coin show? Use our <a href="{{ site.baseurl }}/tools/melt-value-calculator/">Melt Value Calculator</a> to check the metal value of your silver and gold coins before you go.</p>
 
 <p style="margin-top:1.5rem;font-size:0.85rem;color:#64748b;">
-  <a href="{{ tax.tax_authority_url }}" target="_blank" rel="noopener noreferrer">{{ tax.state }} tax authority website &rarr;</a>
+  <a href="{{ tax.tax_authority_url }}" target="_blank" rel="noopener noreferrer">{% if tax.source_checked %}Official source used for this review{% else %}{{ tax.state }} tax authority website{% endif %} &rarr;</a>
 </p>
 
 <div style="background:linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);color:#f1f5f9;padding:1.25rem;border-radius:8px;margin:1.5rem 0;border-left:4px solid var(--coin-gold);">

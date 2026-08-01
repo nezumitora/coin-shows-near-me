@@ -464,6 +464,12 @@ a.cta-btn:hover {
   font-size: 0.7rem;
   color: #9ca3af;
 }
+.page-footer-version {
+  color: #64748b;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  margin-top: 0.35rem;
+}
 
 /* Spot price ticker bar */
 .spot-ticker {
@@ -1570,6 +1576,26 @@ body.public-page .listing-review-confirm {
   font-size: 0.76rem !important;
   font-weight: 600 !important;
 }
+body.public-page .listing-review-help {
+  color: #64748b;
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+body.public-page .listing-review-date-grid {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+body.public-page .listing-review-date-tbd {
+  align-items: center;
+  color: #475569 !important;
+  display: flex !important;
+  font-size: 0.8rem !important;
+  gap: 0.45rem;
+}
 body.public-page .listing-review-location-grid {
   grid-template-columns: minmax(0, 2fr) minmax(4rem, 0.6fr) minmax(5rem, 0.8fr);
 }
@@ -1589,6 +1615,36 @@ body.public-page #listing-review-success {
   display: none;
   margin-top: 0.75rem;
   padding: 0.85rem;
+}
+body.public-page #listing-review-success p {
+  margin: 0.4rem 0;
+}
+body.public-page #listing-review-test-result {
+  display: block !important;
+  margin: 0.75rem 0;
+}
+body.public-page #listing-review-test-result[hidden] {
+  display: none !important;
+}
+body.public-page #listing-review-test-result dt {
+  font-weight: 800;
+  text-align: left !important;
+}
+body.public-page #listing-review-test-result dt:not(:first-child) {
+  margin-top: 0.35rem;
+}
+body.public-page #listing-review-test-result dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+body.public-page #listing-review-test-reset {
+  background: #fff;
+  border: 1px solid #d1fae5;
+  border-radius: 6px;
+  color: #065f46;
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.5rem 0.75rem;
 }
 @media (max-width: 800px) {
   body.public-page .main-content-wrap {
@@ -1627,6 +1683,9 @@ body.public-page #listing-review-success {
     display: none;
   }
   body.public-page .listing-review-row {
+    grid-template-columns: 1fr;
+  }
+  body.public-page .listing-review-date-grid {
     grid-template-columns: 1fr;
   }
 }

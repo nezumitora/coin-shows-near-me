@@ -36,6 +36,9 @@ exclude:
   - _scrapers/
   - Gemfile
   - Gemfile.lock
+  - DESIGN.md
+  - SESSION-STATE.md
+  - docs/
   - TODO.md
   - CHANGELOG.md
   - LICENSE

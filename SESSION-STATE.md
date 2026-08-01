@@ -1,19 +1,18 @@
 # Session State
-**Last updated:** 2026-08-01 09:01 PDT
-**Session:** v0.16.0 share kit and state sales-tax summaries
+**Last updated:** 2026-08-01 11:26 PDT
+**Session:** v0.16.2 listing-review improvements
 ## Completed today
-- Saved the complete v0.15.1 local checkpoint in commit `80fd8d1`; nothing was pushed or deployed.
-- Refined dealer types, conditional physical-store addresses, separate social fields, and consent alignment.
-- Reserved Organizer verified for checked representatives and saved the evidence rules and expert follow-up questions.
-- Established a 2025-12-04 public deployment versus US Coin Shows' 2026-02-22 current registration; no distinctive wording match or proof of copying was found.
-- Added the distinctive Collector Share Kit with direct sharing plus honest caption-copy actions for Instagram, TikTok, Snapchat, Whatnot, and YouTube.
-- Added tax summaries to state pages, corrected California from Regulation 1599, and queued all-state primary-source audits plus monthly video/podcast automation.
-- Passed the unpublished Jekyll build, desktop/mobile interaction QA, 65 Ruby tests/454 assertions, 10 JavaScript tests, and `git diff --check`.
+- Added v0.16.1's review-pending safety state: 12 exact-source-checked jurisdictions display classifications and 39 unchecked entries suppress their old verdicts, rates, thresholds, and product claims.
+- Corrected 11 jurisdictions from exact government sources and converted ten directory-expert questions into a six-question design note.
+- Replaced dealer-offer CTAs with junk-silver education and clarified organizer-role verification.
+- Added validated ISO start/end dates, Date TBD, browser-only fixture results, and append-only EspoCRM evidence requirements.
+- Saved the v0.16.2 work locally; nothing was pushed, deployed, or emailed.
+- Passed 69 Ruby tests/534 assertions, 10 JavaScript tests, data/generation checks, unpublished build, and desktop/mobile interaction QA with no external fixture requests, overflow, or browser errors.
 ## In progress
-- The v0.16.0 local checkpoint is saved on this branch and ready at `http://127.0.0.1:4188/`; nothing was pushed or deployed.
+- None.
 ## Next up
-- Review a show, `/states/california/`, and `/review/test-show/`; push or deploy only after separate approval.
+- Build the protected server-side EspoCRM bridge with append-only evidence records and date revalidation.
+- Resume unresolved state-tax evidence and future junk-silver/safe/insurance guides.
 ## Open decisions
-- Do not push/deploy, change GSC, disavow links, or alter mail/DNS accounts before separate approval.
-- Do not add client-only Turnstile; secure activation requires a protected secret and server-side token verification.
-- Treat non-California tax summaries as research snapshots until each exact government source is re-checked.
+- Do not send the directory-expert follow-up, push/deploy, change GSC, disavow links, or alter mail/DNS accounts before separate approval.
+- The dashboard follow-up item still needs safe routing because the canonical write was blocked by main-branch protection.

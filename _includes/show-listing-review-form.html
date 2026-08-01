@@ -36,9 +36,10 @@
               <option value="">Choose one</option>
               <option value="confirm">Confirm details as an attendee or knowledgeable party</option>
               <option value="correction">Correct listing information</option>
-              <option value="organizerVerification">Request Organizer verified status</option>
+              <option value="organizerVerification">Ask us to verify my organizer or representative role</option>
               <option value="reviewRemoval">Request review or removal</option>
             </select>
+            <span class="listing-review-help">We independently review your role and evidence. Choosing this request does not verify the listing automatically.</span>
           </label>
           <label>Your relationship to this show
             <select name="relationship_to_show" required>
@@ -73,12 +74,24 @@
         </div>
       </div>
 
+      {% assign current_start_date = include.show.upcoming_dates | first | default: '' %}
+      {% assign current_end_date = include.show.upcoming_dates | last | default: '' %}
+      {% if current_end_date == current_start_date %}{% assign current_end_date = '' %}{% endif %}
       <div class="listing-review-row">
         <div class="listing-review-current"><span>Date</span><strong>{{ include.show.next_date }}</strong></div>
         <div class="listing-review-proposed">
-          <label for="review-show-date">Date or date range</label>
-          <input id="review-show-date" type="text" name="proposed_next_date" value="{{ include.show.next_date | escape }}" data-current-value="{{ include.show.next_date | escape }}" readonly required>
-          <label class="listing-review-confirm"><input type="checkbox" name="next_date_is_correct" value="yes" data-confirm-target="review-show-date" checked> Correct as shown</label>
+          <div class="listing-review-date-grid">
+            <label for="review-show-start-date">Start date
+              <input id="review-show-start-date" type="date" name="proposed_start_date" value="{{ current_start_date }}" data-current-value="{{ current_start_date }}" readonly>
+            </label>
+            <label for="review-show-end-date">End date <span>(optional)</span>
+              <input id="review-show-end-date" type="date" name="proposed_end_date" value="{{ current_end_date }}" data-current-value="{{ current_end_date }}" readonly>
+            </label>
+          </div>
+          <label class="listing-review-date-tbd"><input id="review-show-date-tbd" type="checkbox" name="proposed_date_tbd" value="yes" data-current-checked="{% if include.show.next_date == 'TBD' %}true{% else %}false{% endif %}" {% if include.show.next_date == 'TBD' %}checked{% endif %} disabled> Date TBD — no date has been announced</label>
+          <input type="hidden" name="proposed_next_date" value="{{ include.show.next_date | escape }}" data-current-value="{{ include.show.next_date | escape }}">
+          <label class="listing-review-confirm"><input id="review-show-date-confirm" type="checkbox" name="next_date_is_correct" value="yes" checked> Correct as shown</label>
+          <span class="listing-review-help">Use complete calendar dates. The form creates a four-digit-year display and keeps the ISO start/end dates for manual CRM review.</span>
         </div>
       </div>
 
@@ -175,7 +188,10 @@
       <button type="submit" class="listing-review-submit">Submit Listing Review</button>
     </form>
     <div id="listing-review-success" role="status" tabindex="-1">
-      Thank you — your listing review request was recorded for manual review.
+      <strong id="listing-review-success-title">Thank you — your listing review request was recorded for manual review.</strong>
+      <p id="listing-review-success-summary"></p>
+      <dl id="listing-review-test-result" hidden></dl>
+      <button id="listing-review-test-reset" type="button" hidden>Test another request</button>
     </div>
   </div>
 </details>
@@ -214,6 +230,77 @@
       if (checkbox.checked) { target.value = target.getAttribute('data-current-value') || ''; }
     }
   }
+
+  var dateConfirmation = document.getElementById('review-show-date-confirm');
+  var startDate = document.getElementById('review-show-start-date');
+  var endDate = document.getElementById('review-show-end-date');
+  var dateTbd = document.getElementById('review-show-date-tbd');
+  var normalizedDate = reviewForm.querySelector('[name="proposed_next_date"]');
+  function formatDateParts(value) {
+    var parts = value.split('-');
+    var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    return {
+      day: String(date.getDate()),
+      month: date.toLocaleDateString('en-US', { month: 'long' }),
+      year: String(date.getFullYear())
+    };
+  }
+  function formatPublicDate(startValue, endValue) {
+    if (!startValue) { return ''; }
+    var start = formatDateParts(startValue);
+    if (!endValue || endValue === startValue) { return start.month + ' ' + start.day + ', ' + start.year; }
+    var end = formatDateParts(endValue);
+    if (start.year === end.year && start.month === end.month) {
+      return start.month + ' ' + start.day + '-' + end.day + ', ' + start.year;
+    }
+    if (start.year === end.year) {
+      return start.month + ' ' + start.day + '-' + end.month + ' ' + end.day + ', ' + start.year;
+    }
+    return start.month + ' ' + start.day + ', ' + start.year + '-' + end.month + ' ' + end.day + ', ' + end.year;
+  }
+  function normalizeDateProposal() {
+    startDate.setCustomValidity('');
+    endDate.setCustomValidity('');
+    if (dateConfirmation.checked) {
+      normalizedDate.value = normalizedDate.getAttribute('data-current-value') || '';
+      return true;
+    }
+    if (dateTbd.checked) {
+      normalizedDate.value = 'Date TBD';
+      return true;
+    }
+    if (!startDate.value) {
+      startDate.setCustomValidity('Enter a complete start date or select Date TBD.');
+      return false;
+    }
+    if (endDate.value && endDate.value < startDate.value) {
+      endDate.setCustomValidity('The end date cannot be before the start date.');
+      return false;
+    }
+    normalizedDate.value = formatPublicDate(startDate.value, endDate.value);
+    return true;
+  }
+  function updateDateControls() {
+    var locked = dateConfirmation.checked;
+    if (locked) {
+      startDate.value = startDate.getAttribute('data-current-value') || '';
+      endDate.value = endDate.getAttribute('data-current-value') || '';
+      dateTbd.checked = dateTbd.getAttribute('data-current-checked') === 'true';
+    }
+    dateTbd.disabled = locked;
+    startDate.readOnly = locked || dateTbd.checked;
+    endDate.readOnly = locked || dateTbd.checked;
+    if (!locked && dateTbd.checked) {
+      startDate.value = '';
+      endDate.value = '';
+    }
+    normalizeDateProposal();
+  }
+  dateConfirmation.addEventListener('change', updateDateControls);
+  dateTbd.addEventListener('change', updateDateControls);
+  startDate.addEventListener('change', normalizeDateProposal);
+  endDate.addEventListener('change', normalizeDateProposal);
+  updateDateControls();
   for (var confirmationIndex = 0; confirmationIndex < confirmationBoxes.length; confirmationIndex++) {
     confirmationBoxes[confirmationIndex].addEventListener('change', function() { setFieldConfirmation(this); });
     setFieldConfirmation(confirmationBoxes[confirmationIndex]);
@@ -256,6 +343,7 @@
   reviewForm.addEventListener('submit', function(event) {
     event.preventDefault();
     updateRequestRequirements();
+    normalizeDateProposal();
     if (window.coinNormalizeFormUrls) { window.coinNormalizeFormUrls(reviewForm); }
     if (!reviewForm.reportValidity()) { return; }
 
@@ -283,19 +371,64 @@
     reviewForm.querySelector('[name="submittedAt"]').value = now;
     reviewForm.querySelector('[name="contactConsentTimestamp"]').value = now;
 
-    function showSuccess() {
+    function addTestResult(term, description) {
+      var result = document.getElementById('listing-review-test-result');
+      var termElement = document.createElement('dt');
+      var descriptionElement = document.createElement('dd');
+      termElement.textContent = term;
+      descriptionElement.textContent = description;
+      result.appendChild(termElement);
+      result.appendChild(descriptionElement);
+    }
+    function showSuccess(localOnly) {
       reviewForm.style.display = 'none';
       var success = document.getElementById('listing-review-success');
+      var title = document.getElementById('listing-review-success-title');
+      var summary = document.getElementById('listing-review-success-summary');
+      var result = document.getElementById('listing-review-test-result');
+      var reset = document.getElementById('listing-review-test-reset');
+      if (localOnly) {
+        title.textContent = 'Local test completed — nothing was sent or saved.';
+        summary.textContent = 'This preview did not contact Formspree or EspoCRM. Review the browser-only result below.';
+        result.textContent = '';
+        result.hidden = false;
+        reset.hidden = false;
+        addTestResult('Request', requestType.options[requestType.selectedIndex].text);
+        addTestResult('Relationship', relationshipField.options[relationshipField.selectedIndex].text);
+        addTestResult('Proposed date', normalizedDate.value);
+        var fieldLabels = {
+          show_name_is_correct: 'Show name', next_date_is_correct: 'Date', venue_is_correct: 'Venue',
+          street_address_is_correct: 'Street address', location_is_correct: 'City, state, ZIP',
+          frequency_is_correct: 'Frequency', organizer_is_correct: 'Organizer', website_is_correct: 'Website',
+          notes_are_correct: 'Hours and public notes'
+        };
+        var changed = [];
+        Object.keys(fieldLabels).forEach(function(name) {
+          var field = reviewForm.querySelector('[name="' + name + '"]');
+          if (field && !field.checked) { changed.push(fieldLabels[name]); }
+        });
+        addTestResult('Fields marked for change', changed.length ? changed.join(', ') : 'None');
+      }
       success.style.display = 'block';
-      success.focus();
+      success.focus({ preventScroll: true });
+      success.scrollIntoView({ block: 'center' });
     }
+    document.getElementById('listing-review-test-reset').onclick = function() {
+      reviewForm.reset();
+      for (var index = 0; index < confirmationBoxes.length; index++) { setFieldConfirmation(confirmationBoxes[index]); }
+      updateDateControls();
+      updateRequestRequirements();
+      reviewForm.style.display = '';
+      document.getElementById('listing-review-success').style.display = 'none';
+      reviewForm.querySelector('[name="request_type"]').focus();
+    };
     var localReviewMode = {% if include.review_fixture %}true{% else %}false{% endif %};
     if (localReviewMode) {
-      showSuccess();
+      showSuccess(true);
       return;
     }
     if (window.coinFormSpamCheck && !window.coinFormSpamCheck(reviewForm)) { return; }
-    window.coinSubmitForm(reviewForm).then(showSuccess);
+    window.coinSubmitForm(reviewForm).then(function() { showSuccess(false); });
   });
 })();
 </script>

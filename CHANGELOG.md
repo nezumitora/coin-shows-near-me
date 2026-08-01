@@ -1,5 +1,9 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Aug 1, 2026
+- v0.16.2: Replaced premature dealer-offer CTAs with junk-silver melt-value education, clarified organizer-role verification, standardized proposed dates with start/end and Date TBD controls, and added a visible browser-only fixture result summary.
+- v0.16.1: Corrected material state sales-tax errors from exact government sources, suppressed unchecked classifications behind a visible review-pending state, added source-condition labels and regression coverage, and shortened the draft follow-up email for the directory expert.
+
 ## Jul 31, 2026
 - v0.16.0: Reworked show sharing into a distinctive Collector Share Kit with honest ready-to-paste Instagram, TikTok, Snapchat, Whatnot, and YouTube actions; added state-page sales-tax summaries; corrected California's threshold wording and primary source; and queued primary-source tax audits plus automated monthly video/podcast packages.
 - v0.15.2: Added accessible show-page sharing with native device sharing, Facebook, X, email, and canonical copy-link controls, and disabled an unused theme search initializer that caused show-page console errors.

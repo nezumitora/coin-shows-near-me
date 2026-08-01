@@ -1,6 +1,6 @@
 # State sales tax data for coins and precious metals
-# Sources: state tax authority websites, APMEX, JM Bullion tax guides
-# Last researched: April 2026
+# Publication authority: exact state statutes, regulations, or tax-agency guidance only
+# Primary-source audit started: August 1, 2026
 # DISCLAIMER: This is for informational purposes only. Tax laws change.
 # Always verify with your state tax authority or a tax professional.
 
@@ -201,13 +201,16 @@
   abbrev: KY
   slug: kentucky
   sales_tax: "6%"
-  bullion_exempt: false
-  coins_exempt: false
-  threshold: "N/A"
-  notes: "Kentucky applies the full 6% sales tax to precious metals and coin purchases. No exemption currently exists."
-  effective_date: "N/A"
-  tax_authority_url: "https://revenue.ky.gov"
-  details: "Kentucky does not exempt precious metals bullion or coins from its 6% sales tax. All purchases of gold, silver, platinum, palladium, and numismatic coins are subject to the full state sales tax. There have been legislative efforts to create an exemption, but none have passed as of 2026."
+  bullion_exempt: true
+  coins_exempt: true
+  bullion_label: "Qualifying bullion exempt"
+  coins_label: "Qualifying collectible currency exempt"
+  threshold: "$0"
+  notes: "Kentucky exempts qualifying bullion and collectible currency. The Department says the treatment applies for periods on or after August 1, 2024."
+  effective_date: "August 1, 2024"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://revenue.ky.gov/News/Pages/Instructions-on-Refunds-for-Sales-and-Use-Tax-Paid-for-Purchases-of-Bullion-and-Collectible-Currency.aspx"
+  details: "Kentucky Department of Revenue guidance confirms that qualifying purchases of bullion and collectible currency are exempt for periods on or after August 1, 2024. The exemption should not be extended to jewelry, artwork, ordinary merchandise, or products outside Kentucky's definitions. Confirm product eligibility and documentation with the Department or a qualified tax professional."
 
 - state: Louisiana
   abbrev: LA
@@ -239,11 +242,15 @@
   sales_tax: "6%"
   bullion_exempt: true
   coins_exempt: true
-  threshold: "$0"
-  notes: "Precious metals bullion and coins are exempt from sales tax."
-  effective_date: "Ongoing"
-  tax_authority_url: "https://www.marylandtaxes.gov"
-  details: "Maryland exempts the sale of precious metals bullion (gold, silver, platinum, palladium) and coins from the 6% state sales tax. There is no minimum purchase threshold. The exemption applies to bullion in bar, ingot, or coin form sold based on metal content value."
+  bullion_label: "Qualifying bullion exempt above threshold"
+  coins_label: "Qualifying coins exempt above threshold"
+  threshold: "Over $1,000"
+  threshold_label: "More than $1,000 in a qualifying sale"
+  notes: "Beginning July 1, 2026, qualifying precious-metal bullion or coin sales over $1,000 are exempt. Jewelry and precious-metal artwork do not qualify."
+  effective_date: "July 1, 2026"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=11-214.1&enactments=false"
+  details: "Maryland exempts a qualifying sale of precious-metal bullion or coins when the sales price is more than $1,000. The statewide treatment began July 1, 2026 after the former location restriction was removed. Jewelry and precious-metal artwork remain outside the exemption. Verify the current statute and product definition before relying on it."
 
 - state: Massachusetts
   abbrev: MA
@@ -251,11 +258,15 @@
   sales_tax: "6.25%"
   bullion_exempt: true
   coins_exempt: true
-  threshold: "$1,000"
-  notes: "Exempt when total sale exceeds $1,000. Sales of $1,000 or less are taxed."
-  effective_date: "Ongoing"
-  tax_authority_url: "https://www.mass.gov/dor"
-  details: "Massachusetts exempts the sale of precious metals, coins, and bullion from the 6.25% sales tax when the total transaction exceeds $1,000. Sales of $1,000 or less are fully taxable. The threshold applies per transaction. Numismatic coins are included in the exemption when they exceed the threshold."
+  bullion_label: "Qualifying gold or silver products exempt at threshold"
+  coins_label: "Qualifying rare or precious-metal coins exempt at threshold"
+  threshold: "$1,000 or more"
+  threshold_label: "$1,000 or more in a qualifying sale"
+  notes: "Qualifying sales of $1,000 or more may be exempt. Covered categories include rare numismatic coins and specified gold or silver bullion, coins, or tender."
+  effective_date: "Current law"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter64H/Section6"
+  details: "Massachusetts exempts sales of $1,000 or more of rare coins of numismatic value, gold or silver bullion or coins, and qualifying gold or silver tender traded according to precious-metal value. Fabricated precious metal processed for industrial, professional, or artistic uses is excluded. Platinum, palladium, paper currency, and mixed-invoice treatment are not established by this provision."
 
 - state: Michigan
   abbrev: MI
@@ -274,12 +285,15 @@
   slug: minnesota
   sales_tax: "6.875%"
   bullion_exempt: true
-  coins_exempt: true
+  coins_exempt: false
+  bullion_label: "Only qualifying marked bars or rounds exempt"
+  coins_label: "Coins not covered by the bullion exemption"
   threshold: "$0"
-  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
-  effective_date: "2023"
-  tax_authority_url: "https://www.revenue.state.mn.us"
-  details: "Minnesota enacted a sales tax exemption for precious metals bullion and coins in 2023. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. Both state and local sales taxes are waived. Prior to 2023, Minnesota was one of the higher-taxed states for precious metals purchases."
+  notes: "Only marked bars or rounds that are at least 99.9% gold, silver, platinum, or palladium qualify. Coins and currency are not included in this bullion definition."
+  effective_date: "July 1, 2017"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://www.revisor.mn.gov/statutes/cite/297A.67"
+  details: "Minnesota's exemption is limited to bars or rounds that are at least 99.9% gold, silver, platinum, or palladium by weight and are marked with weight, purity, and content. Jewelry, works of art, and scrap metal are expressly excluded. The provision does not establish an exemption for bullion coins, numismatic coins, paper currency, or legal-tender coins."
 
 - state: Mississippi
   abbrev: MS
@@ -333,13 +347,16 @@
   abbrev: NV
   slug: nevada
   sales_tax: "6.85%"
-  bullion_exempt: true
-  coins_exempt: true
-  threshold: "$0"
-  notes: "Precious metals bullion and coins are exempt from sales tax."
-  effective_date: "Ongoing"
-  tax_authority_url: "https://tax.nv.gov"
-  details: "Nevada exempts precious metals bullion and coins from the state sales tax. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+  bullion_exempt: false
+  coins_exempt: false
+  bullion_label: "Investment bullion generally taxed"
+  coins_label: "Premium collector coins generally taxed"
+  threshold: "N/A"
+  notes: "Nevada generally taxes bullion bought for investment and collector coins sold at a premium. Genuine medium-of-exchange transactions are treated differently."
+  effective_date: "Current regulation"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://www.leg.state.nv.us/NAC/NAC-372.html#NAC372Sec170"
+  details: "Nevada applies sales tax to bullion sold for purposes other than use as a medium of exchange. Coins are deemed sold for another purpose when their sales price exceeds face value by 50%, and obsolete or non-current coins are generally treated as collectibles. This is not a broad investment-bullion exemption."
 
 - state: New Hampshire
   abbrev: NH
@@ -359,11 +376,15 @@
   sales_tax: "6.625%"
   bullion_exempt: true
   coins_exempt: true
-  threshold: "$0"
-  notes: "Precious metals bullion and coins are exempt from sales tax. Numismatic items may be taxed."
-  effective_date: "Ongoing"
-  tax_authority_url: "https://www.nj.gov/treasury/taxation"
-  details: "New Jersey exempts precious metals bullion (gold, silver, platinum, palladium) and investment coins from the 6.625% sales tax. The exemption applies to items sold based on precious metal content. Numismatic coins sold primarily for their collectible value rather than metal content may be subject to sales tax. There is no minimum purchase threshold for the bullion exemption."
+  bullion_label: "Qualifying investment bullion exempt"
+  coins_label: "Qualifying coins exempt only at $1,000 each"
+  threshold: "Category-specific"
+  threshold_label: "No minimum for qualifying bullion; each qualifying investment coin must be worth at least $1,000"
+  notes: "Qualifying investment bullion has no purchase minimum. Each qualifying numismatic investment coin must have a fair-market value of at least $1,000."
+  effective_date: "January 1, 2025"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://www.nj.gov/treasury/taxation/businesses/salestax/investbullion-coins.shtml"
+  details: "New Jersey exempts qualifying investment metal bullion without a purchase minimum. A qualifying investment coin may contain precious or non-precious metal, but each individual numismatic coin must have a fair-market value of at least $1,000. Jewelry, coin art, commemorative medallions, and fabricated or industrial precious-metal products are excluded."
 
 - state: New Mexico
   abbrev: NM
@@ -383,11 +404,15 @@
   sales_tax: "4%"
   bullion_exempt: true
   coins_exempt: true
-  threshold: "$1,000"
-  notes: "Exempt when total sale exceeds $1,000. Sales of $1,000 or less are taxed at the full state + local rate."
-  effective_date: "Ongoing"
-  tax_authority_url: "https://www.tax.ny.gov"
-  details: "New York exempts the sale of precious metals bullion and coins from sales tax when the total transaction exceeds $1,000. Sales of $1,000 or less are subject to the full 4% state tax plus local taxes (which can total 8-8.875% in New York City). The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. The $1,000 threshold applies per invoice/transaction."
+  bullion_label: "Qualifying precious-metal bullion conditionally exempt"
+  coins_label: "Coins qualify only under the bullion tests"
+  threshold: "Over $1,000"
+  threshold_label: "More than $1,000, plus statutory form and valuation tests"
+  notes: "A qualifying sale must exceed $1,000, remain in the purchased form, and satisfy statutory face-value or metal-value limits."
+  effective_date: "Current law"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://www.nysenate.gov/legislation/laws/TAX/1115"
+  details: "New York's exemption is conditional, not a blanket coin exemption. The receipt must exceed $1,000, the purchaser must retain the bullion in the same form, and the price must remain within statutory valuation limits: 140% above face value for silver coins, 120% for gold coins weighing one-quarter ounce or less, and 115% above metal value for other qualifying bullion."
 
 - state: North Carolina
   abbrev: NC
@@ -479,11 +504,14 @@
   sales_tax: "6%"
   bullion_exempt: true
   coins_exempt: true
-  threshold: "$50"
-  notes: "Exempt when total sale exceeds $50. Very low threshold — most purchases qualify."
-  effective_date: "Ongoing"
-  tax_authority_url: "https://dor.sc.gov"
-  details: "South Carolina exempts the sale of precious metals and coins from the 6% state sales tax when the transaction exceeds $50. This very low threshold means virtually all bullion and coin purchases qualify for the exemption. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form."
+  bullion_label: "Gold, silver, or platinum bullion exempt"
+  coins_label: "Legal-tender coins and currency exempt"
+  threshold: "$0"
+  notes: "Gold, silver, or platinum bullion and legal-tender coins or currency are exempt. The statute does not impose the previously listed $50 threshold."
+  effective_date: "Current law"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://www.scstatehouse.gov/code/t12c036.php#12-36-2120"
+  details: "South Carolina exempts gold, silver, or platinum bullion and coins or currency that are legal tender. The confirmed statute contains no $50 transaction threshold. Palladium bullion and generic collectible coins that are not legal tender are not established by this exemption."
 
 - state: South Dakota
   abbrev: SD
@@ -549,25 +577,31 @@
   abbrev: VA
   slug: virginia
   sales_tax: "5.3%"
-  bullion_exempt: true
-  coins_exempt: true
-  threshold: "$0"
-  notes: "Precious metals bullion and coins are exempt from sales tax."
-  effective_date: "2022"
-  tax_authority_url: "https://www.tax.virginia.gov"
-  details: "Virginia enacted a sales tax exemption for precious metals bullion and coins in 2022. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold. Both state and local sales taxes are waived."
+  bullion_exempt: false
+  coins_exempt: false
+  bullion_label: "Taxable after exemption expired"
+  coins_label: "Taxable after exemption expired"
+  threshold: "N/A"
+  notes: "Virginia's bullion and legal-tender coin exemption expired June 30, 2025. Ordinary retail sales are now taxed at the applicable locality's general rate."
+  effective_date: "Taxable beginning July 1, 2025"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://law.lis.virginia.gov/vacode/title58.1/chapter6/section58.1-609.1/"
+  details: "Virginia's former exemption for gold, silver, or platinum bullion and legal-tender coins was effective only through June 30, 2025. Beginning July 1, 2025, ordinary retail sales are subject to the applicable combined state and local rate unless another transaction-specific exemption applies."
 
 - state: Washington
   abbrev: WA
   slug: washington
   sales_tax: "6.5%"
-  bullion_exempt: true
-  coins_exempt: true
-  threshold: "$0"
-  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
-  effective_date: "Ongoing"
-  tax_authority_url: "https://dor.wa.gov"
-  details: "Washington exempts the sale of precious metals bullion and coins from the 6.5% state sales tax and all local sales taxes. The exemption covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+  bullion_exempt: false
+  coins_exempt: false
+  bullion_label: "Taxable after exclusion repealed"
+  coins_label: "Monetized bullion taxable after repeal"
+  threshold: "N/A"
+  notes: "Washington repealed its precious-metal and monetized-bullion exclusion effective January 1, 2026. State and destination-based local tax now apply."
+  effective_date: "Taxable beginning January 1, 2026"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "http://apps.leg.wa.gov/rcw/default.aspx?cite=82.04.062"
+  details: "Washington's former exclusion for precious-metal bullion and monetized bullion was repealed effective January 1, 2026. Ordinary retail sales are now subject to the 6.5% state rate plus destination-based local sales tax unless another transaction-specific exemption applies."
 
 - state: West Virginia
   abbrev: WV
@@ -588,10 +622,13 @@
   bullion_exempt: true
   coins_exempt: true
   threshold: "$0"
-  notes: "Precious metals bullion and coins are exempt from state and local sales tax."
-  effective_date: "2018"
-  tax_authority_url: "https://www.revenue.wi.gov"
-  details: "Wisconsin exempts precious metals bullion and coins from the 5% state sales tax and all county sales taxes. The exemption was enacted in 2018 and covers gold, silver, platinum, and palladium in bar, ingot, or coin form. There is no minimum purchase threshold."
+  bullion_label: "Qualifying precious-metal bullion exempt"
+  coins_label: "Only coins meeting the bullion definition exempt"
+  notes: "Qualifying coins, bars, rounds, or sheets containing at least 35% of specified metals are exempt. This is not a blanket exemption for every coin or currency item."
+  effective_date: "March 23, 2024"
+  source_checked: "August 1, 2026"
+  tax_authority_url: "https://docs.legis.wisconsin.gov/statutes/statutes/77/iii/54/65"
+  details: "Wisconsin exempts qualifying coins, bars, rounds, or sheets containing at least 35% gold, silver, copper, platinum, or palladium and either marked with weight, purity, and content or government-minted on that basis. Jewelry, artwork, scrap, and electronics are excluded. Ordinary paper currency and coins that fail the bullion definition are not covered."
 
 - state: Wyoming
   abbrev: WY

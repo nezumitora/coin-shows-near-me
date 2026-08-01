@@ -13,7 +13,11 @@ layout: default
 <section class="state-tax-brief" aria-labelledby="state-tax-brief-title">
   <p class="state-tax-brief-kicker">Know before you buy</p>
   <h2 id="state-tax-brief-title">Coin and bullion sales tax in {{ page.state_name }}</h2>
+  {% if state_tax.source_checked %}
   <p>{{ state_tax.notes }}</p>
+  {% else %}
+  <p>Our exact primary-source review for {{ page.state_name }} is still in progress, so we are not displaying a settled exempt-or-taxed classification yet.</p>
+  {% endif %}
   <p><a href="{{ site.baseurl }}/tools/sales-tax-guide/{{ state_tax.slug }}/">Read the {{ page.state_name }} definitions, thresholds, source, and disclaimer &rarr;</a></p>
   <p class="state-tax-brief-note">General information only. Product definitions, local taxes, and exemptions can change; verify the linked state authority before a transaction.</p>
 </section>

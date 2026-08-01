@@ -8,14 +8,17 @@ class HomepageTrustTest < Minitest::Test
   ROOT = File.expand_path('..', __dir__)
   HOMEPAGE = File.read(File.join(ROOT, '_layouts/homepage.html'))
   SHOW_LAYOUT = File.read(File.join(ROOT, '_layouts/show.html'))
+  CITY_LAYOUT = File.read(File.join(ROOT, '_layouts/city.html'))
   STATE_LAYOUT = File.read(File.join(ROOT, '_layouts/state.html'))
   STATE_TAX_LAYOUT = File.read(File.join(ROOT, '_layouts/state-tax.html'))
+  SALES_TAX_INDEX = File.read(File.join(ROOT, 'tools/sales-tax-guide/index.md'))
   SUBMIT_SHOW = File.read(File.join(ROOT, 'submit-show.md'))
   CONTACT_PAGE = File.read(File.join(ROOT, 'contact/index.md'))
   DEALERS_PAGE = File.read(File.join(ROOT, 'dealers/index.md'))
   HEAD_CUSTOM = File.read(File.join(ROOT, '_includes/head_custom.html'))
   PORTAL_PAGE = File.read(File.join(ROOT, 'portal/index.md'))
   FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
+  FOOTER_CUSTOM = File.read(File.join(ROOT, '_includes/footer_custom.html'))
   LISTING_REVIEW_FORM = File.read(File.join(ROOT, '_includes/show-listing-review-form.html'))
   SHOW_SHARE = File.read(File.join(ROOT, '_includes/show-share.html'))
   PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
@@ -87,6 +90,12 @@ class HomepageTrustTest < Minitest::Test
     assert_includes HOMEPAGE, 'id="state-filter"'
     assert_includes HOMEPAGE, 'data-upcoming-dates='
     refute CONFIG.fetch('search_enabled'), 'unused theme search must stay disabled; homepage search is custom'
+  end
+
+  def test_internal_working_documents_are_excluded_from_public_builds
+    required_exclusions = %w[DESIGN.md SESSION-STATE.md docs/ inbox/ prompts/ todo/]
+
+    assert_equal [], required_exclusions - CONFIG.fetch('exclude')
   end
 
   def test_homepage_reminder_interest_collects_preferences_without_phone_or_sms
@@ -228,6 +237,23 @@ class HomepageTrustTest < Minitest::Test
     assert_includes LISTING_REVIEW_FORM, 'relationshipField.setCustomValidity'
     assert_includes LISTING_REVIEW_FORM, 'name="proposed_street_address"'
     assert_includes LISTING_REVIEW_FORM, 'name="proposed_notes"'
+    assert_includes LISTING_REVIEW_FORM, 'Ask us to verify my organizer or representative role'
+    assert_includes LISTING_REVIEW_FORM, 'Choosing this request does not verify the listing automatically.'
+    assert_includes LISTING_REVIEW_FORM, 'type="date" name="proposed_start_date"'
+    assert_includes LISTING_REVIEW_FORM, 'type="date" name="proposed_end_date"'
+    assert_includes LISTING_REVIEW_FORM, 'name="proposed_date_tbd"'
+    assert_includes LISTING_REVIEW_FORM, 'name="proposed_next_date"'
+    assert_includes LISTING_REVIEW_FORM, 'The end date cannot be before the start date.'
+  end
+
+  def test_seller_ctas_are_educational_until_dealer_offers_exist
+    [SHOW_LAYOUT, CITY_LAYOUT].each do |layout|
+      assert_includes layout, "Know Your Junk Silver's Melt Value"
+      assert_includes layout, 'This site does not request dealer offers yet.'
+      assert_includes layout, 'Calculate Junk Silver Melt Value'
+      refute_includes layout, 'Get Dealer Quotes Before the Show'
+      refute_includes layout, 'Get Offers on Your Coins'
+    end
   end
 
   def test_requested_featured_show_addresses_are_complete_and_verified
@@ -254,6 +280,9 @@ class HomepageTrustTest < Minitest::Test
     assert_includes SHOW_LAYOUT, 'var localReviewMode = {% if page.review_fixture %}true{% else %}false{% endif %};'
     assert_includes LISTING_REVIEW_FORM, 'var localReviewMode = {% if include.review_fixture %}true{% else %}false{% endif %};'
     assert_includes SHOW_LAYOUT, 'Submissions on this unpublished fixture stay in the browser'
+    assert_includes LISTING_REVIEW_FORM, 'Local test completed — nothing was sent or saved.'
+    assert_includes LISTING_REVIEW_FORM, 'This preview did not contact Formspree or EspoCRM.'
+    assert_includes LISTING_REVIEW_FORM, 'Fields marked for change'
   end
 
   def test_listing_removal_is_manual_and_privacy_documented
@@ -263,8 +292,43 @@ class HomepageTrustTest < Minitest::Test
     assert_includes PRIVACY_POLICY, 'They are not automatically removed merely because a request is submitted.'
   end
 
+  def test_unchecked_tax_claims_are_suppressed_and_filterable
+    assert_equal 51, STATE_TAX.length
+    assert_includes STATE_TAX_LAYOUT, 'Official confirmation pending'
+    assert_includes STATE_LAYOUT, 'exact primary-source review'
+    assert_includes SALES_TAX_INDEX, 'data-filter="pending"'
+    assert_includes SALES_TAX_INDEX, '{% unless tax.source_checked %}pending'
+
+    alabama = STATE_TAX.find { |tax| tax.fetch('abbrev') == 'AL' }
+    refute alabama.key?('source_checked')
+  end
+
+  def test_primary_source_tax_corrections_are_recorded
+    kentucky = STATE_TAX.find { |tax| tax.fetch('abbrev') == 'KY' }
+    minnesota = STATE_TAX.find { |tax| tax.fetch('abbrev') == 'MN' }
+    nevada = STATE_TAX.find { |tax| tax.fetch('abbrev') == 'NV' }
+    new_jersey = STATE_TAX.find { |tax| tax.fetch('abbrev') == 'NJ' }
+    virginia = STATE_TAX.find { |tax| tax.fetch('abbrev') == 'VA' }
+    washington = STATE_TAX.find { |tax| tax.fetch('abbrev') == 'WA' }
+    wisconsin = STATE_TAX.find { |tax| tax.fetch('abbrev') == 'WI' }
+
+    assert kentucky.fetch('bullion_exempt')
+    assert_equal 'August 1, 2024', kentucky.fetch('effective_date')
+    refute minnesota.fetch('coins_exempt')
+    refute nevada.fetch('bullion_exempt')
+    assert_equal 'Category-specific', new_jersey.fetch('threshold')
+    refute virginia.fetch('bullion_exempt')
+    refute washington.fetch('bullion_exempt')
+    assert_equal 'March 23, 2024', wisconsin.fetch('effective_date')
+
+    [kentucky, minnesota, nevada, new_jersey, virginia, washington, wisconsin].each do |tax|
+      assert_equal 'August 1, 2026', tax.fetch('source_checked')
+      assert_match(%r{\Ahttps?://}, tax.fetch('tax_authority_url'))
+    end
+  end
+
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.16.0</div>'
-    assert_includes File.read(File.join(ROOT, '_includes/nav_footer_custom.html')), 'v0.16.0'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.16.2</div>'
+    assert_includes FOOTER_CUSTOM, '<div class="page-footer-version">v0.16.2</div>'
   end
 end
