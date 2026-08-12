@@ -34,7 +34,7 @@ Have a question, found an error, or want to submit a show? We'd love to hear fro
 
 <div class="notify-section" style="margin:1rem 0 1.25rem;padding:1.25rem;">
 <div class="contact-form-brand">
-<img src="/assets/images/coinshows-shield-transparent-20260625.png" alt="Coin Shows Near Me shield">
+<img src="/assets/images/coinshows-shield-transparent-512w-v1.webp" width="512" height="512" alt="Coin Shows Near Me shield">
 <div class="contact-form-brand-copy">
 <h3>Send Us a Message</h3>
 <p class="contact-form-brand-note">Send details once and we’ll route your note to the right place.</p>

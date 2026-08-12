@@ -74,7 +74,7 @@
   width: 138px;
   height: 138px;
   margin: 0 auto 0.35rem;
-  background-image: url("/assets/images/coinshows-shield-transparent-20260625.png");
+  background-image: url("/assets/images/coinshows-shield-transparent-512w-v1.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -723,6 +723,18 @@ body.public-page .public-hero {
   box-shadow: 0 14px 34px rgba(14, 35, 56, 0.14);
   margin: 0 0 1.75rem;
 }
+body.public-page .public-hero::after {
+  background: url("/assets/images/coinshows-buffalo-transparent-960w-v1.webp") center / contain no-repeat;
+  content: "";
+  height: 170px;
+  opacity: 0.72;
+  pointer-events: none;
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 238px;
+}
 body.public-page .public-hero-inner {
   position: relative;
   z-index: 1;
@@ -731,18 +743,6 @@ body.public-page .public-hero-inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-body.public-page .public-hero-logo {
-  position: absolute;
-  top: 50%;
-  right: 1.25rem;
-  width: 238px;
-  height: 170px;
-  object-fit: contain;
-  object-position: center;
-  opacity: 0.72;
-  transform: translateY(-50%);
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.26));
 }
 body.public-page .public-hero h1 {
   color: #fff !important;
@@ -1659,7 +1659,7 @@ body.public-page #listing-review-test-reset {
     min-height: 190px;
     padding: 1.2rem 9.8rem 1.45rem 1.25rem;
   }
-  body.public-page .public-hero-logo {
+  body.public-page .public-hero::after {
     right: 0.55rem;
     width: 142px;
     height: 108px;
@@ -1699,7 +1699,7 @@ body.public-page #listing-review-test-reset {
     min-height: 0;
     padding: 1rem 1rem 1.15rem !important;
   }
-  body.public-page .public-hero-logo {
+  body.public-page .public-hero::after {
     display: none;
   }
   body.public-page .main-content main > *:not(.breadcrumb-nav):not(.breadcrumbs):not(h1) {

@@ -80,4 +80,17 @@ class SeoMetadataTest < Minitest::Test
     assert_equal 1254, image.fetch('height')
     refute_empty image.fetch('alt')
   end
+
+  def test_oversized_brand_images_are_not_referenced_by_pages_or_layouts
+    public_sources = Dir.glob(File.join(ROOT, '**', '*.{html,md,yml}')).select { |path| File.file?(path) }
+    references = public_sources.to_h { |path| [path, File.read(path)] }
+
+    references.each do |path, content|
+      refute_includes content, 'coinshows-buffalo-head-front-transparent-gold-navy.png', path
+      refute_includes content, 'coinshows-shield-transparent-20260625.png', path
+    end
+
+    assert_includes HEAD_CUSTOM, 'public-hero::after'
+    refute_includes File.read(File.join(ROOT, '_layouts/default.html')), 'public-hero-logo'
+  end
 end
