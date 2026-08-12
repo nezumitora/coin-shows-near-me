@@ -45,6 +45,21 @@ class RedirectAndIndexingTest < Minitest::Test
     refute_includes widget, 'show.website_url'
   end
 
+  def test_dormant_portal_and_embed_generator_stay_published_but_are_not_indexed
+    portal = File.read(File.join(ROOT, 'portal/index.md'))
+    embed_generator = File.read(File.join(ROOT, 'embed-generator.html'))
+    head = File.read(File.join(ROOT, '_includes/head_custom.html'))
+
+    assert_includes portal, 'permalink: /portal/'
+    assert_includes portal, 'sitemap: false'
+    assert_includes portal, 'robots: noindex,follow'
+    assert_includes head, '<meta name="robots" content="{{ page.robots }}">'
+
+    assert_includes embed_generator, 'permalink: /embed-generator.html'
+    assert_includes embed_generator, 'sitemap: false'
+    assert_includes embed_generator, '<meta name="robots" content="noindex,follow">'
+  end
+
   def test_tucson_record_no_longer_uses_the_malformed_city
     shows = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
     tucson_expo = shows.find { |show| show.fetch('id') == 'tucson-coin-and-currency-expo' }

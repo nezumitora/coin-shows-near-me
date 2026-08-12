@@ -8,6 +8,9 @@
 
 <meta name="google-site-verification" content="ZW60JDUpZFD9rhZv8KgiklQ65RSr5jyyxku3686lHbo">
 <meta name="google-site-verification" content="DqU8VGv1svEy5GVzQoi1vn1My7ubNJgeHdBQfokkNbk">
+{% if page.robots %}
+<meta name="robots" content="{{ page.robots }}">
+{% endif %}
 {% include seo-meta.html %}
 
 {% include form_capture_bridge.html %}
