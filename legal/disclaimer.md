@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Disclaimer"
-seo_title: "Disclaimer | Coin Show Near Me"
-seo_description: "Important disclaimers regarding the use of Coin Show Near Me, including transaction liability, appraisal accuracy, and event listing accuracy."
+description: "Important disclaimers regarding the use of Coin Show Near Me, including transaction liability, appraisal accuracy, and event listing accuracy."
 permalink: /legal/disclaimer/
 nav_exclude: true
 breadcrumb_parent: "Legal"

@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in California — 2026-2027 Schedule"
-seo_title: "Coin Shows in California — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 22 coin shows in California. Complete directory with dates, venues, and details for California coin shows, expos, and numismatic events."
+title: "California Coin Shows"
+heading: "Coin Shows in California — 2026-2027 Schedule"
+description: "Browse 22 coin shows in California with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/california/
 state_abbrev: "CA"
 state_name: "California"

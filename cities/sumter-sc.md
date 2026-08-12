@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Sumter, South Carolina — 2026-2027"
-seo_title: "Coin Shows in Sumter, South Carolina — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Sumter, South Carolina. Dates, venues, and details for upcoming coin shows and numismatic events in Sumter."
+title: "Sumter, SC Coin Shows"
+heading: "Coin Shows in Sumter, South Carolina — 2026-2027"
+description: "Find 1 coin show in Sumter, South Carolina. Compare dates, venues, and verification details before you travel."
 permalink: /cities/sumter-sc/
 city_slug: "sumter-sc"
 city_name: "Sumter"

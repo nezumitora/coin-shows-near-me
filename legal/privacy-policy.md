@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Privacy Policy"
-seo_title: "Privacy Policy | Coin Show Near Me"
-seo_description: "Privacy Policy for Coin Show Near Me — how we collect, use, and protect your personal information."
+description: "Privacy Policy for Coin Show Near Me — how we collect, use, and protect your personal information."
 permalink: /legal/privacy-policy/
 nav_exclude: true
 breadcrumb_parent: "Legal"

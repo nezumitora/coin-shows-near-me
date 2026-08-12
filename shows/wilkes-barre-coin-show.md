@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Wilkes-Barre Coin Show — Pittston, Pennsylvania Coin Show"
-seo_title: "Wilkes-Barre Coin Show — Pittston, Pennsylvania | Coin Show Near Me"
-seo_description: "Wilkes-Barre Coin Show in Pittston, Pennsylvania. Annual coin show at St. Joseph's Oblates, 1880 Rt. 315, Pittston, PA 18640. Get dates, venue details, and more."
+title: "Wilkes-Barre Coin Show"
+heading: "Wilkes-Barre Coin Show — Pittston, Pennsylvania Coin Show"
+description: "Wilkes-Barre Coin Show in Pittston, Pennsylvania. View dates, venue details, and listing verification before you travel."
 permalink: /shows/wilkes-barre-coin-show/
 show_id: "wilkes-barre-coin-show"
 breadcrumb_parent: "Pennsylvania"

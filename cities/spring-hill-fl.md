@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Spring Hill, Florida — 2026-2027"
-seo_title: "Coin Shows in Spring Hill, Florida — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Spring Hill, Florida. Dates, venues, and details for upcoming coin shows and numismatic events in Spring Hill."
+title: "Spring Hill, FL Coin Shows"
+heading: "Coin Shows in Spring Hill, Florida — 2026-2027"
+description: "Find 1 coin show in Spring Hill, Florida. Compare dates, venues, and verification details before you travel."
 permalink: /cities/spring-hill-fl/
 city_slug: "spring-hill-fl"
 city_name: "Spring Hill"

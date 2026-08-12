@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Orange Collectibles Show — Orange, Connecticut Coin Show"
-seo_title: "Orange Collectibles Show — Orange, Connecticut | Coin Show Near Me"
-seo_description: "Orange Collectibles Show in Orange, Connecticut. Monthly (2nd Sunday) coin show at American Legion Post 127. Get dates, venue details, and more."
+title: "Orange Collectibles Show"
+heading: "Orange Collectibles Show — Orange, Connecticut Coin Show"
+description: "Orange Collectibles Show in Orange, Connecticut. View dates, venue details, and listing verification before you travel."
 permalink: /shows/orange-collectibles-show/
 show_id: "orange-collectibles-show"
 breadcrumb_parent: "Connecticut"

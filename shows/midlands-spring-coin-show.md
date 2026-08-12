@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Midlands Spring Coin Show — Columbia, South Carolina Coin Show"
-seo_title: "Midlands Spring Coin Show — Columbia, South Carolina | Coin Show Near Me"
-seo_description: "Midlands Spring Coin Show in Columbia, South Carolina. Recurring coin show at . Get dates, venue details, and more."
+title: "Midlands Spring Coin Show"
+heading: "Midlands Spring Coin Show — Columbia, South Carolina Coin Show"
+description: "Midlands Spring Coin Show in Columbia, South Carolina. View dates, venue details, and listing verification before you travel."
 permalink: /shows/midlands-spring-coin-show/
 show_id: "midlands-spring-coin-show"
 breadcrumb_parent: "South Carolina"

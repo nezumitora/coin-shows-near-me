@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Central Alabama Coin Show — Trussville, Alabama Coin Show"
-seo_title: "Central Alabama Coin Show — Trussville, Alabama | Coin Show Near Me"
-seo_description: "Central Alabama Coin Show in Trussville, Alabama. Semiannual (Spring & Fall) coin show at Trussville Civic Center. Get dates, venue details, and more."
+title: "Central Alabama Coin Show"
+heading: "Central Alabama Coin Show — Trussville, Alabama Coin Show"
+description: "Central Alabama Coin Show in Trussville, Alabama. View dates, venue details, and listing verification before you travel."
 permalink: /shows/central-alabama-coin-show/
 show_id: "central-alabama-coin-show"
 breadcrumb_parent: "Alabama"

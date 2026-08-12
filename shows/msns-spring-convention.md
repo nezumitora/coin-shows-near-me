@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "MSNS Spring Convention — Waterford Township, Michigan Coin Show"
-seo_title: "MSNS Spring Convention — Waterford Township, Michigan | Coin Show Near Me"
-seo_description: "MSNS Spring Convention in Waterford Township, Michigan. Annual (Spring) coin show at Oakland Expo Center. Get dates, venue details, and more."
+title: "MSNS Spring Convention"
+heading: "MSNS Spring Convention — Waterford Township, Michigan Coin Show"
+description: "MSNS Spring Convention in Waterford Township, Michigan. View dates, venue details, and listing verification before you travel."
 permalink: /shows/msns-spring-convention/
 show_id: "msns-spring-convention"
 breadcrumb_parent: "Michigan"

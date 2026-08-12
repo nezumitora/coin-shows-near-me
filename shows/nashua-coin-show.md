@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Nashua Coin Show — Hollis, New Hampshire Coin Show"
-seo_title: "Nashua Coin Show — Hollis, New Hampshire | Coin Show Near Me"
-seo_description: "Nashua Coin Show in Hollis, New Hampshire. Monthly (3rd Sunday) coin show at Alpine Grove Events Center, 9 S. Depot St, Hollis, NH. Get dates, venue details, and more."
+title: "Nashua Coin Show"
+heading: "Nashua Coin Show — Hollis, New Hampshire Coin Show"
+description: "Nashua Coin Show in Hollis, New Hampshire. View dates, venue details, and listing verification before you travel."
 permalink: /shows/nashua-coin-show/
 show_id: "nashua-coin-show"
 breadcrumb_parent: "New Hampshire"

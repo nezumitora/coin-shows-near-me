@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Denver Coin Expo — Denver, Colorado Coin Show"
-seo_title: "Denver Coin Expo — Denver, Colorado | Coin Show Near Me"
-seo_description: "Denver Coin Expo in Denver, Colorado. Semiannual (May & October) coin show at National Western Complex. Get dates, venue details, and more."
+title: "Denver Coin Expo"
+heading: "Denver Coin Expo — Denver, Colorado Coin Show"
+description: "Denver Coin Expo in Denver, Colorado. View dates, venue details, and listing verification before you travel."
 permalink: /shows/denver-coin-expo/
 show_id: "denver-coin-expo"
 breadcrumb_parent: "Colorado"

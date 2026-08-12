@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Rhode Island Sales Tax on Coins & Precious Metals"
-seo_title: "Rhode Island Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Rhode Island? Learn about Rhode Island sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Rhode Island Coin & Bullion Tax"
+heading: "Rhode Island Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Rhode Island? Learn about Rhode Island sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/rhode-island/
 nav_exclude: true
 state_abbrev: "RI"

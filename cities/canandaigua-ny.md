@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Canandaigua, New York — 2026-2027"
-seo_title: "Coin Shows in Canandaigua, New York — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Canandaigua, New York. Dates, venues, and details for upcoming coin shows and numismatic events in Canandaigua."
+title: "Canandaigua, NY Coin Shows"
+heading: "Coin Shows in Canandaigua, New York — 2026-2027"
+description: "Find 1 coin show in Canandaigua, New York. Compare dates, venues, and verification details before you travel."
 permalink: /cities/canandaigua-ny/
 city_slug: "canandaigua-ny"
 city_name: "Canandaigua"

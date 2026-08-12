@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Uxbridge, Massachusetts — 2026-2027"
-seo_title: "Coin Shows in Uxbridge, Massachusetts — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Uxbridge, Massachusetts. Dates, venues, and details for upcoming coin shows and numismatic events in Uxbridge."
+title: "Uxbridge, MA Coin Shows"
+heading: "Coin Shows in Uxbridge, Massachusetts — 2026-2027"
+description: "Find 1 coin show in Uxbridge, Massachusetts. Compare dates, venues, and verification details before you travel."
 permalink: /cities/uxbridge-ma/
 city_slug: "uxbridge-ma"
 city_name: "Uxbridge"

@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Parsippany, New Jersey — 2026-2027"
-seo_title: "Coin Shows in Parsippany, New Jersey — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Parsippany, New Jersey. Dates, venues, and details for upcoming coin shows and numismatic events in Parsippany."
+title: "Parsippany, NJ Coin Shows"
+heading: "Coin Shows in Parsippany, New Jersey — 2026-2027"
+description: "Find 1 coin show in Parsippany, New Jersey. Compare dates, venues, and verification details before you travel."
 permalink: /cities/parsippany-nj/
 city_slug: "parsippany-nj"
 city_name: "Parsippany"

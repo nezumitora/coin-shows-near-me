@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Collection Tracker"
-seo_title: "Coin Collection Tracker — Coming Soon | Coin Show Near Me"
-seo_description: "A future coin collection tracker for coins, bullion, purchase price, melt value, notes, photos, and collection totals."
+description: "A future coin collection tracker for coins, bullion, purchase price, melt value, notes, photos, and collection totals."
 permalink: /tools/collection-tracker/
 parent: "Tools"
 nav_order: 3

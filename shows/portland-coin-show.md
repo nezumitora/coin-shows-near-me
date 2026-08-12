@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Portland Coin Show — Portland, Oregon Coin Show"
-seo_title: "Portland Coin Show — Portland, Oregon | Coin Show Near Me"
-seo_description: "Portland Coin Show in Portland, Oregon. Annual (November) coin show at Holiday Inn Portland at Columbia Riverfront, 909 N Hayden Island Drive, Portland, OR 97217. Get dates, venue details, and more."
+title: "Portland Coin Show"
+heading: "Portland Coin Show — Portland, Oregon Coin Show"
+description: "Portland Coin Show in Portland, Oregon. View dates, venue details, and listing verification before you travel."
 permalink: /shows/portland-coin-show/
 show_id: "portland-coin-show"
 breadcrumb_parent: "Oregon"

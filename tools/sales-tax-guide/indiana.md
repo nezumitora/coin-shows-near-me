@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Indiana Sales Tax on Coins & Precious Metals"
-seo_title: "Indiana Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Indiana? Learn about Indiana sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Indiana Coin & Bullion Tax"
+heading: "Indiana Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Indiana? Learn about Indiana sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/indiana/
 nav_exclude: true
 state_abbrev: "IN"

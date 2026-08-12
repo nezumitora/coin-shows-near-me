@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Florida — 2026-2027 Schedule"
-seo_title: "Coin Shows in Florida — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 16 coin shows in Florida. Complete directory with dates, venues, and details for Florida coin shows, expos, and numismatic events."
+title: "Florida Coin Shows"
+heading: "Coin Shows in Florida — 2026-2027 Schedule"
+description: "Browse 16 coin shows in Florida with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/florida/
 state_abbrev: "FL"
 state_name: "Florida"

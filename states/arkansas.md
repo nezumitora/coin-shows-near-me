@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Arkansas — 2026-2027 Schedule"
-seo_title: "Coin Shows in Arkansas — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 3 coin shows in Arkansas. Complete directory with dates, venues, and details for Arkansas coin shows, expos, and numismatic events."
+title: "Arkansas Coin Shows"
+heading: "Coin Shows in Arkansas — 2026-2027 Schedule"
+description: "Browse 3 coin shows in Arkansas with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/arkansas/
 state_abbrev: "AR"
 state_name: "Arkansas"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Cromwell-Hartford Coin and Currency Show — Cromwell, Connecticut Coin Show"
-seo_title: "Cromwell-Hartford Coin and Currency Show — Cromwell, Connecticut | Coin Show Near Me"
-seo_description: "Cromwell-Hartford Coin and Currency Show in Cromwell, Connecticut. Recurring coin show at Hartford Hotel & Conference Center. Get dates, venue details, and more."
+title: "Cromwell-Hartford Coin Show"
+heading: "Cromwell-Hartford Coin and Currency Show — Cromwell, Connecticut Coin Show"
+description: "Cromwell-Hartford Coin and Currency Show in Cromwell, Connecticut. View dates, venue details, and listing verification before you travel."
 permalink: /shows/cromwell-hartford-coin-and-currency-show/
 show_id: "cromwell-hartford-coin-and-currency-show"
 breadcrumb_parent: "Connecticut"

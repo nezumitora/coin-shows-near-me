@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in San Diego, California — 2026-2027"
-seo_title: "Coin Shows in San Diego, California — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in San Diego, California. Dates, venues, and details for upcoming coin shows and numismatic events in San Diego."
+title: "San Diego, CA Coin Shows"
+heading: "Coin Shows in San Diego, California — 2026-2027"
+description: "Find 1 coin show in San Diego, California. Compare dates, venues, and verification details before you travel."
 permalink: /cities/san-diego-ca/
 city_slug: "san-diego-ca"
 city_name: "San Diego"

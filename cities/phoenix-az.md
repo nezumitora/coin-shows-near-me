@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Phoenix, Arizona — 2026-2027"
-seo_title: "Coin Shows in Phoenix, Arizona — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 3 coin shows in Phoenix, Arizona. Dates, venues, and details for upcoming coin shows and numismatic events in Phoenix."
+title: "Phoenix, AZ Coin Shows"
+heading: "Coin Shows in Phoenix, Arizona — 2026-2027"
+description: "Find 3 coin shows in Phoenix, Arizona. Compare dates, venues, and verification details before you travel."
 permalink: /cities/phoenix-az/
 city_slug: "phoenix-az"
 city_name: "Phoenix"

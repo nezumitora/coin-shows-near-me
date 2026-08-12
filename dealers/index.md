@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Find a Dealer"
-seo_title: "Find a Coin Dealer Near You — Online & Local Dealers | Coin Show Near Me"
-seo_description: "Find trusted coin dealers and precious metals dealers — browse brick-and-mortar shops, online bullion dealers, and auction houses. Search by location or specialty."
+description: "Find coin and precious metals dealers, including local shops, online bullion sellers, and auction houses. Search by location or specialty."
 permalink: /dealers/
 nav_order: 7
 has_children: true

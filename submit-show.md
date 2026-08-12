@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Submit a Coin Show"
-seo_title: "Submit a Coin Show | Coin Show Near Me"
-seo_description: "Submit a missing coin show for manual review and possible inclusion in the Coin Show Near Me directory."
+description: "Submit a missing coin show for manual review and possible inclusion in the Coin Show Near Me directory."
 permalink: /submit-show/
 nav_exclude: true
 breadcrumb_current: "Submit a Show"

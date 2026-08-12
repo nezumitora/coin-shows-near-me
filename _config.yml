@@ -21,6 +21,16 @@ nav_enabled: true
 lang: en-US
 tagline: "Find upcoming coin shows in your area"
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: "/assets/images/logo.png"
+        width: 1254
+        height: 1254
+        alt: "Coin Shows Near Me shield logo"
+
 # just-the-docs nav
 nav_sort: order
 nav_external_links: []

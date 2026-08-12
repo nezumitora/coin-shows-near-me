@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Long Beach Expo — Long Beach, California Coin Show"
-seo_title: "Long Beach Expo — Long Beach, California | Coin Show Near Me"
-seo_description: "Long Beach Expo in Long Beach, California. 3 Times Per Year (February, June, September) coin show at Long Beach Convention & Entertainment Center - Hall C. Get dates, venue details, and more."
+title: "Long Beach Expo"
+heading: "Long Beach Expo — Long Beach, California Coin Show"
+description: "Long Beach Expo in Long Beach, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/long-beach-expo/
 show_id: "long-beach-expo"
 breadcrumb_parent: "California"

@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Morganton, North Carolina — 2026-2027"
-seo_title: "Coin Shows in Morganton, North Carolina — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Morganton, North Carolina. Dates, venues, and details for upcoming coin shows and numismatic events in Morganton."
+title: "Morganton, NC Coin Shows"
+heading: "Coin Shows in Morganton, North Carolina — 2026-2027"
+description: "Find 1 coin show in Morganton, North Carolina. Compare dates, venues, and verification details before you travel."
 permalink: /cities/morganton-nc/
 city_slug: "morganton-nc"
 city_name: "Morganton"

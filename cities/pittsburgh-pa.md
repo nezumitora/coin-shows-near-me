@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Pittsburgh, Pennsylvania — 2026-2027"
-seo_title: "Coin Shows in Pittsburgh, Pennsylvania — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Pittsburgh, Pennsylvania. Dates, venues, and details for upcoming coin shows and numismatic events in Pittsburgh."
+title: "Pittsburgh, PA Coin Shows"
+heading: "Coin Shows in Pittsburgh, Pennsylvania — 2026-2027"
+description: "Find 1 coin show in Pittsburgh, Pennsylvania. Compare dates, venues, and verification details before you travel."
 permalink: /cities/pittsburgh-pa/
 city_slug: "pittsburgh-pa"
 city_name: "Pittsburgh"

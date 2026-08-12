@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Rochester, New York — 2026-2027"
-seo_title: "Coin Shows in Rochester, New York — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Rochester, New York. Dates, venues, and details for upcoming coin shows and numismatic events in Rochester."
+title: "Rochester, NY Coin Shows"
+heading: "Coin Shows in Rochester, New York — 2026-2027"
+description: "Find 1 coin show in Rochester, New York. Compare dates, venues, and verification details before you travel."
 permalink: /cities/rochester-ny/
 city_slug: "rochester-ny"
 city_name: "Rochester"

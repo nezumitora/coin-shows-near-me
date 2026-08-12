@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Omaha Coin Club Show — Omaha, Nebraska Coin Show"
-seo_title: "Omaha Coin Club Show — Omaha, Nebraska | Coin Show Near Me"
-seo_description: "Omaha Coin Club Show in Omaha, Nebraska. Monthly coin show at Fraternal Order of Police Hall. Get dates, venue details, and more."
+title: "Omaha Coin Club Show"
+heading: "Omaha Coin Club Show — Omaha, Nebraska Coin Show"
+description: "Omaha Coin Club Show in Omaha, Nebraska. View dates, venue details, and listing verification before you travel."
 permalink: /shows/omaha-coin-club-show/
 show_id: "omaha-coin-club-show"
 breadcrumb_parent: "Nebraska"

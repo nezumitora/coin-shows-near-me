@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Washington Sales Tax on Coins & Precious Metals"
-seo_title: "Washington Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Washington? Learn about Washington sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Washington Coin & Bullion Tax"
+heading: "Washington Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Washington? Learn about Washington sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/washington/
 nav_exclude: true
 state_abbrev: "WA"

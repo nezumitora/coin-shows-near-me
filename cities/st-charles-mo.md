@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in St. Charles, Missouri — 2026-2027"
-seo_title: "Coin Shows in St. Charles, Missouri — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in St. Charles, Missouri. Dates, venues, and details for upcoming coin shows and numismatic events in St. Charles."
+title: "St. Charles, MO Coin Shows"
+heading: "Coin Shows in St. Charles, Missouri — 2026-2027"
+description: "Find 1 coin show in St. Charles, Missouri. Compare dates, venues, and verification details before you travel."
 permalink: /cities/st-charles-mo/
 city_slug: "st-charles-mo"
 city_name: "St. Charles"

@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ page.seo_title | default: page.title }}</title>
-{% include seo-meta.html %}
-<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+{% seo %}
 <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/images/favicon-32x32.png?v=gpt-buffalo-20260629">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/images/favicon-16x16.png?v=gpt-buffalo-20260629">
 <link rel="icon" type="image/png" sizes="48x48" href="{{ site.baseurl }}/assets/images/favicon-48x48.png?v=gpt-buffalo-20260629">

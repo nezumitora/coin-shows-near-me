@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Raleigh, North Carolina — 2026-2027"
-seo_title: "Coin Shows in Raleigh, North Carolina — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Raleigh, North Carolina. Dates, venues, and details for upcoming coin shows and numismatic events in Raleigh."
+title: "Raleigh, NC Coin Shows"
+heading: "Coin Shows in Raleigh, North Carolina — 2026-2027"
+description: "Find 1 coin show in Raleigh, North Carolina. Compare dates, venues, and verification details before you travel."
 permalink: /cities/raleigh-nc/
 city_slug: "raleigh-nc"
 city_name: "Raleigh"

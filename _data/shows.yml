@@ -331,6 +331,7 @@
   notes: 'Hours: Aug 23 and Dec 13 Sun 10-4; Nov 6-7 Fri/Sat 10-5 and 10-4. Presenter contact listed as Peter McIntosh, (916) 317-9055.'
 - id: sacramento-valley-coin-club
   name: Sacramento Valley Coin Club Fall Coin Show
+  short_title: "Sacramento Valley Coin Club Show"
   state: CA
   state_name: California
   city: Sacramento
@@ -425,6 +426,7 @@
   notes: 'Hours: early bird 8:30am, general admission 10am-4pm. Admission: $50 early bird or $10 general, paid at the door. Rare coins, currency, bullion, and collectibles; armed security will be present.'
 - id: san-francisco-international-numismatic-bourse
   name: San Francisco International Numismatic Bourse
+  short_title: "San Francisco Numismatic Bourse"
   state: CA
   state_name: California
   city: South San Francisco
@@ -497,6 +499,7 @@
   notes: 'Hours: Sat 10-6, Sun 10-5.'
 - id: fresno-numismatic-society-coin-show
   name: Fresno Numismatic Society Annual Coin Show
+  short_title: "Fresno Numismatic Society Show"
   state: CA
   state_name: California
   city: Fresno
@@ -651,6 +654,7 @@
   notes: Official page confirms venue but no future date after the past March 2026 show; check club page before traveling.
 - id: cromwell-hartford-coin-and-currency-show
   name: Cromwell-Hartford Coin and Currency Show
+  short_title: "Cromwell-Hartford Coin Show"
   state: CT
   state_name: Connecticut
   city: Cromwell
@@ -770,6 +774,7 @@
   notes: Check official FUN calendar for the next published date before traveling.
 - id: fun-convention
   name: FUN Convention (Florida United Numismatists)
+  short_title: "FUN Convention"
   state: FL
   state_name: Florida
   city: Orlando
@@ -892,6 +897,7 @@
   notes: 'Hours: Sun 9:30-3.'
 - id: tallahassee-coin-club-two-day-show
   name: Tallahassee Coin Club Annual Two-Day Show
+  short_title: "Tallahassee Coin Club Show"
   state: FL
   state_name: Florida
   city: Tallahassee
@@ -910,6 +916,7 @@
   notes: Official sources confirm dates and venue; hours not listed in fetched source.
 - id: pasco-county-coin-club-show
   name: Pasco County Coin Club Coin & Collectibles Show
+  short_title: "Pasco County Coin Club Show"
   state: FL
   state_name: Florida
   city: Hudson
@@ -1031,6 +1038,7 @@
   notes: ''
 - id: georgia-numismatic-association-show
   name: Georgia Numismatic Association (GNA) Show
+  short_title: "Georgia Numismatic Association Show"
   state: GA
   state_name: Georgia
   city: Dalton
@@ -1078,6 +1086,7 @@
   notes: 'Hours: Sun 9-4. Free admission. Official page says 2026 shows moved to IAM Union Hall.'
 - id: hawaii-state-numismatic-association-show
   name: Hawaii State Numismatic Association Show
+  short_title: "Hawaii State Numismatic Show"
   state: HI
   state_name: Hawaii
   city: Honolulu
@@ -1090,6 +1099,7 @@
   notes: ''
 - id: iowa-numismatic-association-coin-show
   name: Iowa Numismatic Association Convention & Coin Show
+  short_title: "Iowa Numismatic Association Convention"
   state: IA
   state_name: Iowa
   city: Altoona
@@ -1225,6 +1235,7 @@
   notes: 'Hours: Sun 8:30-2:30'
 - id: metro-east-coin-currency-club-coin-show
   name: Metro East Coin & Currency Club Coin Show
+  short_title: "Metro East Coin & Currency Show"
   state: IL
   state_name: Illinois
   city: Collinsville
@@ -1242,6 +1253,7 @@
   notes: 'Hours: Sun 9-3. Free admission, free parking, raffle prizes, and 36 dealer tables listed by organizer.'
 - id: great-american-coin-collectibles-show
   name: Great American Coin and Collectibles Show
+  short_title: "Great American Coin Show"
   state: IL
   state_name: Illinois
   city: Rosemont
@@ -1285,6 +1297,7 @@
   notes: 'Hours: 9-3.'
 - id: greater-chicago-coin-currency-collectibles-show
   name: Greater Chicago Coin, Currency, & Collectibles Show
+  short_title: "Greater Chicago Coin Show"
   state: IL
   state_name: Illinois
   city: Countryside
@@ -1342,6 +1355,7 @@
   notes: Official association calendar confirms dates/city; venue and hours pending official promoter/source confirmation.
 - id: csns-convention
   name: Central States Numismatic Society (CSNS) Convention
+  short_title: "Central States Numismatic Convention"
   state: IL
   state_name: Illinois
   city: Schaumburg
@@ -1362,6 +1376,7 @@
   notes: Major regional convention with Heritage Auctions, 415+ booth bourse, free parking, and CSNS member/youth admission rules listed by organizer.
 - id: ilna-illinois-numismatic-association-coin-show
   name: ILNA Illinois Numismatic Association Coin Show
+  short_title: "ILNA Illinois Coin Show"
   state: IL
   state_name: Illinois
   city: Countryside
@@ -1565,6 +1580,7 @@
   notes: 'Hours: Fri 10-7, Sat 10-4. Admission $12. Dealer setup Thu 4:30-8:30.'
 - id: north-attleborough-monthly-coin-collectibles-show
   name: North Attleborough Monthly Coin & Collectibles Show
+  short_title: "North Attleborough Monthly Coin Show"
   state: MA
   state_name: Massachusetts
   city: North Attleborough
@@ -1577,6 +1593,7 @@
   notes: 'Hours: Sun 9-2'
 - id: blackstone-valley-coin-club-show-ma
   name: Blackstone Valley Coin Club Show
+  short_title: "Blackstone Valley Coin Club Show — MA"
   state: MA
   state_name: Massachusetts
   city: Uxbridge
@@ -1622,6 +1639,7 @@
   notes: ''
 - id: maryland-state-numismatic-association-show
   name: Maryland State Numismatic Association Show
+  short_title: "Maryland State Numismatic Show"
   state: MD
   state_name: Maryland
   city: Timonium
@@ -1743,6 +1761,7 @@
   notes: 'Hours: Sun 9-3.'
 - id: michigan-state-numismatic-society-convention-coin-show
   name: Michigan State Numismatic Society Convention & Coin Show
+  short_title: "Michigan State Numismatic Society Show"
   state: MI
   state_name: Michigan
   city: Warren
@@ -1782,6 +1801,7 @@
   notes: ''
 - id: michigan-premier-coin-show
   name: Michigan's Premier Coin, Currency & Stamp Show
+  short_title: "Michigan Premier Coin & Stamp Show"
   state: MI
   state_name: Michigan
   city: Warren
@@ -1889,6 +1909,7 @@
   aliases:
   - st-louis-numismatic-association-show
   name: Missouri Numismatic Society Annual Coin Show
+  short_title: "Missouri Numismatic Society Show"
   state: MO
   state_name: Missouri
   city: St. Charles
@@ -1929,6 +1950,7 @@
   notes: Future date is not yet published. The most recent organizer-style listing gave Saturday hours of 10-3 and directions to the school at Highways 83 and 54.
 - id: annual-mississippi-mna-coin-currency-card-show
   name: Annual Mississippi (MNA) Coin Currency & Card Show
+  short_title: "Mississippi MNA Coin & Currency Show"
   state: MS
   state_name: Mississippi
   city: Biloxi
@@ -2085,6 +2107,7 @@
   notes: ''
 - id: original-monthly-coin-collectibles-show
   name: The Original Monthly Coin & Collectibles Show
+  short_title: "Original Monthly Coin Show"
   state: NE
   state_name: Nebraska
   city: Omaha
@@ -2200,6 +2223,7 @@
   notes: ''
 - id: albuquerque-coin-clubs-great-southwest-coin-expo
   name: Albuquerque Coin Club's  Great Southwest Coin Expo
+  short_title: "Great Southwest Coin Expo"
   state: NM
   state_name: New Mexico
   city: Albuquerque
@@ -2287,6 +2311,7 @@
   notes: ''
 - id: bna-monthly-coin-stamp-and-currency-show
   name: BNA Monthly Coin, Stamp and Currency Show
+  short_title: "BNA Monthly Coin & Stamp Show"
   state: NY
   state_name: New York
   city: Cheektowaga
@@ -2333,6 +2358,7 @@
   notes: 'Hours: Sun 10-3'
 - id: melville-coin-stamp-collectibles-show
   name: Melville Coin, Stamp & Collectibles Show
+  short_title: "Melville Coin & Stamp Show"
   state: NY
   state_name: New York
   city: Melville
@@ -2360,6 +2386,7 @@
   notes: 'Hours: Sun 8-1.'
 - id: nyinc
   name: New York International Numismatic Convention (NYINC)
+  short_title: "NYINC Convention"
   state: NY
   state_name: New York
   city: New York
@@ -2416,6 +2443,7 @@
   notes: Free general admission 9am-2pm. Kids receive a free coin.
 - id: 43rd-annual-greater-cincinnati-numismatic-exposition
   name: 43rd Annual Greater Cincinnati Numismatic Exposition
+  short_title: "Greater Cincinnati Numismatic Expo"
   state: OH
   state_name: Ohio
   city: Cincinnati
@@ -2550,6 +2578,7 @@
   notes: ''
 - id: oklahoma-numismatic-association-convention
   name: Oklahoma Numismatic Association Convention
+  short_title: "Oklahoma Numismatic Convention"
   state: OK
   state_name: Oklahoma
   city: Moore
@@ -2594,6 +2623,7 @@
   notes: 'Hours: Fri 12-6, Sat 10-6, Sun 10-4. Admission $5; kids free.'
 - id: wilsonville-oregon-coin-currency-token-medal-show
   name: Oregon Coin, Currency, Token & Medal Show
+  short_title: "Oregon Coin & Currency Show"
   state: OR
   state_name: Oregon
   city: Wilsonville
@@ -2612,6 +2642,7 @@
   notes: PNNA lists Randy Van Wie as the show contact.
 - id: cave-man-coin-club-show
   name: Cave Man Coin Club Coin, Currency & Token Show
+  short_title: "Cave Man Coin Club Show"
   state: OR
   state_name: Oregon
   city: Grants Pass
@@ -2672,6 +2703,7 @@
   notes: 'Hours: Sat 10-3. Venue phone listed as 610-434-0222.'
 - id: monthly-tri-state-coin-stamp-show
   name: Tri-State Monthly Coin, Stamp & Paper Money Show
+  short_title: "Tri-State Coin, Stamp & Money Show"
   state: PA
   state_name: Pennsylvania
   city: Langhorne
@@ -2782,6 +2814,7 @@
   notes: 'Hours: Sat 9-5, Sun 9-3. Free admission and parking.'
 - id: montco-coin-show-meets-every-2nd-sunday-each-month
   name: Montgomery County Coin Show / MontCo Coin Show
+  short_title: "MontCo Coin Show"
   state: PA
   state_name: Pennsylvania
   city: Telford
@@ -2872,6 +2905,7 @@
   notes: ''
 - id: blackstone-valley-coin-club-show-ri
   name: Blackstone Valley Coin Club Show
+  short_title: "Blackstone Valley Coin Club Show — RI"
   state: RI
   state_name: Rhode Island
   city: Woonsocket
@@ -2963,6 +2997,7 @@
   notes: 'Hours: Sat 9-5, Sun 9-3.'
 - id: tsns-coin-show
   name: Tennessee State Numismatic Society (TSNS) Coin Show
+  short_title: "Tennessee State Numismatic Society Show"
   state: TN
   state_name: Tennessee
   city: East Ridge
@@ -3224,6 +3259,7 @@
   notes: 'Hours: Sat 10-4. Free entry with ID and free parking.'
 - id: boeing-employees-coin-club-show
   name: Boeing Employees Coin Club Show / Kent Valley Coin Show
+  short_title: "Boeing / Kent Valley Coin Show"
   state: WA
   state_name: Washington
   city: Kent
@@ -3274,6 +3310,7 @@
   notes: Venue/date TBD until PNNA announces the next spring convention location.
 - id: chippewa-valley-coin-club-cvcc-coin-show
   name: Chippewa Valley Coin Club (CVCC) Coin Show
+  short_title: "Chippewa Valley Coin Club Show"
   state: WI
   state_name: Wisconsin
   city: Eau Claire
@@ -3309,6 +3346,7 @@
   notes: 'Hours: Sun 9-4. Admission $3. Official calendar lists contact Chris K at cakantak@gmail.com.'
 - id: numismatists-of-wisconsin-annual-show
   name: Numismatists of Wisconsin (NOW) Annual Show
+  short_title: "Numismatists of Wisconsin Show"
   state: WI
   state_name: Wisconsin
   city: Green Bay

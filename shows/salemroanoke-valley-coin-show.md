@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Salem/Roanoke Valley Coin Show — Salem, Virginia Coin Show"
-seo_title: "Salem/Roanoke Valley Coin Show — Salem, Virginia | Coin Show Near Me"
-seo_description: "Salem/Roanoke Valley Coin Show in Salem, Virginia. Recurring coin show at American Legion Hall, 710 Apperson Drive, Salem, VA. Get dates, venue details, and more."
+title: "Salem/Roanoke Valley Coin Show"
+heading: "Salem/Roanoke Valley Coin Show — Salem, Virginia Coin Show"
+description: "Salem/Roanoke Valley Coin Show in Salem, Virginia. View dates, venue details, and listing verification before you travel."
 permalink: /shows/salemroanoke-valley-coin-show/
 show_id: "salemroanoke-valley-coin-show"
 breadcrumb_parent: "Virginia"

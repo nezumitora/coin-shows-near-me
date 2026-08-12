@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in New Mexico — 2026-2027 Schedule"
-seo_title: "Coin Shows in New Mexico — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 2 coin shows in New Mexico. Complete directory with dates, venues, and details for New Mexico coin shows, expos, and numismatic events."
+title: "New Mexico Coin Shows"
+heading: "Coin Shows in New Mexico — 2026-2027 Schedule"
+description: "Browse 2 coin shows in New Mexico with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/new-mexico/
 state_abbrev: "NM"
 state_name: "New Mexico"

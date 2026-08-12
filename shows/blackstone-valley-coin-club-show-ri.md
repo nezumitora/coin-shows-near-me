@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Blackstone Valley Coin Club Show — Woonsocket, Rhode Island Coin Show"
-seo_title: "Blackstone Valley Coin Club Show — Woonsocket, Rhode Island | Coin Show Near Me"
-seo_description: "Blackstone Valley Coin Club Show in Woonsocket, Rhode Island. Annual (Summer) coin show at Elks Club #850. Get dates, venue details, and more."
+title: "Blackstone Valley Coin Club Show — RI"
+heading: "Blackstone Valley Coin Club Show — Woonsocket, Rhode Island Coin Show"
+description: "Blackstone Valley Coin Club Show in Woonsocket, Rhode Island. View dates, venue details, and listing verification before you travel."
 permalink: /shows/blackstone-valley-coin-club-show-ri/
 show_id: "blackstone-valley-coin-club-show-ri"
 breadcrumb_parent: "Rhode Island"

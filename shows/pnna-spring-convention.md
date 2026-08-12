@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "PNNA Spring Convention — TBD, Washington Coin Show"
-seo_title: "PNNA Spring Convention — TBD, Washington | Coin Show Near Me"
-seo_description: "PNNA Spring Convention in TBD, Washington. Annual (April) coin show at TBD. Get dates, venue details, and more."
+title: "PNNA Spring Convention"
+heading: "PNNA Spring Convention — TBD, Washington Coin Show"
+description: "PNNA Spring Convention in TBD, Washington. View dates, venue details, and listing verification before you travel."
 permalink: /shows/pnna-spring-convention/
 show_id: "pnna-spring-convention"
 breadcrumb_parent: "Washington"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Summer FUN — Orlando, Florida Coin Show"
-seo_title: "Summer FUN — Orlando, Florida | Coin Show Near Me"
-seo_description: "Summer FUN in Orlando, Florida. Annual (July) coin show at Orange County Convention Center. Get dates, venue details, and more."
+title: "Summer FUN"
+heading: "Summer FUN — Orlando, Florida Coin Show"
+description: "Summer FUN in Orlando, Florida. View dates, venue details, and listing verification before you travel."
 permalink: /shows/summer-fun/
 show_id: "summer-fun"
 breadcrumb_parent: "Florida"

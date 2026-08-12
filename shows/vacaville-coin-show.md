@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Vacaville Coin Show — Vacaville, California Coin Show"
-seo_title: "Vacaville Coin Show — Vacaville, California | Coin Show Near Me"
-seo_description: "Vacaville Coin Show in Vacaville, California. Annual (July) coin show at Vacaville Elks Lodge, 302 Parker Street, Vacaville, CA. Get dates, venue details, and more."
+title: "Vacaville Coin Show"
+heading: "Vacaville Coin Show — Vacaville, California Coin Show"
+description: "Vacaville Coin Show in Vacaville, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/vacaville-coin-show/
 show_id: "vacaville-coin-show"
 breadcrumb_parent: "California"

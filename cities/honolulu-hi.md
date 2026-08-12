@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Honolulu, Hawaii — 2026-2027"
-seo_title: "Coin Shows in Honolulu, Hawaii — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Honolulu, Hawaii. Dates, venues, and details for upcoming coin shows and numismatic events in Honolulu."
+title: "Honolulu, HI Coin Shows"
+heading: "Coin Shows in Honolulu, Hawaii — 2026-2027"
+description: "Find 1 coin show in Honolulu, Hawaii. Compare dates, venues, and verification details before you travel."
 permalink: /cities/honolulu-hi/
 city_slug: "honolulu-hi"
 city_name: "Honolulu"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Cheyenne Coin Expo — Cheyenne, Wyoming Coin Show"
-seo_title: "Cheyenne Coin Expo — Cheyenne, Wyoming | Coin Show Near Me"
-seo_description: "Cheyenne Coin Expo in Cheyenne, Wyoming. Annual (November) coin show at Laramie County Community College. Get dates, venue details, and more."
+title: "Cheyenne Coin Expo"
+heading: "Cheyenne Coin Expo — Cheyenne, Wyoming Coin Show"
+description: "Cheyenne Coin Expo in Cheyenne, Wyoming. View dates, venue details, and listing verification before you travel."
 permalink: /shows/cheyenne-coin-expo/
 show_id: "cheyenne-coin-expo"
 breadcrumb_parent: "Wyoming"

@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Utah — 2026-2027 Schedule"
-seo_title: "Coin Shows in Utah — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 1 coin shows in Utah. Complete directory with dates, venues, and details for Utah coin shows, expos, and numismatic events."
+title: "Utah Coin Shows"
+heading: "Coin Shows in Utah — 2026-2027 Schedule"
+description: "Browse 1 coin shows in Utah with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/utah/
 state_abbrev: "UT"
 state_name: "Utah"

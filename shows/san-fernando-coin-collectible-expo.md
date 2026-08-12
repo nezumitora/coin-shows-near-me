@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "San Fernando Coin & Collectible Expo — San Fernando, California Coin Show"
-seo_title: "San Fernando Coin & Collectible Expo — San Fernando, California | Coin Show Near Me"
-seo_description: "San Fernando Coin & Collectible Expo in San Fernando, California. Recurring coin show at San Fernando Masonic Lodge 343. Get dates, venue details, and more."
+title: "San Fernando Coin & Collectible Expo"
+heading: "San Fernando Coin & Collectible Expo — San Fernando, California Coin Show"
+description: "San Fernando Coin & Collectible Expo in San Fernando, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/san-fernando-coin-collectible-expo/
 show_id: "san-fernando-coin-collectible-expo"
 breadcrumb_parent: "California"

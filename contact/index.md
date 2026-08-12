@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Contact Us"
-seo_title: "Contact Us | Coin Show Near Me"
-seo_description: "Get in touch with Coin Show Near Me. Submit a show, report an error, ask a question, or register as a dealer."
+description: "Get in touch with Coin Show Near Me. Submit a show, report an error, ask a question, or register as a dealer."
 permalink: /contact/
 nav_order: 8
 breadcrumb_current: "Contact Us"

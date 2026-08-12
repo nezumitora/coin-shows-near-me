@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Marietta, Georgia — 2026-2027"
-seo_title: "Coin Shows in Marietta, Georgia — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Marietta, Georgia. Dates, venues, and details for upcoming coin shows and numismatic events in Marietta."
+title: "Marietta, GA Coin Shows"
+heading: "Coin Shows in Marietta, Georgia — 2026-2027"
+description: "Find 1 coin show in Marietta, Georgia. Compare dates, venues, and verification details before you travel."
 permalink: /cities/marietta-ga/
 city_slug: "marietta-ga"
 city_name: "Marietta"

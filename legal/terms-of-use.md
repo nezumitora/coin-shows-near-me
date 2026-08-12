@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Terms of Use"
-seo_title: "Terms of Use | Coin Show Near Me"
-seo_description: "Terms of Use for Coin Show Near Me — the US coin show directory, dealer marketplace, and pre-show offer platform."
+description: "Terms of Use for Coin Show Near Me — the US coin show directory, dealer marketplace, and pre-show offer platform."
 permalink: /legal/terms-of-use/
 nav_exclude: true
 breadcrumb_parent: "Legal"

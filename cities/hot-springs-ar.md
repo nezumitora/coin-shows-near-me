@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Hot Springs, Arkansas — 2026-2027"
-seo_title: "Coin Shows in Hot Springs, Arkansas — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Hot Springs, Arkansas. Dates, venues, and details for upcoming coin shows and numismatic events in Hot Springs."
+title: "Hot Springs, AR Coin Shows"
+heading: "Coin Shows in Hot Springs, Arkansas — 2026-2027"
+description: "Find 1 coin show in Hot Springs, Arkansas. Compare dates, venues, and verification details before you travel."
 permalink: /cities/hot-springs-ar/
 city_slug: "hot-springs-ar"
 city_name: "Hot Springs"

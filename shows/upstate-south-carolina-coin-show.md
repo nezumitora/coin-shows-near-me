@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Upstate South Carolina Coin Show — Spartanburg, South Carolina Coin Show"
-seo_title: "Upstate South Carolina Coin Show — Spartanburg, South Carolina | Coin Show Near Me"
-seo_description: "Upstate South Carolina Coin Show in Spartanburg, South Carolina. Annual (February) coin show at Spartanburg Memorial Auditorium, 385 N Church Street, Spartanburg, SC. Get dates, venue details, and more."
+title: "Upstate South Carolina Coin Show"
+heading: "Upstate South Carolina Coin Show — Spartanburg, South Carolina Coin Show"
+description: "Upstate South Carolina Coin Show in Spartanburg, South Carolina. View dates, venue details, and listing verification before you travel."
 permalink: /shows/upstate-south-carolina-coin-show/
 show_id: "upstate-south-carolina-coin-show"
 breadcrumb_parent: "South Carolina"

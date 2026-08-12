@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Santa Clara Coin Show — Santa Clara, California Coin Show"
-seo_title: "Santa Clara Coin Show — Santa Clara, California | Coin Show Near Me"
-seo_description: "Santa Clara Coin Show in Santa Clara, California. Recurring coin show at American Legion Post 419, 958 Homestead Road, Santa Clara, CA. Get dates, venue details, and more."
+title: "Santa Clara Coin Show"
+heading: "Santa Clara Coin Show — Santa Clara, California Coin Show"
+description: "Santa Clara Coin Show in Santa Clara, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/santa-clara-coin-show/
 show_id: "santa-clara-coin-show"
 breadcrumb_parent: "California"

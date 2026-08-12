@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Knoxville, Tennessee — 2026-2027"
-seo_title: "Coin Shows in Knoxville, Tennessee — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Knoxville, Tennessee. Dates, venues, and details for upcoming coin shows and numismatic events in Knoxville."
+title: "Knoxville, TN Coin Shows"
+heading: "Coin Shows in Knoxville, Tennessee — 2026-2027"
+description: "Find 1 coin show in Knoxville, Tennessee. Compare dates, venues, and verification details before you travel."
 permalink: /cities/knoxville-tn/
 city_slug: "knoxville-tn"
 city_name: "Knoxville"

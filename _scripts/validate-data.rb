@@ -8,6 +8,7 @@ require_relative 'show_date_parser'
 require_relative 'show_feed'
 
 SLUG_PATTERN = /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/.freeze
+MAX_PAGE_TITLE_LENGTH = 39
 
 def duplicate_values(values)
   values.group_by(&:itself).select { |_value, matches| matches.length > 1 }.keys
@@ -62,6 +63,14 @@ if errors.empty?
     errors << "#{label} has an invalid ID" unless show['id'].to_s.match?(SLUG_PATTERN)
     errors << "#{label} has an invalid city_slug" unless show['city_slug'].to_s.match?(SLUG_PATTERN)
 
+    if show.key?('short_title')
+      short_title = show['short_title'].to_s.strip
+      errors << "#{label} has a blank short_title" if short_title.empty?
+      errors << "#{label} short_title exceeds #{MAX_PAGE_TITLE_LENGTH} characters" if short_title.length > MAX_PAGE_TITLE_LENGTH
+    elsif show['name'].to_s.length > MAX_PAGE_TITLE_LENGTH
+      errors << "#{label} needs a reviewed short_title"
+    end
+
     state = states_by_abbrev[show['state']]
     if state.nil?
       errors << "#{label} references unknown state #{show['state']}"
@@ -111,9 +120,12 @@ if errors.empty?
   duplicate_ids = duplicate_values(show_ids)
   duplicate_aliases = duplicate_values(aliases)
   alias_collisions = aliases & show_ids
+  page_titles = shows.map { |show| show['short_title'] || show['name'] }
+  duplicate_page_titles = duplicate_values(page_titles)
   errors << "Duplicate show IDs: #{duplicate_ids.join(', ')}" unless duplicate_ids.empty?
   errors << "Duplicate show aliases: #{duplicate_aliases.join(', ')}" unless duplicate_aliases.empty?
   errors << "Show aliases collide with canonical IDs: #{alias_collisions.join(', ')}" unless alias_collisions.empty?
+  errors << "Duplicate show page titles: #{duplicate_page_titles.join(', ')}" unless duplicate_page_titles.empty?
 
   canonical_city_slugs = shows.map { |show| show['city_slug'] }.uniq
   city_redirects.each_with_index do |redirect, index|

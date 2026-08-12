@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Naugatuck Coin & Currency Show — Naugatuck, Connecticut Coin Show"
-seo_title: "Naugatuck Coin & Currency Show — Naugatuck, Connecticut | Coin Show Near Me"
-seo_description: "Naugatuck Coin & Currency Show in Naugatuck, Connecticut. Recurring coin show at American Legion. Get dates, venue details, and more."
+title: "Naugatuck Coin & Currency Show"
+heading: "Naugatuck Coin & Currency Show — Naugatuck, Connecticut Coin Show"
+description: "Naugatuck Coin & Currency Show in Naugatuck, Connecticut. View dates, venue details, and listing verification before you travel."
 permalink: /shows/naugatuck-coin-currency-show/
 show_id: "naugatuck-coin-currency-show"
 breadcrumb_parent: "Connecticut"

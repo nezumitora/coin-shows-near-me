@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Dealer Portal — Pre-Show Offers for Coin Dealers & Collectors"
-seo_title: "Coin Show Dealer Portal — Register, Browse Collections, Make Offers | Coin Show Near Me"
-seo_description: "Register as a verified coin dealer, upload your collection as an attendee, or submit your show as a promoter. Get pre-show offers and save time at the bourse."
+title: "Coin Show Dealer Portal"
+heading: "Dealer Portal — Pre-Show Offers for Coin Dealers & Collectors"
+description: "Register as a verified coin dealer, upload your collection as an attendee, or submit your show as a promoter. Get pre-show offers and save time at the bourse."
 permalink: /portal/
 nav_exclude: true
 sitemap: false

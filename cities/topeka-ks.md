@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Topeka, Kansas — 2026-2027"
-seo_title: "Coin Shows in Topeka, Kansas — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Topeka, Kansas. Dates, venues, and details for upcoming coin shows and numismatic events in Topeka."
+title: "Topeka, KS Coin Shows"
+heading: "Coin Shows in Topeka, Kansas — 2026-2027"
+description: "Find 1 coin show in Topeka, Kansas. Compare dates, venues, and verification details before you travel."
 permalink: /cities/topeka-ks/
 city_slug: "topeka-ks"
 city_name: "Topeka"

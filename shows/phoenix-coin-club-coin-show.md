@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Phoenix Coin Club Coin Show — Phoenix, Arizona Coin Show"
-seo_title: "Phoenix Coin Club Coin Show — Phoenix, Arizona | Coin Show Near Me"
-seo_description: "Phoenix Coin Club Coin Show in Phoenix, Arizona. Annual (Fall/November) coin show at Holiday Inn & Suites Phoenix Airport North. Get dates, venue details, and more."
+title: "Phoenix Coin Club Coin Show"
+heading: "Phoenix Coin Club Coin Show — Phoenix, Arizona Coin Show"
+description: "Phoenix Coin Club Coin Show in Phoenix, Arizona. View dates, venue details, and listing verification before you travel."
 permalink: /shows/phoenix-coin-club-coin-show/
 show_id: "phoenix-coin-club-coin-show"
 breadcrumb_parent: "Arizona"

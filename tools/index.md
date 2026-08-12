@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Tools"
-seo_title: "Coin Collecting Tools & Calculators | Coin Show Near Me"
-seo_description: "Free tools for coin collectors — melt value calculator, state sales tax guide, and more."
+description: "Free tools for coin collectors — melt value calculator, state sales tax guide, and more."
 permalink: /tools/
 nav_order: 4
 has_children: true

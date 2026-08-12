@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Annual Mississippi (MNA) Coin Currency & Card Show — Biloxi, Mississippi Coin Show"
-seo_title: "Annual Mississippi (MNA) Coin Currency & Card Show — Biloxi, Mississippi | Coin Show Near Me"
-seo_description: "Annual Mississippi (MNA) Coin Currency & Card Show in Biloxi, Mississippi. Annual coin show at . Get dates, venue details, and more."
+title: "Mississippi MNA Coin & Currency Show"
+heading: "Annual Mississippi (MNA) Coin Currency & Card Show — Biloxi, Mississippi Coin Show"
+description: "Annual Mississippi (MNA) Coin Currency & Card Show in Biloxi, Mississippi. View dates, venue details, and listing verification before you travel."
 permalink: /shows/annual-mississippi-mna-coin-currency-card-show/
 show_id: "annual-mississippi-mna-coin-currency-card-show"
 breadcrumb_parent: "Mississippi"

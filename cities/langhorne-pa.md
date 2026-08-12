@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Langhorne, Pennsylvania — 2026-2027"
-seo_title: "Coin Shows in Langhorne, Pennsylvania — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Langhorne, Pennsylvania. Dates, venues, and details for upcoming coin shows and numismatic events in Langhorne."
+title: "Langhorne, PA Coin Shows"
+heading: "Coin Shows in Langhorne, Pennsylvania — 2026-2027"
+description: "Find 1 coin show in Langhorne, Pennsylvania. Compare dates, venues, and verification details before you travel."
 permalink: /cities/langhorne-pa/
 city_slug: "langhorne-pa"
 city_name: "Langhorne"

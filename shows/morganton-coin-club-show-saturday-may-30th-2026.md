@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Morganton Coin Club Show — Morganton, North Carolina Coin Show"
-seo_title: "Morganton Coin Club Show — Morganton, North Carolina | Coin Show Near Me"
-seo_description: "Morganton Coin Club Show in Morganton, North Carolina. Recurring coin show at 300 Collett St, Morganton, NC. Get dates, venue details, and more."
+title: "Morganton Coin Club Show"
+heading: "Morganton Coin Club Show — Morganton, North Carolina Coin Show"
+description: "Morganton Coin Club Show in Morganton, North Carolina. View dates, venue details, and listing verification before you travel."
 permalink: /shows/morganton-coin-club-show-saturday-may-30th-2026/
 show_id: "morganton-coin-club-show-saturday-may-30th-2026"
 breadcrumb_parent: "North Carolina"

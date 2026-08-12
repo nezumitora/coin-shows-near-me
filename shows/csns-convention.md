@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Central States Numismatic Society (CSNS) Convention — Schaumburg, Illinois Coin Show"
-seo_title: "Central States Numismatic Society (CSNS) Convention — Schaumburg, Illinois | Coin Show Near Me"
-seo_description: "Central States Numismatic Society (CSNS) Convention in Schaumburg, Illinois. Annual (April) coin show at Renaissance Schaumburg Hotel and Convention Center, 1551 North Thoreau Drive, Schaumburg, IL 60173. Get dates, venue details, and more."
+title: "Central States Numismatic Convention"
+heading: "Central States Numismatic Society (CSNS) Convention — Schaumburg, Illinois Coin Show"
+description: "Central States Numismatic Society (CSNS) Convention in Schaumburg, Illinois. View dates, venue details, and listing verification before you travel."
 permalink: /shows/csns-convention/
 show_id: "csns-convention"
 breadcrumb_parent: "Illinois"

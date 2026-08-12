@@ -4,9 +4,9 @@ layout: default
 
 {% include breadcrumbs.html %}
 
-<h1>{{ page.title }}</h1>
+<h1>{{ page.heading | default: page.title }}</h1>
 
-<p>{{ page.seo_description }}</p>
+<p>{{ page.description }}</p>
 
 {% assign state_tax = site.data.state_tax | where: "abbrev", page.state_abbrev | first %}
 {% if state_tax %}

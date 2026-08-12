@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Delaware — 2026-2027 Schedule"
-seo_title: "Coin Shows in Delaware — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 1 coin shows in Delaware. Complete directory with dates, venues, and details for Delaware coin shows, expos, and numismatic events."
+title: "Delaware Coin Shows"
+heading: "Coin Shows in Delaware — 2026-2027 Schedule"
+description: "Browse 1 coin shows in Delaware with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/delaware/
 state_abbrev: "DE"
 state_name: "Delaware"

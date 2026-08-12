@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "IMEX (International Money Exposition) — Nashville, Tennessee Coin Show"
-seo_title: "IMEX (International Money Exposition) — Nashville, Tennessee | Coin Show Near Me"
-seo_description: "IMEX (International Money Exposition) in Nashville, Tennessee. Annual (October) coin show at Music City Center. Get dates, venue details, and more."
+title: "IMEX (International Money Exposition)"
+heading: "IMEX (International Money Exposition) — Nashville, Tennessee Coin Show"
+description: "IMEX (International Money Exposition) in Nashville, Tennessee. View dates, venue details, and listing verification before you travel."
 permalink: /shows/imex-show/
 show_id: "imex-show"
 breadcrumb_parent: "Tennessee"

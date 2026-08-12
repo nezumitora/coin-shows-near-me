@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Wisconsin Sales Tax on Coins & Precious Metals"
-seo_title: "Wisconsin Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Wisconsin? Learn about Wisconsin sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Wisconsin Coin & Bullion Tax"
+heading: "Wisconsin Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Wisconsin? Learn about Wisconsin sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/wisconsin/
 nav_exclude: true
 state_abbrev: "WI"

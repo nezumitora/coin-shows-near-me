@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Indianapolis, Indiana — 2026-2027"
-seo_title: "Coin Shows in Indianapolis, Indiana — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Indianapolis, Indiana. Dates, venues, and details for upcoming coin shows and numismatic events in Indianapolis."
+title: "Indianapolis, IN Coin Shows"
+heading: "Coin Shows in Indianapolis, Indiana — 2026-2027"
+description: "Find 2 coin shows in Indianapolis, Indiana. Compare dates, venues, and verification details before you travel."
 permalink: /cities/indianapolis-in/
 city_slug: "indianapolis-in"
 city_name: "Indianapolis"

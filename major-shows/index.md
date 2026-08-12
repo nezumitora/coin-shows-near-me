@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Major Coin Shows"
-seo_title: "Major Coin Shows in the US — National Coin Show Directory | Coin Show Near Me"
-seo_description: "Browse major national and regional coin shows across the United States, including FUN, Long Beach Expo, Whitman, Central States, NYINC, PAN, and ANA events."
+description: "Browse major national and regional coin shows across the United States, including FUN, Long Beach Expo, Whitman, Central States, NYINC, PAN, and ANA events."
 permalink: /major-shows/
 breadcrumb_current: "Major Shows"
 ---

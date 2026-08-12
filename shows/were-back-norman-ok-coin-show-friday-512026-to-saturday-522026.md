@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Norman Coin Show — Norman, Oklahoma Coin Show"
-seo_title: "Norman Coin Show — Norman, Oklahoma | Coin Show Near Me"
-seo_description: "Norman Coin Show in Norman, Oklahoma. Recurring coin show at 615 E Robinson St, Norman, OK 73071. Get dates, venue details, and more."
+title: "Norman Coin Show"
+heading: "Norman Coin Show — Norman, Oklahoma Coin Show"
+description: "Norman Coin Show in Norman, Oklahoma. View dates, venue details, and listing verification before you travel."
 permalink: /shows/were-back-norman-ok-coin-show-friday-512026-to-saturday-522026/
 show_id: "were-back-norman-ok-coin-show-friday-512026-to-saturday-522026"
 breadcrumb_parent: "Oklahoma"

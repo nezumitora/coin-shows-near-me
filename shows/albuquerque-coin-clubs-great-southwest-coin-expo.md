@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Albuquerque Coin Club's  Great Southwest Coin Expo — Albuquerque, New Mexico Coin Show"
-seo_title: "Albuquerque Coin Club's  Great Southwest Coin Expo — Albuquerque, New Mexico | Coin Show Near Me"
-seo_description: "Albuquerque Coin Club's  Great Southwest Coin Expo in Albuquerque, New Mexico. Recurring coin show at Marriott Pyramid North Hotel, 5151 San Francisco Rd NE, Albuquerque, NM. Get dates, venue details, and more."
+title: "Great Southwest Coin Expo"
+heading: "Albuquerque Coin Club's  Great Southwest Coin Expo — Albuquerque, New Mexico Coin Show"
+description: "Albuquerque Coin Club's  Great Southwest Coin Expo in Albuquerque, New Mexico. View dates, venue details, and listing verification before you travel."
 permalink: /shows/albuquerque-coin-clubs-great-southwest-coin-expo/
 show_id: "albuquerque-coin-clubs-great-southwest-coin-expo"
 breadcrumb_parent: "New Mexico"

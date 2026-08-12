@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in New York, New York — 2026-2027"
-seo_title: "Coin Shows in New York, New York — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in New York, New York. Dates, venues, and details for upcoming coin shows and numismatic events in New York."
+title: "New York, NY Coin Shows"
+heading: "Coin Shows in New York, New York — 2026-2027"
+description: "Find 1 coin show in New York, New York. Compare dates, venues, and verification details before you travel."
 permalink: /cities/new-york-ny/
 city_slug: "new-york-ny"
 city_name: "New York"

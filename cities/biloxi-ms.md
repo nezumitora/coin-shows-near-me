@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Biloxi, Mississippi — 2026-2027"
-seo_title: "Coin Shows in Biloxi, Mississippi — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Biloxi, Mississippi. Dates, venues, and details for upcoming coin shows and numismatic events in Biloxi."
+title: "Biloxi, MS Coin Shows"
+heading: "Coin Shows in Biloxi, Mississippi — 2026-2027"
+description: "Find 2 coin shows in Biloxi, Mississippi. Compare dates, venues, and verification details before you travel."
 permalink: /cities/biloxi-ms/
 city_slug: "biloxi-ms"
 city_name: "Biloxi"

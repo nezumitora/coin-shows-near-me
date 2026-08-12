@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "ILNA Illinois Numismatic Association Coin Show — Countryside, Illinois Coin Show"
-seo_title: "ILNA Illinois Numismatic Association Coin Show — Countryside, Illinois | Coin Show Near Me"
-seo_description: "ILNA Illinois Numismatic Association Coin Show in Countryside, Illinois. Annual (September) coin show at IUOE Building, Countryside, IL. Get dates, venue details, and more."
+title: "ILNA Illinois Coin Show"
+heading: "ILNA Illinois Numismatic Association Coin Show — Countryside, Illinois Coin Show"
+description: "ILNA Illinois Numismatic Association Coin Show in Countryside, Illinois. View dates, venue details, and listing verification before you travel."
 permalink: /shows/ilna-illinois-numismatic-association-coin-show/
 show_id: "ilna-illinois-numismatic-association-coin-show"
 breadcrumb_parent: "Illinois"

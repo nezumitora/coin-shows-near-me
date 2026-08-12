@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Tri-State Monthly Coin, Stamp & Paper Money Show — Langhorne, Pennsylvania Coin Show"
-seo_title: "Tri-State Monthly Coin, Stamp & Paper Money Show — Langhorne, Pennsylvania | Coin Show Near Me"
-seo_description: "Tri-State Monthly Coin, Stamp & Paper Money Show in Langhorne, Pennsylvania. Monthly (3rd Sunday) coin show at Sheraton Bucks County, 400 Oxford Valley Road, Langhorne, PA 19030. Get dates, venue details, and more."
+title: "Tri-State Coin, Stamp & Money Show"
+heading: "Tri-State Monthly Coin, Stamp & Paper Money Show — Langhorne, Pennsylvania Coin Show"
+description: "Tri-State Monthly Coin, Stamp & Paper Money Show in Langhorne, Pennsylvania. View dates, venue details, and listing verification before you travel."
 permalink: /shows/monthly-tri-state-coin-stamp-show/
 show_id: "monthly-tri-state-coin-stamp-show"
 breadcrumb_parent: "Pennsylvania"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Greater Atlanta Coin Show — Marietta, Georgia Coin Show"
-seo_title: "Greater Atlanta Coin Show — Marietta, Georgia | Coin Show Near Me"
-seo_description: "Greater Atlanta Coin Show in Marietta, Georgia. Monthly (Sunday) coin show at IAM Union Hall, 1032 South Marietta Parkway SE, Marietta, GA 30060. Get dates, venue details, and more."
+title: "Greater Atlanta Coin Show"
+heading: "Greater Atlanta Coin Show — Marietta, Georgia Coin Show"
+description: "Greater Atlanta Coin Show in Marietta, Georgia. View dates, venue details, and listing verification before you travel."
 permalink: /shows/greater-atlanta-coin-show/
 show_id: "greater-atlanta-coin-show"
 breadcrumb_parent: "Georgia"

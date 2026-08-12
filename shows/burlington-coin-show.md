@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Burlington Coin Show — South Burlington, Vermont Coin Show"
-seo_title: "Burlington Coin Show — South Burlington, Vermont | Coin Show Near Me"
-seo_description: "Burlington Coin Show in South Burlington, Vermont. Annual (Winter) coin show at DoubleTree by Hilton. Get dates, venue details, and more."
+title: "Burlington Coin Show"
+heading: "Burlington Coin Show — South Burlington, Vermont Coin Show"
+description: "Burlington Coin Show in South Burlington, Vermont. View dates, venue details, and listing verification before you travel."
 permalink: /shows/burlington-coin-show/
 show_id: "burlington-coin-show"
 breadcrumb_parent: "Vermont"

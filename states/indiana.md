@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Indiana — 2026-2027 Schedule"
-seo_title: "Coin Shows in Indiana — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 6 coin shows in Indiana. Complete directory with dates, venues, and details for Indiana coin shows, expos, and numismatic events."
+title: "Indiana Coin Shows"
+heading: "Coin Shows in Indiana — 2026-2027 Schedule"
+description: "Browse 6 coin shows in Indiana with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/indiana/
 state_abbrev: "IN"
 state_name: "Indiana"

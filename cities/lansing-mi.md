@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Lansing, Michigan — 2026-2027"
-seo_title: "Coin Shows in Lansing, Michigan — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Lansing, Michigan. Dates, venues, and details for upcoming coin shows and numismatic events in Lansing."
+title: "Lansing, MI Coin Shows"
+heading: "Coin Shows in Lansing, Michigan — 2026-2027"
+description: "Find 2 coin shows in Lansing, Michigan. Compare dates, venues, and verification details before you travel."
 permalink: /cities/lansing-mi/
 city_slug: "lansing-mi"
 city_name: "Lansing"

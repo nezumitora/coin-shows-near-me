@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Kokomo Coin & Collectibles Show — Kokomo, Indiana Coin Show"
-seo_title: "Kokomo Coin & Collectibles Show — Kokomo, Indiana | Coin Show Near Me"
-seo_description: "Kokomo Coin & Collectibles Show in Kokomo, Indiana. Recurring coin show at UAW Union Hall 685. Get dates, venue details, and more."
+title: "Kokomo Coin & Collectibles Show"
+heading: "Kokomo Coin & Collectibles Show — Kokomo, Indiana Coin Show"
+description: "Kokomo Coin & Collectibles Show in Kokomo, Indiana. View dates, venue details, and listing verification before you travel."
 permalink: /shows/kokomo-coin-collectibles-show/
 show_id: "kokomo-coin-collectibles-show"
 breadcrumb_parent: "Indiana"

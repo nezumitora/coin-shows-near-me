@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Legal"
-seo_title: "Legal — Terms, Privacy & Disclaimers | Coin Show Near Me"
-seo_description: "Legal documents for Coin Show Near Me including Terms of Use, Privacy Policy, and Disclaimers."
+description: "Legal documents for Coin Show Near Me including Terms of Use, Privacy Policy, and Disclaimers."
 permalink: /legal/
 nav_order: 99
 breadcrumb_current: "Legal"

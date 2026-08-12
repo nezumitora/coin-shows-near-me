@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Old Bridge, New Jersey — 2026-2027"
-seo_title: "Coin Shows in Old Bridge, New Jersey — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Old Bridge, New Jersey. Dates, venues, and details for upcoming coin shows and numismatic events in Old Bridge."
+title: "Old Bridge, NJ Coin Shows"
+heading: "Coin Shows in Old Bridge, New Jersey — 2026-2027"
+description: "Find 1 coin show in Old Bridge, New Jersey. Compare dates, venues, and verification details before you travel."
 permalink: /cities/old-bridge-nj/
 city_slug: "old-bridge-nj"
 city_name: "Old Bridge"

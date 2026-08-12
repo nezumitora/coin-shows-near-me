@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Duncan, Oklahoma — 2026-2027"
-seo_title: "Coin Shows in Duncan, Oklahoma — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Duncan, Oklahoma. Dates, venues, and details for upcoming coin shows and numismatic events in Duncan."
+title: "Duncan, OK Coin Shows"
+heading: "Coin Shows in Duncan, Oklahoma — 2026-2027"
+description: "Find 1 coin show in Duncan, Oklahoma. Compare dates, venues, and verification details before you travel."
 permalink: /cities/duncan-ok/
 city_slug: "duncan-ok"
 city_name: "Duncan"

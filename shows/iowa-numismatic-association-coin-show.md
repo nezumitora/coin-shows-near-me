@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Iowa Numismatic Association Convention & Coin Show — Altoona, Iowa Coin Show"
-seo_title: "Iowa Numismatic Association Convention & Coin Show — Altoona, Iowa | Coin Show Near Me"
-seo_description: "Iowa Numismatic Association Convention & Coin Show in Altoona, Iowa. Annual (October) coin show at Prairie Meadows Casino & Hotel, Altoona, IA. Get dates, venue details, and more."
+title: "Iowa Numismatic Association Convention"
+heading: "Iowa Numismatic Association Convention & Coin Show — Altoona, Iowa Coin Show"
+description: "Iowa Numismatic Association Convention & Coin Show in Altoona, Iowa. View dates, venue details, and listing verification before you travel."
 permalink: /shows/iowa-numismatic-association-coin-show/
 show_id: "iowa-numismatic-association-coin-show"
 breadcrumb_parent: "Iowa"

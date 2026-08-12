@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Fort Collins Coin Club Show — Fort Collins, Colorado Coin Show"
-seo_title: "Fort Collins Coin Club Show — Fort Collins, Colorado | Coin Show Near Me"
-seo_description: "Fort Collins Coin Club Show in Fort Collins, Colorado. Semiannual (Spring & Fall) coin show at Larimer County Fairgrounds McKee 4H Bldg, 5280 Arena Circle, Loveland, CO. Get dates, venue details, and more."
+title: "Fort Collins Coin Club Show"
+heading: "Fort Collins Coin Club Show — Fort Collins, Colorado Coin Show"
+description: "Fort Collins Coin Club Show in Fort Collins, Colorado. View dates, venue details, and listing verification before you travel."
 permalink: /shows/fort-collins-coin-club-show/
 show_id: "fort-collins-coin-club-show"
 breadcrumb_parent: "Colorado"

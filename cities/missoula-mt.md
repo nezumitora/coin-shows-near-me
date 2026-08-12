@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Missoula, Montana — 2026-2027"
-seo_title: "Coin Shows in Missoula, Montana — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Missoula, Montana. Dates, venues, and details for upcoming coin shows and numismatic events in Missoula."
+title: "Missoula, MT Coin Shows"
+heading: "Coin Shows in Missoula, Montana — 2026-2027"
+description: "Find 1 coin show in Missoula, Montana. Compare dates, venues, and verification details before you travel."
 permalink: /cities/missoula-mt/
 city_slug: "missoula-mt"
 city_name: "Missoula"

@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Nevada Sales Tax on Coins & Precious Metals"
-seo_title: "Nevada Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Nevada? Learn about Nevada sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Nevada Coin & Bullion Tax"
+heading: "Nevada Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Nevada? Learn about Nevada sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/nevada/
 nav_exclude: true
 state_abbrev: "NV"

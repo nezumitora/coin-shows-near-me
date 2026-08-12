@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Oregon — 2026-2027 Schedule"
-seo_title: "Coin Shows in Oregon — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 3 coin shows in Oregon. Complete directory with dates, venues, and details for Oregon coin shows, expos, and numismatic events."
+title: "Oregon Coin Shows"
+heading: "Coin Shows in Oregon — 2026-2027 Schedule"
+description: "Browse 3 coin shows in Oregon with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/oregon/
 state_abbrev: "OR"
 state_name: "Oregon"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Arcadia Coin Show — Arcadia, California Coin Show"
-seo_title: "Arcadia Coin Show — Arcadia, California | Coin Show Near Me"
-seo_description: "Arcadia Coin Show in Arcadia, California. Annual (August) coin show at Masonic Lodge, 50 West Duarte Road, Arcadia, CA. Get dates, venue details, and more."
+title: "Arcadia Coin Show"
+heading: "Arcadia Coin Show — Arcadia, California Coin Show"
+description: "Arcadia Coin Show in Arcadia, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/the-arcadia-coin-currency-and-collectibles-show/
 show_id: "the-arcadia-coin-currency-and-collectibles-show"
 breadcrumb_parent: "California"

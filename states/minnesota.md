@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Minnesota — 2026-2027 Schedule"
-seo_title: "Coin Shows in Minnesota — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 4 coin shows in Minnesota. Complete directory with dates, venues, and details for Minnesota coin shows, expos, and numismatic events."
+title: "Minnesota Coin Shows"
+heading: "Coin Shows in Minnesota — 2026-2027 Schedule"
+description: "Browse 4 coin shows in Minnesota with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/minnesota/
 state_abbrev: "MN"
 state_name: "Minnesota"

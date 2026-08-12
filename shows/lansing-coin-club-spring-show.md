@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Lansing Coin Club Spring Show — Lansing, Michigan Coin Show"
-seo_title: "Lansing Coin Club Spring Show — Lansing, Michigan | Coin Show Near Me"
-seo_description: "Lansing Coin Club Spring Show in Lansing, Michigan. Annual (Spring) coin show at Royal Scot Golf & Bowl. Get dates, venue details, and more."
+title: "Lansing Coin Club Spring Show"
+heading: "Lansing Coin Club Spring Show — Lansing, Michigan Coin Show"
+description: "Lansing Coin Club Spring Show in Lansing, Michigan. View dates, venue details, and listing verification before you travel."
 permalink: /shows/lansing-coin-club-spring-show/
 show_id: "lansing-coin-club-spring-show"
 breadcrumb_parent: "Michigan"

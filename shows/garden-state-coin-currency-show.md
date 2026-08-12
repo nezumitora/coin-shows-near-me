@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Garden State Coin & Currency Show — Parsippany, New Jersey Coin Show"
-seo_title: "Garden State Coin & Currency Show — Parsippany, New Jersey | Coin Show Near Me"
-seo_description: "Garden State Coin & Currency Show in Parsippany, New Jersey. Monthly (1st Sunday) coin show at PAL Building. Get dates, venue details, and more."
+title: "Garden State Coin & Currency Show"
+heading: "Garden State Coin & Currency Show — Parsippany, New Jersey Coin Show"
+description: "Garden State Coin & Currency Show in Parsippany, New Jersey. View dates, venue details, and listing verification before you travel."
 permalink: /shows/garden-state-coin-currency-show/
 show_id: "garden-state-coin-currency-show"
 breadcrumb_parent: "New Jersey"

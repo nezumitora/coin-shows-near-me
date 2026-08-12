@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Western Montana Coin Show — Missoula, Montana Coin Show"
-seo_title: "Western Montana Coin Show — Missoula, Montana | Coin Show Near Me"
-seo_description: "Western Montana Coin Show in Missoula, Montana. Annual (Fall) coin show at Hilton Garden Inn. Get dates, venue details, and more."
+title: "Western Montana Coin Show"
+heading: "Western Montana Coin Show — Missoula, Montana Coin Show"
+description: "Western Montana Coin Show in Missoula, Montana. View dates, venue details, and listing verification before you travel."
 permalink: /shows/western-montana-coin-show/
 show_id: "western-montana-coin-show"
 breadcrumb_parent: "Montana"

@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Brookfield, Wisconsin — 2026-2027"
-seo_title: "Coin Shows in Brookfield, Wisconsin — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Brookfield, Wisconsin. Dates, venues, and details for upcoming coin shows and numismatic events in Brookfield."
+title: "Brookfield, WI Coin Shows"
+heading: "Coin Shows in Brookfield, Wisconsin — 2026-2027"
+description: "Find 1 coin show in Brookfield, Wisconsin. Compare dates, venues, and verification details before you travel."
 permalink: /cities/brookfield-wi/
 city_slug: "brookfield-wi"
 city_name: "Brookfield"

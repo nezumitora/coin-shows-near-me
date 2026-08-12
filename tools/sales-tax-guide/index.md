@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Sales Tax Guide"
-seo_title: "Sales Tax on Coins & Precious Metals by State (2026) | Coin Show Near Me"
-seo_description: "Primary-source-reviewed state guide to sales tax on gold, silver, bullion, and coins, with unconfirmed classifications clearly marked as pending."
+description: "Primary-source-reviewed state guide to sales tax on gold, silver, bullion, and coins, with unconfirmed classifications clearly marked as pending."
 permalink: /tools/sales-tax-guide/
 parent: "Tools"
 nav_order: 2

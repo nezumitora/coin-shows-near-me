@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Rochester Numismatic Association Show — Rochester, New York Coin Show"
-seo_title: "Rochester Numismatic Association Show — Rochester, New York | Coin Show Near Me"
-seo_description: "Rochester Numismatic Association Show in Rochester, New York. Annual (November) coin show at Eisenhart Auditorium. Get dates, venue details, and more."
+title: "Rochester Numismatic Association Show"
+heading: "Rochester Numismatic Association Show — Rochester, New York Coin Show"
+description: "Rochester Numismatic Association Show in Rochester, New York. View dates, venue details, and listing verification before you travel."
 permalink: /shows/rochester-numismatic-association-show/
 show_id: "rochester-numismatic-association-show"
 breadcrumb_parent: "New York"

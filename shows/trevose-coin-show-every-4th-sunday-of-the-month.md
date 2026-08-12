@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Trevose Coin Show — Trevose, Pennsylvania Coin Show"
-seo_title: "Trevose Coin Show — Trevose, Pennsylvania | Coin Show Near Me"
-seo_description: "Trevose Coin Show in Trevose, Pennsylvania. Monthly (4th Sunday) coin show at Trevose Fire Hall, 4900 E. Street Rd., Trevose, PA 19053. Get dates, venue details, and more."
+title: "Trevose Coin Show"
+heading: "Trevose Coin Show — Trevose, Pennsylvania Coin Show"
+description: "Trevose Coin Show in Trevose, Pennsylvania. View dates, venue details, and listing verification before you travel."
 permalink: /shows/trevose-coin-show-every-4th-sunday-of-the-month/
 show_id: "trevose-coin-show-every-4th-sunday-of-the-month"
 breadcrumb_parent: "Pennsylvania"

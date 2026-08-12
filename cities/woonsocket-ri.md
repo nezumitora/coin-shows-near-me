@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Woonsocket, Rhode Island — 2026-2027"
-seo_title: "Coin Shows in Woonsocket, Rhode Island — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Woonsocket, Rhode Island. Dates, venues, and details for upcoming coin shows and numismatic events in Woonsocket."
+title: "Woonsocket, RI Coin Shows"
+heading: "Coin Shows in Woonsocket, Rhode Island — 2026-2027"
+description: "Find 1 coin show in Woonsocket, Rhode Island. Compare dates, venues, and verification details before you travel."
 permalink: /cities/woonsocket-ri/
 city_slug: "woonsocket-ri"
 city_name: "Woonsocket"

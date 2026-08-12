@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Melt Value Calculator"
-seo_title: "Coin Melt Value Calculator — US, Canadian, British & World Coin Melt Values | Coin Show Near Me"
-seo_description: "Calculate the melt value of US, Canadian, British and world silver and gold coins. Instant calculator for pre-1965 silver, pre-1933 gold, Maple Leafs, Sovereigns, Krugerrands, and more."
+description: "Calculate melt value for US and world silver or gold coins using current metal prices. Includes pre-1965 silver, bullion coins, and more."
 permalink: /tools/melt-value-calculator/
 parent: "Tools"
 nav_order: 1

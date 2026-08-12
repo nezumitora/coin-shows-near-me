@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Virginia Sales Tax on Coins & Precious Metals"
-seo_title: "Virginia Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Virginia? Learn about Virginia sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Virginia Coin & Bullion Tax"
+heading: "Virginia Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Virginia? Learn about Virginia sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/virginia/
 nav_exclude: true
 state_abbrev: "VA"
