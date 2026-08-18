@@ -7,6 +7,7 @@ class SeoMetadataTest < Minitest::Test
   ROOT = File.expand_path('..', __dir__)
   CONFIG = YAML.load_file(File.join(ROOT, '_config.yml'))
   HOMEPAGE_LAYOUT = File.read(File.join(ROOT, '_layouts/homepage.html'))
+  WEEKEND_LAYOUT = File.read(File.join(ROOT, '_layouts/weekend.html'))
   HEAD_CUSTOM = File.read(File.join(ROOT, '_includes/head_custom.html'))
   SITE_TITLE_SUFFIX = " | #{CONFIG.fetch('title')}"
   MAX_RENDERED_TITLE_LENGTH = 60
@@ -51,6 +52,11 @@ class SeoMetadataTest < Minitest::Test
       refute data.key?('seo_title'), "legacy seo_title remains in #{path}"
       refute data.key?('seo_description'), "legacy seo_description remains in #{path}"
     end
+  end
+
+  def test_weekend_intro_uses_standard_description
+    assert_includes WEEKEND_LAYOUT, 'page.description'
+    refute_includes WEEKEND_LAYOUT, 'page.seo_description'
   end
 
   def test_indexable_page_titles_and_descriptions_are_concise_and_unique
