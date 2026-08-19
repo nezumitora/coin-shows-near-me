@@ -84,7 +84,7 @@ class SeoMetadataTest < Minitest::Test
     assert_equal '/assets/images/logo.png', image.fetch('path')
     assert_equal 1254, image.fetch('width')
     assert_equal 1254, image.fetch('height')
-    refute_empty image.fetch('alt')
+    assert_equal 'Coin Shows Near Me buffalo logo', image.fetch('alt')
   end
 
   def test_oversized_brand_images_are_not_referenced_by_pages_or_layouts

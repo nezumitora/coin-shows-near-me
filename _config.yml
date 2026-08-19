@@ -29,7 +29,7 @@ defaults:
         path: "/assets/images/logo.png"
         width: 1254
         height: 1254
-        alt: "Coin Shows Near Me shield logo"
+        alt: "Coin Shows Near Me buffalo logo"
 
 # just-the-docs nav
 nav_sort: order
