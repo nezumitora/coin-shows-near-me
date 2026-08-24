@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-08-24 12:20 PDT
+**Last updated:** 2026-08-24 12:25 PDT
 **Session:** Ahrefs local repairs, directory date integrity, and dealer privacy
 
 ## Completed today
@@ -13,11 +13,12 @@
 - Gated dealer public contacts behind voluntary-publication or source-verification evidence. Removed seller-contact and offer-request intake from the widget, melt calculator, and dormant portal, and reconciled privacy, terms, and disclaimer wording with the inactive service.
 - Expanded the deterministic public show feed with only the non-sensitive confirmed-date fields required by the widget.
 - Passed 84 Ruby tests, 16 JavaScript tests, data/feed validation, a production Jekyll build, generated-page/schema checks, desktop/mobile browser assertions, and an HTTP audit of all 495 sitemap URLs. The accessibility helper reported no errors; its sole homepage warning is the intentionally hidden spam-trap field.
+- Saved the implementation in local commit `0b24059` and refreshed the verified preview at `http://localhost:3313`.
 - No push, pull request, merge, deployment, production/GSC change, Ahrefs rerun, outreach, email, or DNS change occurred.
 
 ## In progress
 
-- Create the final local commit and refresh the local preview on port 3313.
+- None.
 
 ## Next up
 
