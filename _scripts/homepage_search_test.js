@@ -70,6 +70,7 @@ test('date filters match this weekend and the current month using ISO dates', ()
   const friday = new Date(2026, 6, 31, 12, 0, 0);
 
   assert.equal(showMatchesDateFilter('2026-07-31,2026-08-01', 'weekend', friday), true);
+  assert.equal(showMatchesDateFilter('2026-07-31', 'weekend', friday), false);
   assert.equal(showMatchesDateFilter('2026-08-07', 'weekend', friday), false);
   assert.equal(showMatchesDateFilter('2026-07-31,2026-08-01', 'month', friday), true);
   assert.equal(showMatchesDateFilter('2026-08-01', 'month', friday), false);
@@ -83,4 +84,14 @@ test('weekend filter includes the current Saturday and Sunday', () => {
   assert.equal(showMatchesDateFilter('2026-08-02', 'weekend', sunday), true);
   assert.equal(showMatchesDateFilter('', 'weekend', saturday), false);
   assert.equal(showMatchesDateFilter('', 'all', saturday), true);
+});
+
+test('frozen August 23 weekend includes only Saturday or Sunday overlaps', () => {
+  const sunday = new Date(2026, 7, 23, 12, 0, 0);
+
+  assert.equal(showMatchesDateFilter('2026-08-09', 'weekend', sunday), false);
+  assert.equal(showMatchesDateFilter('2026-08-22,2026-08-23', 'weekend', sunday), true);
+  assert.equal(showMatchesDateFilter('2026-08-23', 'weekend', sunday), true);
+  assert.equal(showMatchesDateFilter('2026-08-21', 'weekend', sunday), false);
+  assert.equal(showMatchesDateFilter('2026-08-21,2026-08-22', 'weekend', sunday), true);
 });

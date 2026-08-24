@@ -3,6 +3,7 @@
 require 'minitest/autorun'
 require 'date'
 require 'yaml'
+require_relative 'show_date_status'
 
 class HomepageTrustTest < Minitest::Test
   ROOT = File.expand_path('..', __dir__)
@@ -20,51 +21,88 @@ class HomepageTrustTest < Minitest::Test
   FORM_BRIDGE = File.read(File.join(ROOT, '_includes/form_capture_bridge.html'))
   FOOTER_CUSTOM = File.read(File.join(ROOT, '_includes/footer_custom.html'))
   LISTING_REVIEW_FORM = File.read(File.join(ROOT, '_includes/show-listing-review-form.html'))
+  SHOW_CARD = File.read(File.join(ROOT, '_includes/show-card.html'))
+  SHOW_DATE_SCRIPT = File.read(File.join(ROOT, '_includes/show-date-status.js'))
+  SCHEMA_EVENT = File.read(File.join(ROOT, '_includes/schema-event.html'))
+  WEEKEND_LAYOUT = File.read(File.join(ROOT, '_layouts/weekend.html'))
+  MAJOR_SHOWS = File.read(File.join(ROOT, 'major-shows/index.md'))
+  WIDGET = File.read(File.join(ROOT, 'widget.html'))
+  EMBED_GENERATOR = File.read(File.join(ROOT, 'embed-generator.html'))
+  MELT_CALCULATOR = File.read(File.join(ROOT, 'tools/melt-value-calculator.md'))
   SHOW_SHARE = File.read(File.join(ROOT, '_includes/show-share.html'))
   PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
   TERMS_OF_USE = File.read(File.join(ROOT, 'legal/terms-of-use.md'))
+  DISCLAIMER = File.read(File.join(ROOT, 'legal/disclaimer.md'))
   REVIEW_TEST_PAGE = File.read(File.join(ROOT, 'review-test-show.md'))
   REVIEW_SHOW = YAML.load_file(File.join(ROOT, '_data/review_show.yml'))
   SHOWS = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
   STATE_TAX = YAML.load_file(File.join(ROOT, '_data/state_tax.yml'))
   CONFIG = YAML.load_file(File.join(ROOT, '_config.yml'))
-  AS_OF = Date.new(2026, 7, 29)
+  AS_OF = Date.new(2026, 8, 24)
 
   def date_status(show)
-    date = show.fetch('next_date')
-    return :tbd if date == 'TBD'
-    latest_date = Array(show['upcoming_dates']).last
-    return :expired if latest_date && Date.iso8601(latest_date) < AS_OF
-    return :scheduled if date.include?(',')
-
-    :partial
+    ShowDateStatus.classification(show, as_of: AS_OF)
   end
 
   def test_every_show_receives_one_plain_language_date_status
     statuses = SHOWS.map { |show| date_status(show) }
 
     assert_equal 197, statuses.length
-    assert_equal statuses.length, statuses.count { |status| %i[scheduled partial expired tbd].include?(status) }
+    assert_equal statuses.length, statuses.count { |status| %i[scheduled date_not_confirmed past_date_unconfirmed past_show].include?(status) }
     assert_includes statuses, :scheduled
-    assert_includes statuses, :partial
-    assert_includes statuses, :expired
-    assert_includes statuses, :tbd
+    assert_includes statuses, :date_not_confirmed
+    assert_includes statuses, :past_date_unconfirmed
+    refute_includes statuses, :past_show
   end
 
-  def test_month_only_dates_are_partial_not_scheduled
-    partial_ids = SHOWS.select { |show| date_status(show) == :partial }.map { |show| show['id'] }
+  def test_month_only_dates_are_not_confirmed_not_scheduled
+    partial_ids = SHOWS.select { |show| ShowDateParser.partial_date?(show.fetch('next_date')) }.map { |show| show['id'] }
 
     assert_equal %w[cheyenne-coin-expo hawaii-state-numismatic-association-show], partial_ids.sort
+    partial_ids.each do |show_id|
+      show = SHOWS.find { |entry| entry.fetch('id') == show_id }
+      assert_equal :date_not_confirmed, date_status(show)
+    end
   end
 
-  def test_past_specific_dates_are_marked_expired
-    expired_ids = SHOWS.select { |show| date_status(show) == :expired }.map { |show| show['id'] }
+  def test_past_specific_dates_use_recurring_unconfirmed_status
+    expired_ids = SHOWS.select { |show| date_status(show) == :past_date_unconfirmed }.map { |show| show['id'] }
 
     assert_equal %w[
+      3rd-sunday-columbus-coin-show
       apnscc-coin-show-sat-july-18th-9am-6pm-sun-july-19th-9am-4pm
+      boeing-employees-coin-club-show
       first-annual-lansing-coin-show
+      greater-johnstown-coin-club-show
+      low-country-coin-club-show
+      missouri-numismatic-society-annual-coin-show
+      san-francisco-coin-show
+      tallahassee-coin-club-two-day-show
+      valley-coin-show
       wny-coin-show-meetings-4th-sunday-each-month
     ], expired_ids.sort
+  end
+
+  def test_all_public_show_surfaces_use_confirmed_date_ranges
+    assert_includes HOMEPAGE, '{% include show-date-status.js %}'
+    assert_includes HEAD_CUSTOM, '{% include show-date-status.js %}'
+    [HOMEPAGE, SHOW_LAYOUT, SHOW_CARD, LISTING_REVIEW_FORM, MAJOR_SHOWS].each do |surface|
+      assert_includes surface, 'data-show-date-record'
+    end
+    assert_includes WEEKEND_LAYOUT, 'firstShowDateRangeOverlapping'
+    assert_includes WEEKEND_LAYOUT, 'firstShowWeekendRangeBetween'
+    refute_includes WEEKEND_LAYOUT, 'show.next_date'
+    assert_includes WIDGET, 'classifyShowDates(show.upcoming_dates'
+    refute_includes WIDGET, 'show.next_date &&'
+    assert_includes SCHEMA_EVENT, 'include.show.upcoming_dates'
+    refute_includes SCHEMA_EVENT, 'include.show.next_date'
+    assert_includes SHOW_DATE_SCRIPT, "'Past date — next date unconfirmed'"
+    assert_includes SHOW_DATE_SCRIPT, "label: 'Date not confirmed'"
+    [HOMEPAGE, SHOW_LAYOUT].each do |surface|
+      refute_includes surface, 'Expired date'
+      refute_includes surface, 'Partial date'
+      refute_includes surface, 'Date TBD'
+    end
   end
 
   def test_homepage_keeps_search_first_and_requested_utilities_near_the_top
@@ -105,7 +143,9 @@ class HomepageTrustTest < Minitest::Test
     assert_includes HOMEPAGE, 'name="preferredState"'
     assert_includes HOMEPAGE, 'name="interested_shows_locations"'
     assert_includes HOMEPAGE, 'name="contactConsent"'
-    assert_includes HOMEPAGE, 'No recurring reminder service is active yet.'
+    assert_includes HOMEPAGE, 'name="first_name" aria-label="First name"'
+    assert_includes HOMEPAGE, 'name="preferredState" aria-label="State"'
+    assert_includes HOMEPAGE, 'Notify me when show reminders become available. No reminder service is active yet. <a href="/legal/privacy-policy/">Privacy Policy</a>.'
     refute_includes HOMEPAGE, 'name="phone"'
     refute_includes HOMEPAGE, 'name="sms_consent"'
     refute_includes HOMEPAGE, 'name="showReminderOptIn"'
@@ -114,7 +154,8 @@ class HomepageTrustTest < Minitest::Test
 
   def test_show_reminder_interest_does_not_collect_phone_or_promise_delivery
     assert_includes SHOW_LAYOUT, 'id="show-reminder-form"'
-    assert_includes SHOW_LAYOUT, 'No recurring reminder service is active yet.'
+    assert_includes SHOW_LAYOUT, 'name="email" aria-label="Email address"'
+    assert_includes SHOW_LAYOUT, 'Notify me when show reminders become available. No reminder service is active yet. <a href="/legal/privacy-policy/"'
     refute_includes SHOW_LAYOUT, 'name="phone"'
     refute_includes SHOW_LAYOUT, 'name="sms_consent"'
     refute_includes SHOW_LAYOUT, 'name="showReminderOptIn"'
@@ -217,6 +258,20 @@ class HomepageTrustTest < Minitest::Test
     assert_includes DEALERS_PAGE, 'name="social_x_url"'
     assert_includes HEAD_CUSTOM, '.dealer-listing-consent input[type="checkbox"]'
     assert_includes DEALERS_PAGE, 'name="specialty"'
+    assert_includes DEALERS_PAGE, 'data-dealer-claim-trigger'
+    assert_includes DEALERS_PAGE, 'id="dealer-claim-form"'
+    assert_includes DEALERS_PAGE, 'Request Manual Claim Review'
+    assert_includes DEALERS_PAGE, 'claiming and verification are separate manual decisions'
+    assert_includes DEALERS_PAGE, 'payment or promotion cannot affect the decision'
+    assert_includes DEALERS_PAGE, 'nothing publishes automatically'
+    assert_includes DEALERS_PAGE, 'dealer.public_contacts.publication_basis'
+    assert_includes DEALERS_PAGE, 'public_contact_basis == "voluntarily_submitted" or public_contact_basis == "source_verified"'
+    assert_includes DEALERS_PAGE, 'Private contact email <span>(not published)</span>'
+    assert_includes DEALERS_PAGE, 'educational metal-content estimate, not a guaranteed minimum price'
+    assert_includes DEALERS_PAGE, 'href="#dealer-listing-form"'
+    refute_includes DEALERS_PAGE, 'href="{{ dealer.website }}"'
+    refute_includes DEALERS_PAGE, 'Get matched with attendees'
+    refute_includes DEALERS_PAGE, 'as your price floor'
     refute_includes DEALERS_PAGE, 'Contact Us to Be Listed'
   end
 
@@ -224,7 +279,10 @@ class HomepageTrustTest < Minitest::Test
     assert_includes SHOW_LAYOUT, '{% include show-listing-review-form.html show=show review_fixture=page.review_fixture %}'
     assert_includes SHOW_LAYOUT, 'data-listing-review-trigger'
     assert_includes LISTING_REVIEW_FORM, 'id="listing-review-form"'
-    assert_includes LISTING_REVIEW_FORM, 'Current listing information is shown on the left.'
+    assert_includes LISTING_REVIEW_FORM, '<span class="listing-review-title">Review or update this listing.</span>'
+    assert_includes LISTING_REVIEW_FORM, 'Expand the form to confirm details, submit a correction, claim or verify the listing, or request removal.'
+    assert_includes LISTING_REVIEW_FORM, 'Expand the full review form'
+    assert_includes LISTING_REVIEW_FORM, 'Collapse the full review form'
     assert_includes LISTING_REVIEW_FORM, 'Correct as shown'
     assert_includes LISTING_REVIEW_FORM, 'data-confirm-target="review-show-name"'
     assert_includes LISTING_REVIEW_FORM, '<option value="correction">'
@@ -254,6 +312,26 @@ class HomepageTrustTest < Minitest::Test
       refute_includes layout, 'Get Dealer Quotes Before the Show'
       refute_includes layout, 'Get Offers on Your Coins'
     end
+    assert_includes WIDGET, 'No offer request is active.'
+    assert_includes WIDGET, 'Calculate Junk Silver Melt Value'
+    refute_includes WIDGET, 'id="csw-lead-form"'
+    refute_includes WIDGET, 'dealerEmail'
+    refute_includes WIDGET, 'mailto:'
+    refute_includes EMBED_GENERATOR, 'eg-dealer-email'
+    refute_includes EMBED_GENERATOR, 'dealerEmail'
+    assert_includes MELT_CALCULATOR, 'This calculator does not collect your contact information or request dealer offers.'
+    assert_includes MELT_CALCULATOR, 'not a guaranteed price floor'
+    refute_includes MELT_CALCULATOR, 'id="offer-form"'
+    refute_includes MELT_CALCULATOR, 'sellerOfferRequest'
+    assert_includes PORTAL_PAGE, 'No dealer portal, account system, collection upload, offer request, or portal notification service is active.'
+    refute_includes PORTAL_PAGE, 'id="portal-form"'
+    refute_includes PORTAL_PAGE, 'sellerOfferRequest'
+    assert_includes PRIVACY_POLICY, 'We do not currently operate a pre-show offer system'
+    assert_includes TERMS_OF_USE, 'The Platform does not accept seller collection submissions'
+    assert_includes DISCLAIMER, 'We do not operate an offer marketplace'
+    assert_includes DEALERS_PAGE, 'id="dealer-search" aria-label="Search dealers"'
+    assert_includes WIDGET, 'for="csw-state-filter"'
+    assert_includes WIDGET, 'for="csw-zip-filter"'
   end
 
   def test_requested_featured_show_addresses_are_complete_and_verified

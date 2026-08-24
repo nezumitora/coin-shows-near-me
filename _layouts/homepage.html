@@ -668,10 +668,6 @@ a:hover { color: var(--gold-light); }
   color: #2d6a2e;
   font-weight: 600;
 }
-.show-card-tag.tbd-tag {
-  background: #fef3cd;
-  color: #856404;
-}
 .show-card-notes {
   font-size: 0.72rem;
   color: var(--text-light);
@@ -703,9 +699,9 @@ a:hover { color: var(--gold-light); }
   font-weight: 800;
 }
 .trust-status--scheduled { background: #dcfce7; color: #166534; }
-.trust-status--partial { background: #e0f2fe; color: #075985; }
-.trust-status--tbd { background: #fef3c7; color: #854d0e; }
-.trust-status--expired { background: #fee2e2; color: #991b1b; }
+.trust-status--date-not-confirmed { background: #fef3c7; color: #854d0e; }
+.trust-status--past-date-unconfirmed { background: #ffedd5; color: #9a3412; }
+.trust-status--past-show { background: #fee2e2; color: #991b1b; }
 .show-card-link {
   position: absolute;
   inset: 0;
@@ -1167,18 +1163,18 @@ a:hover { color: var(--gold-light); }
           <input type="hidden" name="submittedAt" value="">
           <input type="hidden" name="contactConsentTimestamp" value="">
           <input type="hidden" name="contactConsentVersion" value="coin-reminder-interest-consent-v1">
-          <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me about future reminder availability. No recurring reminder service is active yet.">
-          <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required>
-          <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required>
-          <input type="email" name="email" placeholder="Email address" autocomplete="email" required>
-          <select name="preferredState" required>
+          <input type="hidden" name="contactConsentText" value="Notify me when show reminders become available. No reminder service is active yet. Privacy Policy.">
+          <input type="text" name="first_name" aria-label="First name" placeholder="First name" autocomplete="given-name" required>
+          <input type="text" name="last_name" aria-label="Last name" placeholder="Last name" autocomplete="family-name" required>
+          <input type="email" name="email" aria-label="Email address" placeholder="Email address" autocomplete="email" required>
+          <select name="preferredState" aria-label="State" required>
             <option value="" disabled selected>Select your state</option>
             {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
           </select>
-          <input class="cta-wide" type="text" name="interested_shows_locations" placeholder="Show, city, or region of interest (optional)">
+          <input class="cta-wide" type="text" name="interested_shows_locations" aria-label="Show, city, or region of interest (optional)" placeholder="Show, city, or region of interest (optional)">
           <label class="cta-consent cta-wide">
-            <input type="checkbox" name="contactConsent" value="yes" required>
-            <span>Store my request and contact me about future reminder availability. No recurring reminder service is active yet. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+            <input type="checkbox" name="contactConsent" value="yes" aria-label="Notify me when show reminders become available" required>
+            <span>Notify me when show reminders become available. No reminder service is active yet. <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
           </label>
           <button class="cta-wide" type="submit">Join the Interest List</button>
         </form>
@@ -1204,7 +1200,7 @@ a:hover { color: var(--gold-light); }
 </section>
 
 <section class="listing-trust-intro" aria-label="How listing information is presented">
-  <strong>Clear listing status:</strong> Scheduled means a future date is listed, Partial means only part of the date is known, Expired means the listed date has passed, and TBD means no future date has been announced. Open a show to see its verification source and last-checked date.
+  <strong>Clear listing status:</strong> Scheduled means an explicit confirmed event range ends today or later. Date not confirmed means no complete future date is verified. Past date — next date unconfirmed means the known occurrence passed but the recurring series may continue. Open a show to see its verification source and last-checked date.
 </section>
 
 <!-- Filter Bar -->
@@ -1246,7 +1242,7 @@ a:hover { color: var(--gold-light); }
 <section class="shows-section">
   <div class="card-grid" id="card-grid">
     {% for show in site.data.shows %}
-    <div class="show-card" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}" data-venue="{{ show.venue | downcase }}" data-address="{{ show.street_address | default: show.location_details | default: '' | downcase }}" data-upcoming-dates="{{ show.upcoming_dates | join: ',' }}">
+    <div class="show-card" data-show-date-record data-confirmed-dates="{{ show.upcoming_dates | join: ',' }}" data-series-ended="{% if show.series_ended == true %}true{% else %}false{% endif %}" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}" data-venue="{{ show.venue | downcase }}" data-address="{{ show.street_address | default: show.location_details | default: '' | downcase }}" data-upcoming-dates="{{ show.upcoming_dates | join: ',' }}">
       <a href="{{ site.baseurl }}/shows/{{ show.id }}/" class="show-card-link" aria-label="{{ show.name }}"></a>
       <div class="show-card-header">
         <div class="show-card-name">
@@ -1263,11 +1259,7 @@ a:hover { color: var(--gold-light); }
       <div class="show-card-address">General location: {{ show.location_details }}</div>
       {% endif %}
       <div class="show-card-details">
-        {% if show.next_date and show.next_date != "TBD" %}
-        <span class="show-card-tag date-tag">{{ show.next_date }}</span>
-        {% else %}
-        <span class="show-card-tag tbd-tag">Date TBD</span>
-        {% endif %}
+        <span class="show-card-tag date-tag" data-show-date-display hidden></span>
         {% if show.frequency and show.frequency != "" %}
         <span class="show-card-tag">{{ show.frequency }}</span>
         {% endif %}
@@ -1276,22 +1268,7 @@ a:hover { color: var(--gold-light); }
       <div class="show-card-notes">{{ show.notes }}</div>
       {% endif %}
       <div class="show-card-trust">
-        {% assign latest_date = show.upcoming_dates | last %}
-        {% assign listing_expired = false %}
-        {% if latest_date %}
-          {% assign latest_date_key = latest_date | remove: "-" | plus: 0 %}
-          {% assign today_date_key = site.time | date: "%Y%m%d" | plus: 0 %}
-          {% if latest_date_key < today_date_key %}{% assign listing_expired = true %}{% endif %}
-        {% endif %}
-        {% if show.next_date == "TBD" %}
-        <span class="trust-status trust-status--tbd">Date TBD</span>
-        {% elsif listing_expired %}
-        <span class="trust-status trust-status--expired">Expired date</span>
-        {% elsif show.next_date contains "," %}
-        <span class="trust-status trust-status--scheduled">Scheduled</span>
-        {% else %}
-        <span class="trust-status trust-status--partial">Partial date</span>
-        {% endif %}
+        <span class="trust-status" data-show-date-status>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
         {% if show.last_verified %}<span>Checked {{ show.last_verified | date: "%b %-d, %Y" }}</span>{% else %}<span>Not yet source-checked</span>{% endif %}
       </div>
     </div>
@@ -1313,7 +1290,7 @@ a:hover { color: var(--gold-light); }
       {% for fid in featured_ids %}
         {% for show in site.data.shows %}
           {% if show.id == fid %}
-          <div class="featured-card">
+          <div class="featured-card" data-show-date-record data-confirmed-dates="{{ show.upcoming_dates | join: ',' }}" data-series-ended="{% if show.series_ended == true %}true{% else %}false{% endif %}">
             <span class="featured-badge">Major Show</span>
             <div class="show-card-header">
               <div class="show-card-name">
@@ -1325,33 +1302,14 @@ a:hover { color: var(--gold-light); }
               &#128205; {{ show.city }}, {{ show.state_name }}{% if show.venue and show.venue != "" %} &mdash; {{ show.venue }}{% endif %}
             </div>
             <div class="show-card-details">
-              {% if show.next_date and show.next_date != "TBD" %}
-              <span class="show-card-tag date-tag">{{ show.next_date }}</span>
-              {% else %}
-              <span class="show-card-tag tbd-tag">Date TBD</span>
-              {% endif %}
+              <span class="show-card-tag date-tag" data-show-date-display hidden></span>
               <span class="show-card-tag">{{ show.frequency }}</span>
             </div>
             {% if show.notes and show.notes != "" %}
             <div class="show-card-notes">{{ show.notes }}</div>
             {% endif %}
             <div class="show-card-trust">
-              {% assign latest_date = show.upcoming_dates | last %}
-              {% assign listing_expired = false %}
-              {% if latest_date %}
-                {% assign latest_date_key = latest_date | remove: "-" | plus: 0 %}
-                {% assign today_date_key = site.time | date: "%Y%m%d" | plus: 0 %}
-                {% if latest_date_key < today_date_key %}{% assign listing_expired = true %}{% endif %}
-              {% endif %}
-              {% if show.next_date == "TBD" %}
-              <span class="trust-status trust-status--tbd">Date TBD</span>
-              {% elsif listing_expired %}
-              <span class="trust-status trust-status--expired">Expired date</span>
-              {% elsif show.next_date contains "," %}
-              <span class="trust-status trust-status--scheduled">Scheduled</span>
-              {% else %}
-              <span class="trust-status trust-status--partial">Partial date</span>
-              {% endif %}
+              <span class="trust-status" data-show-date-status>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
               {% if show.last_verified %}<span>Checked {{ show.last_verified | date: "%b %-d, %Y" }}</span>{% else %}<span>Not yet source-checked</span>{% endif %}
             </div>
           </div>
@@ -1426,7 +1384,7 @@ a:hover { color: var(--gold-light); }
 <!-- Scripts -->
 <script>
 var COIN_CONTACT_CONSENT_VERSION = 'coin-reminder-interest-consent-v1';
-var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may store this request and contact me about future reminder availability. No recurring reminder service is active yet.';
+var COIN_CONTACT_CONSENT_TEXT = 'Notify me when show reminders become available. No reminder service is active yet. Privacy Policy.';
 
 function setFormValue(form, name, value) {
   var field = form.querySelector('[name="' + name + '"]');
@@ -1448,6 +1406,7 @@ function fillCrmFormMetadata(form) {
   }
 }
 
+{% include show-date-status.js %}
 {% include homepage-search-match.js %}
 
 /* Combined date, state, and search filters */

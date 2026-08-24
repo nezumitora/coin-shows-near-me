@@ -12,6 +12,8 @@ module ShowFeed
     venue
     frequency
     next_date
+    upcoming_dates
+    series_ended
     postal_code
     website
   ].freeze
@@ -40,6 +42,10 @@ module ShowFeed
         record[field] = case field
                         when 'postal_code'
                           postal_code(show)
+                        when 'upcoming_dates'
+                          Array(show[field]).map(&:to_s)
+                        when 'series_ended'
+                          show[field] == true
                         when 'website'
                           public_website(show.fetch(field, ''))
                         else

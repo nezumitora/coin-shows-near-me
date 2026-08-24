@@ -1,7 +1,25 @@
 # Coin dealer directory data
 # Types: brick-and-mortar, online, both
 # Last updated: April 2026
-# NOTE: This is a starter set. Dealers can register at /dealers/register/
+# NOTE: This is a starter set. Legacy top-level website values are research
+# inputs and are not public contact approval. Public address, phone, website,
+# and social links render only from an optional public_contacts block whose
+# publication_basis is voluntarily_submitted or source_verified. Optional
+# claim_status values are claimed or verified; those are separate manual
+# decisions, and payment or promotion must never affect either one.
+#
+# public_contacts:
+#   publication_basis: source_verified
+#   source_url: https://example.com/official-contact-page
+#   last_verified: 'YYYY-MM-DD'
+#   website: https://example.com
+#   phone: 555-555-5555
+#   street_address: 100 Public Business Road
+#   city: Example City
+#   state: CA
+#   postal_code: '90000'
+#   facebook: https://www.facebook.com/example
+#   instagram: https://www.instagram.com/example
 
 # === Major Online Dealers ===
 

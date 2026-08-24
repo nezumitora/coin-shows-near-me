@@ -19,6 +19,8 @@ class ShowFeedTest < Minitest::Test
         'venue' => 'Example Hall, Example City, CA 90210',
         'frequency' => 'Annual',
         'next_date' => 'TBD',
+        'upcoming_dates' => ['2026-10-10'],
+        'series_ended' => true,
         'website' => 'https://example.com/show',
         'aliases' => ['old-example-show'],
         'verification_notes' => 'Internal note'
@@ -29,6 +31,8 @@ class ShowFeedTest < Minitest::Test
 
     assert_equal 1, feed.length
     assert_equal ShowFeed::PUBLIC_FIELDS, feed.first.keys
+    assert_equal ['2026-10-10'], feed.first.fetch('upcoming_dates')
+    assert_equal true, feed.first.fetch('series_ended')
     assert_equal '90210', feed.first.fetch('postal_code')
     refute feed.first.key?('aliases')
     refute feed.first.key?('verification_notes')

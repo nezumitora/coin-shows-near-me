@@ -151,25 +151,6 @@ breadcrumb_current: "Melt Value Calculator"
   }
   .coin-table tbody tr:nth-child(even) td { background: #f7eedf; }
   .coin-table tr:hover td { background: #f3e3c7; }
-  .offer-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  .offer-success {
-    display: none;
-    padding: 0.75rem;
-    background: #ecfdf5;
-    border: 1px solid #a7f3d0;
-    border-radius: 0.5rem;
-    color: #065f46;
-    font-size: 0.9rem;
-  }
-  .offer-error {
-    font-size: 0.8rem;
-    color: #b91c1c;
-    display: none;
-  }
   .spot-note {
     font-size: 0.8rem;
     color: #6b7280;
@@ -567,63 +548,14 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 </div>
 
 <div class="calc-panel calc-panel-accent">
-<h2>Get an Offer on Your Coins</h2>
-<p style="font-size:0.9rem;color:#6b7280;margin:0 0 0.75rem;">Have coins to sell? Fill out this form and a local coin dealer will contact you with an offer. No obligation.</p>
-
-<form class="offer-form" id="offer-form" action="#" data-form-key="mykleozw" method="POST">
-  <input type="hidden" name="_subject" value="[Coin Show Near Me][Offer Request] Melt value inquiry">
-  <input type="hidden" name="form_type" value="melt_value_offer">
-  <input type="hidden" name="source" value="Website">
-  <input type="hidden" name="formName" value="meltValueOffer">
-  <input type="hidden" name="coinContactRoles" value="sellerOfferRequest">
-  <input type="hidden" name="ctaCode" value="melt_value_offer_request">
-  <input type="hidden" name="sourceDetail" value="Melt value calculator offer request">
-  <div class="field-group">
-    <label class="field-label" for="offer-name">Your Name *</label>
-    <input class="field-input" type="text" id="offer-name" name="name" required>
-    <div class="offer-error" data-for="name"></div>
-  </div>
-
-  <div class="field-group">
-    <label class="field-label" for="offer-email">Email Address *</label>
-    <input class="field-input" type="email" id="offer-email" name="email" required>
-    <div class="offer-error" data-for="email"></div>
-  </div>
-
-  <div class="field-group">
-    <label class="field-label" for="offer-phone">Phone Number</label>
-    <input class="field-input" type="tel" id="offer-phone" name="phone">
-  </div>
-
-  <div class="field-group">
-    <label class="field-label" for="offer-zip">ZIP Code *</label>
-    <input class="field-input" type="text" id="offer-zip" name="zip" maxlength="10" required>
-    <div class="offer-error" data-for="zip"></div>
-  </div>
-
-  <div class="field-group">
-    <label class="field-label" for="offer-description">What do you have to sell? *</label>
-    <textarea class="field-input" id="offer-description" name="description" rows="4" placeholder="e.g., 50 pre-1965 Washington quarters, 10 Morgan silver dollars, 5 Gold Eagles..." required></textarea>
-    <div class="offer-error" data-for="description"></div>
-  </div>
-
-  <div class="field-group">
-    <label class="field-label" for="offer-melt">Estimated Melt Value (auto-filled)</label>
-    <input class="field-input" type="text" id="offer-melt" name="estimated_melt_value" readonly style="background:#f3f4f6;">
-  </div>
-
-  <div style="display:flex;align-items:flex-start;gap:0.4rem;font-size:0.85rem;color:#6b7280;">
-    <input type="checkbox" id="offer-consent" name="contactConsent" value="yes" style="margin-top:0.2rem;" required>
-    <label for="offer-consent">I agree to be contacted by a coin dealer about my coins. *</label>
-  </div>
-  <div class="offer-error" data-for="consent"></div>
-
-  <button class="calc-btn" type="submit">Submit for Offer</button>
-</form>
-
-<div class="offer-success" id="offer-success">
-  Your request has been submitted. A dealer in your area will contact you soon.
-</div>
+<h2>Plan Before You Sell</h2>
+<p style="font-size:0.9rem;color:#374151;margin:0 0 0.75rem;"><strong>This calculator does not collect your contact information or request dealer offers.</strong> Use the estimate as one reference point, not as a guaranteed sale price or appraisal.</p>
+<ul style="font-size:0.9rem;color:#4b5563;margin:0 0 0.75rem;padding-left:1.25rem;">
+  <li>Check coins for dates, mint marks, condition, and collector value before treating them as bullion.</li>
+  <li>Compare independent opinions and ask whether an evaluation has a fee.</li>
+  <li>Verify show details and dealer information before traveling or transacting.</li>
+</ul>
+<p style="font-size:0.9rem;margin:0;"><a href="{{ site.baseurl }}/">Find a coin show near you</a> to speak with dealers in person.</p>
 </div>
 
 </div>
@@ -750,24 +682,10 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
       breakdownBody.innerHTML = html;
       breakdownArea.style.display = 'block';
 
-      document.getElementById('offer-melt').value = formatUSD(total);
     } else {
       resultBox.style.display = 'none';
       breakdownArea.style.display = 'none';
     }
-  });
-
-  /* Offer form — submit via Formspree */
-  var offerForm = document.getElementById('offer-form');
-  var offerSuccess = document.getElementById('offer-success');
-
-  offerForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(offerForm)) { return; }
-    window.coinSubmitForm(offerForm).then(function() {
-      offerForm.style.display = 'none';
-      offerSuccess.style.display = 'block';
-    });
   });
 
   /* Auto-load spot prices */
@@ -880,24 +798,24 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 
 ## What is Melt Value?
 
-The **melt value** of a coin is the value of the precious metal it contains, based on the current spot price. It represents the minimum intrinsic value of a coin — what the metal itself would be worth if melted down.
+The **melt value** of a coin is an estimate of its precious-metal content at a selected spot price. It does not include refining costs, market spreads, transaction terms, or collector value and is not a guaranteed sale price.
 
 For example, a pre-1965 Washington quarter contains approximately 0.1808 troy ounces of silver. If silver is trading at $78/oz, that quarter's melt value is about $14.11 — regardless of its face value of $0.25.
 
 ### Melt Value vs. Collector Value
 
-Melt value is the **floor price** for a coin. Many coins are worth significantly more than melt value due to:
+Melt value is a reference point, not a guaranteed price floor. An actual offer may be lower because of costs and market spreads, while some coins may be worth more because of:
 
 - **Rarity** — low mintage coins command premiums
 - **Condition** — uncirculated or high-grade coins are worth more
 - **Key dates** — certain years/mint marks are especially valuable
 - **Collector demand** — popular series like Morgan dollars carry premiums
 
-**If you think your coins might have collector value**, bring them to a [local coin show]({{ site.baseurl }}/states/) for a free appraisal before selling for melt.
+**If you think your coins might have collector value**, ask independent numismatic professionals how they evaluate coins and whether they charge a fee before deciding to sell.
 
-## Sell Your Coins at a Coin Show
+## Compare Dealers at a Coin Show
 
-Coin shows are the best place to get competitive offers on your coins. Multiple dealers under one roof means you can compare prices. Find a [coin show near you]({{ site.baseurl }}/).
+Coin shows can let you speak with multiple dealers in one place, but attendance, services, and prices vary. [Find a coin show near you]({{ site.baseurl }}/), verify the event before traveling, and evaluate each dealer independently.
 
 <script type="application/ld+json">
 {
@@ -926,7 +844,7 @@ Coin shows are the best place to get competitive offers on your coins. Multiple 
       "name": "What is the melt value of a coin?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The melt value of a coin is the value of the precious metal it contains, based on the current spot price. It represents the minimum intrinsic value of a coin — what the metal itself would be worth if melted down."
+        "text": "The melt value of a coin is an estimate of its precious-metal content at a selected spot price. It excludes refining costs, market spreads, transaction terms, and collector value and is not a guaranteed sale price."
       }
     },
     {
@@ -958,7 +876,7 @@ Coin shows are the best place to get competitive offers on your coins. Multiple 
       "name": "Where is the best place to sell silver and gold coins?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Coin shows are one of the best places to sell coins because multiple dealers under one roof means you can get competing offers. Use our Melt Value Calculator to know the minimum metal value before selling, and bring your coins to a local coin show for the best prices."
+        "text": "Coin shows can let you speak with multiple dealers in one place, but attendance, services, and prices vary. Use the Melt Value Calculator as an educational estimate, verify the event before traveling, and evaluate each dealer independently."
       }
     }
   ]

@@ -40,7 +40,7 @@ Public listing status must be derived from active accepted evidence, not stored 
 
 ## Date normalization
 
-- The browser collects `proposed_start_date` and optional `proposed_end_date` as ISO `YYYY-MM-DD` values, or records explicit `Date TBD`.
+- The browser collects `proposed_start_date` and optional `proposed_end_date` as ISO `YYYY-MM-DD` values, or presents `Date not confirmed` while retaining `TBD` as the internal manual-review value.
 - It generates `proposed_next_date` as a readable four-digit-year summary for the reviewer.
 - A protected server-side bridge must validate the ISO dates again, reject reversed ranges, and generate the canonical public display rather than trusting browser-generated text.
 - Only an accepted manual review may update the show record or synchronize normalized dates into EspoCRM.

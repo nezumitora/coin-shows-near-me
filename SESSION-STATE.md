@@ -1,18 +1,31 @@
 # Session State
-**Last updated:** 2026-08-01 11:26 PDT
-**Session:** v0.16.2 listing-review improvements
+
+**Last updated:** 2026-08-24 12:20 PDT
+**Session:** Ahrefs local repairs, directory date integrity, and dealer privacy
+
 ## Completed today
-- Added v0.16.1's review-pending safety state: 12 exact-source-checked jurisdictions display classifications and 39 unchecked entries suppress their old verdicts, rates, thresholds, and product claims.
-- Corrected 11 jurisdictions from exact government sources and converted ten directory-expert questions into a six-question design note.
-- Replaced dealer-offer CTAs with junk-silver education and clarified organizer-role verification.
-- Added validated ISO start/end dates, Date TBD, browser-only fixture results, and append-only EspoCRM evidence requirements.
-- Saved the v0.16.2 work locally; nothing was pushed, deployed, or emailed.
-- Passed 69 Ruby tests/534 assertions, 10 JavaScript tests, data/generation checks, unpublished build, and desktop/mobile interaction QA with no external fixture requests, overflow, or browser errors.
+
+- Preserved the accepted unpublished Ahrefs, indexing, metadata, asset, weekend-copy, and image-alt repairs on the existing feature branch.
+- Normalized all 197 show records against confirmed ISO dates. As of August 24, 2026, the shared classifier reports 102 scheduled, 84 date-not-confirmed, and 11 past-recurring records; no record is labeled as an ended show without an explicit flag.
+- Applied one shared range/status implementation to homepage cards, show/state/city cards, This Weekend, major shows, the widget, listing review, and Event schema. The weekend filter uses Saturday/Sunday overlap and does not infer dates from recurrence prose.
+- Added the explicit future-date Event schema guard, advanced all confirmed `next_date` values that had passed, and retained the frozen August 22-23 weekend regression.
+- Applied the approved reminder and listing-review wording, accessible reminder-field names, and manual dealer claim/verification distinctions.
+- Gated dealer public contacts behind voluntary-publication or source-verification evidence. Removed seller-contact and offer-request intake from the widget, melt calculator, and dormant portal, and reconciled privacy, terms, and disclaimer wording with the inactive service.
+- Expanded the deterministic public show feed with only the non-sensitive confirmed-date fields required by the widget.
+- Passed 84 Ruby tests, 16 JavaScript tests, data/feed validation, a production Jekyll build, generated-page/schema checks, desktop/mobile browser assertions, and an HTTP audit of all 495 sitemap URLs. The accessibility helper reported no errors; its sole homepage warning is the intentionally hidden spam-trap field.
+- No push, pull request, merge, deployment, production/GSC change, Ahrefs rerun, outreach, email, or DNS change occurred.
+
 ## In progress
-- None.
+
+- Create the final local commit and refresh the local preview on port 3313.
+
 ## Next up
-- Build the protected server-side EspoCRM bridge with append-only evidence records and date revalidation.
-- Resume unresolved state-tax evidence and future junk-silver/safe/insurance guides.
+
+- Review the final local preview and wait for explicit approval before any push, pull request, deployment, or production verification.
+- Build the protected server-side EspoCRM bridge with append-only evidence records and accepted-date revalidation.
+- Manually migrate dealer public contacts only after reviewing voluntary-publication or public-source evidence.
+
 ## Open decisions
-- Do not send the directory-expert follow-up, push/deploy, change GSC, disavow links, or alter mail/DNS accounts before separate approval.
-- The dashboard follow-up item still needs safe routing because the canonical write was blocked by main-branch protection.
+
+- Reminder delivery, dealer offer routing, account registration, collection uploads, and portal notifications remain inactive until their operating, privacy, security, and legal controls receive separate approval.
+- Do not send the directory-expert follow-up, change GSC controls, disavow links, or alter production/mail/DNS accounts before separate approval.

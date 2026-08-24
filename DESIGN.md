@@ -11,12 +11,14 @@
 - On the dealer directory, the compact CTA must jump directly to a dedicated dealer-listing form on the same page; do not route dealers through a generic contact page or a second CTA. Dealer types are multi-select, brick-and-mortar selection reveals a required physical address, and each social network has its own CRM-friendly field.
 - Reminder-interest forms collect separate first and last names, email, selected state, and optional show/location interests.
 - Do not collect mobile numbers or promise recurring reminder delivery until the delivery and opt-out systems receive separate approval.
-- Clearly state that joining records interest and does not activate a recurring reminder service.
+- Use the reminder consent wording: `Notify me when show reminders become available. No reminder service is active yet. Privacy Policy.` Keep the policy text linked.
 
 ## Listing trust
 
-- Use plain-language date statuses: `Scheduled`, `Partial date`, `Expired date`, and `Date TBD`.
-- `Scheduled` means a future date is listed, not that changes are impossible.
+- Use plain-language date statuses: `Scheduled`, `Date not confirmed`, `Past date — next date unconfirmed`, and `Past show`.
+- `Scheduled` requires an explicit confirmed event range whose end is today or later; it never comes from recurrence text alone.
+- Use `Past date — next date unconfirmed` for a recurring series with only past confirmed occurrences. Reserve `Past show` for a genuinely ended nonrecurring event.
+- `This Weekend` means overlap with the actual Saturday/Sunday window. Do not include Friday-only dates or infer a weekend date from recurrence wording.
 - Show the last-checked date when one is recorded; otherwise state that it is not recorded.
 - Link to the source used for verification when available without calling every source official.
 - Remind visitors to verify details before traveling and provide a correction path.
@@ -30,13 +32,17 @@
 - Tax classifications require an exact current government source and checked date. Use orange `Review pending` cards and suppress rates, thresholds, product lists, and exempt/taxed verdicts when that evidence is incomplete; reserve green/red classifications for checked entries and include category-specific conditions in text.
 - Unpublished local review fixtures may exercise form states, but must never enter canonical show data, appear in the sitemap, send email, or deploy.
 - Use one unified listing-review form for confirmations, corrections, organizer verification, and review/removal requests. Show current values beside prefilled proposed values, mark fields correct by default, and let users unlock only fields that need changes.
-- Use validated start/end calendar fields plus an explicit `Date TBD` choice for proposed listing dates. Preserve ISO values for manual CRM review and generate the public four-digit-year display instead of accepting unrestricted date prose.
+- Use validated start/end calendar fields plus a public `Date not confirmed` choice for proposed listing dates. Preserve ISO values and the internal `TBD` review value for manual CRM review, and generate the public four-digit-year display instead of accepting unrestricted date prose.
+- Use the listing-review heading `Review or update this listing.` and make its collapsed/expanded action explicit. Confirmations, corrections, claims, verification requests, and removal requests remain manual and never auto-publish.
+- Dealer profiles may show address, phone, website, or social links only when voluntarily submitted for publication or source-verified. Keep private review contacts and home addresses out of public data.
+- `Claimed` means the representative relationship passed manual review; `Verified` means displayed public business details were independently checked. Payment and promotion never affect either state.
 - Until a reviewed dealer-offer workflow exists, seller CTAs must remain educational: explain junk-silver melt value and collectible premiums, link to the calculator, and state that the site does not request dealer offers.
+- Dormant portal pages must state that no account, collection-upload, offer-request, or notification service is active. They must not collect seller or waitlist information or promise a launch until the workflow, privacy, security, and legal controls are approved.
 - Local review fixtures must show a browser-only result summary that clearly says nothing was sent to Formspree or EspoCRM and nothing was saved.
 
 ## Visual hierarchy
 
 - Navy and gold remain the core brand colors.
-- Green indicates a scheduled date, blue a partial date, red an expired date, and amber an unannounced date.
+- Green indicates a scheduled date, amber an unconfirmed date, orange a past recurring occurrence without a confirmed next date, and red an ended nonrecurring show.
 - Status colors always include text labels and never communicate meaning through color alone.
 - Keep trust information compact on cards and complete on show detail pages.

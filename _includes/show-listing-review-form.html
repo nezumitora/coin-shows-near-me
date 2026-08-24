@@ -1,8 +1,10 @@
-<details id="listing-review" class="listing-review-card">
+<details id="listing-review" class="listing-review-card" data-show-date-record data-confirmed-dates="{{ include.show.upcoming_dates | join: ',' }}" data-series-ended="{% if include.show.series_ended == true %}true{% else %}false{% endif %}">
   <summary>
     <span class="listing-review-kicker">One form for every listing request</span>
-    <span class="listing-review-title">Review, correct, verify, or request removal</span>
-    <span class="listing-review-description">Current listing information is shown on the left. Confirm it or enter a corrected value on the right.</span>
+    <span class="listing-review-title">Review or update this listing.</span>
+    <span class="listing-review-description">Expand the form to confirm details, submit a correction, claim or verify the listing, or request removal.</span>
+    <span class="listing-review-toggle listing-review-toggle--collapsed">Expand the full review form</span>
+    <span class="listing-review-toggle listing-review-toggle--expanded">Collapse the full review form</span>
   </summary>
   <div class="listing-review-body">
     <div class="listing-review-instructions">
@@ -74,22 +76,23 @@
         </div>
       </div>
 
-      {% assign current_start_date = include.show.upcoming_dates | first | default: '' %}
-      {% assign current_end_date = include.show.upcoming_dates | last | default: '' %}
-      {% if current_end_date == current_start_date %}{% assign current_end_date = '' %}{% endif %}
       <div class="listing-review-row">
-        <div class="listing-review-current"><span>Date</span><strong>{{ include.show.next_date }}</strong></div>
+        <div class="listing-review-current">
+          <span>Date</span>
+          <strong data-show-next-date>{% if include.show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</strong>
+          <span class="show-last-confirmed" data-show-last-confirmed hidden></span>
+        </div>
         <div class="listing-review-proposed">
           <div class="listing-review-date-grid">
             <label for="review-show-start-date">Start date
-              <input id="review-show-start-date" type="date" name="proposed_start_date" value="{{ current_start_date }}" data-current-value="{{ current_start_date }}" readonly>
+              <input id="review-show-start-date" type="date" name="proposed_start_date" value="" data-current-value="" readonly>
             </label>
             <label for="review-show-end-date">End date <span>(optional)</span>
-              <input id="review-show-end-date" type="date" name="proposed_end_date" value="{{ current_end_date }}" data-current-value="{{ current_end_date }}" readonly>
+              <input id="review-show-end-date" type="date" name="proposed_end_date" value="" data-current-value="" readonly>
             </label>
           </div>
-          <label class="listing-review-date-tbd"><input id="review-show-date-tbd" type="checkbox" name="proposed_date_tbd" value="yes" data-current-checked="{% if include.show.next_date == 'TBD' %}true{% else %}false{% endif %}" {% if include.show.next_date == 'TBD' %}checked{% endif %} disabled> Date TBD — no date has been announced</label>
-          <input type="hidden" name="proposed_next_date" value="{{ include.show.next_date | escape }}" data-current-value="{{ include.show.next_date | escape }}">
+          <label class="listing-review-date-tbd"><input id="review-show-date-tbd" type="checkbox" name="proposed_date_tbd" value="yes" data-current-checked="true" checked disabled> Date not confirmed — no future date is confirmed</label>
+          <input type="hidden" name="proposed_next_date" value="TBD" data-current-value="TBD">
           <label class="listing-review-confirm"><input id="review-show-date-confirm" type="checkbox" name="next_date_is_correct" value="yes" checked> Correct as shown</label>
           <span class="listing-review-help">Use complete calendar dates. The form creates a four-digit-year display and keeps the ISO start/end dates for manual CRM review.</span>
         </div>
@@ -236,6 +239,29 @@
   var endDate = document.getElementById('review-show-end-date');
   var dateTbd = document.getElementById('review-show-date-tbd');
   var normalizedDate = reviewForm.querySelector('[name="proposed_next_date"]');
+  function isoDateValue(date) {
+    var year = String(date.getFullYear());
+    var month = String(date.getMonth() + 1).padStart(2, '0');
+    var day = String(date.getDate()).padStart(2, '0');
+    return year + '-' + month + '-' + day;
+  }
+  if (typeof classifyShowDates === 'function') {
+    var currentDateResult = classifyShowDates(reviewCard.getAttribute('data-confirmed-dates'), {
+      now: new Date(),
+      seriesEnded: reviewCard.getAttribute('data-series-ended') === 'true'
+    });
+    var currentStartValue = currentDateResult.range ? isoDateValue(currentDateResult.range.start) : '';
+    var currentEndValue = currentDateResult.range && currentDateResult.range.end.getTime() !== currentDateResult.range.start.getTime() ? isoDateValue(currentDateResult.range.end) : '';
+    var currentDateValue = currentDateResult.displayDate || 'TBD';
+    startDate.value = currentStartValue;
+    startDate.setAttribute('data-current-value', currentStartValue);
+    endDate.value = currentEndValue;
+    endDate.setAttribute('data-current-value', currentEndValue);
+    dateTbd.checked = !currentDateResult.range;
+    dateTbd.setAttribute('data-current-checked', currentDateResult.range ? 'false' : 'true');
+    normalizedDate.value = currentDateValue;
+    normalizedDate.setAttribute('data-current-value', currentDateValue);
+  }
   function formatDateParts(value) {
     var parts = value.split('-');
     var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
@@ -266,11 +292,11 @@
       return true;
     }
     if (dateTbd.checked) {
-      normalizedDate.value = 'Date TBD';
+      normalizedDate.value = 'TBD';
       return true;
     }
     if (!startDate.value) {
-      startDate.setCustomValidity('Enter a complete start date or select Date TBD.');
+      startDate.setCustomValidity('Enter a complete start date or select Date not confirmed.');
       return false;
     }
     if (endDate.value && endDate.value < startDate.value) {

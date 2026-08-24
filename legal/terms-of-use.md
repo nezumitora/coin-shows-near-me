@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Terms of Use"
-description: "Terms of Use for Coin Show Near Me — the US coin show directory, dealer marketplace, and pre-show offer platform."
+description: "Terms of Use for Coin Show Near Me — the US coin show directory, listing-review forms, dealer directory, and educational tools."
 permalink: /legal/terms-of-use/
 nav_exclude: true
 breadcrumb_parent: "Legal"
@@ -12,7 +12,7 @@ breadcrumb_current: "Terms of Use"
 # Terms of Use
 
 **Effective Date:** April 15, 2026
-**Last Updated:** July 30, 2026
+**Last Updated:** August 24, 2026
 
 Please read these Terms of Use ("Terms") carefully before using the Coin Show Near Me website located at coinshownearme.com (the "Site"), including all subdomains, pages, tools, services, and features offered through the Site (collectively, the "Platform"). The Platform is operated by Coin Show Near Me ("we," "us," or "our").
 
@@ -22,15 +22,17 @@ By accessing or using the Platform, you agree to be bound by these Terms. If you
 
 ## 1. Platform Description and Role
 
-### 1.1 Directory and Marketplace Facilitator
+### 1.1 Information Directory
 
-The Platform operates as (a) a directory of coin shows, numismatic conventions, and related events across the United States; (b) a facilitator connecting coin show attendees ("Sellers" or "Attendees") with registered coin dealers ("Dealers"); and (c) a submission portal for coin show promoters ("Promoters") to list events.
+The Platform currently operates as an informational directory of coin shows, numismatic conventions, related events, and dealer listings across the United States. It also provides educational tools and forms for show submissions, listing corrections or removal requests, reminder interest, and dealer listing or claim requests.
+
+The Platform does not currently provide user accounts, collection uploads, pre-show offer requests, dealer bidding, appraisal, escrow, or transaction services.
 
 ### 1.2 We Are Not a Party to Transactions
 
-**THE PLATFORM IS A NEUTRAL FACILITATOR AND INFORMATION DIRECTORY. WE ARE NOT A PARTY TO ANY TRANSACTION, AGREEMENT, OFFER, COUNTER-OFFER, APPRAISAL, PURCHASE, SALE, TRADE, OR EXCHANGE BETWEEN ANY USERS OF THE PLATFORM, INCLUDING BUT NOT LIMITED TO TRANSACTIONS BETWEEN DEALERS AND SELLERS/ATTENDEES.**
+**THE PLATFORM IS AN INFORMATION DIRECTORY. WE ARE NOT A PARTY TO ANY TRANSACTION, AGREEMENT, OFFER, COUNTER-OFFER, APPRAISAL, PURCHASE, SALE, TRADE, OR EXCHANGE THAT A VISITOR CHOOSES TO PURSUE INDEPENDENTLY.**
 
-We do not buy, sell, appraise, authenticate, grade, or take possession of any coins, currency, bullion, collectibles, or other items ("Items"). We do not guarantee, endorse, or verify the accuracy of any offer, appraisal, or valuation provided by any Dealer through the Platform.
+We do not buy, sell, appraise, authenticate, grade, or take possession of any coins, currency, bullion, collectibles, or other items ("Items"). We do not request or relay dealer offers and do not guarantee or endorse any independent appraisal, valuation, dealer, or transaction.
 
 ### 1.3 No Fiduciary Relationship
 
@@ -38,48 +40,39 @@ No fiduciary, agency, partnership, joint venture, employer-employee, or franchis
 
 ---
 
-## 2. User Accounts and Registration
+## 2. Submissions and Dealer Claims
 
-### 2.1 Account Types
+### 2.1 No Current User Accounts
 
-The Platform supports three registration categories:
-- **Dealers** — Registered coin dealers who verify attendance at specific coin shows and may receive pre-show offer requests from Sellers.
-- **Attendees/Sellers** — Individuals who submit collection details, photographs, and offer requests to Dealers attending specific shows.
-- **Promoters** — Coin show organizers who submit event listings to the directory.
+The Platform does not currently provide user accounts. Show submissions, listing-review requests, reminder-interest requests, and dealer listing or claim requests are form submissions, not account registrations.
 
 ### 2.2 Accuracy of Information
 
-You represent and warrant that all information you provide during registration and use of the Platform is truthful, accurate, current, and complete. You agree to update your information promptly if it changes.
+You represent and warrant that all information you provide through forms or other use of the Platform is truthful, accurate, current, and complete. You agree to update your information promptly if it changes.
 
-### 2.3 Account Security
+### 2.3 Manual Dealer Claims and Verification
 
-You are solely responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.
+Dealer submissions and claims are reviewed manually. Submitting a form does not publish, claim, or verify a listing automatically.
 
-### 2.4 Dealer Verification
+`Claimed` means a representative relationship passed manual review. `Verified` means displayed public business information was independently checked. Neither label is an endorsement or guarantee, and payment or promotion does not affect either state.
 
-Dealers who register on the Platform represent and warrant that they are legitimate, licensed (where applicable) coin dealers operating in compliance with all applicable local, state, and federal laws. We may, but are not obligated to, verify dealer credentials. **Registration on the Platform does not constitute endorsement, certification, or verification of any Dealer's credentials, expertise, or trustworthiness.**
+Dealer public contact details may be displayed only when voluntarily submitted for publication or verified from a public source. Private review contact information is not published automatically.
 
 ---
 
-## 3. Pre-Show Offer System
+## 3. No Current Offer or Appraisal System
 
-### 3.1 How It Works
+### 3.1 No Seller Intake or Dealer Routing
 
-The Platform allows Sellers to submit descriptions and photographs of their Items to Dealers who have verified attendance at a specific coin show. Dealers may, at their sole discretion, respond with preliminary offers, expressions of interest, or requests for additional information.
+The Platform does not accept seller collection submissions, route seller contact details to dealers, or request, provide, or relay dealer offers or appraisals.
 
-### 3.2 Preliminary Offers Are Non-Binding
+### 3.2 Educational Tools
 
-**ALL OFFERS, APPRAISALS, VALUATIONS, AND EXPRESSIONS OF INTEREST COMMUNICATED THROUGH THE PLATFORM ARE PRELIMINARY AND NON-BINDING.** No offer made through the Platform constitutes a binding contract, obligation to purchase, or guarantee of any price.
+The melt-value calculator and other educational materials provide estimates and general information only. They are not appraisals, offers, guaranteed sale prices, or financial advice.
 
-Final terms of any transaction are to be negotiated and agreed upon exclusively between the Seller and the Dealer, in person at the coin show or through other direct communication, and are subject to the Dealer's in-person inspection and verification of the Items.
+### 3.3 Future Services
 
-### 3.3 No Guarantee of Offers
-
-We do not guarantee that any Seller will receive offers from any Dealer, or that any Dealer will respond to any submission. We do not guarantee the quality, accuracy, fairness, or competitiveness of any offer.
-
-### 3.4 Item Descriptions and Photographs
-
-Sellers are solely responsible for the accuracy and completeness of all Item descriptions and photographs submitted through the Platform. Misrepresentation of Items may result in account termination and may expose the Seller to legal liability.
+If an account, collection-upload, or offer service is introduced later, the applicable workflow, disclosures, privacy terms, and consent requirements must be reviewed and published before activation. Describing a possible future feature does not promise that it will launch.
 
 ---
 
@@ -114,7 +107,7 @@ You agree to indemnify, defend, and hold harmless Coin Show Near Me, its officer
 
 - Your use of or access to the Platform
 - Your violation of these Terms
-- Any transaction or interaction between you and another user of the Platform
+- Any independent transaction or interaction arising from directory information or a third-party link
 - Any Items you describe, photograph, list, buy, sell, trade, or exchange
 - Your violation of any applicable law or regulation
 - Any content you submit, post, or transmit through the Platform
@@ -210,9 +203,9 @@ You agree not to:
 
 ## 11. Dispute Resolution
 
-### 11.1 Between Users
+### 11.1 Between Visitors and Third Parties
 
-Disputes between users (Dealers, Sellers, Attendees, Promoters) are exclusively between those parties. **We are not obligated to mediate, arbitrate, or resolve any dispute between users.** We may, at our sole discretion, provide reasonable assistance, but have no obligation to do so.
+Disputes between visitors and independent organizers, venues, dealers, buyers, sellers, or other third parties are exclusively between those parties. **We are not obligated to mediate, arbitrate, or resolve any such dispute.** We may, at our sole discretion, provide reasonable assistance, but have no obligation to do so.
 
 ### 11.2 Between You and Us
 

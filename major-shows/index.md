@@ -16,7 +16,7 @@ These are the larger national and regional coin shows that collectors and dealer
 {% for fid in featured_ids %}
   {% for show in site.data.shows %}
     {% if show.id == fid %}
-    <article class="major-show-card">
+    <article class="major-show-card" data-show-date-record data-confirmed-dates="{{ show.upcoming_dates | join: ',' }}" data-series-ended="{% if show.series_ended == true %}true{% else %}false{% endif %}">
       <div class="major-show-card-top">
         <span class="major-show-badge">Major Show</span>
         <span class="major-show-state">{{ show.state }}</span>
@@ -24,7 +24,9 @@ These are the larger national and regional coin shows that collectors and dealer
       <h2><a href="{{ site.baseurl }}/shows/{{ show.id }}/">{{ show.name }}</a></h2>
       <p class="major-show-location">{{ show.city }}, {{ show.state_name }}{% if show.venue and show.venue != "" %} — {{ show.venue }}{% endif %}</p>
       <p class="major-show-meta">
-        {% if show.next_date and show.next_date != "TBD" %}<strong>Next:</strong> {{ show.next_date }}{% else %}<strong>Next:</strong> Date TBD{% endif %}
+        <span data-show-date-display hidden></span>
+        <span class="trust-status" data-show-date-status>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
+        <span class="show-last-confirmed" data-show-last-confirmed hidden></span>
         {% if show.frequency %}<span>|</span> <strong>Frequency:</strong> {{ show.frequency }}{% endif %}
       </p>
       {% if show.notes and show.notes != "" %}<p class="major-show-notes">{{ show.notes }}</p>{% endif %}

@@ -79,7 +79,8 @@ if errors.empty?
     end
 
     next_date = show['next_date'].to_s
-    if next_date != 'TBD' && ShowDateParser.end_date(next_date).nil?
+    complete_next_date = ShowDateParser.date_range(next_date)
+    if next_date != 'TBD' && complete_next_date.nil? && !ShowDateParser.partial_date?(next_date)
       errors << "#{label} has an invalid next_date: #{next_date}"
     end
 
@@ -95,6 +96,9 @@ if errors.empty?
         valid = date_text.match?(/\A\d{4}-\d{2}-\d{2}\z/) && (Date.iso8601(date_text) rescue nil)
         errors << "#{label} has an invalid upcoming date: #{date_text}" unless valid
       end
+      errors << "#{label} cannot use TBD with confirmed upcoming_dates" if next_date == 'TBD' && date_strings.any?
+    elsif complete_next_date
+      errors << "#{label} has a complete next_date without confirmed upcoming_dates"
     end
 
     if show.key?('last_verified')

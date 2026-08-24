@@ -25,31 +25,13 @@ layout: default
 
 {% include schema-event.html show=show %}
 
-<div class="show-detail-card">
+<div class="show-detail-card" data-show-date-record data-confirmed-dates="{{ show.upcoming_dates | join: ',' }}" data-series-ended="{% if show.series_ended == true %}true{% else %}false{% endif %}">
   <table class="show-detail-table">
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Listing Status</td>
       <td style="padding:0.4rem 0;">
-        {% assign latest_date = show.upcoming_dates | last %}
-        {% assign listing_expired = false %}
-        {% if latest_date %}
-          {% assign latest_date_key = latest_date | remove: "-" | plus: 0 %}
-          {% assign today_date_key = site.time | date: "%Y%m%d" | plus: 0 %}
-          {% if latest_date_key < today_date_key %}{% assign listing_expired = true %}{% endif %}
-        {% endif %}
-        {% if show.next_date == "TBD" %}
-        <span style="display:inline-block;padding:0.18rem 0.55rem;border-radius:999px;background:#fef3c7;color:#854d0e;font-size:0.78rem;font-weight:800;">Date TBD</span>
-        <span style="margin-left:0.35rem;color:#6b7280;">No future date has been announced.</span>
-        {% elsif listing_expired %}
-        <span style="display:inline-block;padding:0.18rem 0.55rem;border-radius:999px;background:#fee2e2;color:#991b1b;font-size:0.78rem;font-weight:800;">Expired date</span>
-        <span style="margin-left:0.35rem;color:#6b7280;">The listed date has passed and a new date is not yet recorded.</span>
-        {% elsif show.next_date contains "," %}
-        <span style="display:inline-block;padding:0.18rem 0.55rem;border-radius:999px;background:#dcfce7;color:#166534;font-size:0.78rem;font-weight:800;">Scheduled</span>
-        <span style="margin-left:0.35rem;color:#6b7280;">A future date is listed; verify before traveling.</span>
-        {% else %}
-        <span style="display:inline-block;padding:0.18rem 0.55rem;border-radius:999px;background:#e0f2fe;color:#075985;font-size:0.78rem;font-weight:800;">Partial date</span>
-        <span style="margin-left:0.35rem;color:#6b7280;">Only part of the future date is currently known.</span>
-        {% endif %}
+        <span class="trust-status" data-show-date-status>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
+        <span class="show-date-description" data-show-date-description>{% unless show.upcoming_dates %}No future date is confirmed.{% endunless %}</span>
       </td>
     </tr>
     <tr>
@@ -86,7 +68,10 @@ layout: default
     </tr>
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Next Date</td>
-      <td style="padding:0.4rem 0;">{% if show.next_date == "TBD" %}{% if show.website and show.website != "" %}TBD &mdash; Check organizer website{% else %}TBD &mdash; Organizer has not published a future date{% endif %}{% else %}{{ show.next_date }}{% endif %}</td>
+       <td style="padding:0.4rem 0;">
+         <span data-show-next-date>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
+         <span class="show-last-confirmed" data-show-last-confirmed hidden></span>
+       </td>
     </tr>
     {% if show.organizer and show.organizer != "" %}
     <tr>
@@ -131,7 +116,7 @@ layout: default
     </a>
     {% endif %}{% endfor %}
     <a href="#listing-review" data-listing-review-trigger style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
-      Review, correct, or manage this listing
+      Review or update this listing
     </a>
   </div>
 </div>
@@ -170,7 +155,7 @@ layout: default
 <!-- Show Reminder Interest CTA -->
 <div style="background:linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);color:#f1f5f9;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid var(--coin-gold);">
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:700;color:var(--coin-gold-light);">Interested in a Reminder?</p>
-  <p style="margin:0 0 1rem;font-size:0.9rem;color:#cbd5e1;">Tell us you would like reminders for <strong>{{ show.name }}</strong> while we build the service. Joining records your interest; it does not activate recurring reminders.</p>
+  <p style="margin:0 0 1rem;font-size:0.9rem;color:#cbd5e1;">Notify me when show reminders become available for <strong>{{ show.name }}</strong>. No reminder service is active yet.</p>
   <form id="show-reminder-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.5rem;">
     <input type="hidden" name="_subject" value="[Coin Show Near Me][Show Reminder] Interest request">
     <input type="hidden" name="form_type" value="show_reminder_interest">
@@ -184,20 +169,20 @@ layout: default
     <input type="hidden" name="submittedAt" value="">
     <input type="hidden" name="contactConsentTimestamp" value="">
     <input type="hidden" name="contactConsentVersion" value="coin-reminder-interest-consent-v1">
-    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me about future reminder availability. No recurring reminder service is active yet.">
+    <input type="hidden" name="contactConsentText" value="Notify me when show reminders become available. No reminder service is active yet. Privacy Policy.">
     <input type="hidden" name="show_name" value="{{ show.name }}">
     <input type="hidden" name="show_id" value="{{ show.id }}">
     <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
     <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
-      <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
-      <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
+      <input type="text" name="first_name" aria-label="First name" placeholder="First name" autocomplete="given-name" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
+      <input type="text" name="last_name" aria-label="Last name" placeholder="Last name" autocomplete="family-name" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
     </div>
     <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr;gap:0.5rem;">
-      <input type="email" name="email" placeholder="Email address" autocomplete="email" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
+      <input type="email" name="email" aria-label="Email address" placeholder="Email address" autocomplete="email" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
     </div>
     <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
-      <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
-      <span>Store my request and contact me about future reminder availability. No recurring reminder service is active yet. See our <a href="/legal/privacy-policy/" style="color:var(--coin-gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
+      <input type="checkbox" name="contactConsent" value="yes" aria-label="Notify me when show reminders become available" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>Notify me when show reminders become available. No reminder service is active yet. <a href="/legal/privacy-policy/" style="color:var(--coin-gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
     </label>
     <button type="submit" style="background:var(--coin-gold);color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:700;cursor:pointer;align-self:flex-start;">Join the Interest List</button>
   </form>

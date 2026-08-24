@@ -199,12 +199,6 @@ sitemap: false
           </div>
 
           <div class="eg-field-group">
-            <label class="eg-label" for="eg-dealer-email">Dealer email <span>*</span></label>
-            <input id="eg-dealer-email" class="eg-input" type="email" placeholder="info@yourshop.com">
-            <div class="eg-help">Lead submissions will be sent to this address (via mailto for now).</div>
-          </div>
-
-          <div class="eg-field-group">
             <label class="eg-label" for="eg-logo-url">Logo URL (optional)</label>
             <input id="eg-logo-url" class="eg-input" type="url" placeholder="https://yourshop.com/logo.png">
             <div class="eg-help">If provided, this small logo shows in the widget header.</div>
@@ -250,7 +244,6 @@ sitemap: false
       const BASE_WIDGET_URL = "https://coinshownearme.com/widget.html";
 
       const dealerNameInput = document.getElementById("eg-dealer-name");
-      const dealerEmailInput = document.getElementById("eg-dealer-email");
       const logoUrlInput = document.getElementById("eg-logo-url");
       const maxWidthInput = document.getElementById("eg-max-width");
       const heightInput = document.getElementById("eg-height");
@@ -263,7 +256,6 @@ sitemap: false
 
       function generateEmbedCode() {
         const dealerName = dealerNameInput.value.trim();
-        const dealerEmail = dealerEmailInput.value.trim();
         const logoUrl = logoUrlInput.value.trim();
 
         const maxWidth = maxWidthInput.value.trim() || "900";
@@ -273,9 +265,6 @@ sitemap: false
 
         if (dealerName) url.searchParams.set("dealerName", dealerName);
         else url.searchParams.delete("dealerName");
-
-        if (dealerEmail) url.searchParams.set("dealerEmail", dealerEmail);
-        else url.searchParams.delete("dealerEmail");
 
         if (logoUrl) url.searchParams.set("dealerLogoUrl", logoUrl);
         else url.searchParams.delete("dealerLogoUrl");
@@ -304,7 +293,7 @@ sitemap: false
         }
       }
 
-      [dealerNameInput, dealerEmailInput, logoUrlInput, maxWidthInput, heightInput].forEach(input => {
+      [dealerNameInput, logoUrlInput, maxWidthInput, heightInput].forEach(input => {
         input.addEventListener("input", generateEmbedCode);
       });
 
