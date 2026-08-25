@@ -43,6 +43,7 @@
 ## Visual hierarchy
 
 - Navy and gold remain the core brand colors.
+- Use the dark brand gold `#7a5700` for normal text and white-on-gold controls so they meet WCAG AA contrast; reserve lighter gold for large text or decorative accents on navy.
 - Green indicates a scheduled date, amber an unconfirmed date, orange a past recurring occurrence without a confirmed next date, and red an ended nonrecurring show.
 - Status colors always include text labels and never communicate meaning through color alone.
 - Keep trust information compact on cards and complete on show detail pages.

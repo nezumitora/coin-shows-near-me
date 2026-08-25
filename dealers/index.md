@@ -19,7 +19,7 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
     <h2 id="dealer-top-cta-title" style="margin:0 0 0.2rem !important;font-size:1rem !important;color:#1a2332;">Are you a coin dealer?</h2>
     <p style="margin:0;color:#555;font-size:0.88rem;line-height:1.45;">Request a free directory listing for manual review. Approved public business details can help collectors find you.</p>
   </div>
-  <a href="#dealer-listing-form" class="dealer-listing-button" style="display:inline-block;background:#b8860b;color:#fff;padding:0.55rem 1rem;border-radius:6px;font-size:0.88rem;font-weight:800;text-decoration:none;white-space:nowrap;">Get Added to the Directory</a>
+  <a href="#dealer-listing-form" class="dealer-listing-button" style="display:inline-block;background:var(--coin-gold);color:#fff;padding:0.55rem 1rem;border-radius:6px;font-size:0.88rem;font-weight:800;text-decoration:none;white-space:nowrap;">Get Added to the Directory</a>
 </aside>
 
 <div class="dealer-feature-grid" style="margin:0 0 1.25rem;">
@@ -64,7 +64,7 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
       {% if dealer.claim_status == "claimed" %}<span class="dealer-status-badge dealer-status-badge--claimed">Claimed</span>{% elsif dealer.claim_status == "verified" %}<span class="dealer-status-badge dealer-status-badge--verified">Verified</span>{% endif %}
     </div>
     {% if dealer.accepts_trade_ins %}
-    <span style="font-size:0.7rem;font-weight:600;color:#16a34a;background:#dcfce7;padding:0.15rem 0.5rem;border-radius:4px;">BUYS COINS</span>
+    <span style="font-size:0.7rem;font-weight:600;color:#166534;background:#dcfce7;padding:0.15rem 0.5rem;border-radius:4px;">BUYS COINS</span>
     {% endif %}
   </div>
   <div style="font-size:0.85rem;color:#555;margin-bottom:0.5rem;">{{ dealer.city }}, {{ dealer.state_name }}</div>
@@ -81,13 +81,13 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
     {% endfor %}
   </div>
   <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
-    {% if publish_public_contacts and dealer.public_contacts.website %}<a href="{{ dealer.public_contacts.website }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Visit Website &rarr;</a>{% endif %}
-    {% if publish_public_contacts and dealer.public_contacts.instagram %}<a href="{{ dealer.public_contacts.instagram }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Instagram</a>{% endif %}
-    {% if publish_public_contacts and dealer.public_contacts.facebook %}<a href="{{ dealer.public_contacts.facebook }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Facebook</a>{% endif %}
-    {% if publish_public_contacts and dealer.public_contacts.youtube %}<a href="{{ dealer.public_contacts.youtube }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">YouTube</a>{% endif %}
-    {% if publish_public_contacts and dealer.public_contacts.x %}<a href="{{ dealer.public_contacts.x }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">X</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.website %}<a href="{{ dealer.public_contacts.website }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">Visit Website &rarr;</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.instagram %}<a href="{{ dealer.public_contacts.instagram }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">Instagram</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.facebook %}<a href="{{ dealer.public_contacts.facebook }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">Facebook</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.youtube %}<a href="{{ dealer.public_contacts.youtube }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">YouTube</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.x %}<a href="{{ dealer.public_contacts.x }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">X</a>{% endif %}
     {% if dealer.ships_nationwide %}
-    <span style="font-size:0.75rem;color:#888;">Ships nationwide</span>
+    <span style="font-size:0.75rem;color:#666;">Ships nationwide</span>
     {% endif %}
     <a href="#dealer-claim" class="dealer-claim-link" data-dealer-claim-trigger data-dealer-id="{{ dealer_id }}" data-dealer-name="{{ dealer.name | escape }}">Claim this listing</a>
   </div>
@@ -143,7 +143,7 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
 
 {% include ad-placeholder.html %}
 
-<div id="dealer-no-results" style="display:none;text-align:center;padding:2rem;color:#888;">
+<div id="dealer-no-results" style="display:none;text-align:center;padding:2rem;color:#666;">
   <p>No dealers match your search.</p>
 </div>
 

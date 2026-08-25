@@ -26,7 +26,7 @@ layout: default
       <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Bullion Exempt?</td>
       <td style="padding:0.5rem 0;">
         {% if tax.bullion_exempt %}
-          <span style="color:#16a34a;font-weight:700;">{{ tax.bullion_label | default: "Qualifying products exempt" }}</span>
+          <span style="color:#166534;font-weight:700;">{{ tax.bullion_label | default: "Qualifying products exempt" }}</span>
         {% else %}
           <span style="color:#dc2626;font-weight:700;">{{ tax.bullion_label | default: "Generally taxed" }}</span>
         {% endif %}
@@ -36,7 +36,7 @@ layout: default
       <td style="padding:0.5rem 1rem 0.5rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Coins Exempt?</td>
       <td style="padding:0.5rem 0;">
         {% if tax.coins_exempt %}
-          <span style="color:#16a34a;font-weight:700;">{{ tax.coins_label | default: "Qualifying products exempt" }}</span>
+          <span style="color:#166534;font-weight:700;">{{ tax.coins_label | default: "Qualifying products exempt" }}</span>
         {% else %}
           <span style="color:#dc2626;font-weight:700;">{{ tax.coins_label | default: "Generally taxed" }}</span>
         {% endif %}

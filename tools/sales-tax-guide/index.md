@@ -35,16 +35,16 @@ Use the search below to find your state's tax rules, or browse the full list.
 <div class="tax-card" data-state="{{ tax.state | downcase }}" data-status="{% unless tax.source_checked %}pending{% else %}{% if tax.bullion_exempt %}{% if tax.threshold == '$0' or tax.threshold == 'N/A' %}exempt{% else %}threshold{% endif %}{% else %}taxed{% endif %}{% endunless %}" style="border:1px solid #e5ddd0;border-radius:10px;padding:1rem 1.25rem;margin-bottom:0.75rem;background:#fff;transition:all 0.2s;">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
     <a href="{{ site.baseurl }}/tools/sales-tax-guide/{{ tax.slug }}/" style="font-size:1.05rem;font-weight:700;color:#2c2c2c;text-decoration:none;">{{ tax.state }}</a>
-    <span style="font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:4px;{% unless tax.source_checked %}background:#ffedd5;color:#9a3412;{% else %}{% if tax.bullion_exempt %}background:#dcfce7;color:#16a34a;{% else %}background:#fef2f2;color:#dc2626;{% endif %}{% endunless %}">
+    <span style="font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:4px;{% unless tax.source_checked %}background:#ffedd5;color:#9a3412;{% else %}{% if tax.bullion_exempt %}background:#dcfce7;color:#166534;{% else %}background:#fef2f2;color:#b91c1c;{% endif %}{% endunless %}">
       {% unless tax.source_checked %}REVIEW PENDING{% else %}{% if tax.bullion_exempt %}EXEMPT / CONDITIONAL{% else %}GENERALLY TAXED{% endif %}{% endunless %}
     </span>
   </div>
   <p style="font-size:0.85rem;color:#555;margin:0 0 0.5rem;line-height:1.5;">{% if tax.source_checked %}{{ tax.notes }}{% else %}Exact current statute, regulation, or tax-agency guidance still being verified. No settled classification is displayed.{% endif %}</p>
   {% if tax.source_checked %}
-  <div style="display:flex;gap:1rem;font-size:0.8rem;color:#888;">
+  <div style="display:flex;gap:1rem;font-size:0.8rem;color:#666;">
     <span>Rate: {{ tax.sales_tax }}</span>
     {% if tax.threshold and tax.threshold != "N/A" and tax.threshold != "$0" %}
-    <span style="color:#f59e0b;font-weight:600;">Min: {{ tax.threshold }}</span>
+    <span style="color:#92400e;font-weight:600;">Min: {{ tax.threshold }}</span>
     {% endif %}
   </div>
   {% endif %}
@@ -52,7 +52,7 @@ Use the search below to find your state's tax rules, or browse the full list.
 {% endfor %}
 </div>
 
-<div id="tax-no-results" style="display:none;text-align:center;padding:2rem;color:#888;">
+<div id="tax-no-results" style="display:none;text-align:center;padding:2rem;color:#666;">
   <p>No states match your search.</p>
 </div>
 
