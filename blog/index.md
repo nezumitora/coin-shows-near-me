@@ -14,7 +14,7 @@ breadcrumb_current: "Blog"
     <p style="font-size:2.5rem;margin:0 0 0.75rem;">Coming Soon</p>
     <p style="color:#cbd5e1;font-size:1rem;line-height:1.6;margin:0 0 1.5rem;">We're working on articles about coin collecting, market updates, show recaps, dealer spotlights, and tips for buyers and sellers.</p>
     <p style="color:#94a3b8;font-size:0.9rem;margin:0 0 1.5rem;">Want to know when we launch?</p>
-    <a href="/#signup" class="cta-btn" style="display:inline-block;background:var(--coin-gold);color:#fff;padding:0.65rem 2rem;border-radius:6px;font-weight:700;font-size:0.95rem;text-decoration:none;">Sign Up for Updates</a>
+    <a href="/#signup" class="cta-btn" style="display:inline-block;background:var(--coin-gold);color:var(--coin-on-gold);padding:0.65rem 2rem;border-radius:6px;font-weight:700;font-size:0.95rem;text-decoration:none;">Sign Up for Updates</a>
   </div>
 </div>
 

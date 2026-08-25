@@ -19,7 +19,7 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
     <h2 id="dealer-top-cta-title" style="margin:0 0 0.2rem !important;font-size:1rem !important;color:#1a2332;">Are you a coin dealer?</h2>
     <p style="margin:0;color:#555;font-size:0.88rem;line-height:1.45;">Request a free directory listing for manual review. Approved public business details can help collectors find you.</p>
   </div>
-  <a href="#dealer-listing-form" class="dealer-listing-button" style="display:inline-block;background:var(--coin-gold);color:#fff;padding:0.55rem 1rem;border-radius:6px;font-size:0.88rem;font-weight:800;text-decoration:none;white-space:nowrap;">Get Added to the Directory</a>
+  <a href="#dealer-listing-form" class="dealer-listing-button" style="display:inline-block;background:var(--coin-gold);color:var(--coin-on-gold);padding:0.55rem 1rem;border-radius:6px;font-size:0.88rem;font-weight:800;text-decoration:none;white-space:nowrap;">Get Added to the Directory</a>
 </aside>
 
 <div class="dealer-feature-grid" style="margin:0 0 1.25rem;">
@@ -81,11 +81,11 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
     {% endfor %}
   </div>
   <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
-    {% if publish_public_contacts and dealer.public_contacts.website %}<a href="{{ dealer.public_contacts.website }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">Visit Website &rarr;</a>{% endif %}
-    {% if publish_public_contacts and dealer.public_contacts.instagram %}<a href="{{ dealer.public_contacts.instagram }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">Instagram</a>{% endif %}
-    {% if publish_public_contacts and dealer.public_contacts.facebook %}<a href="{{ dealer.public_contacts.facebook }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">Facebook</a>{% endif %}
-    {% if publish_public_contacts and dealer.public_contacts.youtube %}<a href="{{ dealer.public_contacts.youtube }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">YouTube</a>{% endif %}
-    {% if publish_public_contacts and dealer.public_contacts.x %}<a href="{{ dealer.public_contacts.x }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold);text-decoration:none;">X</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.website %}<a href="{{ dealer.public_contacts.website }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold-text);text-decoration:none;">Visit Website &rarr;</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.instagram %}<a href="{{ dealer.public_contacts.instagram }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold-text);text-decoration:none;">Instagram</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.facebook %}<a href="{{ dealer.public_contacts.facebook }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold-text);text-decoration:none;">Facebook</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.youtube %}<a href="{{ dealer.public_contacts.youtube }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold-text);text-decoration:none;">YouTube</a>{% endif %}
+    {% if publish_public_contacts and dealer.public_contacts.x %}<a href="{{ dealer.public_contacts.x }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:var(--coin-gold-text);text-decoration:none;">X</a>{% endif %}
     {% if dealer.ships_nationwide %}
     <span style="font-size:0.75rem;color:#666;">Ships nationwide</span>
     {% endif %}

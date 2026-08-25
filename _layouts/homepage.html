@@ -40,7 +40,10 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   --navy: var(--coinshows-navy);
   --navy-light: #2c3e50;
   --navy-mid: #34495e;
-  --gold: #7a5700;
+  --gold: #b8860b;
+  --gold-text: #7a5700;
+  --gold-text-hover: #5f4300;
+  --on-gold: var(--navy);
   --gold-light: #daa520;
   --gold-pale: #f0e6c8;
   --cream: #fdf8f0;
@@ -48,7 +51,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   --warm-gray: #f5f0e8;
   --text-dark: #2c2c2c;
   --text-mid: #555;
-  --text-light: #666;
+  --text-light: #888;
   --border: #e5ddd0;
   --shadow: rgba(26, 35, 50, 0.08);
   --shadow-lg: rgba(26, 35, 50, 0.12);
@@ -64,8 +67,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--gold-light); }
+a { color: var(--gold-text); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold-text-hover); }
 
 /* === Sticky Header (nav + banner) === */
 .sticky-header {
@@ -119,13 +122,16 @@ a:hover { color: var(--gold-light); }
 .global-nav-links a:hover { color: var(--gold-light); }
 .global-nav-links .gnav-cta {
   background: var(--gold) !important;
-  color: #fff !important;
+  color: var(--on-gold) !important;
   padding: 0.4rem 1rem;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.85rem !important;
 }
-.global-nav-links .gnav-cta:hover { background: var(--gold-light) !important; }
+.global-nav-links .gnav-cta:hover {
+  background: var(--gold-light) !important;
+  color: var(--on-gold) !important;
+}
 .gnav-dropdown { position: relative; }
 .gnav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; padding: 0.5rem 0; }
 .gnav-dropdown > a::after { content: "\25BE"; font-size: 0.65rem; opacity: 0.7; }
@@ -350,7 +356,7 @@ a:hover { color: var(--gold-light); }
   border: 0;
   border-radius: 999px;
   background: var(--gold);
-  color: #fff;
+  color: var(--on-gold);
   cursor: pointer;
   font-size: 0.78rem;
   font-weight: 800;
@@ -510,7 +516,7 @@ a:hover { color: var(--gold-light); }
   white-space: nowrap;
   user-select: none;
 }
-.filter-pill:hover { border-color: var(--gold); color: var(--gold); }
+.filter-pill:hover { border-color: var(--gold); color: var(--gold-text); }
 .filter-pill.active {
   background: var(--navy);
   color: #fff;
@@ -530,7 +536,7 @@ a:hover { color: var(--gold-light); }
 .filter-select:focus { border-color: var(--gold); outline: 3px solid rgba(218,165,32,0.14); }
 .filter-count {
   background: var(--gold-pale);
-  color: var(--gold);
+  color: var(--gold-text);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.15rem 0.5rem;
@@ -619,10 +625,10 @@ a:hover { color: var(--gold-light); }
   overflow: hidden;
 }
 .show-card-name a { color: var(--text-dark); }
-.show-card-name a:hover { color: var(--gold); }
+.show-card-name a:hover { color: var(--gold-text); }
 .show-card-state-badge {
   background: var(--gold-pale);
-  color: var(--gold);
+  color: var(--gold-text);
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.2rem 0.5rem;
@@ -787,7 +793,7 @@ a:hover { color: var(--gold-light); }
   top: -0.5rem;
   right: 1rem;
   background: var(--gold);
-  color: #fff;
+  color: var(--on-gold);
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -823,11 +829,11 @@ a:hover { color: var(--gold-light); }
 .state-link:hover {
   border-color: var(--gold);
   background: var(--gold-pale);
-  color: var(--gold);
+  color: var(--gold-text);
 }
 .state-link-count {
   font-size: 0.75rem;
-  color: var(--text-light);
+  color: #737373;
   font-weight: 500;
 }
 
@@ -877,7 +883,7 @@ a:hover { color: var(--gold-light); }
   content: counter(tips);
   counter-increment: tips;
   background: var(--gold);
-  color: #fff;
+  color: var(--on-gold);
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
@@ -979,7 +985,7 @@ a:hover { color: var(--gold-light); }
 .cta-form-note { width: 100%; color: #cbd5e1; font-size: 0.76rem; text-align: left; }
 .cta-form button {
   background: var(--gold);
-  color: #fff;
+  color: var(--on-gold);
   border: none;
   border-radius: 8px;
   padding: 0.68rem 1.25rem;

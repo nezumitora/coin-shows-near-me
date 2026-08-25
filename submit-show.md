@@ -32,7 +32,7 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 .show-submission-form .submission-consent { display:flex; flex-direction:row; align-items:flex-start; gap:0.55rem; font-size:0.78rem; font-weight:500; line-height:1.45; }
 .show-submission-form .submission-consent input { width:1rem; height:1rem; margin-top:0.15rem; flex:0 0 auto; accent-color:var(--coin-gold); }
 .show-submission-form button { align-self:flex-start; padding:0.7rem 1.3rem; border:0; border-radius:6px; background:var(--coin-navy); color:#fff; cursor:pointer; font-weight:800; }
-.show-submission-form button:hover { background:var(--coin-gold); }
+.show-submission-form button:hover { background:var(--coin-gold); color:var(--coin-on-gold); }
 .show-submission-fieldset { min-width:0; margin:0; padding:1rem; border:1px solid #cbd5e1; border-radius:8px; background:#f8fafc; }
 .show-submission-fieldset legend { padding:0 0.35rem; color:var(--coin-navy); font-weight:800; }
 .show-submission-fieldset .show-submission-grid + .show-submission-grid,
@@ -40,8 +40,8 @@ Use this form if you organize, promote, host, or represent a coin show that is m
 .show-submission-thanks { display:none; background:#ecfdf5; color:#14532d; padding:1rem; border:1px solid #86efac; border-radius:8px; margin-top:0.75rem; }
 .show-submission-thanks:focus { outline:3px solid rgba(184,134,11,0.35); outline-offset:3px; }
 .show-submission-thanks a { color:#14532d; font-weight:800; text-decoration:underline; overflow-wrap:anywhere; }
-.show-submission-copy { margin-top:0.75rem; padding:0.6rem 0.95rem !important; background:var(--coin-gold) !important; color:#fff !important; border-radius:6px !important; font-weight:800 !important; }
-.show-submission-copy:hover { background:var(--coin-gold-light) !important; color:#fff !important; }
+.show-submission-copy { margin-top:0.75rem; padding:0.6rem 0.95rem !important; background:var(--coin-gold) !important; color:var(--coin-on-gold) !important; border-radius:6px !important; font-weight:800 !important; }
+.show-submission-copy:hover { background:var(--coin-gold-light) !important; color:var(--coin-on-gold) !important; }
 @media (max-width:700px) {
   .show-submission-grid { grid-template-columns:1fr; }
   .show-submission-fieldset { padding:0.8rem; }
