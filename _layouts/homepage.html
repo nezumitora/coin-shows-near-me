@@ -41,9 +41,6 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   --navy-light: #2c3e50;
   --navy-mid: #34495e;
   --gold: #b8860b;
-  --gold-text: #7a5700;
-  --gold-text-hover: #5f4300;
-  --on-gold: var(--navy);
   --gold-light: #daa520;
   --gold-pale: #f0e6c8;
   --cream: #fdf8f0;
@@ -67,8 +64,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--gold-text); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--gold-text-hover); }
+a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold-light); }
 
 /* === Sticky Header (nav + banner) === */
 .sticky-header {
@@ -122,16 +119,13 @@ a:hover { color: var(--gold-text-hover); }
 .global-nav-links a:hover { color: var(--gold-light); }
 .global-nav-links .gnav-cta {
   background: var(--gold) !important;
-  color: var(--on-gold) !important;
+  color: #fff !important;
   padding: 0.4rem 1rem;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.85rem !important;
 }
-.global-nav-links .gnav-cta:hover {
-  background: var(--gold-light) !important;
-  color: var(--on-gold) !important;
-}
+.global-nav-links .gnav-cta:hover { background: var(--gold-light) !important; }
 .gnav-dropdown { position: relative; }
 .gnav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; padding: 0.5rem 0; }
 .gnav-dropdown > a::after { content: "\25BE"; font-size: 0.65rem; opacity: 0.7; }
@@ -356,7 +350,7 @@ a:hover { color: var(--gold-text-hover); }
   border: 0;
   border-radius: 999px;
   background: var(--gold);
-  color: var(--on-gold);
+  color: #fff;
   cursor: pointer;
   font-size: 0.78rem;
   font-weight: 800;
@@ -516,7 +510,7 @@ a:hover { color: var(--gold-text-hover); }
   white-space: nowrap;
   user-select: none;
 }
-.filter-pill:hover { border-color: var(--gold); color: var(--gold-text); }
+.filter-pill:hover { border-color: var(--gold); color: var(--gold); }
 .filter-pill.active {
   background: var(--navy);
   color: #fff;
@@ -536,7 +530,7 @@ a:hover { color: var(--gold-text-hover); }
 .filter-select:focus { border-color: var(--gold); outline: 3px solid rgba(218,165,32,0.14); }
 .filter-count {
   background: var(--gold-pale);
-  color: var(--gold-text);
+  color: var(--gold);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.15rem 0.5rem;
@@ -625,10 +619,10 @@ a:hover { color: var(--gold-text-hover); }
   overflow: hidden;
 }
 .show-card-name a { color: var(--text-dark); }
-.show-card-name a:hover { color: var(--gold-text); }
+.show-card-name a:hover { color: var(--gold); }
 .show-card-state-badge {
   background: var(--gold-pale);
-  color: var(--gold-text);
+  color: var(--gold);
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.2rem 0.5rem;
@@ -793,7 +787,7 @@ a:hover { color: var(--gold-text-hover); }
   top: -0.5rem;
   right: 1rem;
   background: var(--gold);
-  color: var(--on-gold);
+  color: #fff;
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -829,11 +823,11 @@ a:hover { color: var(--gold-text-hover); }
 .state-link:hover {
   border-color: var(--gold);
   background: var(--gold-pale);
-  color: var(--gold-text);
+  color: var(--gold);
 }
 .state-link-count {
   font-size: 0.75rem;
-  color: #737373;
+  color: var(--text-light);
   font-weight: 500;
 }
 
@@ -883,7 +877,7 @@ a:hover { color: var(--gold-text-hover); }
   content: counter(tips);
   counter-increment: tips;
   background: var(--gold);
-  color: var(--on-gold);
+  color: #fff;
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
@@ -985,7 +979,7 @@ a:hover { color: var(--gold-text-hover); }
 .cta-form-note { width: 100%; color: #cbd5e1; font-size: 0.76rem; text-align: left; }
 .cta-form button {
   background: var(--gold);
-  color: var(--on-gold);
+  color: #fff;
   border: none;
   border-radius: 8px;
   padding: 0.68rem 1.25rem;
@@ -1026,10 +1020,10 @@ a:hover { color: var(--gold-text-hover); }
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--gold-light); }
-.footer-copy { font-size: 0.75rem; color: #94a3b8; }
+.footer-copy { font-size: 0.75rem; color: #64748b; }
 .footer-version {
   font-size: 0.65rem;
-  color: #94a3b8;
+  color: #475569;
   margin-top: 0.5rem;
 }
 

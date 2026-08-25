@@ -38,9 +38,6 @@
 :root {
   --coinshows-navy: #0E2338;
   --coin-gold: #b8860b;
-  --coin-gold-text: #7a5700;
-  --coin-gold-text-hover: #5f4300;
-  --coin-on-gold: var(--coinshows-navy);
   --coin-gold-light: #daa520;
   --coin-gold-bg: #faf6ed;
   --coin-navy: var(--coinshows-navy);
@@ -165,7 +162,7 @@
 /* Aux nav button (Melt Calculator) */
 .aux-nav .site-button {
   background-color: var(--coin-gold) !important;
-  color: var(--coin-on-gold) !important;
+  color: #fff !important;
   border-radius: 6px !important;
   font-weight: 600 !important;
   padding: 0.4rem 0.8rem !important;
@@ -180,10 +177,10 @@
 
 /* Links — gold instead of default blue */
 .main-content a {
-  color: var(--coin-gold-text) !important;
+  color: var(--coin-gold) !important;
 }
 .main-content a:hover {
-  color: var(--coin-gold-text-hover) !important;
+  color: var(--coin-gold-light) !important;
 }
 
 /* Hide Just the Docs heading permalink icons; they were distracting on hover. */
@@ -381,7 +378,7 @@
 }
 .notify-form button {
   background-color: var(--coin-gold);
-  color: var(--coin-on-gold);
+  color: #fff;
   border: none;
   border-radius: 6px;
   padding: 0.6rem 1.5rem;
@@ -436,12 +433,12 @@ footer .d-md-none {
 /* CTA buttons — override gold link color (needs .main-content scope to beat .main-content a) */
 .main-content a.cta-btn,
 a.cta-btn {
-  color: var(--coin-on-gold) !important;
+  color: #fff !important;
   text-decoration: none !important;
 }
 .main-content a.cta-btn:hover,
 a.cta-btn:hover {
-  color: var(--coin-on-gold) !important;
+  color: #f1f5f9 !important;
 }
 
 /* Content-area page footer */
@@ -466,7 +463,7 @@ a.cta-btn:hover {
 }
 .page-footer .footer-copy {
   font-size: 0.7rem;
-  color: #6b7280;
+  color: #9ca3af;
 }
 .page-footer-version {
   color: #64748b;
@@ -579,16 +576,13 @@ a.cta-btn:hover {
 .global-nav-links a:hover { color: var(--coin-gold-light) !important; }
 .global-nav-links .gnav-cta {
   background: var(--coin-gold) !important;
-  color: var(--coin-on-gold) !important;
+  color: #fff !important;
   padding: 0.4rem 1rem;
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.85rem !important;
 }
-.global-nav-links .gnav-cta:hover {
-  background: var(--coin-gold-light) !important;
-  color: var(--coin-on-gold) !important;
-}
+.global-nav-links .gnav-cta:hover { background: var(--coin-gold-light) !important; }
 /* Dropdown menus in global nav */
 .gnav-dropdown { position: relative; }
 .gnav-dropdown > a { display: flex !important; align-items: center; gap: 0.25rem; }
@@ -942,7 +936,7 @@ body.public-page .public-cta a,
 body.public-page .public-button {
   display: inline-block;
   background: var(--coin-gold) !important;
-  color: var(--coin-on-gold) !important;
+  color: #fff !important;
   border-radius: 8px;
   border: 0 !important;
   font-weight: 800;
@@ -953,7 +947,7 @@ body.public-page .public-button {
 body.public-page .main-content .public-cta a {
   background: var(--coin-gold) !important;
   border: 0 !important;
-  color: var(--coin-on-gold) !important;
+  color: #fff !important;
 }
 body.public-page .public-cta a:hover,
 body.public-page .public-button:hover {
@@ -1216,7 +1210,7 @@ body.public-page .show-workflow-body {
 body.public-page a.dealer-listing-button,
 body.public-page a.dealer-listing-button:visited,
 body.public-page a.dealer-listing-button:hover {
-  color: var(--coin-on-gold) !important;
+  color: #fff !important;
 }
 body.public-page .show-share {
   background:
@@ -1479,10 +1473,10 @@ body.public-page .listing-review-consent input[type="checkbox"] {
 }
 body.public-page .dealer-listing-submit,
 body.public-page .listing-review-submit {
-  background: var(--coin-gold);
+  background: #b8860b;
   border: 0;
   border-radius: 6px;
-  color: var(--coin-on-gold);
+  color: #fff;
   cursor: pointer;
   font-size: 0.92rem;
   font-weight: 800;

@@ -1,7 +1,7 @@
 # Session State
 
-**Last updated:** 2026-08-25 11:02 PDT
-**Session:** Ahrefs local repairs, directory date integrity, dealer privacy, and WCAG contrast
+**Last updated:** 2026-08-24 12:25 PDT
+**Session:** Ahrefs local repairs, directory date integrity, and dealer privacy
 
 ## Completed today
 
@@ -13,10 +13,7 @@
 - Gated dealer public contacts behind voluntary-publication or source-verification evidence. Removed seller-contact and offer-request intake from the widget, melt calculator, and dormant portal, and reconciled privacy, terms, and disclaimer wording with the inactive service.
 - Expanded the deterministic public show feed with only the non-sensitive confirmed-date fields required by the widget.
 - Passed 84 Ruby tests, 16 JavaScript tests, data/feed validation, a production Jekyll build, generated-page/schema checks, desktop/mobile browser assertions, and an HTTP audit of all 495 sitemap URLs. The accessibility helper reported no errors; its sole homepage warning is the intentionally hidden spam-trap field.
-- Corrected verified WCAG AA failures in normal gold links, white-on-gold controls, state and dealer badges, state counts, action buttons, and light/dark footer text. After owner review caught that the first fix made all shared gold controls brown, restored the familiar `#b8860b` button surfaces and scoped accessible dark gold to normal links while using navy text on gold controls. `DESIGN.md` records this separation.
-- Passed Lighthouse 13.0.3 color-contrast audits with zero failures on 15 representative pages, including the homepage, weekend page, two show pages, dealer directory, new-show submission, portal, calculator, widget, embed generator, blog, 404 page, sales-tax index, and a state tax guide.
-- Re-ran 84 Ruby tests with 8,310 assertions, 16 JavaScript tests, data validation, whitespace checks, and the production Jekyll build after the final contrast changes.
-- Saved the core implementation in local commit `0b24059`, its prior preview record in `53dab93`, the initial WCAG repair in `f5ae130`, and the brand-preserving correction in `4128bbd`; refreshed and visually checked the preview at `http://localhost:3313`.
+- Saved the implementation in local commit `0b24059` and refreshed the verified preview at `http://localhost:3313`.
 - No push, pull request, merge, deployment, production/GSC change, Ahrefs rerun, outreach, email, or DNS change occurred.
 
 ## In progress
