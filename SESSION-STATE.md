@@ -1,12 +1,12 @@
 # Session State
 
-**Last updated:** 2026-08-29 00:06 PDT
-**Session:** Contact actions and direct local review owner preview
+**Last updated:** 2026-08-29 00:44 PDT
+**Session:** Contact actions and Semi-style local review owner preview
 
 ## Completed today
 
-- Added the review-only overlay boundary to the bespoke homepage head and verified that all 495 local sitemap pages now include the review trigger and direct-gesture handler.
-- Changed local review-note capture to open directly on right-click or Control-click, retaining the crosshair action as the touchscreen fallback.
+- Added the review-only overlay boundary to the bespoke homepage head and verified that all 495 local sitemap pages include the private review controls.
+- Matched the Semi Repair owner-review sequence: **Review notes** opens the all-page panel, **Add a note** enables exact-area crosshair selection, and the selected area opens a nearby dialog with explicit Cancel and Save note controls.
 - Made the Contact page's error-report and dealer-listing actions clickable, preselected the allowlisted error-report reason, and restored the primary CTA to accessible Coin navy/gold styling.
 - Added a local-only review-notes overlay that is enabled only with `_config.review.yml`, stores up to 100 notes in browser localStorage, and is excluded from the production Jekyll output.
 - Routed general, advertising, legal, and privacy questions to their verified Coin mailbox aliases without changing forms, Formspree, CRM, Turnstile, analytics, DNS, or mail infrastructure.

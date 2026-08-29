@@ -3,65 +3,77 @@
   .coin-review-ui * { box-sizing: border-box; }
   .coin-review-trigger {
     position: fixed; right: 16px; bottom: 16px; z-index: 2147483002;
-    min-height: 48px; padding: 11px 16px; border: 2px solid var(--coin-gold-light);
-    border-radius: 999px; color: #fff; background: var(--coin-navy);
+    min-height: 48px; padding: 11px 16px; border: 2px solid var(--coin-gold-light, #daa520);
+    border-radius: 999px; color: #fff; background: var(--coin-navy, #0e2338);
     box-shadow: 0 10px 28px rgb(0 0 0 / 28%); font: 800 0.9rem/1.1 system-ui, sans-serif; cursor: pointer;
   }
   .coin-review-trigger:focus-visible, .coin-review-panel button:focus-visible,
   .coin-review-dialog button:focus-visible, .coin-review-dialog textarea:focus-visible,
-  .coin-review-pin:focus-visible { outline: 3px solid var(--coin-gold-light); outline-offset: 3px; }
+  .coin-review-pin:focus-visible { outline: 3px solid var(--coin-gold-light, #daa520); outline-offset: 3px; }
   .coin-review-panel {
     position: fixed; inset: 16px 16px 16px auto; z-index: 2147483004;
     width: min(400px, calc(100vw - 32px)); padding: 20px; overflow-y: auto; overflow-x: hidden;
-    color: var(--coin-text); background: #fffdf8; border: 2px solid var(--coin-navy);
-    border-top: 6px solid var(--coin-gold-light); border-radius: 10px;
+    color: var(--coin-text, #2c2c2c); background: #fffdf8; border: 2px solid var(--coin-navy, #0e2338);
+    border-top: 6px solid var(--coin-gold-light, #daa520); border-radius: 10px;
     box-shadow: 0 24px 70px rgb(0 0 0 / 32%); font: 400 0.94rem/1.45 system-ui, sans-serif;
   }
   .coin-review-panel[hidden], .coin-review-capture-notice[hidden] { display: none; }
   .coin-review-header, .coin-review-actions, .coin-review-dialog-actions, .coin-review-note-meta {
     display: flex; align-items: center; justify-content: space-between; gap: 10px;
   }
-  .coin-review-header h2, .coin-review-dialog h2 { margin: 2px 0 0; color: var(--coin-navy); font-size: 1.35rem; line-height: 1.15; }
-  .coin-review-eyebrow { color: var(--coin-gold); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; }
+  .coin-review-actions { justify-content: flex-start; flex-wrap: wrap; }
+  .coin-review-header h2, .coin-review-dialog h2 { margin: 2px 0 0; color: var(--coin-navy, #0e2338); font-size: 1.35rem; line-height: 1.15; }
+  .coin-review-eyebrow { color: var(--coin-gold, #b8860b); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; }
   .coin-review-panel p { overflow-wrap: anywhere; }
-  .coin-review-private { margin: 14px 0; color: var(--coin-muted); }
+  .coin-review-private { margin: 14px 0; color: var(--coin-muted, #555); }
   .coin-review-button, .coin-review-link-button {
     min-height: 42px; padding: 9px 12px; border-radius: 5px; font: 800 0.88rem/1 system-ui, sans-serif; cursor: pointer;
   }
-  .coin-review-button--primary { border: 2px solid var(--coin-navy); color: #fff; background: var(--coin-navy); }
-  .coin-review-button--secondary { border: 2px solid var(--coin-gold); color: var(--coin-navy); background: #fff; }
-  .coin-review-link-button { min-height: 0; padding: 4px 0; border: 0; color: var(--coin-navy); background: transparent; text-decoration: underline; }
+  .coin-review-ui .coin-review-button {
+    display: inline-flex !important; align-items: center; justify-content: center; appearance: none;
+    opacity: 1 !important; visibility: visible !important;
+  }
+  .coin-review-ui .coin-review-button--primary {
+    border: 2px solid #0e2338 !important; color: #fff !important; background: #0e2338 !important;
+  }
+  .coin-review-ui .coin-review-button--secondary {
+    border: 2px solid #b8860b !important; color: #0e2338 !important; background: #fff !important;
+  }
+  .coin-review-link-button { min-height: 0; padding: 4px 0; border: 0; color: var(--coin-navy, #0e2338); background: transparent; text-decoration: underline; }
   .coin-review-status { min-height: 1.45em; margin: 14px 0; color: #075c3c; font-weight: 700; }
   .coin-review-status.is-error { color: #9f1239; }
   .coin-review-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-  .coin-review-note, .coin-review-empty { padding: 12px; border: 1px solid var(--coin-border); border-left: 4px solid var(--coin-gold); border-radius: 5px; background: #fff; }
+  .coin-review-note, .coin-review-empty { padding: 12px; border: 1px solid var(--coin-border, #e5ddd0); border-left: 4px solid var(--coin-gold, #b8860b); border-radius: 5px; background: #fff; }
   .coin-review-note p { margin: 9px 0; }
-  .coin-review-note-meta span { color: var(--coin-muted); font-size: 0.76rem; }
-  .coin-review-note-target { color: var(--coin-navy); font-size: 0.82rem; font-weight: 800; }
-  .coin-review-note-selector { color: var(--coin-muted); font-family: ui-monospace, monospace; font-size: 0.72rem; }
+  .coin-review-note-meta span { color: var(--coin-muted, #555); font-size: 0.76rem; }
+  .coin-review-note-target { color: var(--coin-navy, #0e2338); font-size: 0.82rem; font-weight: 800; }
+  .coin-review-note-selector { color: var(--coin-muted, #555); font-family: ui-monospace, monospace; font-size: 0.72rem; }
   .coin-review-note-actions { display: flex; flex-wrap: wrap; gap: 12px; }
   .coin-review-capture-notice {
     position: fixed; top: 16px; left: 50%; z-index: 2147483005; width: min(620px, calc(100vw - 32px));
-    padding: 13px 16px; color: #fff; background: var(--coin-navy); border: 2px solid var(--coin-gold-light);
+    padding: 13px 16px; color: #fff; background: var(--coin-navy, #0e2338); border: 2px solid var(--coin-gold-light, #daa520);
     border-radius: 6px; box-shadow: 0 10px 28px rgb(0 0 0 / 28%); transform: translateX(-50%); font: 0.92rem/1.4 system-ui, sans-serif;
   }
-  .coin-review-is-capturing main, .coin-review-is-capturing header, .coin-review-is-capturing footer { cursor: crosshair; }
+  body.coin-review-is-capturing, body.coin-review-is-capturing * { cursor: crosshair !important; }
+  body.coin-review-is-capturing .coin-review-ui, body.coin-review-is-capturing .coin-review-ui * { cursor: auto !important; }
   .coin-review-dialog {
-    width: min(520px, calc(100vw - 32px)); padding: 22px; color: var(--coin-text); background: #fffdf8;
-    border: 2px solid var(--coin-navy); border-top: 6px solid var(--coin-gold-light); border-radius: 10px;
+    position: fixed; width: min(520px, calc(100vw - 24px)); max-height: calc(100vh - 24px); margin: 0;
+    padding: 22px; overflow: auto; color: var(--coin-text, #2c2c2c); background: #fffdf8;
+    border: 2px solid var(--coin-navy, #0e2338); border-top: 6px solid var(--coin-gold-light, #daa520); border-radius: 10px;
     box-shadow: 0 24px 70px rgb(0 0 0 / 35%); font: 1rem/1.45 system-ui, sans-serif;
   }
   .coin-review-dialog::backdrop { background: rgb(14 35 56 / 72%); }
-  .coin-review-dialog label { display: block; margin: 16px 0 8px; color: var(--coin-navy); font-weight: 800; }
-  .coin-review-dialog textarea { width: 100%; min-height: 130px; padding: 11px; resize: vertical; color: var(--coin-text); background: #fff; border: 2px solid var(--coin-gold); border-radius: 5px; font: inherit; }
+  .coin-review-dialog label { display: block; margin: 16px 0 8px; color: var(--coin-navy, #0e2338); font-weight: 800; }
+  .coin-review-dialog textarea { width: 100%; min-height: 130px; padding: 11px; resize: vertical; color: var(--coin-text, #2c2c2c); background: #fff; border: 2px solid var(--coin-gold, #b8860b); border-radius: 5px; font: inherit; }
   .coin-review-dialog-actions { justify-content: flex-end; margin-top: 16px; }
   .coin-review-pin-layer { position: absolute; top: 0; left: 0; z-index: 2147483001; overflow: visible; pointer-events: none; }
   .coin-review-pin { pointer-events: auto; cursor: pointer; }
-  .coin-review-pin circle { fill: var(--coin-gold-light); stroke: var(--coin-navy); stroke-width: 3px; filter: drop-shadow(0 3px 5px rgb(0 0 0 / 30%)); }
-  .coin-review-pin text { fill: var(--coin-navy); font: 900 13px system-ui, sans-serif; pointer-events: none; }
+  .coin-review-pin circle { fill: var(--coin-gold-light, #daa520); stroke: var(--coin-navy, #0e2338); stroke-width: 3px; filter: drop-shadow(0 3px 5px rgb(0 0 0 / 30%)); }
+  .coin-review-pin text { fill: var(--coin-navy, #0e2338); font: 900 13px system-ui, sans-serif; pointer-events: none; }
   @media (max-width: 560px) {
     .coin-review-trigger { right: 10px; bottom: 10px; }
     .coin-review-panel { inset: 8px; width: auto; padding: 16px; }
+    .coin-review-dialog { width: calc(100vw - 24px); max-height: calc(100vh - 24px); padding: 18px; }
     .coin-review-actions, .coin-review-dialog-actions, .coin-review-note-meta { align-items: stretch; flex-direction: column; }
     .coin-review-button { width: 100%; }
   }
@@ -73,8 +85,8 @@
     var pagePath = window.location.pathname === '/index.html' ? '/' : window.location.pathname.replace(/\/index\.html$/, '/');
     var notes = [];
     var pendingTarget = null;
+    var pendingDialogPoint = null;
     var capturing = false;
-    var lastDirectCaptureAt = 0;
     var svgNamespace = 'http://www.w3.org/2000/svg';
 
     function createElement(tag, options) {
@@ -133,20 +145,21 @@
     }
 
     var shell = createElement('div', { className: 'coin-review-ui' });
-    var trigger = createElement('button', { className: 'coin-review-trigger', text: 'Notes (0)', attributes: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'coin-review-panel' } });
+    var trigger = createElement('button', { className: 'coin-review-trigger', text: 'Review notes', attributes: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'coin-review-panel' } });
     var panel = createElement('aside', { className: 'coin-review-panel', attributes: { id: 'coin-review-panel', 'aria-label': 'Local review notes', hidden: '' } });
     var heading = createElement('div');
-    heading.append(createElement('span', { className: 'coin-review-eyebrow', text: 'Local only' }), createElement('h2', { text: 'Review notes' }));
+    heading.append(createElement('span', { className: 'coin-review-eyebrow', text: 'Private review' }), createElement('h2', { text: 'Review notes & changes' }));
     var closeButton = createElement('button', { className: 'coin-review-link-button', text: 'Close', attributes: { type: 'button' } });
     var header = createElement('div', { className: 'coin-review-header' });
     header.append(heading, closeButton);
-    var instructions = createElement('p', { className: 'coin-review-instructions', text: 'Right-click or Control-click any page area to add a correction note. Use Add a note on touchscreens or when you prefer crosshair selection.' });
+    var instructions = createElement('p', { className: 'coin-review-instructions', text: 'Saved notes from every page appear here. Select Add a note, then click the exact part of the current page that needs attention.' });
     var privateNotice = createElement('p', { className: 'coin-review-private', text: 'Notes remain only in this browser until copied. Nothing is sent or shared.' });
     var addButton = createElement('button', { className: 'coin-review-button coin-review-button--primary', text: 'Add a note', attributes: { type: 'button' } });
+    var refreshButton = createElement('button', { className: 'coin-review-button coin-review-button--secondary', text: 'Refresh', attributes: { type: 'button' } });
     var copyButton = createElement('button', { className: 'coin-review-button coin-review-button--secondary', text: 'Copy all notes', attributes: { type: 'button' } });
     var clearButton = createElement('button', { className: 'coin-review-link-button', text: 'Clear all', attributes: { type: 'button' } });
     var actions = createElement('div', { className: 'coin-review-actions' });
-    actions.append(addButton, copyButton, clearButton);
+    actions.append(addButton, refreshButton, copyButton, clearButton);
     var status = createElement('p', { className: 'coin-review-status', attributes: { role: 'status', 'aria-live': 'polite' } });
     var list = createElement('ol', { className: 'coin-review-list' });
     panel.append(header, instructions, privateNotice, actions, status, list);
@@ -172,8 +185,8 @@
 
     function setStatus(message, isError) { status.textContent = message; status.classList.toggle('is-error', Boolean(isError)); }
     function updateTrigger() {
-      trigger.textContent = 'Notes (' + notes.length + ')';
-      trigger.setAttribute('aria-label', notes.length + ' saved local review note' + (notes.length === 1 ? '' : 's'));
+      trigger.textContent = 'Review notes';
+      trigger.setAttribute('aria-label', 'Review notes, ' + notes.length + ' saved local note' + (notes.length === 1 ? '' : 's'));
     }
     function openPanel() { panel.hidden = false; trigger.setAttribute('aria-expanded', 'true'); }
     function closePanel() { panel.hidden = true; trigger.setAttribute('aria-expanded', 'false'); trigger.focus(); }
@@ -204,7 +217,7 @@
         var item = createElement('li', { className: 'coin-review-note' }); item.dataset.noteId = note.id;
         var meta = createElement('div', { className: 'coin-review-note-meta' });
         meta.append(createElement('strong', { text: 'Note ' + (index + 1) }), createElement('span', { text: new Date(note.createdAt).toLocaleString() }));
-        var target = createElement('p', { className: 'coin-review-note-target', text: note.pagePath + ' · ' + note.targetLabel });
+        var target = createElement('p', { className: 'coin-review-note-target', text: (note.pagePath === pagePath ? 'This page' : note.pagePath) + ' · ' + note.targetLabel });
         var selector = createElement('p', { className: 'coin-review-note-selector', text: note.selector });
         var body = createElement('p', { text: note.text });
         var noteActions = createElement('div', { className: 'coin-review-note-actions' });
@@ -222,10 +235,28 @@
       renderPins();
     }
     function stopCapture() { capturing = false; document.body.classList.remove('coin-review-is-capturing'); captureNotice.hidden = true; }
-    function startCapture() { closePanel(); pendingTarget = null; capturing = true; document.body.classList.add('coin-review-is-capturing'); captureNotice.hidden = false; }
-    function openDialog() { targetDescription.textContent = 'Selected: ' + pendingTarget.targetLabel; noteField.value = ''; if (typeof dialog.showModal === 'function') { dialog.showModal(); } else { dialog.setAttribute('open', ''); } noteField.focus(); }
+    function startCapture() { closePanel(); pendingTarget = null; pendingDialogPoint = null; capturing = true; document.body.classList.add('coin-review-is-capturing'); captureNotice.hidden = false; }
+    function positionDialog() {
+      if (!dialog.open || !pendingDialogPoint) { return; }
+      var gap = 16; var edge = 12;
+      dialog.style.left = edge + 'px'; dialog.style.top = edge + 'px';
+      var rectangle = dialog.getBoundingClientRect();
+      var left = pendingDialogPoint.x + gap;
+      if (left + rectangle.width > window.innerWidth - edge) { left = pendingDialogPoint.x - rectangle.width - gap; }
+      var top = pendingDialogPoint.y + gap;
+      if (top + rectangle.height > window.innerHeight - edge) { top = pendingDialogPoint.y - rectangle.height - gap; }
+      left = Math.max(edge, Math.min(left, window.innerWidth - rectangle.width - edge));
+      top = Math.max(edge, Math.min(top, window.innerHeight - rectangle.height - edge));
+      dialog.style.left = Math.round(left) + 'px'; dialog.style.top = Math.round(top) + 'px';
+    }
+    function openDialog() {
+      targetDescription.textContent = 'Selected: ' + pendingTarget.targetLabel; noteField.value = '';
+      if (typeof dialog.showModal === 'function') { dialog.showModal(); } else { dialog.setAttribute('open', ''); }
+      window.requestAnimationFrame(function () { positionDialog(); noteField.focus(); });
+    }
     function selectTarget(event) {
       var target = event.target; var rectangle = target.getBoundingClientRect(); var size = dimensions();
+      pendingDialogPoint = { x: event.clientX, y: event.clientY };
       pendingTarget = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8), pagePath: pagePath, selector: selectorFor(target), targetLabel: targetLabelFor(target), text: '', createdAt: new Date().toISOString(), offsetX: rectangle.width ? Math.min(1, Math.max(0, (event.clientX - rectangle.left) / rectangle.width)) : 0.5, offsetY: rectangle.height ? Math.min(1, Math.max(0, (event.clientY - rectangle.top) / rectangle.height)) : 0.5, pageX: Math.min(1, Math.max(0, event.pageX / size.width)), pageY: Math.min(1, Math.max(0, event.pageY / size.height)) };
     }
     function captureClick(event) {
@@ -234,32 +265,24 @@
       selectTarget(event);
       stopCapture(); openDialog();
     }
-    function directCapture(event) {
-      if (!(event.target instanceof Element) || event.target.closest('.coin-review-ui')) { return; }
-      if (event.type === 'click' && !event.ctrlKey) { return; }
-      event.preventDefault(); event.stopPropagation();
-      if (dialog.open || Date.now() - lastDirectCaptureAt < 600) { return; }
-      lastDirectCaptureAt = Date.now();
-      if (capturing) { stopCapture(); }
-      selectTarget(event); openDialog();
-    }
     function copyNotes() {
       var summary = '# Coin Shows Near Me review notes\n\n' + (notes.length ? notes.map(function (note, index) { return '## Note ' + (index + 1) + '\n- Page: ' + note.pagePath + '\n- Target: ' + note.targetLabel + '\n- Selector: ' + note.selector + '\n- Timestamp: ' + note.createdAt + '\n\n' + note.text; }).join('\n\n') : 'No notes saved.');
       function copied() { setStatus('Notes copied. Paste them into chat when ready.'); }
       if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(summary).then(copied, fallbackCopy); } else { fallbackCopy(); }
       function fallbackCopy() { var textarea = document.createElement('textarea'); textarea.value = summary; textarea.setAttribute('readonly', ''); textarea.style.position = 'fixed'; textarea.style.opacity = '0'; document.body.append(textarea); textarea.select(); try { document.execCommand('copy'); copied(); } catch (error) { setStatus('Copy was unavailable. Select notes manually.', true); } textarea.remove(); }
     }
-    loadNotes(); renderNotes();
+    loadNotes(); renderNotes(); setStatus('Ready. Select Add a note to begin.');
     trigger.addEventListener('click', function () { if (panel.hidden) { openPanel(); } else { closePanel(); } });
-    closeButton.addEventListener('click', closePanel); addButton.addEventListener('click', startCapture); copyButton.addEventListener('click', copyNotes);
+    closeButton.addEventListener('click', closePanel); addButton.addEventListener('click', startCapture);
+    refreshButton.addEventListener('click', function () { loadNotes(); renderNotes(); setStatus(notes.length + ' saved note' + (notes.length === 1 ? '' : 's') + ' loaded.'); });
+    copyButton.addEventListener('click', copyNotes);
     clearButton.addEventListener('click', function () { if (notes.length && window.confirm('Clear all local review notes?')) { notes = []; saveNotes(); renderNotes(); setStatus('All notes cleared.'); } });
-    cancelButton.addEventListener('click', function () { pendingTarget = null; dialog.close?.(); });
-    dialog.addEventListener('cancel', function () { pendingTarget = null; });
-    dialogForm.addEventListener('submit', function (event) { event.preventDefault(); if (!pendingTarget || !noteField.reportValidity()) { return; } if (notes.length >= 100) { setStatus('The 100-note local limit is reached. Delete a note before adding another.', true); dialog.close?.(); openPanel(); return; } pendingTarget.text = noteField.value.trim(); if (!pendingTarget.text) { return; } notes.push(pendingTarget); if (!saveNotes()) { notes.pop(); setStatus('This browser could not save the note.', true); openPanel(); return; } pendingTarget = null; dialog.close?.(); renderNotes(); openPanel(); setStatus('Note saved only in this browser.'); });
+    cancelButton.addEventListener('click', function () { pendingTarget = null; pendingDialogPoint = null; dialog.close?.(); });
+    dialog.addEventListener('cancel', function () { pendingTarget = null; pendingDialogPoint = null; });
+    dialogForm.addEventListener('submit', function (event) { event.preventDefault(); if (!pendingTarget || !noteField.reportValidity()) { return; } if (notes.length >= 100) { setStatus('The 100-note local limit is reached. Delete a note before adding another.', true); dialog.close?.(); openPanel(); return; } pendingTarget.text = noteField.value.trim(); if (!pendingTarget.text) { return; } notes.push(pendingTarget); if (!saveNotes()) { notes.pop(); setStatus('This browser could not save the note.', true); openPanel(); return; } pendingTarget = null; pendingDialogPoint = null; dialog.close?.(); renderNotes(); openPanel(); setStatus('Note saved only in this browser.'); });
     document.addEventListener('click', captureClick, true);
-    document.addEventListener('contextmenu', directCapture, true);
-    document.addEventListener('click', function (event) { if (event.ctrlKey) { directCapture(event); } }, true);
     document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && capturing) { stopCapture(); openPanel(); setStatus('Note selection cancelled.'); } });
-    window.addEventListener('resize', renderPins);
+    window.addEventListener('storage', function (event) { if (event.key === storageKey) { loadNotes(); renderNotes(); setStatus('Notes refreshed from this browser.'); } });
+    window.addEventListener('resize', function () { renderPins(); positionDialog(); });
   });
 </script>
