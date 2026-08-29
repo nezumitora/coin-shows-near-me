@@ -1,8 +1,9 @@
 <style>
   .coin-review-ui,
   .coin-review-ui * { box-sizing: border-box; }
+  /* The body-level review portal keeps this outside page layout containers. */
   .coin-review-trigger {
-    position: fixed !important; top: auto !important; right: 20px !important; bottom: 20px !important; left: auto !important; z-index: 2147483002 !important;
+    position: fixed !important; top: calc(50vh - 28px) !important; right: 20px !important; bottom: auto !important; left: auto !important; z-index: 2147483002 !important;
     display: inline-flex !important; align-items: center; justify-content: center;
     min-width: 170px; min-height: 56px; padding: 14px 22px;
     border: 3px solid var(--coin-gold-light, #daa520) !important; border-radius: 999px;
@@ -79,7 +80,7 @@
   @keyframes coin-review-pin-flash { 50% { fill: #fff; stroke: #b8860b; stroke-width: 7px; } }
   @keyframes coin-review-target-flash { 50% { outline: 4px solid #daa520; outline-offset: 6px; background: #fff7e6; } }
   @media (max-width: 560px) {
-    .coin-review-trigger { inset: auto 12px 12px auto !important; min-width: 158px; min-height: 52px; padding: 12px 18px; }
+    .coin-review-trigger { top: calc(50vh - 26px) !important; right: 12px !important; bottom: auto !important; left: auto !important; min-width: 158px; min-height: 52px; padding: 12px 18px; }
     .coin-review-panel { inset: 8px; width: auto; padding: 16px; }
     .coin-review-dialog { width: calc(100vw - 24px); max-height: calc(100vh - 24px); padding: 18px; }
     .coin-review-actions, .coin-review-dialog-actions, .coin-review-note-meta { align-items: stretch; flex-direction: column; }
