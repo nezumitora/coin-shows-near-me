@@ -11,6 +11,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="{{ site.baseurl }}/assets/images/favicon-192x192.png?v=gpt-buffalo-20260629">
 <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico?v=gpt-buffalo-20260629">
 
+{% unless site.review_mode %}
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-19GQEC65D5"></script>
 <script>
@@ -30,6 +31,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 </script>
 
 {% include form_capture_bridge.html %}
+{% endunless %}
 
 <style>
 /* === Reset & Base === */
