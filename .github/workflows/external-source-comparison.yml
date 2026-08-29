@@ -28,4 +28,5 @@ jobs:
           path: |
             tmp/external-source-comparison.md
             tmp/external-source-comparison.csv
+            tmp/external-source-coverage-queue.csv
           if-no-files-found: error
