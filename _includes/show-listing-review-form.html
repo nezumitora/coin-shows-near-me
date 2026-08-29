@@ -2,14 +2,14 @@
   <summary>
     <span class="listing-review-kicker">One form for every listing request</span>
     <span class="listing-review-title">Review or update this listing.</span>
-    <span class="listing-review-description">Expand the form to confirm details, submit a correction, claim or verify the listing, or request removal.</span>
+    <span class="listing-review-description">Expand the form to confirm details, submit a correction, request a manual claim or verification review, or request removal.</span>
     <span class="listing-review-toggle listing-review-toggle--collapsed">Expand the full review form</span>
     <span class="listing-review-toggle listing-review-toggle--expanded">Collapse the full review form</span>
   </summary>
   <div class="listing-review-body">
     <div class="listing-review-instructions">
       <strong>How this works:</strong> Every field starts marked <em>Correct as shown</em>. Uncheck only the fields that need changes, then edit the value beside them.
-      <p>Anyone with reliable information may submit a confirmation or correction. <strong>Organizer verified</strong> is reserved for an organizer, promoter, club officer, or authorized show staff member whose role is independently checked. After manual review, other input may be recorded as <em>Venue confirmed</em>, <em>Dealer reported</em>, or <em>Community reported</em> with the review date. Only independently checked evidence changes verification status; a submission never changes a listing or badge automatically.</p>
+      <p>Anyone with reliable information may submit a confirmation or correction. <strong>Organizer verified</strong> is reserved for an organizer, promoter, club officer, or authorized show staff member whose role is independently checked. After manual review, other input may be recorded as <em>Venue confirmed</em>, <em>Dealer reported</em>, or <em>Community reported</em> with the review date. Only independently checked evidence changes verification status; a submission never changes a listing or badge automatically. Do not submit passwords, identity documents, private home addresses, or other sensitive personal information.</p>
     </div>
     <form id="listing-review-form" action="#" data-form-key="mykleozw" method="POST" novalidate>
       <input type="hidden" name="_subject" value="[Coin Show Near Me][Listing Review] Request">
@@ -24,7 +24,7 @@
       <input type="hidden" name="submittedAt" value="">
       <input type="hidden" name="contactConsentTimestamp" value="">
       <input type="hidden" name="contactConsentVersion" value="coin-listing-review-consent-v1">
-      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me to review the listing. Submitted changes, verification, and removal requests are reviewed manually.">
+      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me to review the listing. Submitted changes, claims, verification, and removal requests are reviewed manually.">
       <input type="hidden" name="confirmation_source_type" value="">
       <input type="hidden" name="show_id" value="{{ include.show.id }}">
       <input type="hidden" name="show_name" value="{{ include.show.name | escape }}">
@@ -36,9 +36,10 @@
           <label>Request type
             <select name="request_type" required>
               <option value="">Choose one</option>
-              <option value="confirm">Confirm details as an attendee or knowledgeable party</option>
-              <option value="correction">Correct listing information</option>
-              <option value="organizerVerification">Ask us to verify my organizer or representative role</option>
+            <option value="confirm">Confirm details as an attendee or knowledgeable party</option>
+            <option value="correction">Correct listing information</option>
+            <option value="claimListing">Claim this listing as an authorized representative</option>
+            <option value="organizerVerification">Ask us to verify my organizer or representative role</option>
               <option value="reviewRemoval">Request review or removal</option>
             </select>
             <span class="listing-review-help">We independently review your role and evidence. Choosing this request does not verify the listing automatically.</span>
@@ -58,7 +59,7 @@
           <label>First name<input type="text" name="first_name" autocomplete="given-name" required></label>
           <label>Last name<input type="text" name="last_name" autocomplete="family-name" required></label>
           <label>Contact email<input type="email" name="email" autocomplete="email" required></label>
-          <label>Organization or club <span>(required for organizer verification)</span><input type="text" name="organization_name" autocomplete="organization"></label>
+          <label>Organization or club <span>(required for claims and organizer verification)</span><input type="text" name="organization_name" autocomplete="organization"></label>
         </div>
       </fieldset>
 
@@ -353,12 +354,12 @@
       visitor: 'communityMember',
       other: 'otherReporter'
     };
-    sourceUrl.required = selectedType === 'correction' || selectedType === 'organizerVerification';
-    organizationName.required = selectedType === 'organizerVerification';
+    sourceUrl.required = selectedType === 'correction' || selectedType === 'claimListing' || selectedType === 'organizerVerification';
+    organizationName.required = selectedType === 'claimListing' || selectedType === 'organizerVerification';
     requestDetails.required = selectedType !== 'confirm';
     removalFields.hidden = selectedType !== 'reviewRemoval';
     removalReason.required = selectedType === 'reviewRemoval';
-    relationshipField.setCustomValidity(selectedType === 'organizerVerification' && organizerRelationships.indexOf(relationship) === -1 ? 'Organizer verification is available only to an organizer, promoter, club officer, or authorized show staff member.' : '');
+    relationshipField.setCustomValidity((selectedType === 'organizerVerification' || selectedType === 'claimListing') && organizerRelationships.indexOf(relationship) === -1 ? 'Claims and organizer verification are available only to an organizer, promoter, club officer, or authorized show staff member.' : '');
     confirmationSourceType.value = sourceTypes[relationship] || '';
   }
   requestType.addEventListener('change', updateRequestRequirements);
@@ -377,11 +378,12 @@
     var subjectLabels = {
       confirm: 'Confirmation',
       correction: 'Correction',
+      claimListing: 'Claim',
       organizerVerification: 'Organizer Verification',
       reviewRemoval: 'Review or Removal'
     };
     reviewForm.querySelector('[name="_subject"]').value = '[Coin Show Near Me][Listing ' + subjectLabels[selectedType] + '] Request';
-    reviewForm.querySelector('[name="form_type"]').value = 'show_listing_' + selectedType;
+    reviewForm.querySelector('[name="form_type"]').value = selectedType === 'claimListing' ? 'show_listing_claim' : 'show_listing_' + selectedType;
     var relationship = relationshipField.value;
     if (['organizer', 'clubOfficer', 'authorizedStaff'].indexOf(relationship) !== -1) {
       reviewForm.querySelector('[name="coinContactRoles"]').value = 'showOrganizer';

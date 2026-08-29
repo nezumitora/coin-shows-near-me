@@ -1,7 +1,7 @@
 # Session State
 
-**Last updated:** 2026-08-29 13:30 PDT
-**Session:** Coin v0.17.0 owner-review candidate and private all-page visual baseline
+**Last updated:** 2026-08-29 15:10 PDT
+**Session:** Coin v0.17.0 owner-review candidate, round-2 archive, and local review baseline
 
 ## Completed today
 
@@ -18,6 +18,10 @@
 - Classified all 24 page/viewport HTTP-status transitions: six city routes and `/submit-show/` improve from 404 to 200; `SESSION-STATE.html` and four internal documentation pages intentionally change from 200 to 404. Public portal, widget, embed-generator, and Creating Collectors routes retain successful status.
 - Confirmed the live site currently exposes `SESSION-STATE.html`; the production-form candidate removes it. Deployment remains approval-gated.
 - No push, pull request, merge, deployment, publication, survey activation, sponsorship, alias creation, outreach, email, CRM, DNS, GSC, or production-account change occurred.
+- Added the durable five-note owner archive in `_data/review_note_archive.yml` and `docs/review-note-archive.md`. The review-only panel now preserves the original note numbering and resolution state, and **Go to change** carries the note ID across routes to scroll and flash the target and numbered pin.
+- Rechecked Pacific Expos' exact official North County dates page and home page: neither supports a September 5-6 North County or Buena Park listing. No show date was added. The report-only source comparison remains systematic only across its hand-reviewed registry and retains blind spots for unlisted, unavailable, or incomplete sources.
+- Changed the local Collection Tracker survey to state plainly that it sends nowhere, stores nothing remotely, and is inactive in production. Moved the local no-send return before any spam or form handler.
+- Added exact-record dealer claim selection and opening behavior, plus a manual show-claim request in the existing exact-record show review flow. Neither action auto-verifies, publishes, or requests identity documents.
 
 ## Verification evidence
 
@@ -29,7 +33,7 @@
 
 ## In progress
 
-- Local commit packaging and owner review of the v0.17.0 candidate. No technical build or QA blocker remains.
+- Run round-2 tests, production/review builds, and desktop/mobile QA; then package the local owner-review candidate. No merge or deployment is authorized.
 
 ## Next up
 
@@ -40,4 +44,5 @@
 ## Open decisions
 
 - Survey activation, sponsorship/paid placement, reminder delivery, dealer offer routing, account registration, collection uploads, portal notifications, and a dedicated show-submission alias remain inactive until separately approved.
+- The owner may decide later whether dealer claims should use a modal instead of the accessible in-page exact-record form. No modal has been added.
 - Keep the protected EspoCRM bridge, Formspree authentication, directory-expert follow-up, GSC controls, disavow work, CRM migration, advertising response, and mail/DNS administration in their separate workstreams.

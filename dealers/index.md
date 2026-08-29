@@ -96,9 +96,10 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
 </div>
 
 <section id="dealer-claim" class="public-cta" aria-labelledby="dealer-claim-title" style="margin:1.5rem 0;scroll-margin-top:6rem;">
-  <h2 id="dealer-claim-title" style="color:#daa520;margin-top:0 !important;">Claim this listing</h2>
-  <p style="color:#cbd5e1;">A business owner or authorized representative may request a manual ownership review. A claim does not verify every listing detail, payment or promotion cannot affect the decision, and submitted changes never publish automatically.</p>
-  <p style="color:#94a3b8;font-size:0.85rem;">Use a business-domain email and an official public source when possible. Do not send passwords, identity documents, private home addresses, or other sensitive personal information.</p>
+   <h2 id="dealer-claim-title" style="color:#daa520;margin-top:0 !important;">Claim this listing</h2>
+   <p style="color:#cbd5e1;">A business owner or authorized representative may request a manual ownership review. A claim does not verify every listing detail, payment or promotion cannot affect the decision, and submitted changes never publish automatically.</p>
+   <p style="color:#94a3b8;font-size:0.85rem;">Use a business-domain email and an official public source when possible. Do not send passwords, identity documents, private home addresses, or other sensitive personal information.</p>
+   <p id="dealer-claim-selection" role="status" aria-live="polite" style="color:#fef3c7;font-weight:700;">Select Claim this listing on a dealer card to prefill that exact record.</p>
   <form id="dealer-claim-form" class="dealer-listing-form" action="#" data-form-key="mykleozw" method="POST" novalidate>
     <input type="hidden" name="_subject" value="[Coin Show Near Me][Dealer Claim] Manual ownership review request">
     <input type="hidden" name="form_type" value="dealer_listing_claim">
@@ -342,11 +343,20 @@ Whether you're buying your first silver coin or discussing a collection with a d
 
   var claimForm = document.getElementById('dealer-claim-form');
   var claimTriggers = document.querySelectorAll('[data-dealer-claim-trigger]');
+  var claimSelection = document.getElementById('dealer-claim-selection');
   for (var claimIndex = 0; claimIndex < claimTriggers.length; claimIndex++) {
-    claimTriggers[claimIndex].addEventListener('click', function() {
+    claimTriggers[claimIndex].addEventListener('click', function(event) {
+      event.preventDefault();
       if (!claimForm) { return; }
       claimForm.querySelector('[name="dealer_id"]').value = this.getAttribute('data-dealer-id') || '';
-      claimForm.querySelector('[name="dealer_name"]').value = this.getAttribute('data-dealer-name') || '';
+      var dealerName = this.getAttribute('data-dealer-name') || '';
+      var dealerField = claimForm.querySelector('[name="dealer_name"]');
+      dealerField.value = dealerName;
+      dealerField.readOnly = true;
+      if (claimSelection) { claimSelection.textContent = 'Selected listing: ' + dealerName + '. This claim is a manual review request only.'; }
+      window.history.replaceState(null, '', '#dealer-claim');
+      claimForm.closest('#dealer-claim').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.setTimeout(function() { dealerField.focus({ preventScroll: true }); }, 350);
     });
   }
 

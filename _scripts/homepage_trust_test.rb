@@ -183,7 +183,8 @@ class HomepageTrustTest < Minitest::Test
     assert_includes COLLECTION_TRACKER, 'Email (optional, only if you want a reply)'
     assert_includes COLLECTION_TRACKER, 'This does not join a reminder or marketing list.'
     assert_includes COLLECTION_TRACKER, 'var localReviewMode = {% if site.review_mode %}true{% else %}false{% endif %};'
-    assert_includes COLLECTION_TRACKER, 'Local review complete — nothing was sent.'
+    assert_includes COLLECTION_TRACKER, 'this form sends nowhere and stores nothing remotely.'
+    assert_includes COLLECTION_TRACKER, 'Local review complete — nothing was sent or saved.'
     refute_includes COLLECTION_TRACKER, 'type="file"'
     refute_includes COLLECTION_TRACKER, 'name="phone"'
     assert_includes PRIVACY_POLICY, '**Feature-research surveys (inactive):**'
@@ -236,7 +237,7 @@ class HomepageTrustTest < Minitest::Test
 
   def test_organizer_workflows_require_manual_review
     assert_includes LISTING_REVIEW_FORM, '<option value="organizerVerification">'
-    assert_includes LISTING_REVIEW_FORM, 'Submitted changes, verification, and removal requests are reviewed manually.'
+    assert_includes LISTING_REVIEW_FORM, 'Submitted changes, claims, verification, and removal requests are reviewed manually.'
     assert_includes SUBMIT_SHOW, 'id="show-submission-form"'
     assert_includes SUBMIT_SHOW, 'Every submission is reviewed manually.'
     assert_includes SUBMIT_SHOW, 'does not automatically create or verify a public listing'
@@ -299,12 +300,13 @@ class HomepageTrustTest < Minitest::Test
     assert_includes SHOW_LAYOUT, 'data-listing-review-trigger'
     assert_includes LISTING_REVIEW_FORM, 'id="listing-review-form"'
     assert_includes LISTING_REVIEW_FORM, '<span class="listing-review-title">Review or update this listing.</span>'
-    assert_includes LISTING_REVIEW_FORM, 'Expand the form to confirm details, submit a correction, claim or verify the listing, or request removal.'
+    assert_includes LISTING_REVIEW_FORM, 'Expand the form to confirm details, submit a correction, request a manual claim or verification review, or request removal.'
     assert_includes LISTING_REVIEW_FORM, 'Expand the full review form'
     assert_includes LISTING_REVIEW_FORM, 'Collapse the full review form'
     assert_includes LISTING_REVIEW_FORM, 'Correct as shown'
     assert_includes LISTING_REVIEW_FORM, 'data-confirm-target="review-show-name"'
     assert_includes LISTING_REVIEW_FORM, '<option value="correction">'
+    assert_includes LISTING_REVIEW_FORM, '<option value="claimListing">'
     assert_includes LISTING_REVIEW_FORM, '<option value="organizerVerification">'
     assert_includes LISTING_REVIEW_FORM, '<option value="reviewRemoval">'
     assert_includes LISTING_REVIEW_FORM, '<option value="dealerAtShow">'
@@ -368,9 +370,9 @@ class HomepageTrustTest < Minitest::Test
     assert_includes MELT_CALCULATOR, "palladium: getVal('spot-palladium')"
     assert_includes MELT_CALCULATOR, '| Coin / established name | Common shorthand | Face value |'
     assert_includes MELT_CALCULATOR, '| American Gold Eagle, 1/2 oz | AGE | $25 |'
-    assert_includes MELT_CALCULATOR, '| American Eagle Platinum Bullion Coin, 1 oz | Platinum Eagle | $100 |'
+    assert_includes MELT_CALCULATOR, '| American Eagle Platinum Bullion Coin, 1 oz | APE (American Platinum Eagle) | $100 |'
     assert_includes MELT_CALCULATOR, '| American Palladium Eagle | Palladium Eagle | $25 |'
-    assert_includes MELT_CALCULATOR, 'Avoid the abbreviation “APE,”'
+    assert_includes MELT_CALCULATOR, 'Use APE only with its expansion, American Platinum Eagle.'
   end
 
   def test_requested_featured_show_addresses_are_complete_and_verified

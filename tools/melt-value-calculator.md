@@ -829,13 +829,13 @@ This is a selected reference for common precious-metal issues, not an exhaustive
 | American Gold Eagle, 1/4 oz | AGE | $10 | 1986–present | 91.67% gold alloy | 0.2500 oz |
 | American Gold Eagle, 1/10 oz | AGE | $5 | 1986–present | 91.67% gold alloy | 0.1000 oz |
 | American Buffalo Gold Bullion Coin | Gold Buffalo / Buffalo | $50 | 2006–present | 99.99% pure gold | 1.0000 oz |
-| American Eagle Platinum Bullion Coin, 1 oz | Platinum Eagle | $100 | 1997–present; bullion hiatus 2009–2013 | .9995 platinum | 1.0000 oz |
-| American Eagle Platinum Bullion Coin, 1/2 oz | Platinum Eagle | $50 | 1997–2008 | .9995 platinum | 0.5000 oz |
-| American Eagle Platinum Bullion Coin, 1/4 oz | Platinum Eagle | $25 | 1997–2008 | .9995 platinum | 0.2500 oz |
-| American Eagle Platinum Bullion Coin, 1/10 oz | Platinum Eagle | $10 | 1997–2008 | .9995 platinum | 0.1000 oz |
+| American Eagle Platinum Bullion Coin, 1 oz | APE (American Platinum Eagle) | $100 | 1997–present; bullion hiatus 2009–2013 | .9995 platinum | 1.0000 oz |
+| American Eagle Platinum Bullion Coin, 1/2 oz | APE (American Platinum Eagle) | $50 | 1997–2008 | .9995 platinum | 0.5000 oz |
+| American Eagle Platinum Bullion Coin, 1/4 oz | APE (American Platinum Eagle) | $25 | 1997–2008 | .9995 platinum | 0.2500 oz |
+| American Eagle Platinum Bullion Coin, 1/10 oz | APE (American Platinum Eagle) | $10 | 1997–2008 | .9995 platinum | 0.1000 oz |
 | American Palladium Eagle | Palladium Eagle | $25 | First issued 2017; finish and availability vary by issue | .9995 palladium | 1.0000 oz |
 
-U.S. bullion specifications were cross-checked against [31 U.S.C. § 5112](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title31-section5112&num=0&edition=prelim), [U.S. Mint Federal Register notices](https://www.federalregister.gov/documents/2005/04/08/05-7016/notification-of-platinum-bullion-coin-premium-increase), and the [PCGS Platinum Eagle](https://www.pcgs.com/prices/detail/platinum-eagles/940/most-active) and [Palladium Eagle](https://www.pcgs.com/prices/detail/palladium-25-eagle/152898/most-active) references. Avoid the abbreviation “APE,” which can ambiguously mean platinum or palladium Eagle.
+U.S. bullion specifications were cross-checked against [31 U.S.C. § 5112](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title31-section5112&num=0&edition=prelim), [U.S. Mint Federal Register notices](https://www.federalregister.gov/documents/2005/04/08/05-7016/notification-of-platinum-bullion-coin-premium-increase), and the [PCGS Platinum Eagle](https://www.pcgs.com/prices/detail/platinum-eagles/940/most-active) and [Palladium Eagle](https://www.pcgs.com/prices/detail/palladium-25-eagle/152898/most-active) references. Use APE only with its expansion, American Platinum Eagle. The American Palladium Eagle is separately named throughout so the platinum and palladium coins are not confused.
 
 ### Canadian Coins
 

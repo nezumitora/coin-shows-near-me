@@ -58,6 +58,7 @@ This tool is planned for a future release.
 
 <div class="tracker-survey">
   <h2>Help shape the Collection Tracker</h2>
+  <p><strong>Local review survey only:</strong> this form sends nowhere and stores nothing remotely. It is not available in production and will stay inactive until separately approved.</p>
   <p>Two quick choices will help us prioritize the first version. Your name and email are optional.</p>
   <form class="tracker-survey-form" id="tracker-feature-survey" action="#" data-form-key="mykleozw" method="POST">
     <input type="hidden" name="_subject" value="[Coin Show Near Me][Feature Survey] Collection Tracker feedback">
@@ -149,8 +150,6 @@ This tool is planned for a future release.
     setFormValue('referringUrl', document.referrer || '');
     setFormValue('submittedAt', now);
     setFormValue('contactConsentTimestamp', consent.checked ? now : '');
-    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-
     function showSuccess(message) {
       form.style.display = 'none';
       var success = document.getElementById('tracker-survey-success');
@@ -160,10 +159,11 @@ This tool is planned for a future release.
     }
 
     if (localReviewMode) {
-      showSuccess('Local review complete — nothing was sent. The production form will collect the two choices and optional feedback after approval.');
+      showSuccess('Local review complete — nothing was sent or saved. This survey is inactive in production until separately approved.');
       return;
     }
 
+    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
     window.coinSubmitForm(form).then(function() {
       showSuccess('Thank you. Your answers will be used to help plan the first version of the Collection Tracker.');
     });

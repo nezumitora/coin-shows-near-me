@@ -2,7 +2,7 @@
   .coin-review-ui,
   .coin-review-ui * { box-sizing: border-box; }
   .coin-review-trigger {
-    position: fixed !important; inset: auto 20px 20px auto !important; z-index: 2147483002 !important;
+    position: fixed !important; top: auto !important; right: 20px !important; bottom: 20px !important; left: auto !important; z-index: 2147483002 !important;
     display: inline-flex !important; align-items: center; justify-content: center;
     min-width: 170px; min-height: 56px; padding: 14px 22px;
     border: 3px solid var(--coin-gold-light, #daa520) !important; border-radius: 999px;
@@ -74,6 +74,10 @@
   .coin-review-pin { pointer-events: auto; cursor: pointer; }
   .coin-review-pin circle { fill: var(--coin-gold-light, #daa520); stroke: var(--coin-navy, #0e2338); stroke-width: 3px; filter: drop-shadow(0 3px 5px rgb(0 0 0 / 30%)); }
   .coin-review-pin text { fill: var(--coin-navy, #0e2338); font: 900 13px system-ui, sans-serif; pointer-events: none; }
+  .coin-review-pin.is-flashing circle { animation: coin-review-pin-flash 1.6s ease-in-out 2; }
+  .coin-review-target-flash { animation: coin-review-target-flash 1.6s ease-in-out 2; }
+  @keyframes coin-review-pin-flash { 50% { fill: #fff; stroke: #b8860b; stroke-width: 7px; } }
+  @keyframes coin-review-target-flash { 50% { outline: 4px solid #daa520; outline-offset: 6px; background: #fff7e6; } }
   @media (max-width: 560px) {
     .coin-review-trigger { inset: auto 12px 12px auto !important; min-width: 158px; min-height: 52px; padding: 12px 18px; }
     .coin-review-panel { inset: 8px; width: auto; padding: 16px; }
@@ -88,6 +92,10 @@
     var storageKey = 'coin-shows-near-me-local-review-notes-v1';
     var pagePath = window.location.pathname === '/index.html' ? '/' : window.location.pathname.replace(/\/index\.html$/, '/');
     var notes = [];
+    var archivedNotes = ({{ site.data.review_note_archive | jsonify }}).map(function (note) {
+      var normalized = normaliseNote(note);
+      return normalized ? Object.assign(normalized, { readOnly: true }) : null;
+    }).filter(Boolean);
     var pendingTarget = null;
     var pendingDialogPoint = null;
     var editingNote = null;
@@ -108,7 +116,7 @@
     function unitPosition(value) { value = Number(value); return Number.isFinite(value) && value >= 0 && value <= 1 ? value : 0.5; }
     function normaliseNote(note) {
       if (!note || !safePath(note.pagePath) || typeof note.selector !== 'string' || note.selector.length > 600 || typeof note.targetLabel !== 'string' || note.targetLabel.length > 160 || typeof note.text !== 'string' || note.text.length > 1200 || typeof note.createdAt !== 'string' || Number.isNaN(Date.parse(note.createdAt))) { return null; }
-      var normalised = { id: typeof note.id === 'string' && note.id.length <= 80 ? note.id : '', pagePath: note.pagePath, selector: note.selector, targetLabel: note.targetLabel, text: note.text, createdAt: note.createdAt, offsetX: unitPosition(note.offsetX), offsetY: unitPosition(note.offsetY), pageX: unitPosition(note.pageX), pageY: unitPosition(note.pageY) };
+      var normalised = { id: typeof note.id === 'string' && note.id.length <= 80 ? note.id : '', number: Number.isInteger(note.number) && note.number > 0 ? note.number : 0, pagePath: note.pagePath, selector: note.selector, targetLabel: note.targetLabel, text: note.text, createdAt: note.createdAt, offsetX: unitPosition(note.offsetX), offsetY: unitPosition(note.offsetY), pageX: unitPosition(note.pageX), pageY: unitPosition(note.pageY), readOnly: Boolean(note.readOnly), resolutionState: typeof note.resolutionState === 'string' ? note.resolutionState.slice(0, 160) : '', resolution: typeof note.resolution === 'string' ? note.resolution.slice(0, 1200) : '' };
       if (validTimestamp(note.updatedAt)) { normalised.updatedAt = note.updatedAt; }
       return normalised;
     }
@@ -118,6 +126,14 @@
         notes = Array.isArray(stored) ? stored.map(normaliseNote).filter(Boolean).slice(-100) : [];
       } catch (error) { notes = []; }
     }
+    function allNotes() {
+      return archivedNotes.concat(notes).sort(function (left, right) {
+        var order = Date.parse(left.createdAt) - Date.parse(right.createdAt);
+        return order || left.number - right.number;
+      });
+    }
+    function noteNumber(note, index) { return note.number || index + 1; }
+    function nextNoteNumber() { return allNotes().reduce(function (highest, note) { return Math.max(highest, note.number || 0); }, 0) + 1; }
     function saveNotes() {
       try { window.localStorage.setItem(storageKey, JSON.stringify(notes)); return true; } catch (error) { return false; }
     }
@@ -194,23 +210,24 @@
     function setStatus(message, isError) { status.textContent = message; status.classList.toggle('is-error', Boolean(isError)); }
     function updateTrigger() {
       trigger.textContent = 'Review notes';
-      trigger.setAttribute('aria-label', 'Review notes, ' + notes.length + ' saved local note' + (notes.length === 1 ? '' : 's'));
+      var count = allNotes().length;
+      trigger.setAttribute('aria-label', 'Review notes, ' + count + ' archived or saved note' + (count === 1 ? '' : 's'));
     }
     function openPanel() { panel.hidden = false; trigger.setAttribute('aria-expanded', 'true'); }
     function closePanel() { panel.hidden = true; trigger.setAttribute('aria-expanded', 'false'); trigger.focus(); }
-    function currentNotes() { return notes.filter(function (note) { return note.pagePath === pagePath; }); }
+    function currentNotes() { return allNotes().filter(function (note) { return note.pagePath === pagePath; }); }
     function renderPins() {
       pinLayer.replaceChildren();
       var size = dimensions();
       pinLayer.setAttribute('width', String(size.width)); pinLayer.setAttribute('height', String(size.height));
       currentNotes().forEach(function (note) {
-        var noteNumber = notes.indexOf(note) + 1;
+        var pinNumber = noteNumber(note, allNotes().indexOf(note));
         var point = positionFor(note);
         var group = document.createElementNS(svgNamespace, 'g');
         group.classList.add('coin-review-pin'); group.setAttribute('transform', 'translate(' + Math.round(point.x) + ' ' + Math.round(point.y) + ')');
-        group.setAttribute('tabindex', '0'); group.setAttribute('role', 'button'); group.setAttribute('aria-label', 'Open review note ' + noteNumber + ': ' + note.targetLabel);
+        group.setAttribute('tabindex', '0'); group.setAttribute('role', 'button'); group.dataset.noteId = note.id; group.setAttribute('aria-label', 'Open review note ' + pinNumber + ': ' + note.targetLabel);
         var circle = document.createElementNS(svgNamespace, 'circle'); circle.setAttribute('r', '17');
-        var label = document.createElementNS(svgNamespace, 'text'); label.setAttribute('text-anchor', 'middle'); label.setAttribute('dominant-baseline', 'central'); label.textContent = String(noteNumber);
+        var label = document.createElementNS(svgNamespace, 'text'); label.setAttribute('text-anchor', 'middle'); label.setAttribute('dominant-baseline', 'central'); label.textContent = String(pinNumber);
         group.append(circle, label);
         group.addEventListener('click', function () { openPanel(); list.querySelector('[data-note-id="' + escapeSelector(note.id) + '"]')?.scrollIntoView({ block: 'nearest' }); });
         group.addEventListener('keydown', function (event) { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); group.click(); } });
@@ -220,31 +237,71 @@
     function renderNotes() {
       updateTrigger();
       list.replaceChildren();
-      if (!notes.length) { list.append(createElement('li', { className: 'coin-review-empty', text: 'No local review notes yet.' })); renderPins(); return; }
-      notes.forEach(function (note, index) {
+      var visibleNotes = allNotes();
+      if (!visibleNotes.length) { list.append(createElement('li', { className: 'coin-review-empty', text: 'No local review notes yet.' })); renderPins(); return; }
+      visibleNotes.forEach(function (note, index) {
         var item = createElement('li', { className: 'coin-review-note' }); item.dataset.noteId = note.id;
         var meta = createElement('div', { className: 'coin-review-note-meta' });
-        meta.append(createElement('strong', { text: 'Note ' + (index + 1) }), createElement('span', { text: new Date(note.createdAt).toLocaleString() }));
+        meta.append(createElement('strong', { text: 'Note ' + noteNumber(note, index) }), createElement('span', { text: new Date(note.createdAt).toLocaleString() }));
         var target = createElement('p', { className: 'coin-review-note-target', text: (note.pagePath === pagePath ? 'This page' : note.pagePath) + ' · ' + note.targetLabel });
         var selector = createElement('p', { className: 'coin-review-note-selector', text: note.selector });
         var body = createElement('p', { text: note.text });
+        var resolution = note.resolutionState ? createElement('p', { className: 'coin-review-note-target', text: 'Resolution: ' + note.resolutionState }) : null;
+        var resolutionDetail = note.resolution ? createElement('p', { text: note.resolution }) : null;
         var noteActions = createElement('div', { className: 'coin-review-note-actions' });
-        if (note.pagePath === pagePath) {
-          var showPin = createElement('button', { className: 'coin-review-link-button', text: 'Show pin', attributes: { type: 'button' } });
-          showPin.addEventListener('click', function () { var point = positionFor(note); window.scrollTo({ top: Math.max(0, point.y - window.innerHeight / 2), behavior: 'smooth' }); });
-          noteActions.append(showPin);
-        } else {
-          noteActions.append(createElement('a', { className: 'coin-review-link-button', text: 'Open page', attributes: { href: note.pagePath } }));
+        var goToChange = createElement('button', { className: 'coin-review-link-button', text: 'Go to change', attributes: { type: 'button' } });
+        goToChange.addEventListener('click', function () { goToNote(note); });
+        noteActions.append(goToChange);
+        if (!note.readOnly) {
+          var editButton = createElement('button', { className: 'coin-review-link-button', text: 'Edit', attributes: { type: 'button', 'aria-label': 'Edit review note ' + noteNumber(note, index) } });
+          editButton.addEventListener('click', function () { openEditDialog(note); });
+          var deleteButton = createElement('button', { className: 'coin-review-link-button', text: 'Delete', attributes: { type: 'button' } });
+          deleteButton.addEventListener('click', function () { if (window.confirm('Delete this local review note?')) { notes = notes.filter(function (candidate) { return candidate.id !== note.id; }); saveNotes(); renderNotes(); setStatus('Note deleted.'); } });
+          noteActions.append(editButton, deleteButton);
         }
-        var editButton = createElement('button', { className: 'coin-review-link-button', text: 'Edit', attributes: { type: 'button', 'aria-label': 'Edit review note ' + (index + 1) } });
-        editButton.addEventListener('click', function () { openEditDialog(note); });
-        var deleteButton = createElement('button', { className: 'coin-review-link-button', text: 'Delete', attributes: { type: 'button' } });
-        deleteButton.addEventListener('click', function () { if (window.confirm('Delete this local review note?')) { notes = notes.filter(function (candidate) { return candidate.id !== note.id; }); saveNotes(); renderNotes(); setStatus('Note deleted.'); } });
-        noteActions.append(editButton, deleteButton); item.append(meta, target, selector, body, noteActions); list.append(item);
+        item.append(meta, target, selector, body);
+        if (resolution) { item.append(resolution); }
+        if (resolutionDetail) { item.append(resolutionDetail); }
+        item.append(noteActions); list.append(item);
       });
       renderPins();
     }
     function clearDialogState() { pendingTarget = null; pendingDialogPoint = null; editingNote = null; }
+    function targetFor(note) {
+      try { return document.querySelector(note.selector); } catch (error) { return null; }
+    }
+    function flashNote(note) {
+      var target = targetFor(note);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        target.classList.remove('coin-review-target-flash');
+        window.requestAnimationFrame(function () { target.classList.add('coin-review-target-flash'); });
+        window.setTimeout(function () { target.classList.remove('coin-review-target-flash'); }, 3500);
+      } else {
+        var point = positionFor(note);
+        window.scrollTo({ top: Math.max(0, point.y - window.innerHeight / 2), behavior: 'smooth' });
+      }
+      var pin = pinLayer.querySelector('[data-note-id="' + escapeSelector(note.id) + '"]');
+      if (pin) {
+        pin.classList.remove('is-flashing');
+        window.requestAnimationFrame(function () { pin.classList.add('is-flashing'); });
+        window.setTimeout(function () { pin.classList.remove('is-flashing'); }, 3500);
+      }
+    }
+    function goToNote(note) {
+      if (note.pagePath === pagePath) { closePanel(); flashNote(note); return; }
+      var destination = new URL(note.pagePath, window.location.origin);
+      destination.searchParams.set('coin-review-note', note.id);
+      window.location.assign(destination.pathname + destination.search);
+    }
+    function focusNoteFromLocation() {
+      var noteId = new URLSearchParams(window.location.search).get('coin-review-note');
+      if (!noteId) { return; }
+      var note = allNotes().find(function (candidate) { return candidate.id === noteId && candidate.pagePath === pagePath; });
+      if (!note) { return; }
+      [0, 250, 900].forEach(function (delay) { window.setTimeout(function () { renderPins(); flashNote(note); }, delay); });
+      window.history.replaceState(null, '', pagePath);
+    }
     function stopCapture() { capturing = false; document.body.classList.remove('coin-review-is-capturing'); captureNotice.hidden = true; }
     function startCapture() { closePanel(); clearDialogState(); capturing = true; document.body.classList.add('coin-review-is-capturing'); captureNotice.hidden = false; }
     function positionDialog() {
@@ -279,7 +336,7 @@
     function selectTarget(event) {
       var target = event.target; var rectangle = target.getBoundingClientRect(); var size = dimensions();
       pendingDialogPoint = { x: event.clientX, y: event.clientY };
-      pendingTarget = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8), pagePath: pagePath, selector: selectorFor(target), targetLabel: targetLabelFor(target), text: '', createdAt: new Date().toISOString(), offsetX: rectangle.width ? Math.min(1, Math.max(0, (event.clientX - rectangle.left) / rectangle.width)) : 0.5, offsetY: rectangle.height ? Math.min(1, Math.max(0, (event.clientY - rectangle.top) / rectangle.height)) : 0.5, pageX: Math.min(1, Math.max(0, event.pageX / size.width)), pageY: Math.min(1, Math.max(0, event.pageY / size.height)) };
+      pendingTarget = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8), number: nextNoteNumber(), pagePath: pagePath, selector: selectorFor(target), targetLabel: targetLabelFor(target), text: '', createdAt: new Date().toISOString(), offsetX: rectangle.width ? Math.min(1, Math.max(0, (event.clientX - rectangle.left) / rectangle.width)) : 0.5, offsetY: rectangle.height ? Math.min(1, Math.max(0, (event.clientY - rectangle.top) / rectangle.height)) : 0.5, pageX: Math.min(1, Math.max(0, event.pageX / size.width)), pageY: Math.min(1, Math.max(0, event.pageY / size.height)) };
     }
     function captureClick(event) {
       if (!capturing || !(event.target instanceof Element) || event.target.closest('.coin-review-ui')) { return; }
@@ -288,15 +345,16 @@
       stopCapture(); openDialog();
     }
     function copyNotes() {
-      var summary = '# Coin Shows Near Me review notes\n\n' + (notes.length ? notes.map(function (note, index) { return '## Note ' + (index + 1) + '\n- Page: ' + note.pagePath + '\n- Target: ' + note.targetLabel + '\n- Selector: ' + note.selector + '\n- Timestamp: ' + note.createdAt + (note.updatedAt ? '\n- Updated: ' + note.updatedAt : '') + '\n\n' + note.text; }).join('\n\n') : 'No notes saved.');
+      var copiedNotes = allNotes();
+      var summary = '# Coin Shows Near Me review notes\n\n' + (copiedNotes.length ? copiedNotes.map(function (note, index) { return '## Note ' + noteNumber(note, index) + '\n- Page: ' + note.pagePath + '\n- Target: ' + note.targetLabel + '\n- Selector: ' + note.selector + '\n- Timestamp: ' + note.createdAt + (note.updatedAt ? '\n- Updated: ' + note.updatedAt : '') + (note.resolutionState ? '\n- Resolution state: ' + note.resolutionState : '') + '\n\n' + note.text + (note.resolution ? '\n\nResolution: ' + note.resolution : ''); }).join('\n\n') : 'No notes saved.');
       function copied() { setStatus('Notes copied. Paste them into chat when ready.'); }
       if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(summary).then(copied, fallbackCopy); } else { fallbackCopy(); }
       function fallbackCopy() { var textarea = document.createElement('textarea'); textarea.value = summary; textarea.setAttribute('readonly', ''); textarea.style.position = 'fixed'; textarea.style.opacity = '0'; document.body.append(textarea); textarea.select(); try { document.execCommand('copy'); copied(); } catch (error) { setStatus('Copy was unavailable. Select notes manually.', true); } textarea.remove(); }
     }
-    loadNotes(); renderNotes(); setStatus('Ready. Select Add a note to begin.');
+    loadNotes(); renderNotes(); focusNoteFromLocation(); setStatus('Ready. Select Add a note to begin.');
     trigger.addEventListener('click', function () { if (panel.hidden) { openPanel(); } else { closePanel(); } });
     closeButton.addEventListener('click', closePanel); addButton.addEventListener('click', startCapture);
-    refreshButton.addEventListener('click', function () { loadNotes(); renderNotes(); setStatus(notes.length + ' saved note' + (notes.length === 1 ? '' : 's') + ' loaded.'); });
+    refreshButton.addEventListener('click', function () { loadNotes(); renderNotes(); setStatus(notes.length + ' saved local note' + (notes.length === 1 ? '' : 's') + ' loaded.'); });
     copyButton.addEventListener('click', copyNotes);
     clearButton.addEventListener('click', function () { if (notes.length && window.confirm('Clear all local review notes?')) { notes = []; saveNotes(); renderNotes(); setStatus('All notes cleared.'); } });
     cancelButton.addEventListener('click', function () { clearDialogState(); dialog.close?.(); });
