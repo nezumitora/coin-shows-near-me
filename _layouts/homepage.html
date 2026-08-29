@@ -1111,6 +1111,9 @@ a:hover { color: var(--gold-light); }
 /* === Utility === */
 .hidden { display: none !important; }
 </style>
+{% if site.review_mode %}
+{% include local_review_notes.html %}
+{% endif %}
 </head>
 <body>
 
