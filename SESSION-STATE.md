@@ -1,6 +1,6 @@
 # Session State
 
-**Last updated:** 2026-08-29 09:48 PDT
+**Last updated:** 2026-08-29 10:07 PDT
 **Session:** Contact actions and Semi-style local review owner preview
 
 ## Completed today
@@ -8,6 +8,7 @@
 - Added the review-only overlay boundary to the bespoke homepage head and verified that all 495 local sitemap pages include the private review controls.
 - Matched the Semi Repair owner-review sequence: **Review notes** opens the all-page panel, **Add a note** enables exact-area crosshair selection, and the selected area opens a nearby dialog with explicit Cancel and Save note controls.
 - Hardened **Review notes** as an unmistakable floating navy/gold control: 170×56 pixels and 20 pixels from the desktop bottom-right; 158×52 pixels and 12 pixels from the mobile bottom-right. It remains fixed and clickable while scrolling.
+- Added local saved-note editing: every note card has an accessible **Edit** action, the existing dialog preloads the note without changing its target or original timestamp, and successful saves add an optional validated update timestamp to browser-only storage and copied notes.
 - Passed Brave QA for panel controls, normal pre-capture interaction, crosshair selection, viewport-clamped dialog placement, visible Save note styling, saving, pins, cross-page persistence, Refresh, Show pin, Copy all notes, Delete, Clear, and 390-pixel overflow.
 - Saved the current owner-review implementation in local commits `90aaf1f` and `51d403a`; the cache-busted preview is `http://127.0.0.1:4323/?review=51d403a` and returns HTTP 200.
 - Codified the reusable workflow for future sites, apps, dashboards, landing pages, ads, and visual galleries in local command-center commit `6415300`, and queued guidance for the Marketing Content Engine and Business Dashboard agents.
