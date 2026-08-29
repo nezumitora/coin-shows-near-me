@@ -2,11 +2,15 @@
   .coin-review-ui,
   .coin-review-ui * { box-sizing: border-box; }
   .coin-review-trigger {
-    position: fixed; right: 16px; bottom: 16px; z-index: 2147483002;
-    min-height: 48px; padding: 11px 16px; border: 2px solid var(--coin-gold-light, #daa520);
-    border-radius: 999px; color: #fff; background: var(--coin-navy, #0e2338);
-    box-shadow: 0 10px 28px rgb(0 0 0 / 28%); font: 800 0.9rem/1.1 system-ui, sans-serif; cursor: pointer;
+    position: fixed !important; inset: auto 20px 20px auto !important; z-index: 2147483002 !important;
+    display: inline-flex !important; align-items: center; justify-content: center;
+    min-width: 170px; min-height: 56px; padding: 14px 22px;
+    border: 3px solid var(--coin-gold-light, #daa520) !important; border-radius: 999px;
+    color: #fff !important; background: var(--coin-navy, #0e2338) !important;
+    box-shadow: 0 14px 36px rgb(0 0 0 / 38%); opacity: 1 !important; visibility: visible !important;
+    transform: none !important; font: 900 1rem/1.1 system-ui, sans-serif; cursor: pointer; isolation: isolate;
   }
+  .coin-review-trigger:hover { color: #0e2338 !important; background: #daa520 !important; }
   .coin-review-trigger:focus-visible, .coin-review-panel button:focus-visible,
   .coin-review-dialog button:focus-visible, .coin-review-dialog textarea:focus-visible,
   .coin-review-pin:focus-visible { outline: 3px solid var(--coin-gold-light, #daa520); outline-offset: 3px; }
@@ -71,7 +75,7 @@
   .coin-review-pin circle { fill: var(--coin-gold-light, #daa520); stroke: var(--coin-navy, #0e2338); stroke-width: 3px; filter: drop-shadow(0 3px 5px rgb(0 0 0 / 30%)); }
   .coin-review-pin text { fill: var(--coin-navy, #0e2338); font: 900 13px system-ui, sans-serif; pointer-events: none; }
   @media (max-width: 560px) {
-    .coin-review-trigger { right: 10px; bottom: 10px; }
+    .coin-review-trigger { inset: auto 12px 12px auto !important; min-width: 158px; min-height: 52px; padding: 12px 18px; }
     .coin-review-panel { inset: 8px; width: auto; padding: 16px; }
     .coin-review-dialog { width: calc(100vw - 24px); max-height: calc(100vh - 24px); padding: 18px; }
     .coin-review-actions, .coin-review-dialog-actions, .coin-review-note-meta { align-items: stretch; flex-direction: column; }
