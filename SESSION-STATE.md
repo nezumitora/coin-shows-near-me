@@ -1,10 +1,12 @@
 # Session State
 
-**Last updated:** 2026-08-24 12:25 PDT
-**Session:** Ahrefs local repairs, directory date integrity, and dealer privacy
+**Last updated:** 2026-08-28 22:04 PDT
+**Session:** Contact and legal email routing owner preview
 
 ## Completed today
 
+- Routed general, advertising, legal, and privacy questions to their verified Coin mailbox aliases without changing forms, Formspree, CRM, Turnstile, analytics, DNS, or mail infrastructure.
+- Passed the repository Ruby and JavaScript test suites, data validation, generated-page drift check, and a production Jekyll build. The isolated local owner preview is available at `http://localhost:4323`.
 - Preserved the accepted unpublished Ahrefs, indexing, metadata, asset, weekend-copy, and image-alt repairs on the existing feature branch.
 - Normalized all 197 show records against confirmed ISO dates. As of August 24, 2026, the shared classifier reports 102 scheduled, 84 date-not-confirmed, and 11 past-recurring records; no record is labeled as an ended show without an explicit flag.
 - Applied one shared range/status implementation to homepage cards, show/state/city cards, This Weekend, major shows, the widget, listing review, and Event schema. The weekend filter uses Saturday/Sunday overlap and does not infer dates from recurrence prose.
@@ -18,11 +20,11 @@
 
 ## In progress
 
-- None.
+- Owner review of the legal and privacy routing wording and local preview.
 
 ## Next up
 
-- Review the final local preview and wait for explicit approval before any push, pull request, deployment, or production verification.
+- Wait for explicit approval before any push, pull request, deployment, or production verification of the email-routing update.
 - Build the protected server-side EspoCRM bridge with append-only evidence records and accepted-date revalidation.
 - Manually migrate dealer public contacts only after reviewing voluntary-publication or public-source evidence.
 
