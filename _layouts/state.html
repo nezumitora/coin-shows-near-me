@@ -34,7 +34,7 @@ layout: default
 {% endfor %}
 
 {% else %}
-<p>No coin shows currently listed for {{ page.state_name }}. Know of one? <a href="/#stay-updated">Let us know</a>.</p>
+<p>No coin shows currently listed for {{ page.state_name }}. Know of one? <a href="/submit-show/">Submit it for manual review</a>.</p>
 {% endif %}
 
 {% assign state_cities = state_shows | map: "city" | uniq | sort %}

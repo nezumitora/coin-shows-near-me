@@ -29,6 +29,7 @@ class HomepageTrustTest < Minitest::Test
   WIDGET = File.read(File.join(ROOT, 'widget.html'))
   EMBED_GENERATOR = File.read(File.join(ROOT, 'embed-generator.html'))
   MELT_CALCULATOR = File.read(File.join(ROOT, 'tools/melt-value-calculator.md'))
+  COLLECTION_TRACKER = File.read(File.join(ROOT, 'tools/collection-tracker.md'))
   SHOW_SHARE = File.read(File.join(ROOT, '_includes/show-share.html'))
   PRIVACY_POLICY = File.read(File.join(ROOT, 'legal/privacy-policy.md'))
   TERMS_OF_USE = File.read(File.join(ROOT, 'legal/terms-of-use.md'))
@@ -47,7 +48,8 @@ class HomepageTrustTest < Minitest::Test
   def test_every_show_receives_one_plain_language_date_status
     statuses = SHOWS.map { |show| date_status(show) }
 
-    assert_equal 197, statuses.length
+    refute_empty statuses
+    assert_equal SHOWS.length, statuses.length
     assert_equal statuses.length, statuses.count { |status| %i[scheduled date_not_confirmed past_date_unconfirmed past_show].include?(status) }
     assert_includes statuses, :scheduled
     assert_includes statuses, :date_not_confirmed
@@ -169,6 +171,23 @@ class HomepageTrustTest < Minitest::Test
       refute_includes page, 'reminderConsentTimestamp'
       refute_includes page, 'If I provide a phone number'
     end
+  end
+
+  def test_collection_tracker_survey_is_low_friction_and_review_safe
+    assert_match(/\{% if site\.review_mode %\}[\s\S]*id="tracker-feature-survey"[\s\S]*\{% endif %\}/, COLLECTION_TRACKER)
+    assert_includes COLLECTION_TRACKER, 'id="tracker-feature-survey"'
+    assert_includes COLLECTION_TRACKER, 'name="tracking_method"'
+    assert_includes COLLECTION_TRACKER, 'name="priority_feature"'
+    assert_includes COLLECTION_TRACKER, 'name="feature_message" maxlength="500"'
+    assert_includes COLLECTION_TRACKER, 'Name (optional)'
+    assert_includes COLLECTION_TRACKER, 'Email (optional, only if you want a reply)'
+    assert_includes COLLECTION_TRACKER, 'This does not join a reminder or marketing list.'
+    assert_includes COLLECTION_TRACKER, 'var localReviewMode = {% if site.review_mode %}true{% else %}false{% endif %};'
+    assert_includes COLLECTION_TRACKER, 'Local review complete — nothing was sent.'
+    refute_includes COLLECTION_TRACKER, 'type="file"'
+    refute_includes COLLECTION_TRACKER, 'name="phone"'
+    assert_includes PRIVACY_POLICY, '**Feature-research surveys (inactive):**'
+    assert_includes PRIVACY_POLICY, 'Collection Tracker feature-survey responses because those services are not active'
   end
 
   def test_crm_bridge_never_infers_sms_consent
@@ -334,6 +353,26 @@ class HomepageTrustTest < Minitest::Test
     assert_includes WIDGET, 'for="csw-zip-filter"'
   end
 
+  def test_melt_calculator_supports_named_us_bullion_and_all_four_metals
+    assert_includes MELT_CALCULATOR, 'browse the dealer directory'
+    assert_includes MELT_CALCULATOR, 'Walking Liberty / Franklin / Kennedy Half Dollars'
+    assert_includes MELT_CALCULATOR, 'American Silver Eagle (ASE) $1'
+    assert_includes MELT_CALCULATOR, 'American Gold Eagle $50 (1 oz fine gold)'
+    assert_includes MELT_CALCULATOR, 'American Buffalo Gold Bullion Coin $50'
+    assert_includes MELT_CALCULATOR, 'id="spot-platinum"'
+    assert_includes MELT_CALCULATOR, 'id="spot-palladium"'
+    assert_includes MELT_CALCULATOR, 'id="tab-us-platinum-palladium"'
+    assert_includes MELT_CALCULATOR, "metal: 'platinum'"
+    assert_includes MELT_CALCULATOR, "metal: 'palladium'"
+    assert_includes MELT_CALCULATOR, "platinum: getVal('spot-platinum')"
+    assert_includes MELT_CALCULATOR, "palladium: getVal('spot-palladium')"
+    assert_includes MELT_CALCULATOR, '| Coin / established name | Common shorthand | Face value |'
+    assert_includes MELT_CALCULATOR, '| American Gold Eagle, 1/2 oz | AGE | $25 |'
+    assert_includes MELT_CALCULATOR, '| American Eagle Platinum Bullion Coin, 1 oz | Platinum Eagle | $100 |'
+    assert_includes MELT_CALCULATOR, '| American Palladium Eagle | Palladium Eagle | $25 |'
+    assert_includes MELT_CALCULATOR, 'Avoid the abbreviation “APE,”'
+  end
+
   def test_requested_featured_show_addresses_are_complete_and_verified
     long_beach = SHOWS.find { |show| show.fetch('id') == 'long-beach-expo' }
     fun = SHOWS.find { |show| show.fetch('id') == 'fun-convention' }
@@ -372,7 +411,8 @@ class HomepageTrustTest < Minitest::Test
 
   def test_unchecked_tax_claims_are_suppressed_and_filterable
     assert_equal 51, STATE_TAX.length
-    assert_includes STATE_TAX_LAYOUT, 'Official confirmation pending'
+    assert_includes STATE_TAX_LAYOUT, 'Review pending'
+    assert_includes SALES_TAX_INDEX, '**Review pending** means'
     assert_includes STATE_LAYOUT, 'exact primary-source review'
     assert_includes SALES_TAX_INDEX, 'data-filter="pending"'
     assert_includes SALES_TAX_INDEX, '{% unless tax.source_checked %}pending'
@@ -406,7 +446,7 @@ class HomepageTrustTest < Minitest::Test
   end
 
   def test_visible_version_is_current
-    assert_includes HOMEPAGE, '<div class="footer-version">v0.16.2</div>'
-    assert_includes FOOTER_CUSTOM, '<div class="page-footer-version">v0.16.2</div>'
+    assert_includes HOMEPAGE, '<div class="footer-version">v0.17.0</div>'
+    assert_includes FOOTER_CUSTOM, '<div class="page-footer-version">v0.17.0</div>'
   end
 end

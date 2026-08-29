@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Melt Value Calculator"
-description: "Calculate melt value for US and world silver or gold coins using current metal prices. Includes pre-1965 silver, bullion coins, and more."
+description: "Calculate melt value for common US and world silver, gold, platinum, and palladium coins using current metal prices."
 permalink: /tools/melt-value-calculator/
 parent: "Tools"
 nav_order: 1
@@ -251,7 +251,7 @@ breadcrumb_current: "Melt Value Calculator"
 
 # Coin Melt Value Calculator
 
-Calculate the **metal melt value** of your coins instantly. Covers US, Canadian, British, and world silver & gold coins. Spot prices load automatically and update every hour.
+Calculate the **metal melt value** of common US, Canadian, British, and world silver, gold, platinum, and palladium coins. Spot prices load automatically and update every hour, and each price can be entered manually if the feed is unavailable.
 
 <div class="calc-intro-card">
   <p><strong>Tip:</strong> Use melt value as your baseline before asking dealers for offers. Rare dates, condition, and grading can add value above metal content.</p>
@@ -297,9 +297,22 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
   <div class="spot-note" id="gold-spot-note">Loading live price...</div>
 </div>
 
+<div class="field-group">
+  <label class="field-label" for="spot-platinum">Platinum Spot Price ($/oz)</label>
+  <input class="field-input" type="number" id="spot-platinum" step="0.01" value="1838.00" min="0">
+  <div class="spot-note" id="platinum-spot-note">Loading live price...</div>
+</div>
+
+<div class="field-group">
+  <label class="field-label" for="spot-palladium">Palladium Spot Price ($/oz)</label>
+  <input class="field-input" type="number" id="spot-palladium" step="0.01" value="1440.00" min="0">
+  <div class="spot-note" id="palladium-spot-note">Loading live price...</div>
+</div>
+
 <div class="calc-tabs">
   <button class="calc-tab active" data-tab="us">US Silver</button>
   <button class="calc-tab" data-tab="usgold">US Gold</button>
+  <button class="calc-tab" data-tab="us-platinum-palladium">US Platinum &amp; Palladium</button>
   <button class="calc-tab" data-tab="canadian">Canadian</button>
   <button class="calc-tab" data-tab="british">British</button>
   <button class="calc-tab" data-tab="world">World</button>
@@ -317,7 +330,7 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
   <input class="field-input" type="number" id="qty-quarters" value="0" min="0">
 </div>
 <div class="field-group">
-  <label class="field-label" for="qty-halves">Walking Liberty / Franklin / Kennedy Halves (Pre-1965)</label>
+  <label class="field-label" for="qty-halves">Walking Liberty / Franklin / Kennedy Half Dollars (Pre-1965)</label>
   <input class="field-input" type="number" id="qty-halves" value="0" min="0">
 </div>
 <div class="field-group">
@@ -325,7 +338,7 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
   <input class="field-input" type="number" id="qty-morgan" value="0" min="0">
 </div>
 <div class="field-group">
-  <label class="field-label" for="qty-ase">American Silver Eagles (1 oz .999)</label>
+  <label class="field-label" for="qty-ase">American Silver Eagle (ASE) $1 (1 oz .999 fine silver)</label>
   <input class="field-input" type="number" id="qty-ase" value="0" min="0">
 </div>
 
@@ -344,27 +357,27 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 
 <!-- US Gold Tab -->
 <div class="tab-panel" id="tab-usgold">
-<div class="tab-section-title">American Gold Eagles</div>
+<div class="tab-section-title">American Gold Eagle (AGE)</div>
 <div class="field-group">
-  <label class="field-label" for="qty-age-1oz">Gold Eagle (1 oz)</label>
+  <label class="field-label" for="qty-age-1oz">American Gold Eagle $50 (1 oz fine gold)</label>
   <input class="field-input" type="number" id="qty-age-1oz" value="0" min="0">
 </div>
 <div class="field-group">
-  <label class="field-label" for="qty-age-half">Gold Eagle (1/2 oz)</label>
+  <label class="field-label" for="qty-age-half">American Gold Eagle $25 (1/2 oz fine gold)</label>
   <input class="field-input" type="number" id="qty-age-half" value="0" min="0">
 </div>
 <div class="field-group">
-  <label class="field-label" for="qty-age-quarter">Gold Eagle (1/4 oz)</label>
+  <label class="field-label" for="qty-age-quarter">American Gold Eagle $10 (1/4 oz fine gold)</label>
   <input class="field-input" type="number" id="qty-age-quarter" value="0" min="0">
 </div>
 <div class="field-group">
-  <label class="field-label" for="qty-age-tenth">Gold Eagle (1/10 oz)</label>
+  <label class="field-label" for="qty-age-tenth">American Gold Eagle $5 (1/10 oz fine gold)</label>
   <input class="field-input" type="number" id="qty-age-tenth" value="0" min="0">
 </div>
 
-<div class="tab-section-title">Gold Buffalo</div>
+<div class="tab-section-title">American Buffalo Gold Bullion Coin</div>
 <div class="field-group">
-  <label class="field-label" for="qty-buffalo-gold">Gold Buffalo (1 oz .9999)</label>
+  <label class="field-label" for="qty-buffalo-gold">American Buffalo Gold Bullion Coin $50 (1 oz .9999 fine gold)</label>
   <input class="field-input" type="number" id="qty-buffalo-gold" value="0" min="0">
 </div>
 
@@ -392,6 +405,33 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
 <div class="field-group">
   <label class="field-label" for="qty-gold-20">$20 Double Eagle (1849-1933)</label>
   <input class="field-input" type="number" id="qty-gold-20" value="0" min="0">
+</div>
+</div>
+
+<!-- US Platinum and Palladium Tab -->
+<div class="tab-panel" id="tab-us-platinum-palladium">
+<div class="tab-section-title">American Eagle Platinum Bullion Coins</div>
+<div class="field-group">
+  <label class="field-label" for="qty-platinum-eagle-1oz">American Eagle Platinum Bullion Coin $100 (1 oz)</label>
+  <input class="field-input" type="number" id="qty-platinum-eagle-1oz" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-platinum-eagle-half">American Eagle Platinum Bullion Coin $50 (1/2 oz)</label>
+  <input class="field-input" type="number" id="qty-platinum-eagle-half" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-platinum-eagle-quarter">American Eagle Platinum Bullion Coin $25 (1/4 oz)</label>
+  <input class="field-input" type="number" id="qty-platinum-eagle-quarter" value="0" min="0">
+</div>
+<div class="field-group">
+  <label class="field-label" for="qty-platinum-eagle-tenth">American Eagle Platinum Bullion Coin $10 (1/10 oz)</label>
+  <input class="field-input" type="number" id="qty-platinum-eagle-tenth" value="0" min="0">
+</div>
+
+<div class="tab-section-title">American Palladium Eagle</div>
+<div class="field-group">
+  <label class="field-label" for="qty-palladium-eagle-1oz">American Palladium Eagle $25 (1 oz .9995 fine palladium)</label>
+  <input class="field-input" type="number" id="qty-palladium-eagle-1oz" value="0" min="0">
 </div>
 </div>
 
@@ -555,7 +595,7 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
   <li>Compare independent opinions and ask whether an evaluation has a fee.</li>
   <li>Verify show details and dealer information before traveling or transacting.</li>
 </ul>
-<p style="font-size:0.9rem;margin:0;"><a href="{{ site.baseurl }}/">Find a coin show near you</a> to speak with dealers in person.</p>
+<p style="font-size:0.9rem;margin:0;"><a href="{{ site.baseurl }}/">Find a coin show near you</a> to speak with dealers in person, or <a href="{{ site.baseurl }}/dealers/">browse the dealer directory</a>.</p>
 </div>
 
 </div>
@@ -580,23 +620,29 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
     /* US Silver */
     { id: 'qty-dimes',       name: 'Roosevelt/Mercury Dimes',        oz: 0.07234, metal: 'silver' },
     { id: 'qty-quarters',    name: 'Washington Quarters',            oz: 0.18084, metal: 'silver' },
-    { id: 'qty-halves',      name: 'Half Dollars (90%)',             oz: 0.36169, metal: 'silver' },
+    { id: 'qty-halves',      name: 'Walking Liberty/Franklin/Kennedy Half Dollars (90%)', oz: 0.36169, metal: 'silver' },
     { id: 'qty-morgan',      name: 'Morgan/Peace Dollars',           oz: 0.77344, metal: 'silver' },
-    { id: 'qty-ase',         name: 'American Silver Eagles',         oz: 1.00000, metal: 'silver' },
-    { id: 'qty-40halves',    name: '40% Kennedy Halves',             oz: 0.14792, metal: 'silver' },
+    { id: 'qty-ase',         name: 'American Silver Eagle (ASE) $1', oz: 1.00000, metal: 'silver' },
+    { id: 'qty-40halves',    name: 'Kennedy Half Dollars (40%)',     oz: 0.14792, metal: 'silver' },
     { id: 'qty-war-nickels', name: 'War Nickels (35%)',              oz: 0.05626, metal: 'silver' },
     /* US Gold */
-    { id: 'qty-age-1oz',       name: 'Gold Eagle 1 oz',             oz: 1.0000, metal: 'gold' },
-    { id: 'qty-age-half',      name: 'Gold Eagle 1/2 oz',           oz: 0.5000, metal: 'gold' },
-    { id: 'qty-age-quarter',   name: 'Gold Eagle 1/4 oz',           oz: 0.2500, metal: 'gold' },
-    { id: 'qty-age-tenth',     name: 'Gold Eagle 1/10 oz',          oz: 0.1000, metal: 'gold' },
-    { id: 'qty-buffalo-gold',  name: 'Gold Buffalo 1 oz',           oz: 1.0000, metal: 'gold' },
+    { id: 'qty-age-1oz',       name: 'American Gold Eagle (AGE) $50', oz: 1.0000, metal: 'gold' },
+    { id: 'qty-age-half',      name: 'American Gold Eagle (AGE) $25', oz: 0.5000, metal: 'gold' },
+    { id: 'qty-age-quarter',   name: 'American Gold Eagle (AGE) $10', oz: 0.2500, metal: 'gold' },
+    { id: 'qty-age-tenth',     name: 'American Gold Eagle (AGE) $5',  oz: 0.1000, metal: 'gold' },
+    { id: 'qty-buffalo-gold',  name: 'American Buffalo Gold Bullion Coin $50', oz: 1.0000, metal: 'gold' },
     { id: 'qty-gold-1',        name: '$1 Gold (1849-1889)',          oz: 0.04837, metal: 'gold' },
     { id: 'qty-gold-250',      name: '$2.50 Quarter Eagle',         oz: 0.12094, metal: 'gold' },
     { id: 'qty-gold-3',        name: '$3 Gold (1854-1889)',          oz: 0.14512, metal: 'gold' },
     { id: 'qty-gold-5',        name: '$5 Half Eagle',               oz: 0.24187, metal: 'gold' },
     { id: 'qty-gold-10',       name: '$10 Eagle',                   oz: 0.48375, metal: 'gold' },
     { id: 'qty-gold-20',       name: '$20 Double Eagle',            oz: 0.96750, metal: 'gold' },
+    /* US Platinum and Palladium */
+    { id: 'qty-platinum-eagle-1oz',     name: 'American Eagle Platinum Bullion Coin $100', oz: 1.0000, metal: 'platinum' },
+    { id: 'qty-platinum-eagle-half',    name: 'American Eagle Platinum Bullion Coin $50',  oz: 0.5000, metal: 'platinum' },
+    { id: 'qty-platinum-eagle-quarter', name: 'American Eagle Platinum Bullion Coin $25',  oz: 0.2500, metal: 'platinum' },
+    { id: 'qty-platinum-eagle-tenth',   name: 'American Eagle Platinum Bullion Coin $10',  oz: 0.1000, metal: 'platinum' },
+    { id: 'qty-palladium-eagle-1oz',    name: 'American Palladium Eagle $25',               oz: 1.0000, metal: 'palladium' },
     /* Canadian */
     { id: 'qty-ca-dimes',       name: 'Canadian Dimes (80%)',       oz: 0.06000, metal: 'silver' },
     { id: 'qty-ca-quarters',    name: 'Canadian Quarters (80%)',    oz: 0.15000, metal: 'silver' },
@@ -645,22 +691,24 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
   function formatUSD(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
   calcBtn.addEventListener('click', function() {
-    var spotSilver = getVal('spot-silver');
-    var spotGold = getVal('spot-gold');
+    var spotPrices = {
+      silver: getVal('spot-silver'),
+      gold: getVal('spot-gold'),
+      platinum: getVal('spot-platinum'),
+      palladium: getVal('spot-palladium')
+    };
     var total = 0;
-    var totalSilverOz = 0;
-    var totalGoldOz = 0;
+    var metalTotals = { silver: 0, gold: 0, platinum: 0, palladium: 0 };
     var html = '';
 
     COINS.forEach(function(c) {
       var qty = getVal(c.id);
       if (qty <= 0) return;
-      var spot = c.metal === 'gold' ? spotGold : spotSilver;
+      var spot = spotPrices[c.metal] || 0;
       var metalOz = qty * c.oz;
       var value = metalOz * spot;
       total += value;
-      if (c.metal === 'silver') totalSilverOz += metalOz;
-      else totalGoldOz += metalOz;
+      metalTotals[c.metal] += metalOz;
 
       html += '<tr>' +
         '<td data-label="Coin">' + c.name + '</td>' +
@@ -675,8 +723,10 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
       resultTotal.textContent = formatUSD(total);
 
       var parts = [];
-      if (totalSilverOz > 0) parts.push(totalSilverOz.toFixed(2) + ' oz silver');
-      if (totalGoldOz > 0) parts.push(totalGoldOz.toFixed(4) + ' oz gold');
+      if (metalTotals.silver > 0) parts.push(metalTotals.silver.toFixed(4) + ' oz silver');
+      if (metalTotals.gold > 0) parts.push(metalTotals.gold.toFixed(4) + ' oz gold');
+      if (metalTotals.platinum > 0) parts.push(metalTotals.platinum.toFixed(4) + ' oz platinum');
+      if (metalTotals.palladium > 0) parts.push(metalTotals.palladium.toFixed(4) + ' oz palladium');
       resultDetail.textContent = 'Total metal content: ' + parts.join(' + ');
 
       breakdownBody.innerHTML = html;
@@ -720,6 +770,18 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
       } else {
         document.getElementById('gold-spot-note').textContent = 'Enter today\'s gold spot price per troy ounce.';
       }
+      if (data.platinum) {
+        document.getElementById('spot-platinum').value = data.platinum.toFixed(2);
+        document.getElementById('platinum-spot-note').textContent = 'Live price loaded \u00b7 Updated ' + timeAgo(data.updated_at);
+      } else {
+        document.getElementById('platinum-spot-note').textContent = 'Enter today\'s platinum spot price per troy ounce.';
+      }
+      if (data.palladium) {
+        document.getElementById('spot-palladium').value = data.palladium.toFixed(2);
+        document.getElementById('palladium-spot-note').textContent = 'Live price loaded \u00b7 Updated ' + timeAgo(data.updated_at);
+      } else {
+        document.getElementById('palladium-spot-note').textContent = 'Enter today\'s palladium spot price per troy ounce.';
+      }
 
       var el = function(id) { return document.getElementById(id); };
       el('calc-spot-gold-display').textContent = formatTickerPrice(data.gold);
@@ -733,32 +795,47 @@ Calculate the **metal melt value** of your coins instantly. Covers US, Canadian,
     .catch(function() {
       document.getElementById('silver-spot-note').textContent = 'Enter today\'s silver spot price per troy ounce.';
       document.getElementById('gold-spot-note').textContent = 'Enter today\'s gold spot price per troy ounce.';
+      document.getElementById('platinum-spot-note').textContent = 'Enter today\'s platinum spot price per troy ounce.';
+      document.getElementById('palladium-spot-note').textContent = 'Enter today\'s palladium spot price per troy ounce.';
     });
 })();
 </script>
 
 ---
 
-## Coin Silver & Gold Content Reference
+## Coin Precious-Metal Content Reference
 
 ### US Coins
 
-| Coin | Years | Composition | Metal Weight (troy oz) |
-|------|-------|-------------|------------------------|
-| Roosevelt/Mercury Dime | 1916-1964 | 90% Silver | 0.0723 oz |
-| Washington Quarter | 1932-1964 | 90% Silver | 0.1808 oz |
-| Walking Liberty / Franklin / Kennedy Half | 1916-1964 | 90% Silver | 0.3617 oz |
-| Kennedy Half Dollar | 1965-1970 | 40% Silver | 0.1479 oz |
-| War Nickel | 1942-1945 | 35% Silver | 0.0563 oz |
-| Morgan / Peace Dollar | 1878-1935 | 90% Silver | 0.7734 oz |
-| American Silver Eagle | 1986-present | 99.9% Silver | 1.0000 oz |
-| $1 Gold | 1849-1889 | 90% Gold | 0.0484 oz |
-| $2.50 Quarter Eagle | 1796-1929 | 90% Gold | 0.1209 oz |
-| $5 Half Eagle | 1795-1929 | 90% Gold | 0.2419 oz |
-| $10 Eagle | 1795-1933 | 90% Gold | 0.4838 oz |
-| $20 Double Eagle | 1849-1933 | 90% Gold | 0.9675 oz |
-| Gold Eagle | 1986-present | 91.67% Gold | 1.0000 oz (fine) |
-| Gold Buffalo | 2006-present | 99.99% Gold | 1.0000 oz |
+This is a selected reference for common precious-metal issues, not an exhaustive catalog of every U.S. coin.
+
+| Coin / established name | Common shorthand | Face value | Years | Composition | Fine precious-metal content (troy oz) |
+|---|---|---:|---|---|---:|
+| Mercury / Roosevelt Dime | Mercury dime | $0.10 | 1916–1964 | 90% silver | 0.0723 oz |
+| Washington Quarter | — | $0.25 | 1932–1964 | 90% silver | 0.1808 oz |
+| Walking Liberty / Franklin / Kennedy Half Dollar | Walker / Franklin / Kennedy | $0.50 | 1916–1964 | 90% silver | 0.3617 oz |
+| Kennedy Half Dollar | Kennedy | $0.50 | 1965–1970 | 40% silver | 0.1479 oz |
+| War Nickel | War nickel | $0.05 | 1942–1945 | 35% silver | 0.0563 oz |
+| Morgan / Peace Dollar | Morgan / Peace | $1 | 1878–1935 | 90% silver | 0.7734 oz |
+| American Silver Eagle | ASE | $1 | 1986–present | .999 fine silver | 1.0000 oz |
+| Gold Dollar | $1 Gold | $1 | 1849–1889 | 90% gold | 0.0484 oz |
+| Quarter Eagle | $2.50 Gold | $2.50 | 1796–1929 | 90% gold | 0.1209 oz |
+| Three-Dollar Gold Piece | $3 Gold | $3 | 1854–1889 | 90% gold | 0.1451 oz |
+| Half Eagle | $5 Gold | $5 | 1795–1929 | 90% gold | 0.2419 oz |
+| Eagle | $10 Gold | $10 | 1795–1933 | 90% gold | 0.4838 oz |
+| Double Eagle | $20 Gold | $20 | 1849–1933 | 90% gold | 0.9675 oz |
+| American Gold Eagle, 1 oz | AGE | $50 | 1986–present | 91.67% gold alloy | 1.0000 oz |
+| American Gold Eagle, 1/2 oz | AGE | $25 | 1986–present | 91.67% gold alloy | 0.5000 oz |
+| American Gold Eagle, 1/4 oz | AGE | $10 | 1986–present | 91.67% gold alloy | 0.2500 oz |
+| American Gold Eagle, 1/10 oz | AGE | $5 | 1986–present | 91.67% gold alloy | 0.1000 oz |
+| American Buffalo Gold Bullion Coin | Gold Buffalo / Buffalo | $50 | 2006–present | 99.99% pure gold | 1.0000 oz |
+| American Eagle Platinum Bullion Coin, 1 oz | Platinum Eagle | $100 | 1997–present; bullion hiatus 2009–2013 | .9995 platinum | 1.0000 oz |
+| American Eagle Platinum Bullion Coin, 1/2 oz | Platinum Eagle | $50 | 1997–2008 | .9995 platinum | 0.5000 oz |
+| American Eagle Platinum Bullion Coin, 1/4 oz | Platinum Eagle | $25 | 1997–2008 | .9995 platinum | 0.2500 oz |
+| American Eagle Platinum Bullion Coin, 1/10 oz | Platinum Eagle | $10 | 1997–2008 | .9995 platinum | 0.1000 oz |
+| American Palladium Eagle | Palladium Eagle | $25 | First issued 2017; finish and availability vary by issue | .9995 palladium | 1.0000 oz |
+
+U.S. bullion specifications were cross-checked against [31 U.S.C. § 5112](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title31-section5112&num=0&edition=prelim), [U.S. Mint Federal Register notices](https://www.federalregister.gov/documents/2005/04/08/05-7016/notification-of-platinum-bullion-coin-premium-increase), and the [PCGS Platinum Eagle](https://www.pcgs.com/prices/detail/platinum-eagles/940/most-active) and [Palladium Eagle](https://www.pcgs.com/prices/detail/palladium-25-eagle/152898/most-active) references. Avoid the abbreviation “APE,” which can ambiguously mean platinum or palladium Eagle.
 
 ### Canadian Coins
 
@@ -823,7 +900,7 @@ Coin shows can let you speak with multiple dealers in one place, but attendance,
   "@type": "WebApplication",
   "name": "Coin Melt Value Calculator",
   "url": "{{ site.url }}{{ site.baseurl }}/tools/melt-value-calculator/",
-  "description": "Calculate the melt value of US, Canadian, British and world silver and gold coins based on current spot prices.",
+  "description": "Calculate the melt value of common US, Canadian, British and world silver, gold, platinum, and palladium coins based on current spot prices.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Any",
   "offers": {

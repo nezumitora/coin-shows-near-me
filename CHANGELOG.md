@@ -1,5 +1,8 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Aug 29, 2026
+- v0.17.0: Applied owner-review refinements across directory counts, navigation, contact paths, collector guidance, tax disclosures, and the melt calculator; added review-only Collection Tracker research, expanded platinum/palladium references, improved source-comparison coverage reporting, and kept surveys, sponsorship, publishing, and reminder delivery inactive pending separate approval.
+
 ## Aug 1, 2026
 - v0.16.2: Replaced premature dealer-offer CTAs with junk-silver melt-value education, clarified organizer-role verification, standardized proposed dates with start/end and Date TBD controls, and added a visible browser-only fixture result summary.
 - v0.16.1: Corrected material state sales-tax errors from exact government sources, suppressed unchecked classifications behind a visible review-pending state, added source-condition labels and regression coverage, and shortened the draft follow-up email for the directory expert.

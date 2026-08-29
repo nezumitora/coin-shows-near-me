@@ -568,8 +568,15 @@ a:hover { color: var(--gold-light); }
 .results-count {
   font-size: 0.9rem;
   color: var(--text-mid);
+  line-height: 1.45;
 }
 .results-count strong { color: var(--text-dark); }
+.results-count-note {
+  display: block;
+  margin-top: 0.15rem;
+  color: #64748b;
+  font-size: 0.75rem;
+}
 
 /* === Card Grid === */
 .shows-section {
@@ -1133,7 +1140,7 @@ a:hover { color: var(--gold-light); }
         <img class="hero-title-logo" src="{{ site.baseurl }}/assets/images/coinshows-title-gold-banknote-transparent-v3-sharp.png?v=20260626-3" alt="Coin Shows Near Me">
       </div>
       <h1>Find <span>Coin Shows</span> Near You</h1>
-      <p class="hero-subtitle">Search {{ site.data.shows | size }} coin shows across all 50 states by state abbreviation, state name, city, venue, or show name.</p>
+      <p class="hero-subtitle">Search our growing nationwide directory of {{ site.data.shows | size }} currently listed coin shows by state abbreviation, state name, city, venue, or show name.</p>
 
       <div class="hero-action-stage">
         <label class="search-label" for="show-search">Search the coin show directory</label>
@@ -1203,7 +1210,8 @@ a:hover { color: var(--gold-light); }
 </section>
 
 <section class="listing-trust-intro" aria-label="How listing information is presented">
-  <strong>Clear listing status:</strong> Scheduled means an explicit confirmed event range ends today or later. Date not confirmed means no complete future date is verified. Past date — next date unconfirmed means the known occurrence passed but the recurring series may continue. Open a show to see its verification source and last-checked date.
+  <p><strong>How the directory count works:</strong> The total comes from current directory records and changes after verified listings are added or removed. Search and filters update the visible count immediately. Automated reports monitor known official sources and discover leads, but every new or changed listing is reviewed before publication.</p>
+  <p><strong>Clear listing status:</strong> Scheduled means an explicit confirmed event range ends today or later. Date not confirmed means no complete future date is verified. Past date — next date unconfirmed means the known occurrence passed but the recurring series may continue. Open a show to see its verification source and last-checked date.</p>
 </section>
 
 <!-- Filter Bar -->
@@ -1238,6 +1246,7 @@ a:hover { color: var(--gold-light); }
 <div class="results-bar">
   <div class="results-count" id="results-count">
     Showing <strong id="showing-count">{{ site.data.shows | size }}</strong> coin shows
+    <span class="results-count-note">This visible number updates when you search or filter.</span>
   </div>
 </div>
 
@@ -1374,13 +1383,12 @@ a:hover { color: var(--gold-light); }
       <a href="/guides/">Guides</a>
       <a href="/tools/sales-tax-guide/">Sales Tax Guide</a>
       <a href="/tools/melt-value-calculator/">Melt Calculator</a>
-      <a href="https://www.instagram.com/coinshowsnearme" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="/legal/terms-of-use/">Terms</a>
       <a href="/legal/privacy-policy/">Privacy</a>
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.16.2</div>
+    <div class="footer-version">v0.17.0</div>
   </div>
 </footer>
 
@@ -1575,7 +1583,7 @@ function fillCrmFormMetadata(form) {
   "@type": "WebSite",
   "name": "Coin Show Near Me",
   "url": "{{ site.url }}{{ site.baseurl }}/",
-  "description": "Complete directory of coin shows across the United States. Find upcoming coin shows, numismatic conventions, and coin expos near you."
+  "description": "Curated directory of coin shows across the United States. Find listed coin shows, numismatic conventions, and coin expos near you."
 }
 </script>
 
@@ -1597,7 +1605,7 @@ function fillCrmFormMetadata(form) {
       "name": "How do I find coin shows near me?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use our directory to browse {{ site.data.shows | size }}+ coin shows across all 50 US states. Filter by state or search by city to find shows in your area."
+        "text": "Use our growing directory to browse {{ site.data.shows | size }} currently listed coin shows across the United States. Filter by state or search by city to find shows in your area, and verify details before traveling."
       }
     },
     {

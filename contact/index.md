@@ -24,15 +24,15 @@ For general questions, show updates, and listing help, email [info@coinshownearm
     </ul>
   </div>
   <div class="contact-card">
-    <h2 style="margin-top:0 !important;">Follow Along</h2>
-    <p style="margin-bottom:0.5rem;">Follow along for coin show updates, directory notes, and collecting resources.</p>
-    <div class="contact-socials">
-      <a class="contact-social-link" href="https://www.instagram.com/coinshowsnearme" target="_blank" rel="noopener noreferrer" aria-label="Follow Coin Shows Near Me on Instagram"><span class="contact-social-icon">◎</span> Instagram</a>
-    </div>
+    <h2 style="margin-top:0 !important;">Show Reminder Interest</h2>
+    <p style="margin-bottom:0.5rem;">Tell us where you collect while we build reminder delivery. No recurring reminder service is active yet.</p>
+    <p style="margin-bottom:0;"><a href="/#signup"><strong>Join the reminder interest list</strong></a></p>
   </div>
 </div>
 
 <p style="margin:0 0 1.25rem;"><a href="/submit-show/" class="btn btn-primary">Submit a Missing Coin Show</a></p>
+
+<p style="margin:-0.5rem 0 1.25rem;font-size:0.9rem;">Prefer email? Promoters and authorized show owners may send public show details or corrections to [info@coinshownearme.com](mailto:info@coinshownearme.com). Include the show name, date, venue, and an official public source. This is our current general inbox while a dedicated show address is under review.</p>
 
 <div class="notify-section" style="margin:1rem 0 1.25rem;padding:1.25rem;">
 <div class="contact-form-brand">

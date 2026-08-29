@@ -116,6 +116,16 @@ Negotiating at a coin show is expected and welcomed — it's part of the culture
 
 ---
 
+## Buying Coins Online or Through Social Media
+
+A social-media profile, direct message, or marketplace listing is not proof that a seller is who they claim to be. Before sending money, compare the seller's name, website, phone number, and payment instructions with an independent public source you found yourself.
+
+Watch for pressure to act immediately, prices far below the market, newly created or renamed accounts, changed payment instructions, and requests for gift cards, cryptocurrency, wire transfers, passwords, verification codes, or remote access to your device. Use payment and shipping protections when available, keep copies of the listing and messages, and stop if you cannot independently verify the seller.
+
+Check references outside the seller's own profile and confirm that the reference belongs to the person or business you intend to deal with. A directory listing, follower count, badge, testimonial, or copied photo is not an endorsement or a substitute for your own verification.
+
+---
+
 ## Coin Show Etiquette
 
 - **Handle coins by the edges.** Never touch the face (obverse) or back (reverse) with your fingers. Oils from your skin can damage the surface.

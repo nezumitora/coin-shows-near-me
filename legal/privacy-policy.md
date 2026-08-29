@@ -12,7 +12,7 @@ breadcrumb_current: "Privacy Policy"
 # Privacy Policy
 
 **Effective Date:** April 15, 2026
-**Last Updated:** August 24, 2026
+**Last Updated:** August 29, 2026
 
 This Privacy Policy describes how Coin Show Near Me ("we," "us," or "our") collects, uses, shares, and protects your personal information when you use our website at coinshownearme.com and all related services (the "Platform").
 
@@ -27,8 +27,9 @@ This Privacy Policy describes how Coin Show Near Me ("we," "us," or "our") colle
 - **Reminder interest requests:** Name, email address, selected state, and shows or locations of interest. These forms do not collect a mobile number
 - **Listing review or removal requests:** Contact information, reason for the request, supporting public source links, and the details you provide for manual review
 - **Contact forms:** Any information you submit through forms on the Platform
+- **Feature-research surveys (inactive):** If a survey is activated after review, it may request survey choices, optional written feedback, and optional name and email address if you request a reply
 
-**Inactive services:** We do not currently collect account registrations, seller collection uploads, or pre-show offer requests because those services are not active.
+**Inactive services:** We do not currently collect account registrations, seller collection uploads, pre-show offer requests, or Collection Tracker feature-survey responses because those services are not active.
 
 ### 1.2 Information Collected Automatically
 
@@ -84,6 +85,8 @@ In the event of a merger, acquisition, or sale of assets, your information may b
 We retain submitted information for as long as reasonably needed to review requests, provide active services, document consent or publication decisions, resolve disputes, and meet legal obligations. You may request deletion of associated personal information by contacting us, subject to information we must or may lawfully retain.
 
 Reminder-interest and consent records may be retained as needed to document your request, contact you about future availability, honor withdrawal requests, and comply with legal obligations. You may withdraw your request by [contacting us](/contact/). The current reminder-interest forms do not collect mobile numbers or activate recurring email or text messages.
+
+If a feature survey is activated after review, answers may be retained to plan and improve tools. Name and email would remain optional and would be used only to reply about that feedback when provided with permission; submitting a survey would not join a reminder or marketing list.
 
 ### Public Event Information and Removal Requests
 

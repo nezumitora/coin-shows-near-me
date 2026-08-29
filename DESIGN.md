@@ -8,10 +8,12 @@
 - Keep exactly one general reminder-interest form on the homepage; do not duplicate it lower on the page.
 - Provide combined `All Shows`, `This Weekend`, and `This Month` filters with one state selector rather than a crowded fifty-state pill row.
 - Do not place sponsor previews or dealer promotions on the homepage.
+- Do not add paid dealer placement elsewhere until the owner approves the placement and disclosure model. If approved, label it `Sponsored placement — paid promotion`, keep it separate from verification and ranking, and use sponsored-link attributes.
 - On the dealer directory, the compact CTA must jump directly to a dedicated dealer-listing form on the same page; do not route dealers through a generic contact page or a second CTA. Dealer types are multi-select, brick-and-mortar selection reveals a required physical address, and each social network has its own CRM-friendly field.
 - Reminder-interest forms collect separate first and last names, email, selected state, and optional show/location interests.
 - Do not collect mobile numbers or promise recurring reminder delivery until the delivery and opt-out systems receive separate approval.
 - Use the reminder consent wording: `Notify me when show reminders become available. No reminder service is active yet. Privacy Policy.` Keep the policy text linked.
+- Feature-research surveys may be prepared only inside the unpublished local review build. Keep them out of production until the owner separately approves activation and the collection, reply, retention, and privacy handling.
 
 ## Listing trust
 
@@ -22,6 +24,8 @@
 - Show the last-checked date when one is recorded; otherwise state that it is not recorded.
 - Link to the source used for verification when available without calling every source official.
 - Remind visitors to verify details before traveling and provide a correction path.
+- Derive public show counts from canonical show records rather than hardcoding a total. Search and filters may change the visible count in the browser; the full directory count changes only after reviewed records are added or removed and the site is rebuilt.
+- Automated official-source comparisons and third-party discovery create review artifacts only. They may propose additions or changes, but they never publish or mark a source verified without human review.
 - Organizer-verification and new-show submissions are reviewed manually against public official-source evidence; submitting a form never verifies or publishes a listing automatically.
 - Anyone may submit reliable show confirmations or corrections, but `Organizer verified` is reserved for independently checked organizers, promoters, club officers, or authorized show staff. Record other accepted input with dated `Venue confirmed`, `Dealer reported`, or `Community reported` provenance without exposing the reporter's identity; dealer/community reports do not establish verification by themselves.
 - Listing-removal requests are manually reviewed; accurate public event facts may remain while private personal information and supported corrections receive separate consideration.

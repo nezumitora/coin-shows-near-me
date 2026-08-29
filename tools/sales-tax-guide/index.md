@@ -58,6 +58,7 @@ Use the search below to find your state's tax rules, or browse the full list.
 
 ## Audit Status
 
+- **Review pending** means the current coin and bullion tax treatment has not yet been confirmed against an exact government statute, regulation, or tax-agency publication. Until that review is complete, no settled classification, rate, threshold, or product list is displayed.
 - Green and red classifications appear only after an exact current government source has been checked.
 - Orange entries remain visible for navigation but intentionally suppress their old classification while primary-source review is pending.
 - “Exempt” never means every coin or precious-metal item qualifies; product form, metal content, value, seller, documentation, and local rules may matter.
@@ -76,7 +77,7 @@ Know your state's tax situation? Now find a coin show: [Browse all coin shows](/
 
 ---
 
-*This guide is for informational purposes only and does not constitute tax or legal advice. Tax laws change frequently — always verify with your state tax authority or a qualified tax professional. Primary-source audit updated August 1, 2026.*
+*This information is for general reference only and does not constitute tax or legal advice. Tax laws change frequently. Always verify current rates, definitions, exemptions, and local treatment with your state tax authority or consult a qualified tax professional before making purchasing decisions.*
 
 <script>
 /* State tax search and filter */

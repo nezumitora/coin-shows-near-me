@@ -15,6 +15,8 @@ Use this form if you organize, promote, host, or represent a coin show that is m
   <strong>Every submission is reviewed manually.</strong> A submission does not automatically create or verify a public listing. We compare the details with an official show, promoter, club, association, or venue source before publishing. Never send passwords, identification documents, or other sensitive information.
 </div>
 
+Prefer email? Send public show details or corrections to [info@coinshownearme.com](mailto:info@coinshownearme.com). Include the show name, date, venue, your role, and an official public source. This is our current general inbox while a dedicated show address is under review, and email submissions receive the same manual review as the form.
+
 <style>
 .show-submission-form,
 .show-submission-form * { box-sizing:border-box; }

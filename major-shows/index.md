@@ -39,3 +39,5 @@ These are the larger national and regional coin shows that collectors and dealer
 ## Planning a Coin Show Trip?
 
 For larger shows, always verify dates, venue details, hotel blocks, dealer lists, and admission requirements on the official organizer website before booking travel.
+
+New to these events? Start with [What is a Coin Show?](/guides/beginners-guide/#what-is-a-coin-show) in our Beginner's Guide.
