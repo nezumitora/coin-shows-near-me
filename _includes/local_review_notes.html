@@ -74,6 +74,7 @@
     var notes = [];
     var pendingTarget = null;
     var capturing = false;
+    var lastDirectCaptureAt = 0;
     var svgNamespace = 'http://www.w3.org/2000/svg';
 
     function createElement(tag, options) {
@@ -132,13 +133,14 @@
     }
 
     var shell = createElement('div', { className: 'coin-review-ui' });
-    var trigger = createElement('button', { className: 'coin-review-trigger', text: 'Review notes', attributes: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'coin-review-panel' } });
+    var trigger = createElement('button', { className: 'coin-review-trigger', text: 'Notes (0)', attributes: { type: 'button', 'aria-expanded': 'false', 'aria-controls': 'coin-review-panel' } });
     var panel = createElement('aside', { className: 'coin-review-panel', attributes: { id: 'coin-review-panel', 'aria-label': 'Local review notes', hidden: '' } });
     var heading = createElement('div');
     heading.append(createElement('span', { className: 'coin-review-eyebrow', text: 'Local only' }), createElement('h2', { text: 'Review notes' }));
     var closeButton = createElement('button', { className: 'coin-review-link-button', text: 'Close', attributes: { type: 'button' } });
     var header = createElement('div', { className: 'coin-review-header' });
     header.append(heading, closeButton);
+    var instructions = createElement('p', { className: 'coin-review-instructions', text: 'Right-click or Control-click any page area to add a correction note. Use Add a note on touchscreens or when you prefer crosshair selection.' });
     var privateNotice = createElement('p', { className: 'coin-review-private', text: 'Notes remain only in this browser until copied. Nothing is sent or shared.' });
     var addButton = createElement('button', { className: 'coin-review-button coin-review-button--primary', text: 'Add a note', attributes: { type: 'button' } });
     var copyButton = createElement('button', { className: 'coin-review-button coin-review-button--secondary', text: 'Copy all notes', attributes: { type: 'button' } });
@@ -147,7 +149,7 @@
     actions.append(addButton, copyButton, clearButton);
     var status = createElement('p', { className: 'coin-review-status', attributes: { role: 'status', 'aria-live': 'polite' } });
     var list = createElement('ol', { className: 'coin-review-list' });
-    panel.append(header, privateNotice, actions, status, list);
+    panel.append(header, instructions, privateNotice, actions, status, list);
     shell.append(trigger, panel);
     var captureNotice = createElement('div', { className: 'coin-review-capture-notice coin-review-ui', attributes: { hidden: '', role: 'status' } });
     captureNotice.append(createElement('strong', { text: 'Choose an area. ' }), document.createTextNode('Click the exact page element to note, or press Escape to cancel.'));
@@ -169,6 +171,10 @@
     document.body.append(pinLayer, captureNotice, shell, dialog);
 
     function setStatus(message, isError) { status.textContent = message; status.classList.toggle('is-error', Boolean(isError)); }
+    function updateTrigger() {
+      trigger.textContent = 'Notes (' + notes.length + ')';
+      trigger.setAttribute('aria-label', notes.length + ' saved local review note' + (notes.length === 1 ? '' : 's'));
+    }
     function openPanel() { panel.hidden = false; trigger.setAttribute('aria-expanded', 'true'); }
     function closePanel() { panel.hidden = true; trigger.setAttribute('aria-expanded', 'false'); trigger.focus(); }
     function currentNotes() { return notes.filter(function (note) { return note.pagePath === pagePath; }); }
@@ -191,6 +197,7 @@
       });
     }
     function renderNotes() {
+      updateTrigger();
       list.replaceChildren();
       if (!notes.length) { list.append(createElement('li', { className: 'coin-review-empty', text: 'No local review notes yet.' })); renderPins(); return; }
       notes.forEach(function (note, index) {
@@ -217,12 +224,24 @@
     function stopCapture() { capturing = false; document.body.classList.remove('coin-review-is-capturing'); captureNotice.hidden = true; }
     function startCapture() { closePanel(); pendingTarget = null; capturing = true; document.body.classList.add('coin-review-is-capturing'); captureNotice.hidden = false; }
     function openDialog() { targetDescription.textContent = 'Selected: ' + pendingTarget.targetLabel; noteField.value = ''; if (typeof dialog.showModal === 'function') { dialog.showModal(); } else { dialog.setAttribute('open', ''); } noteField.focus(); }
+    function selectTarget(event) {
+      var target = event.target; var rectangle = target.getBoundingClientRect(); var size = dimensions();
+      pendingTarget = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8), pagePath: pagePath, selector: selectorFor(target), targetLabel: targetLabelFor(target), text: '', createdAt: new Date().toISOString(), offsetX: rectangle.width ? Math.min(1, Math.max(0, (event.clientX - rectangle.left) / rectangle.width)) : 0.5, offsetY: rectangle.height ? Math.min(1, Math.max(0, (event.clientY - rectangle.top) / rectangle.height)) : 0.5, pageX: Math.min(1, Math.max(0, event.pageX / size.width)), pageY: Math.min(1, Math.max(0, event.pageY / size.height)) };
+    }
     function captureClick(event) {
       if (!capturing || !(event.target instanceof Element) || event.target.closest('.coin-review-ui')) { return; }
       event.preventDefault(); event.stopPropagation();
-      var target = event.target; var rectangle = target.getBoundingClientRect(); var size = dimensions();
-      pendingTarget = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8), pagePath: pagePath, selector: selectorFor(target), targetLabel: targetLabelFor(target), text: '', createdAt: new Date().toISOString(), offsetX: rectangle.width ? Math.min(1, Math.max(0, (event.clientX - rectangle.left) / rectangle.width)) : 0.5, offsetY: rectangle.height ? Math.min(1, Math.max(0, (event.clientY - rectangle.top) / rectangle.height)) : 0.5, pageX: Math.min(1, Math.max(0, event.pageX / size.width)), pageY: Math.min(1, Math.max(0, event.pageY / size.height)) };
+      selectTarget(event);
       stopCapture(); openDialog();
+    }
+    function directCapture(event) {
+      if (!(event.target instanceof Element) || event.target.closest('.coin-review-ui')) { return; }
+      if (event.type === 'click' && !event.ctrlKey) { return; }
+      event.preventDefault(); event.stopPropagation();
+      if (dialog.open || Date.now() - lastDirectCaptureAt < 600) { return; }
+      lastDirectCaptureAt = Date.now();
+      if (capturing) { stopCapture(); }
+      selectTarget(event); openDialog();
     }
     function copyNotes() {
       var summary = '# Coin Shows Near Me review notes\n\n' + (notes.length ? notes.map(function (note, index) { return '## Note ' + (index + 1) + '\n- Page: ' + note.pagePath + '\n- Target: ' + note.targetLabel + '\n- Selector: ' + note.selector + '\n- Timestamp: ' + note.createdAt + '\n\n' + note.text; }).join('\n\n') : 'No notes saved.');
@@ -238,6 +257,8 @@
     dialog.addEventListener('cancel', function () { pendingTarget = null; });
     dialogForm.addEventListener('submit', function (event) { event.preventDefault(); if (!pendingTarget || !noteField.reportValidity()) { return; } if (notes.length >= 100) { setStatus('The 100-note local limit is reached. Delete a note before adding another.', true); dialog.close?.(); openPanel(); return; } pendingTarget.text = noteField.value.trim(); if (!pendingTarget.text) { return; } notes.push(pendingTarget); if (!saveNotes()) { notes.pop(); setStatus('This browser could not save the note.', true); openPanel(); return; } pendingTarget = null; dialog.close?.(); renderNotes(); openPanel(); setStatus('Note saved only in this browser.'); });
     document.addEventListener('click', captureClick, true);
+    document.addEventListener('contextmenu', directCapture, true);
+    document.addEventListener('click', function (event) { if (event.ctrlKey) { directCapture(event); } }, true);
     document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && capturing) { stopCapture(); openPanel(); setStatus('Note selection cancelled.'); } });
     window.addEventListener('resize', renderPins);
   });
