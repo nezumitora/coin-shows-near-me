@@ -47,6 +47,24 @@
   --coin-muted: #6b7280;
 }
 
+/* Keep primary calls to action in the Coin navy/gold system, not the theme purple. */
+body.public-page .btn.btn-primary {
+  background: var(--coin-navy) !important;
+  border: 2px solid var(--coin-gold) !important;
+  color: #ffffff !important;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+body.public-page .btn.btn-primary:hover {
+  background: var(--coin-gold-light) !important;
+  border-color: var(--coin-gold-light) !important;
+  color: var(--coin-navy) !important;
+}
+body.public-page .btn.btn-primary:focus-visible {
+  outline: 3px solid var(--coin-gold-light);
+  outline-offset: 3px;
+}
+
 /* Sidebar — dark navy with gold accents */
 .side-bar {
   background-color: var(--coin-navy) !important;
@@ -1865,3 +1883,6 @@ body.public-page #listing-review-test-reset {
 <script>
 {% include show-date-status.js %}
 </script>
+{% if site.review_mode %}
+{% include local_review_notes.html %}
+{% endif %}

@@ -19,8 +19,8 @@ For general questions, show updates, and listing help, email [info@coinshownearm
     <p style="margin-bottom:0.75rem;">Send the important details once, and we can route it to the right place.</p>
     <ul style="margin-bottom:0;">
       <li><strong><a href="/submit-show/">Submit a show</a></strong> — use the structured form for a missing event.</li>
-      <li><strong>Report an error</strong> — tell us which listing needs a fix.</li>
-      <li><strong>Dealer listing</strong> — share your shop, online store, or specialties.</li>
+      <li><strong><a href="/contact/?reason=reportError#contact-form">Report an error</a></strong> — tell us which listing needs a fix.</li>
+      <li><strong><a href="/dealers/#dealer-listing-form">Dealer listing</a></strong> — share your shop, online store, or specialties.</li>
     </ul>
   </div>
   <div class="contact-card">
@@ -117,6 +117,10 @@ Thank you for reaching out! We'll get back to you shortly.
 <script>
 var form = document.getElementById('contact-form');
 if (form) {
+  var inquiryReason = new URLSearchParams(window.location.search).get('reason');
+  if (inquiryReason === 'reportError') {
+    form.querySelector('[name="inquiryReason"]').value = inquiryReason;
+  }
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var now = new Date().toISOString();

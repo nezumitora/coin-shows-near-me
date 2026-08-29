@@ -1,10 +1,12 @@
 # Session State
 
-**Last updated:** 2026-08-28 22:04 PDT
-**Session:** Contact and legal email routing owner preview
+**Last updated:** 2026-08-28 23:12 PDT
+**Session:** Contact actions and local review owner preview
 
 ## Completed today
 
+- Made the Contact page's error-report and dealer-listing actions clickable, preselected the allowlisted error-report reason, and restored the primary CTA to accessible Coin navy/gold styling.
+- Added a local-only review-notes overlay that is enabled only with `_config.review.yml`, stores up to 100 notes in browser localStorage, and is excluded from the production Jekyll output.
 - Routed general, advertising, legal, and privacy questions to their verified Coin mailbox aliases without changing forms, Formspree, CRM, Turnstile, analytics, DNS, or mail infrastructure.
 - Passed the repository Ruby and JavaScript test suites, data validation, generated-page drift check, and a production Jekyll build. The isolated local owner preview is available at `http://localhost:4323`.
 - Preserved the accepted unpublished Ahrefs, indexing, metadata, asset, weekend-copy, and image-alt repairs on the existing feature branch.
@@ -20,7 +22,7 @@
 
 ## In progress
 
-- Owner review of the legal and privacy routing wording and local preview.
+- Owner review of the contact actions, branded CTA, local review overlay, and legal/privacy routing wording.
 
 ## Next up
 

@@ -43,6 +43,8 @@
 ## Visual hierarchy
 
 - Navy and gold remain the core brand colors.
+- Every action named in page copy must be a clickable control or link to its stated destination. Primary CTAs use navy backgrounds, gold borders, and white text; hover states invert to gold with navy text so the underlying theme palette cannot leak through.
 - Green indicates a scheduled date, amber an unconfirmed date, orange a past recurring occurrence without a confirmed next date, and red an ended nonrecurring show.
 - Status colors always include text labels and never communicate meaning through color alone.
 - Keep trust information compact on cards and complete on show detail pages.
+- Local owner-review notes are enabled only by combining `_config.yml` with `_config.review.yml`. They use browser `localStorage` only, make no network calls, and must never be included in a production build, deployed site, analytics, or a public page.
