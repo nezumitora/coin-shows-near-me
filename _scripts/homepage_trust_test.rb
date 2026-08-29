@@ -370,9 +370,9 @@ class HomepageTrustTest < Minitest::Test
     assert_includes MELT_CALCULATOR, "palladium: getVal('spot-palladium')"
     assert_includes MELT_CALCULATOR, '| Coin / established name | Common shorthand | Face value |'
     assert_includes MELT_CALCULATOR, '| American Gold Eagle, 1/2 oz | AGE | $25 |'
-    assert_includes MELT_CALCULATOR, '| American Eagle Platinum Bullion Coin, 1 oz | APE (American Platinum Eagle) | $100 |'
+    assert_includes MELT_CALCULATOR, '| American Eagle Platinum Bullion Coin, 1 oz | <span data-review-note-anchor="owner-review-note-6">APE</span> | $100 |'
     assert_includes MELT_CALCULATOR, '| American Palladium Eagle | Palladium Eagle | $25 |'
-    assert_includes MELT_CALCULATOR, 'Use APE only with its expansion, American Platinum Eagle.'
+    assert_includes MELT_CALCULATOR, 'The established platinum coin name appears in the first column; APE is its shorthand.'
   end
 
   def test_requested_featured_show_addresses_are_complete_and_verified

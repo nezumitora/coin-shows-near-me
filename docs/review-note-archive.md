@@ -51,3 +51,23 @@ This is the durable chronological record for the second owner-review round. The 
 - Owner text: `this button is still unclear, Maybe say something like "future show notifications" or something similar?`
 - Resolution state: Resolved.
 - Resolution: The navigation label now says Future Show Notifications while the destination continues to disclose that no reminder service is active.
+
+## Note 6
+
+- Route: `/tools/melt-value-calculator/`
+- Target: `APE (American Platinum Eagle)`
+- Selector: `body > main > div:nth-of-type(4) > table > tbody > tr:nth-of-type(19) > td:nth-of-type(2)`
+- Original timestamp: `2026-08-29T23:05:52.515Z`
+- Owner text: `the nicknane should only be APE, the brackets are not needed since the full real name is shown in the 1st column,`
+- Resolution state: Resolved; shorthand simplified.
+- Resolution: The Common shorthand cells now display only APE. The first column retains the full American Eagle Platinum Bullion Coin name, and American Palladium Eagle remains separately named so the two series are not confused.
+
+## Note 7
+
+- Route: `/`
+- Target: `197`
+- Selector: `#showing-count`
+- Original timestamp: `2026-08-29T23:07:15.646Z`
+- Owner text: `how are we updating show dates and info, this has been the same sine we made the site. Is there an automation scheduled to grab new show dates and if so, how often are we doing that and udpateing the site with the show info?`
+- Resolution state: Resolved with observed active report-only schedule.
+- Resolution: Observed active GitHub Actions workflows run daily: Show Update Report at 08:25 UTC checks every approved source URL stored on the 197 listings; External Source Comparison at 09:10 UTC fetches 48 reviewed source groups for 78 configured show IDs; Third-Party Discovery at 09:40 UTC checks 41 lead-source groups across 39 states. All have read-only repository permission and upload artifacts only. They do not edit show data or publish. A human must review artifacts, confirm official evidence, manually edit canonical data, validate/build, and obtain owner approval before publication. The homepage count is the number of canonical records, so date changes within existing records do not change 197. No Coin-specific cron, launchd, or aidevops routine was observed.

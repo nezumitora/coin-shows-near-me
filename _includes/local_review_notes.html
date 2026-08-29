@@ -269,7 +269,11 @@
     }
     function clearDialogState() { pendingTarget = null; pendingDialogPoint = null; editingNote = null; }
     function targetFor(note) {
-      try { return document.querySelector(note.selector); } catch (error) { return null; }
+      try {
+        var target = document.querySelector(note.selector);
+        if (target) { return target; }
+      } catch (error) {}
+      return document.querySelector('[data-review-note-anchor="' + escapeSelector(note.id) + '"]');
     }
     function flashNote(note) {
       var target = targetFor(note);
