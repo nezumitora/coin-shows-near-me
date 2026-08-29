@@ -11,6 +11,8 @@ breadcrumb_current: "Contact Us"
 
 Have a question, found an error, or want to submit a show? We'd love to hear from you.
 
+For general questions, show updates, and listing help, email [info@coinshownearme.com](mailto:info@coinshownearme.com). For advertising inquiries, email [advertising@coinshownearme.com](mailto:advertising@coinshownearme.com).
+
 <div class="contact-grid" style="margin:0 0 1.25rem;">
   <div class="contact-card">
     <h2 style="margin-top:0 !important;">Fastest Ways to Help</h2>

@@ -105,7 +105,6 @@ Please see our [Terms of Use](/legal/terms-of-use/) for complete limitation of l
 
 ## Contact
 
-Questions about these disclaimers may be directed to:
+Questions about these disclaimers may be emailed to:
 
-**Coin Show Near Me**
-[Contact us here](/contact/)
+[legal@coinshownearme.com](mailto:legal@coinshownearme.com)

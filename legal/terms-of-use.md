@@ -249,10 +249,9 @@ These Terms, together with our [Privacy Policy](/legal/privacy-policy/) and any 
 
 ## 17. Contact
 
-For questions about these Terms, contact us at:
+For questions about these Terms, email:
 
-**Coin Show Near Me**
-[Contact us here](/contact/)
+[legal@coinshownearme.com](mailto:legal@coinshownearme.com)
 
 ---
 

@@ -156,8 +156,7 @@ We may update this Privacy Policy from time to time. Material changes will be po
 
 For privacy-related questions or to exercise your rights:
 
-**Coin Show Near Me**
-[Contact us here](/contact/)
+[privacy@coinshownearme.com](mailto:privacy@coinshownearme.com)
 
 ---
 
