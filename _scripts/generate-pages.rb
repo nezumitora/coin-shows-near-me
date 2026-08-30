@@ -242,7 +242,14 @@ alias_pairs.each do |alias_id, show|
   File.write("shows/#{alias_id}.md", content.gsub(/^    /, ''))
 end
 
-File.write('shows.json', JSON.pretty_generate(ShowFeed.build(shows)) + "\n")
+feed_json = JSON.pretty_generate(
+  ShowFeed.build(shows),
+  indent: '  ',
+  space: ' ',
+  array_nl: "\n",
+  object_nl: "\n"
+)
+File.write('shows.json', feed_json + "\n")
 
 puts "Generated:"
 puts "  #{states.size} state pages + index"
