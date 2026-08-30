@@ -21,7 +21,7 @@ class SeoMetadataTest < Minitest::Test
       match = text.match(/\A---\s*\n(.*?)\n---\s*\n/m)
       next unless match
 
-      data = YAML.safe_load(match[1], [], [], true)
+      data = YAML.safe_load(match[1], permitted_classes: [], permitted_symbols: [], aliases: true)
       pages << [path, data] if data.is_a?(Hash)
     end
   end
