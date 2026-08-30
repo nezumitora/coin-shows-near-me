@@ -121,6 +121,7 @@ class ListingFreshnessTest < Minitest::Test
 
     assert_equal 'source_availability', fact.fetch(:field)
     assert_equal 'source_availability_review', fact.fetch(:proposal_status)
+    assert_equal 'source_path_not_found', fact.fetch(:cause_code)
     assert_includes fact.fetch(:conflict_reason), 'not cancellation evidence'
     assert_equal 'none', fact.fetch(:automatic_action)
   end
@@ -140,8 +141,83 @@ class ListingFreshnessTest < Minitest::Test
     )
 
     assert_equal 'candidate_difference', fact.fetch(:proposal_status)
+    assert_equal 'single_different_candidate', fact.fetch(:cause_code)
     assert fact.fetch(:eligible_for_change_proposal)
     assert_equal 'none', fact.fetch(:automatic_action)
+  end
+
+  def test_controlled_confirmed_date_change_is_reported_without_listing_change
+    fact = ListingFreshness.build_source_fact(
+      row: comparison_row(
+        'current_date_found' => 'false',
+        'candidate_dates' => 'November 1, 2026'
+      ),
+      show: show,
+      source_type: 'controlled-fixture',
+      source_url: 'https://listing-freshness.invalid/confirmed-date-change',
+      fetched_at: '2026-08-30T15:00:00Z',
+      pilot: true,
+      expectation: 'candidate_change',
+      controlled: true
+    )
+
+    assert_equal 'candidate_change', fact.fetch(:actual_outcome)
+    assert_equal 'candidate_difference', fact.fetch(:proposal_status)
+    assert_equal 'single_different_candidate', fact.fetch(:cause_code)
+    assert_equal 'controlled_fixture', fact.fetch(:source_tier)
+    refute fact.fetch(:eligible_for_change_proposal)
+    assert_equal 'controlled_case_only_no_listing_change', fact.fetch(:human_action)
+    assert_equal 'none', fact.fetch(:automatic_action)
+  end
+
+  def test_controlled_source_failure_is_review_only_and_not_cancellation
+    fact = ListingFreshness.build_source_fact(
+      row: comparison_row(
+        'fetch_status' => '503',
+        'fetch_detail' => 'Controlled service unavailable response',
+        'name_found' => 'false',
+        'current_date_found' => 'false',
+        'candidate_dates' => ''
+      ),
+      show: show,
+      source_type: 'controlled-fixture',
+      source_url: 'https://listing-freshness.invalid/source-failure',
+      fetched_at: '2026-08-30T15:01:00Z',
+      pilot: true,
+      expectation: 'source_unavailable',
+      controlled: true
+    )
+
+    assert_equal 'source_unavailable', fact.fetch(:actual_outcome)
+    assert_equal 'source_availability_review', fact.fetch(:proposal_status)
+    assert_equal 'source_server_error', fact.fetch(:cause_code)
+    assert_includes fact.fetch(:conflict_reason), 'not cancellation evidence'
+    refute fact.fetch(:eligible_for_change_proposal)
+    assert_equal 'controlled_case_only_no_listing_change', fact.fetch(:human_action)
+    assert_equal 'none', fact.fetch(:automatic_action)
+  end
+
+  def test_date_difference_causes_distinguish_association_failures
+    assert_equal 'single_different_candidate', ListingFreshness.candidate_difference_cause(
+      current_value: 'October 15, 2026', proposed_value: 'November 1, 2026'
+    )
+    assert_equal 'current_value_present_but_not_associated', ListingFreshness.candidate_difference_cause(
+      current_value: 'October 15, 2026', proposed_value: 'October 15, 2026; November 1, 2026'
+    )
+    assert_equal 'multiple_page_dates_need_event_association', ListingFreshness.candidate_difference_cause(
+      current_value: 'October 15, 2026', proposed_value: 'November 1, 2026; December 1, 2026'
+    )
+    assert_equal 'current_tbd_with_candidates', ListingFreshness.candidate_difference_cause(
+      current_value: 'TBD', proposed_value: 'November 1, 2026'
+    )
+  end
+
+  def test_availability_causes_distinguish_response_classes
+    assert_equal 'redirect_response_not_followed', ListingFreshness.source_availability_cause('301')
+    assert_equal 'access_blocked', ListingFreshness.source_availability_cause('403')
+    assert_equal 'source_path_not_found', ListingFreshness.source_availability_cause('404')
+    assert_equal 'source_server_error', ListingFreshness.source_availability_cause('503')
+    assert_equal 'network_or_transport_error', ListingFreshness.source_availability_cause('error')
   end
 
   def test_third_party_source_is_lead_only

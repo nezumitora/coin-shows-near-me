@@ -63,12 +63,23 @@ due listings. A failed fetch is source-health evidence, not cancellation
 evidence. A third-party source is always lead-only. Every output row sets
 `automatic_action` to `none`.
 
-The current two-source pilot confirms only that two unchanged official-source
-cases are classified correctly. Before expanding the pilot, adding a workflow,
-or preparing any data change, the owner must review the sample report and
-approve the next bounded phase. A cron, listing edit, merge, deletion,
-publication, outreach message, form submission, or CRM write requires separate
-approval.
+The live pilot confirms only that two unchanged official-source cases are
+classified correctly. Two synthetic hardening fixtures then exercise one
+confirmed date-change outcome and one 503 source-failure outcome. They use
+reserved `.invalid` URLs and synthetic show IDs, never enter the canonical risk
+queue, and always retain `automatic_action: none`.
+
+The report also groups review rows by cause. Date differences distinguish a
+single different candidate, a current value the matcher failed to associate,
+multi-date page ambiguity, and a TBD listing with candidates. Availability
+reviews distinguish redirects, blocked access, missing paths, server errors,
+and transport errors. Identity/parser conflicts distinguish pages with
+unassociated dates from pages with no extracted dates.
+
+Before expanding the live pilot, adding a workflow, or preparing any data
+change, the owner must review the sample report and approve the next bounded
+phase. A cron, listing edit, merge, deletion, publication, outreach message,
+form submission, or CRM write requires separate approval.
 
 ## Patterns confirmed on 2026-07-13
 

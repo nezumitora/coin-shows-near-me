@@ -31,6 +31,7 @@ module ListingFreshness
   def source_tier(source_type, source_url)
     normalized_type = source_type.to_s.downcase.tr('_', '-')
     return 'none' if source_url.to_s.empty?
+    return 'controlled_fixture' if normalized_type == 'controlled-fixture'
     return 'lead_only' if normalized_type.include?('third-party')
     return 'tier_1_direct' if normalized_type == 'direct-promoter-submission'
     return 'tier_1_primary' if normalized_type.match?(/organizer|promoter|official-show/)
@@ -219,7 +220,7 @@ module ListingFreshness
     'review_conflict'
   end
 
-  def build_source_fact(row:, show:, source_type:, source_url:, fetched_at:, pilot:, expectation: nil)
+  def build_source_fact(row:, show:, source_type:, source_url:, fetched_at:, pilot:, expectation: nil, controlled: false)
     outcome = external_outcome(row)
     candidates = row['candidate_dates'].to_s
     current_value = row['current_next_date'].to_s
@@ -245,7 +246,7 @@ module ListingFreshness
     source_key = row['source_key'].to_s
     show_id = row['show_id'].to_s
 
-    {
+    fact = {
       proposal_id: "#{source_key}:#{show_id}:#{field}",
       source_key: source_key,
       show_id: show_id,
@@ -259,6 +260,11 @@ module ListingFreshness
       source_type: source_type.to_s,
       source_url: source_url.to_s,
       fetched_at: fetched_at.to_s,
+      fetch_status: row['fetch_status'].to_s,
+      fetch_detail: row['fetch_detail'].to_s,
+      name_found: truthy?(row['name_found']),
+      current_date_found: truthy?(row['current_date_found']),
+      candidate_count: candidates.split(';').map(&:strip).reject(&:empty?).length,
       confidence: confidence,
       conflict_reason: conflict_reason,
       pilot_source: pilot,
@@ -267,10 +273,57 @@ module ListingFreshness
       expectation_matches: expectation_matches,
       false_positive: false_positive,
       false_negative: false_negative,
-      eligible_for_change_proposal: pilot && expectation == 'candidate_change' && outcome == 'candidate_change',
-      human_action: human_action,
+      controlled_case: controlled,
+      eligible_for_change_proposal: !controlled && pilot && expectation == 'candidate_change' && outcome == 'candidate_change',
+      human_action: controlled ? 'controlled_case_only_no_listing_change' : human_action,
       automatic_action: 'none'
     }
+
+    fact[:cause_code] = source_fact_cause(fact)
+    fact
+  end
+
+  def source_fact_cause(fact)
+    case fact.fetch(:proposal_status)
+    when 'no_change_observed'
+      'current_value_observed_on_source'
+    when 'candidate_difference'
+      candidate_difference_cause(fact)
+    when 'source_availability_review'
+      source_availability_cause(fact.fetch(:fetch_status))
+    when 'insufficient_evidence'
+      if fact.fetch(:candidate_count).positive?
+        'show_name_not_associated_with_page_dates'
+      else
+        'show_name_not_associated_no_dates_extracted'
+      end
+    else
+      'unclassified_source_fact'
+    end
+  end
+
+  def candidate_difference_cause(fact)
+    current_value = fact.fetch(:current_value).to_s
+    candidates = fact.fetch(:proposed_value).to_s.split(';').map(&:strip).reject(&:empty?)
+
+    return 'current_tbd_with_candidates' if current_value.casecmp('TBD').zero?
+    if candidates.any? { |candidate| normalized(candidate) == normalized(current_value) }
+      return 'current_value_present_but_not_associated'
+    end
+    return 'multiple_page_dates_need_event_association' if candidates.length > 1
+
+    'single_different_candidate'
+  end
+
+  def source_availability_cause(status)
+    value = status.to_s
+    return 'redirect_response_not_followed' if value.match?(/\A3\d\d\z/)
+    return 'access_blocked' if %w[401 403].include?(value)
+    return 'source_path_not_found' if %w[404 410].include?(value)
+    return 'source_server_error' if value.match?(/\A5\d\d\z/)
+    return 'network_or_transport_error' if value == 'error'
+
+    'other_source_availability_failure'
   end
 
   def duplicate_candidates(shows)
