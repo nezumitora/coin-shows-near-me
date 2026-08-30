@@ -25,8 +25,8 @@
 
 ## Verification evidence
 
-- Live baseline: `/Users/milohiss/.aidevops/.agent-workspace/work/site-visual-baselines/coinshownearme-com-coin-live-before-v017-2026-08-29T19-22-05-003Z`
-- Candidate baseline: `/Users/milohiss/.aidevops/.agent-workspace/work/site-visual-baselines/127-0-0-1-coin-local-candidate-v017-2026-08-29T19-55-37-948Z`
+- Live baseline: captured privately before v0.17.
+- Candidate baseline: captured privately for the v0.17 candidate.
 - Candidate baseline: 542 routes, 1,084 PDFs, 1,082,782,002 bytes, 10 expected 404 results from five intentionally retired internal routes at two viewports, and one investigated warning inherited from the live sitemap.
 - Local review origin: `http://127.0.0.1:4324/`
 - Local production-form origin: `http://127.0.0.1:4325/`
