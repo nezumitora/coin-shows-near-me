@@ -242,13 +242,9 @@ alias_pairs.each do |alias_id, show|
   File.write("shows/#{alias_id}.md", content.gsub(/^    /, ''))
 end
 
-feed_json = JSON.pretty_generate(
-  ShowFeed.build(shows),
-  indent: '  ',
-  space: ' ',
-  array_nl: "\n",
-  object_nl: "\n"
-)
+feed_json = JSON.pretty_generate(ShowFeed.build(shows))
+# Keep empty date arrays stable across json gem versions.
+feed_json.gsub!(/"upcoming_dates": \[\n\s*\n\s*\]/, '"upcoming_dates": []')
 File.write('shows.json', feed_json + "\n")
 
 puts "Generated:"
