@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Colorado — 2026-2027 Schedule"
-seo_title: "Coin Shows in Colorado — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 3 coin shows in Colorado. Complete directory with dates, venues, and details for Colorado coin shows, expos, and numismatic events."
+title: "Colorado Coin Shows"
+heading: "Coin Shows in Colorado — 2026-2027 Schedule"
+description: "Browse 2 coin shows in Colorado with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/colorado/
 state_abbrev: "CO"
 state_name: "Colorado"

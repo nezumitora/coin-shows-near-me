@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Tucson Coin Club Coin Show — Tucson, Arizona Coin Show"
-seo_title: "Tucson Coin Club Coin Show — Tucson, Arizona | Coin Show Near Me"
-seo_description: "Tucson Coin Club Coin Show in Tucson, Arizona. Recurring coin show at Tucson Woman's Club, 6245 E. Bellevue St, Tucson, AZ 85712. Get dates, venue details, and more."
+title: "Tucson Coin Club Coin Show"
+heading: "Tucson Coin Club Coin Show — Tucson, Arizona Coin Show"
+description: "Tucson Coin Club Coin Show in Tucson, Arizona. View dates, venue details, and listing verification before you travel."
 permalink: /shows/tucson-coin-club-coin-show/
 show_id: "tucson-coin-club-coin-show"
 breadcrumb_parent: "Arizona"

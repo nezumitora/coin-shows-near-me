@@ -112,7 +112,7 @@ Find upcoming coin shows near you, including local and regional coin shows acros
 - **City/State:** Buena Park, California
 - **Venue:** Retail Clerks Hall, 8550 Stanton Ave, Buena Park, CA 90620
 - **Frequency:** 3 Times Per Year (March, June, September)
-- **Next Scheduled Date:** March 7–8, 2026 (see website for June & September dates)
+- **Next Scheduled Date:** September 12–13, 2026
 - **Website:** https://pacificexposllc.com/
 - **Organizer/Club:** Pacific Expos LLC
 - **Notes:** 50+ dealers, free parking, free hourly coin drawings; major Southern California regional show.
@@ -121,8 +121,8 @@ Find upcoming coin shows near you, including local and regional coin shows acros
 - **City/State:** Anaheim, California
 - **Venue:** Embassy Suites Anaheim – North, 3100 E Frontera St, Anaheim, CA 92806
 - **Frequency:** Monthly (1st Sunday, except months with Buena Park Coin Show)
-- **Next Scheduled Date:** August 2, 2026 (verified on Pacific Expos LLC NCMCS Dates/Dealers/Map page July 11, 2026)
-- **Official Future Dates:** August 2, October 4, November 1, and December 6, 2026; January 3, February 7, April 4, May 2, and July 4, 2027 (9am–4pm; verified on Pacific Expos LLC NCMCS Dates/Dealers/Map page July 11, 2026)
+- **Next Scheduled Date:** October 4, 2026 (verified on Pacific Expos LLC NCMCS Dates/Dealers/Map page August 23, 2026)
+- **Official Future Dates:** October 4, November 1, and December 6, 2026; January 3, February 7, April 4, May 2, July 4, and August 1, 2027 (9am–4pm; verified on Pacific Expos LLC NCMCS Dates/Dealers/Map page August 23, 2026). The official schedule does not list a September 5–6, 2026 show.
 - **Website:** https://pacificexposllc.com/
 - **Organizer/Club:** Pacific Expos LLC
 - **Notes:** 30+ dealers; free parking & hourly prize drawings.

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Cicero-Berwyn Coin & Stamp Bourse — Berwyn, Illinois Coin Show"
-seo_title: "Cicero-Berwyn Coin & Stamp Bourse — Berwyn, Illinois | Coin Show Near Me"
-seo_description: "Cicero-Berwyn Coin & Stamp Bourse in Berwyn, Illinois. Recurring coin show at Sokol-Tabor Hall. Get dates, venue details, and more."
+title: "Cicero-Berwyn Coin & Stamp Bourse"
+heading: "Cicero-Berwyn Coin & Stamp Bourse — Berwyn, Illinois Coin Show"
+description: "Cicero-Berwyn Coin & Stamp Bourse in Berwyn, Illinois. View dates, venue details, and listing verification before you travel."
 permalink: /shows/cicero-berwyn-coin-stamp-bourse/
 show_id: "cicero-berwyn-coin-stamp-bourse"
 breadcrumb_parent: "Illinois"

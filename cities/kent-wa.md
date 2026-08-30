@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Kent, Washington — 2026-2027"
-seo_title: "Coin Shows in Kent, Washington — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Kent, Washington. Dates, venues, and details for upcoming coin shows and numismatic events in Kent."
+title: "Kent, WA Coin Shows"
+heading: "Coin Shows in Kent, Washington — 2026-2027"
+description: "Find 1 coin show in Kent, Washington. Compare dates, venues, and verification details before you travel."
 permalink: /cities/kent-wa/
 city_slug: "kent-wa"
 city_name: "Kent"

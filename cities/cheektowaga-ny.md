@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Cheektowaga, New York — 2026-2027"
-seo_title: "Coin Shows in Cheektowaga, New York — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Cheektowaga, New York. Dates, venues, and details for upcoming coin shows and numismatic events in Cheektowaga."
+title: "Cheektowaga, NY Coin Shows"
+heading: "Coin Shows in Cheektowaga, New York — 2026-2027"
+description: "Find 1 coin show in Cheektowaga, New York. Compare dates, venues, and verification details before you travel."
 permalink: /cities/cheektowaga-ny/
 city_slug: "cheektowaga-ny"
 city_name: "Cheektowaga"

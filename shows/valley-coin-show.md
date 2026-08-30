@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Valley Coin Show — Sherman Oaks, California Coin Show"
-seo_title: "Valley Coin Show — Sherman Oaks, California | Coin Show Near Me"
-seo_description: "Valley Coin Show in Sherman Oaks, California. Recurring coin show at Courtyard by Marriott, 4th Floor Ballroom, 15433 Ventura Blvd, Sherman Oaks, CA. Get dates, venue details, and more."
+title: "Valley Coin Show"
+heading: "Valley Coin Show — Sherman Oaks, California Coin Show"
+description: "Valley Coin Show in Sherman Oaks, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/valley-coin-show/
 show_id: "valley-coin-show"
 breadcrumb_parent: "California"

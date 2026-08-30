@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ page.seo_title | default: page.title }}</title>
-{% include seo-meta.html %}
-<meta name="google-site-verification" content="{{ site.google_site_verification }}">
+{% seo %}
 <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/images/favicon-32x32.png?v=gpt-buffalo-20260629">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/images/favicon-16x16.png?v=gpt-buffalo-20260629">
 <link rel="icon" type="image/png" sizes="48x48" href="{{ site.baseurl }}/assets/images/favicon-48x48.png?v=gpt-buffalo-20260629">
@@ -13,6 +11,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="{{ site.baseurl }}/assets/images/favicon-192x192.png?v=gpt-buffalo-20260629">
 <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico?v=gpt-buffalo-20260629">
 
+{% unless site.review_mode %}
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-19GQEC65D5"></script>
 <script>
@@ -32,6 +31,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 </script>
 
 {% include form_capture_bridge.html %}
+{% endunless %}
 
 <style>
 /* === Reset & Base === */
@@ -240,117 +240,6 @@ a:hover { color: var(--gold-light); }
 .construction-banner strong { color: var(--gold); }
 .construction-banner a { color: var(--gold); font-weight: 600; text-decoration: underline; }
 
-/* === Dealer Portal Section === */
-.dealer-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem 3rem;
-}
-.dealer-card {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  color: #f1f5f9;
-  padding: 2.5rem;
-  border-radius: 12px;
-  border-left: 4px solid var(--gold);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
-}
-.dealer-info h3 {
-  color: var(--gold-light);
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-.dealer-info p {
-  color: #cbd5e1;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
-}
-.dealer-info ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.dealer-info li {
-  color: #94a3b8;
-  font-size: 0.85rem;
-  padding: 0.3rem 0;
-  padding-left: 1.25rem;
-  position: relative;
-}
-.dealer-info li::before {
-  content: "\2713";
-  position: absolute;
-  left: 0;
-  color: var(--gold-light);
-  font-weight: 700;
-}
-.dealer-form { display: flex; flex-direction: column; gap: 0.6rem; }
-.dealer-form input,
-.dealer-form select,
-.dealer-form textarea {
-  width: 100%;
-  min-width: 0;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 8px;
-  font-size: 0.88rem;
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  outline: none;
-  font-family: inherit;
-}
-.dealer-form input::placeholder,
-.dealer-form textarea::placeholder { color: #94a3b8; }
-.dealer-form select { color: #94a3b8; }
-.dealer-form select option { background: var(--navy); color: #fff; }
-.dealer-form input:focus,
-.dealer-form select:focus,
-.dealer-form textarea:focus { border-color: var(--gold-light); }
-.dealer-form textarea { min-height: 70px; resize: vertical; }
-.offer-disclaimer {
-  color: #cbd5e1;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(218,165,32,0.35);
-  border-radius: 8px;
-  padding: 0.75rem;
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-.dealer-form .form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.6rem;
-}
-.dealer-form button {
-  background: var(--gold);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.dealer-form button:hover { background: var(--gold-light); }
-.dealer-success {
-  display: none;
-  background: #065f46;
-  color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  text-align: center;
-}
-@media (max-width: 768px) {
-  .dealer-card { grid-template-columns: 1fr; gap: 1.5rem; }
-  .dealer-form .form-row { grid-template-columns: 1fr; }
-}
-
 /* === Hero === */
 .hero {
   background: linear-gradient(170deg, var(--navy) 0%, var(--navy-light) 40%, #4a6fa5 70%, #7ba0cc 85%, var(--cream) 100%);
@@ -367,7 +256,7 @@ a:hover { color: var(--gold-light); }
   left: 50%;
   width: min(760px, 68vw);
   height: min(520px, 46vw);
-  background-image: url("{{ site.baseurl }}/assets/images/coinshows-buffalo-head-front-transparent-gold-navy.png");
+  background-image: url("{{ site.baseurl }}/assets/images/coinshows-buffalo-transparent-960w-v1.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -380,9 +269,10 @@ a:hover { color: var(--gold-light); }
   max-width: 1120px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
   gap: 2rem;
   align-items: center;
+  text-align: left;
   position: relative;
   z-index: 1;
 }
@@ -400,14 +290,14 @@ a:hover { color: var(--gold-light); }
 .hero-title-wrap {
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.4rem;
-  margin: 0 0 0.75rem clamp(0px, 14vw, 186px);
+  margin: 0 0 0.75rem;
 }
 .hero-title-wrap::before,
 .hero-title-wrap::after {
   content: "";
-  width: min(520px, 82vw);
+  width: min(500px, 82vw);
   height: 34px;
   display: block;
   background-image: url("{{ site.baseurl }}/assets/images/coinshows-scroll-ornament-thin-gold-transparent-v2.png?v=20260626-2");
@@ -420,7 +310,7 @@ a:hover { color: var(--gold-light); }
 .hero-title-wrap::after { transform: scaleY(-1); }
 .hero-title-logo {
   display: block;
-  width: min(580px, 86vw);
+  width: min(540px, 86vw);
   max-height: 185px;
   object-fit: contain;
   filter: drop-shadow(0 12px 20px rgba(0,0,0,0.34));
@@ -429,39 +319,17 @@ a:hover { color: var(--gold-light); }
 .hero-subtitle {
   font-size: 1.15rem;
   color: #c8d6e5;
-  margin-bottom: 1.25rem;
+  margin: 0 0 1.25rem;
   max-width: 600px;
   line-height: 1.5;
 }
-.hero-stats {
-  display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
-}
-.hero-stat {
-  text-align: center;
-}
-.hero-stat-num {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--gold-light);
-  display: block;
-}
-.hero-stat-label {
-  font-size: 0.8rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
 .hero-action-stage {
-  max-width: 340px;
-  margin: 0 0 1rem;
+  max-width: 600px;
+  margin: 0;
 }
 .hero-action-stage .search-wrap {
   margin: 0;
-  max-width: 340px;
+  max-width: 600px;
   width: 100%;
 }
 .hero-search-results-note {
@@ -490,65 +358,6 @@ a:hover { color: var(--gold-light); }
   font-weight: 800;
 }
 .hero-search-results-note button:hover { background: var(--gold-light); }
-.hero-right-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  min-height: 310px;
-}
-.hero-offer-cta {
-  position: relative;
-  overflow: hidden;
-  text-align: left;
-  padding: 1.45rem;
-  background: rgba(26,35,50,0.74);
-  border: 1px solid rgba(218,165,32,0.5);
-  border-radius: 18px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
-  width: 100%;
-  margin-top: 7.5rem;
-}
-.hero-offer-cta > * {
-  position: relative;
-  z-index: 1;
-}
-.hero-logo-note {
-  color: #cbd5e1;
-  font-size: 0.75rem;
-  line-height: 1.45;
-  margin-top: 0.75rem;
-}
-.hero-offer-cta h2 {
-  color: var(--gold-light);
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-.hero-offer-cta p {
-  color: #e2e8f0;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  margin-bottom: 0.9rem;
-}
-.hero-offer-cta .hero-offer-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: #fff;
-  font-weight: 700;
-  padding: 0.62rem 1rem;
-  border-radius: 8px;
-  font-size: 0.86rem;
-  text-decoration: none;
-}
-.hero-offer-cta .hero-offer-btn:hover {
-  background: var(--gold-light);
-  color: #fff;
-}
-#quote-section {
-  scroll-margin-top: 130px;
-}
 @media (max-width: 800px) {
   .hero {
     text-align: center;
@@ -560,9 +369,6 @@ a:hover { color: var(--gold-light); }
     height: 320px;
     opacity: 0.12;
   }
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
   .hero-subtitle,
   .hero-action-stage {
     margin-left: auto;
@@ -573,21 +379,11 @@ a:hover { color: var(--gold-light); }
     max-width: 600px;
   }
   .hero-title-wrap {
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
   }
-  .hero-stats {
-    justify-content: center;
-  }
-  .hero-right-side {
-    max-width: 320px;
-    margin: 0 auto;
-    min-height: 260px;
-  }
-  .hero-offer-cta {
-    text-align: center;
-    margin-top: 6rem;
-  }
+  .hero-inner { grid-template-columns: 1fr; }
 }
 
 /* === Search Bar === */
@@ -623,114 +419,54 @@ a:hover { color: var(--gold-light); }
   font-size: 1.1rem;
   pointer-events: none;
 }
+.search-label {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: #f8fafc;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
 
-/* === Spot Ticker === */
-.spot-ticker {
+/* === Secondary market reference === */
+.market-strip-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem 0 0;
+  position: relative;
+  z-index: 1;
+}
+.home-spot-ticker {
   display: flex;
-  grid-column: 1 / -1;
   flex-wrap: wrap;
-  gap: 0.9rem;
   align-items: center;
   justify-content: center;
-  max-width: 780px;
-  width: 100%;
-  margin: 1.15rem auto 0;
-  padding: 0.85rem 1rem;
-  font-size: 0.85rem;
-  background: rgba(26, 35, 50, 0.72);
-  border: 1px solid rgba(218,165,32,0.45);
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  backdrop-filter: blur(8px);
+  gap: 0.65rem 0.9rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(218,165,32,0.7);
+  border-radius: 10px;
+  background: rgba(14,35,56,0.94);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+  font-size: 0.8rem;
 }
-.spot-ticker-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.spot-ticker-label {
-  color: #f0e6c8;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 800;
-}
-.spot-ticker-price {
-  color: #ffd56a;
-  font-weight: 800;
-  font-size: 1rem;
-}
-.spot-ticker-sep { color: rgba(240,230,200,0.5); }
-.spot-ticker-updated {
-  width: 100%;
-  text-align: center;
-  color: #e2e8f0;
-  font-size: 0.72rem;
-  font-weight: 600;
-  margin-top: 0.25rem;
-}
+.home-spot-ticker .spot-ticker-item { display: flex; align-items: center; gap: 0.35rem; }
+.home-spot-ticker .spot-ticker-label { color: #f8fafc; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+.home-spot-ticker .spot-ticker-price { color: var(--gold-light); font-size: 0.9rem; font-weight: 800; }
+.home-spot-ticker .spot-ticker-sep { color: rgba(255,255,255,0.35); }
+.home-spot-ticker .spot-ticker-updated { flex-basis: 100%; color: #cbd5e1; font-size: 0.68rem; text-align: center; }
 
-/* === Sponsored Placements Preview === */
-.sponsor-preview-section {
+/* === Listing trust explainer === */
+.listing-trust-intro {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 0;
-}
-.sponsor-preview-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 24px var(--shadow);
-}
-.sponsor-preview-header { margin-bottom: 1rem; }
-.sponsor-preview-eyebrow {
-  color: var(--gold);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.sponsor-preview-header h2 {
-  color: var(--navy);
-  font-size: 1.3rem;
-  margin: 0.2rem 0;
-}
-.sponsor-preview-header p,
-.sponsor-preview-note {
+  padding: 1rem 1.5rem 0.25rem;
   color: var(--text-mid);
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-.sponsor-preview-track {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-}
-.sponsor-preview-slide {
-  background: var(--warm-gray);
-  border: 1px dashed #c9b68f;
-  border-radius: 10px;
-  padding: 1rem;
-}
-.sponsor-preview-slide h3 {
-  color: var(--navy);
-  font-size: 1rem;
-  margin-bottom: 0.45rem;
-}
-.sponsor-preview-slide p {
-  color: var(--text-mid);
-  font-size: 0.86rem;
+  font-size: 0.85rem;
   line-height: 1.55;
+  text-align: center;
 }
-.sponsor-preview-note {
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
-}
-@media (max-width: 800px) {
-  .sponsor-preview-track { grid-template-columns: 1fr; }
-}
+.listing-trust-intro strong { color: var(--navy); }
 
 /* === Filter Bar === */
 .filter-section {
@@ -746,7 +482,7 @@ a:hover { color: var(--gold-light); }
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.8rem 1rem;
   flex-wrap: wrap;
 }
 .filter-label {
@@ -754,13 +490,16 @@ a:hover { color: var(--gold-light); }
   font-size: 0.85rem;
   color: var(--text-mid);
   white-space: nowrap;
+  margin: 0;
 }
-.filter-pills {
+.filter-controls,
+.filter-group {
   display: flex;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0.45rem;
   flex-wrap: wrap;
-  flex: 1;
 }
+.filter-controls { flex: 1; }
 .filter-pill {
   padding: 0.35rem 0.85rem;
   border: 1px solid var(--border);
@@ -779,6 +518,18 @@ a:hover { color: var(--gold-light); }
   color: #fff;
   border-color: var(--navy);
 }
+.filter-select {
+  min-width: 190px;
+  padding: 0.42rem 2.2rem 0.42rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--text-mid);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.filter-select:focus { border-color: var(--gold); outline: 3px solid rgba(218,165,32,0.14); }
 .filter-count {
   background: var(--gold-pale);
   color: var(--gold);
@@ -792,6 +543,7 @@ a:hover { color: var(--gold-light); }
   display: flex;
   gap: 0.25rem;
   margin-left: auto;
+  margin-top: 0.05rem;
 }
 .view-btn {
   padding: 0.4rem 0.75rem;
@@ -818,8 +570,15 @@ a:hover { color: var(--gold-light); }
 .results-count {
   font-size: 0.9rem;
   color: var(--text-mid);
+  line-height: 1.45;
 }
 .results-count strong { color: var(--text-dark); }
+.results-count-note {
+  display: block;
+  margin-top: 0.15rem;
+  color: #64748b;
+  font-size: 0.75rem;
+}
 
 /* === Card Grid === */
 .shows-section {
@@ -918,10 +677,6 @@ a:hover { color: var(--gold-light); }
   color: #2d6a2e;
   font-weight: 600;
 }
-.show-card-tag.tbd-tag {
-  background: #fef3cd;
-  color: #856404;
-}
 .show-card-notes {
   font-size: 0.72rem;
   color: var(--text-light);
@@ -933,6 +688,29 @@ a:hover { color: var(--gold-light); }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.show-card-trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+  margin-top: 0.55rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(184,134,11,0.22);
+  color: #6b7280;
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+.trust-status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.16rem 0.48rem;
+  font-weight: 800;
+}
+.trust-status--scheduled { background: #dcfce7; color: #166534; }
+.trust-status--date-not-confirmed { background: #fef3c7; color: #854d0e; }
+.trust-status--past-date-unconfirmed { background: #ffedd5; color: #9a3412; }
+.trust-status--past-show { background: #fee2e2; color: #991b1b; }
 .show-card-link {
   position: absolute;
   inset: 0;
@@ -1124,39 +902,42 @@ a:hover { color: var(--gold-light); }
 
 /* === CTA / Signup Section === */
 .cta-section {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  padding: 3rem 1.5rem;
-  text-align: center;
+  background: rgba(14,35,56,0.92);
+  border: 1px solid rgba(218,165,32,0.8);
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: left;
   color: #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
 }
 .cta-inner {
-  max-width: 600px;
+  max-width: none;
   margin: 0 auto;
 }
 .cta-section h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.35rem;
 }
 .cta-section h2 span { color: var(--gold-light); }
 .cta-section p {
   color: #94a3b8;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 .cta-form {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .cta-form input[type="text"],
 .cta-form input[type="email"],
+.cta-form input[type="tel"],
 .cta-form select {
-  flex: 1;
-  min-width: 180px;
+  min-width: 0;
   max-width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.62rem 0.72rem;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
   font-size: 0.9rem;
@@ -1168,9 +949,12 @@ a:hover { color: var(--gold-light); }
 .cta-form select option { background: var(--navy); color: #fff; }
 .cta-form input:focus,
 .cta-form select:focus { border-color: var(--gold-light); }
+.cta-form .cta-wide {
+  grid-column: 1 / -1;
+}
 .cta-form textarea {
   width: 100%;
-  min-height: 70px;
+  min-height: 52px;
   padding: 0.75rem 1rem;
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
@@ -1183,12 +967,31 @@ a:hover { color: var(--gold-light); }
 }
 .cta-form textarea::placeholder { color: #94a3b8; }
 .cta-form textarea:focus { border-color: var(--gold-light); }
+.cta-consent {
+  display: grid;
+  grid-template-columns: 1.15rem minmax(0, 1fr);
+  gap: 0.55rem;
+  width: 100%;
+  margin: 0.15rem 0;
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  text-align: left;
+}
+.cta-consent input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.15rem;
+  accent-color: var(--gold);
+}
+.cta-consent a { color: var(--gold-light); text-decoration: underline; }
+.cta-form-note { width: 100%; color: #cbd5e1; font-size: 0.76rem; text-align: left; }
 .cta-form button {
   background: var(--gold);
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 0.75rem 2rem;
+  padding: 0.68rem 1.25rem;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
@@ -1204,70 +1007,6 @@ a:hover { color: var(--gold-light); }
   margin-top: 1rem;
   font-size: 0.9rem;
 }
-.dealer-toggle {
-  margin: 1.5rem 0 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-.dealer-toggle label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  cursor: pointer;
-  color: #94a3b8;
-  font-size: 0.9rem;
-  user-select: none;
-}
-.dealer-toggle input[type="checkbox"] {
-  width: 1.1rem;
-  height: 1.1rem;
-  accent-color: var(--gold);
-  cursor: pointer;
-}
-.dealer-signup-form {
-  display: none;
-  margin-top: 1.25rem;
-  text-align: left;
-}
-.dealer-signup-form.visible { display: block; }
-.dealer-signup-form h3 {
-  color: var(--gold-light);
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-.dealer-signup-form p {
-  color: #94a3b8;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-.dealer-signup-form .cta-form { flex-direction: column; }
-.dealer-signup-form .cta-form .form-row-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  width: 100%;
-}
-.dealer-signup-form .cta-form select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  background: rgba(255,255,255,0.1);
-  color: #94a3b8;
-  outline: none;
-  font-family: inherit;
-}
-.dealer-signup-form .cta-form select option { background: var(--navy); color: #fff; }
-.dealer-signup-form .cta-form select:focus { border-color: var(--gold-light); }
-@media (max-width: 768px) {
-  .dealer-signup-form .cta-form .form-row-2 { grid-template-columns: 1fr; }
-}
-
 /* === Footer === */
 .site-footer {
   background: var(--navy);
@@ -1297,107 +1036,6 @@ a:hover { color: var(--gold-light); }
   margin-top: 0.5rem;
 }
 
-/* === Reminder CTA Card (above show cards) === */
-.reminder-cta-card {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-  border: 2px solid var(--gold);
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
-  color: #fff;
-  display: block;
-  max-width: 820px;
-  margin: 0 auto 1.15rem;
-}
-.reminder-cta-card h3 {
-  color: var(--gold-light);
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-  line-height: 1.3;
-}
-.reminder-cta-card p {
-  color: #cbd5e1;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-.reminder-cta-card .reminder-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
-}
-.reminder-cta-card .consent-group,
-.reminder-cta-card .reminder-form button,
-.reminder-cta-success { grid-column: 1 / -1; }
-.reminder-cta-card .reminder-form input[type="email"],
-.reminder-cta-card .reminder-form input[type="tel"] {
-  width: 100%;
-  padding: 0.6rem 0.8rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 6px;
-  font-size: 0.85rem;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  outline: none;
-  font-family: inherit;
-}
-.reminder-cta-card .reminder-form input::placeholder { color: #94a3b8; }
-.reminder-cta-card .reminder-form input:focus { border-color: var(--gold-light); }
-.reminder-cta-card .consent-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.reminder-cta-card .consent-label {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
-  cursor: pointer;
-  font-size: 0.75rem;
-  color: #94a3b8;
-  line-height: 1.4;
-}
-.reminder-cta-card .consent-label input[type="checkbox"] {
-  width: 1rem;
-  height: 1rem;
-  margin-top: 0.1rem;
-  accent-color: var(--gold);
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.reminder-cta-card .consent-label a { color: var(--gold-light); text-decoration: underline; }
-.reminder-cta-card .consent-legal {
-  font-size: 0.65rem;
-  color: #64748b;
-  line-height: 1.4;
-  margin-top: 0.15rem;
-}
-.reminder-cta-card .reminder-form button {
-  background: var(--gold);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 0.6rem 1rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.reminder-cta-card .reminder-form button:hover { background: var(--gold-light); }
-.reminder-cta-card .reminder-form button:disabled {
-  background: #475569;
-  cursor: not-allowed;
-}
-.reminder-cta-success {
-  display: none;
-  background: #065f46;
-  color: #fff;
-  padding: 0.75rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
 /* === No Results === */
 .no-results {
   text-align: center;
@@ -1416,13 +1054,10 @@ a:hover { color: var(--gold-light); }
   .hero-title-wrap::before,
   .hero-title-wrap::after { height: 22px; }
   .hero-subtitle { font-size: 1rem; }
-  .hero-offer-cta { padding: 0.85rem; }
-  .hero-stats { gap: 1.25rem; }
-  .hero-stat-num { font-size: 1.4rem; }
-
   .filter-section { top: 90px; }
-  .filter-pills { max-height: 40px; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .filter-pills::-webkit-scrollbar { display: none; }
+  .filter-controls { width: 100%; }
+  .filter-group { width: 100%; }
+  .filter-select { flex: 1; min-width: 0; }
   .view-toggles { display: none; }
 
   .card-grid { grid-template-columns: 1fr; }
@@ -1430,44 +1065,33 @@ a:hover { color: var(--gold-light); }
   .state-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
   .info-inner { grid-template-columns: 1fr; gap: 2rem; }
 
-  .cta-form { flex-direction: column; }
+  .cta-form { grid-template-columns: 1fr; }
+  .cta-form .cta-wide { grid-column: auto; }
   .cta-form input[type="email"],
   .cta-form input[type="text"],
+  .cta-form input[type="tel"],
   .cta-form select { min-width: 100%; }
-  .reminder-cta-card .reminder-form { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
   body { overflow-x: hidden; }
   .hero,
-  .dealer-section,
-  .cta-section,
   .shows-section,
   .featured-section,
   .states-section,
   .info-section,
-  .sponsor-preview-section { padding-left: 0.85rem; padding-right: 0.85rem; }
-  .dealer-card,
-  .reminder-cta-card,
+  .listing-trust-intro,
+  .market-strip-section { padding-left: 0.85rem; padding-right: 0.85rem; }
   .cta-inner { max-width: 100%; }
-  .dealer-card { padding: 1rem; }
-  .dealer-form .form-row,
-  .dealer-signup-form .cta-form .form-row-2 { grid-template-columns: 1fr; }
-  .dealer-form input,
-  .dealer-form select,
-  .dealer-form textarea,
   .cta-form input,
   .cta-form select,
   .cta-form textarea,
-  .cta-form button,
-  .reminder-cta-card .reminder-form input,
-  .reminder-cta-card .reminder-form button {
+  .cta-form button {
     min-width: 0 !important;
     width: 100% !important;
   }
   .consent-label,
   .mobile-consent-label,
-  .dealer-form label,
   .cta-form label {
     display: grid !important;
     gap: 0.55rem !important;
@@ -1476,7 +1100,6 @@ a:hover { color: var(--gold-light); }
   }
   .consent-label input[type="checkbox"],
   .mobile-consent-label input[type="checkbox"],
-  .dealer-form label input[type="checkbox"],
   .cta-form label input[type="checkbox"] {
     height: 1rem !important;
     margin-top: 0.15rem !important;
@@ -1484,7 +1107,6 @@ a:hover { color: var(--gold-light); }
   }
   .consent-label span,
   .mobile-consent-label span,
-  .dealer-form label span,
   .cta-form label span {
     min-width: 0;
     overflow-wrap: anywhere;
@@ -1498,6 +1120,9 @@ a:hover { color: var(--gold-light); }
 /* === Utility === */
 .hidden { display: none !important; }
 </style>
+{% if site.review_mode %}
+{% include local_review_notes.html %}
+{% endif %}
 </head>
 <body>
 
@@ -1505,7 +1130,7 @@ a:hover { color: var(--gold-light); }
 <div class="sticky-header">
   {% include top-nav.html %}
   <div class="construction-banner">
-    <strong>Site Under Construction</strong> &mdash; We're building the most complete coin show directory in the US, with dealer verification, pre-show offers, and collection tools. Please excuse any errors or incomplete information as we build things out. <a href="#signup">Let us know</a> if you spot something wrong.
+    <strong>Verify before traveling</strong> &mdash; Show details can change. Check each listing's source and last-checked date, or <a href="{{ site.baseurl }}/contact/">report a correction</a>.
   </div>
 </div>
 
@@ -1517,27 +1142,13 @@ a:hover { color: var(--gold-light); }
         <img class="hero-title-logo" src="{{ site.baseurl }}/assets/images/coinshows-title-gold-banknote-transparent-v3-sharp.png?v=20260626-3" alt="Coin Shows Near Me">
       </div>
       <h1>Find <span>Coin Shows</span> Near You</h1>
-      <p class="hero-subtitle">The most complete directory of coin shows in the United States. Browse {{ site.data.shows | size }}+ shows across all 50 states.</p>
-
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-num">{{ site.data.shows | size }}+</span>
-          <span class="hero-stat-label">Shows Listed</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">50</span>
-          <span class="hero-stat-label">States</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">160+</span>
-          <span class="hero-stat-label">Cities</span>
-        </div>
-      </div>
+      <p class="hero-subtitle">Search our growing nationwide directory of {{ site.data.shows | size }} currently listed coin shows by state abbreviation, state name, city, venue, or show name.</p>
 
       <div class="hero-action-stage">
+        <label class="search-label" for="show-search">Search the coin show directory</label>
         <div class="search-wrap">
           <span class="search-icon">&#128269;</span>
-          <input type="text" class="search-input" id="show-search" placeholder="Search by show name, city, or state...">
+          <input type="search" class="search-input" id="show-search" placeholder="Try CA, California, Anaheim, or a venue..." autocomplete="off">
         </div>
         <div class="hero-search-results-note" id="hero-search-results-note" aria-live="polite">
           <div id="hero-search-results-text">Showing matching shows below.</div>
@@ -1546,80 +1157,85 @@ a:hover { color: var(--gold-light); }
       </div>
 
     </div>
-
-    <div class="hero-right-side" aria-hidden="false">
-      <aside class="hero-offer-cta">
-        <h2>Get Offers Before the Show</h2>
-        <p>Get offers on your coin collection or bullion from dealers before you attend the show.</p>
-        <a class="hero-offer-btn" href="#quote-section">Get Dealer Quotes</a>
-      </aside>
-    </div>
-
-    <div class="spot-ticker" id="spot-ticker">
-      <div class="spot-ticker-item">
-        <span class="spot-ticker-label">Gold</span>
-        <span class="spot-ticker-price" id="spot-gold-price">--</span>
+    <!-- Single compact homepage signup form: do not duplicate this lower on the page. -->
+    <aside class="cta-section" id="signup" aria-labelledby="signup-title">
+      <div class="cta-inner">
+        <h2 id="signup-title">Stay in the <span>Loupe</span></h2>
+        <p><strong style="color:#fff;">Never miss a coin show.</strong> Tell us where you collect while we build reminder delivery. Joining records your interest; it does not activate recurring messages.</p>
+        <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
+          <input type="hidden" name="_subject" value="[Coin Show Near Me][Reminder Interest] Homepage request">
+          <input type="hidden" name="form_type" value="show_reminder_interest">
+          <input type="hidden" name="source" value="Website">
+          <input type="hidden" name="formName" value="showReminderInterest">
+          <input type="hidden" name="coinContactRoles" value="attendee">
+          <input type="hidden" name="ctaCode" value="homepage_reminder_interest">
+          <input type="hidden" name="sourceDetail" value="Homepage Stay in the Loupe reminder interest form">
+          <input type="hidden" name="pageUrl" value="">
+          <input type="hidden" name="referringUrl" value="">
+          <input type="hidden" name="submittedAt" value="">
+          <input type="hidden" name="contactConsentTimestamp" value="">
+          <input type="hidden" name="contactConsentVersion" value="coin-reminder-interest-consent-v1">
+          <input type="hidden" name="contactConsentText" value="Notify me when show reminders become available. No reminder service is active yet. Privacy Policy.">
+          <input type="text" name="first_name" aria-label="First name" placeholder="First name" autocomplete="given-name" required>
+          <input type="text" name="last_name" aria-label="Last name" placeholder="Last name" autocomplete="family-name" required>
+          <input type="email" name="email" aria-label="Email address" placeholder="Email address" autocomplete="email" required>
+          <select name="preferredState" aria-label="State" required>
+            <option value="" disabled selected>Select your state</option>
+            {% for state in site.data.states %}<option value="{{ state.abbrev }}">{{ state.name }}</option>{% endfor %}
+          </select>
+          <input class="cta-wide" type="text" name="interested_shows_locations" aria-label="Show, city, or region of interest (optional)" placeholder="Show, city, or region of interest (optional)">
+          <label class="cta-consent cta-wide">
+            <input type="checkbox" name="contactConsent" value="yes" aria-label="Notify me when show reminders become available" required>
+            <span>Notify me when show reminders become available. No reminder service is active yet. <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+          </label>
+          <button class="cta-wide" type="submit">Join the Interest List</button>
+        </form>
+        <div class="cta-success" id="notify-success" role="status" tabindex="-1">
+          Thanks — we recorded your reminder interests. No recurring reminder service is active yet.
+        </div>
       </div>
+    </aside>
+  </div>
+  <!-- Compact market reference stays inside the hero. -->
+  <section class="market-strip-section" aria-label="Current precious metal spot prices">
+    <div class="home-spot-ticker" id="spot-ticker">
+      <div class="spot-ticker-item"><span class="spot-ticker-label">Gold</span><span class="spot-ticker-price" id="spot-gold-price">--</span></div>
       <span class="spot-ticker-sep">|</span>
-      <div class="spot-ticker-item">
-        <span class="spot-ticker-label">Silver</span>
-        <span class="spot-ticker-price" id="spot-silver-price">--</span>
-      </div>
+      <div class="spot-ticker-item"><span class="spot-ticker-label">Silver</span><span class="spot-ticker-price" id="spot-silver-price">--</span></div>
       <span class="spot-ticker-sep">|</span>
-      <div class="spot-ticker-item">
-        <span class="spot-ticker-label">Platinum</span>
-        <span class="spot-ticker-price" id="spot-platinum-price">--</span>
-      </div>
+      <div class="spot-ticker-item"><span class="spot-ticker-label">Platinum</span><span class="spot-ticker-price" id="spot-platinum-price">--</span></div>
       <span class="spot-ticker-sep">|</span>
-      <div class="spot-ticker-item">
-        <span class="spot-ticker-label">Palladium</span>
-        <span class="spot-ticker-price" id="spot-palladium-price">--</span>
-      </div>
+      <div class="spot-ticker-item"><span class="spot-ticker-label">Palladium</span><span class="spot-ticker-price" id="spot-palladium-price">--</span></div>
       <div class="spot-ticker-updated" id="spot-ticker-updated">Loading spot prices...</div>
     </div>
-  </div>
+  </section>
 </section>
 
-<!-- Sponsored Placements Preview -->
-<section class="sponsor-preview-section" aria-label="Sponsored industry placements preview">
-  <div class="sponsor-preview-card">
-    <div class="sponsor-preview-header">
-      <div class="sponsor-preview-eyebrow">Coming Soon</div>
-      <h2>Sponsored Dealer &amp; Industry Partner Placements</h2>
-      <p>Sponsored dealer and industry partner placements coming soon.</p>
-    </div>
-    <div class="sponsor-preview-track">
-      <div class="sponsor-preview-slide">
-        <h3>Dealer Spotlight</h3>
-        <p>Placeholder for future friendly dealer or beta partner features. No real dealer is listed yet.</p>
-      </div>
-      <div class="sponsor-preview-slide">
-        <h3>Coin &amp; Bullion Services</h3>
-        <p>Future placements may include coin insurance, safe/security, storage, auction, grading, and related services.</p>
-      </div>
-      <div class="sponsor-preview-slide">
-        <h3>Industry Partners</h3>
-        <p>Future placements may include grading, storage, auction, security, and other coin/bullion industry services.</p>
-      </div>
-    </div>
-    <p class="sponsor-preview-note">This is a placeholder preview only. Paid placements, beta partners, and live sponsor content need separate approval before publishing.</p>
-  </div>
+<section class="listing-trust-intro" aria-label="How listing information is presented">
+  <p><strong>How the directory count works:</strong> The total comes from current directory records and changes after verified listings are added or removed. Search and filters update the visible count immediately. Automated reports monitor known official sources and discover leads, but every new or changed listing is reviewed before publication.</p>
+  <p><strong>Clear listing status:</strong> Scheduled means an explicit confirmed event range ends today or later. Date not confirmed means no complete future date is verified. Past date — next date unconfirmed means the known occurrence passed but the recurring series may continue. Open a show to see its verification source and last-checked date.</p>
 </section>
-
-{% include ad-placeholder.html %}
 
 <!-- Filter Bar -->
 <section class="filter-section" id="filter-section">
   <div class="filter-inner">
-    <span class="filter-label">Filter:</span>
-    <div class="filter-pills" id="filter-pills">
-      <span class="filter-pill active" data-state="all">All States</span>
-      {% for state in site.data.states %}
-        {% assign sc = site.data.shows | where: "state", state.abbrev | size %}
-        {% if sc > 0 %}
-        <span class="filter-pill" data-state="{{ state.abbrev }}">{{ state.abbrev }}<span class="filter-count">{{ sc }}</span></span>
-        {% endif %}
-      {% endfor %}
+    <div class="filter-controls">
+      <div class="filter-group" aria-label="Filter shows by date">
+        <span class="filter-label">When:</span>
+        <button type="button" class="filter-pill active" data-date-filter="all">All Shows</button>
+        <button type="button" class="filter-pill" data-date-filter="weekend">This Weekend</button>
+        <button type="button" class="filter-pill" data-date-filter="month">This Month</button>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="state-filter">State:</label>
+        <select class="filter-select" id="state-filter">
+          <option value="all">All States</option>
+          {% for state in site.data.states %}
+            {% assign sc = site.data.shows | where: "state", state.abbrev | size %}
+            {% if sc > 0 %}<option value="{{ state.abbrev }}">{{ state.name }} ({{ sc }})</option>{% endif %}
+          {% endfor %}
+        </select>
+      </div>
     </div>
     <div class="view-toggles">
       <button class="view-btn active" data-view="grid" title="Grid view">&#9638; Grid</button>
@@ -1632,53 +1248,15 @@ a:hover { color: var(--gold-light); }
 <div class="results-bar">
   <div class="results-count" id="results-count">
     Showing <strong id="showing-count">{{ site.data.shows | size }}</strong> coin shows
+    <span class="results-count-note">This visible number updates when you search or filter.</span>
   </div>
 </div>
 
 <!-- Show Cards -->
 <section class="shows-section">
-  <!-- Reminder CTA Card (above grid so show cards do not stretch to match the form) -->
-  <div class="reminder-cta-card" id="reminder-cta-grid">
-    <h3>Never Miss a Coin Show</h3>
-    <p>Get a reminder a week before upcoming shows near you — by email or text.</p>
-    <form class="reminder-form" id="reminder-form-grid" action="#" data-form-key="mykleozw" method="POST">
-      <input type="hidden" name="_subject" value="Coin Show Near Me — Show Reminder Signup">
-      <input type="hidden" name="form_type" value="show_reminder">
-      <input type="hidden" name="source" value="Website">
-      <input type="hidden" name="formName" value="showReminder">
-      <input type="hidden" name="coinContactRoles" value="attendee">
-      <input type="hidden" name="ctaCode" value="homepage_show_grid_reminder">
-      <input type="hidden" name="sourceDetail" value="Homepage show-grid reminder card">
-      <input type="hidden" name="pageUrl" value="">
-      <input type="hidden" name="referringUrl" value="">
-      <input type="hidden" name="submittedAt" value="">
-      <input type="hidden" name="contactConsentTimestamp" value="">
-      <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-      <input type="hidden" name="reminderConsentTimestamp" value="">
-      <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-      <input type="email" name="email" placeholder="Email address" required>
-      <input type="tel" name="phone" placeholder="Mobile number (optional, for text reminders)">
-      <div class="consent-group">
-        <label class="consent-label">
-          <input type="checkbox" name="contactConsent" value="yes" required>
-          <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-        </label>
-        <label class="consent-label">
-          <input type="checkbox" name="showReminderOptIn" id="sms-consent-grid" value="yes" required>
-          <span>Send me reminders about coin shows near me. <a href="/legal/terms-of-use/#sms-terms" target="_blank">SMS Terms</a> &amp; <a href="/legal/privacy-policy/" target="_blank">Privacy Policy</a>.</span>
-        </label>
-      </div>
-      <button type="submit">Remind Me</button>
-    </form>
-    <div class="reminder-cta-success" id="reminder-grid-success">
-      You're signed up! We'll remind you before upcoming shows.
-    </div>
-  </div>
-
   <div class="card-grid" id="card-grid">
     {% for show in site.data.shows %}
-    <div class="show-card" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}" data-venue="{{ show.venue | downcase }}" data-address="{{ show.street_address | default: show.location_details | default: '' | downcase }}">
+    <div class="show-card" data-show-date-record data-confirmed-dates="{{ show.upcoming_dates | join: ',' }}" data-series-ended="{% if show.series_ended == true %}true{% else %}false{% endif %}" data-state="{{ show.state }}" data-name="{{ show.name | downcase }}" data-city="{{ show.city | downcase }}" data-state-name="{{ show.state_name | downcase }}" data-venue="{{ show.venue | downcase }}" data-address="{{ show.street_address | default: show.location_details | default: '' | downcase }}" data-upcoming-dates="{{ show.upcoming_dates | join: ',' }}">
       <a href="{{ site.baseurl }}/shows/{{ show.id }}/" class="show-card-link" aria-label="{{ show.name }}"></a>
       <div class="show-card-header">
         <div class="show-card-name">
@@ -1695,11 +1273,7 @@ a:hover { color: var(--gold-light); }
       <div class="show-card-address">General location: {{ show.location_details }}</div>
       {% endif %}
       <div class="show-card-details">
-        {% if show.next_date and show.next_date != "TBD" %}
-        <span class="show-card-tag date-tag">{{ show.next_date }}</span>
-        {% else %}
-        <span class="show-card-tag tbd-tag">Date TBD</span>
-        {% endif %}
+        <span class="show-card-tag date-tag" data-show-date-display hidden></span>
         {% if show.frequency and show.frequency != "" %}
         <span class="show-card-tag">{{ show.frequency }}</span>
         {% endif %}
@@ -1707,6 +1281,10 @@ a:hover { color: var(--gold-light); }
       {% if show.notes and show.notes != "" %}
       <div class="show-card-notes">{{ show.notes }}</div>
       {% endif %}
+      <div class="show-card-trust">
+        <span class="trust-status" data-show-date-status>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
+        {% if show.last_verified %}<span>Checked {{ show.last_verified | date: "%b %-d, %Y" }}</span>{% else %}<span>Not yet source-checked</span>{% endif %}
+      </div>
     </div>
     {% endfor %}
   </div>
@@ -1726,7 +1304,7 @@ a:hover { color: var(--gold-light); }
       {% for fid in featured_ids %}
         {% for show in site.data.shows %}
           {% if show.id == fid %}
-          <div class="featured-card">
+          <div class="featured-card" data-show-date-record data-confirmed-dates="{{ show.upcoming_dates | join: ',' }}" data-series-ended="{% if show.series_ended == true %}true{% else %}false{% endif %}">
             <span class="featured-badge">Major Show</span>
             <div class="show-card-header">
               <div class="show-card-name">
@@ -1738,16 +1316,16 @@ a:hover { color: var(--gold-light); }
               &#128205; {{ show.city }}, {{ show.state_name }}{% if show.venue and show.venue != "" %} &mdash; {{ show.venue }}{% endif %}
             </div>
             <div class="show-card-details">
-              {% if show.next_date and show.next_date != "TBD" %}
-              <span class="show-card-tag date-tag">{{ show.next_date }}</span>
-              {% else %}
-              <span class="show-card-tag tbd-tag">Date TBD</span>
-              {% endif %}
+              <span class="show-card-tag date-tag" data-show-date-display hidden></span>
               <span class="show-card-tag">{{ show.frequency }}</span>
             </div>
             {% if show.notes and show.notes != "" %}
             <div class="show-card-notes">{{ show.notes }}</div>
             {% endif %}
+            <div class="show-card-trust">
+              <span class="trust-status" data-show-date-status>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
+              {% if show.last_verified %}<span>Checked {{ show.last_verified | date: "%b %-d, %Y" }}</span>{% else %}<span>Not yet source-checked</span>{% endif %}
+            </div>
           </div>
           {% endif %}
         {% endfor %}
@@ -1800,178 +1378,6 @@ a:hover { color: var(--gold-light); }
   </div>
 </section>
 
-<!-- Dealer Portal -->
-<div class="dealer-section" id="quote-section">
-  <div class="dealer-card">
-    <div class="dealer-info">
-      <h3>Get Quotes Before the Show</h3>
-      <p>Planning to sell or get an appraisal at an upcoming coin show? Tell us what you have and which show you're attending — we'll connect you with verified dealers who can give you offers before you walk through the door.</p>
-      <ul>
-        <li>Get competing offers from multiple dealers</li>
-        <li>Know what your collection is worth before you go</li>
-        <li>No more lugging coins table to table hoping for a fair price</li>
-        <li>Free — no obligation, no fees</li>
-      </ul>
-    </div>
-    <div>
-      <form class="dealer-form" id="dealer-form" action="#" data-form-key="mykleozw" method="POST">
-        <input type="hidden" name="_subject" value="Coin Show Near Me — Attendee Wants a Quote">
-        <input type="hidden" name="source" value="Website">
-        <input type="hidden" name="formName" value="quoteBeforeShow">
-        <input type="hidden" name="coinContactRoles" value="sellerOfferRequest">
-        <input type="hidden" name="ctaCode" value="homepage_quote_before_show">
-        <input type="hidden" name="sourceDetail" value="Homepage Get Quotes Before the Show form">
-        <input type="hidden" name="pageUrl" value="">
-        <input type="hidden" name="referringUrl" value="">
-        <input type="hidden" name="submittedAt" value="">
-        <input type="hidden" name="contactConsentTimestamp" value="">
-        <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-        <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-        <input type="hidden" name="reminderConsentTimestamp" value="">
-        <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Email address" required>
-        </div>
-        <input type="text" name="show" placeholder="Which show are you attending? (name, city, or state)">
-        <select name="interest">
-          <option value="" disabled selected>What are you looking to do?</option>
-          <option value="sell">Sell coins or collection</option>
-          <option value="appraisal">Get an appraisal</option>
-          <option value="buy">Buy specific coins</option>
-          <option value="other">Other</option>
-        </select>
-        <textarea name="message" placeholder="Describe what you have or what you're looking for..."></textarea>
-        <p class="offer-disclaimer">This offer request tool is still being tested. Submitting a request does not guarantee a dealer response or final offer. Any offer, appraisal, sale, or purchase is between you and the dealer.</p>
-        <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-          <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-          <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-        </label>
-        <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-          <input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;accent-color:var(--gold);">
-          <span>Send me reminders about coin shows near me.</span>
-        </label>
-        <button type="submit">Submit Inquiry</button>
-      </form>
-      <div class="dealer-success" id="dealer-success">
-        Thank you! We'll connect you with dealers attending your show. Check your email for next steps.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CTA / Signup -->
-<section class="cta-section" id="signup">
-  <div class="cta-inner">
-    <h2>Stay in the <span>Loupe</span></h2>
-    <p>Get notified when we launch new features, or submit a show we're missing.</p>
-    <form class="cta-form" id="notify-form" action="#" data-form-key="mykleozw" method="POST">
-      <input type="hidden" name="_subject" value="Coin Show Near Me — New Signup">
-      <input type="hidden" name="source" value="Website">
-      <input type="hidden" name="formName" value="homepageSignup">
-      <input type="hidden" name="ctaCode" value="homepage_stay_in_loupe">
-      <input type="hidden" name="sourceDetail" value="Homepage Stay in the Loupe signup form">
-      <input type="hidden" name="pageUrl" value="">
-      <input type="hidden" name="referringUrl" value="">
-      <input type="hidden" name="submittedAt" value="">
-      <input type="hidden" name="contactConsentTimestamp" value="">
-      <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-      <input type="hidden" name="reminderConsentTimestamp" value="">
-      <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-      <input type="text" name="name" placeholder="Name (optional)">
-      <input type="email" name="email" placeholder="Email address" required>
-      <select name="coinContactRoles" required>
-        <option value="" disabled selected>I am...</option>
-        <option value="attendee">Attending a coin show</option>
-        <option value="dealerVendor">Coin dealer / vendor</option>
-        <option value="showOrganizer">Show organizer / promoter</option>
-        <option value="venueContact">Venue contact</option>
-        <option value="advertiserSponsor">Advertiser / sponsor</option>
-        <option value="sellerOfferRequest">Selling coins / request an offer</option>
-        <option value="generalInquiry">General question</option>
-      </select>
-      <input type="text" name="show_social_media" placeholder="Show social media links (optional)">
-      <textarea name="message" placeholder="Questions, show submissions, or feedback (optional)"></textarea>
-      <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-        <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-        <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-      </label>
-      <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-        <input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;accent-color:var(--gold);">
-        <span>Send me reminders about coin shows near me.</span>
-      </label>
-      <button type="submit">Sign Up for Updates</button>
-    </form>
-    <div class="cta-success" id="notify-success">
-      Thank you! We'll notify you when we launch. If you submitted a show or question, we'll get back to you shortly.
-    </div>
-
-    <div class="dealer-toggle">
-      <label>
-        <input type="checkbox" id="dealer-checkbox">
-        Are you a coin/bullion dealer?
-      </label>
-    </div>
-
-    <div class="dealer-signup-form" id="dealer-signup-form">
-      <h3>Dealer Registration</h3>
-      <p>Get listed in our directory and connect with attendees looking to buy, sell, or get appraisals at your shows.</p>
-      <form class="cta-form" id="dealer-reg-form" action="#" data-form-key="mykleozw" method="POST">
-        <input type="hidden" name="_subject" value="Coin Show Near Me — Dealer Registration">
-        <input type="hidden" name="form_type" value="dealer_registration">
-        <input type="hidden" name="source" value="Website">
-        <input type="hidden" name="formName" value="dealerRegistration">
-        <input type="hidden" name="coinContactRoles" value="dealerVendor">
-        <input type="hidden" name="ctaCode" value="homepage_dealer_registration">
-        <input type="hidden" name="sourceDetail" value="Homepage dealer registration form">
-        <input type="hidden" name="pageUrl" value="">
-        <input type="hidden" name="referringUrl" value="">
-        <input type="hidden" name="submittedAt" value="">
-        <input type="hidden" name="contactConsentTimestamp" value="">
-        <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-        <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-        <input type="hidden" name="reminderConsentTimestamp" value="">
-        <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-        <div class="form-row-2">
-          <input type="text" name="dealer_name" placeholder="Your name" required>
-          <input type="text" name="business_name" placeholder="Business / dealer name" required>
-        </div>
-        <div class="form-row-2">
-          <input type="email" name="email" placeholder="Email address" required>
-          <input type="text" name="phone" placeholder="Phone (optional)">
-        </div>
-        <input type="text" name="website" placeholder="Website (optional)">
-        <input type="text" name="social_media" placeholder="Social media links (Instagram, Facebook, YouTube, X — optional)">
-        <select name="specialty">
-          <option value="" disabled selected>Primary specialty</option>
-          <option value="us-coins">US Coins</option>
-          <option value="world-coins">World / Foreign Coins</option>
-          <option value="bullion">Gold & Silver Bullion</option>
-          <option value="currency">Paper Currency</option>
-          <option value="tokens-medals">Tokens & Medals</option>
-          <option value="supplies">Supplies & Accessories</option>
-          <option value="full-service">Full Service (All of the Above)</option>
-        </select>
-        <textarea name="shows_attended" placeholder="Which shows do you regularly attend? (names, cities, or states)"></textarea>
-        <textarea name="message" placeholder="Anything else you'd like us to know? (optional)"></textarea>
-        <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-          <input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;accent-color:var(--gold);">
-          <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-        </label>
-        <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;margin:0.25rem 0;font-size:0.75rem;line-height:1.4;color:#cbd5e1;">
-          <input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;accent-color:var(--gold);">
-          <span>Send me reminders about coin shows near me.</span>
-        </label>
-        <button type="submit">Register as a Dealer</button>
-      </form>
-      <div class="cta-success" id="dealer-reg-success">
-        Thank you for registering! We'll be in touch with details about our dealer directory and upcoming features.
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer class="site-footer">
   <div class="footer-inner">
@@ -1979,21 +1385,19 @@ a:hover { color: var(--gold-light); }
       <a href="/guides/">Guides</a>
       <a href="/tools/sales-tax-guide/">Sales Tax Guide</a>
       <a href="/tools/melt-value-calculator/">Melt Calculator</a>
-      <a href="https://www.instagram.com/coinshowsnearme" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="/legal/terms-of-use/">Terms</a>
       <a href="/legal/privacy-policy/">Privacy</a>
       <a href="/legal/disclaimer/">Disclaimer</a>
     </div>
     <div class="footer-copy">&copy; {{ site.time | date: '%Y' }} Coin Show Near Me &mdash; All rights reserved.</div>
-    <div class="footer-version">v0.9.31</div>
+    <div class="footer-version">v0.17.0</div>
   </div>
 </footer>
 
 <!-- Scripts -->
 <script>
-var COIN_CONTACT_CONSENT_VERSION = 'coin-contact-consent-v1';
-var COIN_CONTACT_CONSENT_TEXT = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
-var COIN_REMINDER_CONSENT_VERSION = 'coin-show-reminder-v1';
+var COIN_CONTACT_CONSENT_VERSION = 'coin-reminder-interest-consent-v1';
+var COIN_CONTACT_CONSENT_TEXT = 'Notify me when show reminders become available. No reminder service is active yet. Privacy Policy.';
 
 function setFormValue(form, name, value) {
   var field = form.querySelector('[name="' + name + '"]');
@@ -2009,24 +1413,18 @@ function fillCrmFormMetadata(form) {
   setFormValue(form, 'submittedAt', now);
   setFormValue(form, 'contactConsentVersion', COIN_CONTACT_CONSENT_VERSION);
   setFormValue(form, 'contactConsentText', COIN_CONTACT_CONSENT_TEXT);
-  setFormValue(form, 'reminderConsentVersion', COIN_REMINDER_CONSENT_VERSION);
-
   var contactConsent = form.querySelector('[name="contactConsent"]');
   if (contactConsent && contactConsent.checked) {
     setFormValue(form, 'contactConsentTimestamp', now);
   }
-
-  var reminderConsent = form.querySelector('[name="showReminderOptIn"]');
-  if (reminderConsent && reminderConsent.checked) {
-    setFormValue(form, 'reminderConsentTimestamp', now);
-  }
 }
 
+{% include show-date-status.js %}
 {% include homepage-search-match.js %}
 
-/* State filter */
+/* Combined date, state, and search filters */
 (function() {
-  var pills = document.querySelectorAll('.filter-pill');
+  var datePills = document.querySelectorAll('[data-date-filter]');
   var cards = document.querySelectorAll('.show-card');
   var countEl = document.getElementById('showing-count');
   var noResults = document.getElementById('no-results');
@@ -2035,7 +1433,9 @@ function fillCrmFormMetadata(form) {
   var searchNoteText = document.getElementById('hero-search-results-text');
   var searchNoteButton = document.getElementById('hero-search-results-button');
   var resultsBar = document.querySelector('.results-bar');
+  var stateSelect = document.getElementById('state-filter');
   var activeState = 'all';
+  var activeDateFilter = 'all';
   var searchTerm = '';
   var stateAbbreviations = Object.create(null);
   {% for state in site.data.states %}
@@ -2058,6 +1458,7 @@ function fillCrmFormMetadata(form) {
     for (var i = 0; i < cards.length; i++) {
       var card = cards[i];
       var stateMatch = (activeState === 'all') || (card.getAttribute('data-state') === activeState);
+      var dateMatch = showMatchesDateFilter(card.getAttribute('data-upcoming-dates'), activeDateFilter, new Date());
       var searchMatch = true;
       if (searchTerm) {
         searchMatch = showMatchesSearch({
@@ -2069,7 +1470,7 @@ function fillCrmFormMetadata(form) {
           address: card.getAttribute('data-address')
         }, searchTerm, stateAbbreviations);
       }
-      if (stateMatch && searchMatch) {
+      if (stateMatch && dateMatch && searchMatch) {
         card.style.display = '';
         visible++;
       } else {
@@ -2092,11 +1493,18 @@ function fillCrmFormMetadata(form) {
     searchNoteButton.addEventListener('click', scrollToResults);
   }
 
-  for (var i = 0; i < pills.length; i++) {
-    pills[i].addEventListener('click', function() {
-      for (var j = 0; j < pills.length; j++) { pills[j].classList.remove('active'); }
+  for (var i = 0; i < datePills.length; i++) {
+    datePills[i].addEventListener('click', function() {
+      for (var j = 0; j < datePills.length; j++) { datePills[j].classList.remove('active'); }
       this.classList.add('active');
-      activeState = this.getAttribute('data-state');
+      activeDateFilter = this.getAttribute('data-date-filter');
+      filterCards();
+    });
+  }
+
+  if (stateSelect) {
+    stateSelect.addEventListener('change', function() {
+      activeState = this.value;
       filterCards();
     });
   }
@@ -2130,139 +1538,44 @@ function fillCrmFormMetadata(form) {
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      if (!form.reportValidity()) { return; }
       fillCrmFormMetadata(form);
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       window.coinSubmitForm(form).then(function() {
         form.style.display = 'none';
-        document.getElementById('notify-success').style.display = 'block';
-      });
-    });
-  }
-})();
-
-/* Quote form (Get Quotes Before the Show) */
-(function() {
-  var quoteLinks = document.querySelectorAll('a[href="#quote-section"]');
-  var quoteSection = document.getElementById('quote-section');
-  if (quoteLinks.length && quoteSection) {
-    Array.prototype.forEach.call(quoteLinks, function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        var stickyHeader = document.querySelector('.sticky-header');
-        var stickyFilter = document.querySelector('.filter-section');
-        var stickyHeight = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
-        var filterHeight = stickyFilter ? stickyFilter.getBoundingClientRect().height : 0;
-        var offset = stickyHeight + filterHeight + 32;
-        var targetTop = quoteSection.getBoundingClientRect().top + window.pageYOffset;
-        var top = Math.max(0, targetTop - offset);
-        document.documentElement.style.scrollBehavior = 'auto';
-        document.body.style.scrollBehavior = 'auto';
-        window.scrollTo(0, top);
-        history.replaceState(null, '', '#quote-section');
-      });
-    });
-  }
-
-  var form = document.getElementById('dealer-form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      fillCrmFormMetadata(form);
-      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      window.coinSubmitForm(form).then(function() {
-        form.style.display = 'none';
-        document.getElementById('dealer-success').style.display = 'block';
-      });
-    });
-  }
-})();
-
-/* Dealer checkbox toggle */
-(function() {
-  var checkbox = document.getElementById('dealer-checkbox');
-  var dealerForm = document.getElementById('dealer-signup-form');
-  if (checkbox && dealerForm) {
-    checkbox.addEventListener('change', function() {
-      if (this.checked) {
-        dealerForm.classList.add('visible');
-        dealerForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else {
-        dealerForm.classList.remove('visible');
-      }
-    });
-  }
-})();
-
-/* Dealer registration form */
-(function() {
-  var form = document.getElementById('dealer-reg-form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      fillCrmFormMetadata(form);
-      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      window.coinSubmitForm(form).then(function() {
-        form.style.display = 'none';
-        document.getElementById('dealer-reg-success').style.display = 'block';
-      });
-    });
-  }
-})();
-
-/* Reminder CTA — handle submit */
-(function() {
-  /* Form submit */
-  var form = document.getElementById('reminder-form-grid');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      fillCrmFormMetadata(form);
-      if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-      window.coinSubmitForm(form).then(function() {
-        form.style.display = 'none';
-        document.getElementById('reminder-grid-success').style.display = 'block';
+        var success = document.getElementById('notify-success');
+        success.style.display = 'block';
+        success.focus();
       });
     });
   }
 })();
 
 /* Spot prices */
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
   function formatPrice(price) {
-    if (price == null) return '--';
+    if (typeof price !== 'number') { return '--'; }
     return '$' + price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
-  function timeAgo(dateStr) {
-    var now = new Date();
-    var then = new Date(dateStr);
-    var mins = Math.round((now - then) / 60000);
-    if (mins < 1) return 'just now';
-    if (mins < 60) return mins + ' min ago';
-    var hrs = Math.round(mins / 60);
-    if (hrs < 24) return hrs + ' hr' + (hrs > 1 ? 's' : '') + ' ago';
-    var days = Math.round(hrs / 24);
-    return days + ' day' + (days > 1 ? 's' : '') + ' ago';
-  }
-  var jsonUrl = window.location.origin + '/assets/data/spot-prices.json';
-  fetch(jsonUrl)
-    .then(function(r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
+  var updated = document.getElementById('spot-ticker-updated');
+  fetch('{{ site.baseurl }}/assets/data/spot-prices.json')
+    .then(function(response) {
+      if (!response.ok) { throw new Error('HTTP ' + response.status); }
+      return response.json();
     })
     .then(function(data) {
       document.getElementById('spot-gold-price').textContent = formatPrice(data.gold);
       document.getElementById('spot-silver-price').textContent = formatPrice(data.silver);
       document.getElementById('spot-platinum-price').textContent = formatPrice(data.platinum);
       document.getElementById('spot-palladium-price').textContent = formatPrice(data.palladium);
-      var updated = data.updated_at ? 'Updated ' + timeAgo(data.updated_at) + ' . Spot prices per troy oz' : 'Spot prices per troy oz';
-      document.getElementById('spot-ticker-updated').textContent = updated;
-      window.SPOT_PRICES = data;
+      var updateDate = data.updated_at ? new Date(data.updated_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+      updated.textContent = 'Reference prices per troy oz' + (updateDate ? ' · Updated ' + updateDate : '');
     })
-    .catch(function(err) {
-      console.error('Spot prices failed:', err);
-      document.getElementById('spot-ticker-updated').textContent = 'Spot prices temporarily unavailable';
+    .catch(function() {
+      updated.textContent = 'Spot prices temporarily unavailable';
     });
-});
+})();
+
 </script>
 
 <!-- Schema.org structured data -->
@@ -2272,7 +1585,7 @@ document.addEventListener('DOMContentLoaded', function() {
   "@type": "WebSite",
   "name": "Coin Show Near Me",
   "url": "{{ site.url }}{{ site.baseurl }}/",
-  "description": "Complete directory of coin shows across the United States. Find upcoming coin shows, numismatic conventions, and coin expos near you."
+  "description": "Curated directory of coin shows across the United States. Find listed coin shows, numismatic conventions, and coin expos near you."
 }
 </script>
 
@@ -2294,7 +1607,7 @@ document.addEventListener('DOMContentLoaded', function() {
       "name": "How do I find coin shows near me?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use our directory to browse {{ site.data.shows | size }}+ coin shows across all 50 US states. Filter by state or search by city to find shows in your area."
+        "text": "Use our growing directory to browse {{ site.data.shows | size }} currently listed coin shows across the United States. Filter by state or search by city to find shows in your area, and verify details before traveling."
       }
     },
     {

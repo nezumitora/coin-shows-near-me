@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Wilmington Coin Club Show — New Castle, Delaware Coin Show"
-seo_title: "Wilmington Coin Club Show — New Castle, Delaware | Coin Show Near Me"
-seo_description: "Wilmington Coin Club Show in New Castle, Delaware. Annual (January) coin show at Nur Shrine Temple, 198 South DuPont Highway, New Castle, DE 19720. Get dates, venue details, and more."
+title: "Wilmington Coin Club Show"
+heading: "Wilmington Coin Club Show — New Castle, Delaware Coin Show"
+description: "Wilmington Coin Club Show in New Castle, Delaware. View dates, venue details, and listing verification before you travel."
 permalink: /shows/wilmington-coin-club-show/
 show_id: "wilmington-coin-club-show"
 breadcrumb_parent: "Delaware"

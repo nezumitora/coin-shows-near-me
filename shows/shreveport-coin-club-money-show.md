@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Shreveport Coin Club Money Show — Bossier City, Louisiana Coin Show"
-seo_title: "Shreveport Coin Club Money Show — Bossier City, Louisiana | Coin Show Near Me"
-seo_description: "Shreveport Coin Club Money Show in Bossier City, Louisiana. Annual (Summer) coin show at Bossier Civic Center, 620 Benton Rd, Bossier City, LA. Get dates, venue details, and more."
+title: "Shreveport Coin Club Money Show"
+heading: "Shreveport Coin Club Money Show — Bossier City, Louisiana Coin Show"
+description: "Shreveport Coin Club Money Show in Bossier City, Louisiana. View dates, venue details, and listing verification before you travel."
 permalink: /shows/shreveport-coin-club-money-show/
 show_id: "shreveport-coin-club-money-show"
 breadcrumb_parent: "Louisiana"

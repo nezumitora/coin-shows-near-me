@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Annandale, Virginia — 2026-2027"
-seo_title: "Coin Shows in Annandale, Virginia — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Annandale, Virginia. Dates, venues, and details for upcoming coin shows and numismatic events in Annandale."
+title: "Annandale, VA Coin Shows"
+heading: "Coin Shows in Annandale, Virginia — 2026-2027"
+description: "Find 1 coin show in Annandale, Virginia. Compare dates, venues, and verification details before you travel."
 permalink: /cities/annandale-va/
 city_slug: "annandale-va"
 city_name: "Annandale"

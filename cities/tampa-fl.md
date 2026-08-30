@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Tampa, Florida — 2026-2027"
-seo_title: "Coin Shows in Tampa, Florida — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Tampa, Florida. Dates, venues, and details for upcoming coin shows and numismatic events in Tampa."
+title: "Tampa, FL Coin Shows"
+heading: "Coin Shows in Tampa, Florida — 2026-2027"
+description: "Find 2 coin shows in Tampa, Florida. Compare dates, venues, and verification details before you travel."
 permalink: /cities/tampa-fl/
 city_slug: "tampa-fl"
 city_name: "Tampa"

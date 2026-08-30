@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Greater Tacoma Coin Show — Tacoma, Washington Coin Show"
-seo_title: "Greater Tacoma Coin Show — Tacoma, Washington | Coin Show Near Me"
-seo_description: "Greater Tacoma Coin Show in Tacoma, Washington. Recurring coin show at Holiday Inn Express, I-5 and Bridgeport Way, Tacoma, WA. Get dates, venue details, and more."
+title: "Greater Tacoma Coin Show"
+heading: "Greater Tacoma Coin Show — Tacoma, Washington Coin Show"
+description: "Greater Tacoma Coin Show in Tacoma, Washington. View dates, venue details, and listing verification before you travel."
 permalink: /shows/greater-tacoma-coin-show/
 show_id: "greater-tacoma-coin-show"
 breadcrumb_parent: "Washington"

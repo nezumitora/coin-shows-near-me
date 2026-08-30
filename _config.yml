@@ -1,9 +1,9 @@
 title: "Coin Shows Near Me"
-description: "Find coin shows near you. Complete directory of 190+ coin shows across all 50 US states with dates, venues, and organizer details."
+description: "Find coin shows near you in a growing nationwide directory with dates, venues, organizer details, and verification context."
 url: "https://coinshownearme.com"
 baseurl: ""
 
-logo: "/assets/images/coinshows-buffalo-head-front-transparent-gold-navy.png"
+logo: "/assets/images/coinshows-buffalo-transparent-960w-v1.webp"
 
 remote_theme: just-the-docs/just-the-docs
 
@@ -14,12 +14,22 @@ plugins:
 
 markdown: kramdown
 
-search_enabled: true
+search_enabled: false
 nav_enabled: true
 
 # SEO
 lang: en-US
 tagline: "Find upcoming coin shows in your area"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: "/assets/images/logo.png"
+        width: 1254
+        height: 1254
+        alt: "Coin Shows Near Me buffalo logo"
 
 # just-the-docs nav
 nav_sort: order
@@ -36,6 +46,9 @@ exclude:
   - _scrapers/
   - Gemfile
   - Gemfile.lock
+  - DESIGN.md
+  - SESSION-STATE.md
+  - docs/
   - TODO.md
   - CHANGELOG.md
   - LICENSE

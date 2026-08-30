@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Oregon Coin, Currency, Token & Medal Show — Wilsonville, Oregon Coin Show"
-seo_title: "Oregon Coin, Currency, Token & Medal Show — Wilsonville, Oregon | Coin Show Near Me"
-seo_description: "Oregon Coin, Currency, Token & Medal Show in Wilsonville, Oregon. Recurring coin show at Holiday Inn, 25425 SW 95th Ave, Wilsonville, OR. Get dates, venue details, and more."
+title: "Oregon Coin & Currency Show"
+heading: "Oregon Coin, Currency, Token & Medal Show — Wilsonville, Oregon Coin Show"
+description: "Oregon Coin, Currency, Token & Medal Show in Wilsonville, Oregon. View dates, venue details, and listing verification before you travel."
 permalink: /shows/wilsonville-oregon-coin-currency-token-medal-show/
 show_id: "wilsonville-oregon-coin-currency-token-medal-show"
 breadcrumb_parent: "Oregon"

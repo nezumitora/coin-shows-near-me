@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "The Villages / Wildwood Coin Show — Wildwood, Florida Coin Show"
-seo_title: "The Villages / Wildwood Coin Show — Wildwood, Florida | Coin Show Near Me"
-seo_description: "The Villages / Wildwood Coin Show in Wildwood, Florida. Recurring coin show at American Legion Post 18, 401 E Gulf Atlantic Hwy, Wildwood, FL 34785. Get dates, venue details, and more."
+title: "The Villages / Wildwood Coin Show"
+heading: "The Villages / Wildwood Coin Show — Wildwood, Florida Coin Show"
+description: "The Villages / Wildwood Coin Show in Wildwood, Florida. View dates, venue details, and listing verification before you travel."
 permalink: /shows/the-villageswildwood-april-292026/
 show_id: "the-villageswildwood-april-292026"
 breadcrumb_parent: "Florida"

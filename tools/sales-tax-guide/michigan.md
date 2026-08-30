@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Michigan Sales Tax on Coins & Precious Metals"
-seo_title: "Michigan Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Michigan? Learn about Michigan sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Michigan Coin & Bullion Tax"
+heading: "Michigan Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Michigan? Learn about Michigan sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/michigan/
 nav_exclude: true
 state_abbrev: "MI"

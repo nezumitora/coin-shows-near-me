@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "BNA Monthly Coin, Stamp and Currency Show — Cheektowaga, New York Coin Show"
-seo_title: "BNA Monthly Coin, Stamp and Currency Show — Cheektowaga, New York | Coin Show Near Me"
-seo_description: "BNA Monthly Coin, Stamp and Currency Show in Cheektowaga, New York. Monthly coin show at The Knights Event Center in Columbus Banquet Hall, 2735 Union Rd, Cheektowaga, NY 14227. Get dates, venue details, and more."
+title: "BNA Monthly Coin & Stamp Show"
+heading: "BNA Monthly Coin, Stamp and Currency Show — Cheektowaga, New York Coin Show"
+description: "BNA Monthly Coin, Stamp and Currency Show in Cheektowaga, New York. View dates, venue details, and listing verification before you travel."
 permalink: /shows/bna-monthly-coin-stamp-and-currency-show/
 show_id: "bna-monthly-coin-stamp-and-currency-show"
 breadcrumb_parent: "New York"

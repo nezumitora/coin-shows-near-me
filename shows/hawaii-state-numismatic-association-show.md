@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Hawaii State Numismatic Association Show — Honolulu, Hawaii Coin Show"
-seo_title: "Hawaii State Numismatic Association Show — Honolulu, Hawaii | Coin Show Near Me"
-seo_description: "Hawaii State Numismatic Association Show in Honolulu, Hawaii. Annual (November) coin show at Hawaii Convention Center. Get dates, venue details, and more."
+title: "Hawaii State Numismatic Show"
+heading: "Hawaii State Numismatic Association Show — Honolulu, Hawaii Coin Show"
+description: "Hawaii State Numismatic Association Show in Honolulu, Hawaii. View dates, venue details, and listing verification before you travel."
 permalink: /shows/hawaii-state-numismatic-association-show/
 show_id: "hawaii-state-numismatic-association-show"
 breadcrumb_parent: "Hawaii"

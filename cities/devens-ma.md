@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Devens, Massachusetts — 2026-2027"
-seo_title: "Coin Shows in Devens, Massachusetts — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Devens, Massachusetts. Dates, venues, and details for upcoming coin shows and numismatic events in Devens."
+title: "Devens, MA Coin Shows"
+heading: "Coin Shows in Devens, Massachusetts — 2026-2027"
+description: "Find 1 coin show in Devens, Massachusetts. Compare dates, venues, and verification details before you travel."
 permalink: /cities/devens-ma/
 city_slug: "devens-ma"
 city_name: "Devens"

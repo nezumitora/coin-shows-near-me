@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Nebraska — 2026-2027 Schedule"
-seo_title: "Coin Shows in Nebraska — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 3 coin shows in Nebraska. Complete directory with dates, venues, and details for Nebraska coin shows, expos, and numismatic events."
+title: "Nebraska Coin Shows"
+heading: "Coin Shows in Nebraska — 2026-2027 Schedule"
+description: "Browse 3 coin shows in Nebraska with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/nebraska/
 state_abbrev: "NE"
 state_name: "Nebraska"

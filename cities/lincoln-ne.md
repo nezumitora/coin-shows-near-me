@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Lincoln, Nebraska — 2026-2027"
-seo_title: "Coin Shows in Lincoln, Nebraska — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Lincoln, Nebraska. Dates, venues, and details for upcoming coin shows and numismatic events in Lincoln."
+title: "Lincoln, NE Coin Shows"
+heading: "Coin Shows in Lincoln, Nebraska — 2026-2027"
+description: "Find 1 coin show in Lincoln, Nebraska. Compare dates, venues, and verification details before you travel."
 permalink: /cities/lincoln-ne/
 city_slug: "lincoln-ne"
 city_name: "Lincoln"

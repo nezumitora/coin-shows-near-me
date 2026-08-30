@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Waco Coin Show — Bellmead, Texas Coin Show"
-seo_title: "Waco Coin Show — Bellmead, Texas | Coin Show Near Me"
-seo_description: "Waco Coin Show in Bellmead, Texas. Annual (September) coin show at Bellmead Civic Center, 3900 Parrish Street, Bellmead, TX 76705. Get dates, venue details, and more."
+title: "Waco Coin Show"
+heading: "Waco Coin Show — Bellmead, Texas Coin Show"
+description: "Waco Coin Show in Bellmead, Texas. View dates, venue details, and listing verification before you travel."
 permalink: /shows/waco-coin-show/
 show_id: "waco-coin-show"
 breadcrumb_parent: "Texas"

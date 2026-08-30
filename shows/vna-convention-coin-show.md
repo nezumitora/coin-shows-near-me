@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "VNA Convention & Coin Show — Fredericksburg, Virginia Coin Show"
-seo_title: "VNA Convention & Coin Show — Fredericksburg, Virginia | Coin Show Near Me"
-seo_description: "VNA Convention & Coin Show in Fredericksburg, Virginia. Annual (September) coin show at Fredericksburg Expo Center. Get dates, venue details, and more."
+title: "VNA Convention & Coin Show"
+heading: "VNA Convention & Coin Show — Fredericksburg, Virginia Coin Show"
+description: "VNA Convention & Coin Show in Fredericksburg, Virginia. View dates, venue details, and listing verification before you travel."
 permalink: /shows/vna-convention-coin-show/
 show_id: "vna-convention-coin-show"
 breadcrumb_parent: "Virginia"

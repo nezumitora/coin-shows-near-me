@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Fremont, California — 2026-2027"
-seo_title: "Coin Shows in Fremont, California — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Fremont, California. Dates, venues, and details for upcoming coin shows and numismatic events in Fremont."
+title: "Fremont, CA Coin Shows"
+heading: "Coin Shows in Fremont, California — 2026-2027"
+description: "Find 1 coin show in Fremont, California. Compare dates, venues, and verification details before you travel."
 permalink: /cities/fremont-ca/
 city_slug: "fremont-ca"
 city_name: "Fremont"

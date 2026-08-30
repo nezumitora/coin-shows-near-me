@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Annual Johnstown Coin Show — Johnstown, Pennsylvania Coin Show"
-seo_title: "Annual Johnstown Coin Show — Johnstown, Pennsylvania | Coin Show Near Me"
-seo_description: "Annual Johnstown Coin Show in Johnstown, Pennsylvania. Annual (August) coin show at Richland Township Fire Department, 1321 Scalp Ave, Johnstown, PA. Get dates, venue details, and more."
+title: "Annual Johnstown Coin Show"
+heading: "Annual Johnstown Coin Show — Johnstown, Pennsylvania Coin Show"
+description: "Annual Johnstown Coin Show in Johnstown, Pennsylvania. View dates, venue details, and listing verification before you travel."
 permalink: /shows/greater-johnstown-coin-club-show/
 show_id: "greater-johnstown-coin-club-show"
 breadcrumb_parent: "Pennsylvania"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Mansfield Numismatic Society Coin Show — Willimantic, Connecticut Coin Show"
-seo_title: "Mansfield Numismatic Society Coin Show — Willimantic, Connecticut | Coin Show Near Me"
-seo_description: "Mansfield Numismatic Society Coin Show in Willimantic, Connecticut. Annual (Spring) coin show at Prospect Street School. Get dates, venue details, and more."
+title: "Mansfield Numismatic Society Coin Show"
+heading: "Mansfield Numismatic Society Coin Show — Willimantic, Connecticut Coin Show"
+description: "Mansfield Numismatic Society Coin Show in Willimantic, Connecticut. View dates, venue details, and listing verification before you travel."
 permalink: /shows/mansfield-numismatic-society-coin-show/
 show_id: "mansfield-numismatic-society-coin-show"
 breadcrumb_parent: "Connecticut"

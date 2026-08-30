@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Louisville Coin Show (LKSNA) — Louisville, Kentucky Coin Show"
-seo_title: "Louisville Coin Show (LKSNA) — Louisville, Kentucky | Coin Show Near Me"
-seo_description: "Louisville Coin Show (LKSNA) in Louisville, Kentucky. Semiannual (April & November) coin show at Hilton Garden Inn Louisville Airport. Get dates, venue details, and more."
+title: "Louisville Coin Show (LKSNA)"
+heading: "Louisville Coin Show (LKSNA) — Louisville, Kentucky Coin Show"
+description: "Louisville Coin Show (LKSNA) in Louisville, Kentucky. View dates, venue details, and listing verification before you travel."
 permalink: /shows/louisville-coin-show/
 show_id: "louisville-coin-show"
 breadcrumb_parent: "Kentucky"

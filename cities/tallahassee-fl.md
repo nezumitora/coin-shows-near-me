@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Tallahassee, Florida — 2026-2027"
-seo_title: "Coin Shows in Tallahassee, Florida — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Tallahassee, Florida. Dates, venues, and details for upcoming coin shows and numismatic events in Tallahassee."
+title: "Tallahassee, FL Coin Shows"
+heading: "Coin Shows in Tallahassee, Florida — 2026-2027"
+description: "Find 1 coin show in Tallahassee, Florida. Compare dates, venues, and verification details before you travel."
 permalink: /cities/tallahassee-fl/
 city_slug: "tallahassee-fl"
 city_name: "Tallahassee"

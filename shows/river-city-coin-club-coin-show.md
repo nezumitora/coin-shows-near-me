@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "River City Coin Club Coin Show — Hurricane, West Virginia Coin Show"
-seo_title: "River City Coin Club Coin Show — Hurricane, West Virginia | Coin Show Near Me"
-seo_description: "River City Coin Club Coin Show in Hurricane, West Virginia. Recurring coin show at Mount Vernon Baptist Church, 2150 Mt. Vernon Rd, Hurricane, WV. Get dates, venue details, and more."
+title: "River City Coin Club Coin Show"
+heading: "River City Coin Club Coin Show — Hurricane, West Virginia Coin Show"
+description: "River City Coin Club Coin Show in Hurricane, West Virginia. View dates, venue details, and listing verification before you travel."
 permalink: /shows/river-city-coin-club-coin-show/
 show_id: "river-city-coin-club-coin-show"
 breadcrumb_parent: "West Virginia"

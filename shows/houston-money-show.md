@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Houston Money Show — Conroe, Texas Coin Show"
-seo_title: "Houston Money Show — Conroe, Texas | Coin Show Near Me"
-seo_description: "Houston Money Show in Conroe, Texas. Annual (January) coin show at Lone Star Convention Center. Get dates, venue details, and more."
+title: "Houston Money Show"
+heading: "Houston Money Show — Conroe, Texas Coin Show"
+description: "Houston Money Show in Conroe, Texas. View dates, venue details, and listing verification before you travel."
 permalink: /shows/houston-money-show/
 show_id: "houston-money-show"
 breadcrumb_parent: "Texas"

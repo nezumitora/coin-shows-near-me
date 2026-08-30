@@ -1,0 +1,462 @@
+<details id="listing-review" class="listing-review-card" data-show-date-record data-confirmed-dates="{{ include.show.upcoming_dates | join: ',' }}" data-series-ended="{% if include.show.series_ended == true %}true{% else %}false{% endif %}">
+  <summary>
+    <span class="listing-review-kicker">One form for every listing request</span>
+    <span class="listing-review-title">Review or update this listing.</span>
+    <span class="listing-review-description">Expand the form to confirm details, submit a correction, request a manual claim or verification review, or request removal.</span>
+    <span class="listing-review-toggle listing-review-toggle--collapsed">Expand the full review form</span>
+    <span class="listing-review-toggle listing-review-toggle--expanded">Collapse the full review form</span>
+  </summary>
+  <div class="listing-review-body">
+    <div class="listing-review-instructions">
+      <strong>How this works:</strong> Every field starts marked <em>Correct as shown</em>. Uncheck only the fields that need changes, then edit the value beside them.
+      <p>Anyone with reliable information may submit a confirmation or correction. <strong>Organizer verified</strong> is reserved for an organizer, promoter, club officer, or authorized show staff member whose role is independently checked. After manual review, other input may be recorded as <em>Venue confirmed</em>, <em>Dealer reported</em>, or <em>Community reported</em> with the review date. Only independently checked evidence changes verification status; a submission never changes a listing or badge automatically. Do not submit passwords, identity documents, private home addresses, or other sensitive personal information.</p>
+    </div>
+    <form id="listing-review-form" action="#" data-form-key="mykleozw" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="[Coin Show Near Me][Listing Review] Request">
+      <input type="hidden" name="form_type" value="show_listing_review">
+      <input type="hidden" name="source" value="Website">
+      <input type="hidden" name="formName" value="showListingReview">
+      <input type="hidden" name="coinContactRoles" value="showInfoReporter">
+      <input type="hidden" name="ctaCode" value="show_page_listing_review">
+      <input type="hidden" name="sourceDetail" value="Unified show listing review form">
+      <input type="hidden" name="pageUrl" value="">
+      <input type="hidden" name="referringUrl" value="">
+      <input type="hidden" name="submittedAt" value="">
+      <input type="hidden" name="contactConsentTimestamp" value="">
+      <input type="hidden" name="contactConsentVersion" value="coin-listing-review-consent-v1">
+      <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may store this request and contact me to review the listing. Submitted changes, claims, verification, and removal requests are reviewed manually.">
+      <input type="hidden" name="confirmation_source_type" value="">
+      <input type="hidden" name="show_id" value="{{ include.show.id }}">
+      <input type="hidden" name="show_name" value="{{ include.show.name | escape }}">
+      <input type="hidden" name="show_city" value="{{ include.show.city | escape }}, {{ include.show.state_name | escape }}">
+
+      <fieldset class="listing-review-request">
+        <legend>What do you need?</legend>
+        <div class="listing-review-contact-grid">
+          <label>Request type
+            <select name="request_type" required>
+              <option value="">Choose one</option>
+            <option value="confirm">Confirm details as an attendee or knowledgeable party</option>
+            <option value="correction">Correct listing information</option>
+            <option value="claimListing">Claim this listing as an authorized representative</option>
+            <option value="organizerVerification">Ask us to verify my organizer or representative role</option>
+              <option value="reviewRemoval">Request review or removal</option>
+            </select>
+            <span class="listing-review-help">We independently review your role and evidence. Choosing this request does not verify the listing automatically.</span>
+          </label>
+          <label>Your relationship to this show
+            <select name="relationship_to_show" required>
+              <option value="">Choose one</option>
+              <option value="visitor">Attendee, visitor, or collector</option>
+              <option value="dealerAtShow">Dealer or vendor at this show</option>
+              <option value="organizer">Organizer or promoter</option>
+              <option value="clubOfficer">Coin club officer</option>
+              <option value="venueContact">Venue representative</option>
+              <option value="authorizedStaff">Authorized show staff</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label>First name<input type="text" name="first_name" autocomplete="given-name" required></label>
+          <label>Last name<input type="text" name="last_name" autocomplete="family-name" required></label>
+          <label>Contact email<input type="email" name="email" autocomplete="email" required></label>
+          <label>Organization or club <span>(required for claims and organizer verification)</span><input type="text" name="organization_name" autocomplete="organization"></label>
+        </div>
+      </fieldset>
+
+      <div class="listing-review-column-headings" aria-hidden="true">
+        <strong>Current listing</strong>
+        <strong>Confirmed or corrected information</strong>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Show name</span><strong>{{ include.show.name }}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-name">Show name</label>
+          <input id="review-show-name" type="text" name="proposed_show_name" value="{{ include.show.name | escape }}" data-current-value="{{ include.show.name | escape }}" readonly required>
+          <label class="listing-review-confirm"><input type="checkbox" name="show_name_is_correct" value="yes" data-confirm-target="review-show-name" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current">
+          <span>Date</span>
+          <strong data-show-next-date>{% if include.show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</strong>
+          <span class="show-last-confirmed" data-show-last-confirmed hidden></span>
+        </div>
+        <div class="listing-review-proposed">
+          <div class="listing-review-date-grid">
+            <label for="review-show-start-date">Start date
+              <input id="review-show-start-date" type="date" name="proposed_start_date" value="" data-current-value="" readonly>
+            </label>
+            <label for="review-show-end-date">End date <span>(optional)</span>
+              <input id="review-show-end-date" type="date" name="proposed_end_date" value="" data-current-value="" readonly>
+            </label>
+          </div>
+          <label class="listing-review-date-tbd"><input id="review-show-date-tbd" type="checkbox" name="proposed_date_tbd" value="yes" data-current-checked="true" checked disabled> Date not confirmed — no future date is confirmed</label>
+          <input type="hidden" name="proposed_next_date" value="TBD" data-current-value="TBD">
+          <label class="listing-review-confirm"><input id="review-show-date-confirm" type="checkbox" name="next_date_is_correct" value="yes" checked> Correct as shown</label>
+          <span class="listing-review-help">Use complete calendar dates. The form creates a four-digit-year display and keeps the ISO start/end dates for manual CRM review.</span>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Venue</span><strong>{% if include.show.venue and include.show.venue != "" %}{{ include.show.venue }}{% else %}Not listed{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-venue">Venue</label>
+          <input id="review-show-venue" type="text" name="proposed_venue" value="{{ include.show.venue | default: '' | escape }}" data-current-value="{{ include.show.venue | default: '' | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="venue_is_correct" value="yes" data-confirm-target="review-show-venue" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Street address</span><strong>{% if include.show.street_address and include.show.street_address != "" %}{{ include.show.street_address }}{% else %}Not yet verified{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-address">Street address</label>
+          <input id="review-show-address" type="text" name="proposed_street_address" value="{{ include.show.street_address | default: '' | escape }}" data-current-value="{{ include.show.street_address | default: '' | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="street_address_is_correct" value="yes" data-confirm-target="review-show-address" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>City, state, ZIP</span><strong>{{ include.show.city }}, {{ include.show.state }}{% if include.show.postal_code %} {{ include.show.postal_code }}{% endif %}</strong></div>
+        <div class="listing-review-proposed listing-review-location-grid">
+          <label for="review-show-city">City<input id="review-show-city" type="text" name="proposed_city" value="{{ include.show.city | escape }}" data-current-value="{{ include.show.city | escape }}" readonly required></label>
+          <label for="review-show-state">State<input id="review-show-state" type="text" name="proposed_state" value="{{ include.show.state | escape }}" data-current-value="{{ include.show.state | escape }}" maxlength="2" readonly required></label>
+          <label for="review-show-postal">ZIP<input id="review-show-postal" type="text" name="proposed_postal_code" value="{{ include.show.postal_code | default: '' | escape }}" data-current-value="{{ include.show.postal_code | default: '' | escape }}" inputmode="numeric" readonly></label>
+          <label class="listing-review-confirm listing-review-location-confirm"><input type="checkbox" name="location_is_correct" value="yes" data-confirm-target="review-show-city,review-show-state,review-show-postal" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Frequency</span><strong>{{ include.show.frequency }}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-frequency">Frequency</label>
+          <input id="review-show-frequency" type="text" name="proposed_frequency" value="{{ include.show.frequency | escape }}" data-current-value="{{ include.show.frequency | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="frequency_is_correct" value="yes" data-confirm-target="review-show-frequency" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Organizer</span><strong>{% if include.show.organizer and include.show.organizer != "" %}{{ include.show.organizer }}{% else %}Not listed{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-organizer">Organizer</label>
+          <input id="review-show-organizer" type="text" name="proposed_organizer" value="{{ include.show.organizer | default: '' | escape }}" data-current-value="{{ include.show.organizer | default: '' | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="organizer_is_correct" value="yes" data-confirm-target="review-show-organizer" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Website</span><strong>{% if include.show.website and include.show.website != "" %}{{ include.show.website }}{% else %}Not listed{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-website">Website</label>
+          <input id="review-show-website" type="url" name="proposed_website" value="{{ include.show.website | default: '' | escape }}" data-current-value="{{ include.show.website | default: '' | escape }}" readonly>
+          <label class="listing-review-confirm"><input type="checkbox" name="website_is_correct" value="yes" data-confirm-target="review-show-website" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <div class="listing-review-row">
+        <div class="listing-review-current"><span>Hours and public notes</span><strong>{% if include.show.notes and include.show.notes != "" %}{{ include.show.notes }}{% else %}Not listed{% endif %}</strong></div>
+        <div class="listing-review-proposed">
+          <label for="review-show-notes">Hours and public notes</label>
+          <textarea id="review-show-notes" name="proposed_notes" data-current-value="{{ include.show.notes | default: '' | escape }}" readonly>{{ include.show.notes | default: '' | escape }}</textarea>
+          <label class="listing-review-confirm"><input type="checkbox" name="notes_are_correct" value="yes" data-confirm-target="review-show-notes" checked> Correct as shown</label>
+        </div>
+      </div>
+
+      <fieldset class="listing-review-evidence">
+        <legend>Evidence and explanation</legend>
+        <label>Official show, club, promoter, or venue URL <span>(required for corrections and organizer verification)</span>
+          <input type="url" name="official_source_url" placeholder="www.example.com/show-page">
+        </label>
+        <div id="listing-review-removal-fields" hidden>
+          <label>Reason for review or removal
+            <select name="removal_reason">
+              <option value="">Choose one</option>
+              <option value="permanentlyClosed">Event is permanently closed</option>
+              <option value="duplicate">Duplicate listing</option>
+              <option value="privatePersonalInformation">Private personal information is displayed</option>
+              <option value="notACoinShow">Not a coin show</option>
+              <option value="other">Other review reason</option>
+            </select>
+          </label>
+        </div>
+        <label>Explain the request
+          <textarea name="request_details" placeholder="Explain what you corrected, how we can verify your role, or why the listing should be reviewed. Optional when simply confirming everything is correct."></textarea>
+        </label>
+      </fieldset>
+
+      <label class="mobile-consent-label listing-review-consent">
+        <input type="checkbox" name="contactConsent" value="yes" required>
+        <span>Store this request and contact me to review the listing. Changes, verification, and removal requests are reviewed manually and are not guaranteed. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+      </label>
+      <button type="submit" class="listing-review-submit">Submit Listing Review</button>
+    </form>
+    <div id="listing-review-success" role="status" tabindex="-1">
+      <strong id="listing-review-success-title">Thank you — your listing review request was recorded for manual review.</strong>
+      <p id="listing-review-success-summary"></p>
+      <dl id="listing-review-test-result" hidden></dl>
+      <button id="listing-review-test-reset" type="button" hidden>Test another request</button>
+    </div>
+  </div>
+</details>
+
+<script>
+(function() {
+  var reviewCard = document.getElementById('listing-review');
+  var reviewForm = document.getElementById('listing-review-form');
+  if (!reviewCard || !reviewForm) { return; }
+
+  function openReviewForm(event) {
+    if (event) { event.preventDefault(); }
+    reviewCard.open = true;
+    if (window.location.hash !== '#listing-review') {
+      window.history.pushState(null, '', '#listing-review');
+    }
+    window.requestAnimationFrame(function() {
+      reviewCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      reviewCard.querySelector('summary').focus({ preventScroll: true });
+    });
+  }
+
+  var triggers = document.querySelectorAll('[data-listing-review-trigger]');
+  for (var triggerIndex = 0; triggerIndex < triggers.length; triggerIndex++) {
+    triggers[triggerIndex].addEventListener('click', openReviewForm);
+  }
+  if (window.location.hash === '#listing-review') { openReviewForm(); }
+
+  var confirmationBoxes = reviewForm.querySelectorAll('[data-confirm-target]');
+  function setFieldConfirmation(checkbox) {
+    var targetIds = checkbox.getAttribute('data-confirm-target').split(',');
+    for (var targetIndex = 0; targetIndex < targetIds.length; targetIndex++) {
+      var target = document.getElementById(targetIds[targetIndex]);
+      if (!target) { continue; }
+      target.readOnly = checkbox.checked;
+      if (checkbox.checked) { target.value = target.getAttribute('data-current-value') || ''; }
+    }
+  }
+
+  var dateConfirmation = document.getElementById('review-show-date-confirm');
+  var startDate = document.getElementById('review-show-start-date');
+  var endDate = document.getElementById('review-show-end-date');
+  var dateTbd = document.getElementById('review-show-date-tbd');
+  var normalizedDate = reviewForm.querySelector('[name="proposed_next_date"]');
+  function isoDateValue(date) {
+    var year = String(date.getFullYear());
+    var month = String(date.getMonth() + 1).padStart(2, '0');
+    var day = String(date.getDate()).padStart(2, '0');
+    return year + '-' + month + '-' + day;
+  }
+  if (typeof classifyShowDates === 'function') {
+    var currentDateResult = classifyShowDates(reviewCard.getAttribute('data-confirmed-dates'), {
+      now: new Date(),
+      seriesEnded: reviewCard.getAttribute('data-series-ended') === 'true'
+    });
+    var currentStartValue = currentDateResult.range ? isoDateValue(currentDateResult.range.start) : '';
+    var currentEndValue = currentDateResult.range && currentDateResult.range.end.getTime() !== currentDateResult.range.start.getTime() ? isoDateValue(currentDateResult.range.end) : '';
+    var currentDateValue = currentDateResult.displayDate || 'TBD';
+    startDate.value = currentStartValue;
+    startDate.setAttribute('data-current-value', currentStartValue);
+    endDate.value = currentEndValue;
+    endDate.setAttribute('data-current-value', currentEndValue);
+    dateTbd.checked = !currentDateResult.range;
+    dateTbd.setAttribute('data-current-checked', currentDateResult.range ? 'false' : 'true');
+    normalizedDate.value = currentDateValue;
+    normalizedDate.setAttribute('data-current-value', currentDateValue);
+  }
+  function formatDateParts(value) {
+    var parts = value.split('-');
+    var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    return {
+      day: String(date.getDate()),
+      month: date.toLocaleDateString('en-US', { month: 'long' }),
+      year: String(date.getFullYear())
+    };
+  }
+  function formatPublicDate(startValue, endValue) {
+    if (!startValue) { return ''; }
+    var start = formatDateParts(startValue);
+    if (!endValue || endValue === startValue) { return start.month + ' ' + start.day + ', ' + start.year; }
+    var end = formatDateParts(endValue);
+    if (start.year === end.year && start.month === end.month) {
+      return start.month + ' ' + start.day + '-' + end.day + ', ' + start.year;
+    }
+    if (start.year === end.year) {
+      return start.month + ' ' + start.day + '-' + end.month + ' ' + end.day + ', ' + start.year;
+    }
+    return start.month + ' ' + start.day + ', ' + start.year + '-' + end.month + ' ' + end.day + ', ' + end.year;
+  }
+  function normalizeDateProposal() {
+    startDate.setCustomValidity('');
+    endDate.setCustomValidity('');
+    if (dateConfirmation.checked) {
+      normalizedDate.value = normalizedDate.getAttribute('data-current-value') || '';
+      return true;
+    }
+    if (dateTbd.checked) {
+      normalizedDate.value = 'TBD';
+      return true;
+    }
+    if (!startDate.value) {
+      startDate.setCustomValidity('Enter a complete start date or select Date not confirmed.');
+      return false;
+    }
+    if (endDate.value && endDate.value < startDate.value) {
+      endDate.setCustomValidity('The end date cannot be before the start date.');
+      return false;
+    }
+    normalizedDate.value = formatPublicDate(startDate.value, endDate.value);
+    return true;
+  }
+  function updateDateControls() {
+    var locked = dateConfirmation.checked;
+    if (locked) {
+      startDate.value = startDate.getAttribute('data-current-value') || '';
+      endDate.value = endDate.getAttribute('data-current-value') || '';
+      dateTbd.checked = dateTbd.getAttribute('data-current-checked') === 'true';
+    }
+    dateTbd.disabled = locked;
+    startDate.readOnly = locked || dateTbd.checked;
+    endDate.readOnly = locked || dateTbd.checked;
+    if (!locked && dateTbd.checked) {
+      startDate.value = '';
+      endDate.value = '';
+    }
+    normalizeDateProposal();
+  }
+  dateConfirmation.addEventListener('change', updateDateControls);
+  dateTbd.addEventListener('change', updateDateControls);
+  startDate.addEventListener('change', normalizeDateProposal);
+  endDate.addEventListener('change', normalizeDateProposal);
+  updateDateControls();
+  for (var confirmationIndex = 0; confirmationIndex < confirmationBoxes.length; confirmationIndex++) {
+    confirmationBoxes[confirmationIndex].addEventListener('change', function() { setFieldConfirmation(this); });
+    setFieldConfirmation(confirmationBoxes[confirmationIndex]);
+  }
+
+  var requestType = reviewForm.querySelector('[name="request_type"]');
+  var relationshipField = reviewForm.querySelector('[name="relationship_to_show"]');
+  var sourceUrl = reviewForm.querySelector('[name="official_source_url"]');
+  var organizationName = reviewForm.querySelector('[name="organization_name"]');
+  var requestDetails = reviewForm.querySelector('[name="request_details"]');
+  var confirmationSourceType = reviewForm.querySelector('[name="confirmation_source_type"]');
+  var removalFields = document.getElementById('listing-review-removal-fields');
+  var removalReason = reviewForm.querySelector('[name="removal_reason"]');
+  function updateRequestRequirements() {
+    var selectedType = requestType.value;
+    var relationship = relationshipField.value;
+    var organizerRelationships = ['organizer', 'clubOfficer', 'authorizedStaff'];
+    var sourceTypes = {
+      organizer: 'organizerRepresentative',
+      clubOfficer: 'organizerRepresentative',
+      authorizedStaff: 'organizerRepresentative',
+      venueContact: 'venueRepresentative',
+      dealerAtShow: 'dealerParticipant',
+      visitor: 'communityMember',
+      other: 'otherReporter'
+    };
+    sourceUrl.required = selectedType === 'correction' || selectedType === 'claimListing' || selectedType === 'organizerVerification';
+    organizationName.required = selectedType === 'claimListing' || selectedType === 'organizerVerification';
+    requestDetails.required = selectedType !== 'confirm';
+    removalFields.hidden = selectedType !== 'reviewRemoval';
+    removalReason.required = selectedType === 'reviewRemoval';
+    relationshipField.setCustomValidity((selectedType === 'organizerVerification' || selectedType === 'claimListing') && organizerRelationships.indexOf(relationship) === -1 ? 'Claims and organizer verification are available only to an organizer, promoter, club officer, or authorized show staff member.' : '');
+    confirmationSourceType.value = sourceTypes[relationship] || '';
+  }
+  requestType.addEventListener('change', updateRequestRequirements);
+  relationshipField.addEventListener('change', updateRequestRequirements);
+  updateRequestRequirements();
+
+  reviewForm.noValidate = true;
+  reviewForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    updateRequestRequirements();
+    normalizeDateProposal();
+    if (window.coinNormalizeFormUrls) { window.coinNormalizeFormUrls(reviewForm); }
+    if (!reviewForm.reportValidity()) { return; }
+
+    var selectedType = requestType.value;
+    var subjectLabels = {
+      confirm: 'Confirmation',
+      correction: 'Correction',
+      claimListing: 'Claim',
+      organizerVerification: 'Organizer Verification',
+      reviewRemoval: 'Review or Removal'
+    };
+    reviewForm.querySelector('[name="_subject"]').value = '[Coin Show Near Me][Listing ' + subjectLabels[selectedType] + '] Request';
+    reviewForm.querySelector('[name="form_type"]').value = selectedType === 'claimListing' ? 'show_listing_claim' : 'show_listing_' + selectedType;
+    var relationship = relationshipField.value;
+    if (['organizer', 'clubOfficer', 'authorizedStaff'].indexOf(relationship) !== -1) {
+      reviewForm.querySelector('[name="coinContactRoles"]').value = 'showOrganizer';
+    } else if (relationship === 'dealerAtShow') {
+      reviewForm.querySelector('[name="coinContactRoles"]').value = 'dealerVendor';
+    } else {
+      reviewForm.querySelector('[name="coinContactRoles"]').value = 'showInfoReporter';
+    }
+
+    var now = new Date().toISOString();
+    reviewForm.querySelector('[name="pageUrl"]').value = window.location.href;
+    reviewForm.querySelector('[name="referringUrl"]').value = document.referrer || '';
+    reviewForm.querySelector('[name="submittedAt"]').value = now;
+    reviewForm.querySelector('[name="contactConsentTimestamp"]').value = now;
+
+    function addTestResult(term, description) {
+      var result = document.getElementById('listing-review-test-result');
+      var termElement = document.createElement('dt');
+      var descriptionElement = document.createElement('dd');
+      termElement.textContent = term;
+      descriptionElement.textContent = description;
+      result.appendChild(termElement);
+      result.appendChild(descriptionElement);
+    }
+    function showSuccess(localOnly) {
+      reviewForm.style.display = 'none';
+      var success = document.getElementById('listing-review-success');
+      var title = document.getElementById('listing-review-success-title');
+      var summary = document.getElementById('listing-review-success-summary');
+      var result = document.getElementById('listing-review-test-result');
+      var reset = document.getElementById('listing-review-test-reset');
+      if (localOnly) {
+        title.textContent = 'Local test completed — nothing was sent or saved.';
+        summary.textContent = 'This preview did not contact Formspree or EspoCRM. Review the browser-only result below.';
+        result.textContent = '';
+        result.hidden = false;
+        reset.hidden = false;
+        addTestResult('Request', requestType.options[requestType.selectedIndex].text);
+        addTestResult('Relationship', relationshipField.options[relationshipField.selectedIndex].text);
+        addTestResult('Proposed date', normalizedDate.value);
+        var fieldLabels = {
+          show_name_is_correct: 'Show name', next_date_is_correct: 'Date', venue_is_correct: 'Venue',
+          street_address_is_correct: 'Street address', location_is_correct: 'City, state, ZIP',
+          frequency_is_correct: 'Frequency', organizer_is_correct: 'Organizer', website_is_correct: 'Website',
+          notes_are_correct: 'Hours and public notes'
+        };
+        var changed = [];
+        Object.keys(fieldLabels).forEach(function(name) {
+          var field = reviewForm.querySelector('[name="' + name + '"]');
+          if (field && !field.checked) { changed.push(fieldLabels[name]); }
+        });
+        addTestResult('Fields marked for change', changed.length ? changed.join(', ') : 'None');
+      }
+      success.style.display = 'block';
+      success.focus({ preventScroll: true });
+      success.scrollIntoView({ block: 'center' });
+    }
+    document.getElementById('listing-review-test-reset').onclick = function() {
+      reviewForm.reset();
+      for (var index = 0; index < confirmationBoxes.length; index++) { setFieldConfirmation(confirmationBoxes[index]); }
+      updateDateControls();
+      updateRequestRequirements();
+      reviewForm.style.display = '';
+      document.getElementById('listing-review-success').style.display = 'none';
+      reviewForm.querySelector('[name="request_type"]').focus();
+    };
+    var localReviewMode = {% if include.review_fixture %}true{% else %}false{% endif %};
+    if (localReviewMode) {
+      showSuccess(true);
+      return;
+    }
+    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(reviewForm)) { return; }
+    window.coinSubmitForm(reviewForm).then(function() { showSuccess(false); });
+  });
+})();
+</script>

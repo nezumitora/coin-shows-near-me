@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in New Baltimore, Michigan — 2026-2027"
-seo_title: "Coin Shows in New Baltimore, Michigan — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in New Baltimore, Michigan. Dates, venues, and details for upcoming coin shows and numismatic events in New Baltimore."
+title: "New Baltimore, MI Coin Shows"
+heading: "Coin Shows in New Baltimore, Michigan — 2026-2027"
+description: "Find 1 coin show in New Baltimore, Michigan. Compare dates, venues, and verification details before you travel."
 permalink: /cities/new-baltimore-mi/
 city_slug: "new-baltimore-mi"
 city_name: "New Baltimore"

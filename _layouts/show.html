@@ -4,19 +4,44 @@ layout: default
 
 {% include breadcrumbs.html %}
 
-{% assign show = nil %}
-{% for s in site.data.shows %}
-  {% if s.id == page.show_id %}
-    {% assign show = s %}
-  {% endif %}
-{% endfor %}
+{% if page.review_fixture %}
+  {% assign show = site.data.review_show %}
+{% else %}
+  {% assign show = nil %}
+  {% for s in site.data.shows %}
+    {% if s.id == page.show_id %}
+      {% assign show = s %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if page.review_fixture %}
+<div style="background:#fef3c7;border:2px solid #d97706;border-radius:10px;padding:1rem;margin:0 0 1rem;color:#78350f;">
+  <strong>Local review test listing.</strong> Use fake details to test every form below. Submissions on this unpublished fixture stay in the browser and are not emailed or saved.
+</div>
+{% endif %}
 
 <h1>{{ show.name }}</h1>
 
 {% include schema-event.html show=show %}
 
-<div class="show-detail-card">
+<div class="show-detail-card" data-show-date-record data-confirmed-dates="{{ show.upcoming_dates | join: ',' }}" data-series-ended="{% if show.series_ended == true %}true{% else %}false{% endif %}">
   <table class="show-detail-table">
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Listing Status</td>
+      <td style="padding:0.4rem 0;">
+        <span class="trust-status" data-show-date-status>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
+        <span class="show-date-description" data-show-date-description>{% unless show.upcoming_dates %}No future date is confirmed.{% endunless %}</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Last Checked</td>
+      <td style="padding:0.4rem 0;">{% if show.last_verified %}{{ show.last_verified | date: "%B %-d, %Y" }}{% else %}<em>No verification date recorded yet</em>{% endif %}</td>
+    </tr>
+    <tr>
+      <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Verification Source</td>
+      <td style="padding:0.4rem 0;">{% if show.source_url and show.source_url != "" %}<a href="{{ show.source_url }}" target="_blank" rel="noopener noreferrer">View the source used to check this listing</a>{% else %}<em>No public verification source recorded yet</em>{% endif %}</td>
+    </tr>
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Location</td>
       <td style="padding:0.4rem 0;">{{ show.city }}, {{ show.state_name }}</td>
@@ -29,7 +54,7 @@ layout: default
     {% endif %}
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Address</td>
-      <td style="padding:0.4rem 0;">{% if show.street_address and show.street_address != "" %}{{ show.street_address }}, {{ show.city }}, {{ show.state }}{% if show.postal_code %} {{ show.postal_code }}{% endif %}{% elsif show.address_status == "unverified" or show.address_status == "partial" %}<em>Complete street address not yet verified</em>{% elsif show.venue and show.venue != "" %}{{ show.venue }}, {{ show.city }}, {{ show.state_name }}{% else %}<em>Venue and street address not yet verified</em>{% endif %}</td>
+      <td style="padding:0.4rem 0;">{% if show.street_address and show.street_address != "" %}{{ show.street_address }}, {{ show.city }}, {{ show.state }}{% if show.postal_code %} {{ show.postal_code }}{% endif %}{% else %}<em>Complete street address not yet verified</em>{% endif %}</td>
     </tr>
     {% if show.location_details and show.location_details != "" %}
     <tr>
@@ -43,7 +68,10 @@ layout: default
     </tr>
     <tr>
       <td style="padding:0.4rem 1rem 0.4rem 0;font-weight:600;vertical-align:top;white-space:nowrap;">Next Date</td>
-      <td style="padding:0.4rem 0;">{% if show.next_date == "TBD" %}{% if show.website and show.website != "" %}TBD &mdash; Check organizer website{% else %}TBD &mdash; Organizer has not published a future date{% endif %}{% else %}{{ show.next_date }}{% endif %}</td>
+       <td style="padding:0.4rem 0;">
+         <span data-show-next-date>{% if show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
+         <span class="show-last-confirmed" data-show-last-confirmed hidden></span>
+       </td>
     </tr>
     {% if show.organizer and show.organizer != "" %}
     <tr>
@@ -80,10 +108,6 @@ layout: default
     <a href="https://www.google.com/maps/dir/?api=1&destination={{ show.street_address | url_encode }}+{{ show.city | url_encode }}+{{ show.state | url_encode }}+{{ show.postal_code | default: '' | url_encode }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;background:#1a2332;color:#fff;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.2s;">
       &#128663; Get Driving Directions
     </a>
-    {% elsif show.venue and show.venue != "" and show.address_status != "unverified" and show.address_status != "partial" %}
-    <a href="https://www.google.com/maps/dir/?api=1&destination={{ show.venue | url_encode }}+{{ show.city | url_encode }}+{{ show.state_name | url_encode }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;background:#1a2332;color:#fff;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.2s;">
-      &#128663; Get Driving Directions
-    </a>
     {% endif %}
     {% assign state_slug = nil %}{% for st in site.data.states %}{% if st.abbrev == show.state %}{% assign state_slug = st.slug %}{% endif %}{% endfor %}
     {% for tax in site.data.state_tax %}{% if tax.abbrev == show.state %}
@@ -91,11 +115,13 @@ layout: default
       {% if tax.bullion_exempt %}<span style="color:#16a34a;">&#10003;</span> Tax-Free State{% else %}<span style="color:#dc2626;">&#10005;</span> Taxed State{% endif %}
     </a>
     {% endif %}{% endfor %}
-    <a href="#update-show-info" style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
-      Update show info
+    <a href="#listing-review" data-listing-review-trigger style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff7ed;color:#7c2d12;padding:0.5rem 1.25rem;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;border:1px solid #fed7aa;margin-left:0.5rem;transition:all 0.2s;">
+      Claim or update this listing
     </a>
   </div>
 </div>
+
+{% include show-share.html show=show %}
 
 {% include ad-placeholder.html %}
 
@@ -121,59 +147,130 @@ layout: default
 <p>Use our <a href="{{ site.baseurl }}/tools/melt-value-calculator/">Melt Value Calculator</a> to calculate the metal value of your silver and gold coins before attending. Knowing the melt value gives you a baseline for negotiations with dealers.</p>
 
 <div class="public-cta" style="margin:1.5rem 0;">
-<h2>Get Dealer Quotes Before the Show</h2>
-<p style="margin:0 0 0.5rem;font-size:1rem;">Bringing coins to {{ show.name }}? Estimate melt value first, then request offers before the event.</p>
-<a href="{{ site.baseurl }}/tools/melt-value-calculator/">Get Offers on Your Coins</a>
+<h2>Know Your Junk Silver's Melt Value</h2>
+<p style="margin:0 0 0.5rem;font-size:1rem;">Estimate the silver value before speaking with a dealer. Melt value is a baseline only and does not include condition, rarity, or other collector premiums. This site does not request dealer offers yet.</p>
+<a href="{{ site.baseurl }}/tools/melt-value-calculator/">Calculate Junk Silver Melt Value</a>
 </div>
 
-<!-- Show Reminder CTA -->
+<!-- Show Reminder Interest CTA -->
 <div style="background:linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);color:#f1f5f9;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid var(--coin-gold);">
-  <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:700;color:var(--coin-gold-light);">Don't Forget About This Show!</p>
-  <p style="margin:0 0 1rem;font-size:0.9rem;color:#cbd5e1;">Get a reminder a week before <strong>{{ show.name }}</strong> — by email or text message.</p>
+  <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:700;color:var(--coin-gold-light);">Interested in a Reminder?</p>
+  <p style="margin:0 0 1rem;font-size:0.9rem;color:#cbd5e1;">Notify me when show reminders become available for <strong>{{ show.name }}</strong>. No reminder service is active yet.</p>
   <form id="show-reminder-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.5rem;">
-    <input type="hidden" name="_subject" value="Coin Show Near Me — Show Reminder Signup">
-    <input type="hidden" name="form_type" value="show_reminder">
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Show Reminder] Interest request">
+    <input type="hidden" name="form_type" value="show_reminder_interest">
     <input type="hidden" name="source" value="Website">
-    <input type="hidden" name="formName" value="showReminder">
+    <input type="hidden" name="formName" value="showReminderInterest">
     <input type="hidden" name="coinContactRoles" value="attendee">
-    <input type="hidden" name="ctaCode" value="show_page_reminder">
-    <input type="hidden" name="sourceDetail" value="Individual show page reminder form">
+    <input type="hidden" name="ctaCode" value="show_page_reminder_interest">
+    <input type="hidden" name="sourceDetail" value="Individual show page reminder interest form">
     <input type="hidden" name="pageUrl" value="">
     <input type="hidden" name="referringUrl" value="">
     <input type="hidden" name="submittedAt" value="">
     <input type="hidden" name="contactConsentTimestamp" value="">
-    <input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-    <input type="hidden" name="reminderConsentTimestamp" value="">
-    <input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
+    <input type="hidden" name="contactConsentVersion" value="coin-reminder-interest-consent-v1">
+    <input type="hidden" name="contactConsentText" value="Notify me when show reminders become available. No reminder service is active yet. Privacy Policy.">
     <input type="hidden" name="show_name" value="{{ show.name }}">
     <input type="hidden" name="show_id" value="{{ show.id }}">
     <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
     <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
-      <input type="email" name="email" placeholder="Email address" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;">
-      <input type="tel" name="phone" placeholder="Mobile number (optional)" style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;">
+      <input type="text" name="first_name" aria-label="First name" placeholder="First name" autocomplete="given-name" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
+      <input type="text" name="last_name" aria-label="Last name" placeholder="Last name" autocomplete="family-name" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
+    </div>
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr;gap:0.5rem;">
+      <input type="email" name="email" aria-label="Email address" placeholder="Email address" autocomplete="email" required style="padding:0.6rem 0.8rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;font-size:0.88rem;background:rgba(255,255,255,0.1);color:#fff;outline:none;font-family:inherit;min-width:0;">
     </div>
     <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
-      <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
-      <span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
+      <input type="checkbox" name="contactConsent" value="yes" aria-label="Notify me when show reminders become available" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>Notify me when show reminders become available. No reminder service is active yet. <a href="/legal/privacy-policy/" style="color:var(--coin-gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
     </label>
-    <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#94a3b8;line-height:1.4;">
-      <input type="checkbox" name="showReminderOptIn" id="sms-consent-show" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
-      <span>Send me reminders about coin shows near me. <a href="/legal/terms-of-use/#sms-terms" style="color:var(--coin-gold-light);text-decoration:underline;">SMS Terms</a> &amp; <a href="/legal/privacy-policy/" style="color:var(--coin-gold-light);text-decoration:underline;">Privacy Policy</a>.</span>
-    </label>
-    <button type="submit" style="background:var(--coin-gold);color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:700;cursor:pointer;align-self:flex-start;">Remind Me About This Show</button>
+    <button type="submit" style="background:var(--coin-gold);color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:700;cursor:pointer;align-self:flex-start;">Join the Interest List</button>
   </form>
-  <div id="show-reminder-success" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
-    You're signed up! We'll remind you before {{ show.name }}.
+  <div id="show-reminder-success" role="status" tabindex="-1" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
+    Thanks — we recorded your interest in reminders for {{ show.name }}. No recurring reminder service is active yet.
   </div>
 </div>
 
+{% include show-listing-review-form.html show=show review_fixture=page.review_fixture %}
+
+{% comment %}
+Legacy separate forms retained during local review; the unified include above is the only rendered listing workflow.
+<section class="show-workflow-intro" aria-labelledby="show-workflow-title">
+  <h2 id="show-workflow-title">Update or manage this listing</h2>
+  <p>Choose the one request that matches what you need. Only that form will open.</p>
+</section>
+
+<!-- Organizer Verification CTA -->
+<details id="organizer-verification" class="show-workflow-card show-workflow-organizer">
+  <summary>
+    <span class="show-workflow-kicker">For organizers, clubs, venues, and authorized staff</span>
+    <span class="show-workflow-title">I organize this show — request verification</span>
+    <span class="show-workflow-description">Use this form only to prove your connection to the show and request a verified organizer role.</span>
+  </summary>
+  <div class="show-workflow-body">
+  <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#1e3a8a;">Do you organize this show?</p>
+  <p style="margin:0 0 1rem;font-size:0.92rem;color:#1e3a8a;">Request organizer verification for <strong>{{ show.name }}</strong>. Every request is reviewed manually against an official show, promoter, club, or venue source. Submitting this form does not automatically verify or change the listing.</p>
+  <form id="organizer-verification-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Organizer Verification] Request">
+    <input type="hidden" name="form_type" value="organizer_verification">
+    <input type="hidden" name="source" value="Website">
+    <input type="hidden" name="formName" value="organizerVerification">
+    <input type="hidden" name="coinContactRoles" value="showOrganizer">
+    <input type="hidden" name="ctaCode" value="show_page_organizer_verification">
+    <input type="hidden" name="sourceDetail" value="Individual show page organizer verification form">
+    <input type="hidden" name="pageUrl" value="">
+    <input type="hidden" name="referringUrl" value="">
+    <input type="hidden" name="submittedAt" value="">
+    <input type="hidden" name="contactConsentTimestamp" value="">
+    <input type="hidden" name="contactConsentVersion" value="coin-organizer-verification-consent-v1">
+    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me to review this organizer verification request. Verification is manual and is not guaranteed.">
+    <input type="hidden" name="show_name" value="{{ show.name }}">
+    <input type="hidden" name="show_id" value="{{ show.id }}">
+    <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+      <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+    </div>
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="text" name="organization_name" placeholder="Organization or club name" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+      <input type="email" name="email" placeholder="Official contact email" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+    </div>
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr;gap:0.5rem;">
+      <select name="organizer_role" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+        <option value="">Your role</option>
+        <option value="organizer">Organizer or promoter</option>
+        <option value="clubOfficer">Coin club officer</option>
+        <option value="venueContact">Venue representative</option>
+        <option value="authorizedStaff">Authorized show staff</option>
+      </select>
+    </div>
+    <input type="url" name="official_source_url" placeholder="Official show, club, promoter, or venue URL" required style="padding:0.6rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;">
+    <textarea name="verification_details" placeholder="How can we confirm your connection to this show? Include an official contact page or other public evidence." required style="min-height:96px;padding:0.65rem 0.8rem;border:1px solid #bfdbfe;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;resize:vertical;"></textarea>
+    <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#1e3a8a;line-height:1.4;">
+      <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>I agree that Coin Show Near Me may contact me to review this organizer verification request. Verification is manual and is not guaranteed.</span>
+    </label>
+    <button type="submit" style="background:#1e3a8a;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:800;cursor:pointer;align-self:flex-start;">Request Organizer Verification</button>
+  </form>
+  <div id="organizer-verification-success" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
+    Thank you — we received your request. We will review the evidence before marking the listing as organizer verified.
+  </div>
+  <p style="margin:1rem 0 0;font-size:0.82rem;color:#1e3a8a;">Your show is not listed yet? <a href="{{ site.baseurl }}/submit-show/" style="color:#1e3a8a;font-weight:800;text-decoration:underline;">Submit a new show for review</a>.</p>
+  </div>
+</details>
+
 <!-- Show Correction CTA -->
-<div id="update-show-info" style="background:#fff7ed;color:#431407;padding:1.5rem;border-radius:10px;margin:2rem 0;border:2px solid #fed7aa;">
+<details id="update-show-info" class="show-workflow-card show-workflow-correction">
+  <summary>
+    <span class="show-workflow-kicker">For visitors or organizers reporting incorrect details</span>
+    <span class="show-workflow-title">Something is wrong — send a correction</span>
+    <span class="show-workflow-description">Use this form for an incorrect date, venue, address, hours, organizer, or other listing fact.</span>
+  </summary>
+  <div class="show-workflow-body">
   <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#7c2d12;">See something wrong?</p>
   <p style="margin:0 0 1rem;font-size:0.92rem;color:#7c2d12;">Send a correction for <strong>{{ show.name }}</strong>. We review submissions against official organizer, promoter, club, or venue sources before changing the public listing.</p>
   <form id="show-correction-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
-    <input type="hidden" name="_subject" value="Coin Show Near Me — Show Info Correction">
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Show Correction] Information update">
     <input type="hidden" name="form_type" value="show_correction">
     <input type="hidden" name="source" value="Website">
     <input type="hidden" name="formName" value="showCorrection">
@@ -203,10 +300,70 @@ layout: default
   <div id="show-correction-success" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
     Thank you — we received the correction and will verify it before updating the listing.
   </div>
-</div>
+  </div>
+</details>
+
+<!-- Listing Removal Review CTA -->
+<details id="listing-removal" class="show-workflow-card show-workflow-removal">
+  <summary>
+    <span class="show-workflow-kicker">For closures, duplicates, privacy concerns, or removal requests</span>
+    <span class="show-workflow-title">Request a listing review or removal</span>
+    <span class="show-workflow-description">Use this form when the event closed, is duplicated, exposes private information, or should be reviewed for removal.</span>
+  </summary>
+  <div class="show-workflow-body">
+  <p style="margin:0 0 0.25rem;font-size:1.1rem;font-weight:800;color:#334155;">Request a listing review or removal</p>
+  <p style="margin:0 0 1rem;font-size:0.92rem;color:#475569;">Use this form if this event is permanently closed, duplicated, published with private personal information, or should be reviewed for another reason. Public event facts may remain listed when they are accurate and lawfully sourced. Every request is reviewed manually.</p>
+  <form id="listing-removal-form" action="#" data-form-key="mykleozw" method="POST" style="display:flex;flex-direction:column;gap:0.6rem;">
+    <input type="hidden" name="_subject" value="[Coin Show Near Me][Listing Review] Removal or review request">
+    <input type="hidden" name="form_type" value="listing_removal_request">
+    <input type="hidden" name="source" value="Website">
+    <input type="hidden" name="formName" value="listingRemovalRequest">
+    <input type="hidden" name="coinContactRoles" value="showInfoReporter">
+    <input type="hidden" name="ctaCode" value="show_page_listing_removal">
+    <input type="hidden" name="sourceDetail" value="Individual show page listing review or removal form">
+    <input type="hidden" name="pageUrl" value="">
+    <input type="hidden" name="referringUrl" value="">
+    <input type="hidden" name="submittedAt" value="">
+    <input type="hidden" name="contactConsentTimestamp" value="">
+    <input type="hidden" name="contactConsentVersion" value="coin-listing-removal-consent-v1">
+    <input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me to review this listing removal request. Submitting a request does not guarantee removal.">
+    <input type="hidden" name="show_name" value="{{ show.name }}">
+    <input type="hidden" name="show_id" value="{{ show.id }}">
+    <input type="hidden" name="show_city" value="{{ show.city }}, {{ show.state_name }}">
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+      <input type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+    </div>
+    <div class="show-reminder-fields" style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+      <input type="email" name="email" placeholder="Contact email" autocomplete="email" required style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+      <select name="removal_reason" required style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+        <option value="">Reason for review</option>
+        <option value="permanentlyClosed">Event is permanently closed</option>
+        <option value="duplicate">Duplicate listing</option>
+        <option value="privatePersonalInformation">Private personal information is displayed</option>
+        <option value="notACoinShow">Not a coin show</option>
+        <option value="other">Other review reason</option>
+      </select>
+    </div>
+    <input type="url" name="official_source_url" placeholder="Public source supporting the request (optional)" style="padding:0.6rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;min-width:0;">
+    <textarea name="removal_details" placeholder="Explain what should be removed or reviewed and why. Do not include passwords, identification documents, or sensitive personal information." required style="min-height:96px;padding:0.65rem 0.8rem;border:1px solid #cbd5e1;border-radius:6px;font-size:0.88rem;background:#fff;color:#111;outline:none;font-family:inherit;resize:vertical;min-width:0;"></textarea>
+    <label class="mobile-consent-label" style="display:flex;align-items:flex-start;gap:0.5rem;cursor:pointer;font-size:0.75rem;color:#475569;line-height:1.4;">
+      <input type="checkbox" name="contactConsent" value="yes" required style="width:1rem;height:1rem;margin-top:0.1rem;accent-color:var(--coin-gold);cursor:pointer;flex-shrink:0;">
+      <span>I agree that Coin Show Near Me may contact me to review this request. Submitting a request does not guarantee removal. See our <a href="/legal/privacy-policy/">Privacy Policy</a>.</span>
+    </label>
+    <button type="submit" style="background:#334155;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:800;cursor:pointer;align-self:flex-start;">Request Listing Review</button>
+  </form>
+  <div id="listing-removal-success" role="status" tabindex="-1" style="display:none;background:#065f46;color:#fff;padding:0.75rem;border-radius:6px;font-size:0.88rem;text-align:center;margin-top:0.5rem;">
+    Thank you — we received the request and will review the listing and supporting information.
+  </div>
+  </div>
+</details>
+{% endcomment %}
 
 <script>
 (function() {
+  var localReviewMode = {% if page.review_fixture %}true{% else %}false{% endif %};
+
   function setFormValue(form, name, value) {
     var field = form.querySelector('[name="' + name + '"]');
     if (field) {
@@ -218,33 +375,39 @@ layout: default
     setFormValue(form, 'pageUrl', window.location.href);
     setFormValue(form, 'referringUrl', document.referrer || '');
     setFormValue(form, 'submittedAt', now);
-    setFormValue(form, 'reminderConsentVersion', 'coin-show-reminder-v1');
     var contactConsent = form.querySelector('[name="contactConsent"]');
     if (contactConsent && contactConsent.checked) {
       setFormValue(form, 'contactConsentTimestamp', now);
-    }
-    var reminderConsent = form.querySelector('[name="showReminderOptIn"]');
-    if (reminderConsent && reminderConsent.checked) {
-      setFormValue(form, 'reminderConsentTimestamp', now);
     }
   }
 
   function attachForm(formId, successId) {
     var form = document.getElementById(formId);
     if (!form) { return; }
+    form.noValidate = true;
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      if (window.coinNormalizeFormUrls) { window.coinNormalizeFormUrls(form); }
+      if (!form.reportValidity()) { return; }
       fillCrmFormMetadata(form);
+      if (localReviewMode) {
+        form.style.display = 'none';
+        var localSuccess = document.getElementById(successId);
+        localSuccess.style.display = 'block';
+        if (localSuccess.focus) { localSuccess.focus(); }
+        return;
+      }
       if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
       window.coinSubmitForm(form).then(function() {
         form.style.display = 'none';
-        document.getElementById(successId).style.display = 'block';
+        var success = document.getElementById(successId);
+        success.style.display = 'block';
+        if (success.focus) { success.focus(); }
       });
     });
   }
 
   attachForm('show-reminder-form', 'show-reminder-success');
-  attachForm('show-correction-form', 'show-correction-success');
 })();
 </script>
 

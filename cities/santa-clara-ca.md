@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Santa Clara, California — 2026-2027"
-seo_title: "Coin Shows in Santa Clara, California — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Santa Clara, California. Dates, venues, and details for upcoming coin shows and numismatic events in Santa Clara."
+title: "Santa Clara, CA Coin Shows"
+heading: "Coin Shows in Santa Clara, California — 2026-2027"
+description: "Find 1 coin show in Santa Clara, California. Compare dates, venues, and verification details before you travel."
 permalink: /cities/santa-clara-ca/
 city_slug: "santa-clara-ca"
 city_name: "Santa Clara"

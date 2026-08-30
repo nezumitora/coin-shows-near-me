@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Sumter Annual Coin & Currency Show — Sumter, South Carolina Coin Show"
-seo_title: "Sumter Annual Coin & Currency Show — Sumter, South Carolina | Coin Show Near Me"
-seo_description: "Sumter Annual Coin & Currency Show in Sumter, South Carolina. Annual coin show at 2320 Four Bridges Road, Sumter, SC. Get dates, venue details, and more."
+title: "Sumter Annual Coin & Currency Show"
+heading: "Sumter Annual Coin & Currency Show — Sumter, South Carolina Coin Show"
+description: "Sumter Annual Coin & Currency Show in Sumter, South Carolina. View dates, venue details, and listing verification before you travel."
 permalink: /shows/sumter-2026-annual-coin-and-currency-show/
 show_id: "sumter-2026-annual-coin-and-currency-show"
 breadcrumb_parent: "South Carolina"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "EAC Convention — Middleton, Wisconsin Coin Show"
-seo_title: "EAC Convention — Middleton, Wisconsin | Coin Show Near Me"
-seo_description: "EAC Convention in Middleton, Wisconsin. Recurring coin show at Marriott Madison West, 1313 John Q Hammons Dr, Middleton, WI 53562. Get dates, venue details, and more."
+title: "EAC Convention"
+heading: "EAC Convention — Middleton, Wisconsin Coin Show"
+description: "EAC Convention in Middleton, Wisconsin. View dates, venue details, and listing verification before you travel."
 permalink: /shows/early-american-coppers-may-1st-2nd/
 show_id: "early-american-coppers-may-1st-2nd"
 breadcrumb_parent: "Wisconsin"

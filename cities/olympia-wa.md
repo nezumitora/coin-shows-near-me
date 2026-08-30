@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Olympia, Washington — 2026-2027"
-seo_title: "Coin Shows in Olympia, Washington — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Olympia, Washington. Dates, venues, and details for upcoming coin shows and numismatic events in Olympia."
+title: "Olympia, WA Coin Shows"
+heading: "Coin Shows in Olympia, Washington — 2026-2027"
+description: "Find 1 coin show in Olympia, Washington. Compare dates, venues, and verification details before you travel."
 permalink: /cities/olympia-wa/
 city_slug: "olympia-wa"
 city_name: "Olympia"

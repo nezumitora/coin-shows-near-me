@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "North Attleborough Monthly Coin & Collectibles Show — North Attleborough, Massachusetts Coin Show"
-seo_title: "North Attleborough Monthly Coin & Collectibles Show — North Attleborough, Massachusetts | Coin Show Near Me"
-seo_description: "North Attleborough Monthly Coin & Collectibles Show in North Attleborough, Massachusetts. Monthly coin show at Elks Lodge #1011. Get dates, venue details, and more."
+title: "North Attleborough Monthly Coin Show"
+heading: "North Attleborough Monthly Coin & Collectibles Show — North Attleborough, Massachusetts Coin Show"
+description: "North Attleborough Monthly Coin & Collectibles Show in North Attleborough, Massachusetts. View dates, venue details, and listing verification before you travel."
 permalink: /shows/north-attleborough-monthly-coin-collectibles-show/
 show_id: "north-attleborough-monthly-coin-collectibles-show"
 breadcrumb_parent: "Massachusetts"

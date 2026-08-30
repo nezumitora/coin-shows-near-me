@@ -1,6 +1,28 @@
 # CHANGELOG — Coin Shows Near Me (coinshownearme.com)
 
+## Aug 29, 2026
+- v0.17.0: Applied owner-review refinements across directory counts, navigation, contact paths, collector guidance, tax disclosures, and the melt calculator; added review-only Collection Tracker research, expanded platinum/palladium references, improved source-comparison coverage reporting, and kept surveys, sponsorship, publishing, and reminder delivery inactive pending separate approval.
+
+## Aug 1, 2026
+- v0.16.2: Replaced premature dealer-offer CTAs with junk-silver melt-value education, clarified organizer-role verification, standardized proposed dates with start/end and Date TBD controls, and added a visible browser-only fixture result summary.
+- v0.16.1: Corrected material state sales-tax errors from exact government sources, suppressed unchecked classifications behind a visible review-pending state, added source-condition labels and regression coverage, and shortened the draft follow-up email for the directory expert.
+
+## Jul 31, 2026
+- v0.16.0: Reworked show sharing into a distinctive Collector Share Kit with honest ready-to-paste Instagram, TikTok, Snapchat, Whatnot, and YouTube actions; added state-page sales-tax summaries; corrected California's threshold wording and primary source; and queued primary-source tax audits plus automated monthly video/podcast packages.
+- v0.15.2: Added accessible show-page sharing with native device sharing, Facebook, X, email, and canonical copy-link controls, and disabled an unused theme search initializer that caused show-page console errors.
+- v0.15.1: Changed dealer types to multi-select checkboxes, added conditional physical-store address fields and separate CRM-friendly social-profile fields, aligned consent checkboxes, and distinguished organizer verification from dated venue confirmations and dealer/community reports.
+- v0.15.0: Replaced the dealer-directory contact detour with a dedicated same-page listing form, fixed the unreadable dealer CTA text, and consolidated show confirmation, correction, organizer verification, and review/removal into one prefilled comparison form.
+- v0.14.0: Added a compact top-of-page dealer listing CTA and replaced the three stacked show-management forms with clearly labeled, single-open workflows for corrections, organizer verification, and listing review or removal.
+- v0.13.0: Restored the familiar two-column homepage hero, consolidated signup into one compact Stay in the Loupe card, returned the navy/gold spot-price strip to the hero, added weekend/month/state show filters, accepted scheme-less form URLs, clarified submission confirmation styling and email tags, added verified Long Beach/FUN street addresses, and introduced a non-sending unpublished test listing for local form review.
+- v0.12.2: Added seven evidence-backed one-hop city redirects, corrected the Tucson Coin and Currency Expo from its official source, kept the embeddable widget out of search results, and made `shows.json` a deterministic, validated projection of the canonical show data.
+
+## Jul 30, 2026
+- v0.12.1: Reframed reminder signup as an accurate interest list, removed mobile-number, SMS, and unrelated reminder opt-ins, documented that recurring delivery is not active, and aligned consent, privacy, terms, tests, and design guidance.
+- v0.12.0: Moved spot prices and reminder signup near the top, added explicit optional SMS consent and richer reminder preferences, improved organizer name/location handling and post-submit promotion, and added manually reviewed listing-removal requests with updated privacy guidance.
+
 ## Jul 29, 2026
+- v0.11.0: Restored compact spot prices and data-minimal state reminder signup below show discovery, removed homepage dealer promotions, and added manually reviewed organizer verification and structured show submission workflows.
+- v0.10.0: Refocused the homepage on show discovery, removed above-the-results promotions and spot-price distractions, and added clear listing status, verification-source, and last-checked information.
 - v0.9.31: Made exact two-letter state searches return only that state, added venue/address matching and regression tests, corrected the conflated Missouri Numismatic Society listing, and clarified verified versus unavailable Missouri street addresses and dates.
 - v0.9.30: Resolved twenty-two expired-date records and Concord's partial date; corrected frequencies, venues, cities, and stale titles; strengthened source classifications; and merged six verified duplicate schedules while preserving redirects.
 - v0.9.29: Added report-only show data-trust audit tooling with deterministic tests, and refreshed official-source classifications for the already-correct Long Beach Expo and FUN Convention records without changing their published dates.

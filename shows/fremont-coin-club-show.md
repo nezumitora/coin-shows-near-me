@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Fremont Coin Club Show — Fremont, California Coin Show"
-seo_title: "Fremont Coin Club Show — Fremont, California | Coin Show Near Me"
-seo_description: "Fremont Coin Club Show in Fremont, California. Annual (July) coin show at Fremont Elks Lodge. Get dates, venue details, and more."
+title: "Fremont Coin Club Show"
+heading: "Fremont Coin Club Show — Fremont, California Coin Show"
+description: "Fremont Coin Club Show in Fremont, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/fremont-coin-club-show/
 show_id: "fremont-coin-club-show"
 breadcrumb_parent: "California"

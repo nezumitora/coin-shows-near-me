@@ -27,6 +27,19 @@ function showMatchesSearch(show, rawSearchTerm, stateAbbreviations) {
   return false;
 }
 
+function showMatchesDateFilter(rawDates, filterName, nowValue) {
+  if (typeof showMatchesConfirmedDateFilter === 'function') {
+    return showMatchesConfirmedDateFilter(rawDates, filterName, nowValue);
+  }
+  if (typeof module !== 'undefined' && module.exports) {
+    return require('./show-date-status.js').showMatchesConfirmedDateFilter(rawDates, filterName, nowValue);
+  }
+  return !filterName || filterName === 'all';
+}
+
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = showMatchesSearch;
+  module.exports = {
+    showMatchesSearch: showMatchesSearch,
+    showMatchesDateFilter: showMatchesDateFilter
+  };
 }

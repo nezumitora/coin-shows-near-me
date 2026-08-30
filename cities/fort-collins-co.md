@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Fort Collins, Colorado — 2026-2027"
-seo_title: "Coin Shows in Fort Collins, Colorado — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Fort Collins, Colorado. Dates, venues, and details for upcoming coin shows and numismatic events in Fort Collins."
+title: "Fort Collins, CO Coin Shows"
+heading: "Coin Shows in Fort Collins, Colorado — 2026-2027"
+description: "Find 1 coin show in Fort Collins, Colorado. Compare dates, venues, and verification details before you travel."
 permalink: /cities/fort-collins-co/
 city_slug: "fort-collins-co"
 city_name: "Fort Collins"

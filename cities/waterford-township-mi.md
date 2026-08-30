@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Waterford Township, Michigan — 2026-2027"
-seo_title: "Coin Shows in Waterford Township, Michigan — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Waterford Township, Michigan. Dates, venues, and details for upcoming coin shows and numismatic events in Waterford Township."
+title: "Waterford Township, MI Coin Shows"
+heading: "Coin Shows in Waterford Township, Michigan — 2026-2027"
+description: "Find 1 coin show in Waterford Township, Michigan. Compare dates, venues, and verification details before you travel."
 permalink: /cities/waterford-township-mi/
 city_slug: "waterford-township-mi"
 city_name: "Waterford Township"

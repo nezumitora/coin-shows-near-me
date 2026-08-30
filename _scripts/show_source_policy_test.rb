@@ -4,6 +4,7 @@ require_relative 'show_source_policy'
 class ShowSourcePolicyTest < Minitest::Test
   def test_accepts_registered_domain
     assert ShowSourcePolicy.approved_source_url?('https://michigancoinclub.org/local_shows/')
+    assert ShowSourcePolicy.approved_source_url?('https://tucsoncoinshow.com/')
   end
 
   def test_rejects_unregistered_and_lead_only_domains

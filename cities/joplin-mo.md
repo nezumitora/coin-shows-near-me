@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Joplin, Missouri — 2026-2027"
-seo_title: "Coin Shows in Joplin, Missouri — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Joplin, Missouri. Dates, venues, and details for upcoming coin shows and numismatic events in Joplin."
+title: "Joplin, MO Coin Shows"
+heading: "Coin Shows in Joplin, Missouri — 2026-2027"
+description: "Find 1 coin show in Joplin, Missouri. Compare dates, venues, and verification details before you travel."
 permalink: /cities/joplin-mo/
 city_slug: "joplin-mo"
 city_name: "Joplin"

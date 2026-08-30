@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in East Ridge, Tennessee — 2026-2027"
-seo_title: "Coin Shows in East Ridge, Tennessee — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in East Ridge, Tennessee. Dates, venues, and details for upcoming coin shows and numismatic events in East Ridge."
+title: "East Ridge, TN Coin Shows"
+heading: "Coin Shows in East Ridge, Tennessee — 2026-2027"
+description: "Find 1 coin show in East Ridge, Tennessee. Compare dates, venues, and verification details before you travel."
 permalink: /cities/east-ridge-tn/
 city_slug: "east-ridge-tn"
 city_name: "East Ridge"

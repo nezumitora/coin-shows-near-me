@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "South Baldwin Coin Show — Foley, Alabama Coin Show"
-seo_title: "South Baldwin Coin Show — Foley, Alabama | Coin Show Near Me"
-seo_description: "South Baldwin Coin Show in Foley, Alabama. Annual (January) coin show at Foley Civic Center. Get dates, venue details, and more."
+title: "South Baldwin Coin Show"
+heading: "South Baldwin Coin Show — Foley, Alabama Coin Show"
+description: "South Baldwin Coin Show in Foley, Alabama. View dates, venue details, and listing verification before you travel."
 permalink: /shows/south-baldwin-coin-show/
 show_id: "south-baldwin-coin-show"
 breadcrumb_parent: "Alabama"

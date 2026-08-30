@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Vermont — 2026-2027 Schedule"
-seo_title: "Coin Shows in Vermont — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 1 coin shows in Vermont. Complete directory with dates, venues, and details for Vermont coin shows, expos, and numismatic events."
+title: "Vermont Coin Shows"
+heading: "Coin Shows in Vermont — 2026-2027 Schedule"
+description: "Browse 1 coin shows in Vermont with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/vermont/
 state_abbrev: "VT"
 state_name: "Vermont"

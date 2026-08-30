@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "New Hampshire Coin & Currency Expo — Manchester, New Hampshire Coin Show"
-seo_title: "New Hampshire Coin & Currency Expo — Manchester, New Hampshire | Coin Show Near Me"
-seo_description: "New Hampshire Coin & Currency Expo in Manchester, New Hampshire. Semiannual (April & October) coin show at DoubleTree by Hilton Manchester Downtown. Get dates, venue details, and more."
+title: "New Hampshire Coin & Currency Expo"
+heading: "New Hampshire Coin & Currency Expo — Manchester, New Hampshire Coin Show"
+description: "New Hampshire Coin & Currency Expo in Manchester, New Hampshire. View dates, venue details, and listing verification before you travel."
 permalink: /shows/new-hampshire-coin-currency-expo/
 show_id: "new-hampshire-coin-currency-expo"
 breadcrumb_parent: "New Hampshire"

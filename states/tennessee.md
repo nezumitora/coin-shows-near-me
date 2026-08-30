@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Tennessee — 2026-2027 Schedule"
-seo_title: "Coin Shows in Tennessee — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 3 coin shows in Tennessee. Complete directory with dates, venues, and details for Tennessee coin shows, expos, and numismatic events."
+title: "Tennessee Coin Shows"
+heading: "Coin Shows in Tennessee — 2026-2027 Schedule"
+description: "Browse 3 coin shows in Tennessee with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/tennessee/
 state_abbrev: "TN"
 state_name: "Tennessee"

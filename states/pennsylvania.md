@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Pennsylvania — 2026-2027 Schedule"
-seo_title: "Coin Shows in Pennsylvania — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 12 coin shows in Pennsylvania. Complete directory with dates, venues, and details for Pennsylvania coin shows, expos, and numismatic events."
+title: "Pennsylvania Coin Shows"
+heading: "Coin Shows in Pennsylvania — 2026-2027 Schedule"
+description: "Browse 12 coin shows in Pennsylvania with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/pennsylvania/
 state_abbrev: "PA"
 state_name: "Pennsylvania"

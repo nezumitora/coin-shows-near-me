@@ -4,10 +4,25 @@
 
 require 'cgi'
 require 'fileutils'
+require 'json'
 require 'yaml'
+require_relative 'show_feed'
 
 states = YAML.load_file('_data/states.yml')
 shows = YAML.load_file('_data/shows.yml')
+city_redirects = YAML.load_file('_data/city_redirects.yml')
+
+abort '_data/city_redirects.yml must contain an array' unless city_redirects.is_a?(Array)
+
+SITE_TITLE_SUFFIX = ' | Coin Shows Near Me'
+MAX_RENDERED_TITLE_LENGTH = 60
+
+def checked_page_title(title)
+  rendered_title = title + SITE_TITLE_SUFFIX
+  abort "Generated SEO title is too long (#{rendered_title.length}): #{rendered_title}" if rendered_title.length > MAX_RENDERED_TITLE_LENGTH
+
+  title
+end
 
 # --- State pages ---
 FileUtils.mkdir_p('states')
@@ -16,9 +31,9 @@ FileUtils.mkdir_p('states')
 File.write('states/index.md', <<~MD)
 ---
 layout: default
-title: "Coin Shows by State — Complete US Directory"
-seo_title: "Coin Shows by State — Find Coin Shows in Every US State | Coin Show Near Me"
-seo_description: "Browse coin shows in all 50 US states. Find upcoming coin shows, expos, and numismatic conventions near you with dates, venues, and details."
+title: "Coin Shows by State"
+heading: "Coin Shows by State — Complete US Directory"
+description: "Browse coin shows in all 50 US states, with upcoming dates, venues, and verification details for local and national events."
 permalink: /states/
 nav_order: 2
 breadcrumb_current: "States"
@@ -47,13 +62,16 @@ states.each do |state|
   name = state['name']
   abbrev = state['abbrev']
   state_shows = shows.select { |s| s['state'] == abbrev }
+  page_title = checked_page_title("#{name} Coin Shows")
+  heading = "Coin Shows in #{name} — #{Time.now.year}-#{Time.now.year + 1} Schedule"
+  description = "Browse #{state_shows.size} coin shows in #{name} with dates, venues, and verification details. Check each listing before you travel."
 
   content = <<~MD
     ---
     layout: state
-    title: "Coin Shows in #{name} — #{Time.now.year}-#{Time.now.year + 1} Schedule"
-    seo_title: "Coin Shows in #{name} — #{Time.now.year}-#{Time.now.year + 1} Schedule & Directory | Coin Show Near Me"
-    seo_description: "Find #{state_shows.size} coin shows in #{name}. Complete directory with dates, venues, and details for #{name} coin shows, expos, and numismatic events."
+    title: "#{page_title}"
+    heading: "#{heading}"
+    description: "#{description}"
     permalink: /states/#{slug}/
     state_abbrev: "#{abbrev}"
     state_name: "#{name}"
@@ -80,13 +98,17 @@ cities.each do |city_slug, city_shows|
   state_abbrev = first['state']
   state_data = states.find { |s| s['abbrev'] == state_abbrev }
   state_slug = state_data ? state_data['slug'] : state_abbrev.downcase
+  page_title = checked_page_title("#{city_name}, #{state_abbrev} Coin Shows")
+  heading = "Coin Shows in #{city_name}, #{state_name} — #{Time.now.year}-#{Time.now.year + 1}"
+  show_noun = city_shows.size == 1 ? 'show' : 'shows'
+  description = "Find #{city_shows.size} coin #{show_noun} in #{city_name}, #{state_name}. Compare dates, venues, and verification details before you travel."
 
   content = <<~MD
     ---
     layout: city
-    title: "Coin Shows in #{city_name}, #{state_name} — #{Time.now.year}-#{Time.now.year + 1}"
-    seo_title: "Coin Shows in #{city_name}, #{state_name} — #{Time.now.year}-#{Time.now.year + 1} Schedule | Coin Show Near Me"
-    seo_description: "Find #{city_shows.size} coin show#{city_shows.size > 1 ? 's' : ''} in #{city_name}, #{state_name}. Dates, venues, and details for upcoming coin shows and numismatic events in #{city_name}."
+    title: "#{page_title}"
+    heading: "#{heading}"
+    description: "#{description}"
     permalink: /cities/#{city_slug}/
     city_slug: "#{city_slug}"
     city_name: "#{city_name}"
@@ -102,19 +124,72 @@ cities.each do |city_slug, city_shows|
   File.write("cities/#{city_slug}.md", content.gsub(/^    /, ''))
 end
 
+# Preserve exact old city URLs after a listing moves or a malformed slug is fixed.
+canonical_city_slugs = cities.keys
+legacy_city_slugs = city_redirects.map { |redirect| redirect.fetch('legacy_slug') }
+duplicate_legacy_city_slugs = legacy_city_slugs.group_by(&:itself).select { |_slug, values| values.length > 1 }.keys
+city_redirect_collisions = legacy_city_slugs & canonical_city_slugs
+missing_city_destinations = city_redirects.map do |redirect|
+  destination = redirect.fetch('canonical_slug')
+  destination unless canonical_city_slugs.include?(destination)
+end.compact
+city_redirect_chains = city_redirects.map do |redirect|
+  destination = redirect.fetch('canonical_slug')
+  destination if legacy_city_slugs.include?(destination)
+end.compact
+
+abort "Duplicate legacy city slugs: #{duplicate_legacy_city_slugs.join(', ')}" unless duplicate_legacy_city_slugs.empty?
+abort "City redirects collide with canonical slugs: #{city_redirect_collisions.join(', ')}" unless city_redirect_collisions.empty?
+abort "Missing city redirect destinations: #{missing_city_destinations.join(', ')}" unless missing_city_destinations.empty?
+abort "City redirect chains are not allowed: #{city_redirect_chains.join(', ')}" unless city_redirect_chains.empty?
+
+city_redirects.each do |redirect|
+  legacy_slug = redirect.fetch('legacy_slug')
+  canonical_slug = redirect.fetch('canonical_slug')
+  canonical_city = cities.fetch(canonical_slug).first.fetch('city')
+  canonical_city_html = CGI.escapeHTML(canonical_city)
+  canonical_path = "/cities/#{canonical_slug}/"
+  content = <<~MD
+    ---
+    layout: null
+    title: "Coin show city page moved"
+    permalink: /cities/#{legacy_slug}/
+    sitemap: false
+    ---
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex,follow">
+        <meta http-equiv="refresh" content="0; url={{ site.baseurl }}#{canonical_path}">
+        <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}#{canonical_path}">
+        <title>Coin show city page moved</title>
+      </head>
+      <body>
+        <p>This city listing moved to <a href="{{ site.baseurl }}#{canonical_path}">#{canonical_city_html} coin shows</a>.</p>
+      </body>
+    </html>
+  MD
+
+  File.write("cities/#{legacy_slug}.md", content.gsub(/^    /, ''))
+end
+
 # --- Show pages ---
 FileUtils.mkdir_p('shows')
 
 shows.each do |show|
   state_data = states.find { |s| s['abbrev'] == show['state'] }
   state_slug = state_data ? state_data['slug'] : show['state'].downcase
+  page_title = checked_page_title(show['short_title'] || show['name'])
+  heading = "#{show['name']} — #{show['city']}, #{show['state_name']} Coin Show"
+  description = "#{show['name']} in #{show['city']}, #{show['state_name']}. View dates, venue details, and listing verification before you travel."
 
   content = <<~MD
     ---
     layout: show
-    title: "#{show['name']} — #{show['city']}, #{show['state_name']} Coin Show"
-    seo_title: "#{show['name']} — #{show['city']}, #{show['state_name']} | Coin Show Near Me"
-    seo_description: "#{show['name']} in #{show['city']}, #{show['state_name']}. #{show['frequency']} coin show at #{show['venue']}. Get dates, venue details, and more."
+    title: "#{page_title}"
+    heading: "#{heading}"
+    description: "#{description}"
     permalink: /shows/#{show['id']}/
     show_id: "#{show['id']}"
     breadcrumb_parent: "#{show['state_name']}"
@@ -167,9 +242,16 @@ alias_pairs.each do |alias_id, show|
   File.write("shows/#{alias_id}.md", content.gsub(/^    /, ''))
 end
 
+feed_json = JSON.pretty_generate(ShowFeed.build(shows))
+# Keep empty date arrays stable across json gem versions.
+feed_json.gsub!(/"upcoming_dates": \[\n\s*\n\s*\]/, '"upcoming_dates": []')
+File.write('shows.json', feed_json + "\n")
+
 puts "Generated:"
 puts "  #{states.size} state pages + index"
 puts "  #{cities.size} city pages"
+puts "  #{city_redirects.size} city redirects"
 puts "  #{shows.size} show pages"
 puts "  #{alias_pairs.size} show redirects"
-puts "  Total: #{states.size + 1 + cities.size + shows.size + alias_pairs.size} pages"
+puts "  #{shows.size} show feed records"
+puts "  Total: #{states.size + 1 + cities.size + city_redirects.size + shows.size + alias_pairs.size} pages"

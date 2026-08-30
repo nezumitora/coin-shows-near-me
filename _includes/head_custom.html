@@ -6,10 +6,12 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192x192.png?v=gpt-buffalo-20260629">
 <link rel="icon" type="image/x-icon" href="/favicon.ico?v=gpt-buffalo-20260629">
 
-<meta name="google-site-verification" content="ZW60JDUpZFD9rhZv8KgiklQ65RSr5jyyxku3686lHbo">
 <meta name="google-site-verification" content="DqU8VGv1svEy5GVzQoi1vn1My7ubNJgeHdBQfokkNbk">
-{% include seo-meta.html %}
+{% if page.robots %}
+<meta name="robots" content="{{ page.robots }}">
+{% endif %}
 
+{% unless site.review_mode %}
 {% include form_capture_bridge.html %}
 
 <!-- Google Analytics (GA4) -->
@@ -29,6 +31,7 @@
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window, document, "clarity", "script", "wdaqvs8glu");
 </script>
+{% endunless %}
 
 <style>
 /* === Coin Shows Near Me — Custom Theme === */
@@ -44,6 +47,24 @@
   --coin-border: #e5e0d0;
   --coin-text: #2c2c2c;
   --coin-muted: #6b7280;
+}
+
+/* Keep primary calls to action in the Coin navy/gold system, not the theme purple. */
+body.public-page .btn.btn-primary {
+  background: var(--coin-navy) !important;
+  border: 2px solid var(--coin-gold) !important;
+  color: #ffffff !important;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+body.public-page .btn.btn-primary:hover {
+  background: var(--coin-gold-light) !important;
+  border-color: var(--coin-gold-light) !important;
+  color: var(--coin-navy) !important;
+}
+body.public-page .btn.btn-primary:focus-visible {
+  outline: 3px solid var(--coin-gold-light);
+  outline-offset: 3px;
 }
 
 /* Sidebar — dark navy with gold accents */
@@ -73,7 +94,7 @@
   width: 138px;
   height: 138px;
   margin: 0 auto 0.35rem;
-  background-image: url("/assets/images/coinshows-shield-transparent-20260625.png");
+  background-image: url("/assets/images/coinshows-shield-transparent-512w-v1.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -464,6 +485,12 @@ a.cta-btn:hover {
   font-size: 0.7rem;
   color: #9ca3af;
 }
+.page-footer-version {
+  color: #64748b;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  margin-top: 0.35rem;
+}
 
 /* Spot price ticker bar */
 .spot-ticker {
@@ -716,6 +743,18 @@ body.public-page .public-hero {
   box-shadow: 0 14px 34px rgba(14, 35, 56, 0.14);
   margin: 0 0 1.75rem;
 }
+body.public-page .public-hero::after {
+  background: url("/assets/images/coinshows-buffalo-transparent-960w-v1.webp") center / contain no-repeat;
+  content: "";
+  height: 170px;
+  opacity: 0.72;
+  pointer-events: none;
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 238px;
+}
 body.public-page .public-hero-inner {
   position: relative;
   z-index: 1;
@@ -724,18 +763,6 @@ body.public-page .public-hero-inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-body.public-page .public-hero-logo {
-  position: absolute;
-  top: 50%;
-  right: 1.25rem;
-  width: 238px;
-  height: 170px;
-  object-fit: contain;
-  object-position: center;
-  opacity: 0.72;
-  transform: translateY(-50%);
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.26));
 }
 body.public-page .public-hero h1 {
   color: #fff !important;
@@ -986,6 +1013,35 @@ body.public-page .dealer-card-item:hover {
   box-shadow: 0 12px 26px rgba(14, 35, 56, 0.09);
   transform: translateY(-1px);
 }
+body.public-page .dealer-status-badge {
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 800;
+  margin-left: 0.4rem;
+  padding: 0.15rem 0.5rem;
+}
+body.public-page .dealer-status-badge--claimed {
+  background: #e0f2fe;
+  color: #075985;
+}
+body.public-page .dealer-status-badge--verified {
+  background: #dcfce7;
+  color: #166534;
+}
+body.public-page .dealer-contact-list {
+  color: #475569;
+  display: grid;
+  font-size: 0.82rem;
+  gap: 0.2rem;
+  margin: 0 0 0.75rem;
+}
+body.public-page .dealer-claim-link {
+  color: #7c2d12 !important;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none !important;
+}
 body.public-page .dealer-search-panel {
   background: #faf6ed;
   border: 1px solid var(--coin-border);
@@ -1075,6 +1131,601 @@ body.public-page .major-show-meta {
 body.public-page .global-top-nav {
   border-bottom: 1px solid rgba(200, 145, 43, 0.75);
 }
+body.public-page .show-workflow-intro {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  margin: 2rem 0 0.75rem;
+  padding: 1rem 1.25rem;
+}
+body.public-page .show-workflow-intro h2 {
+  border: 0 !important;
+  margin: 0 0 0.25rem !important;
+  padding: 0 !important;
+}
+body.public-page .show-workflow-intro p {
+  color: #475569;
+  margin: 0;
+}
+body.public-page .show-workflow-card {
+  --workflow-bg: #f8fafc;
+  --workflow-border: #cbd5e1;
+  --workflow-text: #334155;
+  background: var(--workflow-bg);
+  border: 2px solid var(--workflow-border);
+  border-radius: 10px;
+  color: var(--workflow-text);
+  margin: 0.75rem 0;
+  overflow: hidden;
+  scroll-margin-top: 6rem;
+}
+body.public-page .show-workflow-organizer {
+  --workflow-bg: #eff6ff;
+  --workflow-border: #bfdbfe;
+  --workflow-text: #1e3a8a;
+}
+body.public-page .show-workflow-correction {
+  --workflow-bg: #fff7ed;
+  --workflow-border: #fed7aa;
+  --workflow-text: #7c2d12;
+}
+body.public-page .show-workflow-card > summary {
+  cursor: pointer;
+  display: grid;
+  gap: 0.2rem;
+  list-style: none;
+  padding: 1rem 3.8rem 1rem 1.25rem;
+  position: relative;
+}
+body.public-page .show-workflow-card > summary::-webkit-details-marker {
+  display: none;
+}
+body.public-page .show-workflow-card > summary::after {
+  background: #fff;
+  border: 1px solid var(--workflow-border);
+  border-radius: 999px;
+  color: var(--workflow-text);
+  content: "Open form";
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.3rem 0.55rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  white-space: nowrap;
+}
+body.public-page .show-workflow-card[open] {
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.18), 0 10px 24px rgba(15, 23, 42, 0.1);
+}
+body.public-page .show-workflow-card[open] > summary::after {
+  background: var(--workflow-text);
+  color: #fff;
+  content: "Selected";
+}
+body.public-page .show-workflow-kicker,
+body.public-page .show-workflow-title,
+body.public-page .show-workflow-description {
+  display: block;
+}
+body.public-page .show-workflow-kicker {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+body.public-page .show-workflow-title {
+  color: var(--workflow-text);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+body.public-page .show-workflow-description {
+  color: #475569;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+body.public-page .show-workflow-body {
+  border-top: 1px solid var(--workflow-border);
+  padding: 1.25rem;
+}
+body.public-page a.dealer-listing-button,
+body.public-page a.dealer-listing-button:visited,
+body.public-page a.dealer-listing-button:hover {
+  color: #fff !important;
+}
+body.public-page .show-share {
+  background:
+    radial-gradient(circle at 94% 10%, rgba(218, 165, 32, 0.2) 0 3.75rem, transparent 3.85rem),
+    linear-gradient(135deg, #111a2b 0%, #1e2d48 100%);
+  border: 1px solid #b8860b;
+  border-left: 6px solid #daa520;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+  display: block;
+  margin: 1.25rem 0;
+  overflow: hidden;
+  padding: 1.25rem;
+}
+body.public-page .show-share-kicker {
+  color: #f4d06f;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.1rem;
+  text-transform: uppercase;
+}
+body.public-page .show-share h2 {
+  color: #fff !important;
+  font-size: 1.25rem;
+  margin: 0;
+}
+body.public-page .show-share-heading > p:last-child {
+  color: #dbe4f0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0.35rem 0 0;
+  max-width: 44rem;
+}
+body.public-page .show-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+body.public-page .show-share-button,
+body.public-page .show-share-button:visited {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #b8a36b;
+  border-radius: 7px;
+  box-sizing: border-box;
+  color: #172033;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  text-decoration: none;
+}
+body.public-page .show-share-button:hover,
+body.public-page .show-share-button:focus-visible {
+  background: #f4d06f;
+  border-color: #f4d06f;
+  color: #111a2b;
+}
+body.public-page .show-share-native {
+  background: #daa520;
+  border-color: #f4d06f;
+  color: #111a2b;
+}
+body.public-page .show-share-more {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(244, 208, 111, 0.45);
+  border-radius: 10px;
+  margin-top: 1rem;
+  padding: 0.75rem 0.85rem;
+}
+body.public-page .show-share-more summary {
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+body.public-page .show-share-more > p {
+  color: #dbe4f0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0.65rem 0;
+}
+body.public-page .show-share-social-actions {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+body.public-page .show-share-social-button {
+  align-items: center;
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #111a2b;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  gap: 0.42rem;
+  justify-content: center;
+  min-height: 2.65rem;
+  padding: 0.45rem 0.55rem;
+}
+body.public-page .show-share-social-button span {
+  align-items: center;
+  background: #111a2b;
+  border-radius: 50%;
+  color: #f4d06f;
+  display: inline-flex;
+  font-size: 0.58rem;
+  height: 1.65rem;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  width: 1.65rem;
+}
+body.public-page .show-share-social-button:hover,
+body.public-page .show-share-social-button:focus-visible {
+  background: #f4d06f;
+  border-color: #fff;
+}
+body.public-page .show-share-status {
+  color: #f4d06f;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 0.65rem 0 0;
+  min-height: 1em;
+}
+@media (max-width: 640px) {
+  body.public-page .show-share-button {
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+  body.public-page .show-share-social-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+body.public-page .state-tax-brief {
+  background: linear-gradient(135deg, #fffdf6 0%, #f8fafc 100%);
+  border: 1px solid #d1b879;
+  border-left: 5px solid #b8860b;
+  border-radius: 10px;
+  margin: 1.25rem 0 1.75rem;
+  padding: 1rem 1.15rem;
+}
+body.public-page .state-tax-brief-kicker {
+  color: #7c5b0a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.15rem;
+  text-transform: uppercase;
+}
+body.public-page .state-tax-brief h2 {
+  color: #172033;
+  font-size: 1.15rem;
+  margin: 0 0 0.45rem;
+}
+body.public-page .state-tax-brief p {
+  margin: 0.35rem 0;
+}
+body.public-page .state-tax-brief-note {
+  color: #64748b;
+  font-size: 0.76rem;
+}
+body.public-page .dealer-listing-form {
+  border-top: 1px solid rgba(218, 165, 32, 0.45);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  scroll-margin-top: 6rem;
+}
+body.public-page .dealer-listing-grid,
+body.public-page .listing-review-contact-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+body.public-page .dealer-listing-form label,
+body.public-page .listing-review-card label {
+  color: inherit;
+  display: grid;
+  font-size: 0.82rem;
+  font-weight: 700;
+  gap: 0.3rem;
+}
+body.public-page .dealer-listing-form label span,
+body.public-page .listing-review-card label span {
+  font-weight: 400;
+}
+body.public-page .dealer-listing-form input:not([type="checkbox"]),
+body.public-page .dealer-listing-form select,
+body.public-page .dealer-listing-form textarea,
+body.public-page .listing-review-card input:not([type="checkbox"]),
+body.public-page .listing-review-card select,
+body.public-page .listing-review-card textarea {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #111827;
+  font: inherit;
+  min-width: 0;
+  padding: 0.65rem 0.75rem;
+  width: 100%;
+}
+body.public-page .dealer-listing-form textarea,
+body.public-page .listing-review-card textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+body.public-page .dealer-listing-wide {
+  grid-column: 1 / -1;
+}
+body.public-page .dealer-listing-section {
+  border: 1px solid rgba(218, 165, 32, 0.45);
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  padding: 0.9rem;
+}
+body.public-page .dealer-listing-section legend {
+  color: #f4cf69;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 0 0.35rem;
+}
+body.public-page .dealer-listing-section legend span {
+  color: #cbd5e1;
+  font-weight: 400;
+}
+body.public-page .dealer-listing-section > p {
+  color: #cbd5e1;
+  font-size: 0.78rem;
+  margin: 0 0 0.75rem;
+}
+body.public-page .dealer-listing-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.2rem;
+  margin: 0.9rem 0;
+}
+body.public-page .dealer-listing-options label,
+body.public-page .dealer-listing-consent,
+body.public-page .listing-review-confirm,
+body.public-page .listing-review-consent {
+  align-items: start;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1rem minmax(0, 1fr);
+}
+body.public-page .dealer-listing-consent input[type="checkbox"],
+body.public-page .listing-review-consent input[type="checkbox"] {
+  align-self: start;
+  margin: 0.18rem 0 0;
+}
+body.public-page .dealer-listing-submit,
+body.public-page .listing-review-submit {
+  background: #b8860b;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-top: 0.9rem;
+  padding: 0.7rem 1.1rem;
+}
+body.public-page .listing-review-card {
+  background: #f8fafc;
+  border: 2px solid #d1b879;
+  border-radius: 12px;
+  margin: 2rem 0;
+  overflow: hidden;
+  scroll-margin-top: 6rem;
+}
+body.public-page .listing-review-card > summary {
+  background: #fff7ed;
+  cursor: pointer;
+  display: grid;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 1.1rem 1.25rem;
+}
+body.public-page .listing-review-card > summary::-webkit-details-marker {
+  display: none;
+}
+body.public-page .listing-review-toggle {
+  color: #7c2d12;
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-top: 0.25rem;
+}
+body.public-page .listing-review-card[open] .listing-review-toggle--collapsed,
+body.public-page .listing-review-card:not([open]) .listing-review-toggle--expanded {
+  display: none;
+}
+body.public-page .listing-review-kicker,
+body.public-page .listing-review-title,
+body.public-page .listing-review-description {
+  display: block;
+}
+body.public-page .listing-review-kicker {
+  color: #7c2d12;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+body.public-page .listing-review-title {
+  color: #1a2332;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+body.public-page .listing-review-description {
+  color: #475569;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+body.public-page .trust-status {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.18rem 0.55rem;
+}
+body.public-page .trust-status--scheduled {
+  background: #dcfce7;
+  color: #166534;
+}
+body.public-page .trust-status--date-not-confirmed {
+  background: #fef3c7;
+  color: #854d0e;
+}
+body.public-page .trust-status--past-date-unconfirmed {
+  background: #ffedd5;
+  color: #9a3412;
+}
+body.public-page .trust-status--past-show {
+  background: #fee2e2;
+  color: #991b1b;
+}
+body.public-page .show-date-description,
+body.public-page .show-last-confirmed {
+  color: #6b7280;
+  margin-left: 0.35rem;
+}
+body.public-page .listing-review-body {
+  padding: 1.25rem;
+}
+body.public-page .listing-review-instructions {
+  background: #fffbeb;
+  border: 1px solid #f4d58d;
+  border-radius: 8px;
+  color: #713f12;
+  margin-bottom: 1rem;
+  padding: 0.8rem 0.9rem;
+}
+body.public-page .listing-review-instructions p {
+  margin: 0.55rem 0 0;
+}
+body.public-page .listing-review-card fieldset {
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  margin: 0 0 1rem;
+  padding: 1rem;
+}
+body.public-page .listing-review-card legend {
+  color: #1a2332;
+  font-weight: 800;
+  padding: 0 0.4rem;
+}
+body.public-page .listing-review-column-headings,
+body.public-page .listing-review-row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+}
+body.public-page .listing-review-column-headings {
+  background: #1a2332;
+  border-radius: 8px 8px 0 0;
+  color: #fff;
+  padding: 0.65rem 0.85rem;
+}
+body.public-page .listing-review-row {
+  border: 1px solid #dbe3ec;
+  border-top: 0;
+  padding: 0.85rem;
+}
+body.public-page .listing-review-current {
+  align-content: start;
+  display: grid;
+  gap: 0.25rem;
+}
+body.public-page .listing-review-current span {
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+body.public-page .listing-review-current strong {
+  color: #1e293b;
+  overflow-wrap: anywhere;
+}
+body.public-page .listing-review-proposed {
+  display: grid;
+  gap: 0.45rem;
+}
+body.public-page .listing-review-proposed input[readonly],
+body.public-page .listing-review-proposed textarea[readonly] {
+  background: #eef2f7;
+  color: #475569;
+}
+body.public-page .listing-review-confirm {
+  color: #475569 !important;
+  font-size: 0.76rem !important;
+  font-weight: 600 !important;
+}
+body.public-page .listing-review-help {
+  color: #64748b;
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+body.public-page .listing-review-date-grid {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+body.public-page .listing-review-date-tbd {
+  align-items: center;
+  color: #475569 !important;
+  display: flex !important;
+  font-size: 0.8rem !important;
+  gap: 0.45rem;
+}
+body.public-page .listing-review-location-grid {
+  grid-template-columns: minmax(0, 2fr) minmax(4rem, 0.6fr) minmax(5rem, 0.8fr);
+}
+body.public-page .listing-review-location-confirm {
+  grid-column: 1 / -1;
+}
+body.public-page .listing-review-evidence {
+  margin-top: 1rem !important;
+}
+body.public-page #listing-review-removal-fields {
+  margin: 0.8rem 0;
+}
+body.public-page #listing-review-success {
+  background: #065f46;
+  border-radius: 6px;
+  color: #fff;
+  display: none;
+  margin-top: 0.75rem;
+  padding: 0.85rem;
+}
+body.public-page #listing-review-success p {
+  margin: 0.4rem 0;
+}
+body.public-page #listing-review-test-result {
+  display: block !important;
+  margin: 0.75rem 0;
+}
+body.public-page #listing-review-test-result[hidden] {
+  display: none !important;
+}
+body.public-page #listing-review-test-result dt {
+  font-weight: 800;
+  text-align: left !important;
+}
+body.public-page #listing-review-test-result dt:not(:first-child) {
+  margin-top: 0.35rem;
+}
+body.public-page #listing-review-test-result dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+body.public-page #listing-review-test-reset {
+  background: #fff;
+  border: 1px solid #d1fae5;
+  border-radius: 6px;
+  color: #065f46;
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.5rem 0.75rem;
+}
 @media (max-width: 800px) {
   body.public-page .main-content-wrap {
     padding: 1.25rem 1rem 2.5rem !important;
@@ -1087,7 +1738,7 @@ body.public-page .global-top-nav {
     min-height: 190px;
     padding: 1.2rem 9.8rem 1.45rem 1.25rem;
   }
-  body.public-page .public-hero-logo {
+  body.public-page .public-hero::after {
     right: 0.55rem;
     width: 142px;
     height: 108px;
@@ -1108,6 +1759,15 @@ body.public-page .global-top-nav {
   body.public-page .main-content main > .table-wrapper {
     max-width: calc(100% - 2.5rem);
   }
+  body.public-page .listing-review-column-headings {
+    display: none;
+  }
+  body.public-page .listing-review-row {
+    grid-template-columns: 1fr;
+  }
+  body.public-page .listing-review-date-grid {
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width: 520px) {
   body.public-page .main-content-wrap {
@@ -1118,7 +1778,7 @@ body.public-page .global-top-nav {
     min-height: 0;
     padding: 1rem 1rem 1.15rem !important;
   }
-  body.public-page .public-hero-logo {
+  body.public-page .public-hero::after {
     display: none;
   }
   body.public-page .main-content main > *:not(.breadcrumb-nav):not(.breadcrumbs):not(h1) {
@@ -1137,6 +1797,7 @@ body.public-page .global-top-nav {
   body.public-page .show-detail-table tr,
   body.public-page .show-detail-table td {
     display: block;
+    box-sizing: border-box;
     width: 100% !important;
   }
   body.public-page .show-detail-table td:first-child {
@@ -1157,6 +1818,36 @@ body.public-page .global-top-nav {
     max-width: 100%;
     text-align: center;
     white-space: normal;
+  }
+  body.public-page .show-reminder-fields {
+    grid-template-columns: 1fr !important;
+  }
+  body.public-page .show-reminder-fields input,
+  body.public-page .show-reminder-fields select,
+  body.public-page .show-reminder-fields textarea {
+    box-sizing: border-box;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+  body.public-page .dealer-listing-grid,
+  body.public-page .listing-review-contact-grid,
+  body.public-page .listing-review-location-grid {
+    grid-template-columns: 1fr;
+  }
+  body.public-page .dealer-listing-wide,
+  body.public-page .listing-review-location-confirm {
+    grid-column: auto;
+  }
+  body.public-page .show-workflow-card > summary {
+    padding: 1rem;
+  }
+  body.public-page .show-workflow-card > summary::after {
+    margin-top: 0.55rem;
+    position: static;
+    width: fit-content;
+  }
+  body.public-page .show-workflow-body {
+    padding: 1rem;
   }
   body.public-page .notify-form,
   body.public-page .notify-form .form-row {
@@ -1191,3 +1882,9 @@ body.public-page .global-top-nav {
   }
 }
 </style>
+<script>
+{% include show-date-status.js %}
+</script>
+{% if site.review_mode %}
+{% include local_review_notes.html %}
+{% endif %}

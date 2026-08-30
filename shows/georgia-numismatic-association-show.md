@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Georgia Numismatic Association (GNA) Show — Dalton, Georgia Coin Show"
-seo_title: "Georgia Numismatic Association (GNA) Show — Dalton, Georgia | Coin Show Near Me"
-seo_description: "Georgia Numismatic Association (GNA) Show in Dalton, Georgia. Annual (April) coin show at Dalton Convention Center. Get dates, venue details, and more."
+title: "Georgia Numismatic Association Show"
+heading: "Georgia Numismatic Association (GNA) Show — Dalton, Georgia Coin Show"
+description: "Georgia Numismatic Association (GNA) Show in Dalton, Georgia. View dates, venue details, and listing verification before you travel."
 permalink: /shows/georgia-numismatic-association-show/
 show_id: "georgia-numismatic-association-show"
 breadcrumb_parent: "Georgia"

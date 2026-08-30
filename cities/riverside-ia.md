@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Riverside, Iowa — 2026-2027"
-seo_title: "Coin Shows in Riverside, Iowa — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Riverside, Iowa. Dates, venues, and details for upcoming coin shows and numismatic events in Riverside."
+title: "Riverside, IA Coin Shows"
+heading: "Coin Shows in Riverside, Iowa — 2026-2027"
+description: "Find 1 coin show in Riverside, Iowa. Compare dates, venues, and verification details before you travel."
 permalink: /cities/riverside-ia/
 city_slug: "riverside-ia"
 city_name: "Riverside"

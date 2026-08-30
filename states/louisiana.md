@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Louisiana — 2026-2027 Schedule"
-seo_title: "Coin Shows in Louisiana — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 1 coin shows in Louisiana. Complete directory with dates, venues, and details for Louisiana coin shows, expos, and numismatic events."
+title: "Louisiana Coin Shows"
+heading: "Coin Shows in Louisiana — 2026-2027 Schedule"
+description: "Browse 1 coin shows in Louisiana with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/louisiana/
 state_abbrev: "LA"
 state_name: "Louisiana"

@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Maryland — 2026-2027 Schedule"
-seo_title: "Coin Shows in Maryland — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 3 coin shows in Maryland. Complete directory with dates, venues, and details for Maryland coin shows, expos, and numismatic events."
+title: "Maryland Coin Shows"
+heading: "Coin Shows in Maryland — 2026-2027 Schedule"
+description: "Browse 3 coin shows in Maryland with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/maryland/
 state_abbrev: "MD"
 state_name: "Maryland"

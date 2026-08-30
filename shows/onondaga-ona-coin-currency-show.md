@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Onondaga (ONA) Coin & Currency Show — Liverpool, New York Coin Show"
-seo_title: "Onondaga (ONA) Coin & Currency Show — Liverpool, New York | Coin Show Near Me"
-seo_description: "Onondaga (ONA) Coin & Currency Show in Liverpool, New York. Recurring coin show at Holiday Inn & Suites. Get dates, venue details, and more."
+title: "Onondaga (ONA) Coin & Currency Show"
+heading: "Onondaga (ONA) Coin & Currency Show — Liverpool, New York Coin Show"
+description: "Onondaga (ONA) Coin & Currency Show in Liverpool, New York. View dates, venue details, and listing verification before you travel."
 permalink: /shows/onondaga-ona-coin-currency-show/
 show_id: "onondaga-ona-coin-currency-show"
 breadcrumb_parent: "New York"

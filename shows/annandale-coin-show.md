@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Annandale Coin Show — Annandale, Virginia Coin Show"
-seo_title: "Annandale Coin Show — Annandale, Virginia | Coin Show Near Me"
-seo_description: "Annandale Coin Show in Annandale, Virginia. Semiannual coin show at Northern Virginia Community College, Ernst Community Cultural Center, 8430 Center Drive, Annandale, VA 22003. Get dates, venue details, and more."
+title: "Annandale Coin Show"
+heading: "Annandale Coin Show — Annandale, Virginia Coin Show"
+description: "Annandale Coin Show in Annandale, Virginia. View dates, venue details, and listing verification before you travel."
 permalink: /shows/annandale-coin-show/
 show_id: "annandale-coin-show"
 breadcrumb_parent: "Virginia"

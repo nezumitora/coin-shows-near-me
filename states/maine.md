@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Maine — 2026-2027 Schedule"
-seo_title: "Coin Shows in Maine — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 1 coin shows in Maine. Complete directory with dates, venues, and details for Maine coin shows, expos, and numismatic events."
+title: "Maine Coin Shows"
+heading: "Coin Shows in Maine — 2026-2027 Schedule"
+description: "Browse 1 coin shows in Maine with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/maine/
 state_abbrev: "ME"
 state_name: "Maine"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "THE Reno Coin Show — Reno, Nevada Coin Show"
-seo_title: "THE Reno Coin Show — Reno, Nevada | Coin Show Near Me"
-seo_description: "THE Reno Coin Show in Reno, Nevada. Recurring coin show at J Resort, 345 N. Arlington Ave., Reno, NV. Get dates, venue details, and more."
+title: "THE Reno Coin Show"
+heading: "THE Reno Coin Show — Reno, Nevada Coin Show"
+description: "THE Reno Coin Show in Reno, Nevada. View dates, venue details, and listing verification before you travel."
 permalink: /shows/the-reno-coin-show/
 show_id: "the-reno-coin-show"
 breadcrumb_parent: "Nevada"

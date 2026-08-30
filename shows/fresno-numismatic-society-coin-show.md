@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Fresno Numismatic Society Annual Coin Show — Fresno, California Coin Show"
-seo_title: "Fresno Numismatic Society Annual Coin Show — Fresno, California | Coin Show Near Me"
-seo_description: "Fresno Numismatic Society Annual Coin Show in Fresno, California. Annual (October) coin show at American Legion Post 509, 3509 N. First Street, Fresno, CA 93726. Get dates, venue details, and more."
+title: "Fresno Numismatic Society Show"
+heading: "Fresno Numismatic Society Annual Coin Show — Fresno, California Coin Show"
+description: "Fresno Numismatic Society Annual Coin Show in Fresno, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/fresno-numismatic-society-coin-show/
 show_id: "fresno-numismatic-society-coin-show"
 breadcrumb_parent: "California"

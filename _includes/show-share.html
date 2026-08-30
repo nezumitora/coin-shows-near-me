@@ -1,0 +1,109 @@
+<section class="show-share" data-show-share data-share-title="{{ include.show.name | escape }}" aria-labelledby="show-share-title">
+  <div class="show-share-heading">
+    <p class="show-share-kicker">Collector share kit</p>
+    <h2 id="show-share-title">Pass this show along</h2>
+    <p>Help collectors find it with a direct share or a ready-to-paste social post.</p>
+  </div>
+  <div class="show-share-actions" aria-label="Direct sharing options for {{ include.show.name | escape }}">
+    <button type="button" class="show-share-button show-share-native" data-share-native hidden>Share from device</button>
+    <a class="show-share-button" data-share-facebook href="#" target="_blank" rel="noopener noreferrer" aria-label="Share {{ include.show.name | escape }} on Facebook">Facebook</a>
+    <a class="show-share-button" data-share-x href="#" target="_blank" rel="noopener noreferrer" aria-label="Share {{ include.show.name | escape }} on X">X</a>
+    <a class="show-share-button" data-share-email href="#" aria-label="Share {{ include.show.name | escape }} by email">Email</a>
+    <button type="button" class="show-share-button" data-share-copy>Copy link</button>
+  </div>
+  <details class="show-share-more">
+    <summary>Post to Instagram, TikTok, Snapchat, Whatnot, or YouTube</summary>
+    <p>These services do not provide a dependable one-click web share for outside pages. Choose one to copy a ready-to-paste caption and canonical link.</p>
+    <div class="show-share-social-actions" aria-label="Copy a social post for {{ include.show.name | escape }}">
+      <button type="button" class="show-share-social-button" data-share-copy-platform data-platform="Instagram"><span aria-hidden="true">IG</span>Instagram</button>
+      <button type="button" class="show-share-social-button" data-share-copy-platform data-platform="TikTok"><span aria-hidden="true">TT</span>TikTok</button>
+      <button type="button" class="show-share-social-button" data-share-copy-platform data-platform="Snapchat"><span aria-hidden="true">SC</span>Snapchat</button>
+      <button type="button" class="show-share-social-button" data-share-copy-platform data-platform="Whatnot"><span aria-hidden="true">WN</span>Whatnot</button>
+      <button type="button" class="show-share-social-button" data-share-copy-platform data-platform="YouTube"><span aria-hidden="true">YT</span>YouTube</button>
+    </div>
+  </details>
+  <p class="show-share-status" data-share-status role="status" aria-live="polite"></p>
+</section>
+
+<script>
+(function() {
+  var shareSection = document.querySelector('[data-show-share]');
+  if (!shareSection) { return; }
+
+  var canonical = document.querySelector('link[rel="canonical"]');
+  var shareUrl = canonical && canonical.href ? canonical.href : window.location.href.split('#')[0].split('?')[0];
+  var shareTitle = shareSection.getAttribute('data-share-title') || document.title;
+  var shareText = 'Coin show details for ' + shareTitle + ' on Coin Show Near Me.';
+  var status = shareSection.querySelector('[data-share-status]');
+  var facebookLink = shareSection.querySelector('[data-share-facebook]');
+  var xLink = shareSection.querySelector('[data-share-x]');
+  var emailLink = shareSection.querySelector('[data-share-email]');
+  var copyButton = shareSection.querySelector('[data-share-copy]');
+  var nativeButton = shareSection.querySelector('[data-share-native]');
+  var platformButtons = shareSection.querySelectorAll('[data-share-copy-platform]');
+  var socialPost = shareText + '\n\n' + shareUrl;
+
+  facebookLink.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
+  xLink.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl);
+  emailLink.href = 'mailto:?subject=' + encodeURIComponent(shareTitle) + '&body=' + encodeURIComponent(shareText + '\n\n' + shareUrl);
+
+  function setStatus(message) {
+    status.textContent = message;
+  }
+
+  function fallbackCopy(value) {
+    var textArea = document.createElement('textarea');
+    textArea.value = value;
+    textArea.setAttribute('readonly', '');
+    textArea.style.position = 'fixed';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.select();
+    var copied = document.execCommand('copy');
+    document.body.removeChild(textArea);
+    return copied;
+  }
+
+  function copyValue(value, successMessage, failureMessage) {
+    var copyPromise;
+    if (navigator.clipboard && window.isSecureContext) {
+      copyPromise = navigator.clipboard.writeText(value);
+    } else {
+      copyPromise = fallbackCopy(value) ? Promise.resolve() : Promise.reject(new Error('Copy failed'));
+    }
+    copyPromise.then(function() {
+      setStatus(successMessage);
+    }).catch(function() {
+      setStatus(failureMessage);
+    });
+  }
+
+  copyButton.addEventListener('click', function() {
+    copyValue(shareUrl, 'Link copied.', 'Copy did not work. Select the address from your browser instead.');
+  });
+
+  for (var i = 0; i < platformButtons.length; i++) {
+    platformButtons[i].addEventListener('click', function() {
+      var platform = this.getAttribute('data-platform');
+      copyValue(
+        socialPost,
+        'Post copied for ' + platform + '. Paste it into the app when you are ready.',
+        'Copy did not work. Use Copy link instead.'
+      );
+    });
+  }
+
+  if (navigator.share) {
+    nativeButton.hidden = false;
+    nativeButton.addEventListener('click', function() {
+      navigator.share({ title: shareTitle, text: shareText, url: shareUrl }).then(function() {
+        setStatus('Share options opened.');
+      }).catch(function(error) {
+        if (error && error.name !== 'AbortError') {
+          setStatus('Sharing did not open. Try Copy link instead.');
+        }
+      });
+    });
+  }
+})();
+</script>

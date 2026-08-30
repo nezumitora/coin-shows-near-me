@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Cave Man Coin Club Coin, Currency & Token Show — Grants Pass, Oregon Coin Show"
-seo_title: "Cave Man Coin Club Coin, Currency & Token Show — Grants Pass, Oregon | Coin Show Near Me"
-seo_description: "Cave Man Coin Club Coin, Currency & Token Show in Grants Pass, Oregon. Annual coin show at Josephine County Fairgrounds, Redwood Hwy., Grants Pass, OR. Get dates, venue details, and more."
+title: "Cave Man Coin Club Show"
+heading: "Cave Man Coin Club Coin, Currency & Token Show — Grants Pass, Oregon Coin Show"
+description: "Cave Man Coin Club Coin, Currency & Token Show in Grants Pass, Oregon. View dates, venue details, and listing verification before you travel."
 permalink: /shows/cave-man-coin-club-show/
 show_id: "cave-man-coin-club-show"
 breadcrumb_parent: "Oregon"

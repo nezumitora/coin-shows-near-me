@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Cupertino, California — 2026-2027"
-seo_title: "Coin Shows in Cupertino, California — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Cupertino, California. Dates, venues, and details for upcoming coin shows and numismatic events in Cupertino."
+title: "Cupertino, CA Coin Shows"
+heading: "Coin Shows in Cupertino, California — 2026-2027"
+description: "Find 1 coin show in Cupertino, California. Compare dates, venues, and verification details before you travel."
 permalink: /cities/cupertino-ca/
 city_slug: "cupertino-ca"
 city_name: "Cupertino"

@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Privacy Policy"
-seo_title: "Privacy Policy | Coin Show Near Me"
-seo_description: "Privacy Policy for Coin Show Near Me — how we collect, use, and protect your personal information."
+description: "Privacy Policy for Coin Show Near Me — how we collect, use, and protect your personal information."
 permalink: /legal/privacy-policy/
 nav_exclude: true
 breadcrumb_parent: "Legal"
@@ -13,7 +12,7 @@ breadcrumb_current: "Privacy Policy"
 # Privacy Policy
 
 **Effective Date:** April 15, 2026
-**Last Updated:** April 15, 2026
+**Last Updated:** August 29, 2026
 
 This Privacy Policy describes how Coin Show Near Me ("we," "us," or "our") collects, uses, shares, and protects your personal information when you use our website at coinshownearme.com and all related services (the "Platform").
 
@@ -23,12 +22,14 @@ This Privacy Policy describes how Coin Show Near Me ("we," "us," or "our") colle
 
 ### 1.1 Information You Provide
 
-- **Account registration:** Name, email address, phone number, business name (for Dealers), ZIP code
-- **Dealer registration:** Business name, license information (if provided), shows you plan to attend, areas of specialty
-- **Collection submissions:** Descriptions of coins, currency, bullion, and collectibles; photographs of items; estimated values
-- **Offer requests:** Contact information and item details shared between Sellers and Dealers
-- **Show submissions:** Event name, dates, venue, organizer contact information (for Promoters)
+- **Dealer listing and claim requests:** Business name, representative role, business contact information, public contact details proposed for publication, credentials or source links, and shows or specialties you identify
+- **Show submissions and organizer requests:** Event name, dates, venue, public source links, organizer role, and contact information needed to review a submission or verification request
+- **Reminder interest requests:** Name, email address, selected state, and shows or locations of interest. These forms do not collect a mobile number
+- **Listing review or removal requests:** Contact information, reason for the request, supporting public source links, and the details you provide for manual review
 - **Contact forms:** Any information you submit through forms on the Platform
+- **Feature-research surveys (inactive):** If a survey is activated after review, it may request survey choices, optional written feedback, and optional name and email address if you request a reply
+
+**Inactive services:** We do not currently collect account registrations, seller collection uploads, pre-show offer requests, or Collection Tracker feature-survey responses because those services are not active.
 
 ### 1.2 Information Collected Automatically
 
@@ -44,10 +45,11 @@ This Privacy Policy describes how Coin Show Near Me ("we," "us," or "our") colle
 We use your information to:
 
 - Operate and maintain the Platform
-- Connect Sellers with Dealers attending specific coin shows
 - Display event listings and dealer directories
 - Process and respond to form submissions
-- Send transactional communications (offer notifications, account updates)
+- Review dealer listing, claim, contact-publication, and verification requests manually
+- Record reminder interests and contact you about future reminder availability. No recurring reminder service is currently active
+- Review organizer-verification, correction, and listing-removal requests
 - Improve the Platform and develop new features
 - Prevent fraud and enforce our Terms of Use
 - Comply with legal obligations
@@ -58,11 +60,11 @@ We use your information to:
 
 ## 3. How We Share Your Information
 
-### 3.1 Between Users
+### 3.1 Public Listings and Dealer Information
 
-When a Seller submits a collection for pre-show offers, the Seller's contact information and item details are shared with the Dealers they select. **By using the pre-show offer system, you consent to this sharing.**
+We do not currently operate a pre-show offer system, accept seller collection submissions, or share seller contact information with dealers through the Platform.
 
-When a Dealer verifies attendance at a show, their business name and specialties are displayed publicly on the show listing.
+Dealer business details and public contacts may be displayed only after manual review and only when voluntarily submitted for publication or verified from a public source. Private claim or review contact information is not published automatically. `Claimed` and `Verified` are separate review states and neither is affected by payment or promotion.
 
 ### 3.2 Service Providers
 
@@ -80,7 +82,15 @@ In the event of a merger, acquisition, or sale of assets, your information may b
 
 ## 4. Data Retention
 
-We retain your information for as long as your account is active or as needed to provide services. You may request deletion of your account and associated data at any time by contacting us. We may retain certain information as required by law or for legitimate business purposes (e.g., dispute resolution).
+We retain submitted information for as long as reasonably needed to review requests, provide active services, document consent or publication decisions, resolve disputes, and meet legal obligations. You may request deletion of associated personal information by contacting us, subject to information we must or may lawfully retain.
+
+Reminder-interest and consent records may be retained as needed to document your request, contact you about future availability, honor withdrawal requests, and comply with legal obligations. You may withdraw your request by [contacting us](/contact/). The current reminder-interest forms do not collect mobile numbers or activate recurring email or text messages.
+
+If a feature survey is activated after review, answers may be retained to plan and improve tools. Name and email would remain optional and would be used only to reply about that feedback when provided with permission; submitting a survey would not join a reminder or marketing list.
+
+### Public Event Information and Removal Requests
+
+Coin show names, dates, venues, cities, public organizer or club names, and official public source links are event facts gathered from public sources or submitted for publication. They are not automatically removed merely because a request is submitted. We manually review requests involving closed events, duplicates, inaccurate information, private personal information, or other supported concerns. We may correct, limit, or remove information when appropriate while retaining accurate public event facts where lawful and useful to the directory.
 
 ---
 
@@ -149,8 +159,7 @@ We may update this Privacy Policy from time to time. Material changes will be po
 
 For privacy-related questions or to exercise your rights:
 
-**Coin Show Near Me**
-[Contact us here](/contact/)
+[privacy@coinshownearme.com](mailto:privacy@coinshownearme.com)
 
 ---
 

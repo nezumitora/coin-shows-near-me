@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Denver, Colorado — 2026-2027"
-seo_title: "Coin Shows in Denver, Colorado — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Denver, Colorado. Dates, venues, and details for upcoming coin shows and numismatic events in Denver."
+title: "Denver, CO Coin Shows"
+heading: "Coin Shows in Denver, Colorado — 2026-2027"
+description: "Find 1 coin show in Denver, Colorado. Compare dates, venues, and verification details before you travel."
 permalink: /cities/denver-co/
 city_slug: "denver-co"
 city_name: "Denver"

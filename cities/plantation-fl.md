@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Plantation, Florida — 2026-2027"
-seo_title: "Coin Shows in Plantation, Florida — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Plantation, Florida. Dates, venues, and details for upcoming coin shows and numismatic events in Plantation."
+title: "Plantation, FL Coin Shows"
+heading: "Coin Shows in Plantation, Florida — 2026-2027"
+description: "Find 1 coin show in Plantation, Florida. Compare dates, venues, and verification details before you travel."
 permalink: /cities/plantation-fl/
 city_slug: "plantation-fl"
 city_name: "Plantation"

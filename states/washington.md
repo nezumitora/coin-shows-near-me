@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Washington — 2026-2027 Schedule"
-seo_title: "Coin Shows in Washington — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 5 coin shows in Washington. Complete directory with dates, venues, and details for Washington coin shows, expos, and numismatic events."
+title: "Washington Coin Shows"
+heading: "Coin Shows in Washington — 2026-2027 Schedule"
+description: "Browse 5 coin shows in Washington with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/washington/
 state_abbrev: "WA"
 state_name: "Washington"

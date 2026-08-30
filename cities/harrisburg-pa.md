@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Harrisburg, Pennsylvania — 2026-2027"
-seo_title: "Coin Shows in Harrisburg, Pennsylvania — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Harrisburg, Pennsylvania. Dates, venues, and details for upcoming coin shows and numismatic events in Harrisburg."
+title: "Harrisburg, PA Coin Shows"
+heading: "Coin Shows in Harrisburg, Pennsylvania — 2026-2027"
+description: "Find 1 coin show in Harrisburg, Pennsylvania. Compare dates, venues, and verification details before you travel."
 permalink: /cities/harrisburg-pa/
 city_slug: "harrisburg-pa"
 city_name: "Harrisburg"

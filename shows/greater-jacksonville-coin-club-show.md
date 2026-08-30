@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Greater Jacksonville Coin Club Show — Jacksonville, Florida Coin Show"
-seo_title: "Greater Jacksonville Coin Club Show — Jacksonville, Florida | Coin Show Near Me"
-seo_description: "Greater Jacksonville Coin Club Show in Jacksonville, Florida. Annual coin show at Ramallah Club, 3130 Parental Home Rd, Jacksonville, FL 32216. Get dates, venue details, and more."
+title: "Greater Jacksonville Coin Club Show"
+heading: "Greater Jacksonville Coin Club Show — Jacksonville, Florida Coin Show"
+description: "Greater Jacksonville Coin Club Show in Jacksonville, Florida. View dates, venue details, and listing verification before you travel."
 permalink: /shows/greater-jacksonville-coin-club-show/
 show_id: "greater-jacksonville-coin-club-show"
 breadcrumb_parent: "Florida"

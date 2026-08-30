@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
-const showMatchesSearch = require('../_includes/homepage-search-match.js');
+const { showMatchesSearch, showMatchesDateFilter } = require('../_includes/homepage-search-match.js');
 
 const statesYaml = fs.readFileSync(path.join(__dirname, '../_data/states.yml'), 'utf8');
 const stateCodes = Array.from(statesYaml.matchAll(/^- abbrev: ([A-Z]{2})$/gm), (match) => match[1]);
@@ -64,4 +64,34 @@ test('name, city, venue, and address remain searchable', () => {
 test('blank and unmatched queries behave predictably', () => {
   assert.equal(showMatchesSearch(missouriShow, '', stateAbbreviations), true);
   assert.equal(showMatchesSearch(missouriShow, 'not a real show', stateAbbreviations), false);
+});
+
+test('date filters match this weekend and the current month using ISO dates', () => {
+  const friday = new Date(2026, 6, 31, 12, 0, 0);
+
+  assert.equal(showMatchesDateFilter('2026-07-31,2026-08-01', 'weekend', friday), true);
+  assert.equal(showMatchesDateFilter('2026-07-31', 'weekend', friday), false);
+  assert.equal(showMatchesDateFilter('2026-08-07', 'weekend', friday), false);
+  assert.equal(showMatchesDateFilter('2026-07-31,2026-08-01', 'month', friday), true);
+  assert.equal(showMatchesDateFilter('2026-08-01', 'month', friday), false);
+});
+
+test('weekend filter includes the current Saturday and Sunday', () => {
+  const saturday = new Date(2026, 7, 1, 12, 0, 0);
+  const sunday = new Date(2026, 7, 2, 12, 0, 0);
+
+  assert.equal(showMatchesDateFilter('2026-08-01', 'weekend', saturday), true);
+  assert.equal(showMatchesDateFilter('2026-08-02', 'weekend', sunday), true);
+  assert.equal(showMatchesDateFilter('', 'weekend', saturday), false);
+  assert.equal(showMatchesDateFilter('', 'all', saturday), true);
+});
+
+test('frozen August 23 weekend includes only Saturday or Sunday overlaps', () => {
+  const sunday = new Date(2026, 7, 23, 12, 0, 0);
+
+  assert.equal(showMatchesDateFilter('2026-08-09', 'weekend', sunday), false);
+  assert.equal(showMatchesDateFilter('2026-08-22,2026-08-23', 'weekend', sunday), true);
+  assert.equal(showMatchesDateFilter('2026-08-23', 'weekend', sunday), true);
+  assert.equal(showMatchesDateFilter('2026-08-21', 'weekend', sunday), false);
+  assert.equal(showMatchesDateFilter('2026-08-21,2026-08-22', 'weekend', sunday), true);
 });

@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Sunnyvale, California — 2026-2027"
-seo_title: "Coin Shows in Sunnyvale, California — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Sunnyvale, California. Dates, venues, and details for upcoming coin shows and numismatic events in Sunnyvale."
+title: "Sunnyvale, CA Coin Shows"
+heading: "Coin Shows in Sunnyvale, California — 2026-2027"
+description: "Find 1 coin show in Sunnyvale, California. Compare dates, venues, and verification details before you travel."
 permalink: /cities/sunnyvale-ca/
 city_slug: "sunnyvale-ca"
 city_name: "Sunnyvale"

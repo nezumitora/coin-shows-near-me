@@ -1,8 +1,7 @@
 ---
 layout: default
 title: "Blog"
-seo_title: "Coin Collecting Blog — News, Tips & Market Updates | Coin Show Near Me"
-seo_description: "Coin collecting articles, market updates, show recaps, and tips for collectors and dealers. Coming soon from Coin Show Near Me."
+description: "Coin collecting articles, market updates, show recaps, and tips for collectors and dealers. Coming soon from Coin Show Near Me."
 permalink: /blog/
 nav_order: 6
 breadcrumb_current: "Blog"

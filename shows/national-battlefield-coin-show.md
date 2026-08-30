@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "National Battlefield Coin Show — Gettysburg, Pennsylvania Coin Show"
-seo_title: "National Battlefield Coin Show — Gettysburg, Pennsylvania | Coin Show Near Me"
-seo_description: "National Battlefield Coin Show in Gettysburg, Pennsylvania. Semiannual (Spring & Fall) coin show at Eisenhower Hotel Ballroom, 2634 Emmitsburg Road, Gettysburg, PA. Get dates, venue details, and more."
+title: "National Battlefield Coin Show"
+heading: "National Battlefield Coin Show — Gettysburg, Pennsylvania Coin Show"
+description: "National Battlefield Coin Show in Gettysburg, Pennsylvania. View dates, venue details, and listing verification before you travel."
 permalink: /shows/national-battlefield-coin-show/
 show_id: "national-battlefield-coin-show"
 breadcrumb_parent: "Pennsylvania"

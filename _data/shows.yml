@@ -107,7 +107,7 @@
   city_slug: phoenix-az
   venue: El Zaribah Shrine Auditorium
   frequency: Monthly (2nd Sunday)
-  next_date: August 9, 2026
+  next_date: September 13, 2026
   website: https://camelbackcollectables.com/
   organizer: Camelback Collectibles
   source_url: https://camelbackcollectables.com/calendar
@@ -176,13 +176,16 @@
   state_name: California
   city: Anaheim
   city_slug: anaheim-ca
-  venue: Embassy Suites Anaheim North, 3100 E Frontera St
+  venue: Embassy Suites Anaheim North
+  street_address: 3100 East Frontera Street
+  postal_code: '92806'
+  address_status: verified
   frequency: Monthly (1st Sunday)
-  next_date: August 2, 2026
+  next_date: October 4, 2026
   website: https://pacificexposllc.com/
   organizer: Pacific Expos LLC
   source_url: https://pacificexposllc.com/ncmcs-dates%2Fdealers%2Fmap
-  last_verified: '2026-07-15'
+  last_verified: '2026-08-23'
   upcoming_dates:
   - '2026-08-02'
   - '2026-10-04'
@@ -193,8 +196,9 @@
   - '2027-04-04'
   - '2027-05-02'
   - '2027-07-04'
-  verification_notes: Official Pacific Expos LLC page confirms the August 2, 2026 North County Monthly Coin Show, 9am-4pm hours, Embassy Suites address, admission, free parking note, and phone; prior dates remain from the NCMCS dates page.
-  notes: '30+ dealers; free parking and hourly prize drawings. Official upcoming dates: Aug 2, Oct 4, Nov 1, and Dec 6, 2026; Jan 3, Feb 7, Apr 4, May 2, and Jul 4, 2027. Hours: 9am-4pm. Official page lists phone 714-271-8946.'
+  - '2027-08-01'
+  verification_notes: Official Pacific Expos LLC page confirms October 4, November 1, and December 6, 2026 plus January 3, February 7, April 4, May 2, July 4, and August 1, 2027; it also confirms 9am-4pm hours and the Embassy Suites street address. Rechecked August 23, 2026 without inferring dates from the monthly frequency.
+  notes: '30+ dealers; free parking and hourly prize drawings. Next confirmed date: October 4, 2026. Hours: 9am-4pm. Official page lists phone 714-271-8946.'
 - id: the-arcadia-coin-currency-and-collectibles-show
   name: Arcadia Coin Show
   state: CA
@@ -228,6 +232,7 @@
   last_verified: '2026-07-13'
   upcoming_dates:
   - '2026-09-12'
+  - '2026-09-13'
   verification_notes: Official Pacific Expos LLC home page lists the next Buena Park Coin Show as September 12 & 13, 2026 at Retail Clerk’s Hall, 8550 Stanton, Buena Park, California; hours Saturday 10am-5pm and Sunday 10am-4pm; reviewed during future-date cleanup.
   notes: '50+ dealers, free parking, free hourly coin drawings. Official next date: September 12-13, 2026. Hours: Saturday 10am-5pm, Sunday 10am-4pm.'
 - id: east-bayconcord-coin-show
@@ -289,7 +294,10 @@
   state_name: California
   city: Long Beach
   city_slug: long-beach-ca
-  venue: Long Beach Convention Center
+  venue: Long Beach Convention & Entertainment Center - Hall C
+  street_address: 300 East Ocean Boulevard
+  postal_code: '90802'
+  address_status: verified
   frequency: 3 Times Per Year (February, June, September)
   next_date: September 9-11, 2026
   website: https://www.longbeachexpo.com/
@@ -304,7 +312,7 @@
   - '2027-03-10'
   - '2027-03-11'
   - '2027-03-12'
-  verification_notes: Official Long Beach Expo site lists September 9-11, 2026 and March 10-12, 2027 save-the-date windows; its detailed schedule still shows stale February information, so the homepage dates control.
+  verification_notes: Official Long Beach Expo site lists September 9-11, 2026 and March 10-12, 2027 save-the-date windows; its linked official ticket page identifies Hall C at 300 East Ocean Boulevard, Long Beach, CA 90802. The detailed schedule still shows stale February information, so the homepage dates control.
   notes: A major international show with hundreds of dealers.
 - id: sacramento-coin-show
   name: Sacramento Coin Show
@@ -314,7 +322,7 @@
   city_slug: sacramento-ca
   venue: Lions Gate Hotel, 3410 Westover Street, McClellan, CA 95652
   frequency: Semiannual (Spring & Fall)
-  next_date: August 23, 2026
+  next_date: November 6-7, 2026
   website: http://sacramentocoinshow.com/
   organizer: Peter McIntosh / Sacramento Coin Shows
   source_url: http://sacramentocoinshow.com/
@@ -328,6 +336,7 @@
   notes: 'Hours: Aug 23 and Dec 13 Sun 10-4; Nov 6-7 Fri/Sat 10-5 and 10-4. Presenter contact listed as Peter McIntosh, (916) 317-9055.'
 - id: sacramento-valley-coin-club
   name: Sacramento Valley Coin Club Fall Coin Show
+  short_title: "Sacramento Valley Coin Club Show"
   state: CA
   state_name: California
   city: Sacramento
@@ -368,7 +377,7 @@
   city_slug: santa-clara-ca
   venue: American Legion Post 419, 958 Homestead Road, Santa Clara, CA
   frequency: Recurring
-  next_date: August 21-22, 2026
+  next_date: October 16-17, 2026
   website: https://www.santaclaracoinshow.com
   organizer: Santa Clara Coin Show
   source_url: https://www.santaclaracoinshow.com
@@ -422,6 +431,7 @@
   notes: 'Hours: early bird 8:30am, general admission 10am-4pm. Admission: $50 early bird or $10 general, paid at the door. Rare coins, currency, bullion, and collectibles; armed security will be present.'
 - id: san-francisco-international-numismatic-bourse
   name: San Francisco International Numismatic Bourse
+  short_title: "San Francisco Numismatic Bourse"
   state: CA
   state_name: California
   city: South San Francisco
@@ -494,6 +504,7 @@
   notes: 'Hours: Sat 10-6, Sun 10-5.'
 - id: fresno-numismatic-society-coin-show
   name: Fresno Numismatic Society Annual Coin Show
+  short_title: "Fresno Numismatic Society Show"
   state: CA
   state_name: California
   city: Fresno
@@ -590,16 +601,24 @@
   notes: 'Hours: Sun 10-4.'
 - id: tucson-coin-and-currency-expo
   name: Tucson Coin and Currency Expo
-  state: CO
-  state_name: Colorado
-  city: Creating Collectors
-  city_slug: creating-collectors-co
-  venue: ''
-  frequency: Recurring
-  next_date: TBD
-  website: ''
-  organizer: ''
-  notes: ''
+  state: AZ
+  state_name: Arizona
+  city: Tucson
+  city_slug: tucson-az
+  venue: Casino Del Sol, 5655 W Valencia Rd, Tucson, AZ 85757
+  frequency: Annual
+  next_date: January 21-23, 2027
+  website: https://tucsoncoinshow.com/
+  organizer: Old Pueblo Coin
+  source_url: https://tucsoncoinshow.com/
+  source_type: official-show-page
+  last_verified: '2026-07-31'
+  upcoming_dates:
+  - '2027-01-21'
+  - '2027-01-22'
+  - '2027-01-23'
+  verification_notes: Official Tucson Coin and Currency Expo site lists January 21-23, 2027 at Casino Del Sol, 5655 W Valencia Rd, Tucson, Arizona; its contact page identifies Old Pueblo Coin. The malformed Colorado city value came from the event slogan rather than a location.
+  notes: Official site lists public hours Friday 9-5 and Saturday 9-4; confirm Thursday access details with the organizer before traveling.
 - id: denver-coin-expo
   name: Denver Coin Expo
   state: CO
@@ -640,6 +659,7 @@
   notes: Official page confirms venue but no future date after the past March 2026 show; check club page before traveling.
 - id: cromwell-hartford-coin-and-currency-show
   name: Cromwell-Hartford Coin and Currency Show
+  short_title: "Cromwell-Hartford Coin Show"
   state: CT
   state_name: Connecticut
   city: Cromwell
@@ -729,7 +749,7 @@
   city_slug: hollywood-fl
   venue: Rotary Club of Hollywood, 2349 Taylor St, Hollywood, FL 33020
   frequency: Recurring
-  next_date: August 2, 2026
+  next_date: September 6, 2026
   website: https://GoldCoastCoinClub.com
   organizer: Gold Coast Coin Club
   source_url: https://GoldCoastCoinClub.com/calendar
@@ -759,11 +779,15 @@
   notes: Check official FUN calendar for the next published date before traveling.
 - id: fun-convention
   name: FUN Convention (Florida United Numismatists)
+  short_title: "FUN Convention"
   state: FL
   state_name: Florida
   city: Orlando
   city_slug: orlando-fl
   venue: Orange County Convention Center
+  street_address: 9899 International Drive
+  postal_code: '32819'
+  address_status: verified
   frequency: Annual (January)
   next_date: January 7-10, 2027
   website: http://www.funtopics.com/
@@ -773,6 +797,9 @@
   last_verified: '2026-07-29'
   upcoming_dates:
   - '2027-01-07'
+  - '2027-01-08'
+  - '2027-01-09'
+  - '2027-01-10'
   verification_notes: Official Florida United Numismatists home page lists the 72nd annual FUN Convention as January 7-10, 2027 at the Orange County Convention Center, 9899 International Dr., Orlando, Florida; reviewed during future-date cleanup.
   notes: 'One of the largest shows in the world. Official next date: January 7-10, 2027 at Orange County Convention Center.'
 - id: summer-fun
@@ -809,7 +836,7 @@
   city_slug: plantation-fl
   venue: Volunteer Park Community Center, 12050 W Sunrise Blvd, Plantation, FL 33323
   frequency: Monthly (3rd Sunday)
-  next_date: August 16, 2026
+  next_date: September 20, 2026
   website: http://www.ftlauderdalecoinclub.com/
   organizer: Fort Lauderdale Coin Club
   source_url: http://www.ftlauderdalecoinclub.com/
@@ -824,7 +851,7 @@
   aliases:
   - 3rd-sunday-ft-lauderdale-coin-stamp-show
   - fort-lauderdale-coin-show-3rd-sundays-monthly-9am-3pm
-  verification_notes: Official Fort Lauderdale Coin Club site confirms the monthly third-Sunday Plantation show, making August 16, 2026 the next date; Volunteer Park Center address and hours remain confirmed, and three imported records remain merged into this canonical listing.
+  verification_notes: Official Fort Lauderdale Coin Club evidence records September 20, October 18, November 15, and December 20, 2026 as confirmed dates; Volunteer Park Center address and hours remain confirmed, and three imported records remain merged into this canonical listing.
   notes: 'Hours: Sun 9-2. Official site lists contact phone (754) 221-9970.'
 - id: west-hernando-coin-club-show
   name: West Hernando Coin Club Show
@@ -864,7 +891,7 @@
   city_slug: apopka-fl
   venue: Apopka Community Center, 519 S. Central Ave, Apopka, FL 32703
   frequency: Monthly (1st Sunday)
-  next_date: August 2, 2026
+  next_date: September 6, 2026
   website: http://www.centralfloridacoinclub.org
   organizer: Central Florida Coin Club
   source_url: http://www.centralfloridacoinclub.org
@@ -878,6 +905,7 @@
   notes: 'Hours: Sun 9:30-3.'
 - id: tallahassee-coin-club-two-day-show
   name: Tallahassee Coin Club Annual Two-Day Show
+  short_title: "Tallahassee Coin Club Show"
   state: FL
   state_name: Florida
   city: Tallahassee
@@ -896,6 +924,7 @@
   notes: Official sources confirm dates and venue; hours not listed in fetched source.
 - id: pasco-county-coin-club-show
   name: Pasco County Coin Club Coin & Collectibles Show
+  short_title: "Pasco County Coin Club Show"
   state: FL
   state_name: Florida
   city: Hudson
@@ -969,7 +998,7 @@
   city_slug: west-palm-beach-fl
   venue: American Polish Club, 4725 Lake Worth Rd, Greenacres, FL 33463
   frequency: Recurring
-  next_date: August 23, 2026
+  next_date: September 27, 2026
   website: http://pbcc.anaclubs.org/
   organizer: Palm Beach Coin Club
   source_url: http://pbcc.anaclubs.org/
@@ -981,7 +1010,7 @@
   - '2026-10-25'
   - '2026-11-22'
   - '2026-12-27'
-  verification_notes: Official Palm Beach Coin Club page confirms the show is held every fourth Sunday at the American Polish Club, making August 23, 2026 the next date; remaining 2026 fourth Sundays were recorded from that schedule.
+  verification_notes: Official Palm Beach Coin Club page confirms the show is held every fourth Sunday at the American Polish Club; September 27, October 25, November 22, and December 27, 2026 remain confirmed after the August occurrence passed.
   notes: 'Hours: Sun 9-3. Official page lists Tony Swicer contact phone (561) 964-7236.'
 - id: the-villageswildwood-april-292026
   name: The Villages / Wildwood Coin Show
@@ -1017,6 +1046,7 @@
   notes: ''
 - id: georgia-numismatic-association-show
   name: Georgia Numismatic Association (GNA) Show
+  short_title: "Georgia Numismatic Association Show"
   state: GA
   state_name: Georgia
   city: Dalton
@@ -1050,7 +1080,7 @@
   city_slug: marietta-ga
   venue: IAM Union Hall, 1032 South Marietta Parkway SE, Marietta, GA 30060
   frequency: Monthly (Sunday)
-  next_date: August 16, 2026
+  next_date: September 13, 2026
   website: http://www.atlcoin.com/
   organizer: Great Southern Events
   source_url: http://www.atlcoin.com/Monthly-Greater-Atlanta-Coin-Show-Dates.html
@@ -1064,6 +1094,7 @@
   notes: 'Hours: Sun 9-4. Free admission. Official page says 2026 shows moved to IAM Union Hall.'
 - id: hawaii-state-numismatic-association-show
   name: Hawaii State Numismatic Association Show
+  short_title: "Hawaii State Numismatic Show"
   state: HI
   state_name: Hawaii
   city: Honolulu
@@ -1076,6 +1107,7 @@
   notes: ''
 - id: iowa-numismatic-association-coin-show
   name: Iowa Numismatic Association Convention & Coin Show
+  short_title: "Iowa Numismatic Association Convention"
   state: IA
   state_name: Iowa
   city: Altoona
@@ -1211,6 +1243,7 @@
   notes: 'Hours: Sun 8:30-2:30'
 - id: metro-east-coin-currency-club-coin-show
   name: Metro East Coin & Currency Club Coin Show
+  short_title: "Metro East Coin & Currency Show"
   state: IL
   state_name: Illinois
   city: Collinsville
@@ -1228,6 +1261,7 @@
   notes: 'Hours: Sun 9-3. Free admission, free parking, raffle prizes, and 36 dealer tables listed by organizer.'
 - id: great-american-coin-collectibles-show
   name: Great American Coin and Collectibles Show
+  short_title: "Great American Coin Show"
   state: IL
   state_name: Illinois
   city: Rosemont
@@ -1254,7 +1288,7 @@
   city_slug: countryside-il
   venue: Local 150 Union Hall
   frequency: Monthly (2nd Sunday)
-  next_date: August 9, 2026
+  next_date: September 13, 2026
   website: https://suburbancoinshows.com/
   organizer: West Suburban Coin Show
   source_url: https://suburbancoinshows.com/
@@ -1271,6 +1305,7 @@
   notes: 'Hours: 9-3.'
 - id: greater-chicago-coin-currency-collectibles-show
   name: Greater Chicago Coin, Currency, & Collectibles Show
+  short_title: "Greater Chicago Coin Show"
   state: IL
   state_name: Illinois
   city: Countryside
@@ -1290,7 +1325,7 @@
   city_slug: orland-park-il
   venue: Orland Park Civic Center
   frequency: Monthly (1st Sunday)
-  next_date: August 2, 2026
+  next_date: September 6, 2026
   website: http://www.ilnaclub.org/shows.html
   organizer: ''
   source_url: http://www.ilnaclub.org/shows.html
@@ -1314,7 +1349,7 @@
   city_slug: peotone-il
   venue: ''
   frequency: Recurring
-  next_date: August 16, 2026
+  next_date: October 4, 2026
   website: http://www.ilnaclub.org/shows.html
   organizer: ''
   source_url: http://www.ilnaclub.org/shows.html
@@ -1328,6 +1363,7 @@
   notes: Official association calendar confirms dates/city; venue and hours pending official promoter/source confirmation.
 - id: csns-convention
   name: Central States Numismatic Society (CSNS) Convention
+  short_title: "Central States Numismatic Convention"
   state: IL
   state_name: Illinois
   city: Schaumburg
@@ -1348,6 +1384,7 @@
   notes: Major regional convention with Heritage Auctions, 415+ booth bourse, free parking, and CSNS member/youth admission rules listed by organizer.
 - id: ilna-illinois-numismatic-association-coin-show
   name: ILNA Illinois Numismatic Association Coin Show
+  short_title: "ILNA Illinois Coin Show"
   state: IL
   state_name: Illinois
   city: Countryside
@@ -1551,6 +1588,7 @@
   notes: 'Hours: Fri 10-7, Sat 10-4. Admission $12. Dealer setup Thu 4:30-8:30.'
 - id: north-attleborough-monthly-coin-collectibles-show
   name: North Attleborough Monthly Coin & Collectibles Show
+  short_title: "North Attleborough Monthly Coin Show"
   state: MA
   state_name: Massachusetts
   city: North Attleborough
@@ -1563,6 +1601,7 @@
   notes: 'Hours: Sun 9-2'
 - id: blackstone-valley-coin-club-show-ma
   name: Blackstone Valley Coin Club Show
+  short_title: "Blackstone Valley Coin Club Show — MA"
   state: MA
   state_name: Massachusetts
   city: Uxbridge
@@ -1608,6 +1647,7 @@
   notes: ''
 - id: maryland-state-numismatic-association-show
   name: Maryland State Numismatic Association Show
+  short_title: "Maryland State Numismatic Show"
   state: MD
   state_name: Maryland
   city: Timonium
@@ -1675,7 +1715,7 @@
   city_slug: new-baltimore-mi
   venue: Lempke-Blackwell VFW Post 7573, 35011 23 Mile Rd, New Baltimore, MI 48047
   frequency: Monthly
-  next_date: August 16, 2026
+  next_date: September 20, 2026
   website: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238-116/
   organizer: Mike Tremonti
   source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238-116/
@@ -1684,7 +1724,7 @@
   upcoming_dates:
   - '2026-08-16'
   - '2026-09-20'
-  verification_notes: Official Michigan State Numismatic Society event page lists the next New Baltimore Monthly Coin Show dates on August 16 and September 20, 2026, with the venue address, hours, and contact.
+  verification_notes: Official Michigan State Numismatic Society event page lists August 16 and September 20, 2026, with the venue address, hours, and contact; September 20 is the next confirmed occurrence after the August date passed.
   notes: 'Hours: Sun 9-3'
 - id: royal-oak-coins-collectibles-show
   name: Royal Oak Coins & Collectibles Show
@@ -1694,7 +1734,7 @@
   city_slug: royal-oak-mi
   venue: Royal Oak Detroit Elks Lodge #34, 2401 E 4th St, Royal Oak, MI 48067
   frequency: Recurring
-  next_date: August 9, 2026
+  next_date: September 13, 2026
   website: https://michigancoinclub.org/
   organizer: Armand Keywell
   source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238/
@@ -1716,7 +1756,7 @@
   city_slug: southfield-mi
   venue: New Hope Banquet Hall, 24222 W. Nine Mile Rd, Southfield, MI 48033
   frequency: Recurring
-  next_date: August 9, 2026
+  next_date: September 13, 2026
   website: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-840/
   organizer: Larry Comer and David Nazzaro
   source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-840/
@@ -1729,6 +1769,7 @@
   notes: 'Hours: Sun 9-3.'
 - id: michigan-state-numismatic-society-convention-coin-show
   name: Michigan State Numismatic Society Convention & Coin Show
+  short_title: "Michigan State Numismatic Society Show"
   state: MI
   state_name: Michigan
   city: Warren
@@ -1768,6 +1809,7 @@
   notes: ''
 - id: michigan-premier-coin-show
   name: Michigan's Premier Coin, Currency & Stamp Show
+  short_title: "Michigan Premier Coin & Stamp Show"
   state: MI
   state_name: Michigan
   city: Warren
@@ -1797,7 +1839,7 @@
   city_slug: maple-grove-mn
   venue: Cambria Suites Maple Grove, 9655 Grove Circle North, Maple Grove, MN 55369
   frequency: Recurring
-  next_date: August 2, 2026
+  next_date: November 1, 2026
   website: https://antiquecoinsmn.com
   organizer: Antique Coins
   source_url: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
@@ -1815,7 +1857,7 @@
   city_slug: south-saint-paul-mn
   venue: United Food & Commercial Workers Union Hall, 266 Hardman Ave. N., South St. Paul, MN 55075
   frequency: Recurring
-  next_date: August 16, 2026
+  next_date: September 20, 2026
   website: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
   organizer: Antique Coins
   source_url: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
@@ -1829,7 +1871,7 @@
   - '2026-12-20'
   aliases:
   - twin-cities-monthly-coin-show
-  verification_notes: Official Antique Coins organizer page lists August 16, 2026 as the next South St. Paul show, followed by four later 2026 dates; the union hall address and hours remain confirmed, and the duplicate Twin Cities record remains merged.
+  verification_notes: Official Antique Coins organizer page records September 20, October 18, November 22, and December 20, 2026 after the August occurrence; the union hall address and hours remain confirmed, and the duplicate Twin Cities record remains merged.
   notes: 'Hours: Sun 9-4. Free admission.'
 - id: saint-paul-liberty-coin-club-show
   name: Saint Paul Liberty Coin Club Show
@@ -1875,6 +1917,7 @@
   aliases:
   - st-louis-numismatic-association-show
   name: Missouri Numismatic Society Annual Coin Show
+  short_title: "Missouri Numismatic Society Show"
   state: MO
   state_name: Missouri
   city: St. Charles
@@ -1915,6 +1958,7 @@
   notes: Future date is not yet published. The most recent organizer-style listing gave Saturday hours of 10-3 and directions to the school at Highways 83 and 54.
 - id: annual-mississippi-mna-coin-currency-card-show
   name: Annual Mississippi (MNA) Coin Currency & Card Show
+  short_title: "Mississippi MNA Coin & Currency Show"
   state: MS
   state_name: Mississippi
   city: Biloxi
@@ -2071,13 +2115,14 @@
   notes: ''
 - id: original-monthly-coin-collectibles-show
   name: The Original Monthly Coin & Collectibles Show
+  short_title: "Original Monthly Coin Show"
   state: NE
   state_name: Nebraska
   city: Omaha
   city_slug: omaha-ne
   venue: Bel Air Banquet Room, 12100 W Center Rd, Omaha, NE 68144
   frequency: Monthly (3rd Sunday)
-  next_date: August 16, 2026
+  next_date: September 20, 2026
   website: http://ina.anaclubs.org/Iowa_coin_shows.html
   organizer: Ron Matson
   source_url: http://ina.anaclubs.org/Iowa_coin_shows.html
@@ -2186,6 +2231,7 @@
   notes: ''
 - id: albuquerque-coin-clubs-great-southwest-coin-expo
   name: Albuquerque Coin Club's  Great Southwest Coin Expo
+  short_title: "Great Southwest Coin Expo"
   state: NM
   state_name: New Mexico
   city: Albuquerque
@@ -2273,6 +2319,7 @@
   notes: ''
 - id: bna-monthly-coin-stamp-and-currency-show
   name: BNA Monthly Coin, Stamp and Currency Show
+  short_title: "BNA Monthly Coin & Stamp Show"
   state: NY
   state_name: New York
   city: Cheektowaga
@@ -2319,13 +2366,14 @@
   notes: 'Hours: Sun 10-3'
 - id: melville-coin-stamp-collectibles-show
   name: Melville Coin, Stamp & Collectibles Show
+  short_title: "Melville Coin & Stamp Show"
   state: NY
   state_name: New York
   city: Melville
   city_slug: melville-ny
   venue: 535 Route 110 / Broadhollow Rd, Melville, NY 11747
   frequency: Monthly (2nd & 4th Sunday)
-  next_date: August 9, 2026
+  next_date: September 13, 2026
   website: https://melvillecoinshow.com/
   organizer: Melville Coin Show / George Schultheis
   source_url: https://melvillecoinshow.com/
@@ -2342,10 +2390,11 @@
   - '2026-11-22'
   - '2026-12-13'
   - '2026-12-27'
-  verification_notes: Official Melville Coin Show site and linked 2026 flyer confirm the second/fourth Sunday schedule, making August 9, 2026 the next date; address, hours, free admission, parking, and appraisals remain confirmed.
+  verification_notes: Official Melville Coin Show site and linked 2026 flyer explicitly list August 23, September 13 and 27, October 11 and 25, November 8 and 22, and December 13 and 27, 2026; address, hours, free admission, parking, and appraisals remain confirmed.
   notes: 'Hours: Sun 8-1.'
 - id: nyinc
   name: New York International Numismatic Convention (NYINC)
+  short_title: "NYINC Convention"
   state: NY
   state_name: New York
   city: New York
@@ -2384,7 +2433,7 @@
   city_slug: broadview-heights-oh
   venue: St. Michael's Woodside, 5025 Mill Rd, Broadview Heights, OH 44147
   frequency: Monthly (2nd Saturday)
-  next_date: August 8, 2026
+  next_date: September 12, 2026
   website: https://clevelandcoinexpo.com/
   organizer: Cleveland Coin Expo
   source_url: https://clevelandcoinexpo.com/calender.html
@@ -2402,6 +2451,7 @@
   notes: Free general admission 9am-2pm. Kids receive a free coin.
 - id: 43rd-annual-greater-cincinnati-numismatic-exposition
   name: 43rd Annual Greater Cincinnati Numismatic Exposition
+  short_title: "Greater Cincinnati Numismatic Expo"
   state: OH
   state_name: Ohio
   city: Cincinnati
@@ -2536,6 +2586,7 @@
   notes: ''
 - id: oklahoma-numismatic-association-convention
   name: Oklahoma Numismatic Association Convention
+  short_title: "Oklahoma Numismatic Convention"
   state: OK
   state_name: Oklahoma
   city: Moore
@@ -2580,6 +2631,7 @@
   notes: 'Hours: Fri 12-6, Sat 10-6, Sun 10-4. Admission $5; kids free.'
 - id: wilsonville-oregon-coin-currency-token-medal-show
   name: Oregon Coin, Currency, Token & Medal Show
+  short_title: "Oregon Coin & Currency Show"
   state: OR
   state_name: Oregon
   city: Wilsonville
@@ -2598,6 +2650,7 @@
   notes: PNNA lists Randy Van Wie as the show contact.
 - id: cave-man-coin-club-show
   name: Cave Man Coin Club Coin, Currency & Token Show
+  short_title: "Cave Man Coin Club Show"
   state: OR
   state_name: Oregon
   city: Grants Pass
@@ -2658,13 +2711,14 @@
   notes: 'Hours: Sat 10-3. Venue phone listed as 610-434-0222.'
 - id: monthly-tri-state-coin-stamp-show
   name: Tri-State Monthly Coin, Stamp & Paper Money Show
+  short_title: "Tri-State Coin, Stamp & Money Show"
   state: PA
   state_name: Pennsylvania
   city: Langhorne
   city_slug: langhorne-pa
   venue: Sheraton Bucks County, 400 Oxford Valley Road, Langhorne, PA 19030
   frequency: Monthly (3rd Sunday)
-  next_date: August 16, 2026
+  next_date: September 20, 2026
   website: https://www.facebook.com/tristatecoinstamp/
   organizer: Robert Paul / Bob Paul Rare Coins
   source_url: https://www.stampshows.com/langhorne_rp.html
@@ -2717,7 +2771,7 @@
   city_slug: pittsburgh-pa
   venue: Castle Shannon Fire Hall, 3600 Library Road, Pittsburgh, PA 15234
   frequency: Monthly / periodic
-  next_date: August 9, 2026
+  next_date: September 13, 2026
   website: https://onrcoins.com/pages/upcoming-coin-shows
   organizer: Olevian Numismatic Rarities
   source_url: https://onrcoins.com/pages/upcoming-coin-shows
@@ -2768,13 +2822,14 @@
   notes: 'Hours: Sat 9-5, Sun 9-3. Free admission and parking.'
 - id: montco-coin-show-meets-every-2nd-sunday-each-month
   name: Montgomery County Coin Show / MontCo Coin Show
+  short_title: "MontCo Coin Show"
   state: PA
   state_name: Pennsylvania
   city: Telford
   city_slug: telford-pa
   venue: Franconia Heritage Banquet & Conference Center, 508 Harleysville Pike Unit A, Telford, PA 18969
   frequency: Monthly (2nd Sunday)
-  next_date: August 9, 2026
+  next_date: September 13, 2026
   website: https://www.buxmontcoinshows.com/
   organizer: BuxMont Coin Shows
   source_url: https://www.buxmontcoinshows.com/about/
@@ -2795,7 +2850,7 @@
   city_slug: trevose-pa
   venue: Trevose Fire Hall, 4900 E. Street Rd., Trevose, PA 19053
   frequency: Monthly (4th Sunday)
-  next_date: August 23, 2026
+  next_date: September 27, 2026
   website: https://www.buxmontcoinshows.com
   organizer: BuxMont Coin Shows
   source_url: https://www.buxmontcoinshows.com/about-trevose/
@@ -2807,7 +2862,7 @@
   - '2026-10-25'
   - '2026-11-22'
   - '2026-12-27'
-  verification_notes: Official BuxMont Trevose page confirms the show meets every fourth Sunday, making August 23, 2026 the next date; Trevose Fire Hall at 4900 E. Street Rd. remains confirmed.
+  verification_notes: Official BuxMont Trevose page confirms the show meets every fourth Sunday; September 27, October 25, November 22, and December 27, 2026 remain confirmed after the August occurrence passed, and Trevose Fire Hall at 4900 E. Street Rd. remains confirmed.
   notes: 'Hours: Sun 10-3.'
 - id: harrisburg-coin-club-fall-coin-show
   name: Harrisburg Coin Club Fall Coin Show
@@ -2858,6 +2913,7 @@
   notes: ''
 - id: blackstone-valley-coin-club-show-ri
   name: Blackstone Valley Coin Club Show
+  short_title: "Blackstone Valley Coin Club Show — RI"
   state: RI
   state_name: Rhode Island
   city: Woonsocket
@@ -2949,6 +3005,7 @@
   notes: 'Hours: Sat 9-5, Sun 9-3.'
 - id: tsns-coin-show
   name: Tennessee State Numismatic Society (TSNS) Coin Show
+  short_title: "Tennessee State Numismatic Society Show"
   state: TN
   state_name: Tennessee
   city: East Ridge
@@ -3043,13 +3100,16 @@
   city_slug: bellmead-tx
   venue: Bellmead Civic Center, 3900 Parrish Street, Bellmead, TX 76705
   frequency: Annual (September)
-  next_date: September 25, 2026
+  next_date: September 25-26, 2026
   website: ''
   organizer: Waco Coin Club
   notes: 'Dates: September 25-26, 2026; hours: Fri 12PM-6PM, Sat 9AM-4PM; admission $3, free for kids under 12; free parking; 24-hour security; hourly prizes and club raffle; buying, selling, trading, and collector education with returning and new coin dealers.'
   source_url: ''
   source_type: direct_promoter_submission
   last_verified: '2026-07-02'
+  upcoming_dates:
+  - '2026-09-25'
+  - '2026-09-26'
   verification_notes: Venue address verified against the official City of Bellmead facilities listing for the Auditorium/Bellmead Civic Center at 3900 Parrish Street; show dates, hours, admission, parking, security, prizes, raffle, and dealer details are from the Kyle Kampe/Waco Coin Club contact-form submission received June 15, 2026; no official public Waco Coin Club event page was found during review.
 - id: cowtown-coin-show
   name: Cowtown Coin Show
@@ -3127,7 +3187,7 @@
   city_slug: salem-va
   venue: American Legion Hall, 710 Apperson Drive, Salem, VA
   frequency: Recurring
-  next_date: August 22-23, 2026
+  next_date: November 21-22, 2026
   website: http://www.vnaonline.org/2026-calendar/
   organizer: ''
   source_url: http://www.vnaonline.org/2026-calendar/
@@ -3148,7 +3208,7 @@
   city_slug: vienna-va
   venue: Vienna Community Center
   frequency: Quarterly
-  next_date: August 8-9, 2026
+  next_date: October 17-18, 2026
   website: http://www.vnaonline.org/2026-calendar/
   organizer: ''
   source_url: http://www.vnaonline.org/2026-calendar/
@@ -3210,6 +3270,7 @@
   notes: 'Hours: Sat 10-4. Free entry with ID and free parking.'
 - id: boeing-employees-coin-club-show
   name: Boeing Employees Coin Club Show / Kent Valley Coin Show
+  short_title: "Boeing / Kent Valley Coin Show"
   state: WA
   state_name: Washington
   city: Kent
@@ -3260,6 +3321,7 @@
   notes: Venue/date TBD until PNNA announces the next spring convention location.
 - id: chippewa-valley-coin-club-cvcc-coin-show
   name: Chippewa Valley Coin Club (CVCC) Coin Show
+  short_title: "Chippewa Valley Coin Club Show"
   state: WI
   state_name: Wisconsin
   city: Eau Claire
@@ -3295,6 +3357,7 @@
   notes: 'Hours: Sun 9-4. Admission $3. Official calendar lists contact Chris K at cakantak@gmail.com.'
 - id: numismatists-of-wisconsin-annual-show
   name: Numismatists of Wisconsin (NOW) Annual Show
+  short_title: "Numismatists of Wisconsin Show"
   state: WI
   state_name: Wisconsin
   city: Green Bay

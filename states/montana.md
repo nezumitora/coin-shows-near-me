@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Montana — 2026-2027 Schedule"
-seo_title: "Coin Shows in Montana — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 1 coin shows in Montana. Complete directory with dates, venues, and details for Montana coin shows, expos, and numismatic events."
+title: "Montana Coin Shows"
+heading: "Coin Shows in Montana — 2026-2027 Schedule"
+description: "Browse 1 coin shows in Montana with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/montana/
 state_abbrev: "MT"
 state_name: "Montana"

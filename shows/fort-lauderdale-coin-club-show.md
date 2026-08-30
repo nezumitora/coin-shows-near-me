@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Fort Lauderdale Coin Club Show — Plantation, Florida Coin Show"
-seo_title: "Fort Lauderdale Coin Club Show — Plantation, Florida | Coin Show Near Me"
-seo_description: "Fort Lauderdale Coin Club Show in Plantation, Florida. Monthly (3rd Sunday) coin show at Volunteer Park Community Center, 12050 W Sunrise Blvd, Plantation, FL 33323. Get dates, venue details, and more."
+title: "Fort Lauderdale Coin Club Show"
+heading: "Fort Lauderdale Coin Club Show — Plantation, Florida Coin Show"
+description: "Fort Lauderdale Coin Club Show in Plantation, Florida. View dates, venue details, and listing verification before you travel."
 permalink: /shows/fort-lauderdale-coin-club-show/
 show_id: "fort-lauderdale-coin-club-show"
 breadcrumb_parent: "Florida"

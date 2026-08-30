@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Little Rock, Arkansas — 2026-2027"
-seo_title: "Coin Shows in Little Rock, Arkansas — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Little Rock, Arkansas. Dates, venues, and details for upcoming coin shows and numismatic events in Little Rock."
+title: "Little Rock, AR Coin Shows"
+heading: "Coin Shows in Little Rock, Arkansas — 2026-2027"
+description: "Find 1 coin show in Little Rock, Arkansas. Compare dates, venues, and verification details before you travel."
 permalink: /cities/little-rock-ar/
 city_slug: "little-rock-ar"
 city_name: "Little Rock"

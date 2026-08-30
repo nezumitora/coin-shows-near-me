@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Low Country Coin Club Show — Ladson, South Carolina Coin Show"
-seo_title: "Low Country Coin Club Show — Ladson, South Carolina | Coin Show Near Me"
-seo_description: "Low Country Coin Club Show in Ladson, South Carolina. Semiannual (February & August) coin show at Exchange Park Fairgrounds. Get dates, venue details, and more."
+title: "Low Country Coin Club Show"
+heading: "Low Country Coin Club Show — Ladson, South Carolina Coin Show"
+description: "Low Country Coin Club Show in Ladson, South Carolina. View dates, venue details, and listing verification before you travel."
 permalink: /shows/low-country-coin-club-show/
 show_id: "low-country-coin-club-show"
 breadcrumb_parent: "South Carolina"

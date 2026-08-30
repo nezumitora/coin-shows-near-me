@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Numismatists of Wisconsin (NOW) Annual Show — Green Bay, Wisconsin Coin Show"
-seo_title: "Numismatists of Wisconsin (NOW) Annual Show — Green Bay, Wisconsin | Coin Show Near Me"
-seo_description: "Numismatists of Wisconsin (NOW) Annual Show in Green Bay, Wisconsin. Annual (May) coin show at Stadium View Bar & Grill, 1963 Holmgren Way, Green Bay, WI 54304. Get dates, venue details, and more."
+title: "Numismatists of Wisconsin Show"
+heading: "Numismatists of Wisconsin (NOW) Annual Show — Green Bay, Wisconsin Coin Show"
+description: "Numismatists of Wisconsin (NOW) Annual Show in Green Bay, Wisconsin. View dates, venue details, and listing verification before you travel."
 permalink: /shows/numismatists-of-wisconsin-annual-show/
 show_id: "numismatists-of-wisconsin-annual-show"
 breadcrumb_parent: "Wisconsin"

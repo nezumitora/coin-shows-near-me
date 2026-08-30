@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Blackstone Valley Coin Club Show — Uxbridge, Massachusetts Coin Show"
-seo_title: "Blackstone Valley Coin Club Show — Uxbridge, Massachusetts | Coin Show Near Me"
-seo_description: "Blackstone Valley Coin Club Show in Uxbridge, Massachusetts. Monthly (3rd Wednesday) coin show at VFW Post 1385. Get dates, venue details, and more."
+title: "Blackstone Valley Coin Club Show — MA"
+heading: "Blackstone Valley Coin Club Show — Uxbridge, Massachusetts Coin Show"
+description: "Blackstone Valley Coin Club Show in Uxbridge, Massachusetts. View dates, venue details, and listing verification before you travel."
 permalink: /shows/blackstone-valley-coin-club-show-ma/
 show_id: "blackstone-valley-coin-club-show-ma"
 breadcrumb_parent: "Massachusetts"

@@ -1,4 +1,4 @@
-<div class="show-card" style="border:1px solid #d1b879;border-radius:0.75rem;padding:1.1rem;margin-bottom:0.9rem;background:linear-gradient(180deg,#fffdfa 0%,#f7efe0 100%);box-shadow:0 7px 18px rgba(14,35,56,0.10);">
+<div class="show-card" data-show-date-record data-confirmed-dates="{{ include.show.upcoming_dates | join: ',' }}" data-series-ended="{% if include.show.series_ended == true %}true{% else %}false{% endif %}" style="border:1px solid #d1b879;border-radius:0.75rem;padding:1.1rem;margin-bottom:0.9rem;background:linear-gradient(180deg,#fffdfa 0%,#f7efe0 100%);box-shadow:0 7px 18px rgba(14,35,56,0.10);">
   <h3 style="margin:0 0 0.25rem;font-size:1.1rem;">
     <a href="{{ site.baseurl }}/shows/{{ include.show.id }}/" style="color:#111827;text-decoration:none;">{{ include.show.name }}</a>
   </h3>
@@ -7,9 +7,11 @@
   </p>
   <p style="margin:0 0 0.25rem;font-size:0.9rem;">
     <strong>Frequency:</strong> {{ include.show.frequency }}
-    {% unless include.show.next_date == "TBD" %}
-    &nbsp;|&nbsp; <strong>Next:</strong> {{ include.show.next_date }}
-    {% endunless %}
+  </p>
+  <p style="margin:0 0 0.25rem;font-size:0.9rem;">
+    <span data-show-date-display hidden></span>
+    <span class="trust-status" data-show-date-status>{% if include.show.upcoming_dates %}Checking confirmed date{% else %}Date not confirmed{% endif %}</span>
+    <span class="show-last-confirmed" data-show-last-confirmed hidden></span>
   </p>
   {% if include.show.notes and include.show.notes != "" %}
   <p style="margin:0.25rem 0 0;font-size:0.85rem;color:#6b7280;font-style:italic;">{{ include.show.notes }}</p>
@@ -30,6 +32,6 @@
   </p>
   {% endif %}
   <p style="margin:0.55rem 0 0;font-size:0.8rem;">
-    <a href="{{ site.baseurl }}/shows/{{ include.show.id }}/#update-show-info" style="display:inline-flex;align-items:center;gap:0.3rem;color:#7c2d12;font-weight:700;text-decoration:none;">Update show info</a>
+    <a href="{{ site.baseurl }}/shows/{{ include.show.id }}/#listing-review" style="display:inline-flex;align-items:center;gap:0.3rem;color:#7c2d12;font-weight:700;text-decoration:none;">Claim or update listing</a>
   </p>
 </div>

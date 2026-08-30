@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Bay State Coin Show — Marlborough, Massachusetts Coin Show"
-seo_title: "Bay State Coin Show — Marlborough, Massachusetts | Coin Show Near Me"
-seo_description: "Bay State Coin Show in Marlborough, Massachusetts. Annual (July) coin show at Best Western Royal Plaza Hotel, 181 Boston Post Road West, Marlborough, MA 01752. Get dates, venue details, and more."
+title: "Bay State Coin Show"
+heading: "Bay State Coin Show — Marlborough, Massachusetts Coin Show"
+description: "Bay State Coin Show in Marlborough, Massachusetts. View dates, venue details, and listing verification before you travel."
 permalink: /shows/bay-state-coin-show/
 show_id: "bay-state-coin-show"
 breadcrumb_parent: "Massachusetts"

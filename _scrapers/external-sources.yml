@@ -15,14 +15,21 @@
     - summer-fun
   notes: Existing source URL used by FUN Convention and Summer FUN listings.
 
-- key: pacific-expos
-  name: Pacific Expos LLC
+- key: pacific-expos-north-county
+  name: Pacific Expos LLC — North County dates
+  source_type: organizer
+  url: https://pacificexposllc.com/ncmcs-dates%2Fdealers%2Fmap
+  expected_show_ids:
+    - north-county-monthly-coin-show
+  notes: Exact official dates page already recorded on the canonical North County listing.
+
+- key: pacific-expos-buena-park
+  name: Pacific Expos LLC — Buena Park
   source_type: organizer
   url: https://pacificexposllc.com/
   expected_show_ids:
-    - north-county-monthly-coin-show
     - buena-park-coin-show
-  notes: Existing source URL used by North County Monthly Coin Show and Buena Park Coin Show listings.
+  notes: Existing official source URL used by the canonical Buena Park listing.
 
 - key: michigan-coin-club
   name: Michigan Coin Club

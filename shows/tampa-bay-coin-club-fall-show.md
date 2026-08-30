@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Tampa Bay Coin Club Fall Show — Tampa, Florida Coin Show"
-seo_title: "Tampa Bay Coin Club Fall Show — Tampa, Florida | Coin Show Near Me"
-seo_description: "Tampa Bay Coin Club Fall Show in Tampa, Florida. Annual (October) coin show at Sons of Italy Lodge, 3315 W Lemon St, Tampa, FL 33609. Get dates, venue details, and more."
+title: "Tampa Bay Coin Club Fall Show"
+heading: "Tampa Bay Coin Club Fall Show — Tampa, Florida Coin Show"
+description: "Tampa Bay Coin Club Fall Show in Tampa, Florida. View dates, venue details, and listing verification before you travel."
 permalink: /shows/tampa-bay-coin-club-fall-show/
 show_id: "tampa-bay-coin-club-fall-show"
 breadcrumb_parent: "Florida"

@@ -30,4 +30,5 @@ jobs:
             tmp/show-update-report.md
             tmp/show-source-inventory.csv
             tmp/show-url-checks.csv
+            tmp/show-verification-queue.csv
           if-no-files-found: error

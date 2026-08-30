@@ -1,0 +1,63 @@
+- number: 1
+  id: owner-review-note-1
+  pagePath: /coin-shows-this-weekend/
+  targetLabel: Next Weekend (Sep 5-Sep 6)
+  selector: "#next-weekend-heading"
+  createdAt: "2026-08-29T21:01:36.560Z"
+  text: "I think i already told you this, but i know for sure we're missing a coin show in this section. it might be the north county or buena park show. I'm lucky i know about that one, but how can we verify if there are othermissing shows?"
+  resolutionState: Resolved with official-source evidence; no unreviewed date added
+  resolution: "Pacific Expos' exact North County dates page omits September 6 and lists October 4 as the next 2026 North County date. Its official home page lists Buena Park on September 12-13, 2026. The report-only comparison registry checks only hand-reviewed sources; new, unlisted, unavailable, or incomplete source pages remain blind spots and require manual review."
+- number: 2
+  id: owner-review-note-2
+  pagePath: /tools/melt-value-calculator/
+  targetLabel: Platinum Eagle
+  selector: "body > main > div:nth-of-type(4) > table > tbody > tr:nth-of-type(21) > td:nth-of-type(2)"
+  createdAt: "2026-08-29T21:03:53.290Z"
+  text: "That's not a nickname for that coin, it's APE."
+  resolutionState: Resolved with contextual terminology
+  resolution: "The reference now uses APE only as the expanded American Platinum Eagle shorthand and separately names the American Palladium Eagle. U.S. law and PCGS distinguish the platinum series from the $25 palladium Eagle."
+- number: 3
+  id: owner-review-note-3
+  pagePath: /tools/collection-tracker/
+  targetLabel: Collection Tracker
+  selector: "#public-page-title"
+  createdAt: "2026-08-29T21:06:23.431Z"
+  text: "where does this survey form go to when submitted?"
+  resolutionState: Resolved; inactive by design
+  resolution: "The review-only survey sends nowhere and stores nothing remotely. It is absent from the production build and remains inactive until separately approved."
+- number: 4
+  id: owner-review-note-4
+  pagePath: /dealers/
+  targetLabel: Use a business-domain email and an official public source when possible. Do not send passwords, identity documents, private home addresses, or other sensitive p
+  selector: "body > div:nth-of-type(1) > div > div > main > section > p:nth-of-type(2)"
+  createdAt: "2026-08-29T21:16:56.961Z"
+  text: "How does this section work, what listing is the user trying to claim if there are a bunch of listing above this section? Wouldnt a  button that said \"claim this listing\" on every dealer card. then when the user clicked the button, a window pops up witth this form so they can claim that specific listing? Maybe a similar feature would be useuful for coin shows too, what do you think?"
+  resolutionState: Review candidate implemented; owner decision pending for modal treatment
+  resolution: "Every dealer card now selects and opens its exact manual-claim form, with an explicit selected-listing message. Show cards route to their exact listing review form, which now has a manual claim request. The owner may decide later whether a modal form is preferable to the accessible in-page form."
+- number: 5
+  id: owner-review-note-5
+  pagePath: /
+  targetLabel: Join the show reminder interest list
+  selector: "body > div:nth-of-type(1) > nav > div > ul > li:nth-of-type(7) > a"
+  createdAt: "2026-08-29T21:19:01.857Z"
+  text: "this button is still unclear, Maybe say something like \"future show notifications\" or something similar?"
+  resolutionState: Resolved
+  resolution: "The navigation label now says Future Show Notifications while the destination continues to disclose that no reminder service is active."
+- number: 6
+  id: owner-review-note-6
+  pagePath: /tools/melt-value-calculator/
+  targetLabel: APE (American Platinum Eagle)
+  selector: "body > main > div:nth-of-type(4) > table > tbody > tr:nth-of-type(19) > td:nth-of-type(2)"
+  createdAt: "2026-08-29T23:05:52.515Z"
+  text: "the nicknane should only be APE, the brackets are not needed since the full real name is shown in the 1st column,"
+  resolutionState: Resolved; shorthand simplified
+  resolution: "The Common shorthand cells now display only APE. The first column retains the full American Eagle Platinum Bullion Coin name, and American Palladium Eagle remains separately named so the two series are not confused."
+- number: 7
+  id: owner-review-note-7
+  pagePath: /
+  targetLabel: "197"
+  selector: "#showing-count"
+  createdAt: "2026-08-29T23:07:15.646Z"
+  text: "how are we updating show dates and info, this has been the same sine we made the site. Is there an automation scheduled to grab new show dates and if so, how often are we doing that and udpateing the site with the show info?"
+  resolutionState: Resolved with observed active report-only schedule
+  resolution: "Active daily workflows: Show Update Report at 08:25 UTC checks 149 approved-source listings; External Source Comparison at 09:10 UTC checks 48 hand-reviewed groups covering 78 listings; Third-Party Discovery at 09:40 UTC checks 41 directory landing pages as leads only. All are report-only: they do not edit `_data/shows.yml`, commit, push, or deploy. Forty-eight listings lack an approved source and 71 approved-source listings await explicit comparison batching. A human must verify official evidence, edit canonical data, validate/build, and seek owner approval. The homepage count remains 197 because it counts records, not date changes."

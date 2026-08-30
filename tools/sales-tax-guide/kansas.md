@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Kansas Sales Tax on Coins & Precious Metals"
-seo_title: "Kansas Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Kansas? Learn about Kansas sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Kansas Coin & Bullion Tax"
+heading: "Kansas Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Kansas? Learn about Kansas sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/kansas/
 nav_exclude: true
 state_abbrev: "KS"

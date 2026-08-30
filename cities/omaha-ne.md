@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Omaha, Nebraska — 2026-2027"
-seo_title: "Coin Shows in Omaha, Nebraska — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Omaha, Nebraska. Dates, venues, and details for upcoming coin shows and numismatic events in Omaha."
+title: "Omaha, NE Coin Shows"
+heading: "Coin Shows in Omaha, Nebraska — 2026-2027"
+description: "Find 2 coin shows in Omaha, Nebraska. Compare dates, venues, and verification details before you travel."
 permalink: /cities/omaha-ne/
 city_slug: "omaha-ne"
 city_name: "Omaha"

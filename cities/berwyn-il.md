@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Berwyn, Illinois — 2026-2027"
-seo_title: "Coin Shows in Berwyn, Illinois — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Berwyn, Illinois. Dates, venues, and details for upcoming coin shows and numismatic events in Berwyn."
+title: "Berwyn, IL Coin Shows"
+heading: "Coin Shows in Berwyn, Illinois — 2026-2027"
+description: "Find 1 coin show in Berwyn, Illinois. Compare dates, venues, and verification details before you travel."
 permalink: /cities/berwyn-il/
 city_slug: "berwyn-il"
 city_name: "Berwyn"

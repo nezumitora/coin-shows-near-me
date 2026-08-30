@@ -5,6 +5,7 @@ require_relative 'show_date_parser'
 
 class ShowDateParserTest < Minitest::Test
   def test_parses_single_date
+    assert_equal [Date.new(2026, 7, 19), Date.new(2026, 7, 19)], ShowDateParser.date_range('July 19, 2026')
     assert_equal Date.new(2026, 7, 19), ShowDateParser.end_date('July 19, 2026')
   end
 
@@ -38,5 +39,16 @@ class ShowDateParserTest < Minitest::Test
 
   def test_returns_nil_for_implausibly_long_cross_month_range
     assert_nil ShowDateParser.end_date('October 30-September 1, 2026')
+  end
+
+  def test_recognizes_month_only_text_without_treating_it_as_complete
+    assert ShowDateParser.partial_date?('November 2026')
+    assert_nil ShowDateParser.date_range('November 2026')
+    refute ShowDateParser.partial_date?('November 2, 2026')
+  end
+
+  def test_rejects_extra_date_prose
+    assert_nil ShowDateParser.date_range('Every Sunday, September 13, 2026')
+    assert_nil ShowDateParser.date_range('September 13, 2026 at 9 AM')
   end
 end

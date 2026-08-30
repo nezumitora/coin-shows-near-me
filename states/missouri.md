@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Missouri — 2026-2027 Schedule"
-seo_title: "Coin Shows in Missouri — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 3 coin shows in Missouri. Complete directory with dates, venues, and details for Missouri coin shows, expos, and numismatic events."
+title: "Missouri Coin Shows"
+heading: "Coin Shows in Missouri — 2026-2027 Schedule"
+description: "Browse 3 coin shows in Missouri with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/missouri/
 state_abbrev: "MO"
 state_name: "Missouri"

@@ -1,16 +1,19 @@
 {% comment %}
   Schema.org Event markup for individual coin shows.
   Usage: {% include schema-event.html show=show %}
-  Only emit Event schema when the listing has a specific date that can be
-  converted to ISO 8601. Partial dates like "January 2026" and TBD dates stay
-  visible to users, but should not create invalid rich-result markup.
+  Only emit Event schema when the listing has an explicit confirmed ISO date
+  that is today or later. Unconfirmed and past-only records must not claim an
+  EventScheduled rich result.
 {% endcomment %}
-{% assign schema_next_date = include.show.next_date | default: "" | strip %}
-{% assign has_specific_schema_date = false %}
-{% if schema_next_date != "" and schema_next_date != "TBD" and schema_next_date contains "," %}
-  {% assign has_specific_schema_date = true %}
-{% endif %}
-{% if has_specific_schema_date %}
+{% assign schema_start_date = "" %}
+{% assign schema_today_key = site.time | date: "%Y%m%d" | plus: 0 %}
+{% for confirmed_date in include.show.upcoming_dates %}
+  {% assign schema_date_key = confirmed_date | remove: "-" | plus: 0 %}
+  {% if schema_start_date == "" and schema_date_key >= schema_today_key %}
+    {% assign schema_start_date = confirmed_date %}
+  {% endif %}
+{% endfor %}
+{% if schema_start_date != "" %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -18,7 +21,7 @@
   "name": {{ include.show.name | jsonify }},
   "description": {{ include.show.name | append: " in " | append: include.show.city | append: ", " | append: include.show.state_name | append: ". " | append: include.show.frequency | append: " coin show featuring coin dealers, currency, bullion, and numismatic collectibles." | jsonify }},
   "url": "{{ site.url }}{{ site.baseurl }}/shows/{{ include.show.id }}/",
-  "startDate": {{ schema_next_date | date_to_xmlschema | jsonify }},
+  "startDate": {{ schema_start_date | date_to_xmlschema | jsonify }},
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "eventStatus": "https://schema.org/EventScheduled",
   "location": {

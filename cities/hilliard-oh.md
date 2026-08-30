@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Hilliard, Ohio — 2026-2027"
-seo_title: "Coin Shows in Hilliard, Ohio — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Hilliard, Ohio. Dates, venues, and details for upcoming coin shows and numismatic events in Hilliard."
+title: "Hilliard, OH Coin Shows"
+heading: "Coin Shows in Hilliard, Ohio — 2026-2027"
+description: "Find 1 coin show in Hilliard, Ohio. Compare dates, venues, and verification details before you travel."
 permalink: /cities/hilliard-oh/
 city_slug: "hilliard-oh"
 city_name: "Hilliard"

@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Illinois — 2026-2027 Schedule"
-seo_title: "Coin Shows in Illinois — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 9 coin shows in Illinois. Complete directory with dates, venues, and details for Illinois coin shows, expos, and numismatic events."
+title: "Illinois Coin Shows"
+heading: "Coin Shows in Illinois — 2026-2027 Schedule"
+description: "Browse 9 coin shows in Illinois with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/illinois/
 state_abbrev: "IL"
 state_name: "Illinois"

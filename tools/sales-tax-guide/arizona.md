@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Arizona Sales Tax on Coins & Precious Metals"
-seo_title: "Arizona Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Arizona? Learn about Arizona sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Arizona Coin & Bullion Tax"
+heading: "Arizona Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Arizona? Learn about Arizona sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/arizona/
 nav_exclude: true
 state_abbrev: "AZ"

@@ -1,0 +1,16 @@
+# Exact one-hop successors for retired city URLs. Redirect only when repository
+# history or official evidence proves that the same listing moved or was fixed.
+- legacy_slug: westland-mi
+  canonical_slug: warren-mi
+- legacy_slug: south-st-paul-mn
+  canonical_slug: south-saint-paul-mn
+- legacy_slug: sept-17th-19th-countryside-il
+  canonical_slug: countryside-il
+- legacy_slug: des-moines-ia
+  canonical_slug: altoona-ia
+- legacy_slug: july-11th-2026-big-flats-ny
+  canonical_slug: big-flats-ny
+- legacy_slug: charlotte-nc
+  canonical_slug: middleton-wi
+- legacy_slug: creating-collectors-co
+  canonical_slug: tucson-az

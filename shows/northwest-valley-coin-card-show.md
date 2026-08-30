@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Northwest Valley Coin & Card Show — Phoenix, Arizona Coin Show"
-seo_title: "Northwest Valley Coin & Card Show — Phoenix, Arizona | Coin Show Near Me"
-seo_description: "Northwest Valley Coin & Card Show in Phoenix, Arizona. Recurring coin show at Doubletree by Hilton. Get dates, venue details, and more."
+title: "Northwest Valley Coin & Card Show"
+heading: "Northwest Valley Coin & Card Show — Phoenix, Arizona Coin Show"
+description: "Northwest Valley Coin & Card Show in Phoenix, Arizona. View dates, venue details, and listing verification before you travel."
 permalink: /shows/northwest-valley-coin-card-show/
 show_id: "northwest-valley-coin-card-show"
 breadcrumb_parent: "Arizona"

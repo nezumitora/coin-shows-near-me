@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Raleigh Money Expo — Raleigh, North Carolina Coin Show"
-seo_title: "Raleigh Money Expo — Raleigh, North Carolina | Coin Show Near Me"
-seo_description: "Raleigh Money Expo in Raleigh, North Carolina. Annual (June) coin show at Exposition Center, NC State Fairgrounds, 4285 Trinity Rd, Raleigh, NC. Get dates, venue details, and more."
+title: "Raleigh Money Expo"
+heading: "Raleigh Money Expo — Raleigh, North Carolina Coin Show"
+description: "Raleigh Money Expo in Raleigh, North Carolina. View dates, venue details, and listing verification before you travel."
 permalink: /shows/raleigh-money-expo/
 show_id: "raleigh-money-expo"
 breadcrumb_parent: "North Carolina"

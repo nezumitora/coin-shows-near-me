@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Cincinnati, Ohio — 2026-2027"
-seo_title: "Coin Shows in Cincinnati, Ohio — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Cincinnati, Ohio. Dates, venues, and details for upcoming coin shows and numismatic events in Cincinnati."
+title: "Cincinnati, OH Coin Shows"
+heading: "Coin Shows in Cincinnati, Ohio — 2026-2027"
+description: "Find 2 coin shows in Cincinnati, Ohio. Compare dates, venues, and verification details before you travel."
 permalink: /cities/cincinnati-oh/
 city_slug: "cincinnati-oh"
 city_name: "Cincinnati"

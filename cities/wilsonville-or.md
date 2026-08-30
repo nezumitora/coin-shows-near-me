@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Wilsonville, Oregon — 2026-2027"
-seo_title: "Coin Shows in Wilsonville, Oregon — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Wilsonville, Oregon. Dates, venues, and details for upcoming coin shows and numismatic events in Wilsonville."
+title: "Wilsonville, OR Coin Shows"
+heading: "Coin Shows in Wilsonville, Oregon — 2026-2027"
+description: "Find 1 coin show in Wilsonville, Oregon. Compare dates, venues, and verification details before you travel."
 permalink: /cities/wilsonville-or/
 city_slug: "wilsonville-or"
 city_name: "Wilsonville"

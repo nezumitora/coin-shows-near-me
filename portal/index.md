@@ -1,178 +1,56 @@
 ---
 layout: default
-title: "Dealer Portal — Pre-Show Offers for Coin Dealers & Collectors"
-seo_title: "Coin Show Dealer Portal — Register, Browse Collections, Make Offers | Coin Show Near Me"
-seo_description: "Register as a verified coin dealer, upload your collection as an attendee, or submit your show as a promoter. Get pre-show offers and save time at the bourse."
+title: "Dealer Portal Status"
+heading: "Dealer Portal Status"
+description: "Status page for a possible future dealer portal. No accounts, collection uploads, pre-show offers, or portal notifications are active."
 permalink: /portal/
 nav_exclude: true
+sitemap: false
+robots: noindex,follow
 breadcrumb_current: "Dealer Portal"
 ---
 
-# Dealer Portal
+# Dealer Portal Status
 
 <div style="background:linear-gradient(135deg, var(--coin-navy) 0%, var(--coin-navy-light) 100%);color:#f1f5f9;padding:1.5rem;border-radius:8px;margin-bottom:2rem;border-left:4px solid var(--coin-gold);">
-<p style="font-size:1.1rem;margin:0 0 0.75rem;"><strong style="color:var(--coin-gold-light);">Coming Soon</strong> — We're building a dealer portal to connect coin dealers with collectors before the show even starts.</p>
-<p style="font-size:0.95rem;margin:0;color:#cbd5e1;">Register your interest below to be first in line when we launch.</p>
+<p style="font-size:1.1rem;margin:0 0 0.75rem;"><strong style="color:var(--coin-gold-light);">Not available</strong> — No dealer portal, account system, collection upload, offer request, or portal notification service is active.</p>
+<p style="font-size:0.95rem;margin:0;color:#cbd5e1;">This noindex page records the status of a possible future feature. It does not accept registrations or seller information.</p>
 </div>
 
-## How It Works
+## What Works Today
 
-The Coin Show Near Me dealer portal connects three groups — **dealers**, **attendees**, and **promoters** — to make coin shows more efficient for everyone.
+- Browse the public [coin show directory](/) and verify event details with the organizer before traveling.
+- [Submit a show](/submit-show/) or open an existing listing's review form to suggest a correction.
+- Browse the [dealer directory](/dealers/) or submit a dealer listing or claim for manual review.
+- Use the [Melt Value Calculator](/tools/melt-value-calculator/) as an educational estimate. It does not request offers or collect seller contact information.
 
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin:1.5rem 0;">
+## Dealer Claims and Public Contacts
 
-<div style="border:1px solid var(--coin-border);border-radius:0.75rem;padding:1.25rem;background:var(--coin-gold-bg);">
-<h3 style="margin:0 0 0.5rem;color:var(--coin-navy);font-size:1.05rem;">For Dealers</h3>
-<p style="font-size:0.9rem;margin:0 0 0.75rem;color:#4b5563;">Register as a verified dealer and confirm which shows you're attending. Browse attendee collections before the show and make offers — so you know exactly what's walking through the door.</p>
-<ul style="font-size:0.85rem;margin:0;padding-left:1.25rem;color:#6b7280;">
-<li>Verify via ANA, PNG, PCGS, or NGC credentials</li>
-<li>Browse collections for your confirmed shows</li>
-<li>Make offers on individual items or entire collections</li>
-<li>Coordinate meeting details at the bourse</li>
-</ul>
-</div>
+Dealer claims and verification are separate manual decisions. `Claimed` means a representative relationship passed review. `Verified` means displayed public business details were independently checked. Neither label is an endorsement, and payment or promotion does not affect either decision.
 
-<div style="border:1px solid var(--coin-border);border-radius:0.75rem;padding:1.25rem;background:var(--coin-gold-bg);">
-<h3 style="margin:0 0 0.5rem;color:var(--coin-navy);font-size:1.05rem;">For Collectors & Sellers</h3>
-<p style="font-size:0.9rem;margin:0 0 0.75rem;color:#4b5563;">Upload your collection ahead of a coin show you plan to attend. Verified dealers will review what you have and make offers — no more lugging coins table to table hoping for a fair price.</p>
-<ul style="font-size:0.85rem;margin:0;padding-left:1.25rem;color:#6b7280;">
-<li>Upload photos and descriptions of your coins</li>
-<li>Receive offers from multiple verified dealers</li>
-<li>Accept, counter, or decline — all before the show</li>
-<li>Meet at the dealer's table to complete the transaction</li>
-</ul>
-</div>
+Dealer contact details may be displayed only when they were voluntarily submitted for publication or verified from a public source. Private review contact details are not published automatically.
 
-<div style="border:1px solid var(--coin-border);border-radius:0.75rem;padding:1.25rem;background:var(--coin-gold-bg);">
-<h3 style="margin:0 0 0.5rem;color:var(--coin-navy);font-size:1.05rem;">For Show Promoters</h3>
-<p style="font-size:0.9rem;margin:0 0 0.75rem;color:#4b5563;">Submit your show to our directory and manage your exhibitor list. Approve dealer attendance claims, update show details, and see how many collectors are planning to attend.</p>
-<ul style="font-size:0.85rem;margin:0;padding-left:1.25rem;color:#6b7280;">
-<li>Get your show listed in our directory of 190+ shows</li>
-<li>Manage and verify your dealer/exhibitor list</li>
-<li>Track registered attendees and scheduled offers</li>
-<li>Update dates, venues, and cancellations</li>
-</ul>
-</div>
+## Selling Coins
 
-</div>
+Coin Show Near Me does not accept collection uploads, route seller details to dealers, provide appraisals, or request dealer offers. If you choose to discuss a sale at a coin show, compare independent opinions, ask whether evaluations have fees, and research each dealer before transacting.
 
----
+## Possible Future Work
 
-## Why Pre-Show Offers?
-
-At a typical coin show, sellers walk from table to table, showing the same coins to dealer after dealer, hoping for a fair price. Dealers spend time evaluating collections that may not match their buying interests. Both sides waste time.
-
-**The portal changes this:**
-
-- **Sellers** know which dealers are interested *before* they arrive — and at what price
-- **Dealers** see exactly what's coming and can prepare competitive offers
-- **Everyone** spends less time negotiating and more time doing what they love
-
----
-
-## Register Your Interest
-
-<div class="notify-section">
-<h3>Be the first to know when the portal launches</h3>
-<p>Whether you're a dealer, collector, or show promoter — sign up and we'll notify you when the portal is ready.</p>
-
-<form class="notify-form" id="portal-form" action="#" data-form-key="mykleozw" method="POST">
-<input type="hidden" name="_subject" value="Coin Show Near Me — Portal Interest">
-<input type="hidden" name="source" value="Website">
-<input type="hidden" name="formName" value="portalInterest">
-<input type="hidden" name="ctaCode" value="portal_interest_signup">
-<input type="hidden" name="sourceDetail" value="Portal landing page interest form">
-<input type="hidden" name="pageUrl" value="">
-<input type="hidden" name="referringUrl" value="">
-<input type="hidden" name="submittedAt" value="">
-<input type="hidden" name="contactConsentTimestamp" value="">
-<input type="hidden" name="contactConsentVersion" value="coin-contact-consent-v1">
-<input type="hidden" name="contactConsentText" value="I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.">
-<input type="hidden" name="reminderConsentTimestamp" value="">
-<input type="hidden" name="reminderConsentVersion" value="coin-show-reminder-v1">
-<div class="form-row">
-<input type="text" name="name" placeholder="Name" style="background:#fff;color:#111;">
-<input type="email" name="email" placeholder="Email address" required style="background:#fff;color:#111;">
-</div>
-<div class="form-row" style="margin-top:0.5rem;">
-<select name="coinContactRoles" required style="flex:1;min-width:200px;padding:0.6rem 0.75rem;border:1px solid var(--coin-border);border-radius:6px;font-size:0.9rem;background:#fff;color:#111;">
-<option value="">I am a...</option>
-<option value="attendee">Attending a coin show</option>
-<option value="dealerVendor">Coin dealer / vendor</option>
-<option value="showOrganizer">Show organizer / promoter</option>
-<option value="venueContact">Venue contact</option>
-<option value="advertiserSponsor">Advertiser / sponsor</option>
-<option value="sellerOfferRequest">Selling coins / request an offer</option>
-<option value="generalInquiry">General question</option>
-</select>
-<button type="submit">Notify Me</button>
-</div>
-<textarea name="message" placeholder="Anything you'd like us to know — your dealer credentials, shows you attend, what you collect (optional)" style="background:#fff;color:#111;margin-top:0.5rem;"></textarea>
-<label style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.5rem;font-size:0.8rem;line-height:1.4;color:#334155;">
-<input type="checkbox" name="contactConsent" value="yes" required style="margin-top:0.15rem;">
-<span>I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.</span>
-</label>
-<label style="display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.35rem;font-size:0.8rem;line-height:1.4;color:#334155;">
-<input type="checkbox" name="showReminderOptIn" value="yes" style="margin-top:0.15rem;">
-<span>Send me reminders about coin shows near me.</span>
-</label>
-</form>
-<div class="notify-success" id="portal-success" style="background:#065f46;margin-top:0.5rem;">
-Thank you! We'll notify you when the dealer portal launches.
-</div>
-</div>
-
----
+Any future portal would require a separately reviewed operating workflow, privacy and security controls, legal disclosures, and clear manual-review rules before accepting accounts, collections, or offer requests. No launch date or notification list is active.
 
 ## Frequently Asked Questions
 
-### Is the portal free?
+### Can I create an account or request an offer here?
 
-The portal will be free for collectors and attendees. Dealer registration is also free. We may offer optional premium placements for dealers in the future.
+No. There is no active portal, account system, collection upload, offer request, or portal notification service.
 
-### How do you verify dealers?
+### Can a dealer claim or update a directory listing?
 
-Dealers must provide at least one verifiable credential — ANA membership, PNG membership, PCGS Authorized Dealer status, NGC Authorized Dealer status, or a state business license. New dealers undergo additional review before gaining full access.
+Yes. Use the form on the [dealer directory](/dealers/). Every claim and requested public contact change is reviewed manually and does not publish automatically.
 
-### When will the portal launch?
+### Does a claimed or verified label mean a dealer is recommended?
 
-We're actively building the portal now. Sign up above to be notified as soon as it's ready.
-
-### Can I still sell coins at a show without the portal?
-
-Absolutely. The portal is an additional tool to make the experience better — coin shows work great without it. Use our [Melt Value Calculator](/tools/melt-value-calculator/) to know the metal value of your coins before attending.
-
-<script>
-var form = document.getElementById('portal-form');
-if (form) {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var now = new Date().toISOString();
-    var contactConsentText = 'I agree that Coin Show Near Me may contact me about my inquiry. If I provide a phone number, I agree to be contacted by call or text. Message/data rates may apply. I can opt out anytime.';
-    function setFormValue(name, value) {
-      var field = form.querySelector('[name="' + name + '"]');
-      if (field) { field.value = value; }
-    }
-    setFormValue('pageUrl', window.location.href);
-    setFormValue('referringUrl', document.referrer || '');
-    setFormValue('submittedAt', now);
-    setFormValue('contactConsentVersion', 'coin-contact-consent-v1');
-    setFormValue('contactConsentText', contactConsentText);
-    setFormValue('reminderConsentVersion', 'coin-show-reminder-v1');
-    if (form.querySelector('[name="contactConsent"]').checked) {
-      setFormValue('contactConsentTimestamp', now);
-    }
-    if (form.querySelector('[name="showReminderOptIn"]').checked) {
-      setFormValue('reminderConsentTimestamp', now);
-    }
-    if (window.coinFormSpamCheck && !window.coinFormSpamCheck(form)) { return; }
-    window.coinSubmitForm(form).then(function() {
-      form.style.display = 'none';
-      document.getElementById('portal-success').style.display = 'block';
-    });
-  });
-}
-</script>
+No. These labels describe specific review steps; they do not endorse a dealer or guarantee conduct, pricing, qualifications, or trustworthiness.
 
 <script type="application/ld+json">
 {
@@ -181,26 +59,26 @@ if (form) {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is the coin show dealer portal free?",
+      "name": "Can I create a dealer portal account or request an offer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The portal will be free for collectors and attendees. Dealer registration is also free. Optional premium placements for dealers may be offered in the future."
+        "text": "No. Coin Show Near Me does not currently operate a dealer portal, account system, collection upload, offer request, or portal notification service."
       }
     },
     {
       "@type": "Question",
-      "name": "How do you verify coin dealers on the portal?",
+      "name": "Can a dealer claim or update a directory listing?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dealers must provide at least one verifiable credential — ANA membership, PNG membership, PCGS Authorized Dealer status, NGC Authorized Dealer status, or a state business license. New dealers undergo additional review before gaining full access."
+        "text": "Yes. Dealer listing and claim requests are accepted through the dealer directory and reviewed manually. Submitting a request does not publish or verify it automatically."
       }
     },
     {
       "@type": "Question",
-      "name": "What are pre-show offers at coin shows?",
+      "name": "Does a claimed or verified dealer label mean endorsement?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pre-show offers allow coin collectors to upload their collection before a show, and verified dealers confirmed for that show can review and make offers in advance. This saves time for both parties — sellers know what to expect and dealers can prepare competitive offers."
+        "text": "No. Claimed and Verified describe specific manual review steps and do not endorse a dealer or guarantee conduct, pricing, qualifications, or trustworthiness."
       }
     }
   ]

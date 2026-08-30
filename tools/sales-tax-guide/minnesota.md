@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Minnesota Sales Tax on Coins & Precious Metals"
-seo_title: "Minnesota Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Minnesota? Learn about Minnesota sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Minnesota Coin & Bullion Tax"
+heading: "Minnesota Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Minnesota? Learn about Minnesota sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/minnesota/
 nav_exclude: true
 state_abbrev: "MN"

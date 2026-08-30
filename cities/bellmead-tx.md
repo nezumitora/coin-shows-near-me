@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Bellmead, Texas — 2026-2027"
-seo_title: "Coin Shows in Bellmead, Texas — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Bellmead, Texas. Dates, venues, and details for upcoming coin shows and numismatic events in Bellmead."
+title: "Bellmead, TX Coin Shows"
+heading: "Coin Shows in Bellmead, Texas — 2026-2027"
+description: "Find 1 coin show in Bellmead, Texas. Compare dates, venues, and verification details before you travel."
 permalink: /cities/bellmead-tx/
 city_slug: "bellmead-tx"
 city_name: "Bellmead"

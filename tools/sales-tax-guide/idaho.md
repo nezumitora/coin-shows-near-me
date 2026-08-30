@@ -1,8 +1,8 @@
 ---
 layout: state-tax
-title: "Idaho Sales Tax on Coins & Precious Metals"
-seo_title: "Idaho Sales Tax on Coins & Precious Metals | Coin Show Near Me"
-seo_description: "Is gold and silver taxable in Idaho? Learn about Idaho sales tax on coins, bullion, and precious metals. Updated 2026."
+title: "Idaho Coin & Bullion Tax"
+heading: "Idaho Sales Tax on Coins & Precious Metals"
+description: "Is gold and silver taxable in Idaho? Learn about Idaho sales tax on coins, bullion, and precious metals. Updated 2026."
 permalink: /tools/sales-tax-guide/idaho/
 nav_exclude: true
 state_abbrev: "ID"

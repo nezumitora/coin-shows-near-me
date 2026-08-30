@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "43rd Annual Greater Cincinnati Numismatic Exposition — Cincinnati, Ohio Coin Show"
-seo_title: "43rd Annual Greater Cincinnati Numismatic Exposition — Cincinnati, Ohio | Coin Show Near Me"
-seo_description: "43rd Annual Greater Cincinnati Numismatic Exposition in Cincinnati, Ohio. Annual coin show at American Legion, 11100 Winton Road, Cincinnati, OH 45218. Get dates, venue details, and more."
+title: "Greater Cincinnati Numismatic Expo"
+heading: "43rd Annual Greater Cincinnati Numismatic Exposition — Cincinnati, Ohio Coin Show"
+description: "43rd Annual Greater Cincinnati Numismatic Exposition in Cincinnati, Ohio. View dates, venue details, and listing verification before you travel."
 permalink: /shows/43rd-annual-greater-cincinnati-numismatic-exposition/
 show_id: "43rd-annual-greater-cincinnati-numismatic-exposition"
 breadcrumb_parent: "Ohio"

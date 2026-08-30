@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "COINARAMA San Diego Coin Show — San Diego, California Coin Show"
-seo_title: "COINARAMA San Diego Coin Show — San Diego, California | Coin Show Near Me"
-seo_description: "COINARAMA San Diego Coin Show in San Diego, California. Semiannual coin show at Liberty Station Conference Center, 2600 Laning Road, San Diego, CA. Get dates, venue details, and more."
+title: "COINARAMA San Diego Coin Show"
+heading: "COINARAMA San Diego Coin Show — San Diego, California Coin Show"
+description: "COINARAMA San Diego Coin Show in San Diego, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/coinarama-san-diego-coin-show/
 show_id: "coinarama-san-diego-coin-show"
 breadcrumb_parent: "California"

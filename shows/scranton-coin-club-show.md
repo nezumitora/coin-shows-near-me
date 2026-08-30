@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Scranton Coin Show — Pittston, Pennsylvania Coin Show"
-seo_title: "Scranton Coin Show — Pittston, Pennsylvania | Coin Show Near Me"
-seo_description: "Scranton Coin Show in Pittston, Pennsylvania. Recurring coin show at St. Joseph's Oblates, 1880 Rt. 315, Pittston, PA 18640. Get dates, venue details, and more."
+title: "Scranton Coin Show"
+heading: "Scranton Coin Show — Pittston, Pennsylvania Coin Show"
+description: "Scranton Coin Show in Pittston, Pennsylvania. View dates, venue details, and listing verification before you travel."
 permalink: /shows/scranton-coin-club-show/
 show_id: "scranton-coin-club-show"
 breadcrumb_parent: "Pennsylvania"

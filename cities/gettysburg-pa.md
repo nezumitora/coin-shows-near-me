@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Gettysburg, Pennsylvania — 2026-2027"
-seo_title: "Coin Shows in Gettysburg, Pennsylvania — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Gettysburg, Pennsylvania. Dates, venues, and details for upcoming coin shows and numismatic events in Gettysburg."
+title: "Gettysburg, PA Coin Shows"
+heading: "Coin Shows in Gettysburg, Pennsylvania — 2026-2027"
+description: "Find 1 coin show in Gettysburg, Pennsylvania. Compare dates, venues, and verification details before you travel."
 permalink: /cities/gettysburg-pa/
 city_slug: "gettysburg-pa"
 city_name: "Gettysburg"

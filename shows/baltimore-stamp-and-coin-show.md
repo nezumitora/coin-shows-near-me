@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Baltimore Stamp and Coin Show — Timonium, Maryland Coin Show"
-seo_title: "Baltimore Stamp and Coin Show — Timonium, Maryland | Coin Show Near Me"
-seo_description: "Baltimore Stamp and Coin Show in Timonium, Maryland. Recurring coin show at 2200 York Road, Timonium, MD 21093. Get dates, venue details, and more."
+title: "Baltimore Stamp and Coin Show"
+heading: "Baltimore Stamp and Coin Show — Timonium, Maryland Coin Show"
+description: "Baltimore Stamp and Coin Show in Timonium, Maryland. View dates, venue details, and listing verification before you travel."
 permalink: /shows/baltimore-stamp-and-coin-show/
 show_id: "baltimore-stamp-and-coin-show"
 breadcrumb_parent: "Maryland"

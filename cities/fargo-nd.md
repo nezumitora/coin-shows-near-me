@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Fargo, North Dakota — 2026-2027"
-seo_title: "Coin Shows in Fargo, North Dakota — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Fargo, North Dakota. Dates, venues, and details for upcoming coin shows and numismatic events in Fargo."
+title: "Fargo, ND Coin Shows"
+heading: "Coin Shows in Fargo, North Dakota — 2026-2027"
+description: "Find 1 coin show in Fargo, North Dakota. Compare dates, venues, and verification details before you travel."
 permalink: /cities/fargo-nd/
 city_slug: "fargo-nd"
 city_name: "Fargo"

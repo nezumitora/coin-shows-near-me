@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Big Flats, New York — 2026-2027"
-seo_title: "Coin Shows in Big Flats, New York — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Big Flats, New York. Dates, venues, and details for upcoming coin shows and numismatic events in Big Flats."
+title: "Big Flats, NY Coin Shows"
+heading: "Coin Shows in Big Flats, New York — 2026-2027"
+description: "Find 1 coin show in Big Flats, New York. Compare dates, venues, and verification details before you travel."
 permalink: /cities/big-flats-ny/
 city_slug: "big-flats-ny"
 city_name: "Big Flats"

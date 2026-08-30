@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Cupertino Coin Club Annual Coin Show — Cupertino, California Coin Show"
-seo_title: "Cupertino Coin Club Annual Coin Show — Cupertino, California | Coin Show Near Me"
-seo_description: "Cupertino Coin Club Annual Coin Show in Cupertino, California. Annual coin show at St Joseph of Cupertino Church, 10110 N De Anza Blvd, Cupertino, CA. Get dates, venue details, and more."
+title: "Cupertino Coin Club Annual Coin Show"
+heading: "Cupertino Coin Club Annual Coin Show — Cupertino, California Coin Show"
+description: "Cupertino Coin Club Annual Coin Show in Cupertino, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/cupertino-coin-club-annual-coin-show/
 show_id: "cupertino-coin-club-annual-coin-show"
 breadcrumb_parent: "California"

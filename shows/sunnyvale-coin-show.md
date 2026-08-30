@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Sunnyvale Coin Show — Sunnyvale, California Coin Show"
-seo_title: "Sunnyvale Coin Show — Sunnyvale, California | Coin Show Near Me"
-seo_description: "Sunnyvale Coin Show in Sunnyvale, California. Semiannual (Spring & Fall) coin show at The Domain Hotel, Sunnyvale, CA. Get dates, venue details, and more."
+title: "Sunnyvale Coin Show"
+heading: "Sunnyvale Coin Show — Sunnyvale, California Coin Show"
+description: "Sunnyvale Coin Show in Sunnyvale, California. View dates, venue details, and listing verification before you travel."
 permalink: /shows/sunnyvale-coin-show/
 show_id: "sunnyvale-coin-show"
 breadcrumb_parent: "California"

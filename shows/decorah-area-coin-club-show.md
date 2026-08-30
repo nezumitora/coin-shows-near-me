@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Decorah Area Coin Club Show — Decorah, Iowa Coin Show"
-seo_title: "Decorah Area Coin Club Show — Decorah, Iowa | Coin Show Near Me"
-seo_description: "Decorah Area Coin Club Show in Decorah, Iowa. Annual coin show at Danon Lansing Building, Fairgrounds, 900 E Main St, Decorah, IA. Get dates, venue details, and more."
+title: "Decorah Area Coin Club Show"
+heading: "Decorah Area Coin Club Show — Decorah, Iowa Coin Show"
+description: "Decorah Area Coin Club Show in Decorah, Iowa. View dates, venue details, and listing verification before you travel."
 permalink: /shows/decorah-area-coin-club-show/
 show_id: "decorah-area-coin-club-show"
 breadcrumb_parent: "Iowa"

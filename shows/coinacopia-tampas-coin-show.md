@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Coinacopia Tampa's Coin Show — Tampa, Florida Coin Show"
-seo_title: "Coinacopia Tampa's Coin Show — Tampa, Florida | Coin Show Near Me"
-seo_description: "Coinacopia Tampa's Coin Show in Tampa, Florida. Recurring coin show at Central Professional Building, 13336 N Central Ave, Tampa, FL 33612. Get dates, venue details, and more."
+title: "Coinacopia Tampa's Coin Show"
+heading: "Coinacopia Tampa's Coin Show — Tampa, Florida Coin Show"
+description: "Coinacopia Tampa's Coin Show in Tampa, Florida. View dates, venue details, and listing verification before you travel."
 permalink: /shows/coinacopia-tampas-coin-show/
 show_id: "coinacopia-tampas-coin-show"
 breadcrumb_parent: "Florida"

@@ -9,7 +9,7 @@ module ShowDateParser
 
   module_function
 
-  def end_date(date_text)
+  def date_range(date_text)
     text = date_text.to_s.strip
 
     if (match = text.match(/\A(#{MONTH})\s+(\d{1,2})\s*#{RANGE_SEPARATOR}\s*(#{MONTH})\s+(\d{1,2}),\s*(\d{4})\z/i))
@@ -21,7 +21,7 @@ module ShowDateParser
       start_year = start_month > finish_month ? finish_year - 1 : finish_year
       start_date = Date.new(start_year, start_month, match[2].to_i)
       finish_date = Date.new(finish_year, finish_month, match[4].to_i)
-      return valid_range?(start_date, finish_date) ? finish_date : nil
+      return valid_range?(start_date, finish_date) ? [start_date, finish_date] : nil
     end
 
     if (match = text.match(/\A(#{MONTH})\s+(\d{1,2})\s*#{RANGE_SEPARATOR}\s*(\d{1,2}),\s*(\d{4})\z/i))
@@ -30,12 +30,37 @@ module ShowDateParser
 
       start_date = Date.new(match[4].to_i, month, match[2].to_i)
       finish_date = Date.new(match[4].to_i, month, match[3].to_i)
-      return valid_range?(start_date, finish_date) ? finish_date : nil
+      return valid_range?(start_date, finish_date) ? [start_date, finish_date] : nil
     end
 
-    Date.parse(text)
+    if (match = text.match(/\A(#{MONTH})\s+(\d{1,2}),\s*(\d{4})\z/i))
+      month = month_number(match[1])
+      return nil unless month
+
+      date = Date.new(match[3].to_i, month, match[2].to_i)
+      return [date, date]
+    end
+
+    nil
   rescue ArgumentError
     nil
+  end
+
+  def start_date(date_text)
+    range = date_range(date_text)
+    range&.first
+  end
+
+  def end_date(date_text)
+    range = date_range(date_text)
+    range&.last
+  end
+
+  def partial_date?(date_text)
+    text = date_text.to_s.strip
+    return false unless (match = text.match(/\A(#{MONTH})\s+(\d{4})\z/i))
+
+    !month_number(match[1]).nil?
   end
 
   def month_number(month_name)

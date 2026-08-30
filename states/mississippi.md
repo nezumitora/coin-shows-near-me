@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Mississippi — 2026-2027 Schedule"
-seo_title: "Coin Shows in Mississippi — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Mississippi. Complete directory with dates, venues, and details for Mississippi coin shows, expos, and numismatic events."
+title: "Mississippi Coin Shows"
+heading: "Coin Shows in Mississippi — 2026-2027 Schedule"
+description: "Browse 2 coin shows in Mississippi with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/mississippi/
 state_abbrev: "MS"
 state_name: "Mississippi"

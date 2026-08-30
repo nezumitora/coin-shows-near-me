@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Trevose, Pennsylvania — 2026-2027"
-seo_title: "Coin Shows in Trevose, Pennsylvania — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Trevose, Pennsylvania. Dates, venues, and details for upcoming coin shows and numismatic events in Trevose."
+title: "Trevose, PA Coin Shows"
+heading: "Coin Shows in Trevose, Pennsylvania — 2026-2027"
+description: "Find 2 coin shows in Trevose, Pennsylvania. Compare dates, venues, and verification details before you travel."
 permalink: /cities/trevose-pa/
 city_slug: "trevose-pa"
 city_name: "Trevose"

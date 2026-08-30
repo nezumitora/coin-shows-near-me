@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Tacoma, Washington — 2026-2027"
-seo_title: "Coin Shows in Tacoma, Washington — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 2 coin shows in Tacoma, Washington. Dates, venues, and details for upcoming coin shows and numismatic events in Tacoma."
+title: "Tacoma, WA Coin Shows"
+heading: "Coin Shows in Tacoma, Washington — 2026-2027"
+description: "Find 2 coin shows in Tacoma, Washington. Compare dates, venues, and verification details before you travel."
 permalink: /cities/tacoma-wa/
 city_slug: "tacoma-wa"
 city_name: "Tacoma"

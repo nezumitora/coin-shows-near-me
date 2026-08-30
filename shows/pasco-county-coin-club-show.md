@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Pasco County Coin Club Coin & Collectibles Show — Hudson, Florida Coin Show"
-seo_title: "Pasco County Coin Club Coin & Collectibles Show — Hudson, Florida | Coin Show Near Me"
-seo_description: "Pasco County Coin Club Coin & Collectibles Show in Hudson, Florida. Recurring coin show at Elks Lodge, 9135 Denton Ave, Hudson, FL 34667. Get dates, venue details, and more."
+title: "Pasco County Coin Club Show"
+heading: "Pasco County Coin Club Coin & Collectibles Show — Hudson, Florida Coin Show"
+description: "Pasco County Coin Club Coin & Collectibles Show in Hudson, Florida. View dates, venue details, and listing verification before you travel."
 permalink: /shows/pasco-county-coin-club-show/
 show_id: "pasco-county-coin-club-show"
 breadcrumb_parent: "Florida"

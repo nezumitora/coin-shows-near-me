@@ -1,8 +1,8 @@
 ---
 layout: state
-title: "Coin Shows in Arizona — 2026-2027 Schedule"
-seo_title: "Coin Shows in Arizona — 2026-2027 Schedule & Directory | Coin Show Near Me"
-seo_description: "Find 4 coin shows in Arizona. Complete directory with dates, venues, and details for Arizona coin shows, expos, and numismatic events."
+title: "Arizona Coin Shows"
+heading: "Coin Shows in Arizona — 2026-2027 Schedule"
+description: "Browse 5 coin shows in Arizona with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/arizona/
 state_abbrev: "AZ"
 state_name: "Arizona"

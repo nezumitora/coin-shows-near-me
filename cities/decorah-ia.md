@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Decorah, Iowa — 2026-2027"
-seo_title: "Coin Shows in Decorah, Iowa — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Decorah, Iowa. Dates, venues, and details for upcoming coin shows and numismatic events in Decorah."
+title: "Decorah, IA Coin Shows"
+heading: "Coin Shows in Decorah, Iowa — 2026-2027"
+description: "Find 1 coin show in Decorah, Iowa. Compare dates, venues, and verification details before you travel."
 permalink: /cities/decorah-ia/
 city_slug: "decorah-ia"
 city_name: "Decorah"

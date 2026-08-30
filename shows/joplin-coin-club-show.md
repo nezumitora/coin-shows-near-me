@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Joplin Coin Club Show — Joplin, Missouri Coin Show"
-seo_title: "Joplin Coin Club Show — Joplin, Missouri | Coin Show Near Me"
-seo_description: "Joplin Coin Club Show in Joplin, Missouri. Semiannual coin show at Butcher Block Event Center. Get dates, venue details, and more."
+title: "Joplin Coin Club Show"
+heading: "Joplin Coin Club Show — Joplin, Missouri Coin Show"
+description: "Joplin Coin Club Show in Joplin, Missouri. View dates, venue details, and listing verification before you travel."
 permalink: /shows/joplin-coin-club-show/
 show_id: "joplin-coin-club-show"
 breadcrumb_parent: "Missouri"

@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Ohio State Coin Show — Dublin, Ohio Coin Show"
-seo_title: "Ohio State Coin Show — Dublin, Ohio | Coin Show Near Me"
-seo_description: "Ohio State Coin Show in Dublin, Ohio. Annual (Labor Day Weekend) coin show at Embassy Suites. Get dates, venue details, and more."
+title: "Ohio State Coin Show"
+heading: "Ohio State Coin Show — Dublin, Ohio Coin Show"
+description: "Ohio State Coin Show in Dublin, Ohio. View dates, venue details, and listing verification before you travel."
 permalink: /shows/ohio-state-coin-show/
 show_id: "ohio-state-coin-show"
 breadcrumb_parent: "Ohio"

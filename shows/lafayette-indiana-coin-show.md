@@ -1,8 +1,8 @@
 ---
 layout: show
-title: "Lafayette Indiana Coin show — Lafayette, Indiana Coin Show"
-seo_title: "Lafayette Indiana Coin show — Lafayette, Indiana | Coin Show Near Me"
-seo_description: "Lafayette Indiana Coin show in Lafayette, Indiana. Recurring coin show at . Get dates, venue details, and more."
+title: "Lafayette Indiana Coin show"
+heading: "Lafayette Indiana Coin show — Lafayette, Indiana Coin Show"
+description: "Lafayette Indiana Coin show in Lafayette, Indiana. View dates, venue details, and listing verification before you travel."
 permalink: /shows/lafayette-indiana-coin-show/
 show_id: "lafayette-indiana-coin-show"
 breadcrumb_parent: "Indiana"

@@ -1,8 +1,8 @@
 ---
 layout: city
-title: "Coin Shows in Jacksonville, Florida — 2026-2027"
-seo_title: "Coin Shows in Jacksonville, Florida — 2026-2027 Schedule | Coin Show Near Me"
-seo_description: "Find 1 coin show in Jacksonville, Florida. Dates, venues, and details for upcoming coin shows and numismatic events in Jacksonville."
+title: "Jacksonville, FL Coin Shows"
+heading: "Coin Shows in Jacksonville, Florida — 2026-2027"
+description: "Find 1 coin show in Jacksonville, Florida. Compare dates, venues, and verification details before you travel."
 permalink: /cities/jacksonville-fl/
 city_slug: "jacksonville-fl"
 city_name: "Jacksonville"
