@@ -1,0 +1,18 @@
+# Manual quality baseline for the first report-only listing-freshness phase.
+#
+# These source keys already exist in `_scrapers/external-sources.yml`. The
+# baseline records the expected outcome after a person checked the approved
+# public source on 2026-08-30. It does not authorize a listing edit.
+
+version: 1
+reviewed_at: '2026-08-30'
+sources:
+  - source_key: pacific-expos-north-county
+    rationale: Exact organizer date page for one recurring show.
+    expectations:
+      north-county-monthly-coin-show: current_match
+
+  - source_key: rocky-mountain-expos
+    rationale: Exact promoter page naming the event and current date range.
+    expectations:
+      denver-coin-expo: current_match
