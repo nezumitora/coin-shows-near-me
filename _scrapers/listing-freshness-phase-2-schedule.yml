@@ -1,0 +1,28 @@
+# Design-only schedule configuration. No workflow consumes this file.
+version: 1
+enabled: false
+manual_dispatch: false
+cron:
+workflow_file:
+profile: _scrapers/listing-freshness-phase-2.yml
+mode: report_only
+requires_owner_approval_to_enable: true
+
+tiers:
+  within_30_days:
+    cadence: every_2_to_3_days
+    milestones_days_before_event: [21, 7, 2]
+  days_31_to_90:
+    cadence: weekly
+  over_90_days:
+    cadence: monthly
+  past:
+    cadence: weekly_stale_queue
+  tbd_or_partial:
+    cadence: monthly_unconfirmed_queue
+
+publication:
+  automatic_listing_changes: false
+  automatic_merge: false
+  automatic_deploy: false
+  automatic_publish: false

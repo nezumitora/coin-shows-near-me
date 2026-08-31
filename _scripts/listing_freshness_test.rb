@@ -2,6 +2,7 @@
 
 require 'minitest/autorun'
 require_relative 'listing_freshness'
+require_relative 'listing_freshness_profile'
 
 class ListingFreshnessTest < Minitest::Test
   AS_OF = Date.new(2026, 8, 30)
@@ -234,5 +235,53 @@ class ListingFreshnessTest < Minitest::Test
     assert_equal 1, candidates.length
     assert_equal 'review_possible_duplicate_without_merging', candidates.first.fetch(:human_action)
     assert_equal 'none', candidates.first.fetch(:automatic_action)
+  end
+
+  def test_phase_two_profile_is_bounded_to_approved_sources
+    external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
+    profile = ListingFreshnessProfile.load(
+      path: File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__),
+      external_sources: external_sources
+    )
+
+    assert_equal 12, profile.fetch(:source_count)
+    assert_equal profile.fetch(:source_keys).uniq, profile.fetch(:source_keys)
+    profile.fetch(:sources).each do |source|
+      assert_equal(
+        source.fetch(:profile).fetch('covered_show_ids').sort,
+        source.fetch(:registry).fetch('expected_show_ids').sort
+      )
+      fail_closed_policy = source.fetch(:profile).fetch('fail_closed_policy')
+      assert_equal(
+        'none',
+        profile.fetch(:config).fetch('policies').fetch('fail_closed').fetch(fail_closed_policy).fetch('automatic_action')
+      )
+    end
+  end
+
+  def test_phase_two_schedule_is_explicitly_inactive
+    schedule = ListingFreshnessProfile.load_schedule(
+      path: File.expand_path('../_scrapers/listing-freshness-phase-2-schedule.yml', __dir__),
+      expected_profile: '_scrapers/listing-freshness-phase-2.yml'
+    )
+
+    refute schedule.fetch('enabled')
+    refute schedule.fetch('manual_dispatch')
+    assert_nil schedule.fetch('cron')
+    assert_nil schedule.fetch('workflow_file')
+    assert schedule.fetch('requires_owner_approval_to_enable')
+    assert schedule.fetch('publication').values.none?
+  end
+
+  def test_phase_two_profile_rejects_an_unbounded_source_batch
+    external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    config['sources'] = config.fetch('sources').first(9)
+
+    error = assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+
+    assert_includes error.message, '10-20 sources'
   end
 end
