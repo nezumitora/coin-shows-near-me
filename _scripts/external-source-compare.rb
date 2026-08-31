@@ -13,12 +13,14 @@ require 'uri'
 require 'yaml'
 require_relative 'show_source_policy'
 require_relative 'source_entry_matcher'
+require_relative 'listing_freshness_profile'
 
 CONFIG_PATH = '_scrapers/external-sources.yml'
 SHOWS_PATH = '_data/shows.yml'
 REPORT_PATH = 'tmp/external-source-comparison.md'
 CSV_PATH = 'tmp/external-source-comparison.csv'
 QUEUE_CSV_PATH = 'tmp/external-source-coverage-queue.csv'
+PROFILE_PATH = ENV.fetch('LISTING_FRESHNESS_PROFILE_PATH', '').strip
 REQUEST_TIMEOUT = 12
 REQUEST_DELAY_SECONDS = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '1.0'))
 DRY_RUN = ENV.fetch('SOURCE_COMPARISON_DRY_RUN', '0') == '1'
@@ -30,10 +32,10 @@ DATE_PATTERNS = [
 ].freeze
 
 def fetch_text(url)
-  return ['dry_run', 'network disabled', ''] if DRY_RUN
+  return ['dry_run', 'network disabled', '', ''] if DRY_RUN
 
   uri = URI.parse(url)
-  return ['skip', 'not http/https', ''] unless %w[http https].include?(uri.scheme)
+  return ['skip', 'not http/https', '', ''] unless %w[http https].include?(uri.scheme)
 
   response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https', open_timeout: REQUEST_TIMEOUT, read_timeout: REQUEST_TIMEOUT) do |http|
     request = Net::HTTP::Get.new(uri)
@@ -50,9 +52,12 @@ def fetch_text(url)
              .gsub(/\s+/, ' ')
              .strip
 
-  [response.code, response.message, text]
+  redirect_target = response['location'].to_s.encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
+  redirect_target = redirect_target.gsub(/[\r\n]/, '').strip[0, 500]
+
+  [response.code, response.message, text, redirect_target]
 rescue StandardError => e
-  ['error', e.class.to_s, '']
+  ['error', e.class.to_s, '', '']
 end
 
 def normalized(value)
@@ -63,7 +68,13 @@ def date_candidates(text)
   DATE_PATTERNS.flat_map { |pattern| text.scan(pattern) }.map { |date| date.is_a?(Array) ? date.first : date }.uniq.first(25)
 end
 
-sources = YAML.load_file(CONFIG_PATH)
+all_sources = YAML.load_file(CONFIG_PATH)
+profile = if PROFILE_PATH.empty?
+            nil
+          else
+            ListingFreshnessProfile.load(path: PROFILE_PATH, external_sources: all_sources)
+          end
+sources = profile ? profile.fetch(:sources).map { |source| source.fetch(:registry) } : all_sources
 shows = YAML.load_file(SHOWS_PATH)
 shows_by_id = shows.to_h { |show| [show.fetch('id'), show] }
 configured_show_ids = sources.flat_map { |source| source.fetch('expected_show_ids') }.uniq
@@ -88,8 +99,23 @@ generated_at = Time.now.utc.iso8601
 rows = []
 source_summaries = []
 
+if profile
+  constraints = profile.fetch(:config).fetch('policies').fetch('constraints')
+  minimum_delay = profile.fetch(:sources).map do |source|
+    policy_name = source.fetch(:profile).fetch('constraints_policy')
+    constraints.fetch(policy_name).fetch('request_delay_seconds').to_f
+  end.max
+  if !DRY_RUN && REQUEST_DELAY_SECONDS < minimum_delay
+    abort "REQUEST_DELAY_SECONDS must be at least #{minimum_delay} for the selected Phase 2 profile"
+  end
+end
+
 sources.each do |source|
-  status, detail, text = fetch_text(source.fetch('url'))
+  unless ShowSourcePolicy.approved_source_url?(source.fetch('url'))
+    abort "Comparison source is not approved: #{source.fetch('key')}"
+  end
+
+  status, detail, text, redirect_target = fetch_text(source.fetch('url'))
   fetched_at = Time.now.utc.iso8601
   candidates = date_candidates(text)
   source_text = normalized(text)
@@ -100,7 +126,7 @@ sources.each do |source|
     show = shows_by_id[show_id]
     unless show
       missing_configured_ids << show_id
-      rows << [source.fetch('key'), source.fetch('source_type'), source.fetch('url'), fetched_at, show_id, '', '', status, detail, 'missing_local_listing', false, false, candidates.join('; ')]
+      rows << [source.fetch('key'), source.fetch('source_type'), source.fetch('url'), fetched_at, show_id, '', '', status, detail, redirect_target, 'missing_local_listing', false, false, candidates.join('; '), false]
       next
     end
 
@@ -110,8 +136,8 @@ sources.each do |source|
     date_found = SourceEntryMatcher.date_associated?(text, show_name, peer_names, show_date, source['calendar_year'])
     review_status = if status == 'dry_run'
                       'not_fetched_dry_run'
-                    elsif status == 'error'
-                      'source_fetch_error'
+                    elsif !status.match?(/\A2\d\d\z/)
+                      'source_availability_review'
                     elsif name_found && (show_date == 'TBD' || date_found)
                       'matches_or_needs_date_review'
                     elsif name_found
@@ -120,7 +146,7 @@ sources.each do |source|
                       'show_name_not_found'
                     end
 
-    rows << [source.fetch('key'), source.fetch('source_type'), source.fetch('url'), fetched_at, show_id, show_name, show_date, status, detail, review_status, name_found, date_found, candidates.join('; ')]
+    rows << [source.fetch('key'), source.fetch('source_type'), source.fetch('url'), fetched_at, show_id, show_name, show_date, status, detail, redirect_target, review_status, name_found, date_found, candidates.join('; '), false]
   end
 
   source_summaries << {
@@ -129,6 +155,7 @@ sources.each do |source|
     url: source.fetch('url'),
     status: status,
     detail: detail,
+    redirect_target: redirect_target,
     expected_count: source.fetch('expected_show_ids').length,
     missing_configured_ids: missing_configured_ids,
     candidate_dates: candidates
@@ -140,7 +167,7 @@ end
 FileUtils.mkdir_p(File.dirname(REPORT_PATH))
 
 CSV.open(CSV_PATH, 'w') do |csv|
-  csv << %w[source_key source_type source_url fetched_at show_id show_name current_next_date fetch_status fetch_detail review_status name_found current_date_found candidate_dates]
+  csv << %w[source_key source_type source_url fetched_at show_id show_name current_next_date fetch_status fetch_detail redirect_target review_status name_found current_date_found candidate_dates cancellation_evidence]
   rows.each { |row| csv << row }
 end
 
@@ -159,6 +186,7 @@ File.write(REPORT_PATH, <<~MD)
   # External source comparison report
 
   Generated: #{generated_at}
+  Source profile: #{PROFILE_PATH.empty? ? 'full approved comparison registry' : "`#{PROFILE_PATH}`"}
 
   Report-only. This does not change `_data/shows.yml`, publish pages, submit forms, send emails, or send SMS.
 
@@ -169,7 +197,9 @@ File.write(REPORT_PATH, <<~MD)
   - Listings with an approved canonical source: #{approved_source_show_ids.length}
   - Approved-source listings waiting for a reviewed comparison batch: #{approved_but_unconfigured_ids.length}
   - Listings without an approved comparison source: #{uncovered_show_ids.length}
-  - Explicit source-registry groups fetched: #{sources.length}
+  - Explicit source-registry groups selected: #{sources.length}
+  - Source requests per selected group: #{DRY_RUN ? 0 : 1}
+  - Redirects followed: 0
   - Approved source URLs queued without fetching: #{coverage_queue_by_url.length}
 
   Only the hand-reviewed source registry is fetched. Existing canonical `source_url` or `website` values accepted by `ShowSourcePolicy` are written to `#{QUEUE_CSV_PATH}` for small-batch review; they are not fetched automatically and do not create or verify listings.
@@ -178,15 +208,15 @@ File.write(REPORT_PATH, <<~MD)
 
   ## Sources checked
 
-  | Source | Status | Listings checked | URL |
-  |---|---:|---:|---|
-  #{source_summaries.map { |source| "| #{source[:name]} | #{source[:status]} #{source[:detail]} | #{source[:expected_count]} | #{source[:url]} |" }.join("\n")}
+  | Source | Status | Redirect recorded | Listings checked | URL |
+  |---|---:|---|---:|---|
+  #{source_summaries.map { |source| "| #{source[:name]} | #{source[:status]} #{source[:detail]} | #{source[:redirect_target]} | #{source[:expected_count]} | #{source[:url]} |" }.join("\n")}
 
   ## Review rows
 
   | Source | Show | Current date | Status | Name found | Current date found | Candidate dates on source |
   |---|---|---|---|---:|---:|---|
-  #{rows.map { |source_key, _source_type, _source_url, _fetched_at, show_id, show_name, show_date, _fetch_status, _fetch_detail, review_status, name_found, date_found, candidates| "| #{source_key} | #{show_name.empty? ? show_id : show_name} | #{show_date} | #{review_status} | #{name_found} | #{date_found} | #{candidates} |" }.join("\n")}
+  #{rows.map { |source_key, _source_type, _source_url, _fetched_at, show_id, show_name, show_date, _fetch_status, _fetch_detail, _redirect_target, review_status, name_found, date_found, candidates, _cancellation_evidence| "| #{source_key} | #{show_name.empty? ? show_id : show_name} | #{show_date} | #{review_status} | #{name_found} | #{date_found} | #{candidates} |" }.join("\n")}
 
   ## Next human-review actions
 

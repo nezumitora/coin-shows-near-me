@@ -214,6 +214,11 @@ module ListingFreshness
 
   def external_outcome(row)
     return 'source_unavailable' unless successful_fetch?(row['fetch_status'])
+    if truthy?(row['cancellation_evidence']) &&
+       truthy?(row['name_found']) &&
+       !row['cancellation_evidence_detail'].to_s.strip.empty?
+      return 'cancellation_evidence'
+    end
     return 'current_match' if truthy?(row['name_found']) && truthy?(row['current_date_found'])
     return 'candidate_change' if truthy?(row['name_found']) && !row['candidate_dates'].to_s.empty?
 
@@ -223,15 +228,20 @@ module ListingFreshness
   def build_source_fact(row:, show:, source_type:, source_url:, fetched_at:, pilot:, expectation: nil, controlled: false)
     outcome = external_outcome(row)
     candidates = row['candidate_dates'].to_s
+    candidate_values = candidates.split(';').map(&:strip).reject(&:empty?)
     current_value = row['current_next_date'].to_s
 
     field, proposed_value, status, confidence, conflict_reason, human_action = case outcome
                                                                             when 'current_match'
                                                                               ['next_date', current_value, 'no_change_observed', 'high', '', 'none_for_current_value']
                                                                             when 'candidate_change'
-                                                                              confidence = pilot && candidates.split(';').length == 1 ? 'medium' : 'low'
+                                                                              confidence = pilot && candidate_values.length == 1 ? 'medium' : 'low'
                                                                               reason = 'Approved source has date candidates, but the current date was not associated reliably.'
-                                                                              ['next_date', candidates, 'candidate_difference', confidence, reason, 'compare_source_and_current_dates']
+                                                                              exact_candidate = candidate_values.length == 1 ? candidate_values.first : ''
+                                                                              ['next_date', exact_candidate, 'candidate_difference', confidence, reason, 'compare_source_and_current_dates']
+                                                                            when 'cancellation_evidence'
+                                                                              reason = row['cancellation_evidence_detail'].to_s.strip
+                                                                              ['listing_status', 'cancellation_review_required', 'cancellation_evidence', 'medium', reason, 'verify_authoritative_cancellation_before_any_listing_change']
                                                                             when 'source_unavailable'
                                                                               reason = "Source fetch returned #{row['fetch_status']} #{row['fetch_detail']}; this is not cancellation evidence."
                                                                               ['source_availability', '', 'source_availability_review', 'none', reason, 'check_source_manually_without_removing_listing']
@@ -241,8 +251,12 @@ module ListingFreshness
                                                                             end
 
     expectation_matches = expectation.nil? ? nil : expectation == outcome
-    false_positive = !expectation.nil? && outcome == 'candidate_change' && expectation != 'candidate_change'
-    false_negative = !expectation.nil? && expectation == 'candidate_change' && outcome != 'candidate_change'
+    false_positive = !expectation.nil? &&
+                     %w[candidate_change cancellation_evidence].include?(outcome) &&
+                     expectation != outcome
+    false_negative = !expectation.nil? &&
+                     %w[current_match candidate_change cancellation_evidence].include?(expectation) &&
+                     expectation != outcome
     source_key = row['source_key'].to_s
     show_id = row['show_id'].to_s
 
@@ -254,17 +268,21 @@ module ListingFreshness
       field: field,
       current_value: current_value,
       proposed_value: proposed_value,
+      source_candidate_values: candidate_values,
       proposal_status: status,
-      risk_level: outcome == 'candidate_change' ? 'high' : 'medium',
+      risk_level: %w[candidate_change cancellation_evidence].include?(outcome) ? 'high' : 'medium',
       source_tier: source_tier(source_type, source_url),
       source_type: source_type.to_s,
       source_url: source_url.to_s,
       fetched_at: fetched_at.to_s,
       fetch_status: row['fetch_status'].to_s,
       fetch_detail: row['fetch_detail'].to_s,
+      redirect_target: row['redirect_target'].to_s,
       name_found: truthy?(row['name_found']),
       current_date_found: truthy?(row['current_date_found']),
-      candidate_count: candidates.split(';').map(&:strip).reject(&:empty?).length,
+      candidate_count: candidate_values.length,
+      cancellation_evidence: truthy?(row['cancellation_evidence']),
+      cancellation_evidence_detail: row['cancellation_evidence_detail'].to_s,
       confidence: confidence,
       conflict_reason: conflict_reason,
       pilot_source: pilot,
@@ -291,6 +309,8 @@ module ListingFreshness
       candidate_difference_cause(fact)
     when 'source_availability_review'
       source_availability_cause(fact.fetch(:fetch_status))
+    when 'cancellation_evidence'
+      'explicit_authoritative_cancellation_evidence'
     when 'insufficient_evidence'
       if fact.fetch(:candidate_count).positive?
         'show_name_not_associated_with_page_dates'
@@ -304,7 +324,10 @@ module ListingFreshness
 
   def candidate_difference_cause(fact)
     current_value = fact.fetch(:current_value).to_s
-    candidates = fact.fetch(:proposed_value).to_s.split(';').map(&:strip).reject(&:empty?)
+    candidates = Array(fact.fetch(:source_candidate_values, fact.fetch(:proposed_value, '')))
+                 .flat_map { |value| value.to_s.split(';') }
+                 .map(&:strip)
+                 .reject(&:empty?)
 
     return 'current_tbd_with_candidates' if current_value.casecmp('TBD').zero?
     if candidates.any? { |candidate| normalized(candidate) == normalized(current_value) }
@@ -319,6 +342,7 @@ module ListingFreshness
     value = status.to_s
     return 'redirect_response_not_followed' if value.match?(/\A3\d\d\z/)
     return 'access_blocked' if %w[401 403].include?(value)
+    return 'source_rate_limited' if value == '429'
     return 'source_path_not_found' if %w[404 410].include?(value)
     return 'source_server_error' if value.match?(/\A5\d\d\z/)
     return 'network_or_transport_error' if value == 'error'

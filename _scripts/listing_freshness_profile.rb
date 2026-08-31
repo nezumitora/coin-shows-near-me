@@ -93,6 +93,7 @@ module ListingFreshnessProfile
     validate_policy_reference(source, policies, 'constraints_policy', 'constraints')
     validate_policy_reference(source, policies, 'redirect_policy', 'redirects')
     validate_policy_reference(source, policies, 'fail_closed_policy', 'fail_closed')
+    validate_safety_policies(source: source, policies: policies)
 
     expectations = source.fetch('expectations', {})
     unknown_expectation_ids = expectations.keys - covered_show_ids
@@ -112,5 +113,31 @@ module ListingFreshnessProfile
     return if policies.fetch(policy_group).key?(reference)
 
     raise ArgumentError, "Unknown #{policy_group} policy for #{source.fetch('source_key')}: #{reference}"
+  end
+
+  def validate_safety_policies(source:, policies:)
+    source_key = source.fetch('source_key')
+    check_method = policies.fetch('check_methods').fetch(source.fetch('check_method'))
+    cadence = policies.fetch('cadence_policies').fetch(source.fetch('expected_cadence'))
+    constraints = policies.fetch('constraints').fetch(source.fetch('constraints_policy'))
+    redirect = policies.fetch('redirects').fetch(source.fetch('redirect_policy'))
+    fail_closed = policies.fetch('fail_closed').fetch(source.fetch('fail_closed_policy'))
+
+    unless check_method.fetch('recurrence_inference') == false && check_method.fetch('cancellation_inference') == false
+      raise ArgumentError, "Phase 2 inference must remain disabled: #{source_key}"
+    end
+    raise ArgumentError, "Phase 2 cadence must remain inactive: #{source_key}" unless cadence.fetch('activation') == 'inactive'
+    unless constraints.fetch('copy_page_content') == false &&
+           constraints.fetch('max_requests_per_source_per_run') == 1 &&
+           constraints.fetch('credentials') == 'forbidden' &&
+           constraints.fetch('forms_and_outreach') == 'forbidden'
+      raise ArgumentError, "Phase 2 source constraints are unsafe: #{source_key}"
+    end
+    unless redirect.fetch('follow_redirects') == false && redirect.fetch('final_url_requires_manual_reapproval') == true
+      raise ArgumentError, "Phase 2 redirect policy must record and stop: #{source_key}"
+    end
+    unless fail_closed.fetch('source_failure_is_cancellation') == false && fail_closed.fetch('automatic_action') == 'none'
+      raise ArgumentError, "Phase 2 fail-closed policy is unsafe: #{source_key}"
+    end
   end
 end

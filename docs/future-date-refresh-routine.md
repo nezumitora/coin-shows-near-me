@@ -81,6 +81,46 @@ change, the owner must review the sample report and approve the next bounded
 phase. A cron, listing edit, merge, deletion, publication, outreach message,
 form submission, or CRM write requires separate approval.
 
+## Phase 2 bounded source review
+
+The owner-approved Phase 2 implementation is stacked on the still-draft Phase
+1 branch. It selects 12 existing official source groups covering 23 canonical
+listings through `_scrapers/listing-freshness-phase-2.yml`. Source URLs and
+types remain in the existing approved registry; the profile records authority,
+coverage, source tier, generic check method, page shape, inactive cadence,
+request constraints, redirect handling, and fail-closed behavior.
+
+Run the bounded comparison and package locally:
+
+```bash
+LISTING_FRESHNESS_PROFILE_PATH=_scrapers/listing-freshness-phase-2.yml \
+  REQUEST_DELAY_SECONDS=1.0 \
+  ruby _scripts/external-source-compare.rb
+
+LISTING_FRESHNESS_AS_OF=2026-08-31 \
+  ruby _scripts/listing-freshness-phase-2-report.rb
+```
+
+The package writes five ignored artifacts under `tmp/`: a Markdown review,
+full current-versus-proposed facts, live/controlled quality measurements, the
+prioritized selected-listing queue, and duplicate evidence. Live official
+source observations are labeled separately from six synthetic safety cases:
+date change, redirect, duplicate, partial date, explicit cancellation evidence,
+and source failure.
+
+`_scrapers/listing-freshness-phase-2-schedule.yml` is design-only. It has no
+workflow file, no cron, no manual dispatch, and `enabled: false`. No existing
+workflow consumes it. The Phase 2 report validates those conditions before it
+writes a package.
+
+The first live run on 2026-08-31 selected 12 source groups and 23 rows. Five
+rows matched current values, 18 stayed in human review, five known-current
+baselines were missed by the generic matcher, no false change proposal was
+created, and all six controlled safety cases passed. The readiness gate is
+therefore false. The next bounded decision is whether to approve report-only
+source-path and parser hardening; draft listing updates and schedule activation
+remain premature.
+
 ## Patterns confirmed on 2026-07-13
 
 - Promoter pages with multiple shows work well as high-value sources: Pacific Expos, Rocky Mountain Expos, America’s Coin Shows, CK Shows, BuxMont, and Antique Coins MN.

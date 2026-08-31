@@ -147,6 +147,92 @@ class ListingFreshnessTest < Minitest::Test
     assert_equal 'none', fact.fetch(:automatic_action)
   end
 
+  def test_multiple_candidate_dates_are_preserved_without_an_exact_proposal
+    fact = ListingFreshness.build_source_fact(
+      row: comparison_row(
+        'current_date_found' => 'false',
+        'candidate_dates' => 'November 1, 2026; December 1, 2026'
+      ),
+      show: show,
+      source_type: 'organizer',
+      source_url: 'https://example.test/show',
+      fetched_at: '2026-08-30T12:00:00Z',
+      pilot: true,
+      expectation: 'candidate_change'
+    )
+
+    assert_empty fact.fetch(:proposed_value)
+    assert_equal ['November 1, 2026', 'December 1, 2026'], fact.fetch(:source_candidate_values)
+    assert_equal 'multiple_page_dates_need_event_association', fact.fetch(:cause_code)
+    assert_equal 'none', fact.fetch(:automatic_action)
+  end
+
+  def test_explicit_authoritative_cancellation_evidence_is_review_only
+    fact = ListingFreshness.build_source_fact(
+      row: comparison_row(
+        'current_date_found' => 'false',
+        'candidate_dates' => '',
+        'cancellation_evidence' => 'true',
+        'cancellation_evidence_detail' => 'Controlled organizer cancellation statement.'
+      ),
+      show: show,
+      source_type: 'controlled-fixture',
+      source_url: 'https://listing-freshness.invalid/cancellation-evidence',
+      fetched_at: '2026-08-30T15:02:00Z',
+      pilot: true,
+      expectation: 'cancellation_evidence',
+      controlled: true
+    )
+
+    assert_equal 'cancellation_evidence', fact.fetch(:actual_outcome)
+    assert_equal 'cancellation_evidence', fact.fetch(:proposal_status)
+    assert_equal 'explicit_authoritative_cancellation_evidence', fact.fetch(:cause_code)
+    assert_equal 'cancellation_review_required', fact.fetch(:proposed_value)
+    refute fact.fetch(:eligible_for_change_proposal)
+    assert_equal 'none', fact.fetch(:automatic_action)
+  end
+
+  def test_cancellation_flag_without_explicit_detail_fails_closed
+    fact = ListingFreshness.build_source_fact(
+      row: comparison_row(
+        'current_date_found' => 'false',
+        'candidate_dates' => '',
+        'cancellation_evidence' => 'true',
+        'cancellation_evidence_detail' => ''
+      ),
+      show: show,
+      source_type: 'organizer',
+      source_url: 'https://example.test/show',
+      fetched_at: '2026-08-30T12:00:00Z',
+      pilot: false
+    )
+
+    assert_equal 'review_conflict', fact.fetch(:actual_outcome)
+    assert_equal 'insufficient_evidence', fact.fetch(:proposal_status)
+    assert_equal 'none', fact.fetch(:automatic_action)
+  end
+
+  def test_expected_live_match_reports_a_parser_false_negative
+    fact = ListingFreshness.build_source_fact(
+      row: comparison_row(
+        'name_found' => 'false',
+        'current_date_found' => 'false',
+        'candidate_dates' => 'October 15, 2026'
+      ),
+      show: show,
+      source_type: 'association-calendar',
+      source_url: 'https://example.test/show',
+      fetched_at: '2026-08-30T12:00:00Z',
+      pilot: true,
+      expectation: 'current_match'
+    )
+
+    assert_equal 'review_conflict', fact.fetch(:actual_outcome)
+    refute fact.fetch(:false_positive)
+    assert fact.fetch(:false_negative)
+    assert_equal 'none', fact.fetch(:automatic_action)
+  end
+
   def test_controlled_confirmed_date_change_is_reported_without_listing_change
     fact = ListingFreshness.build_source_fact(
       row: comparison_row(
@@ -216,6 +302,7 @@ class ListingFreshnessTest < Minitest::Test
   def test_availability_causes_distinguish_response_classes
     assert_equal 'redirect_response_not_followed', ListingFreshness.source_availability_cause('301')
     assert_equal 'access_blocked', ListingFreshness.source_availability_cause('403')
+    assert_equal 'source_rate_limited', ListingFreshness.source_availability_cause('429')
     assert_equal 'source_path_not_found', ListingFreshness.source_availability_cause('404')
     assert_equal 'source_server_error', ListingFreshness.source_availability_cause('503')
     assert_equal 'network_or_transport_error', ListingFreshness.source_availability_cause('error')
