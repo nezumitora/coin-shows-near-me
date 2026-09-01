@@ -55,7 +55,9 @@ The report enforces a fail-closed local output sandbox. All five artifacts must
 be direct files under `tmp/`; path escapes, nested output directories, duplicate
 destinations, input-file collisions, non-regular files, and symbolic links are
 rejected. Each artifact is written atomically with owner-only permissions so a
-failed run cannot replace a complete report with partial output.
+failed run cannot replace a complete report with partial output. The entire
+`tmp/` directory is also excluded from site builds, preventing local review
+artifacts from entering published pages.
 
 Every comparison row must also match the current canonical show ID, name, and
 date, and each source/show pair must be unique. If listing data changed after

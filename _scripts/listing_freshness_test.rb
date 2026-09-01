@@ -3,6 +3,7 @@
 require 'minitest/autorun'
 require 'fileutils'
 require 'tmpdir'
+require 'yaml'
 require_relative 'listing_freshness'
 
 class ListingFreshnessTest < Minitest::Test
@@ -92,6 +93,12 @@ class ListingFreshnessTest < Minitest::Test
       end
       assert_equal 'old', File.read(output_path)
     end
+  end
+
+  def test_private_report_directory_is_excluded_from_site_builds
+    config = YAML.load_file(File.expand_path('../_config.yml', __dir__))
+
+    assert_includes config.fetch('exclude'), 'tmp/'
   end
 
   def test_comparison_snapshot_must_match_canonical_show
