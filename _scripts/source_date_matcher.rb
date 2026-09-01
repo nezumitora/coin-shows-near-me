@@ -4,7 +4,7 @@ require 'date'
 
 module SourceDateMatcher
   MONTH = '[A-Za-z.]+'
-  RANGE_SEPARATOR = '(?:\s*[-–—]\s*|\s+(?:and|to|through)\s+)'
+  RANGE_SEPARATOR = '(?:\s*[-–—]\s*|\s+(?:and|to|through|thru)\s+)'
 
   module_function
 
@@ -18,7 +18,8 @@ module SourceDateMatcher
 
     allow_missing_year = calendar_year.to_i == components[4]
     pattern = source_pattern(components, allow_missing_year)
-    source_text.to_s.enum_for(:scan, pattern).map { Regexp.last_match.begin(0) }
+    positions = source_text.to_s.enum_for(:scan, pattern).map { Regexp.last_match.begin(0) }
+    (positions + split_endpoint_range_positions(source_text, components)).uniq.sort
   end
 
   def date_components(date_text)
@@ -71,6 +72,16 @@ module SourceDateMatcher
 
     year_expression = allow_missing_year ? "(?:,?\\s+#{year})?" : ",?\\s+#{year}"
     /\b#{date_expression}#{year_expression}\b/i
+  end
+
+  def split_endpoint_range_positions(source_text, components)
+    start_month, start_day, finish_month, finish_day, year = components
+    return [] unless finish_month
+
+    start_year = start_month > finish_month ? year - 1 : year
+    weekday = '(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+)?'
+    pattern = /\b#{month_expression(start_month)}\s+#{day_expression(start_day)},?\s+#{start_year}#{RANGE_SEPARATOR}#{weekday}#{month_expression(finish_month)}\s+#{day_expression(finish_day)},?\s+#{year}\b/i
+    source_text.to_s.enum_for(:scan, pattern).map { Regexp.last_match.begin(0) }
   end
 
   def month_expression(month)

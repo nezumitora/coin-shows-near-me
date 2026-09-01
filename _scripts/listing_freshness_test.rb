@@ -360,6 +360,77 @@ class ListingFreshnessTest < Minitest::Test
     assert schedule.fetch('publication').values.none?
   end
 
+  def test_phase_two_profile_limits_review_overrides_to_exact_same_host_paths
+    external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
+    profile = ListingFreshnessProfile.load(
+      path: File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__),
+      external_sources: external_sources
+    )
+    request_pairs = profile.fetch(:sources).flat_map do |source|
+      source.fetch(:profile).fetch('covered_show_ids').map do |show_id|
+        [source.fetch(:registry).fetch('key'), ListingFreshnessProfile.request_url_for(source: source, show_id: show_id)]
+      end
+    end
+
+    assert_equal 13, request_pairs.uniq.length
+    assert_includes request_pairs, ['vna-calendar', 'https://vnaonline.org/2026-calendar/']
+    assert_includes request_pairs, ['ck-shows', 'https://ckshows.com/schedule.htm']
+    assert_includes request_pairs, ['buxmont-coin-shows', 'https://www.buxmontcoinshows.com/about-trevose/']
+  end
+
+  def test_phase_two_profile_rejects_a_cross_host_request_override
+    external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    config.fetch('sources').first['request_url'] = 'https://unapproved.example/path'
+
+    error = assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+
+    assert_includes error.message, 'same-host'
+
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    config.fetch('sources').first['request_url'] = 'https://pacificexposllc.com:8443/path'
+    assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+  end
+
+  def test_phase_two_profile_rejects_a_recurring_rule_without_an_exact_listing_path
+    external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    buxmont = config.fetch('sources').find { |source| source.fetch('source_key') == 'buxmont-coin-shows' }
+    trevose_rule = buxmont.fetch('listing_rules').fetch('trevose-coin-show-every-4th-sunday-of-the-month')
+    trevose_rule.delete('request_url')
+
+    error = assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+
+    assert_includes error.message, 'exact per-listing request URL'
+  end
+
+  def test_phase_two_profile_rejects_unbounded_whole_page_and_distance_rules
+    external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    long_beach = config.fetch('sources').find { |source| source.fetch('source_key') == 'long-beach-expo' }
+    long_beach.fetch('listing_rules').fetch('long-beach-expo').delete('request_url')
+
+    page_error = assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+    assert_includes page_error.message, 'exact single-event request path'
+
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    antique = config.fetch('sources').find { |source| source.fetch('source_key') == 'antique-coins-mn' }
+    antique.fetch('listing_rules').fetch('north-metro-coin-show')['max_name_date_distance'] = 321
+
+    distance_error = assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+    assert_includes distance_error.message, 'integer from 1 to 320'
+  end
+
   def test_phase_two_profile_rejects_an_unbounded_source_batch
     external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
     config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))

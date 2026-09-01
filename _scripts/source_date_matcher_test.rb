@@ -20,6 +20,13 @@ class SourceDateMatcherTest < Minitest::Test
     assert SourceDateMatcher.found?('Dec. 31, 2026 through Jan. 2, 2027', 'December 31-January 2, 2027')
   end
 
+  def test_matches_exact_range_written_as_two_dated_endpoints
+    source = 'The dates are Thursday September 3, 2026 thru Saturday September 5, 2026.'
+
+    assert SourceDateMatcher.found?(source, 'September 3-5, 2026')
+    refute SourceDateMatcher.found?(source, 'September 3-6, 2026')
+  end
+
   def test_rejects_wrong_day_or_year
     refute SourceDateMatcher.found?('Aug. 29, 2026', 'August 30, 2026')
     refute SourceDateMatcher.found?('Aug. 30, 2025', 'August 30, 2026')

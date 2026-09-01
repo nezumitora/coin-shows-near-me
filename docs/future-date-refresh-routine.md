@@ -117,9 +117,39 @@ The first live run on 2026-08-31 selected 12 source groups and 23 rows. Five
 rows matched current values, 18 stayed in human review, five known-current
 baselines were missed by the generic matcher, no false change proposal was
 created, and all six controlled safety cases passed. The readiness gate is
-therefore false. The next bounded decision is whether to approve report-only
-source-path and parser hardening; draft listing updates and schedule activation
-remain premature.
+therefore false.
+
+### Phase 2B report-only hardening
+
+The approved Phase 2B pass keeps registry URLs authoritative while allowing an
+exact same-host `request_url` in the profile. It validates every override and
+records registry and requested URLs separately in the comparison CSV. A source
+can use more than one exact page, but each source/path is requested at most once
+per run and redirects are never followed.
+
+Per-listing rules remain narrow:
+
+- Literal title aliases can account for official wording without fuzzy names.
+- An explicit calendar year can validate yearless dates only on the reviewed
+  source.
+- A source-specific name/date distance is capped at 320 characters; the current
+  profile uses 200 only for the observed North Metro layout and leaves the
+  global 160-character threshold unchanged.
+- Explicit nth-weekday rules require an exact per-listing page, literal source
+  wording, and a canonical date that already satisfies the rule. They do not
+  generate or propose dates.
+- Whole-page exact-date matching requires an exact per-listing request path and
+  a source profile marked as a single-event page.
+- A range written as two complete dated endpoints can match only when both
+  endpoints and years exactly agree with the canonical range.
+
+The Phase 2B rerun observed 15 current values and retained eight rows for human
+review. Eleven of 12 live baselines matched, reducing known-current false
+negatives from five to one. All six controlled cases still passed, with zero
+false proposals and zero automatic actions. The remaining CK Shows baseline is
+fail-closed because its multi-event layout does not preserve a reliable
+name/date association in stripped text. Draft listing updates and schedule
+activation remain premature, and the readiness gate remains false.
 
 ## Patterns confirmed on 2026-07-13
 

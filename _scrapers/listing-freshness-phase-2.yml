@@ -18,6 +18,12 @@ policies:
       max_date_candidates: 25
       recurrence_inference: false
       cancellation_inference: false
+    literal_name_and_explicit_recurrence_validation_v1:
+      behavior: On an exact per-listing official page, require a configured literal show name and validate the canonical date against an explicit nth-weekday statement without generating dates.
+      max_name_date_distance: 160
+      max_date_candidates: 25
+      recurrence_inference: false
+      cancellation_inference: false
   cadence_policies:
     event_relative_inactive_v1:
       within_30_days: every_2_to_3_days
@@ -34,7 +40,7 @@ policies:
       terms: honor_and_stop_if_prohibited
       robots_terms_review_before_activation: required
       request_delay_seconds: 1.0
-      max_requests_per_source_per_run: 1
+      max_requests_per_source_path_per_run: 1
       credentials: forbidden
       forms_and_outreach: forbidden
   redirects:
@@ -86,7 +92,8 @@ sources:
       - salemroanoke-valley-coin-show
       - vienna-quarterly-coin-stamp-show
     source_tier: tier_2_official_organization
-    authority_basis: Official Virginia Numismatic Association state calendar.
+    authority_basis: Official Virginia Numismatic Association state calendar; its reviewed same-host HTTPS redirect target returned 200 on 2026-08-31.
+    request_url: https://vnaonline.org/2026-calendar/
     check_method: generic_text_name_and_date_proximity_v1
     page_shape: multi_event_calendar
     expected_cadence: event_relative_inactive_v1
@@ -94,7 +101,17 @@ sources:
     redirect_policy: record_and_stop_v1
     fail_closed_policy: source_evidence_only_v1
     expectations:
-      vna-convention-coin-show: source_unavailable
+      vna-convention-coin-show: current_match
+    listing_rules:
+      vna-convention-coin-show:
+        aliases:
+          - Virginia Numismatic Association (VNA) 67th Annual Convention, Coin & Currency Show
+      salemroanoke-valley-coin-show:
+        aliases:
+          - Salem/Roanoke Valley Coin Club Show
+      vienna-quarterly-coin-stamp-show:
+        aliases:
+          - Vienna Coin & Stamp Show
 
   - source_key: numismatists-of-wisconsin-calendar
     covered_show_ids:
@@ -111,6 +128,16 @@ sources:
     fail_closed_policy: source_evidence_only_v1
     expectations:
       numismatists-of-wisconsin-annual-show: current_match
+    listing_rules:
+      chippewa-valley-coin-club-cvcc-coin-show:
+        aliases:
+          - Chippewa Valley Coin Club Show
+      milwaukee-numismatic-society-show:
+        aliases:
+          - Milwaukee Numismatic Society Coin Show
+      numismatists-of-wisconsin-annual-show:
+        aliases:
+          - Numismatists of Wisconsin (NOW)
 
   - source_key: cona-events
     covered_show_ids:
@@ -118,7 +145,8 @@ sources:
       - 3rd-sunday-columbus-coin-show
       - greenhills-classic-coin-stamp-show
     source_tier: tier_2_official_organization
-    authority_basis: Official Central Ohio Numismatic Association event source.
+    authority_basis: Official Central Ohio Numismatic Association event source; its reviewed same-host non-www target returned 200 on 2026-08-31.
+    request_url: http://conacoinclub.com/
     check_method: generic_text_name_and_date_proximity_v1
     page_shape: multi_event_calendar
     expected_cadence: event_relative_inactive_v1
@@ -126,7 +154,14 @@ sources:
     redirect_policy: record_and_stop_v1
     fail_closed_policy: source_evidence_only_v1
     expectations:
-      ohio-state-coin-show: source_unavailable
+      ohio-state-coin-show: current_match
+    listing_rules:
+      3rd-sunday-columbus-coin-show:
+        aliases:
+          - Columbus Coin Show
+      greenhills-classic-coin-stamp-show:
+        aliases:
+          - Greenhills Classic Stamp and Coin Show
 
   - source_key: buxmont-coin-shows
     covered_show_ids:
@@ -134,7 +169,7 @@ sources:
       - trevose-coin-show-every-4th-sunday-of-the-month
     source_tier: tier_1_primary
     authority_basis: Official promoter pages for the recurring MontCo and Trevose shows.
-    check_method: generic_text_name_and_date_proximity_v1
+    check_method: literal_name_and_explicit_recurrence_validation_v1
     page_shape: multi_event_recurring_calendar
     expected_cadence: event_relative_inactive_v1
     constraints_policy: approved_public_report_only_v1
@@ -142,6 +177,24 @@ sources:
     fail_closed_policy: source_evidence_only_v1
     expectations:
       trevose-coin-show-every-4th-sunday-of-the-month: current_match
+    listing_rules:
+      montco-coin-show-meets-every-2nd-sunday-each-month:
+        request_url: https://www.buxmontcoinshows.com/about/
+        aliases:
+          - MontCo Coin Show
+          - Montgomery County Coin Show
+        recurring_rule:
+          ordinal: 2
+          weekday: Sunday
+          source_phrases:
+            - every second Sunday of the month
+      trevose-coin-show-every-4th-sunday-of-the-month:
+        request_url: https://www.buxmontcoinshows.com/about-trevose/
+        recurring_rule:
+          ordinal: 4
+          weekday: Sunday
+          source_phrases:
+            - every fourth Sunday of the month
 
   - source_key: antique-coins-mn
     covered_show_ids:
@@ -157,6 +210,17 @@ sources:
     fail_closed_policy: source_evidence_only_v1
     expectations:
       north-metro-coin-show: current_match
+    listing_rules:
+      north-metro-coin-show:
+        aliases:
+          - North Metro
+        calendar_year: 2026
+        max_name_date_distance: 200
+      south-st-paul-coin-show:
+        aliases:
+          - South St. Paul Coin Show
+          - South St Paul Monthly Coin Show
+        calendar_year: 2026
 
   - source_key: georgia-numismatic-association
     covered_show_ids:
@@ -171,12 +235,17 @@ sources:
     fail_closed_policy: source_evidence_only_v1
     expectations:
       georgia-numismatic-association-show: current_match
+    listing_rules:
+      georgia-numismatic-association-show:
+        aliases:
+          - Georgia Numismatic Association Coin Show
 
   - source_key: ck-shows
     covered_show_ids:
       - vegas-national-coin-show
     source_tier: tier_1_primary
-    authority_basis: Official CK Shows promoter site for the Las Vegas event.
+    authority_basis: Official CK Shows promoter schedule for the Las Vegas event.
+    request_url: https://ckshows.com/schedule.htm
     check_method: generic_text_name_and_date_proximity_v1
     page_shape: promoter_event_calendar
     expected_cadence: event_relative_inactive_v1
@@ -185,6 +254,12 @@ sources:
     fail_closed_policy: source_evidence_only_v1
     expectations:
       vegas-national-coin-show: current_match
+    listing_rules:
+      vegas-national-coin-show:
+        aliases:
+          - Vegas National Coin Show
+          - The Vegas National
+        calendar_year: 2026
 
   - source_key: central-states-numismatic-society
     covered_show_ids:
@@ -204,7 +279,7 @@ sources:
     covered_show_ids:
       - long-beach-expo
     source_tier: tier_1_primary
-    authority_basis: Official Long Beach Expo site with future event windows.
+    authority_basis: Official Long Beach Expo site with future event windows; its reviewed same-host non-www target returned 200 on 2026-08-31.
     check_method: generic_text_name_and_date_proximity_v1
     page_shape: single_event_multiple_dates
     expected_cadence: event_relative_inactive_v1
@@ -212,7 +287,11 @@ sources:
     redirect_policy: record_and_stop_v1
     fail_closed_policy: source_evidence_only_v1
     expectations:
-      long-beach-expo: source_unavailable
+      long-beach-expo: current_match
+    listing_rules:
+      long-beach-expo:
+        request_url: https://longbeachexpo.com/
+        exact_date_anywhere_on_page: true
 
   - source_key: michigan-state-numismatic-society-events
     covered_show_ids:

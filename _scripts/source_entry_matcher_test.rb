@@ -28,4 +28,77 @@ class SourceEntryMatcherTest < Minitest::Test
 
     refute SourceEntryMatcher.date_associated?(source, 'Decorah Area Coin Club Show', ['Decorah Area Coin Club Show'], 'August 30, 2026', 2026)
   end
+
+  def test_accepts_a_literal_source_specific_name_alias
+    source = 'NOW State Convention April 25, 2027 at Stadium View.'
+
+    assert SourceEntryMatcher.date_associated?(
+      source,
+      'Numismatists of Wisconsin Annual Show',
+      [],
+      'April 25, 2027',
+      nil,
+      target_aliases: ['NOW State Convention']
+    )
+  end
+
+  def test_peer_alias_prevents_cross_event_association
+    source = 'NOW State Convention April 25, 2027. Registration details follow for visitors and dealers. Milwaukee Coin Show November 8, 2026.'
+
+    refute SourceEntryMatcher.date_associated?(
+      source,
+      'Milwaukee Numismatic Society Show',
+      ['Numismatists of Wisconsin Annual Show'],
+      'April 25, 2027',
+      nil,
+      target_aliases: ['Milwaukee Coin Show'],
+      peer_aliases: { 'Numismatists of Wisconsin Annual Show' => ['NOW State Convention'] }
+    )
+  end
+
+  def test_validates_current_date_against_an_explicit_nth_weekday_rule
+    rule = {
+      'ordinal' => 4,
+      'weekday' => 'Sunday',
+      'source_phrases' => ['every fourth Sunday']
+    }
+
+    assert SourceEntryMatcher.current_date_matches_nth_weekday_rule?(
+      'The Trevose show is held every fourth Sunday of the month.',
+      'September 27, 2026',
+      rule
+    )
+    refute SourceEntryMatcher.current_date_matches_nth_weekday_rule?(
+      'The Trevose show is held every fourth Sunday of the month.',
+      'September 20, 2026',
+      rule
+    )
+    refute SourceEntryMatcher.current_date_matches_nth_weekday_rule?(
+      'Monthly show schedule.',
+      'September 27, 2026',
+      rule
+    )
+  end
+
+  def test_accepts_a_bounded_source_specific_name_date_distance
+    source = "North Metro#{' details' * 20} November 1st"
+
+    refute SourceEntryMatcher.date_associated?(
+      source,
+      'North Metro Coin Show',
+      [],
+      'November 1, 2026',
+      2026,
+      target_aliases: ['North Metro']
+    )
+    assert SourceEntryMatcher.date_associated?(
+      source,
+      'North Metro Coin Show',
+      [],
+      'November 1, 2026',
+      2026,
+      target_aliases: ['North Metro'],
+      max_name_date_distance: 200
+    )
+  end
 end

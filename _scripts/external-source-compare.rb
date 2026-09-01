@@ -30,6 +30,11 @@ DATE_PATTERNS = [
   /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/,
   /\b\d{4}-\d{2}-\d{2}\b/
 ].freeze
+SOURCE_ROW_HEADERS = %w[
+  source_key source_type source_url request_url fetched_at show_id show_name current_next_date
+  fetch_status fetch_detail redirect_target review_status name_found current_date_found match_basis
+  candidate_dates cancellation_evidence
+].freeze
 
 def fetch_text(url)
   return ['dry_run', 'network disabled', '', ''] if DRY_RUN
@@ -44,11 +49,17 @@ def fetch_text(url)
   end
 
   text = response.body.to_s.encode('UTF-8', invalid: :replace, undef: :replace, replace: ' ')
-  2.times { text = CGI.unescapeHTML(text) }
+  4.times do
+    decoded_text = CGI.unescapeHTML(text)
+    break if decoded_text == text
+
+    text = decoded_text
+  end
   text = text.gsub(/<script\b[^>]*>.*?<\/script>/mi, ' ')
              .gsub(/<style\b[^>]*>.*?<\/style>/mi, ' ')
              .gsub(/<[^>]+>/, ' ')
              .gsub(/&nbsp;|&#160;/, ' ')
+             .gsub(/&(?:ndash|mdash);/i, ' ')
              .gsub(/\s+/, ' ')
              .strip
 
@@ -74,7 +85,12 @@ profile = if PROFILE_PATH.empty?
           else
             ListingFreshnessProfile.load(path: PROFILE_PATH, external_sources: all_sources)
           end
-sources = profile ? profile.fetch(:sources).map { |source| source.fetch(:registry) } : all_sources
+resolved_sources = if profile
+                     profile.fetch(:sources)
+                   else
+                     all_sources.map { |source| { registry: source, profile: nil } }
+                   end
+sources = resolved_sources.map { |source| source.fetch(:registry) }
 shows = YAML.load_file(SHOWS_PATH)
 shows_by_id = shows.to_h { |show| [show.fetch('id'), show] }
 configured_show_ids = sources.flat_map { |source| source.fetch('expected_show_ids') }.uniq
@@ -110,65 +126,158 @@ if profile
   end
 end
 
-sources.each do |source|
+resolved_sources.each do |resolved_source|
+  source = resolved_source.fetch(:registry)
+  source_profile = resolved_source[:profile]
   unless ShowSourcePolicy.approved_source_url?(source.fetch('url'))
     abort "Comparison source is not approved: #{source.fetch('key')}"
   end
 
-  status, detail, text, redirect_target = fetch_text(source.fetch('url'))
-  fetched_at = Time.now.utc.iso8601
-  candidates = date_candidates(text)
-  source_text = normalized(text)
-  missing_configured_ids = []
-  peer_names = source.fetch('expected_show_ids').map { |show_id| shows_by_id[show_id]&.fetch('name') }.compact
-
-  source.fetch('expected_show_ids').each do |show_id|
-    show = shows_by_id[show_id]
-    unless show
-      missing_configured_ids << show_id
-      rows << [source.fetch('key'), source.fetch('source_type'), source.fetch('url'), fetched_at, show_id, '', '', status, detail, redirect_target, 'missing_local_listing', false, false, candidates.join('; '), false]
-      next
+  request_groups = source.fetch('expected_show_ids').group_by do |show_id|
+    if source_profile
+      ListingFreshnessProfile.request_url_for(source: resolved_source, show_id: show_id)
+    else
+      source.fetch('url')
     end
-
-    show_name = show.fetch('name')
-    show_date = show.fetch('next_date', '').to_s
-    name_found = source_text.include?(normalized(show_name))
-    date_found = SourceEntryMatcher.date_associated?(text, show_name, peer_names, show_date, source['calendar_year'])
-    review_status = if status == 'dry_run'
-                      'not_fetched_dry_run'
-                    elsif !status.match?(/\A2\d\d\z/)
-                      'source_availability_review'
-                    elsif name_found && (show_date == 'TBD' || date_found)
-                      'matches_or_needs_date_review'
-                    elsif name_found
-                      'date_diff_or_partial_match'
-                    else
-                      'show_name_not_found'
-                    end
-
-    rows << [source.fetch('key'), source.fetch('source_type'), source.fetch('url'), fetched_at, show_id, show_name, show_date, status, detail, redirect_target, review_status, name_found, date_found, candidates.join('; '), false]
   end
 
-  source_summaries << {
-    key: source.fetch('key'),
-    name: source.fetch('name'),
-    url: source.fetch('url'),
-    status: status,
-    detail: detail,
-    redirect_target: redirect_target,
-    expected_count: source.fetch('expected_show_ids').length,
-    missing_configured_ids: missing_configured_ids,
-    candidate_dates: candidates
-  }
+  request_groups.each do |request_url, show_ids|
+    unless ShowSourcePolicy.approved_source_url?(request_url)
+      abort "Comparison request URL is not approved: #{source.fetch('key')}"
+    end
 
-  sleep REQUEST_DELAY_SECONDS if REQUEST_DELAY_SECONDS.positive?
+    status, detail, text, redirect_target = fetch_text(request_url)
+    fetched_at = Time.now.utc.iso8601
+    candidates = date_candidates(text)
+    missing_configured_ids = []
+    peer_shows = show_ids.map { |show_id| shows_by_id[show_id] }.compact
+    peer_names = peer_shows.map { |show| show.fetch('name') }
+    peer_aliases = peer_shows.to_h do |peer_show|
+      aliases = if source_profile
+                  ListingFreshnessProfile.aliases_for(source: resolved_source, show_id: peer_show.fetch('id'))
+                else
+                  []
+                end
+      [peer_show.fetch('name'), aliases]
+    end
+
+    show_ids.each do |show_id|
+      show = shows_by_id[show_id]
+      unless show
+        missing_configured_ids << show_id
+        rows << {
+          'source_key' => source.fetch('key'),
+          'source_type' => source.fetch('source_type'),
+          'source_url' => source.fetch('url'),
+          'request_url' => request_url,
+          'fetched_at' => fetched_at,
+          'show_id' => show_id,
+          'show_name' => '',
+          'current_next_date' => '',
+          'fetch_status' => status,
+          'fetch_detail' => detail,
+          'redirect_target' => redirect_target,
+          'review_status' => 'missing_local_listing',
+          'name_found' => false,
+          'current_date_found' => false,
+          'match_basis' => '',
+          'candidate_dates' => candidates.join('; '),
+          'cancellation_evidence' => false
+        }
+        next
+      end
+
+      show_name = show.fetch('name')
+      show_date = show.fetch('next_date', '').to_s
+      listing_rule = source_profile ? ListingFreshnessProfile.listing_rule(source: resolved_source, show_id: show_id) : {}
+      aliases = Array(listing_rule['aliases'])
+      calendar_year = listing_rule.fetch('calendar_year', source['calendar_year'])
+      name_found = SourceEntryMatcher.name_found?(text, [show_name] + aliases)
+      exact_date_found = SourceEntryMatcher.date_associated?(
+        text,
+        show_name,
+        peer_names,
+        show_date,
+        calendar_year,
+        target_aliases: aliases,
+        peer_aliases: peer_aliases,
+        max_name_date_distance: listing_rule.fetch('max_name_date_distance', SourceEntryMatcher::MAX_NAME_DATE_DISTANCE)
+      )
+      if !exact_date_found && listing_rule['exact_date_anywhere_on_page'] && name_found
+        exact_date_found = SourceDateMatcher.found?(text, show_date, calendar_year)
+      end
+      recurring_rule_found = if listing_rule['recurring_rule']
+                               name_found && SourceEntryMatcher.current_date_matches_nth_weekday_rule?(
+                                 text,
+                                 show_date,
+                                 listing_rule.fetch('recurring_rule')
+                               )
+                             else
+                               false
+                             end
+      date_found = exact_date_found || recurring_rule_found
+      match_basis = if exact_date_found
+                      'exact_date'
+                    elsif recurring_rule_found
+                      'explicit_recurring_rule'
+                    else
+                      ''
+                    end
+      review_status = if status == 'dry_run'
+                        'not_fetched_dry_run'
+                      elsif !status.match?(/\A2\d\d\z/)
+                        'source_availability_review'
+                      elsif name_found && (show_date == 'TBD' || date_found)
+                        'matches_or_needs_date_review'
+                      elsif name_found
+                        'date_diff_or_partial_match'
+                      else
+                        'show_name_not_found'
+                      end
+
+      rows << {
+        'source_key' => source.fetch('key'),
+        'source_type' => source.fetch('source_type'),
+        'source_url' => source.fetch('url'),
+        'request_url' => request_url,
+        'fetched_at' => fetched_at,
+        'show_id' => show_id,
+        'show_name' => show_name,
+        'current_next_date' => show_date,
+        'fetch_status' => status,
+        'fetch_detail' => detail,
+        'redirect_target' => redirect_target,
+        'review_status' => review_status,
+        'name_found' => name_found,
+        'current_date_found' => date_found,
+        'match_basis' => match_basis,
+        'candidate_dates' => candidates.join('; '),
+        'cancellation_evidence' => false
+      }
+    end
+
+    source_summaries << {
+      key: source.fetch('key'),
+      name: source.fetch('name'),
+      url: source.fetch('url'),
+      request_url: request_url,
+      status: status,
+      detail: detail,
+      redirect_target: redirect_target,
+      expected_count: show_ids.length,
+      missing_configured_ids: missing_configured_ids,
+      candidate_dates: candidates
+    }
+
+    sleep REQUEST_DELAY_SECONDS if REQUEST_DELAY_SECONDS.positive?
+  end
 end
 
 FileUtils.mkdir_p(File.dirname(REPORT_PATH))
 
 CSV.open(CSV_PATH, 'w') do |csv|
-  csv << %w[source_key source_type source_url fetched_at show_id show_name current_next_date fetch_status fetch_detail redirect_target review_status name_found current_date_found candidate_dates cancellation_evidence]
-  rows.each { |row| csv << row }
+  csv << SOURCE_ROW_HEADERS
+  rows.each { |row| csv << SOURCE_ROW_HEADERS.map { |header| row.fetch(header) } }
 end
 
 CSV.open(QUEUE_CSV_PATH, 'w') do |csv|
@@ -198,25 +307,27 @@ File.write(REPORT_PATH, <<~MD)
   - Approved-source listings waiting for a reviewed comparison batch: #{approved_but_unconfigured_ids.length}
   - Listings without an approved comparison source: #{uncovered_show_ids.length}
   - Explicit source-registry groups selected: #{sources.length}
-  - Source requests per selected group: #{DRY_RUN ? 0 : 1}
+  - Exact official source paths selected: #{source_summaries.length}
+  - Source requests made: #{DRY_RUN ? 0 : source_summaries.length}
+  - Maximum requests made per selected source/path: #{DRY_RUN ? 0 : 1}
   - Redirects followed: 0
   - Approved source URLs queued without fetching: #{coverage_queue_by_url.length}
 
-  Only the hand-reviewed source registry is fetched. Existing canonical `source_url` or `website` values accepted by `ShowSourcePolicy` are written to `#{QUEUE_CSV_PATH}` for small-batch review; they are not fetched automatically and do not create or verify listings.
+  Only the hand-reviewed source registry and exact same-host request paths approved in the Phase 2 profile are fetched. Existing canonical `source_url` or `website` values accepted by `ShowSourcePolicy` are written to `#{QUEUE_CSV_PATH}` for small-batch review; they are not fetched automatically and do not create or verify listings.
 
   #{uncovered_show_ids.empty? ? '' : "Uncovered listing IDs: `#{uncovered_show_ids.sort.join('`, `')}`"}
 
   ## Sources checked
 
-  | Source | Status | Redirect recorded | Listings checked | URL |
-  |---|---:|---|---:|---|
-  #{source_summaries.map { |source| "| #{source[:name]} | #{source[:status]} #{source[:detail]} | #{source[:redirect_target]} | #{source[:expected_count]} | #{source[:url]} |" }.join("\n")}
+  | Source | Status | Redirect recorded | Listings checked | Registry URL | Requested URL |
+  |---|---:|---|---:|---|---|
+  #{source_summaries.map { |source| "| #{source[:name]} | #{source[:status]} #{source[:detail]} | #{source[:redirect_target]} | #{source[:expected_count]} | #{source[:url]} | #{source[:request_url]} |" }.join("\n")}
 
   ## Review rows
 
-  | Source | Show | Current date | Status | Name found | Current date found | Candidate dates on source |
-  |---|---|---|---|---:|---:|---|
-  #{rows.map { |source_key, _source_type, _source_url, _fetched_at, show_id, show_name, show_date, _fetch_status, _fetch_detail, _redirect_target, review_status, name_found, date_found, candidates, _cancellation_evidence| "| #{source_key} | #{show_name.empty? ? show_id : show_name} | #{show_date} | #{review_status} | #{name_found} | #{date_found} | #{candidates} |" }.join("\n")}
+  | Source | Show | Current date | Status | Name found | Current date found | Match basis | Candidate dates on source |
+  |---|---|---|---|---:|---:|---|---|
+  #{rows.map { |row| "| #{row.fetch('source_key')} | #{row.fetch('show_name').empty? ? row.fetch('show_id') : row.fetch('show_name')} | #{row.fetch('current_next_date')} | #{row.fetch('review_status')} | #{row.fetch('name_found')} | #{row.fetch('current_date_found')} | #{row.fetch('match_basis')} | #{row.fetch('candidate_dates')} |" }.join("\n")}
 
   ## Next human-review actions
 
@@ -229,4 +340,4 @@ MD
 puts "Wrote #{REPORT_PATH}"
 puts "Wrote #{CSV_PATH}"
 puts "Wrote #{QUEUE_CSV_PATH}"
-puts "Report-only comparison rows=#{rows.length} sources=#{sources.length}"
+puts "Report-only comparison rows=#{rows.length} sources=#{sources.length} source_paths=#{source_summaries.length}"

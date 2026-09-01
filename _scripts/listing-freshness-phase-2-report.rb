@@ -26,7 +26,7 @@ DUPLICATES_PATH = ENV.fetch('LISTING_FRESHNESS_PHASE_2_DUPLICATES_PATH', 'tmp/li
 FACT_HEADERS = %w[
   evidence_kind scenario source_key show_id show_name field canonical_current_value
   source_observed_current_value proposed_value source_candidate_values proposal_status cause_code
-  source_url source_tier source_type check_method page_shape expected_cadence fetch_status fetch_detail
+  source_url request_url match_basis source_tier source_type check_method page_shape expected_cadence fetch_status fetch_detail
   redirect_target fetched_at cancellation_evidence confidence conflict_reason manual_expectation
   actual_outcome expectation_matches false_positive false_negative eligible_for_change_proposal
   human_action automatic_action
@@ -307,8 +307,19 @@ facts = comparison_rows.map do |row|
   show = shows_by_id[row.fetch('show_id')]
   abort "Comparison row references a missing canonical listing: #{row.fetch('show_id')}" unless show
   abort 'Comparison source URL drifted from the approved registry' unless row.fetch('source_url') == registry.fetch('url')
+  expected_request_url = ListingFreshnessProfile.request_url_for(source: source, show_id: row.fetch('show_id'))
+  abort 'Comparison request URL drifted from the approved Phase 2 profile' unless row.fetch('request_url') == expected_request_url
   abort 'Comparison source type drifted from the approved registry' unless row.fetch('source_type') == registry.fetch('source_type')
   abort 'Live comparison cannot assert cancellation evidence' if ListingFreshness.truthy?(row['cancellation_evidence'])
+
+  match_basis = row.fetch('match_basis')
+  abort 'Comparison row has an unsupported match basis' unless ['', 'exact_date', 'explicit_recurring_rule'].include?(match_basis)
+  if !match_basis.empty? && !ListingFreshness.truthy?(row['current_date_found'])
+    abort 'Comparison row cannot record a match basis without current-date evidence'
+  end
+  if match_basis == 'explicit_recurring_rule' && !ListingFreshnessProfile.listing_rule(source: source, show_id: row.fetch('show_id')).key?('recurring_rule')
+    abort 'Comparison row asserted recurring evidence without an approved listing rule'
+  end
 
   begin
     Time.iso8601(row.fetch('fetched_at'))
@@ -332,7 +343,9 @@ facts = comparison_rows.map do |row|
     scenario: 'official_source_comparison',
     check_method: source_profile.fetch('check_method'),
     page_shape: source_profile.fetch('page_shape'),
-    expected_cadence: source_profile.fetch('expected_cadence')
+    expected_cadence: source_profile.fetch('expected_cadence'),
+    request_url: row.fetch('request_url'),
+    match_basis: match_basis
   )
 end
 
@@ -357,6 +370,8 @@ fact_rows = facts.map do |fact|
     proposal_status: fact.fetch(:proposal_status),
     cause_code: fact.fetch(:cause_code),
     source_url: fact.fetch(:source_url),
+    request_url: fact.fetch(:request_url),
+    match_basis: fact.fetch(:match_basis),
     source_tier: fact.fetch(:source_tier),
     source_type: fact.fetch(:source_type),
     check_method: fact.fetch(:check_method),
@@ -473,6 +488,7 @@ source_count = profile.fetch(:source_count)
 covered_show_count = expected_pairs.map(&:last).uniq.length
 live_baseline_source_count = live_quality.map { |row| row.fetch(:source_key) }.uniq.length
 missing_baseline_sources = profile.fetch(:source_keys) - live_quality.map { |row| row.fetch(:source_key) }.uniq
+live_request_path_count = comparison_rows.map { |row| [row.fetch('source_key'), row.fetch('request_url')] }.uniq.length
 live_matches = live_quality.count { |row| row.fetch(:expectation_matches) }
 false_positives = live_quality.count { |row| row.fetch(:false_positive) }
 false_negatives = live_quality.count { |row| row.fetch(:false_negative) }
@@ -480,6 +496,8 @@ unresolved_facts = fact_rows.reject { |row| row.fetch(:proposal_status) == 'no_c
 exact_date_candidates = fact_rows.count do |row|
   row.fetch(:proposal_status) == 'candidate_difference' && !row.fetch(:proposed_value).to_s.empty?
 end
+exact_date_matches = fact_rows.count { |row| row.fetch(:match_basis) == 'exact_date' }
+recurring_rule_matches = fact_rows.count { |row| row.fetch(:match_basis) == 'explicit_recurring_rule' }
 automatic_actions = (fact_rows + quality + queue + duplicate_rows).count do |row|
   row.fetch(:automatic_action, 'none') != 'none'
 end
@@ -505,7 +523,8 @@ File.write(REPORT_PATH, <<~MD)
 
   - Selected official source groups: #{source_count}
   - Covered canonical listings: #{covered_show_count}
-  - Live source requests represented: #{source_statuses.length}
+  - Live source groups represented: #{source_statuses.length}
+  - Exact official source paths requested: #{live_request_path_count}
   - Live baseline source groups: #{live_baseline_source_count}
   - Source groups still lacking a manual quality baseline: #{missing_baseline_sources.length}
   - Inactive schedule enabled: #{schedule.fetch('enabled')}
@@ -515,12 +534,14 @@ File.write(REPORT_PATH, <<~MD)
   |---|---|---|---:|---|---|---|
   #{profile.fetch(:sources).map { |source| profile_source = source.fetch(:profile); registry = source.fetch(:registry); "| `#{markdown(registry.fetch('key'))}` | #{markdown(profile_source.fetch('authority_basis'))} | #{markdown(profile_source.fetch('source_tier'))} | #{profile_source.fetch('covered_show_ids').length} | #{markdown(profile_source.fetch('check_method'))} | #{markdown(profile_source.fetch('page_shape'))} | #{markdown(source_statuses.fetch(registry.fetch('key'), 'missing'))} |" }.join("\n")}
 
-  Each source uses the recorded public-facts-only constraint, one request per run, at least a one-second delay, no credentials/forms/outreach, no redirect following, and fail-closed handling. Robots and terms require review before any schedule could be activated.
+  Each source uses the recorded public-facts-only constraint, one request per exact source/path per run, at least a one-second delay, no credentials/forms/outreach, no redirect following, and fail-closed handling. Robots and terms require review before any schedule could be activated.
 
   ## Live current-versus-proposed facts
 
   - Live comparison rows: #{fact_rows.length}
   - Current values observed without a proposed change: #{fact_rows.count { |row| row.fetch(:proposal_status) == 'no_change_observed' }}
+  - Exact date matches: #{exact_date_matches}
+  - Explicit recurring-rule matches: #{recurring_rule_matches}
   - Rows requiring human review: #{unresolved_facts.length}
   - Rows with one exact candidate date: #{exact_date_candidates}
   - Live cancellation proposals: #{fact_rows.count { |row| row.fetch(:proposal_status) == 'cancellation_evidence' }}
