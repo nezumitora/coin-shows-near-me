@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
+require 'fileutils'
+require 'tmpdir'
 require_relative 'listing_freshness'
 
 class ListingFreshnessTest < Minitest::Test
   AS_OF = Date.new(2026, 8, 30)
+  TEST_TEMP_ROOT = File.expand_path('../tmp/listing-freshness-security-tests', __dir__)
 
   def show(overrides = {})
     {
@@ -29,6 +32,94 @@ class ListingFreshnessTest < Minitest::Test
       'fetch_status' => '200',
       'fetch_detail' => 'OK'
     }.merge(overrides)
+  end
+
+  def with_test_repo
+    FileUtils.mkdir_p(TEST_TEMP_ROOT)
+    Dir.mktmpdir('repo-', TEST_TEMP_ROOT) { |repo_root| yield repo_root }
+  end
+
+  def test_secure_output_paths_allow_only_unique_direct_tmp_files
+    with_test_repo do |repo_root|
+      paths = ListingFreshness.secure_output_paths(
+        ['tmp/report.md', 'tmp/facts.csv'],
+        repo_root: repo_root
+      )
+
+      assert_equal File.join(repo_root, 'tmp', 'report.md'), paths.first
+      assert_raises(ArgumentError) do
+        ListingFreshness.secure_output_paths(['tmp/report.md', 'tmp/report.md'], repo_root: repo_root)
+      end
+      assert_raises(ArgumentError) do
+        ListingFreshness.secure_output_paths(['tmp/nested/report.md'], repo_root: repo_root)
+      end
+      assert_raises(ArgumentError) do
+        ListingFreshness.secure_output_paths(['../shows.yml'], repo_root: repo_root)
+      end
+    end
+  end
+
+  def test_secure_output_paths_reject_inputs_and_symbolic_links
+    with_test_repo do |repo_root|
+      protected_path = File.join(repo_root, 'protected.yml')
+      File.write(protected_path, 'protected')
+      output_path = File.join(repo_root, 'tmp', 'report.md')
+      FileUtils.mkdir_p(File.dirname(output_path))
+      File.symlink(protected_path, output_path)
+
+      assert_raises(ArgumentError) do
+        ListingFreshness.secure_output_paths([output_path], repo_root: repo_root)
+      end
+      File.unlink(output_path)
+      assert_raises(ArgumentError) do
+        ListingFreshness.secure_output_paths(['tmp/report.md'], repo_root: repo_root, forbidden_paths: ['tmp/report.md'])
+      end
+    end
+  end
+
+  def test_secure_output_write_is_private_and_preserves_old_file_on_failure
+    with_test_repo do |repo_root|
+      output_path = File.join(repo_root, 'tmp', 'report.md')
+      ListingFreshness.write_secure_output(output_path, repo_root: repo_root) { |file| file.write('old') }
+
+      assert_equal 'old', File.read(output_path)
+      assert_equal 0, File.stat(output_path).mode & 0o077
+      assert_raises(RuntimeError) do
+        ListingFreshness.write_secure_output(output_path, repo_root: repo_root) do |file|
+          file.write('partial')
+          raise 'controlled write failure'
+        end
+      end
+      assert_equal 'old', File.read(output_path)
+    end
+  end
+
+  def test_comparison_snapshot_must_match_canonical_show
+    canonical_show = show
+
+    assert ListingFreshness.validate_comparison_snapshot!(row: comparison_row, show: canonical_show)
+    assert_raises(ArgumentError) do
+      ListingFreshness.validate_comparison_snapshot!(
+        row: comparison_row('current_next_date' => 'November 1, 2026'),
+        show: canonical_show
+      )
+    end
+    assert_raises(ArgumentError) do
+      ListingFreshness.validate_comparison_snapshot!(
+        row: comparison_row('show_name' => 'Altered Show'),
+        show: canonical_show
+      )
+    end
+    assert_raises(ArgumentError) do
+      ListingFreshness.validate_comparison_snapshot!(row: comparison_row, show: nil)
+    end
+  end
+
+  def test_comparison_snapshot_rejects_duplicate_source_show_rows
+    rows = [comparison_row, comparison_row]
+
+    assert_raises(ArgumentError) { ListingFreshness.validate_unique_comparison_rows!(rows) }
+    assert ListingFreshness.validate_unique_comparison_rows!([comparison_row])
   end
 
   def test_applies_distance_based_cadence

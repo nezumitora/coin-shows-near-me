@@ -51,6 +51,17 @@ It writes five local artifacts under `tmp/`:
 - `listing-pilot-quality.csv` — expected versus actual outcomes for the manually reviewed source pilot.
 - `listing-duplicate-candidates.csv` — possible duplicates for review, never automatic merges.
 
+The report enforces a fail-closed local output sandbox. All five artifacts must
+be direct files under `tmp/`; path escapes, nested output directories, duplicate
+destinations, input-file collisions, non-regular files, and symbolic links are
+rejected. Each artifact is written atomically with owner-only permissions so a
+failed run cannot replace a complete report with partial output.
+
+Every comparison row must also match the current canonical show ID, name, and
+date, and each source/show pair must be unique. If listing data changed after
+the comparison was generated, the report stops and requires a fresh comparison
+instead of presenting stale evidence as current.
+
 The baseline cadence is every 2-3 days for events within 30 days, weekly for
 events 31-90 days away, and monthly beyond 90 days. The 21-day, 7-day, and
 2-day milestones can move a review earlier. Past listings enter a weekly stale

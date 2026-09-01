@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'fileutils'
+require 'tempfile'
 require_relative 'show_date_parser'
 require_relative 'show-data-trust-audit'
 
@@ -26,6 +28,75 @@ module ListingFreshness
 
   def truthy?(value)
     value == true || value.to_s.casecmp('true').zero?
+  end
+
+  def secure_output_path(path, repo_root:)
+    root = File.expand_path(repo_root)
+    output_root = File.join(root, 'tmp')
+    raise ArgumentError, 'Secure output root must not be a symbolic link' if File.symlink?(output_root)
+
+    FileUtils.mkdir_p(output_root, mode: 0o700)
+    raise ArgumentError, 'Secure output root is not a directory' unless File.directory?(output_root)
+
+    candidate = File.expand_path(path.to_s, root)
+    basename = File.basename(candidate)
+    unless File.dirname(candidate) == output_root && basename.match?(/\A[a-zA-Z0-9][a-zA-Z0-9._-]*\z/)
+      raise ArgumentError, 'Listing freshness outputs must be direct files inside the repository tmp directory'
+    end
+    raise ArgumentError, "Secure output must not be a symbolic link: #{basename}" if File.symlink?(candidate)
+    if File.exist?(candidate) && !File.file?(candidate)
+      raise ArgumentError, "Secure output must be a regular file: #{basename}"
+    end
+
+    candidate
+  end
+
+  def secure_output_paths(paths, repo_root:, forbidden_paths: [])
+    secure_paths = paths.map { |path| secure_output_path(path, repo_root: repo_root) }
+    raise ArgumentError, 'Listing freshness output paths must be unique' unless secure_paths.uniq.length == secure_paths.length
+
+    forbidden = forbidden_paths.map { |path| File.expand_path(path.to_s, repo_root) }
+    if (secure_paths & forbidden).any?
+      raise ArgumentError, 'Listing freshness output paths must not replace an input file'
+    end
+
+    secure_paths
+  end
+
+  def write_secure_output(path, repo_root:)
+    safe_path = secure_output_path(path, repo_root: repo_root)
+    directory = File.dirname(safe_path)
+    Tempfile.create([".#{File.basename(safe_path)}-", '.tmp'], directory) do |file|
+      yield file
+      file.flush
+      file.fsync
+      file.close
+      File.rename(file.path, safe_path)
+      File.chmod(0o600, safe_path)
+    end
+    safe_path
+  end
+
+  def validate_unique_comparison_rows!(rows)
+    duplicate = rows.group_by { |row| [row.fetch('source_key'), row.fetch('show_id')] }
+                    .find { |_key, grouped_rows| grouped_rows.length > 1 }
+    return true unless duplicate
+
+    raise ArgumentError, "Comparison input contains a duplicate source/show row: #{duplicate.first.join('/')}"
+  end
+
+  def validate_comparison_snapshot!(row:, show:)
+    show_id = row.fetch('show_id')
+    raise ArgumentError, "Comparison input references a missing canonical listing: #{show_id}" unless show
+
+    unless row.fetch('show_name') == show.fetch('name')
+      raise ArgumentError, "Comparison input has a stale or altered show name: #{show_id}"
+    end
+    unless row.fetch('current_next_date') == show.fetch('next_date', '').to_s
+      raise ArgumentError, "Comparison input has a stale or altered current date: #{show_id}"
+    end
+
+    true
   end
 
   def source_tier(source_type, source_url)
