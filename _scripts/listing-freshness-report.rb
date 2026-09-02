@@ -6,22 +6,33 @@
 
 require 'csv'
 require 'date'
-require 'fileutils'
 require 'time'
 require 'yaml'
 require_relative 'listing_freshness'
 require_relative 'show_source_policy'
 
+REPO_ROOT = File.expand_path('..', __dir__)
 SHOWS_PATH = ENV.fetch('SHOWS_PATH', '_data/shows.yml')
 EXTERNAL_SOURCES_PATH = ENV.fetch('EXTERNAL_SOURCES_PATH', '_scrapers/external-sources.yml')
 THIRD_PARTY_SOURCES_PATH = ENV.fetch('THIRD_PARTY_SOURCES_PATH', '_scrapers/third-party-discovery.yml')
 PILOT_CONFIG_PATH = ENV.fetch('LISTING_FRESHNESS_PILOT_PATH', '_scrapers/listing-freshness-pilot.yml')
 COMPARISON_PATH = ENV.fetch('EXTERNAL_COMPARISON_PATH', 'tmp/external-source-comparison.csv')
-REPORT_PATH = ENV.fetch('LISTING_FRESHNESS_REPORT_PATH', 'tmp/listing-freshness-report.md')
-QUEUE_PATH = ENV.fetch('LISTING_REVIEW_QUEUE_PATH', 'tmp/listing-review-queue.csv')
-FACTS_PATH = ENV.fetch('LISTING_PROPOSED_FACTS_PATH', 'tmp/listing-proposed-facts.csv')
-PILOT_QUALITY_PATH = ENV.fetch('LISTING_PILOT_QUALITY_PATH', 'tmp/listing-pilot-quality.csv')
-DUPLICATES_PATH = ENV.fetch('LISTING_DUPLICATES_PATH', 'tmp/listing-duplicate-candidates.csv')
+OUTPUT_PATHS = begin
+  ListingFreshness.secure_output_paths(
+    [
+      ENV.fetch('LISTING_FRESHNESS_REPORT_PATH', 'tmp/listing-freshness-report.md'),
+      ENV.fetch('LISTING_REVIEW_QUEUE_PATH', 'tmp/listing-review-queue.csv'),
+      ENV.fetch('LISTING_PROPOSED_FACTS_PATH', 'tmp/listing-proposed-facts.csv'),
+      ENV.fetch('LISTING_PILOT_QUALITY_PATH', 'tmp/listing-pilot-quality.csv'),
+      ENV.fetch('LISTING_DUPLICATES_PATH', 'tmp/listing-duplicate-candidates.csv')
+    ],
+    repo_root: REPO_ROOT,
+    forbidden_paths: [SHOWS_PATH, EXTERNAL_SOURCES_PATH, THIRD_PARTY_SOURCES_PATH, PILOT_CONFIG_PATH, COMPARISON_PATH]
+  )
+rescue ArgumentError => e
+  abort e.message
+end.freeze
+REPORT_PATH, QUEUE_PATH, FACTS_PATH, PILOT_QUALITY_PATH, DUPLICATES_PATH = OUTPUT_PATHS
 
 QUEUE_HEADERS = %w[
   show_id show_name city state current_next_date date_status event_date days_until_event
@@ -80,8 +91,8 @@ rescue ArgumentError
 end
 
 def write_csv(path, headers, rows)
-  FileUtils.mkdir_p(File.dirname(path))
-  CSV.open(path, 'w') do |csv|
+  ListingFreshness.write_secure_output(path, repo_root: REPO_ROOT) do |file|
+    csv = CSV.new(file)
     csv << headers
     rows.each do |row|
       csv << headers.map do |header|
@@ -89,6 +100,7 @@ def write_csv(path, headers, rows)
         value.is_a?(Array) ? value.join(';') : value
       end
     end
+    csv.flush
   end
 end
 
@@ -130,6 +142,12 @@ external_sources = YAML.load_file(EXTERNAL_SOURCES_PATH)
 third_party_sources = YAML.load_file(THIRD_PARTY_SOURCES_PATH)
 pilot_config = YAML.load_file(PILOT_CONFIG_PATH)
 comparison_rows = File.exist?(COMPARISON_PATH) ? CSV.read(COMPARISON_PATH, headers: true).map(&:to_h) : []
+
+begin
+  ListingFreshness.validate_unique_comparison_rows!(comparison_rows)
+rescue ArgumentError => e
+  abort e.message
+end
 
 shows_by_id = shows.to_h { |show| [show.fetch('id'), show] }
 sources_by_key = external_sources.to_h { |source| [source.fetch('key'), source] }
@@ -195,6 +213,12 @@ facts = comparison_rows.map do |row|
   source_key = row.fetch('source_key')
   source = sources_by_key[source_key]
   abort "Comparison row uses an unapproved source: #{source_key}" unless source
+  show = shows_by_id[row.fetch('show_id')]
+  begin
+    ListingFreshness.validate_comparison_snapshot!(row: row, show: show)
+  rescue ArgumentError => e
+    abort e.message
+  end
 
   source_type = source.fetch('source_type')
   source_url = source.fetch('url')
@@ -220,7 +244,7 @@ facts = comparison_rows.map do |row|
 
   ListingFreshness.build_source_fact(
     row: row,
-    show: shows_by_id[row.fetch('show_id')],
+    show: show,
     source_type: source_type,
     source_url: source_url,
     fetched_at: fetched_at,
@@ -367,8 +391,7 @@ high_priority_queue = queue.select do |row|
 end.first(30)
 review_facts = facts.reject { |fact| fact.fetch(:proposal_status) == 'no_change_observed' }.first(30)
 
-FileUtils.mkdir_p(File.dirname(REPORT_PATH))
-File.write(REPORT_PATH, <<~MD)
+report = <<~MD
   # Coin show listing freshness review
 
   Generated: #{generated_at}
@@ -498,10 +521,11 @@ File.write(REPORT_PATH, <<~MD)
   - Pilot quality measurements: `#{File.basename(PILOT_QUALITY_PATH)}`
   - Duplicate candidates: `#{File.basename(DUPLICATES_PATH)}`
 MD
+ListingFreshness.write_secure_output(REPORT_PATH, repo_root: REPO_ROOT) { |file| file.write(report) }
 
-puts "Wrote #{REPORT_PATH}"
-puts "Wrote #{QUEUE_PATH}"
-puts "Wrote #{FACTS_PATH}"
-puts "Wrote #{PILOT_QUALITY_PATH}"
-puts "Wrote #{DUPLICATES_PATH}"
+puts "Wrote tmp/#{File.basename(REPORT_PATH)}"
+puts "Wrote tmp/#{File.basename(QUEUE_PATH)}"
+puts "Wrote tmp/#{File.basename(FACTS_PATH)}"
+puts "Wrote tmp/#{File.basename(PILOT_QUALITY_PATH)}"
+puts "Wrote tmp/#{File.basename(DUPLICATES_PATH)}"
 puts "Review-only freshness summary: listings=#{shows.length} due_now=#{due_counts.fetch('due_now', 0)} urgent=#{risk_counts.fetch('urgent', 0)} high=#{risk_counts.fetch('high', 0)} facts=#{facts.length} pilot_matches=#{pilot_matches}/#{pilot_quality.length} automatic_changes=#{automatic_listing_changes} duplicates=#{duplicates.length}"

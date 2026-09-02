@@ -44,6 +44,7 @@ google_site_verification: ZW60JDUpZFD9rhZv8KgiklQ65RSr5jyyxku3686lHbo
 exclude:
   - _scripts/
   - _scrapers/
+  - tmp/
   - Gemfile
   - Gemfile.lock
   - DESIGN.md
