@@ -13,7 +13,7 @@ module SourceEntryMatcher
     target_names = literal_names([target_name] + Array(target_aliases))
     peer_name_groups = Array(peer_names).map do |peer_name|
       literal_names([peer_name] + Array(peer_aliases[peer_name]))
-    end
+    end.reject { |peer_group| !(peer_group & target_names).empty? }
     date_associated_for_names?(
       source_text,
       target_names,
@@ -43,8 +43,14 @@ module SourceEntryMatcher
     end
 
     dated_positions.any? do |date_position|
-      nearest_owner, nearest_position = named_positions.min_by { |_owner, position| (position - date_position).abs }
-      nearest_owner == :target && (nearest_position - date_position).abs <= max_name_date_distance
+      nearest_distance = named_positions.map { |_owner, position| (position - date_position).abs }.min
+      next false if nearest_distance > max_name_date_distance
+
+      nearest_owners = named_positions.each_with_object([]) do |owned_position, owners|
+        owner, position = owned_position
+        owners << owner if (position - date_position).abs == nearest_distance
+      end
+      nearest_owners.include?(:target) && nearest_owners.all? { |owner| owner == :target }
     end
   end
 

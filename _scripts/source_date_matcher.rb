@@ -12,6 +12,19 @@ module SourceDateMatcher
     !match_positions(source_text, current_date_text, calendar_year).empty?
   end
 
+  def year_within?(date_text, min_year:, max_year:)
+    components = date_components(date_text)
+    return false unless components && (min_year..max_year).cover?(components[4])
+
+    start_month, start_day, finish_month, finish_day, year = components
+    start_year = finish_month && start_month > finish_month ? year - 1 : year
+    start_date = Date.new(start_year, start_month, start_day)
+    finish_date = Date.new(year, finish_month || start_month, finish_day || start_day)
+    start_date <= finish_date
+  rescue ArgumentError
+    false
+  end
+
   def match_positions(source_text, current_date_text, calendar_year = nil)
     components = date_components(current_date_text)
     return [] unless components

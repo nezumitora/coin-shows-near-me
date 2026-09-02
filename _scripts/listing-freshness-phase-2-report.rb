@@ -6,22 +6,33 @@
 
 require 'csv'
 require 'date'
-require 'fileutils'
 require 'time'
 require 'yaml'
 require_relative 'listing_freshness'
 require_relative 'listing_freshness_profile'
 
+REPO_ROOT = File.expand_path('..', __dir__)
 PROFILE_PATH = ENV.fetch('LISTING_FRESHNESS_PROFILE_PATH', '_scrapers/listing-freshness-phase-2.yml')
 SCHEDULE_PATH = ENV.fetch('LISTING_FRESHNESS_SCHEDULE_PATH', '_scrapers/listing-freshness-phase-2-schedule.yml')
 EXTERNAL_SOURCES_PATH = ENV.fetch('EXTERNAL_SOURCES_PATH', '_scrapers/external-sources.yml')
 SHOWS_PATH = ENV.fetch('SHOWS_PATH', '_data/shows.yml')
 COMPARISON_PATH = ENV.fetch('EXTERNAL_COMPARISON_PATH', 'tmp/external-source-comparison.csv')
-REPORT_PATH = ENV.fetch('LISTING_FRESHNESS_PHASE_2_REPORT_PATH', 'tmp/listing-freshness-phase-2-draft.md')
-FACTS_PATH = ENV.fetch('LISTING_FRESHNESS_PHASE_2_FACTS_PATH', 'tmp/listing-freshness-phase-2-draft.csv')
-QUALITY_PATH = ENV.fetch('LISTING_FRESHNESS_PHASE_2_QUALITY_PATH', 'tmp/listing-freshness-phase-2-quality.csv')
-QUEUE_PATH = ENV.fetch('LISTING_FRESHNESS_PHASE_2_QUEUE_PATH', 'tmp/listing-freshness-phase-2-review-queue.csv')
-DUPLICATES_PATH = ENV.fetch('LISTING_FRESHNESS_PHASE_2_DUPLICATES_PATH', 'tmp/listing-freshness-phase-2-duplicates.csv')
+OUTPUT_PATHS = begin
+  ListingFreshness.secure_output_paths(
+    [
+      ENV.fetch('LISTING_FRESHNESS_PHASE_2_REPORT_PATH', 'tmp/listing-freshness-phase-2-draft.md'),
+      ENV.fetch('LISTING_FRESHNESS_PHASE_2_FACTS_PATH', 'tmp/listing-freshness-phase-2-draft.csv'),
+      ENV.fetch('LISTING_FRESHNESS_PHASE_2_QUALITY_PATH', 'tmp/listing-freshness-phase-2-quality.csv'),
+      ENV.fetch('LISTING_FRESHNESS_PHASE_2_QUEUE_PATH', 'tmp/listing-freshness-phase-2-review-queue.csv'),
+      ENV.fetch('LISTING_FRESHNESS_PHASE_2_DUPLICATES_PATH', 'tmp/listing-freshness-phase-2-duplicates.csv')
+    ],
+    repo_root: REPO_ROOT,
+    forbidden_paths: [PROFILE_PATH, SCHEDULE_PATH, EXTERNAL_SOURCES_PATH, SHOWS_PATH, COMPARISON_PATH]
+  )
+rescue ArgumentError => e
+  abort e.message
+end.freeze
+REPORT_PATH, FACTS_PATH, QUALITY_PATH, QUEUE_PATH, DUPLICATES_PATH = OUTPUT_PATHS
 
 FACT_HEADERS = %w[
   evidence_kind scenario source_key show_id show_name field canonical_current_value
@@ -66,15 +77,16 @@ rescue ArgumentError
 end
 
 def write_csv(path, headers, rows)
-  FileUtils.mkdir_p(File.dirname(path))
-  CSV.open(path, 'w') do |csv|
+  ListingFreshness.write_secure_output(path, repo_root: REPO_ROOT) do |file|
+    csv = CSV.new(file)
     csv << headers
     rows.each do |row|
       csv << headers.map do |header|
         value = row.fetch(header.to_sym, '')
-        value.is_a?(Array) ? value.join('; ') : value
+        ListingFreshness.safe_csv_cell(value, separator: '; ')
       end
     end
+    csv.flush
   end
 end
 
@@ -288,6 +300,12 @@ profile = ListingFreshnessProfile.load(path: PROFILE_PATH, external_sources: ext
 schedule = ListingFreshnessProfile.load_schedule(path: SCHEDULE_PATH, expected_profile: PROFILE_PATH)
 comparison_rows = CSV.read(COMPARISON_PATH, headers: true).map(&:to_h)
 
+begin
+  ListingFreshness.validate_unique_comparison_rows!(comparison_rows)
+rescue ArgumentError => e
+  abort e.message
+end
+
 profile_by_key = profile.fetch(:sources).to_h do |source|
   [source.fetch(:registry).fetch('key'), source]
 end
@@ -305,7 +323,11 @@ facts = comparison_rows.map do |row|
   registry = source.fetch(:registry)
   source_profile = source.fetch(:profile)
   show = shows_by_id[row.fetch('show_id')]
-  abort "Comparison row references a missing canonical listing: #{row.fetch('show_id')}" unless show
+  begin
+    ListingFreshness.validate_comparison_snapshot!(row: row, show: show)
+  rescue ArgumentError => e
+    abort e.message
+  end
   abort 'Comparison source URL drifted from the approved registry' unless row.fetch('source_url') == registry.fetch('url')
   expected_request_url = ListingFreshnessProfile.request_url_for(source: source, show_id: row.fetch('show_id'))
   abort 'Comparison request URL drifted from the approved Phase 2 profile' unless row.fetch('request_url') == expected_request_url
@@ -433,8 +455,26 @@ live_quality = facts.each_with_object([]) do |fact, rows|
 end
 
 controlled_configs = profile.fetch(:config).fetch('controlled_cases')
+controlled_case_ids = controlled_configs.map { |fixture| fixture.fetch('case_id') }
 controlled_scenarios = controlled_configs.to_h { |fixture| [fixture.fetch('scenario'), fixture.fetch('expected_outcome')] }
-abort 'Phase 2 controlled scenarios are incomplete or unexpected' unless controlled_scenarios == EXPECTED_CONTROLLED_SCENARIOS
+unless controlled_configs.length == EXPECTED_CONTROLLED_SCENARIOS.length &&
+       controlled_case_ids.uniq.length == controlled_case_ids.length &&
+       controlled_scenarios == EXPECTED_CONTROLLED_SCENARIOS
+  abort 'Phase 2 controlled scenarios are incomplete, duplicated, or unexpected'
+end
+
+controlled_show_ids = EXPECTED_CONTROLLED_SCENARIOS.keys.flat_map do |scenario|
+  case scenario
+  when 'duplicate'
+    %w[controlled-duplicate-left controlled-duplicate-right]
+  when 'partial_date'
+    ['controlled-partial-date-show']
+  else
+    ["controlled-#{scenario.tr('_', '-')}-show"]
+  end
+end
+controlled_collision = controlled_show_ids.find { |show_id| shows_by_id.key?(show_id) }
+abort "Controlled Phase 2 case collides with canonical data: #{controlled_collision}" if controlled_collision
 
 controlled_quality = []
 controlled_duplicate = nil
@@ -509,13 +549,12 @@ ready_for_later_draft_update_review = live_baseline_source_count == source_count
                                       controlled_quality.all? { |row| row.fetch(:expectation_matches) } &&
                                       automatic_actions.zero? && unresolved_facts.empty?
 
-FileUtils.mkdir_p(File.dirname(REPORT_PATH))
-File.write(REPORT_PATH, <<~MD)
+report = <<~MD
   # Coin listing automation Phase 2 review package
 
   Generated: #{generated_at}
   Classification date: #{as_of.iso8601}
-  Stacked base: draft PR #84 Phase 1 code
+  Security foundation: merged PR #84 Phase 1 code
 
   Review-only. This package did not edit `_data/shows.yml`, create or change a listing, follow a redirect, infer a cancellation, merge a duplicate, publish a page, contact a third party, or activate a schedule. Every automatic action is `none`.
 
@@ -602,10 +641,11 @@ File.write(REPORT_PATH, <<~MD)
   - Prioritized selected-listing queue: `#{File.basename(QUEUE_PATH)}`
   - Live and controlled duplicate evidence: `#{File.basename(DUPLICATES_PATH)}`
 MD
+ListingFreshness.write_secure_output(REPORT_PATH, repo_root: REPO_ROOT) { |file| file.write(report) }
 
-puts "Wrote #{REPORT_PATH}"
-puts "Wrote #{FACTS_PATH}"
-puts "Wrote #{QUALITY_PATH}"
-puts "Wrote #{QUEUE_PATH}"
-puts "Wrote #{DUPLICATES_PATH}"
+puts "Wrote tmp/#{File.basename(REPORT_PATH)}"
+puts "Wrote tmp/#{File.basename(FACTS_PATH)}"
+puts "Wrote tmp/#{File.basename(QUALITY_PATH)}"
+puts "Wrote tmp/#{File.basename(QUEUE_PATH)}"
+puts "Wrote tmp/#{File.basename(DUPLICATES_PATH)}"
 puts "Phase 2 review-only summary: sources=#{source_count} shows=#{covered_show_count} live_rows=#{fact_rows.length} baselines=#{live_baseline_source_count}/#{source_count} unresolved=#{unresolved_facts.length} false_positives=#{false_positives} false_negatives=#{false_negatives} controlled=#{controlled_quality.count { |row| row.fetch(:expectation_matches) }}/#{controlled_quality.length} automatic_changes=#{automatic_actions} ready=#{ready_for_later_draft_update_review}"

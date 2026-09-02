@@ -36,4 +36,13 @@ class SourceDateMatcherTest < Minitest::Test
     refute SourceDateMatcher.found?('November 2026', 'TBD')
     refute SourceDateMatcher.found?('November 2026', 'November 2026')
   end
+
+  def test_candidate_year_must_stay_inside_the_review_window
+    assert SourceDateMatcher.year_within?('October 3, 2026', min_year: 2025, max_year: 2031)
+    assert SourceDateMatcher.year_within?('April 14-16, 2029', min_year: 2025, max_year: 2031)
+    refute SourceDateMatcher.year_within?('January 30-31, 3037', min_year: 2025, max_year: 2031)
+    refute SourceDateMatcher.year_within?('October 3, 2022', min_year: 2025, max_year: 2031)
+    refute SourceDateMatcher.year_within?('February 30-31, 2027', min_year: 2025, max_year: 2031)
+    refute SourceDateMatcher.year_within?('October 8-3, 2026', min_year: 2025, max_year: 2031)
+  end
 end

@@ -1,29 +1,60 @@
 #!/usr/bin/env ruby
 # Compare approved external source pages against current show data.
 # Report-only: does not edit data, publish pages, email, text, or submit forms.
-# Set SOURCE_COMPARISON_DRY_RUN=1 and REQUEST_DELAY_SECONDS=0 to validate
-# report generation without making source-page requests.
+# Phase 2 profile network access is disabled unless
+# SOURCE_COMPARISON_ALLOW_NETWORK=1. Set SOURCE_COMPARISON_DRY_RUN=1 and
+# REQUEST_DELAY_SECONDS=0 to force any mode to avoid source-page requests.
 
 require 'csv'
 require 'cgi'
-require 'fileutils'
+require 'date'
 require 'net/http'
 require 'time'
 require 'uri'
 require 'yaml'
+require_relative 'listing_freshness'
 require_relative 'show_source_policy'
 require_relative 'source_entry_matcher'
 require_relative 'listing_freshness_profile'
 
+REPO_ROOT = File.expand_path('..', __dir__)
 CONFIG_PATH = '_scrapers/external-sources.yml'
 SHOWS_PATH = '_data/shows.yml'
-REPORT_PATH = 'tmp/external-source-comparison.md'
-CSV_PATH = 'tmp/external-source-comparison.csv'
-QUEUE_CSV_PATH = 'tmp/external-source-coverage-queue.csv'
 PROFILE_PATH = ENV.fetch('LISTING_FRESHNESS_PROFILE_PATH', '').strip
+OUTPUT_PATHS = begin
+  ListingFreshness.secure_output_paths(
+    [
+      'tmp/external-source-comparison.md',
+      'tmp/external-source-comparison.csv',
+      'tmp/external-source-coverage-queue.csv'
+    ],
+    repo_root: REPO_ROOT,
+    forbidden_paths: [CONFIG_PATH, SHOWS_PATH, PROFILE_PATH]
+  )
+rescue ArgumentError => e
+  abort e.message
+end.freeze
+REPORT_PATH, CSV_PATH, QUEUE_CSV_PATH = OUTPUT_PATHS
 REQUEST_TIMEOUT = 12
-REQUEST_DELAY_SECONDS = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '1.0'))
-DRY_RUN = ENV.fetch('SOURCE_COMPARISON_DRY_RUN', '0') == '1'
+REQUEST_DELAY_SECONDS = begin
+  delay = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '1.0'))
+  abort 'REQUEST_DELAY_SECONDS must be a finite non-negative number' unless delay.finite? && delay >= 0
+
+  delay
+rescue ArgumentError
+  abort 'REQUEST_DELAY_SECONDS must be a finite non-negative number'
+end
+PROFILE_NETWORK_ALLOWED = ENV.fetch('SOURCE_COMPARISON_ALLOW_NETWORK', '0') == '1'
+DRY_RUN = ENV.fetch('SOURCE_COMPARISON_DRY_RUN', '0') == '1' ||
+          (!PROFILE_PATH.empty? && !PROFILE_NETWORK_ALLOWED)
+COMPARISON_AS_OF = begin
+  Date.iso8601(ENV.fetch('LISTING_FRESHNESS_AS_OF', Time.now.utc.to_date.iso8601))
+rescue ArgumentError
+  abort 'LISTING_FRESHNESS_AS_OF must be an ISO date'
+end
+CANDIDATE_YEAR_RANGE = ((COMPARISON_AS_OF.year - 1)..(COMPARISON_AS_OF.year + 5))
+MAX_RESPONSE_BYTES = 2 * 1024 * 1024
+ResponseTooLargeError = Class.new(StandardError)
 
 DATE_PATTERNS = [
   /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z.]*\s+\d{1,2}(?:st|nd|rd|th)?(?:(?:\s*[-–—]\s*|\s+(?:and|to|through)\s+)\d{1,2}(?:st|nd|rd|th)?)?,?\s+\d{4}\b/i,
@@ -36,19 +67,36 @@ SOURCE_ROW_HEADERS = %w[
   candidate_dates cancellation_evidence
 ].freeze
 
+def bounded_response_body(response)
+  body = String.new
+  response.read_body do |chunk|
+    if body.bytesize + chunk.bytesize > MAX_RESPONSE_BYTES
+      raise ResponseTooLargeError, "response exceeded #{MAX_RESPONSE_BYTES} bytes"
+    end
+
+    body << chunk
+  end
+  body
+end
+
 def fetch_text(url)
   return ['dry_run', 'network disabled', '', ''] if DRY_RUN
 
   uri = URI.parse(url)
   return ['skip', 'not http/https', '', ''] unless %w[http https].include?(uri.scheme)
 
-  response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https', open_timeout: REQUEST_TIMEOUT, read_timeout: REQUEST_TIMEOUT) do |http|
+  response = nil
+  body = nil
+  Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https', open_timeout: REQUEST_TIMEOUT, read_timeout: REQUEST_TIMEOUT) do |http|
     request = Net::HTTP::Get.new(uri)
     request['User-Agent'] = 'CoinShowsNearMeBot/0.1 (+https://coinshownearme.com/contact/) report-only show accuracy check'
-    http.request(request)
+    http.request(request) do |http_response|
+      response = http_response
+      body = bounded_response_body(http_response)
+    end
   end
 
-  text = response.body.to_s.encode('UTF-8', invalid: :replace, undef: :replace, replace: ' ')
+  text = body.to_s.encode('UTF-8', invalid: :replace, undef: :replace, replace: ' ')
   4.times do
     decoded_text = CGI.unescapeHTML(text)
     break if decoded_text == text
@@ -67,6 +115,8 @@ def fetch_text(url)
   redirect_target = redirect_target.gsub(/[\r\n]/, '').strip[0, 500]
 
   [response.code, response.message, text, redirect_target]
+rescue ResponseTooLargeError => e
+  ['error', e.message, '', '']
 rescue StandardError => e
   ['error', e.class.to_s, '', '']
 end
@@ -76,7 +126,17 @@ def normalized(value)
 end
 
 def date_candidates(text)
-  DATE_PATTERNS.flat_map { |pattern| text.scan(pattern) }.map { |date| date.is_a?(Array) ? date.first : date }.uniq.first(25)
+  DATE_PATTERNS.flat_map { |pattern| text.scan(pattern) }
+               .map { |date| date.is_a?(Array) ? date.first : date }
+               .uniq
+               .select do |date|
+                 SourceDateMatcher.year_within?(
+                   date,
+                   min_year: CANDIDATE_YEAR_RANGE.begin,
+                   max_year: CANDIDATE_YEAR_RANGE.end
+                 )
+               end
+               .first(25)
 end
 
 all_sources = YAML.load_file(CONFIG_PATH)
@@ -119,7 +179,7 @@ if profile
   constraints = profile.fetch(:config).fetch('policies').fetch('constraints')
   minimum_delay = profile.fetch(:sources).map do |source|
     policy_name = source.fetch(:profile).fetch('constraints_policy')
-    constraints.fetch(policy_name).fetch('request_delay_seconds').to_f
+    constraints.fetch(policy_name).fetch('request_delay_seconds')
   end.max
   if !DRY_RUN && REQUEST_DELAY_SECONDS < minimum_delay
     abort "REQUEST_DELAY_SECONDS must be at least #{minimum_delay} for the selected Phase 2 profile"
@@ -269,33 +329,38 @@ resolved_sources.each do |resolved_source|
       candidate_dates: candidates
     }
 
-    sleep REQUEST_DELAY_SECONDS if REQUEST_DELAY_SECONDS.positive?
+    sleep REQUEST_DELAY_SECONDS if !DRY_RUN && REQUEST_DELAY_SECONDS.positive?
   end
 end
 
-FileUtils.mkdir_p(File.dirname(REPORT_PATH))
-
-CSV.open(CSV_PATH, 'w') do |csv|
+ListingFreshness.write_secure_output(CSV_PATH, repo_root: REPO_ROOT) do |file|
+  csv = CSV.new(file)
   csv << SOURCE_ROW_HEADERS
-  rows.each { |row| csv << SOURCE_ROW_HEADERS.map { |header| row.fetch(header) } }
+  rows.each do |row|
+    csv << SOURCE_ROW_HEADERS.map { |header| ListingFreshness.safe_csv_cell(row.fetch(header)) }
+  end
+  csv.flush
 end
 
-CSV.open(QUEUE_CSV_PATH, 'w') do |csv|
+ListingFreshness.write_secure_output(QUEUE_CSV_PATH, repo_root: REPO_ROOT) do |file|
+  csv = CSV.new(file)
   csv << %w[source_url show_ids show_names]
   coverage_queue_by_url.sort.each do |source_url, source_rows|
-    csv << [
+    values = [
       source_url,
       source_rows.map { |row| row.fetch(:show_id) }.sort.join(';'),
       source_rows.map { |row| row.fetch(:show_name) }.sort.join(';')
     ]
+    csv << values.map { |value| ListingFreshness.safe_csv_cell(value) }
   end
+  csv.flush
 end
 
-File.write(REPORT_PATH, <<~MD)
+report = <<~MD
   # External source comparison report
 
   Generated: #{generated_at}
-  Source profile: #{PROFILE_PATH.empty? ? 'full approved comparison registry' : "`#{PROFILE_PATH}`"}
+  Source profile: #{PROFILE_PATH.empty? ? 'full approved comparison registry' : "`#{File.basename(PROFILE_PATH)}`"}
 
   Report-only. This does not change `_data/shows.yml`, publish pages, submit forms, send emails, or send SMS.
 
@@ -313,7 +378,7 @@ File.write(REPORT_PATH, <<~MD)
   - Redirects followed: 0
   - Approved source URLs queued without fetching: #{coverage_queue_by_url.length}
 
-  Only the hand-reviewed source registry and exact same-host request paths approved in the Phase 2 profile are fetched. Existing canonical `source_url` or `website` values accepted by `ShowSourcePolicy` are written to `#{QUEUE_CSV_PATH}` for small-batch review; they are not fetched automatically and do not create or verify listings.
+  Only the hand-reviewed source registry and exact same-host request paths approved in the Phase 2 profile are fetched. Existing canonical `source_url` or `website` values accepted by `ShowSourcePolicy` are written to `tmp/#{File.basename(QUEUE_CSV_PATH)}` for small-batch review; they are not fetched automatically and do not create or verify listings.
 
   #{uncovered_show_ids.empty? ? '' : "Uncovered listing IDs: `#{uncovered_show_ids.sort.join('`, `')}`"}
 
@@ -333,11 +398,12 @@ File.write(REPORT_PATH, <<~MD)
 
   - For `date_diff_or_partial_match`, open the source page and compare dates before editing.
   - For `show_name_not_found`, check whether the source page changed wording, removed the show, or blocks bot access.
-  - Review `#{QUEUE_CSV_PATH}` and promote only a small, source-tested batch into `_scrapers/external-sources.yml` at a time.
+  - Review `tmp/#{File.basename(QUEUE_CSV_PATH)}` and promote only a small, source-tested batch into `_scrapers/external-sources.yml` at a time.
   - For useful source pages that list multiple events, add source-specific parsing only after this report proves reliable.
 MD
+ListingFreshness.write_secure_output(REPORT_PATH, repo_root: REPO_ROOT) { |file| file.write(report) }
 
-puts "Wrote #{REPORT_PATH}"
-puts "Wrote #{CSV_PATH}"
-puts "Wrote #{QUEUE_CSV_PATH}"
+puts "Wrote tmp/#{File.basename(REPORT_PATH)}"
+puts "Wrote tmp/#{File.basename(CSV_PATH)}"
+puts "Wrote tmp/#{File.basename(QUEUE_CSV_PATH)}"
 puts "Report-only comparison rows=#{rows.length} sources=#{sources.length} source_paths=#{source_summaries.length}"

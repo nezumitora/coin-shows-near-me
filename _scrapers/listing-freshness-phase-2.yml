@@ -1,4 +1,4 @@
-# Bounded Phase 2 profile stacked on the review-only listing freshness MVP.
+# Bounded Phase 2 profile built on the merged review-only listing freshness MVP.
 #
 # Source URLs and source types remain authoritative in external-sources.yml.
 # This profile selects a small reviewed batch and records how each source must

@@ -96,17 +96,20 @@ form submission, or CRM write requires separate approval.
 
 ## Phase 2 bounded source review
 
-The owner-approved Phase 2 implementation is stacked on the still-draft Phase
-1 branch. It selects 12 existing official source groups covering 23 canonical
-listings through `_scrapers/listing-freshness-phase-2.yml`. Source URLs and
-types remain in the existing approved registry; the profile records authority,
-coverage, source tier, generic check method, page shape, inactive cadence,
-request constraints, redirect handling, and fail-closed behavior.
+The owner-approved Phase 2 implementation now uses the merged and security-
+hardened Phase 1 foundation. It selects 12 existing official source groups
+covering 23 canonical listings through
+`_scrapers/listing-freshness-phase-2.yml`. Source URLs and types remain in the
+existing approved registry; the profile records authority, coverage, source
+tier, generic check method, page shape, inactive cadence, request constraints,
+redirect handling, and fail-closed behavior.
 
 Run the bounded comparison and package locally:
 
 ```bash
-LISTING_FRESHNESS_PROFILE_PATH=_scrapers/listing-freshness-phase-2.yml \
+SOURCE_COMPARISON_ALLOW_NETWORK=1 \
+  LISTING_FRESHNESS_PROFILE_PATH=_scrapers/listing-freshness-phase-2.yml \
+  LISTING_FRESHNESS_AS_OF=2026-08-31 \
   REQUEST_DELAY_SECONDS=1.0 \
   ruby _scripts/external-source-compare.rb
 
@@ -121,10 +124,28 @@ source observations are labeled separately from six synthetic safety cases:
 date change, redirect, duplicate, partial date, explicit cancellation evidence,
 and source failure.
 
+Network access is off by default when a Phase 2 profile is selected and must be
+enabled explicitly for a bounded manual profile run. The comparison rejects
+non-finite or negative delays, enforces the profile's one-second minimum, limits
+each response body to 2 MiB, makes at most one request per exact approved source
+path, and follows no redirects. HTTPS registry URLs cannot be downgraded to
+HTTP. Extracted candidate years are limited to one year before through five
+years after the classification year, so implausible source text cannot become a
+proposed date.
+
+The comparison and Phase 2 package use the same fail-closed direct-`tmp/`
+output sandbox as Phase 1: destinations must be unique regular files, symbolic
+links and input collisions are rejected, and writes are atomic with owner-only
+permissions. Imported comparison rows must retain the canonical show ID, name,
+and date, and each source/show pair must be unique. CSV cells beginning with a
+spreadsheet formula marker are neutralized. Equal-distance name matches on
+multi-event pages are treated as ambiguous rather than selected by input order.
+
 `_scrapers/listing-freshness-phase-2-schedule.yml` is design-only. It has no
 workflow file, no cron, no manual dispatch, and `enabled: false`. No existing
 workflow consumes it. The Phase 2 report validates those conditions before it
-writes a package.
+writes a package, including that every publication control remains exactly
+`false`.
 
 The first live run on 2026-08-31 selected 12 source groups and 23 rows. Five
 rows matched current values, 18 stayed in human review, five known-current
@@ -163,6 +184,13 @@ false proposals and zero automatic actions. The remaining CK Shows baseline is
 fail-closed because its multi-event layout does not preserve a reliable
 name/date association in stripped text. Draft listing updates and schedule
 activation remain premature, and the readiness gate remains false.
+
+The post-hardening run on 2026-09-02 reproduced the Phase 2B result: all 13
+approved paths returned `200`, 15 current values were observed, eight rows
+remained in human review, 11 of 12 baselines matched, all six controlled cases
+passed, and automatic actions remained zero. An implausible `3037` value found
+in source prose was discarded by the candidate-year bound. The readiness gate
+remained false.
 
 ## Patterns confirmed on 2026-07-13
 

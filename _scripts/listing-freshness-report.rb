@@ -97,7 +97,7 @@ def write_csv(path, headers, rows)
     rows.each do |row|
       csv << headers.map do |header|
         value = row.fetch(header.to_sym, '')
-        value.is_a?(Array) ? value.join(';') : value
+        ListingFreshness.safe_csv_cell(value)
       end
     end
     csv.flush

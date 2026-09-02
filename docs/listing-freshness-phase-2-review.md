@@ -2,9 +2,9 @@
 
 ## Decision summary
 
-Phase 2 and its Phase 2B hardening pass are implemented locally as a review-only
-stack on draft PR #84. The result is safer and more accurate, but it is still
-not ready to prepare draft listing updates and it does not authorize a schedule.
+Phase 2 and its Phase 2B hardening pass now use the merged, security-hardened
+Phase 1 foundation. The result remains review-only: it is not ready to prepare
+draft listing updates and it does not authorize a schedule.
 
 The first live bounded run produced:
 
@@ -38,6 +38,13 @@ The Phase 2B rerun improved the same fixed batch without changing a listing:
 All 13 approved source paths returned `200`. The extra path is the second exact
 BuxMont show page. The rerun used one request per exact source/path, at least a
 one-second delay, and followed no redirects.
+
+A post-hardening rerun on 2026-09-02 reproduced the same decision evidence:
+13 of 13 exact approved paths returned `200`, 15 current values were observed,
+eight rows remained in human review, 11 of 12 baselines matched, all six
+controlled outcomes passed, and automatic actions remained zero. The report
+discarded an implausible `3037` source-text candidate under the bounded year
+policy rather than retaining it as possible date evidence.
 
 ## Selected official sources
 
@@ -83,6 +90,13 @@ confidence, conflict reason, and human action. `proposed_value` remains blank
 unless one exact change is supported. The first live run produced no exact
 safe change proposal.
 
+All comparison and package artifacts are direct files under ignored `tmp/`.
+The writers reject path escapes, nested destinations, duplicate paths, input
+collisions, non-regular files, and symbolic links, then replace outputs
+atomically with owner-only permissions. Imported comparison rows must still
+match canonical show ID, name, and date, and duplicate source/show rows abort
+the package. Spreadsheet formula prefixes are neutralized in CSV output.
+
 ## Safety evidence
 
 The controlled cases use synthetic IDs and reserved `.invalid` URLs. They prove
@@ -92,7 +106,16 @@ cancellation evidence still requires review, and a failed source is not treated
 as cancellation.
 
 The inactive schedule design records the requested cadence tiers but contains
-no workflow and no cron. Existing workflows are unchanged.
+no workflow and no cron. Existing workflows are unchanged. Validation requires
+all four publication controls to remain exactly `false`.
+
+Network access is disabled by default when a Phase 2 profile is selected. A live
+manual profile comparison requires `SOURCE_COMPARISON_ALLOW_NETWORK=1`; it then
+enforces a finite delay of at least one second, one request per exact approved
+path, a 2 MiB response limit, no redirect following, and no HTTPS-to-HTTP
+request override. Candidate dates are limited to one year before through five
+years after the classification year. Equal-distance target/peer name matches
+remain unresolved instead of depending on source order.
 
 ## Phase 2B redirect and parser decision
 

@@ -56,6 +56,19 @@ class SourceEntryMatcherTest < Minitest::Test
     )
   end
 
+  def test_rejects_date_equally_close_to_target_and_peer_names
+    source = 'Target Coin Show October 3, 2026  Peer Coin Show'
+
+    refute SourceEntryMatcher.date_associated?(
+      source,
+      'Target Coin Show',
+      ['Peer Coin Show'],
+      'October 3, 2026',
+      2026,
+      max_name_date_distance: 100
+    )
+  end
+
   def test_validates_current_date_against_an_explicit_nth_weekday_rule
     rule = {
       'ordinal' => 4,

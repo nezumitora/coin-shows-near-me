@@ -30,6 +30,13 @@ module ListingFreshness
     value == true || value.to_s.casecmp('true').zero?
   end
 
+  def safe_csv_cell(value, separator: ';')
+    text = value.is_a?(Array) ? value.join(separator) : value.to_s
+    return "'#{text}" if text.match?(/\A(?:[=+\-@]|\t|\r)/)
+
+    text
+  end
+
   def secure_output_path(path, repo_root:)
     root = File.expand_path(repo_root)
     output_root = File.join(root, 'tmp')

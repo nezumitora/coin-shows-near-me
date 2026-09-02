@@ -130,6 +130,15 @@ class ListingFreshnessTest < Minitest::Test
     assert ListingFreshness.validate_unique_comparison_rows!([comparison_row])
   end
 
+  def test_csv_cells_neutralize_spreadsheet_formulas
+    assert_equal "'=HYPERLINK(\"https://example.test\")", ListingFreshness.safe_csv_cell('=HYPERLINK("https://example.test")')
+    assert_equal "'+SUM(1,2)", ListingFreshness.safe_csv_cell('+SUM(1,2)')
+    assert_equal "'-1", ListingFreshness.safe_csv_cell('-1')
+    assert_equal "'@command", ListingFreshness.safe_csv_cell('@command')
+    assert_equal "'\tformula", ListingFreshness.safe_csv_cell("\tformula")
+    assert_equal 'ordinary value', ListingFreshness.safe_csv_cell('ordinary value')
+  end
+
   def test_applies_distance_based_cadence
     within_30 = ListingFreshness.classify(
       show: show('next_date' => 'September 15, 2026'),
@@ -458,6 +467,35 @@ class ListingFreshnessTest < Minitest::Test
     assert schedule.fetch('publication').values.none?
   end
 
+  def test_phase_two_schedule_rejects_enabled_publication
+    schedule = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2-schedule.yml', __dir__))
+    schedule.fetch('publication')['automatic_publish'] = true
+
+    with_test_repo do |repo_root|
+      schedule_path = File.join(repo_root, 'schedule.yml')
+      File.write(schedule_path, YAML.dump(schedule))
+      error = assert_raises(ArgumentError) do
+        ListingFreshnessProfile.load_schedule(
+          path: schedule_path,
+          expected_profile: '_scrapers/listing-freshness-phase-2.yml'
+        )
+      end
+      assert_includes error.message, 'publication controls must all remain disabled'
+    end
+  end
+
+  def test_phase_two_profile_rejects_non_finite_request_delay
+    external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    policy_name = config.fetch('sources').first.fetch('constraints_policy')
+    config.fetch('policies').fetch('constraints').fetch(policy_name)['request_delay_seconds'] = Float::NAN
+
+    error = assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+    assert_includes error.message, 'source constraints are unsafe'
+  end
+
   def test_phase_two_profile_limits_review_overrides_to_exact_same_host_paths
     external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
     profile = ListingFreshnessProfile.load(
@@ -492,6 +530,22 @@ class ListingFreshnessTest < Minitest::Test
     assert_raises(ArgumentError) do
       ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
     end
+  end
+
+  def test_phase_two_profile_rejects_a_request_url_scheme_downgrade
+    external_sources = YAML.load_file(File.expand_path('../_scrapers/external-sources.yml', __dir__))
+    registry_by_key = external_sources.to_h { |source| [source.fetch('key'), source] }
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    source = config.fetch('sources').find do |candidate|
+      registry_by_key.fetch(candidate.fetch('source_key')).fetch('url').start_with?('https://')
+    end
+    registry_url = registry_by_key.fetch(source.fetch('source_key')).fetch('url')
+    source['request_url'] = registry_url.sub(/\Ahttps:/, 'http:')
+
+    error = assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+    assert_includes error.message, 'same-host'
   end
 
   def test_phase_two_profile_rejects_a_recurring_rule_without_an_exact_listing_path
@@ -539,5 +593,12 @@ class ListingFreshnessTest < Minitest::Test
     end
 
     assert_includes error.message, '10-20 sources'
+
+    config = YAML.load_file(File.expand_path('../_scrapers/listing-freshness-phase-2.yml', __dir__))
+    config['minimum_sources'] = 9
+    bounds_error = assert_raises(ArgumentError) do
+      ListingFreshnessProfile.validate(config: config, external_sources: external_sources)
+    end
+    assert_includes bounds_error.message, 'source bounds must remain 10-20'
   end
 end

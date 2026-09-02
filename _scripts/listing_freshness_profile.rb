@@ -31,6 +31,10 @@ module ListingFreshnessProfile
     raise ArgumentError, 'Phase 2 profile version must be 2' unless config.fetch('version') == 2
     raise ArgumentError, 'Phase 2 profile must remain report_only' unless config.fetch('mode') == 'report_only'
     raise ArgumentError, 'Phase 2 automatic_action must remain none' unless config.fetch('automatic_action') == 'none'
+    unless config.fetch('minimum_sources') == SOURCE_COUNT_RANGE.begin &&
+           config.fetch('maximum_sources') == SOURCE_COUNT_RANGE.end
+      raise ArgumentError, 'Phase 2 source bounds must remain 10-20'
+    end
 
     policies = config.fetch('policies')
     sources = config.fetch('sources')
@@ -67,6 +71,15 @@ module ListingFreshnessProfile
     end
     unless schedule.fetch('requires_owner_approval_to_enable') == true
       raise ArgumentError, 'Phase 2 schedule must require owner approval to enable'
+    end
+    expected_publication = {
+      'automatic_listing_changes' => false,
+      'automatic_merge' => false,
+      'automatic_deploy' => false,
+      'automatic_publish' => false
+    }
+    unless schedule.fetch('publication') == expected_publication
+      raise ArgumentError, 'Phase 2 publication controls must all remain disabled'
     end
 
     schedule
@@ -147,20 +160,40 @@ module ListingFreshnessProfile
     redirect = policies.fetch('redirects').fetch(source.fetch('redirect_policy'))
     fail_closed = policies.fetch('fail_closed').fetch(source.fetch('fail_closed_policy'))
 
-    unless check_method.fetch('recurrence_inference') == false && check_method.fetch('cancellation_inference') == false
+    max_distance = check_method.fetch('max_name_date_distance')
+    max_candidates = check_method.fetch('max_date_candidates')
+    unless check_method.fetch('recurrence_inference') == false &&
+           check_method.fetch('cancellation_inference') == false &&
+           max_distance.is_a?(Integer) && max_distance.between?(1, 320) &&
+           max_candidates.is_a?(Integer) && max_candidates.between?(1, 25)
       raise ArgumentError, "Phase 2 inference must remain disabled: #{source_key}"
     end
     raise ArgumentError, "Phase 2 cadence must remain inactive: #{source_key}" unless cadence.fetch('activation') == 'inactive'
-    unless constraints.fetch('copy_page_content') == false &&
+    request_delay = constraints.fetch('request_delay_seconds')
+    valid_delay = request_delay.is_a?(Numeric) && request_delay.respond_to?(:finite?) &&
+                  request_delay.finite? && request_delay >= 1.0
+    unless constraints.fetch('public_event_facts_only') == true &&
+           constraints.fetch('copy_page_content') == false &&
+           constraints.fetch('robots_txt') == 'honor_and_stop_if_disallowed' &&
+           constraints.fetch('terms') == 'honor_and_stop_if_prohibited' &&
+           constraints.fetch('robots_terms_review_before_activation') == 'required' &&
+           valid_delay &&
            constraints.fetch('max_requests_per_source_path_per_run') == 1 &&
            constraints.fetch('credentials') == 'forbidden' &&
            constraints.fetch('forms_and_outreach') == 'forbidden'
       raise ArgumentError, "Phase 2 source constraints are unsafe: #{source_key}"
     end
-    unless redirect.fetch('follow_redirects') == false && redirect.fetch('final_url_requires_manual_reapproval') == true
+    unless redirect.fetch('follow_redirects') == false &&
+           redirect.fetch('record_location_header') == true &&
+           redirect.fetch('final_url_requires_manual_reapproval') == true
       raise ArgumentError, "Phase 2 redirect policy must record and stop: #{source_key}"
     end
-    unless fail_closed.fetch('source_failure_is_cancellation') == false && fail_closed.fetch('automatic_action') == 'none'
+    unless fail_closed.fetch('non_2xx') == 'source_availability_review' &&
+           fail_closed.fetch('blocked_or_rate_limited') == 'source_availability_review' &&
+           fail_closed.fetch('missing_name_or_date') == 'insufficient_evidence' &&
+           fail_closed.fetch('multiple_dates') == 'manual_event_association' &&
+           fail_closed.fetch('source_failure_is_cancellation') == false &&
+           fail_closed.fetch('automatic_action') == 'none'
       raise ArgumentError, "Phase 2 fail-closed policy is unsafe: #{source_key}"
     end
   end
@@ -220,8 +253,11 @@ module ListingFreshnessProfile
     registry_uri = URI.parse(registry_url.to_s)
     valid_scheme = %w[http https].include?(request_uri.scheme)
     same_host = normalized_host(request_uri.host) == normalized_host(registry_uri.host)
+    no_scheme_downgrade = request_uri.scheme == registry_uri.scheme ||
+                          (registry_uri.scheme == 'http' && request_uri.scheme == 'https')
     default_port = request_uri.scheme == 'https' ? 443 : 80
-    return if valid_scheme && request_uri.host && same_host && request_uri.port == default_port &&
+    return if valid_scheme && request_uri.host && same_host && no_scheme_downgrade &&
+              request_uri.port == default_port &&
               request_uri.userinfo.nil? && request_uri.fragment.nil?
 
     raise ArgumentError, "Phase 2 request URL must be an approved same-host HTTP(S) URL: #{source_key}"
