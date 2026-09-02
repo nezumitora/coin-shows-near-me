@@ -1,0 +1,55 @@
+# Manual quality baseline for the first report-only listing-freshness phase.
+#
+# These source keys already exist in `_scrapers/external-sources.yml`. The
+# baseline records the expected outcome after a person checked the approved
+# public source on 2026-08-30. It does not authorize a listing edit.
+
+version: 1
+reviewed_at: '2026-08-30'
+sources:
+  - source_key: pacific-expos-north-county
+    rationale: Exact organizer date page for one recurring show.
+    expectations:
+      north-county-monthly-coin-show: current_match
+
+  - source_key: rocky-mountain-expos
+    rationale: Exact promoter page naming the event and current date range.
+    expectations:
+      denver-coin-expo: current_match
+
+# Synthetic fixtures exercise safety behavior without representing real events,
+# fetching a URL, entering the live risk queue, or authorizing a data change.
+controlled_cases:
+  - case_id: controlled-confirmed-date-change
+    scenario: confirmed_date_change
+    source_key: controlled-confirmed-date-change
+    show_id: controlled-date-change-show
+    show_name: Controlled Date Change Show
+    source_type: controlled-fixture
+    source_url: https://listing-freshness.invalid/confirmed-date-change
+    fetched_at: '2026-08-30T15:00:00Z'
+    current_next_date: October 15, 2026
+    fetch_status: '200'
+    fetch_detail: Controlled successful response
+    name_found: true
+    current_date_found: false
+    candidate_dates: November 1, 2026
+    expected_outcome: candidate_change
+    confirmation_basis: Manually fixed expected result for the synthetic fixture.
+
+  - case_id: controlled-source-failure
+    scenario: source_failure
+    source_key: controlled-source-failure
+    show_id: controlled-source-failure-show
+    show_name: Controlled Source Failure Show
+    source_type: controlled-fixture
+    source_url: https://listing-freshness.invalid/source-failure
+    fetched_at: '2026-08-30T15:01:00Z'
+    current_next_date: November 15, 2026
+    fetch_status: '503'
+    fetch_detail: Controlled service unavailable response
+    name_found: false
+    current_date_found: false
+    candidate_dates: ''
+    expected_outcome: source_unavailable
+    confirmation_basis: Manually fixed expected result for the synthetic fixture.

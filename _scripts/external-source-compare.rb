@@ -90,6 +90,7 @@ source_summaries = []
 
 sources.each do |source|
   status, detail, text = fetch_text(source.fetch('url'))
+  fetched_at = Time.now.utc.iso8601
   candidates = date_candidates(text)
   source_text = normalized(text)
   missing_configured_ids = []
@@ -99,7 +100,7 @@ sources.each do |source|
     show = shows_by_id[show_id]
     unless show
       missing_configured_ids << show_id
-      rows << [source.fetch('key'), show_id, '', '', status, detail, 'missing_local_listing', false, false, candidates.join('; ')]
+      rows << [source.fetch('key'), source.fetch('source_type'), source.fetch('url'), fetched_at, show_id, '', '', status, detail, 'missing_local_listing', false, false, candidates.join('; ')]
       next
     end
 
@@ -119,7 +120,7 @@ sources.each do |source|
                       'show_name_not_found'
                     end
 
-    rows << [source.fetch('key'), show_id, show_name, show_date, status, detail, review_status, name_found, date_found, candidates.join('; ')]
+    rows << [source.fetch('key'), source.fetch('source_type'), source.fetch('url'), fetched_at, show_id, show_name, show_date, status, detail, review_status, name_found, date_found, candidates.join('; ')]
   end
 
   source_summaries << {
@@ -139,7 +140,7 @@ end
 FileUtils.mkdir_p(File.dirname(REPORT_PATH))
 
 CSV.open(CSV_PATH, 'w') do |csv|
-  csv << %w[source_key show_id show_name current_next_date fetch_status fetch_detail review_status name_found current_date_found candidate_dates]
+  csv << %w[source_key source_type source_url fetched_at show_id show_name current_next_date fetch_status fetch_detail review_status name_found current_date_found candidate_dates]
   rows.each { |row| csv << row }
 end
 
@@ -185,7 +186,7 @@ File.write(REPORT_PATH, <<~MD)
 
   | Source | Show | Current date | Status | Name found | Current date found | Candidate dates on source |
   |---|---|---|---|---:|---:|---|
-  #{rows.map { |source_key, show_id, show_name, show_date, _fetch_status, _fetch_detail, review_status, name_found, date_found, candidates| "| #{source_key} | #{show_name.empty? ? show_id : show_name} | #{show_date} | #{review_status} | #{name_found} | #{date_found} | #{candidates} |" }.join("\n")}
+  #{rows.map { |source_key, _source_type, _source_url, _fetched_at, show_id, show_name, show_date, _fetch_status, _fetch_detail, review_status, name_found, date_found, candidates| "| #{source_key} | #{show_name.empty? ? show_id : show_name} | #{show_date} | #{review_status} | #{name_found} | #{date_found} | #{candidates} |" }.join("\n")}
 
   ## Next human-review actions
 
