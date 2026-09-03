@@ -8,8 +8,11 @@
 require 'csv'
 require 'cgi'
 require 'date'
+require 'json'
 require 'net/http'
+require 'securerandom'
 require 'time'
+require 'timeout'
 require 'uri'
 require 'yaml'
 require_relative 'listing_freshness'
@@ -26,6 +29,7 @@ OUTPUT_PATHS = begin
     [
       'tmp/external-source-comparison.md',
       'tmp/external-source-comparison.csv',
+      'tmp/external-source-comparison-manifest.json',
       'tmp/external-source-coverage-queue.csv'
     ],
     repo_root: REPO_ROOT,
@@ -34,8 +38,9 @@ OUTPUT_PATHS = begin
 rescue ArgumentError => e
   abort e.message
 end.freeze
-REPORT_PATH, CSV_PATH, QUEUE_CSV_PATH = OUTPUT_PATHS
+REPORT_PATH, CSV_PATH, MANIFEST_PATH, QUEUE_CSV_PATH = OUTPUT_PATHS
 REQUEST_TIMEOUT = 12
+REQUEST_TOTAL_TIMEOUT = 20
 REQUEST_DELAY_SECONDS = begin
   delay = Float(ENV.fetch('REQUEST_DELAY_SECONDS', '1.0'))
   abort 'REQUEST_DELAY_SECONDS must be a finite non-negative number' unless delay.finite? && delay >= 0
@@ -55,17 +60,7 @@ end
 CANDIDATE_YEAR_RANGE = ((COMPARISON_AS_OF.year - 1)..(COMPARISON_AS_OF.year + 5))
 MAX_RESPONSE_BYTES = 2 * 1024 * 1024
 ResponseTooLargeError = Class.new(StandardError)
-
-DATE_PATTERNS = [
-  /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z.]*\s+\d{1,2}(?:st|nd|rd|th)?(?:(?:\s*[-–—]\s*|\s+(?:and|to|through)\s+)\d{1,2}(?:st|nd|rd|th)?)?,?\s+\d{4}\b/i,
-  /\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/,
-  /\b\d{4}-\d{2}-\d{2}\b/
-].freeze
-SOURCE_ROW_HEADERS = %w[
-  source_key source_type source_url request_url fetched_at show_id show_name current_next_date
-  fetch_status fetch_detail redirect_target review_status name_found current_date_found match_basis
-  candidate_dates cancellation_evidence
-].freeze
+SOURCE_ROW_HEADERS = ListingFreshness::COMPARISON_ROW_HEADERS
 
 def bounded_response_body(response)
   body = String.new
@@ -87,12 +82,17 @@ def fetch_text(url)
 
   response = nil
   body = nil
-  Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https', open_timeout: REQUEST_TIMEOUT, read_timeout: REQUEST_TIMEOUT) do |http|
-    request = Net::HTTP::Get.new(uri)
-    request['User-Agent'] = 'CoinShowsNearMeBot/0.1 (+https://coinshownearme.com/contact/) report-only show accuracy check'
-    http.request(request) do |http_response|
-      response = http_response
-      body = bounded_response_body(http_response)
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = uri.scheme == 'https'
+  ListingFreshness.configure_http_client(http, timeout: REQUEST_TIMEOUT)
+  Timeout.timeout(REQUEST_TOTAL_TIMEOUT) do
+    http.start do |client|
+      request = Net::HTTP::Get.new(uri)
+      request['User-Agent'] = 'CoinShowsNearMeBot/0.1 (+https://coinshownearme.com/contact/) report-only show accuracy check'
+      client.request(request) do |http_response|
+        response = http_response
+        body = bounded_response_body(http_response)
+      end
     end
   end
 
@@ -125,18 +125,8 @@ def normalized(value)
   value.to_s.downcase.gsub(/[^a-z0-9]+/, ' ').strip
 end
 
-def date_candidates(text)
-  DATE_PATTERNS.flat_map { |pattern| text.scan(pattern) }
-               .map { |date| date.is_a?(Array) ? date.first : date }
-               .uniq
-               .select do |date|
-                 SourceDateMatcher.year_within?(
-                   date,
-                   min_year: CANDIDATE_YEAR_RANGE.begin,
-                   max_year: CANDIDATE_YEAR_RANGE.end
-                 )
-               end
-               .first(25)
+def markdown(value)
+  ListingFreshness.safe_markdown_cell(value)
 end
 
 all_sources = YAML.load_file(CONFIG_PATH)
@@ -171,7 +161,8 @@ end
 approved_but_unconfigured_ids = approved_but_unconfigured_rows.map { |row| row.fetch(:show_id) }.uniq
 coverage_queue_by_url = approved_but_unconfigured_rows.group_by { |row| row.fetch(:source_url) }
 uncovered_show_ids = shows_by_id.keys - approved_source_show_ids
-generated_at = Time.now.utc.iso8601
+run_id = SecureRandom.uuid
+run_started_at = Time.now.utc.iso8601
 rows = []
 source_summaries = []
 
@@ -208,7 +199,11 @@ resolved_sources.each do |resolved_source|
 
     status, detail, text, redirect_target = fetch_text(request_url)
     fetched_at = Time.now.utc.iso8601
-    candidates = date_candidates(text)
+    candidates = SourceDateMatcher.extract_candidates(
+      text,
+      min_year: CANDIDATE_YEAR_RANGE.begin,
+      max_year: CANDIDATE_YEAR_RANGE.end
+    )
     missing_configured_ids = []
     peer_shows = show_ids.map { |show_id| shows_by_id[show_id] }.compact
     peer_names = peer_shows.map { |show| show.fetch('name') }
@@ -226,6 +221,7 @@ resolved_sources.each do |resolved_source|
       unless show
         missing_configured_ids << show_id
         rows << {
+          'comparison_run_id' => run_id,
           'source_key' => source.fetch('key'),
           'source_type' => source.fetch('source_type'),
           'source_url' => source.fetch('url'),
@@ -241,7 +237,8 @@ resolved_sources.each do |resolved_source|
           'name_found' => false,
           'current_date_found' => false,
           'match_basis' => '',
-          'candidate_dates' => candidates.join('; '),
+          'candidate_dates' => '',
+          'candidate_match_basis' => '',
           'cancellation_evidence' => false
         }
         next
@@ -252,6 +249,7 @@ resolved_sources.each do |resolved_source|
       listing_rule = source_profile ? ListingFreshnessProfile.listing_rule(source: resolved_source, show_id: show_id) : {}
       aliases = Array(listing_rule['aliases'])
       calendar_year = listing_rule.fetch('calendar_year', source['calendar_year'])
+      max_name_date_distance = listing_rule.fetch('max_name_date_distance', SourceEntryMatcher::MAX_NAME_DATE_DISTANCE)
       name_found = SourceEntryMatcher.name_found?(text, [show_name] + aliases)
       exact_date_found = SourceEntryMatcher.date_associated?(
         text,
@@ -261,7 +259,7 @@ resolved_sources.each do |resolved_source|
         calendar_year,
         target_aliases: aliases,
         peer_aliases: peer_aliases,
-        max_name_date_distance: listing_rule.fetch('max_name_date_distance', SourceEntryMatcher::MAX_NAME_DATE_DISTANCE)
+        max_name_date_distance: max_name_date_distance
       )
       if !exact_date_found && listing_rule['exact_date_anywhere_on_page'] && name_found
         exact_date_found = SourceDateMatcher.found?(text, show_date, calendar_year)
@@ -283,6 +281,27 @@ resolved_sources.each do |resolved_source|
                     else
                       ''
                     end
+      associated_candidates = if listing_rule['exact_date_anywhere_on_page'] && name_found
+                                candidates
+                              else
+                                associated_raw_values = SourceEntryMatcher.associated_date_texts(
+                                  text,
+                                  show_name,
+                                  peer_names,
+                                  candidates.map { |candidate| candidate.fetch(:raw) },
+                                  target_aliases: aliases,
+                                  peer_aliases: peer_aliases,
+                                  max_name_date_distance: max_name_date_distance
+                                )
+                                candidates.select { |candidate| associated_raw_values.include?(candidate.fetch(:raw)) }
+                              end
+      candidate_match_basis = if associated_candidates.empty?
+                                ''
+                              elsif listing_rule['exact_date_anywhere_on_page']
+                                'exact_single_event_page'
+                              else
+                                'literal_name_proximity'
+                              end
       review_status = if status == 'dry_run'
                         'not_fetched_dry_run'
                       elsif !status.match?(/\A2\d\d\z/)
@@ -296,6 +315,7 @@ resolved_sources.each do |resolved_source|
                       end
 
       rows << {
+        'comparison_run_id' => run_id,
         'source_key' => source.fetch('key'),
         'source_type' => source.fetch('source_type'),
         'source_url' => source.fetch('url'),
@@ -311,7 +331,8 @@ resolved_sources.each do |resolved_source|
         'name_found' => name_found,
         'current_date_found' => date_found,
         'match_basis' => match_basis,
-        'candidate_dates' => candidates.join('; '),
+        'candidate_dates' => associated_candidates.map { |candidate| candidate.fetch(:value) }.join('; '),
+        'candidate_match_basis' => candidate_match_basis,
         'cancellation_evidence' => false
       }
     end
@@ -326,7 +347,7 @@ resolved_sources.each do |resolved_source|
       redirect_target: redirect_target,
       expected_count: show_ids.length,
       missing_configured_ids: missing_configured_ids,
-      candidate_dates: candidates
+      candidate_dates: candidates.map { |candidate| candidate.fetch(:value) }
     }
 
     sleep REQUEST_DELAY_SECONDS if !DRY_RUN && REQUEST_DELAY_SECONDS.positive?
@@ -356,11 +377,38 @@ ListingFreshness.write_secure_output(QUEUE_CSV_PATH, repo_root: REPO_ROOT) do |f
   csv.flush
 end
 
+run_completed_at = Time.now.utc.iso8601
+manifest = {
+  schema_version: ListingFreshness::COMPARISON_MANIFEST_SCHEMA_VERSION,
+  run_id: run_id,
+  started_at: run_started_at,
+  completed_at: run_completed_at,
+  as_of: COMPARISON_AS_OF.iso8601,
+  profile_path: PROFILE_PATH.empty? ? '' : ListingFreshness.repo_relative_path(PROFILE_PATH, repo_root: REPO_ROOT),
+  input_sha256: {
+    external_sources: ListingFreshness.file_sha256(File.expand_path(CONFIG_PATH, REPO_ROOT)),
+    profile: PROFILE_PATH.empty? ? '' : ListingFreshness.file_sha256(File.expand_path(PROFILE_PATH, REPO_ROOT)),
+    shows: ListingFreshness.file_sha256(File.expand_path(SHOWS_PATH, REPO_ROOT))
+  },
+  comparison_sha256: ListingFreshness.file_sha256(CSV_PATH),
+  comparison_row_count: rows.length,
+  source_path_count: source_summaries.length,
+  request_count: DRY_RUN ? 0 : source_summaries.length,
+  dry_run: DRY_RUN
+}
+ListingFreshness.write_secure_output(MANIFEST_PATH, repo_root: REPO_ROOT) do |file|
+  file.write(JSON.pretty_generate(manifest))
+  file.write("\n")
+end
+
 report = <<~MD
   # External source comparison report
 
-  Generated: #{generated_at}
-  Source profile: #{PROFILE_PATH.empty? ? 'full approved comparison registry' : "`#{File.basename(PROFILE_PATH)}`"}
+  Run ID: #{markdown(run_id)}
+  Started: #{markdown(run_started_at)}
+  Completed: #{markdown(run_completed_at)}
+  Classification date: #{markdown(COMPARISON_AS_OF.iso8601)}
+  Source profile: #{PROFILE_PATH.empty? ? 'full approved comparison registry' : markdown(File.basename(PROFILE_PATH))}
 
   Report-only. This does not change `_data/shows.yml`, publish pages, submit forms, send emails, or send SMS.
 
@@ -380,19 +428,19 @@ report = <<~MD
 
   Only the hand-reviewed source registry and exact same-host request paths approved in the Phase 2 profile are fetched. Existing canonical `source_url` or `website` values accepted by `ShowSourcePolicy` are written to `tmp/#{File.basename(QUEUE_CSV_PATH)}` for small-batch review; they are not fetched automatically and do not create or verify listings.
 
-  #{uncovered_show_ids.empty? ? '' : "Uncovered listing IDs: `#{uncovered_show_ids.sort.join('`, `')}`"}
+  #{uncovered_show_ids.empty? ? '' : "Uncovered listing IDs: #{uncovered_show_ids.sort.map { |show_id| markdown(show_id) }.join(', ')}"}
 
   ## Sources checked
 
   | Source | Status | Redirect recorded | Listings checked | Registry URL | Requested URL |
   |---|---:|---|---:|---|---|
-  #{source_summaries.map { |source| "| #{source[:name]} | #{source[:status]} #{source[:detail]} | #{source[:redirect_target]} | #{source[:expected_count]} | #{source[:url]} | #{source[:request_url]} |" }.join("\n")}
+  #{source_summaries.map { |source| "| #{markdown(source[:name])} | #{markdown("#{source[:status]} #{source[:detail]}")} | #{markdown(source[:redirect_target])} | #{source[:expected_count]} | #{markdown(source[:url])} | #{markdown(source[:request_url])} |" }.join("\n")}
 
   ## Review rows
 
   | Source | Show | Current date | Status | Name found | Current date found | Match basis | Candidate dates on source |
   |---|---|---|---|---:|---:|---|---|
-  #{rows.map { |row| "| #{row.fetch('source_key')} | #{row.fetch('show_name').empty? ? row.fetch('show_id') : row.fetch('show_name')} | #{row.fetch('current_next_date')} | #{row.fetch('review_status')} | #{row.fetch('name_found')} | #{row.fetch('current_date_found')} | #{row.fetch('match_basis')} | #{row.fetch('candidate_dates')} |" }.join("\n")}
+  #{rows.map { |row| "| #{markdown(row.fetch('source_key'))} | #{markdown(row.fetch('show_name').empty? ? row.fetch('show_id') : row.fetch('show_name'))} | #{markdown(row.fetch('current_next_date'))} | #{markdown(row.fetch('review_status'))} | #{row.fetch('name_found')} | #{row.fetch('current_date_found')} | #{markdown(row.fetch('match_basis'))} | #{markdown(row.fetch('candidate_dates'))} |" }.join("\n")}
 
   ## Next human-review actions
 
@@ -405,5 +453,6 @@ ListingFreshness.write_secure_output(REPORT_PATH, repo_root: REPO_ROOT) { |file|
 
 puts "Wrote tmp/#{File.basename(REPORT_PATH)}"
 puts "Wrote tmp/#{File.basename(CSV_PATH)}"
+puts "Wrote tmp/#{File.basename(MANIFEST_PATH)}"
 puts "Wrote tmp/#{File.basename(QUEUE_CSV_PATH)}"
 puts "Report-only comparison rows=#{rows.length} sources=#{sources.length} source_paths=#{source_summaries.length}"

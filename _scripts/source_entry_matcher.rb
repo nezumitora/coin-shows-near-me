@@ -27,11 +27,39 @@ module SourceEntryMatcher
   def date_associated_for_names?(source_text, target_names, peer_name_groups, current_date_text, calendar_year = nil,
                                  max_name_date_distance = MAX_NAME_DATE_DISTANCE)
     target_names = literal_names(target_names)
-    target_positions = target_names.flat_map { |name| phrase_positions(source_text, name) }
-    return false if target_positions.empty?
-
     dated_positions = SourceDateMatcher.match_positions(source_text, current_date_text, calendar_year)
-    return false if dated_positions.empty?
+    date_positions_associated_for_names?(
+      source_text,
+      target_names,
+      peer_name_groups,
+      dated_positions,
+      max_name_date_distance
+    )
+  end
+
+  def associated_date_texts(source_text, target_name, peer_names, date_texts, target_aliases: [], peer_aliases: {},
+                            max_name_date_distance: MAX_NAME_DATE_DISTANCE)
+    target_names = literal_names([target_name] + Array(target_aliases))
+    peer_name_groups = Array(peer_names).map do |peer_name|
+      literal_names([peer_name] + Array(peer_aliases[peer_name]))
+    end.reject { |peer_group| !(peer_group & target_names).empty? }
+
+    Array(date_texts).select do |date_text|
+      dated_positions = phrase_positions(source_text, date_text)
+      date_positions_associated_for_names?(
+        source_text,
+        target_names,
+        peer_name_groups,
+        dated_positions,
+        max_name_date_distance
+      )
+    end
+  end
+
+  def date_positions_associated_for_names?(source_text, target_names, peer_name_groups, dated_positions,
+                                           max_name_date_distance)
+    target_positions = target_names.flat_map { |name| phrase_positions(source_text, name) }
+    return false if target_positions.empty? || dated_positions.empty?
 
     named_positions = target_names.flat_map do |name|
       phrase_positions(source_text, name).map { |position| [:target, position] }

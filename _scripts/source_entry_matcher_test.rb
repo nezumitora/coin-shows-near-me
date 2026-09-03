@@ -69,6 +69,33 @@ class SourceEntryMatcherTest < Minitest::Test
     )
   end
 
+  def test_candidate_dates_are_retained_only_for_the_nearest_show
+    source = 'Target Coin Show November 1, 2026. Peer Coin Show December 9, 2026.'
+    candidates = ['November 1, 2026', 'December 9, 2026']
+
+    associated = SourceEntryMatcher.associated_date_texts(
+      source,
+      'Target Coin Show',
+      ['Peer Coin Show'],
+      candidates
+    )
+
+    assert_equal ['November 1, 2026'], associated
+  end
+
+  def test_candidate_date_without_target_association_is_rejected
+    source = 'Target Coin Show information. Peer Coin Show December 9, 2026.'
+
+    associated = SourceEntryMatcher.associated_date_texts(
+      source,
+      'Target Coin Show',
+      ['Peer Coin Show'],
+      ['December 9, 2026']
+    )
+
+    assert_empty associated
+  end
+
   def test_validates_current_date_against_an_explicit_nth_weekday_rule
     rule = {
       'ordinal' => 4,

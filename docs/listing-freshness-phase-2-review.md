@@ -71,6 +71,7 @@ third-party directory as authority.
 
 After the bounded comparison and report commands run, inspect:
 
+- `tmp/external-source-comparison-manifest.json`
 - `tmp/listing-freshness-phase-2-draft.md`
 - `tmp/listing-freshness-phase-2-draft.csv`
 - `tmp/listing-freshness-phase-2-quality.csv`
@@ -84,18 +85,23 @@ The before/after package for the hardening pass is written with the
 `listing-freshness-phase-2b-before` and `listing-freshness-phase-2b-after`
 prefixes under `tmp/`.
 
-The full facts CSV preserves the canonical current value, any source-observed
-current value, raw candidate dates, fetch status/time, redirect target,
-confidence, conflict reason, and human action. `proposed_value` remains blank
-unless one exact change is supported. The first live run produced no exact
-safe change proposal.
+The full facts CSV preserves the comparison run ID, canonical current value,
+any source-observed current value, normalized event-associated candidate dates,
+candidate association basis, transport security, fetch status/time, redirect
+target, confidence, conflict reason, and human action. `proposed_value` remains
+blank unless one exact change is supported. The first live run produced no
+exact safe change proposal.
 
 All comparison and package artifacts are direct files under ignored `tmp/`.
 The writers reject path escapes, nested destinations, duplicate paths, input
 collisions, non-regular files, and symbolic links, then replace outputs
 atomically with owner-only permissions. Imported comparison rows must still
 match canonical show ID, name, and date, and duplicate source/show rows abort
-the package. Spreadsheet formula prefixes are neutralized in CSV output.
+the package. A fresh sidecar manifest must bind every row to one run and match
+the current profile, source registry, canonical shows, and CSV digests. Evidence
+older than 24 hours, from the future, outside the run window, from mixed runs,
+or classified for another report date is rejected. Spreadsheet formula prefixes
+are neutralized in CSV output, and external values are escaped for Markdown.
 
 ## Safety evidence
 
@@ -112,10 +118,32 @@ all four publication controls to remain exactly `false`.
 Network access is disabled by default when a Phase 2 profile is selected. A live
 manual profile comparison requires `SOURCE_COMPARISON_ALLOW_NETWORK=1`; it then
 enforces a finite delay of at least one second, one request per exact approved
-path, a 2 MiB response limit, no redirect following, and no HTTPS-to-HTTP
-request override. Candidate dates are limited to one year before through five
-years after the classification year. Equal-distance target/peer name matches
+path with automatic retries disabled, a 12-second operation timeout, a
+20-second total deadline, a 2 MiB response limit, no redirect following, and no
+HTTPS-to-HTTP request override. Plaintext HTTP evidence cannot produce an exact
+proposed value or satisfy readiness. Candidate dates require strict
+four-digit-year parsing, a valid range of at most 31 days, and unique proximity
+to the target show or an approved alias. Equal-distance target/peer name matches
 remain unresolved instead of depending on source order.
+
+## Merge-review hardening
+
+The 2026-09-03 merge review found that page-wide candidates, detached or stale
+CSV rows, default HTTP retries, and ambiguous date parsing could overstate the
+safety of a later draft-update phase. The hardening pass now:
+
+- retains candidate dates only with target-event association;
+- requires a fresh, digest-bound, single-run comparison manifest;
+- checks every manual expectation in the readiness decision;
+- disables retries and applies a total request deadline;
+- normalizes only strict valid four-digit-year dates;
+- excludes plaintext HTTP evidence from exact proposals and readiness; and
+- escapes external values before writing Markdown tables.
+
+No additional source-page request was made for this hardening pass. A forced
+dry run exercised all 23 selected rows and six controlled scenarios with zero
+automatic actions and readiness still false. The earlier live metrics above
+remain dated historical evidence rather than a post-fix network rerun.
 
 ## Phase 2B redirect and parser decision
 

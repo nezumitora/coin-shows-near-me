@@ -117,29 +117,44 @@ LISTING_FRESHNESS_AS_OF=2026-08-31 \
   ruby _scripts/listing-freshness-phase-2-report.rb
 ```
 
-The package writes five ignored artifacts under `tmp/`: a Markdown review,
-full current-versus-proposed facts, live/controlled quality measurements, the
-prioritized selected-listing queue, and duplicate evidence. Live official
-source observations are labeled separately from six synthetic safety cases:
-date change, redirect, duplicate, partial date, explicit cancellation evidence,
-and source failure.
+The comparison writes a CSV plus a fresh run manifest under ignored `tmp/`.
+The manifest binds the CSV to one run ID, its start and completion times, the
+classification date, and SHA-256 digests of the profile, source registry,
+canonical shows, and comparison CSV. The package then writes five ignored
+artifacts: a Markdown review, full current-versus-proposed facts,
+live/controlled quality measurements, the prioritized selected-listing queue,
+and duplicate evidence. Live official source observations are labeled
+separately from six synthetic safety cases: date change, redirect, duplicate,
+partial date, explicit cancellation evidence, and source failure.
 
 Network access is off by default when a Phase 2 profile is selected and must be
 enabled explicitly for a bounded manual profile run. The comparison rejects
 non-finite or negative delays, enforces the profile's one-second minimum, limits
-each response body to 2 MiB, makes at most one request per exact approved source
+each response body to 2 MiB, disables automatic HTTP retries, applies a
+20-second total deadline, makes at most one request per exact approved source
 path, and follows no redirects. HTTPS registry URLs cannot be downgraded to
-HTTP. Extracted candidate years are limited to one year before through five
-years after the classification year, so implausible source text cannot become a
-proposed date.
+HTTP. Plaintext HTTP observations remain manual evidence only: they cannot
+produce an exact proposed value or pass readiness.
+
+Candidate extraction accepts only strict four-digit-year date formats, rejects
+invalid or overlong ranges and ambiguous two-digit years, normalizes accepted
+values to canonical show-date wording, and limits years to one year before
+through five years after the classification year. A candidate is retained for
+a listing only when its literal occurrence is uniquely nearest to that show or
+an approved alias. Whole-page candidates require an exact path explicitly
+validated as a single-event page.
 
 The comparison and Phase 2 package use the same fail-closed direct-`tmp/`
 output sandbox as Phase 1: destinations must be unique regular files, symbolic
 links and input collisions are rejected, and writes are atomic with owner-only
 permissions. Imported comparison rows must retain the canonical show ID, name,
-and date, and each source/show pair must be unique. CSV cells beginning with a
-spreadsheet formula marker are neutralized. Equal-distance name matches on
-multi-event pages are treated as ambiguous rather than selected by input order.
+and date, and each source/show pair must be unique. The Phase 2 package rejects
+missing, mixed-run, altered, future-dated, or more-than-24-hour-old comparison
+evidence and verifies every input and CSV digest from the manifest. CSV cells
+beginning with a spreadsheet formula marker are neutralized, and untrusted
+values are escaped before entering Markdown tables. Equal-distance name matches
+on multi-event pages are treated as ambiguous rather than selected by input
+order.
 
 `_scrapers/listing-freshness-phase-2-schedule.yml` is design-only. It has no
 workflow file, no cron, no manual dispatch, and `enabled: false`. No existing
@@ -191,6 +206,13 @@ remained in human review, 11 of 12 baselines matched, all six controlled cases
 passed, and automatic actions remained zero. An implausible `3037` value found
 in source prose was discarded by the candidate-year bound. The readiness gate
 remained false.
+
+The 2026-09-03 merge-review hardening made no additional source-page requests.
+A forced network-disabled run verified the new 23-row manifest-bound pipeline,
+all six controlled cases, zero automatic actions, and a false readiness result.
+Readiness now also requires a fresh live run classified on its completion day,
+secure HTTPS transport for every selected path, agreement with every manual
+expectation, and no unresolved source facts.
 
 ## Patterns confirmed on 2026-07-13
 
