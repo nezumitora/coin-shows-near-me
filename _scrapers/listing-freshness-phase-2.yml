@@ -1,0 +1,339 @@
+# Bounded Phase 2 profile built on the merged review-only listing freshness MVP.
+#
+# Source URLs and source types remain authoritative in external-sources.yml.
+# This profile selects a small reviewed batch and records how each source must
+# be checked. It cannot edit listings, publish pages, or activate a schedule.
+
+version: 2
+mode: report_only
+automatic_action: none
+minimum_sources: 10
+maximum_sources: 20
+
+policies:
+  check_methods:
+    generic_text_name_and_date_proximity_v1:
+      behavior: Strip scripts, styles, and HTML; find configured show names and nearby explicit date strings.
+      max_name_date_distance: 160
+      max_date_candidates: 25
+      recurrence_inference: false
+      cancellation_inference: false
+    literal_name_and_explicit_recurrence_validation_v1:
+      behavior: On an exact per-listing official page, require a configured literal show name and validate the canonical date against an explicit nth-weekday statement without generating dates.
+      max_name_date_distance: 160
+      max_date_candidates: 25
+      recurrence_inference: false
+      cancellation_inference: false
+  cadence_policies:
+    event_relative_inactive_v1:
+      within_30_days: every_2_to_3_days
+      days_31_to_90: weekly
+      over_90_days: monthly
+      past: weekly_stale_queue
+      tbd_or_partial: monthly_unconfirmed_queue
+      activation: inactive
+  constraints:
+    approved_public_report_only_v1:
+      public_event_facts_only: true
+      copy_page_content: false
+      robots_txt: honor_and_stop_if_disallowed
+      terms: honor_and_stop_if_prohibited
+      robots_terms_review_before_activation: required
+      request_delay_seconds: 1.0
+      max_requests_per_source_path_per_run: 1
+      credentials: forbidden
+      forms_and_outreach: forbidden
+  redirects:
+    record_and_stop_v1:
+      follow_redirects: false
+      record_location_header: true
+      final_url_requires_manual_reapproval: true
+  fail_closed:
+    source_evidence_only_v1:
+      non_2xx: source_availability_review
+      blocked_or_rate_limited: source_availability_review
+      missing_name_or_date: insufficient_evidence
+      multiple_dates: manual_event_association
+      source_failure_is_cancellation: false
+      automatic_action: none
+
+sources:
+  - source_key: pacific-expos-north-county
+    covered_show_ids:
+      - north-county-monthly-coin-show
+    source_tier: tier_1_primary
+    authority_basis: Exact official organizer date page already recorded on the canonical listing.
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: single_event_multiple_dates
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      north-county-monthly-coin-show: current_match
+
+  - source_key: rocky-mountain-expos
+    covered_show_ids:
+      - denver-coin-expo
+    source_tier: tier_1_primary
+    authority_basis: Official promoter page with exact current and future Denver show windows.
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: single_event_multiple_dates
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      denver-coin-expo: current_match
+
+  - source_key: vna-calendar
+    covered_show_ids:
+      - vna-convention-coin-show
+      - salemroanoke-valley-coin-show
+      - vienna-quarterly-coin-stamp-show
+    source_tier: tier_2_official_organization
+    authority_basis: Official Virginia Numismatic Association state calendar; its reviewed same-host HTTPS redirect target returned 200 on 2026-08-31.
+    request_url: https://vnaonline.org/2026-calendar/
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: multi_event_calendar
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      vna-convention-coin-show: current_match
+    listing_rules:
+      vna-convention-coin-show:
+        aliases:
+          - Virginia Numismatic Association (VNA) 67th Annual Convention, Coin & Currency Show
+      salemroanoke-valley-coin-show:
+        aliases:
+          - Salem/Roanoke Valley Coin Club Show
+      vienna-quarterly-coin-stamp-show:
+        aliases:
+          - Vienna Coin & Stamp Show
+
+  - source_key: numismatists-of-wisconsin-calendar
+    covered_show_ids:
+      - chippewa-valley-coin-club-cvcc-coin-show
+      - milwaukee-numismatic-society-show
+      - numismatists-of-wisconsin-annual-show
+    source_tier: tier_2_official_organization
+    authority_basis: Official Numismatists of Wisconsin regional show calendar.
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: multi_event_calendar
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      numismatists-of-wisconsin-annual-show: current_match
+    listing_rules:
+      chippewa-valley-coin-club-cvcc-coin-show:
+        aliases:
+          - Chippewa Valley Coin Club Show
+      milwaukee-numismatic-society-show:
+        aliases:
+          - Milwaukee Numismatic Society Coin Show
+      numismatists-of-wisconsin-annual-show:
+        aliases:
+          - Numismatists of Wisconsin (NOW)
+
+  - source_key: cona-events
+    covered_show_ids:
+      - ohio-state-coin-show
+      - 3rd-sunday-columbus-coin-show
+      - greenhills-classic-coin-stamp-show
+    source_tier: tier_2_official_organization
+    authority_basis: Official Central Ohio Numismatic Association event source; its reviewed same-host non-www target returned 200 on 2026-08-31.
+    request_url: http://conacoinclub.com/
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: multi_event_calendar
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      ohio-state-coin-show: current_match
+    listing_rules:
+      3rd-sunday-columbus-coin-show:
+        aliases:
+          - Columbus Coin Show
+      greenhills-classic-coin-stamp-show:
+        aliases:
+          - Greenhills Classic Stamp and Coin Show
+
+  - source_key: buxmont-coin-shows
+    covered_show_ids:
+      - montco-coin-show-meets-every-2nd-sunday-each-month
+      - trevose-coin-show-every-4th-sunday-of-the-month
+    source_tier: tier_1_primary
+    authority_basis: Official promoter pages for the recurring MontCo and Trevose shows.
+    check_method: literal_name_and_explicit_recurrence_validation_v1
+    page_shape: multi_event_recurring_calendar
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      trevose-coin-show-every-4th-sunday-of-the-month: current_match
+    listing_rules:
+      montco-coin-show-meets-every-2nd-sunday-each-month:
+        request_url: https://www.buxmontcoinshows.com/about/
+        aliases:
+          - MontCo Coin Show
+          - Montgomery County Coin Show
+        recurring_rule:
+          ordinal: 2
+          weekday: Sunday
+          source_phrases:
+            - every second Sunday of the month
+      trevose-coin-show-every-4th-sunday-of-the-month:
+        request_url: https://www.buxmontcoinshows.com/about-trevose/
+        recurring_rule:
+          ordinal: 4
+          weekday: Sunday
+          source_phrases:
+            - every fourth Sunday of the month
+
+  - source_key: antique-coins-mn
+    covered_show_ids:
+      - north-metro-coin-show
+      - south-st-paul-coin-show
+    source_tier: tier_1_primary
+    authority_basis: Official organizer page naming both Minnesota shows and their venues.
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: multi_event_calendar
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      north-metro-coin-show: current_match
+    listing_rules:
+      north-metro-coin-show:
+        aliases:
+          - North Metro
+        calendar_year: 2026
+        max_name_date_distance: 200
+      south-st-paul-coin-show:
+        aliases:
+          - South St. Paul Coin Show
+          - South St Paul Monthly Coin Show
+        calendar_year: 2026
+
+  - source_key: georgia-numismatic-association
+    covered_show_ids:
+      - georgia-numismatic-association-show
+    source_tier: tier_2_official_organization
+    authority_basis: Official Georgia Numismatic Association show page with long-range dates.
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: single_event_multiple_dates
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      georgia-numismatic-association-show: current_match
+    listing_rules:
+      georgia-numismatic-association-show:
+        aliases:
+          - Georgia Numismatic Association Coin Show
+
+  - source_key: ck-shows
+    covered_show_ids:
+      - vegas-national-coin-show
+    source_tier: tier_1_primary
+    authority_basis: Official CK Shows promoter schedule for the Las Vegas event.
+    request_url: https://ckshows.com/schedule.htm
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: promoter_event_calendar
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      vegas-national-coin-show: current_match
+    listing_rules:
+      vegas-national-coin-show:
+        aliases:
+          - Vegas National Coin Show
+          - The Vegas National
+        calendar_year: 2026
+
+  - source_key: central-states-numismatic-society
+    covered_show_ids:
+      - csns-convention
+    source_tier: tier_2_official_organization
+    authority_basis: Official Central States Numismatic Society convention page.
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: single_event_page
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      csns-convention: review_conflict
+
+  - source_key: long-beach-expo
+    covered_show_ids:
+      - long-beach-expo
+    source_tier: tier_1_primary
+    authority_basis: Official Long Beach Expo site with future event windows; its reviewed same-host non-www target returned 200 on 2026-08-31.
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: single_event_multiple_dates
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      long-beach-expo: current_match
+    listing_rules:
+      long-beach-expo:
+        request_url: https://longbeachexpo.com/
+        exact_date_anywhere_on_page: true
+
+  - source_key: michigan-state-numismatic-society-events
+    covered_show_ids:
+      - first-annual-lansing-coin-show
+      - royal-oak-coins-collectibles-show
+      - new-baltimore-monthly-coin-show
+      - detroit-area-coin-shows
+    source_tier: tier_2_official_organization
+    authority_basis: Official Michigan State Numismatic Society local-show calendar.
+    check_method: generic_text_name_and_date_proximity_v1
+    page_shape: multi_event_calendar
+    expected_cadence: event_relative_inactive_v1
+    constraints_policy: approved_public_report_only_v1
+    redirect_policy: record_and_stop_v1
+    fail_closed_policy: source_evidence_only_v1
+    expectations:
+      royal-oak-coins-collectibles-show: current_match
+
+# These fixtures are synthetic safety checks. They use reserved .invalid URLs,
+# never enter the canonical listing queue, and never authorize a listing edit.
+controlled_cases:
+  - case_id: controlled-confirmed-date-change
+    case_kind: source_fact
+    scenario: confirmed_date_change
+    expected_outcome: candidate_change
+  - case_id: controlled-redirect
+    case_kind: source_fact
+    scenario: redirect
+    expected_outcome: source_unavailable
+  - case_id: controlled-duplicate
+    case_kind: duplicate
+    scenario: duplicate
+    expected_outcome: duplicate_candidate
+  - case_id: controlled-partial-date
+    case_kind: listing_classification
+    scenario: partial_date
+    expected_outcome: partial_date_review
+  - case_id: controlled-cancellation-evidence
+    case_kind: source_fact
+    scenario: cancellation_evidence
+    expected_outcome: cancellation_evidence
+  - case_id: controlled-source-failure
+    case_kind: source_fact
+    scenario: source_failure
+    expected_outcome: source_unavailable

@@ -97,7 +97,7 @@ def write_csv(path, headers, rows)
     rows.each do |row|
       csv << headers.map do |header|
         value = row.fetch(header.to_sym, '')
-        value.is_a?(Array) ? value.join(';') : value
+        ListingFreshness.safe_csv_cell(value)
       end
     end
     csv.flush
@@ -105,7 +105,7 @@ def write_csv(path, headers, rows)
 end
 
 def markdown(value)
-  value.to_s.gsub('|', '\\|').gsub(/\s+/, ' ').strip
+  ListingFreshness.safe_markdown_cell(value)
 end
 
 def count_by(rows, key)
@@ -128,7 +128,7 @@ def cause_table(facts, proposal_status)
                 .group_by { |fact| fact.fetch(:cause_code) }
                 .transform_values(&:length)
   rows = CAUSE_ORDER.select { |cause| counts.key?(cause) }.map do |cause|
-    "| `#{cause}` | #{counts.fetch(cause)} | #{markdown(CAUSE_DESCRIPTIONS.fetch(cause))} |"
+    "| #{markdown(cause)} | #{counts.fetch(cause)} | #{markdown(CAUSE_DESCRIPTIONS.fetch(cause))} |"
   end
   rows.empty? ? '| `none` | 0 | No rows in this category. |' : rows.join("\n")
 end
@@ -247,6 +247,7 @@ facts = comparison_rows.map do |row|
     show: show,
     source_type: source_type,
     source_url: source_url,
+    request_url: row['request_url'],
     fetched_at: fetched_at,
     pilot: pilot_source_keys.include?(source_key),
     expectation: pilot_expectations[key]
@@ -263,7 +264,8 @@ controlled_facts = controlled_cases.map do |fixture|
     'fetch_detail' => fixture.fetch('fetch_detail'),
     'name_found' => fixture.fetch('name_found'),
     'current_date_found' => fixture.fetch('current_date_found'),
-    'candidate_dates' => fixture.fetch('candidate_dates')
+    'candidate_dates' => fixture.fetch('candidate_dates'),
+    'candidate_match_basis' => fixture.fetch('scenario') == 'confirmed_date_change' ? 'controlled_fixture' : ''
   }
   synthetic_show = { 'id' => fixture.fetch('show_id'), 'name' => fixture.fetch('show_name') }
   fact = ListingFreshness.build_source_fact(
@@ -271,6 +273,7 @@ controlled_facts = controlled_cases.map do |fixture|
     show: synthetic_show,
     source_type: fixture.fetch('source_type'),
     source_url: fixture.fetch('source_url'),
+    request_url: fixture.fetch('source_url'),
     fetched_at: fixture.fetch('fetched_at'),
     pilot: true,
     expectation: fixture.fetch('expected_outcome'),
@@ -396,7 +399,7 @@ report = <<~MD
 
   Generated: #{generated_at}
   Classification date: #{as_of.iso8601}
-  Approved-source comparison input: `#{File.basename(COMPARISON_PATH)}`
+  Approved-source comparison input: #{markdown(File.basename(COMPARISON_PATH))}
 
   Review-only. This report does not edit `_data/shows.yml`, change a schedule, merge listings, remove listings, publish pages, send messages, submit forms, or update CRM records. Every automatic action is `none`.
 
@@ -466,7 +469,7 @@ report = <<~MD
 
   | Kind | Case | Expected | Actual | Report status | Automatic action | Agreement |
   |---|---|---|---|---|---|---:|
-  #{pilot_quality.map { |row| "| #{markdown(row.fetch(:case_kind))} | `#{markdown(row.fetch(:case_id))}` | #{markdown(row.fetch(:manual_expectation))} | #{markdown(row.fetch(:actual_outcome))} | #{markdown(row.fetch(:proposal_status))} | #{markdown(row.fetch(:automatic_action))} | #{row.fetch(:expectation_matches)} |" }.join("\n")}
+  #{pilot_quality.map { |row| "| #{markdown(row.fetch(:case_kind))} | #{markdown(row.fetch(:case_id))} | #{markdown(row.fetch(:manual_expectation))} | #{markdown(row.fetch(:actual_outcome))} | #{markdown(row.fetch(:proposal_status))} | #{markdown(row.fetch(:automatic_action))} | #{row.fetch(:expectation_matches)} |" }.join("\n")}
 
   - Live manually reviewed source rows: #{live_pilot_quality.length}
   - Controlled synthetic hardening rows: #{controlled_quality.length}
@@ -483,13 +486,13 @@ report = <<~MD
 
   | Show | Risk | Due | Current date | Source tier | Reasons |
   |---|---|---|---|---|---|
-  #{high_priority_queue.map { |row| "| `#{markdown(row.fetch(:show_id))}` | #{row.fetch(:risk_level)} | #{row.fetch(:review_due_on)} | #{markdown(row.fetch(:current_next_date))} | #{row.fetch(:source_tier)} | #{markdown(row.fetch(:reason_codes).join(', '))} |" }.join("\n")}
+  #{high_priority_queue.map { |row| "| #{markdown(row.fetch(:show_id))} | #{markdown(row.fetch(:risk_level))} | #{markdown(row.fetch(:review_due_on))} | #{markdown(row.fetch(:current_next_date))} | #{markdown(row.fetch(:source_tier))} | #{markdown(row.fetch(:reason_codes).join(', '))} |" }.join("\n")}
 
   ## Proposed-versus-current facts needing review
 
   | Source | Show | Field | Current | Candidate/source fact | Status | Confidence |
   |---|---|---|---|---|---|---|
-  #{review_facts.map { |fact| "| #{markdown(fact.fetch(:source_key))} | `#{markdown(fact.fetch(:show_id))}` | #{markdown(fact.fetch(:field))} | #{markdown(fact.fetch(:current_value))} | #{markdown(fact.fetch(:proposed_value))} | #{markdown(fact.fetch(:proposal_status))} | #{markdown(fact.fetch(:confidence))} |" }.join("\n")}
+  #{review_facts.map { |fact| "| #{markdown(fact.fetch(:source_key))} | #{markdown(fact.fetch(:show_id))} | #{markdown(fact.fetch(:field))} | #{markdown(fact.fetch(:current_value))} | #{markdown(fact.fetch(:proposed_value))} | #{markdown(fact.fetch(:proposal_status))} | #{markdown(fact.fetch(:confidence))} |" }.join("\n")}
 
   ## Proposed cadence — not applied
 

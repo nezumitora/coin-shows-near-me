@@ -20,6 +20,13 @@ class SourceDateMatcherTest < Minitest::Test
     assert SourceDateMatcher.found?('Dec. 31, 2026 through Jan. 2, 2027', 'December 31-January 2, 2027')
   end
 
+  def test_matches_exact_range_written_as_two_dated_endpoints
+    source = 'The dates are Thursday September 3, 2026 thru Saturday September 5, 2026.'
+
+    assert SourceDateMatcher.found?(source, 'September 3-5, 2026')
+    refute SourceDateMatcher.found?(source, 'September 3-6, 2026')
+  end
+
   def test_rejects_wrong_day_or_year
     refute SourceDateMatcher.found?('Aug. 29, 2026', 'August 30, 2026')
     refute SourceDateMatcher.found?('Aug. 30, 2025', 'August 30, 2026')
@@ -28,5 +35,34 @@ class SourceDateMatcherTest < Minitest::Test
   def test_rejects_tbd_and_partial_dates
     refute SourceDateMatcher.found?('November 2026', 'TBD')
     refute SourceDateMatcher.found?('November 2026', 'November 2026')
+  end
+
+  def test_candidate_year_must_stay_inside_the_review_window
+    assert SourceDateMatcher.year_within?('October 3, 2026', min_year: 2025, max_year: 2031)
+    assert SourceDateMatcher.year_within?('April 14-16, 2029', min_year: 2025, max_year: 2031)
+    refute SourceDateMatcher.year_within?('January 30-31, 3037', min_year: 2025, max_year: 2031)
+    refute SourceDateMatcher.year_within?('October 3, 2022', min_year: 2025, max_year: 2031)
+    refute SourceDateMatcher.year_within?('February 30-31, 2027', min_year: 2025, max_year: 2031)
+    refute SourceDateMatcher.year_within?('October 8-3, 2026', min_year: 2025, max_year: 2031)
+  end
+
+
+  def test_candidate_extraction_normalizes_only_strict_unambiguous_dates
+    text = 'October 10th and 11th 2026; 01/02/26; 2026-12-03; Dec. 31, 2026 through Jan. 2, 2027.'
+
+    candidates = SourceDateMatcher.extract_candidates(text, min_year: 2025, max_year: 2031)
+
+    assert_equal(
+      ['October 10-11, 2026', 'December 3, 2026', 'December 31-January 2, 2027'],
+      candidates.map { |candidate| candidate.fetch(:value) }
+    )
+    refute candidates.any? { |candidate| candidate.fetch(:raw) == '01/02/26' }
+  end
+
+  def test_candidate_normalization_rejects_invalid_or_overlong_ranges
+    assert_nil SourceDateMatcher.normalized_candidate('February 30, 2027', min_year: 2025, max_year: 2031)
+    assert_nil SourceDateMatcher.normalized_candidate('October 8-3, 2026', min_year: 2025, max_year: 2031)
+    assert_nil SourceDateMatcher.normalized_candidate('January 1-March 1, 2027', min_year: 2025, max_year: 2031)
+    assert_nil SourceDateMatcher.normalized_candidate('01/02/26', min_year: 2025, max_year: 2031)
   end
 end

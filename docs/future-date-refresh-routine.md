@@ -94,6 +94,126 @@ change, the owner must review the sample report and approve the next bounded
 phase. A cron, listing edit, merge, deletion, publication, outreach message,
 form submission, or CRM write requires separate approval.
 
+## Phase 2 bounded source review
+
+The owner-approved Phase 2 implementation now uses the merged and security-
+hardened Phase 1 foundation. It selects 12 existing official source groups
+covering 23 canonical listings through
+`_scrapers/listing-freshness-phase-2.yml`. Source URLs and types remain in the
+existing approved registry; the profile records authority, coverage, source
+tier, generic check method, page shape, inactive cadence, request constraints,
+redirect handling, and fail-closed behavior.
+
+Run the bounded comparison and package locally:
+
+```bash
+SOURCE_COMPARISON_ALLOW_NETWORK=1 \
+  LISTING_FRESHNESS_PROFILE_PATH=_scrapers/listing-freshness-phase-2.yml \
+  LISTING_FRESHNESS_AS_OF=2026-08-31 \
+  REQUEST_DELAY_SECONDS=1.0 \
+  ruby _scripts/external-source-compare.rb
+
+LISTING_FRESHNESS_AS_OF=2026-08-31 \
+  ruby _scripts/listing-freshness-phase-2-report.rb
+```
+
+The comparison writes a CSV plus a fresh run manifest under ignored `tmp/`.
+The manifest binds the CSV to one run ID, its start and completion times, the
+classification date, and SHA-256 digests of the profile, source registry,
+canonical shows, and comparison CSV. The package then writes five ignored
+artifacts: a Markdown review, full current-versus-proposed facts,
+live/controlled quality measurements, the prioritized selected-listing queue,
+and duplicate evidence. Live official source observations are labeled
+separately from six synthetic safety cases: date change, redirect, duplicate,
+partial date, explicit cancellation evidence, and source failure.
+
+Network access is off by default when a Phase 2 profile is selected and must be
+enabled explicitly for a bounded manual profile run. The comparison rejects
+non-finite or negative delays, enforces the profile's one-second minimum, limits
+each response body to 2 MiB, disables automatic HTTP retries, applies a
+20-second total deadline, makes at most one request per exact approved source
+path, and follows no redirects. HTTPS registry URLs cannot be downgraded to
+HTTP. Plaintext HTTP observations remain manual evidence only: they cannot
+produce an exact proposed value or pass readiness.
+
+Candidate extraction accepts only strict four-digit-year date formats, rejects
+invalid or overlong ranges and ambiguous two-digit years, normalizes accepted
+values to canonical show-date wording, and limits years to one year before
+through five years after the classification year. A candidate is retained for
+a listing only when its literal occurrence is uniquely nearest to that show or
+an approved alias. Whole-page candidates require an exact path explicitly
+validated as a single-event page.
+
+The comparison and Phase 2 package use the same fail-closed direct-`tmp/`
+output sandbox as Phase 1: destinations must be unique regular files, symbolic
+links and input collisions are rejected, and writes are atomic with owner-only
+permissions. Imported comparison rows must retain the canonical show ID, name,
+and date, and each source/show pair must be unique. The Phase 2 package rejects
+missing, mixed-run, altered, future-dated, or more-than-24-hour-old comparison
+evidence and verifies every input and CSV digest from the manifest. CSV cells
+beginning with a spreadsheet formula marker are neutralized, and untrusted
+values are escaped before entering Markdown tables. Equal-distance name matches
+on multi-event pages are treated as ambiguous rather than selected by input
+order.
+
+`_scrapers/listing-freshness-phase-2-schedule.yml` is design-only. It has no
+workflow file, no cron, no manual dispatch, and `enabled: false`. No existing
+workflow consumes it. The Phase 2 report validates those conditions before it
+writes a package, including that every publication control remains exactly
+`false`.
+
+The first live run on 2026-08-31 selected 12 source groups and 23 rows. Five
+rows matched current values, 18 stayed in human review, five known-current
+baselines were missed by the generic matcher, no false change proposal was
+created, and all six controlled safety cases passed. The readiness gate is
+therefore false.
+
+### Phase 2B report-only hardening
+
+The approved Phase 2B pass keeps registry URLs authoritative while allowing an
+exact same-host `request_url` in the profile. It validates every override and
+records registry and requested URLs separately in the comparison CSV. A source
+can use more than one exact page, but each source/path is requested at most once
+per run and redirects are never followed.
+
+Per-listing rules remain narrow:
+
+- Literal title aliases can account for official wording without fuzzy names.
+- An explicit calendar year can validate yearless dates only on the reviewed
+  source.
+- A source-specific name/date distance is capped at 320 characters; the current
+  profile uses 200 only for the observed North Metro layout and leaves the
+  global 160-character threshold unchanged.
+- Explicit nth-weekday rules require an exact per-listing page, literal source
+  wording, and a canonical date that already satisfies the rule. They do not
+  generate or propose dates.
+- Whole-page exact-date matching requires an exact per-listing request path and
+  a source profile marked as a single-event page.
+- A range written as two complete dated endpoints can match only when both
+  endpoints and years exactly agree with the canonical range.
+
+The Phase 2B rerun observed 15 current values and retained eight rows for human
+review. Eleven of 12 live baselines matched, reducing known-current false
+negatives from five to one. All six controlled cases still passed, with zero
+false proposals and zero automatic actions. The remaining CK Shows baseline is
+fail-closed because its multi-event layout does not preserve a reliable
+name/date association in stripped text. Draft listing updates and schedule
+activation remain premature, and the readiness gate remains false.
+
+The post-hardening run on 2026-09-02 reproduced the Phase 2B result: all 13
+approved paths returned `200`, 15 current values were observed, eight rows
+remained in human review, 11 of 12 baselines matched, all six controlled cases
+passed, and automatic actions remained zero. An implausible `3037` value found
+in source prose was discarded by the candidate-year bound. The readiness gate
+remained false.
+
+The 2026-09-03 merge-review hardening made no additional source-page requests.
+A forced network-disabled run verified the new 23-row manifest-bound pipeline,
+all six controlled cases, zero automatic actions, and a false readiness result.
+Readiness now also requires a fresh live run classified on its completion day,
+secure HTTPS transport for every selected path, agreement with every manual
+expectation, and no unresolved source facts.
+
 ## Patterns confirmed on 2026-07-13
 
 - Promoter pages with multiple shows work well as high-value sources: Pacific Expos, Rocky Mountain Expos, America’s Coin Shows, CK Shows, BuxMont, and Antique Coins MN.

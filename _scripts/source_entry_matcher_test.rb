@@ -28,4 +28,117 @@ class SourceEntryMatcherTest < Minitest::Test
 
     refute SourceEntryMatcher.date_associated?(source, 'Decorah Area Coin Club Show', ['Decorah Area Coin Club Show'], 'August 30, 2026', 2026)
   end
+
+  def test_accepts_a_literal_source_specific_name_alias
+    source = 'NOW State Convention April 25, 2027 at Stadium View.'
+
+    assert SourceEntryMatcher.date_associated?(
+      source,
+      'Numismatists of Wisconsin Annual Show',
+      [],
+      'April 25, 2027',
+      nil,
+      target_aliases: ['NOW State Convention']
+    )
+  end
+
+  def test_peer_alias_prevents_cross_event_association
+    source = 'NOW State Convention April 25, 2027. Registration details follow for visitors and dealers. Milwaukee Coin Show November 8, 2026.'
+
+    refute SourceEntryMatcher.date_associated?(
+      source,
+      'Milwaukee Numismatic Society Show',
+      ['Numismatists of Wisconsin Annual Show'],
+      'April 25, 2027',
+      nil,
+      target_aliases: ['Milwaukee Coin Show'],
+      peer_aliases: { 'Numismatists of Wisconsin Annual Show' => ['NOW State Convention'] }
+    )
+  end
+
+  def test_rejects_date_equally_close_to_target_and_peer_names
+    source = 'Target Coin Show October 3, 2026  Peer Coin Show'
+
+    refute SourceEntryMatcher.date_associated?(
+      source,
+      'Target Coin Show',
+      ['Peer Coin Show'],
+      'October 3, 2026',
+      2026,
+      max_name_date_distance: 100
+    )
+  end
+
+  def test_candidate_dates_are_retained_only_for_the_nearest_show
+    source = 'Target Coin Show November 1, 2026. Peer Coin Show December 9, 2026.'
+    candidates = ['November 1, 2026', 'December 9, 2026']
+
+    associated = SourceEntryMatcher.associated_date_texts(
+      source,
+      'Target Coin Show',
+      ['Peer Coin Show'],
+      candidates
+    )
+
+    assert_equal ['November 1, 2026'], associated
+  end
+
+  def test_candidate_date_without_target_association_is_rejected
+    source = 'Target Coin Show information. Peer Coin Show December 9, 2026.'
+
+    associated = SourceEntryMatcher.associated_date_texts(
+      source,
+      'Target Coin Show',
+      ['Peer Coin Show'],
+      ['December 9, 2026']
+    )
+
+    assert_empty associated
+  end
+
+  def test_validates_current_date_against_an_explicit_nth_weekday_rule
+    rule = {
+      'ordinal' => 4,
+      'weekday' => 'Sunday',
+      'source_phrases' => ['every fourth Sunday']
+    }
+
+    assert SourceEntryMatcher.current_date_matches_nth_weekday_rule?(
+      'The Trevose show is held every fourth Sunday of the month.',
+      'September 27, 2026',
+      rule
+    )
+    refute SourceEntryMatcher.current_date_matches_nth_weekday_rule?(
+      'The Trevose show is held every fourth Sunday of the month.',
+      'September 20, 2026',
+      rule
+    )
+    refute SourceEntryMatcher.current_date_matches_nth_weekday_rule?(
+      'Monthly show schedule.',
+      'September 27, 2026',
+      rule
+    )
+  end
+
+  def test_accepts_a_bounded_source_specific_name_date_distance
+    source = "North Metro#{' details' * 20} November 1st"
+
+    refute SourceEntryMatcher.date_associated?(
+      source,
+      'North Metro Coin Show',
+      [],
+      'November 1, 2026',
+      2026,
+      target_aliases: ['North Metro']
+    )
+    assert SourceEntryMatcher.date_associated?(
+      source,
+      'North Metro Coin Show',
+      [],
+      'November 1, 2026',
+      2026,
+      target_aliases: ['North Metro'],
+      max_name_date_distance: 200
+    )
+  end
 end
