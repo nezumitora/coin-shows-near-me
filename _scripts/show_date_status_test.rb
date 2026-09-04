@@ -7,8 +7,8 @@ require_relative 'show_date_status'
 class ShowDateStatusTest < Minitest::Test
   ROOT = File.expand_path('..', __dir__)
   SHOWS = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
-  AS_OF = Date.new(2026, 8, 24)
-  WEEKEND_AS_OF = Date.new(2026, 8, 23)
+  AS_OF = Date.new(2026, 9, 4)
+  WEEKEND_AS_OF = Date.new(2026, 9, 4)
 
   def show(show_id)
     SHOWS.find { |record| record.fetch('id') == show_id }
@@ -18,10 +18,20 @@ class ShowDateStatusTest < Minitest::Test
     counts = SHOWS.group_by { |record| ShowDateStatus.classification(record, as_of: AS_OF) }.transform_values(&:length)
 
     assert_equal 197, SHOWS.length
-    assert_equal 102, counts.fetch(:scheduled)
-    assert_equal 84, counts.fetch(:date_not_confirmed)
-    assert_equal 11, counts.fetch(:past_date_unconfirmed)
+    assert_equal 99, counts.fetch(:scheduled)
+    assert_equal 98, counts.fetch(:date_not_confirmed)
+    assert_equal 0, counts.fetch(:past_date_unconfirmed, 0)
     assert_nil counts[:past_show]
+  end
+
+  def test_canonical_data_has_no_fully_expired_confirmed_ranges
+    expired_ranges = SHOWS.flat_map do |record|
+      ShowDateStatus.ranges(record).map do |start_date, end_date|
+        [record.fetch('id'), start_date, end_date] if end_date < AS_OF
+      end.compact
+    end
+
+    assert_empty expired_ranges
   end
 
   def test_scheduled_records_display_their_first_nonexpired_complete_range
@@ -34,7 +44,7 @@ class ShowDateStatusTest < Minitest::Test
     assert_empty mismatches
     assert_equal 'October 4, 2026', ShowDateStatus.display_date(show('north-county-monthly-coin-show'), as_of: AS_OF)
     assert_equal 'September 13, 2026', ShowDateStatus.display_date(show('melville-coin-stamp-collectibles-show'), as_of: AS_OF)
-    assert_equal 'August 23, 2026', ShowDateStatus.display_date(show('melville-coin-stamp-collectibles-show'), as_of: WEEKEND_AS_OF)
+    assert_equal 'September 13, 2026', ShowDateStatus.display_date(show('melville-coin-stamp-collectibles-show'), as_of: WEEKEND_AS_OF)
   end
 
   def test_complete_display_dates_always_have_confirmed_iso_dates
@@ -52,17 +62,15 @@ class ShowDateStatusTest < Minitest::Test
     saturday, sunday = ShowDateStatus.weekend_window(WEEKEND_AS_OF)
     ids = SHOWS.select { |record| ShowDateStatus.overlaps?(record, saturday, sunday) }.map { |record| record.fetch('id') }.sort
 
-    assert_equal Date.new(2026, 8, 22), saturday
-    assert_equal Date.new(2026, 8, 23), sunday
+    assert_equal Date.new(2026, 9, 5), saturday
+    assert_equal Date.new(2026, 9, 6), sunday
     assert_equal %w[
-      boeing-employees-coin-club-show
-      melville-coin-stamp-collectibles-show
-      palm-beach-coin-show
-      sacramento-coin-show
-      salemroanoke-valley-coin-show
-      santa-clara-coin-show
-      tallahassee-coin-club-two-day-show
-      trevose-coin-show-every-4th-sunday-of-the-month
+      coinacopia-tampas-coin-show
+      first-sunday-coin-show-apopka
+      gold-coast-coin-collectibles-show
+      greater-tacoma-coin-show
+      ohio-state-coin-show
+      orland-park-coin-show
     ], ids
   end
 

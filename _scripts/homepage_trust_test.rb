@@ -39,7 +39,7 @@ class HomepageTrustTest < Minitest::Test
   SHOWS = YAML.load_file(File.join(ROOT, '_data/shows.yml'))
   STATE_TAX = YAML.load_file(File.join(ROOT, '_data/state_tax.yml'))
   CONFIG = YAML.load_file(File.join(ROOT, '_config.yml'))
-  AS_OF = Date.new(2026, 8, 24)
+  AS_OF = Date.new(2026, 9, 4)
 
   def date_status(show)
     ShowDateStatus.classification(show, as_of: AS_OF)
@@ -53,7 +53,7 @@ class HomepageTrustTest < Minitest::Test
     assert_equal statuses.length, statuses.count { |status| %i[scheduled date_not_confirmed past_date_unconfirmed past_show].include?(status) }
     assert_includes statuses, :scheduled
     assert_includes statuses, :date_not_confirmed
-    assert_includes statuses, :past_date_unconfirmed
+    refute_includes statuses, :past_date_unconfirmed
     refute_includes statuses, :past_show
   end
 
@@ -67,22 +67,10 @@ class HomepageTrustTest < Minitest::Test
     end
   end
 
-  def test_past_specific_dates_use_recurring_unconfirmed_status
+  def test_canonical_data_has_no_expired_specific_dates
     expired_ids = SHOWS.select { |show| date_status(show) == :past_date_unconfirmed }.map { |show| show['id'] }
 
-    assert_equal %w[
-      3rd-sunday-columbus-coin-show
-      apnscc-coin-show-sat-july-18th-9am-6pm-sun-july-19th-9am-4pm
-      boeing-employees-coin-club-show
-      first-annual-lansing-coin-show
-      greater-johnstown-coin-club-show
-      low-country-coin-club-show
-      missouri-numismatic-society-annual-coin-show
-      san-francisco-coin-show
-      tallahassee-coin-club-two-day-show
-      valley-coin-show
-      wny-coin-show-meetings-4th-sunday-each-month
-    ], expired_ids.sort
+    assert_empty expired_ids
   end
 
   def test_all_public_show_surfaces_use_confirmed_date_ranges

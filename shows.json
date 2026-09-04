@@ -63,11 +63,8 @@
     "state_name": "Arkansas",
     "venue": "Wyndham Hotel, 700 Rogers Ave., Fort Smith, AR 72901",
     "frequency": "Recurring",
-    "next_date": "July 18-19, 2026",
-    "upcoming_dates": [
-      "2026-07-18",
-      "2026-07-19"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "72901",
     "website": ""
@@ -114,7 +111,6 @@
     "frequency": "Monthly (2nd Sunday)",
     "next_date": "September 13, 2026",
     "upcoming_dates": [
-      "2026-08-09",
       "2026-09-13",
       "2026-10-11",
       "2026-11-15",
@@ -199,7 +195,6 @@
     "frequency": "Monthly (1st Sunday)",
     "next_date": "October 4, 2026",
     "upcoming_dates": [
-      "2026-08-02",
       "2026-10-04",
       "2026-11-01",
       "2026-12-06",
@@ -222,11 +217,8 @@
     "state_name": "California",
     "venue": "Masonic Lodge, 50 West Duarte Road, Arcadia, CA",
     "frequency": "Annual (August)",
-    "next_date": "August 29-30, 2026",
-    "upcoming_dates": [
-      "2026-08-29",
-      "2026-08-30"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "",
     "website": "https://californiacoinevents.com/arcadia-coin-show"
@@ -346,7 +338,13 @@
       "2026-09-11",
       "2027-03-10",
       "2027-03-11",
-      "2027-03-12"
+      "2027-03-12",
+      "2027-03-13",
+      "2027-03-14",
+      "2027-09-23",
+      "2027-09-24",
+      "2027-09-25",
+      "2027-09-26"
     ],
     "series_ended": false,
     "postal_code": "90802",
@@ -378,7 +376,6 @@
     "frequency": "Semiannual (Spring & Fall)",
     "next_date": "November 6-7, 2026",
     "upcoming_dates": [
-      "2026-08-23",
       "2026-11-06",
       "2026-11-07",
       "2026-12-13"
@@ -446,10 +443,8 @@
     "state_name": "California",
     "venue": "Gallery 308, Building A, Fort Mason Center for Arts & Culture, 2 Marina Blvd, San Francisco, CA 94123",
     "frequency": "Annual (August)",
-    "next_date": "August 1, 2026",
-    "upcoming_dates": [
-      "2026-08-01"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "94123",
     "website": "https://www.sfcoinclub.com/sf-coin-show"
@@ -464,8 +459,6 @@
     "frequency": "Recurring",
     "next_date": "October 16-17, 2026",
     "upcoming_dates": [
-      "2026-08-21",
-      "2026-08-22",
       "2026-10-16",
       "2026-10-17",
       "2026-12-18",
@@ -483,11 +476,8 @@
     "state_name": "California",
     "venue": "Courtyard by Marriott, 4th Floor Ballroom, 15433 Ventura Blvd, Sherman Oaks, CA",
     "frequency": "Recurring",
-    "next_date": "August 15-16, 2026",
-    "upcoming_dates": [
-      "2026-08-15",
-      "2026-08-16"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "15433",
     "website": "https://californiacoinevents.com/valley-coin-show"
@@ -688,7 +678,6 @@
     "frequency": "Monthly (1st Sunday)",
     "next_date": "September 6, 2026",
     "upcoming_dates": [
-      "2026-08-02",
       "2026-09-06",
       "2026-10-04",
       "2026-11-01"
@@ -738,7 +727,6 @@
     "frequency": "Recurring",
     "next_date": "September 6, 2026",
     "upcoming_dates": [
-      "2026-08-02",
       "2026-09-06",
       "2026-10-04",
       "2026-11-01"
@@ -844,7 +832,6 @@
     "frequency": "Monthly (3rd Sunday)",
     "next_date": "September 20, 2026",
     "upcoming_dates": [
-      "2026-08-16",
       "2026-09-20",
       "2026-10-18",
       "2026-11-15",
@@ -876,11 +863,8 @@
     "state_name": "Florida",
     "venue": "Tallahassee Senior Center, 1400 N. Monroe St, Tallahassee, FL 32303",
     "frequency": "Annual (August)",
-    "next_date": "August 22-23, 2026",
-    "upcoming_dates": [
-      "2026-08-22",
-      "2026-08-23"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "32303",
     "website": "http://www.TallahasseeCoinClub.com"
@@ -927,7 +911,6 @@
     "frequency": "Recurring",
     "next_date": "September 27, 2026",
     "upcoming_dates": [
-      "2026-08-23",
       "2026-09-27",
       "2026-10-25",
       "2026-11-22",
@@ -1001,7 +984,6 @@
     "frequency": "Monthly (Sunday)",
     "next_date": "September 13, 2026",
     "upcoming_dates": [
-      "2026-08-16",
       "2026-09-13",
       "2026-10-04",
       "2026-11-08"
@@ -1063,10 +1045,8 @@
     "state_name": "Iowa",
     "venue": "Danon Lansing Building, Fairgrounds, 900 E Main St, Decorah, IA",
     "frequency": "Annual",
-    "next_date": "August 30, 2026",
-    "upcoming_dates": [
-      "2026-08-30"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "",
     "website": "http://ina.anaclubs.org/Iowa_coin_shows.html"
@@ -1171,7 +1151,6 @@
     "frequency": "Monthly (2nd Sunday)",
     "next_date": "September 13, 2026",
     "upcoming_dates": [
-      "2026-08-09",
       "2026-09-13",
       "2026-10-11",
       "2026-11-08",
@@ -1224,7 +1203,6 @@
     "frequency": "Monthly (1st Sunday)",
     "next_date": "September 6, 2026",
     "upcoming_dates": [
-      "2026-08-02",
       "2026-09-06",
       "2026-10-04",
       "2026-11-01",
@@ -1244,7 +1222,6 @@
     "frequency": "Recurring",
     "next_date": "October 4, 2026",
     "upcoming_dates": [
-      "2026-08-16",
       "2026-10-04",
       "2026-12-20"
     ],
@@ -1577,12 +1554,8 @@
     "state_name": "Michigan",
     "venue": "Lansing Center, 333 E Michigan Ave, Lansing, MI 48933",
     "frequency": "Annual",
-    "next_date": "July 23-25, 2026",
-    "upcoming_dates": [
-      "2026-07-23",
-      "2026-07-24",
-      "2026-07-25"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "48933",
     "website": "https://michigancoinclub.org/events/1st-annual-lansing-coin-show/"
@@ -1611,7 +1584,6 @@
     "frequency": "Monthly",
     "next_date": "September 20, 2026",
     "upcoming_dates": [
-      "2026-08-16",
       "2026-09-20"
     ],
     "series_ended": false,
@@ -1628,7 +1600,6 @@
     "frequency": "Recurring",
     "next_date": "September 13, 2026",
     "upcoming_dates": [
-      "2026-08-09",
       "2026-09-13"
     ],
     "series_ended": false,
@@ -1645,7 +1616,6 @@
     "frequency": "Recurring",
     "next_date": "September 13, 2026",
     "upcoming_dates": [
-      "2026-08-09",
       "2026-09-13"
     ],
     "series_ended": false,
@@ -1719,7 +1689,6 @@
     "frequency": "Recurring",
     "next_date": "November 1, 2026",
     "upcoming_dates": [
-      "2026-08-02",
       "2026-11-01"
     ],
     "series_ended": false,
@@ -1736,7 +1705,6 @@
     "frequency": "Recurring",
     "next_date": "September 20, 2026",
     "upcoming_dates": [
-      "2026-08-16",
       "2026-09-20",
       "2026-10-18",
       "2026-11-22",
@@ -1796,12 +1764,8 @@
     "state_name": "Missouri",
     "venue": "St. Charles Convention Center",
     "frequency": "Annual (August)",
-    "next_date": "August 6-8, 2026",
-    "upcoming_dates": [
-      "2026-08-06",
-      "2026-08-07",
-      "2026-08-08"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "63303",
     "website": "https://www.missourinumismaticsociety.org/annual-coin-show"
@@ -1975,7 +1939,6 @@
     "frequency": "Monthly (3rd Sunday)",
     "next_date": "September 20, 2026",
     "upcoming_dates": [
-      "2026-08-16",
       "2026-09-20",
       "2026-10-18",
       "2026-11-15",
@@ -2139,10 +2102,8 @@
     "state_name": "New York",
     "venue": "",
     "frequency": "Monthly (4th Sunday, except December)",
-    "next_date": "July 26, 2026",
-    "upcoming_dates": [
-      "2026-07-26"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "",
     "website": ""
@@ -2218,8 +2179,6 @@
     "frequency": "Monthly (2nd & 4th Sunday)",
     "next_date": "September 13, 2026",
     "upcoming_dates": [
-      "2026-08-09",
-      "2026-08-23",
       "2026-09-13",
       "2026-09-27",
       "2026-10-11",
@@ -2276,7 +2235,6 @@
     "frequency": "Monthly (2nd Saturday)",
     "next_date": "September 12, 2026",
     "upcoming_dates": [
-      "2026-08-08",
       "2026-09-12",
       "2026-10-10",
       "2026-11-14",
@@ -2308,10 +2266,8 @@
     "state_name": "Ohio",
     "venue": "American Legion, 11100 Winton Road, Cincinnati, OH 45218",
     "frequency": "Monthly (Last Sunday)",
-    "next_date": "August 30, 2026",
-    "upcoming_dates": [
-      "2026-08-30"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "45218",
     "website": "http://conacoinclub.com/events/greenhills-classic-stamp-and-coin-show-2/"
@@ -2372,10 +2328,8 @@
     "state_name": "Ohio",
     "venue": "Makoy Center, 5462 Center Street, Hilliard, OH 43026",
     "frequency": "Recurring",
-    "next_date": "August 16, 2026",
-    "upcoming_dates": [
-      "2026-08-16"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "43026",
     "website": "http://conacoinclub.com/events/columbus-coin-show/"
@@ -2546,10 +2500,8 @@
     "state_name": "Pennsylvania",
     "venue": "Richland Township Fire Department, 1321 Scalp Ave, Johnstown, PA",
     "frequency": "Annual (August)",
-    "next_date": "August 16, 2026",
-    "upcoming_dates": [
-      "2026-08-16"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "",
     "website": "http://johnstown-jim.org/coinclub/"
@@ -2564,7 +2516,6 @@
     "frequency": "Monthly (3rd Sunday)",
     "next_date": "September 20, 2026",
     "upcoming_dates": [
-      "2026-08-16",
       "2026-09-20",
       "2026-10-18",
       "2026-11-15",
@@ -2602,7 +2553,6 @@
     "frequency": "Monthly / periodic",
     "next_date": "September 13, 2026",
     "upcoming_dates": [
-      "2026-08-09",
       "2026-09-13",
       "2026-10-11",
       "2026-11-08",
@@ -2669,7 +2619,6 @@
     "frequency": "Monthly (2nd Sunday)",
     "next_date": "September 13, 2026",
     "upcoming_dates": [
-      "2026-08-09",
       "2026-09-13",
       "2026-10-11",
       "2026-11-08",
@@ -2689,7 +2638,6 @@
     "frequency": "Monthly (4th Sunday)",
     "next_date": "September 27, 2026",
     "upcoming_dates": [
-      "2026-08-23",
       "2026-09-27",
       "2026-10-25",
       "2026-11-22",
@@ -2749,12 +2697,8 @@
     "state_name": "South Carolina",
     "venue": "Exchange Park Fairgrounds",
     "frequency": "Semiannual (February & August)",
-    "next_date": "July 31-August 2, 2026",
-    "upcoming_dates": [
-      "2026-07-31",
-      "2026-08-01",
-      "2026-08-02"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "",
     "website": "http://www.lowcountrycoinclub.com/"
@@ -2977,8 +2921,6 @@
     "frequency": "Recurring",
     "next_date": "November 21-22, 2026",
     "upcoming_dates": [
-      "2026-08-22",
-      "2026-08-23",
       "2026-11-21",
       "2026-11-22"
     ],
@@ -2996,8 +2938,6 @@
     "frequency": "Quarterly",
     "next_date": "October 17-18, 2026",
     "upcoming_dates": [
-      "2026-08-08",
-      "2026-08-09",
       "2026-10-17",
       "2026-10-18"
     ],
@@ -3027,10 +2967,8 @@
     "state_name": "Washington",
     "venue": "Kent Commons, 525 4th Ave. N, Kent, WA",
     "frequency": "Annual (January)",
-    "next_date": "August 22, 2026",
-    "upcoming_dates": [
-      "2026-08-22"
-    ],
+    "next_date": "TBD",
+    "upcoming_dates": [],
     "series_ended": false,
     "postal_code": "",
     "website": "https://www.pnna.org/wp/events/event-calendar/"
