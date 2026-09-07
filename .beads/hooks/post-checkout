@@ -2,9 +2,6 @@
 # aidevops-canonical-guard
 # Managed by .agents/scripts/install-canonical-guard.sh — do not edit.
 # Dispatcher that calls the aidevops canonical-on-main guard.
-# Bypass with: AIDEVOPS_CANONICAL_GUARD=bypass git checkout ...
-# Strict mode: AIDEVOPS_CANONICAL_GUARD=strict git checkout ...
-
 set -u
 
 # Prefer the repo-local hook when available, fall back to deployed.
@@ -12,15 +9,15 @@ _repo_hook=""
 if git_dir=$(git rev-parse --show-toplevel 2>/dev/null); then
 	_repo_hook="${git_dir}/.agents/hooks/canonical-on-main-guard.sh"
 fi
-_deployed_hook="/Users/milohiss/.aidevops/agents/hooks/canonical-on-main-guard.sh"
+_deployed_hook="${HOME}/.aidevops/agents/hooks/canonical-on-main-guard.sh"
 
 if [[ -n "$_repo_hook" && -f "$_repo_hook" ]]; then
-	exec "$_repo_hook" "$@"
+	"$_repo_hook" "$@" || exit $?
 elif [[ -f "$_deployed_hook" ]]; then
-	exec "$_deployed_hook" "$@"
+	"$_deployed_hook" "$@" || exit $?
 else
-	# No hook available — allow checkout silently.
-	exit 0
+	printf 'CRITICAL: aidevops canonical guard source is missing\n' >&2
+	exit 1
 fi
 
 # --- BEGIN BEADS INTEGRATION v1.0.3 ---
