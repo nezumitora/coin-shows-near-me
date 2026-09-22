@@ -9,6 +9,7 @@ class RedirectAndIndexingTest < Minitest::Test
     'westland-mi' => 'warren-mi',
     'south-st-paul-mn' => 'south-saint-paul-mn',
     'sept-17th-19th-countryside-il' => 'countryside-il',
+    'june-25th-27th-countryside-il' => 'countryside-il',
     'des-moines-ia' => 'altoona-ia',
     'july-11th-2026-big-flats-ny' => 'big-flats-ny',
     'charlotte-nc' => 'middleton-wi',

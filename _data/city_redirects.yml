@@ -6,6 +6,9 @@
   canonical_slug: south-saint-paul-mn
 - legacy_slug: sept-17th-19th-countryside-il
   canonical_slug: countryside-il
+# ca2fc50 corrected the same listing's date-contaminated city but retired this URL.
+- legacy_slug: june-25th-27th-countryside-il
+  canonical_slug: countryside-il
 - legacy_slug: des-moines-ia
   canonical_slug: altoona-ia
 - legacy_slug: july-11th-2026-big-flats-ny
