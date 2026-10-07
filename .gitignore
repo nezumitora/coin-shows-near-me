@@ -5,6 +5,7 @@ _site/
 Gemfile.lock
 *.swp
 .DS_Store
+.aidevops.json
 .agents/loop-state/
 tmp/
 
