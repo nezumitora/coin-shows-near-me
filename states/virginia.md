@@ -2,7 +2,7 @@
 layout: state
 title: "Virginia Coin Shows"
 heading: "Coin Shows in Virginia — 2026-2027 Schedule"
-description: "Browse 4 coin shows in Virginia with dates, venues, and verification details. Check each listing before you travel."
+description: "Browse 7 coin shows in Virginia with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/virginia/
 state_abbrev: "VA"
 state_name: "Virginia"
