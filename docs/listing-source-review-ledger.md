@@ -40,6 +40,7 @@ from recurrence. This ledger tracks review attempts, not nationwide completeness
 | New Hampshire Expo | Dec 4–5, 2026 and Mar 26–27, 2027 already recorded |
 | BNA monthly page | Nov 15/Dec 20 already recorded |
 | Wilmington official show page | Jan 14–16, 2027 added |
+| CK Shows, Nevada; routine Oct 26 06:22–06:26 UTC | Homepage and linked `https://ckshows.com/schedule.htm` explicitly retain Vegas National Oct 29–31, 2026, Tuscany Suites and Casino, Las Vegas. Existing dates unchanged; unsupported May/December frequency corrected to Recurring. Linked winter visitor page returns 404; no 2027 rollover. One record reviewed, zero new series/occurrence-days. |
 
 ## Attempted but unresolved
 
@@ -58,7 +59,7 @@ Do not describe these sites as down based on a tool/transport failure alone.
 ## Next rotation, not yet reconciled by this batch
 
 Continue remaining explicit-comparison sources and unused coverage-queue paths,
-especially VNA's recorded redirect, CONA, CK Shows, Whitman 404 replacement,
+next VNA's recorded calendar/redirect, then CONA and Whitman 404 replacement,
 Houston, Sacramento, Griffin redirects, Long Beach redirect, Diablo redirect,
 Heartland, Lehigh County, Kanawha regional sources, South Dakota AMA, IMEX,
 National Battlefield, Bay State, EAC and Southern Idaho. Existing Facebook-only
