@@ -48,13 +48,15 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
 <div style="margin-bottom:1rem;font-size:0.9rem;color:#555;" id="dealer-results-count">Showing all dealers</div>
 </div>
 
+{% include ad-placeholder.html %}
+
 <div id="dealer-grid">
 {% for dealer in site.data.dealers %}
 {% assign dealer_id = dealer.id | default: dealer.name | slugify %}
 {% assign public_contact_basis = dealer.public_contacts.publication_basis | default: "" %}
 {% assign publish_public_contacts = false %}
 {% if public_contact_basis == "voluntarily_submitted" or public_contact_basis == "source_verified" %}{% assign publish_public_contacts = true %}{% endif %}
-<div class="dealer-card-item" data-name="{{ dealer.name | downcase }}" data-city="{{ dealer.city | downcase }}" data-state="{{ dealer.state_name | downcase }}" data-state-abbrev="{{ dealer.state | downcase }}" data-type="{{ dealer.type }}" style="border:1px solid #e5ddd0;border-radius:10px;padding:1.25rem;margin-bottom:0.75rem;background:#fff;transition:all 0.2s;">
+<div id="dealer-{{ dealer_id }}" class="dealer-card-item" data-name="{{ dealer.name | downcase }}" data-city="{{ dealer.city | downcase }}" data-state="{{ dealer.state_name | downcase }}" data-state-abbrev="{{ dealer.state | downcase }}" data-type="{{ dealer.type }}" style="border:1px solid #e5ddd0;border-radius:10px;padding:1.25rem;margin-bottom:0.75rem;background:#fff;transition:all 0.2s;scroll-margin-top:6rem;">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;flex-wrap:wrap;gap:0.5rem;">
     <div>
       {% if publish_public_contacts and dealer.public_contacts.website %}<a href="{{ dealer.public_contacts.website }}" target="_blank" rel="noopener noreferrer" style="font-size:1.1rem;font-weight:700;color:#2c2c2c;text-decoration:none;">{{ dealer.name }}</a>{% else %}<span style="font-size:1.1rem;font-weight:700;color:#2c2c2c;">{{ dealer.name }}</span>{% endif %}
@@ -81,6 +83,7 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
     {% endfor %}
   </div>
   <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+    {% if publish_public_contacts and dealer.public_contacts.google_maps %}<a class="dealer-map-link" href="{{ dealer.public_contacts.google_maps | escape }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;min-height:44px;font-size:0.9rem;font-weight:600;color:#705400;text-decoration:underline;">View on Google Maps</a>{% endif %}
     {% if publish_public_contacts and dealer.public_contacts.website %}<a href="{{ dealer.public_contacts.website }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Visit Website &rarr;</a>{% endif %}
     {% if publish_public_contacts and dealer.public_contacts.instagram %}<a href="{{ dealer.public_contacts.instagram }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Instagram</a>{% endif %}
     {% if publish_public_contacts and dealer.public_contacts.facebook %}<a href="{{ dealer.public_contacts.facebook }}" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;font-weight:600;color:#b8860b;text-decoration:none;">Facebook</a>{% endif %}
@@ -141,8 +144,6 @@ Browse listed coin dealers, bullion sellers, and auction houses. Search by name,
     Thank you — the claim was recorded for manual ownership review. The listing has not changed.
   </div>
 </section>
-
-{% include ad-placeholder.html %}
 
 <div id="dealer-no-results" style="display:none;text-align:center;padding:2rem;color:#888;">
   <p>No dealers match your search.</p>
@@ -312,6 +313,14 @@ Whether you're buying your first silver coin or discussing a collection with a d
   }
 
   searchInput.addEventListener('input', filterCards);
+
+  var featuredListingLink = document.querySelector('.featured-dealer__link--primary');
+  if (featuredListingLink) {
+    featuredListingLink.addEventListener('click', function() {
+      searchInput.value = '';
+      document.querySelector('.dealer-filter-btn[data-filter="all"]').click();
+    });
+  }
 
   for (var i = 0; i < filterBtns.length; i++) {
     filterBtns[i].addEventListener('click', function() {

@@ -1,0 +1,17 @@
+{% assign featured = include.dealer %}
+<aside class="featured-dealer" id="featured-dealer-placement" aria-labelledby="featured-dealer-title">
+  <div class="featured-dealer__symbol" aria-hidden="true">
+    <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="16"/><path d="M28 17c-1-2-8-2-8 2 0 5 9 2 9 7 0 5-9 5-10 1M24 13v22"/></svg>
+  </div>
+  <div class="featured-dealer__body">
+    <p class="featured-dealer__eyebrow">Featured dealer <span aria-hidden="true">&middot;</span> Kent, Washington</p>
+    <h2 id="featured-dealer-title">{{ featured.name | escape }}</h2>
+    <p class="featured-dealer__intro">Visit a local coin dealer in the heart of Kent.</p>
+    <p class="featured-dealer__address">{{ featured.public_contacts.street_address | escape }}<br>{{ featured.city | escape }}, {{ featured.state | escape }} {{ featured.public_contacts.postal_code | escape }}</p>
+    <a class="featured-dealer__phone" href="tel:{{ featured.public_contacts.phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}">{{ featured.public_contacts.phone | escape }}</a>
+    <div class="featured-dealer__actions">
+      <a class="featured-dealer__link featured-dealer__link--primary" href="{{ site.baseurl }}/dealers/#dealer-{{ featured.id | escape }}">View dealer listing <span aria-hidden="true">&rarr;</span></a>
+      <a class="featured-dealer__link" href="{{ featured.public_contacts.google_maps | escape }}" target="_blank" rel="sponsored nofollow noopener noreferrer">View on Google Maps <span class="sr-only">(opens in a new tab)</span></a>
+    </div>
+  </div>
+</aside>

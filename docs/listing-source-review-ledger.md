@@ -67,6 +67,20 @@ Do not describe these sites as down based on a tool/transport failure alone.
 
 ## Next rotation, not yet reconciled by this batch
 
+Owner-supplied recurring cross-reference added October 26:
+`https://pnna.org/calendar.html` (clean URL, no social tracking parameters).
+It is now registered in `_scrapers/external-sources.yml` alongside the existing
+PNNA mobile calendar. The page links to
+`https://www.pnna.org/wp/events/event-calendar/` and the later-date
+`https://pnna.org/calendar2.html`; include all three in Pacific Northwest rotation,
+deduplicating repeated events rather than treating them as independent evidence.
+The short page was readable and injection-scanned on October 26. Its Kent Valley
+Dec 5, 2026 and Boeing Jan 16, 2027 entries are separately named, not interchangeable
+dates for one series. Preserve the existing identity hold until reconciled with
+organizer evidence. Tentative San Jose/North County dates, Canadian listings and
+NWTAMS meeting classification remain review-only. This source registration does
+not change show data or establish nationwide currency.
+
 Next: find Whitman's current official page through exposed official links rather
 than guessing a replacement for the recorded 404. Then resolve Lehigh County/Valley
 identity, KVCC date/venue blocks and Midwest spring/fall identity; apply only

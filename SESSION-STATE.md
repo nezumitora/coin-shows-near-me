@@ -1,7 +1,28 @@
 # Session State
 
-**Last updated:** 2026-08-29 15:10 PDT
-**Session:** Coin v0.17.0 owner-review candidate, round-2 archive, and local review baseline
+**Last updated:** 2026-10-26
+**Session:** Kent dealer publication and PNNA rotation after reboot
+
+## Current restart handoff
+
+- Owner approved publishing Kent Coin and Bullion's regular dealer listing and
+  complimentary `Featured dealer` placement. This is separate from paid sponsorship
+  and claim/verification status. Implementation and verification are recorded in
+  `docs/kent-dealer-preview.md`; consult it, not only the show-refresh notes.
+- PNNA's owner-supplied clean calendar URL is registered alongside the existing
+  mobile calendar. Recurring rotation/holds are recorded in
+  `docs/listing-source-review-ledger.md` and `docs/listing-refresh-operations.md`.
+- Existing tests, validator, generated currentness, source dry run and production
+  Jekyll build passed. Desktop/mobile Kent visual and functional checks passed.
+  Publication/live verification is the remaining gate for this handoff.
+- The previous listing catch-up published 225 canonical shows; exact receipts are
+  in `docs/listing-refresh-status.md`. This Kent/PNNA change does not alter shows.
+- Next work after Kent publication: verify reviewer operation after reboot,
+  continue remaining nationwide source rotation, and fix empty discovery details.
+- The August notes below are historical, not current publication authority or a
+  reliable indication of today's live state. Do not restart those completed tasks.
+
+## Historical August 29 owner-review handoff
 
 ## Completed today
 

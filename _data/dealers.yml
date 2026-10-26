@@ -1,6 +1,6 @@
 # Coin dealer directory data
 # Types: brick-and-mortar, online, both
-# Last updated: April 2026
+# Last updated: October 26, 2026
 # NOTE: This is a starter set. Legacy top-level website values are research
 # inputs and are not public contact approval. Public address, phone, website,
 # and social links render only from an optional public_contacts block whose
@@ -20,6 +20,30 @@
 #   postal_code: '90000'
 #   facebook: https://www.facebook.com/example
 #   instagram: https://www.instagram.com/example
+
+# === Local Shops ===
+
+- id: kent-coin-and-bullion
+  name: Kent Coin and Bullion
+  type: brick-and-mortar
+  city: Kent
+  state: WA
+  state_name: Washington
+  description: "Coin dealer in Kent, Washington. Check the business’s Google Maps listing for current hours before visiting."
+  specialties:
+    - Coins
+  # Complimentary placement approved by the owner; not a claim or verification badge.
+  featured: true
+  public_contacts:
+    publication_basis: source_verified
+    source_url: https://maps.app.goo.gl/sFADk38zxiEvtHS58
+    last_verified: '2026-10-26'
+    phone: '(253) 443-1960'
+    street_address: 428 W Harrison St
+    city: Kent
+    state: WA
+    postal_code: '98032'
+    google_maps: https://maps.app.goo.gl/sFADk38zxiEvtHS58
 
 # === Major Online Dealers ===
 
