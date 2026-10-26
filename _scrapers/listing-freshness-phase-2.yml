@@ -91,6 +91,9 @@ sources:
       - vna-convention-coin-show
       - salemroanoke-valley-coin-show
       - vienna-quarterly-coin-stamp-show
+      - richmond-fall-coin-currency-show
+      - shenandoah-valley-coin-stamp-show
+      - winchester-coin-club-show
     source_tier: tier_2_official_organization
     authority_basis: Official Virginia Numismatic Association state calendar; its reviewed same-host HTTPS redirect target returned 200 on 2026-08-31.
     request_url: https://vnaonline.org/2026-calendar/

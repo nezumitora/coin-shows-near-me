@@ -377,7 +377,10 @@
     "upcoming_dates": [
       "2026-11-06",
       "2026-11-07",
-      "2026-12-13"
+      "2026-12-13",
+      "2027-02-26",
+      "2027-02-27",
+      "2027-05-30"
     ],
     "series_ended": false,
     "postal_code": "95652",
@@ -1112,16 +1115,19 @@
   {
     "id": "southern-idaho-coin-club-show",
     "name": "Southern Idaho Coin Club Show",
-    "city": "Garden City",
+    "city": "Nampa",
     "state": "ID",
     "state_name": "Idaho",
-    "venue": "The Riverside Hotel, 2900 W Chinden Blvd, Boise/Garden City, ID",
+    "venue": "Nampa Civic Center",
     "frequency": "Annual (May)",
-    "next_date": "TBD",
-    "upcoming_dates": [],
+    "next_date": "May 21-22, 2027",
+    "upcoming_dates": [
+      "2027-05-21",
+      "2027-05-22"
+    ],
     "series_ended": false,
     "postal_code": "",
-    "website": "https://www.pnna.org/wp/2026/07/southern-idaho-coin-show-successful/"
+    "website": "https://pnna.org/calendar2.html"
   },
   {
     "id": "cicero-berwyn-coin-stamp-bourse",
@@ -3210,6 +3216,24 @@
     "website": "http://www.vnaonline.org/"
   },
   {
+    "id": "richmond-fall-coin-currency-show",
+    "name": "Richmond Fall Coin & Currency Show",
+    "city": "Richmond",
+    "state": "VA",
+    "state_name": "Virginia",
+    "venue": "ACCA Shriners Center",
+    "frequency": "Date-specific",
+    "next_date": "November 5-7, 2026",
+    "upcoming_dates": [
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-07"
+    ],
+    "series_ended": false,
+    "postal_code": "23227",
+    "website": "https://www.richmondcoinclub.com/"
+  },
+  {
     "id": "salemroanoke-valley-coin-show",
     "name": "Salem/Roanoke Valley Coin Show",
     "city": "Salem",
@@ -3234,14 +3258,49 @@
     "state_name": "Virginia",
     "venue": "Vienna Community Center",
     "frequency": "Quarterly",
-    "next_date": "October 17-18, 2026",
+    "next_date": "November 7-8, 2026",
     "upcoming_dates": [
-      "2026-10-17",
-      "2026-10-18"
+      "2026-11-07",
+      "2026-11-08",
+      "2027-01-30",
+      "2027-01-31"
     ],
     "series_ended": false,
-    "postal_code": "",
-    "website": "http://www.vnaonline.org/2026-calendar/"
+    "postal_code": "22180",
+    "website": "https://viennacoinshow.com/"
+  },
+  {
+    "id": "shenandoah-valley-coin-stamp-show",
+    "name": "Shenandoah Valley Coin & Stamp Show",
+    "city": "Weyers Cave",
+    "state": "VA",
+    "state_name": "Virginia",
+    "venue": "Weyers Cave Community Center",
+    "frequency": "Date-specific",
+    "next_date": "December 4-5, 2026",
+    "upcoming_dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "series_ended": false,
+    "postal_code": "24486",
+    "website": "https://vnaonline.org/2026-calendar/"
+  },
+  {
+    "id": "winchester-coin-club-show",
+    "name": "Winchester Coin Club Show",
+    "city": "Winchester",
+    "state": "VA",
+    "state_name": "Virginia",
+    "venue": "Friendship Fire Company Bingo Hall",
+    "frequency": "Date-specific",
+    "next_date": "December 18, 2026",
+    "upcoming_dates": [
+      "2026-12-18"
+    ],
+    "series_ended": false,
+    "postal_code": "22601",
+    "website": "https://vnaonline.org/2026-calendar/"
   },
   {
     "id": "burlington-coin-show",

@@ -20,3 +20,6 @@
 # PNNA's sole TBD/WA placeholder now has an officially announced Portland venue.
 - legacy_slug: wa
   canonical_slug: portland-or
+# The same Southern Idaho series moves from its historical hotel to Nampa in 2027.
+- legacy_slug: garden-city-id
+  canonical_slug: nampa-id

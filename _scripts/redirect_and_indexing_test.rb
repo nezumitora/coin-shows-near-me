@@ -14,7 +14,8 @@ class RedirectAndIndexingTest < Minitest::Test
     'july-11th-2026-big-flats-ny' => 'big-flats-ny',
     'charlotte-nc' => 'middleton-wi',
     'creating-collectors-co' => 'tucson-az',
-    'wa' => 'portland-or'
+    'wa' => 'portland-or',
+    'garden-city-id' => 'nampa-id'
   }.freeze
 
   def test_exact_city_redirects_are_noindex_and_canonicalized
