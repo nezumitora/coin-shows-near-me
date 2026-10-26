@@ -1522,7 +1522,7 @@
     "state": "MD",
     "state_name": "Maryland",
     "venue": "Baltimore Convention Center",
-    "frequency": "3 Times Per Year (Spring, Summer, Winter)",
+    "frequency": "Recurring",
     "next_date": "November 12-14, 2026",
     "upcoming_dates": [
       "2026-11-12",
@@ -1530,8 +1530,8 @@
       "2026-11-14"
     ],
     "series_ended": false,
-    "postal_code": "",
-    "website": "http://expo.whitman.com/"
+    "postal_code": "21201",
+    "website": "https://whitmanexpo.com/"
   },
   {
     "id": "baltimore-stamp-and-coin-show",

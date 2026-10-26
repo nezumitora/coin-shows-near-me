@@ -1,5 +1,45 @@
 # Listing refresh status
 
+## Latest routine attempt — October 26, 2026 evening UTC
+
+Started **2026-10-26T21:28:21Z**. No overlapping listing PR or tracked edits in
+the recent listing worktrees at intake; badge PR #100 is unrelated. Linked
+worktree based on remote main `e2c61cbce246dae6a8fbd81cfe43dc19823180d9`.
+
+| Latest terminal workflow | Run | UTC start / completion | Result |
+|---|---|---|---|
+| Show Update Report | 40347873502 | Oct 26 15:17:31 / 15:20:49 | success |
+| External Source Comparison | 40355409768 | Oct 26 16:03:34 / 16:05:15 | success |
+| Third-Party Discovery | 40357588318 | Oct 26 16:16:54 / 16:25:03 | success |
+
+Downloaded and inspected all three artifacts. Reports are about 5–6 hours old,
+not stale (>48h). Comparison `527cd114-7069-434a-a8a4-8d07a82a1679` covered
+225 records: 118 explicitly mapped, 59 approved-source records awaiting reviewed
+comparison, 48 lacking an approved source; 55 exact source requests. These are
+coverage categories, not missing-show counts. Discovery detail CSV remains
+header-only (**zero reviewed detail rows**); discovery remains incomplete.
+
+Recovered last show publication PR #102 / Pages 40281994373, approximately
+14h39m old at intake. Dealer-only PR #106 and receipt deployment 40403777106 do
+not count as a newer show batch. Public feed still contains 225 records and the
+prior Whitman dates. Seven-day no-publication escalation is not due.
+
+Reviewed next queued source: Whitman, Maryland. **0 new series, 1 changed existing
+record, 0 added occurrence-days**. Kept Nov 12–14, 2026; replaced broken official
+source link, added explicitly supported street/ZIP and corrected unsupported
+three-times-yearly frequency to Recurring. Preserved ID, canonical route and alias.
+No Nov 11 dealer-only date or future Baltimore date added. Source page scan flagged
+an emoji Unicode-escape pattern; extracted event facts only, no embedded instructions.
+
+One separate official DC show candidate remains held for unsupported DC routing/
+state validation; exact source, dates, venue and implementation blocker are in
+`docs/listing-source-review-ledger.md`. This is not a nationwide missing-show total.
+Next rotation: Pennsylvania Lehigh County/Valley identity, then West Virginia KVCC
+date/venue blocks and South Dakota Midwest spring/fall identity; preserve PNNA's
+three-calendar rotation and existing identity/tentative-date holds.
+
+Batch publication/checks/readback pending its own receipt; no publication claimed yet.
+
 ## Last published batch
 
 - Published UTC: **2026-10-26T06:49:40Z**; PR **#102**, interactive batch 4.

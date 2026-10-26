@@ -1587,19 +1587,21 @@
   city: Baltimore
   city_slug: baltimore-md
   venue: Baltimore Convention Center
-  frequency: 3 Times Per Year (Spring, Summer, Winter)
+  street_address: One West Pratt Street
+  postal_code: '21201'
+  frequency: Recurring
   next_date: November 12-14, 2026
-  website: http://expo.whitman.com/
+  website: https://whitmanexpo.com/
   organizer: Whitman Coin & Collectibles Expo
-  source_url: https://whitmanexpo.com/baltimore-winter-expo/
-  last_verified: '2026-07-13'
+  source_url: https://whitmanexpo.com/home/baltimore-fall-expo/expo-information/
+  last_verified: '2026-10-26'
   upcoming_dates:
   - '2026-11-12'
   - '2026-11-13'
   - '2026-11-14'
   aliases:
   - whitman-coin-collectibles-expo-jun-11th-13th-2026
-  verification_notes: Official Whitman Expo page lists the Baltimore Fall Expo on November 12-14, 2026. The expired date-specific import now redirects to this canonical record.
+  verification_notes: October 26, 2026 review followed the listed official website to Whitman's current homepage and linked Baltimore Expo Information page, confirming November 12-14, 2026 at Baltimore Convention Center, Halls A-C, One West Pratt Street, Baltimore, MD 21201. Replaced the broken winter source URL and unsupported three-times-yearly label; retained canonical ID, alias and confirmed dates. November 11 is separately advertised as PNG dealer day, not added as public admission. No future Baltimore edition inferred.
   notes: One of the most important national shows.
 - id: baltimore-stamp-and-coin-show
   name: Baltimore Stamp and Coin Show
