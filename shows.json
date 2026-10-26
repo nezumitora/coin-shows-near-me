@@ -2078,10 +2078,14 @@
     "city": "Raleigh",
     "state": "NC",
     "state_name": "North Carolina",
-    "venue": "Exposition Center, NC State Fairgrounds, 4285 Trinity Rd, Raleigh, NC",
+    "venue": "Raleigh Convention Center, 500 S. Salisbury Street, Raleigh, NC",
     "frequency": "Annual (June)",
-    "next_date": "TBD",
-    "upcoming_dates": [],
+    "next_date": "June 17-19, 2027",
+    "upcoming_dates": [
+      "2027-06-17",
+      "2027-06-18",
+      "2027-06-19"
+    ],
     "series_ended": false,
     "postal_code": "",
     "website": "https://www.raleighcoinclub.org/expo"
@@ -3233,13 +3237,29 @@
     "website": "https://www.pnna.org/wp/events/spring/"
   },
   {
+    "id": "fox-valley-coin-club-show",
+    "name": "Fox Valley Coin Club Coin Show",
+    "city": "Appleton",
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "venue": "Hilton Paper Valley Hotel, 333 W. College Avenue, Appleton, WI 54911",
+    "frequency": "Annual",
+    "next_date": "March 21, 2027",
+    "upcoming_dates": [
+      "2027-03-21"
+    ],
+    "series_ended": false,
+    "postal_code": "54911",
+    "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
+  },
+  {
     "id": "milwaukee-numismatic-society-show",
     "name": "Milwaukee Numismatic Society Show",
     "city": "Brookfield",
     "state": "WI",
     "state_name": "Wisconsin",
     "venue": "Sheraton Milwaukee Brookfield Hotel, Brookfield Ballroom, 375 S. Moorland Rd, Brookfield, WI 53005",
-    "frequency": "Annual (October)",
+    "frequency": "Annual (November)",
     "next_date": "November 8, 2026",
     "upcoming_dates": [
       "2026-11-08"
@@ -3256,9 +3276,8 @@
     "state_name": "Wisconsin",
     "venue": "Best Western Plus Eau Claire Conference Center, 3340 Mondovi Road, Eau Claire, WI 54701",
     "frequency": "Recurring",
-    "next_date": "September 13, 2026",
+    "next_date": "May 2, 2027",
     "upcoming_dates": [
-      "2026-09-13",
       "2027-05-02"
     ],
     "series_ended": false,
@@ -3300,6 +3319,119 @@
     "series_ended": false,
     "postal_code": "53562",
     "website": "https://www.eacs.org/"
+  },
+  {
+    "id": "madison-coin-club-show",
+    "name": "Madison Coin Club Coin Show",
+    "city": "Middleton",
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "venue": "Madison Marriott West Hotel and Conference Center, 1313 John Q. Hammons Drive, Middleton, WI 53562",
+    "frequency": "Recurring",
+    "next_date": "November 29, 2026",
+    "upcoming_dates": [
+      "2026-11-29",
+      "2027-02-28"
+    ],
+    "series_ended": false,
+    "postal_code": "53562",
+    "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
+  },
+  {
+    "id": "waukesha-coin-club-show",
+    "name": "Waukesha Coin Club Coin Show",
+    "city": "New Berlin",
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "venue": "New Berlin Ale House, 16000 W. Cleveland Ave., New Berlin, WI",
+    "frequency": "Annual",
+    "next_date": "March 14, 2027",
+    "upcoming_dates": [
+      "2027-03-14"
+    ],
+    "series_ended": false,
+    "postal_code": "16000",
+    "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
+  },
+  {
+    "id": "south-shore-coin-club-show",
+    "name": "South Shore Coin Club Coin Show",
+    "city": "Oak Creek",
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "venue": "American Legion Post 434, Lower Hall, 9327 S Shepard Ave, Oak Creek, WI 53154",
+    "frequency": "Annual",
+    "next_date": "April 11, 2027",
+    "upcoming_dates": [
+      "2027-04-11"
+    ],
+    "series_ended": false,
+    "postal_code": "53154",
+    "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
+  },
+  {
+    "id": "wisconsin-coin-expos-annual-show",
+    "name": "Wisconsin Coin Expos Annual Coin Show",
+    "city": "Oshkosh",
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "venue": "Oshkosh Convention Center, 2 North Main St., Oshkosh, WI",
+    "frequency": "Annual",
+    "next_date": "February 21, 2027",
+    "upcoming_dates": [
+      "2027-02-21"
+    ],
+    "series_ended": false,
+    "postal_code": "",
+    "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
+  },
+  {
+    "id": "barron-county-coin-club-show",
+    "name": "Barron County Coin Club Coin Show",
+    "city": "Rice Lake",
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "venue": "Cedar Mall, 2900 S. Main St, Rice Lake, WI",
+    "frequency": "Annual",
+    "next_date": "June 12, 2027",
+    "upcoming_dates": [
+      "2027-06-12"
+    ],
+    "series_ended": false,
+    "postal_code": "",
+    "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
+  },
+  {
+    "id": "wisconsin-valley-coin-club-show",
+    "name": "Wisconsin Valley Coin Club Coin Show",
+    "city": "Rothschild",
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "venue": "Holiday Inn, 1000 Imperial Ave, Rothschild, WI 54474",
+    "frequency": "Annual",
+    "next_date": "April 18, 2027",
+    "upcoming_dates": [
+      "2027-04-18"
+    ],
+    "series_ended": false,
+    "postal_code": "54474",
+    "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
+  },
+  {
+    "id": "sheboygan-coin-club-show",
+    "name": "Sheboygan Coin Club Coin Show",
+    "city": "Sheboygan",
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "venue": "Emil Mazey Hall, 5425 Superior Ave., Sheboygan, WI 53083",
+    "frequency": "Annual",
+    "next_date": "March 14, 2027",
+    "upcoming_dates": [
+      "2027-03-14"
+    ],
+    "series_ended": false,
+    "postal_code": "53083",
+    "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
   },
   {
     "id": "kanawha-valley-coin-club-show",
