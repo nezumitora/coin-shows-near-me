@@ -41,6 +41,15 @@ from recurrence. This ledger tracks review attempts, not nationwide completeness
 | BNA monthly page | Nov 15/Dec 20 already recorded |
 | Wilmington official show page | Jan 14–16, 2027 added |
 | CK Shows, Nevada; routine Oct 26 06:22–06:26 UTC | Homepage and linked `https://ckshows.com/schedule.htm` explicitly retain Vegas National Oct 29–31, 2026, Tuscany Suites and Casino, Las Vegas. Existing dates unchanged; unsupported May/December frequency corrected to Recurring. Linked winter visitor page returns 404; no 2027 rollover. One record reviewed, zero new series/occurrence-days. |
+| VNA and directly linked Richmond/Vienna organizers | Batch 4 adds Richmond Nov 5–7, Shenandoah Dec 4–5, Winchester Dec 18, 2026 from exact venue-bearing blocks. Current Vienna organizer supplies Nov 7–8, 2026/Jan 30–31, 2027 and venue. Norfolk/Salem future venue associations and Vienna April remain held; no repair of literal year 3037. |
+| Sacramento official calendar | Batch 4 adds Feb 26–27/May 30, 2027; Nov 6–7/Dec 13, 2026 already recorded. Same Lions Gate Hotel venue. |
+| Southern Idaho PNNA report → linked future calendar | Batch 4 resolves TBD with May 21–22, 2027 and Nampa Civic Center, replacing historical Garden City hotel. Canonical ID/alias retained and old city URL redirected. |
+| CONA, Diablo, IMEX, Bay State | Accessible official pages but no qualifying later edition established: CONA Sep 2026; Diablo Oct 9–10, 2026; IMEX Sep 2025; Bay State Jul 23–25, 2026. Not cancellations; no recurrence-derived rollover. |
+| Houston and Griffin | Houston Jan 15–16, 2027, Marin Nov 22 and SF Bourse Dec 5, 2026 dates/venues already recorded. Houston Jan 14 is restricted setup/early bird, not public. No later San Jose/Vacaville edition established. |
+| Long Beach, Heartland, EAC | Explicit 2027 dates already in data. Long Beach announces overall spans, not verified public-day splits. Heartland May 15–16, 2027; EAC May 19–23, 2027 convention span. No unannounced edition inferred; EAC public-bourse split unresolved. |
+| AMA South Dakota | Explicit Midwest May 22–23, 2027 at Sioux Falls Convention Center; existing record is a fall series, so reconcile series identity before appending/adding. September headline Sep 11–12 conflicts with detailed Sep 12–13: held. |
+| Lehigh and KVCC regional calendars | Lehigh Valley Nov 7 lacks venue; existing Lehigh County Nov 21 identity unresolved. KVCC Charleston Nov 14 needs exact city/address association; Parkersburg Oct 31 Marietta block conflicts with Mineral Wells heading. River Cities 2027 Milton block must be reconciled with old Hurricane series. Unnamed Nov 29 block not assigned to Clarksburg by proximity. |
+| National Battlefield future calendar/detail | Nov 27–28, 2026 already recorded; Aspire/Eisenhower venue conflict held. Nov 26 is dealer drop-off only. Explicit 2027/2028 overall ranges do not establish future public/dealer splits. |
 
 ## Attempted but unresolved
 
@@ -58,13 +67,15 @@ Do not describe these sites as down based on a tool/transport failure alone.
 
 ## Next rotation, not yet reconciled by this batch
 
-Continue remaining explicit-comparison sources and unused coverage-queue paths,
-next VNA's recorded calendar/redirect, then CONA and Whitman 404 replacement,
-Houston, Sacramento, Griffin redirects, Long Beach redirect, Diablo redirect,
-Heartland, Lehigh County, Kanawha regional sources, South Dakota AMA, IMEX,
-National Battlefield, Bay State, EAC and Southern Idaho. Existing Facebook-only
-sources remain held if public details cannot be read without login. Do not use
-fresh timestamps or successful report jobs to erase this unresolved queue.
+Next: find Whitman's current official page through exposed official links rather
+than guessing a replacement for the recorded 404. Then resolve Lehigh County/Valley
+identity, KVCC date/venue blocks and Midwest spring/fall identity; apply only
+individually verified facts. Revisit the transport-failed sources above using
+permitted readable official evidence, without treating tool failure as cancellation.
+Existing Facebook-only sources stay held where public details require login.
+Long Beach/Heartland legacy next-date labels and future public-day distinctions
+need reconciliation without deleting confirmed dates or inferring public access.
+Do not repeat already checked calendars solely to produce a fresh timestamp.
 
 The 48 records lacking an approved comparison source in the 216-record snapshot
 remain a separate official-source-discovery queue, not 48 proven missing shows.

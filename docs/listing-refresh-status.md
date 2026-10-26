@@ -2,6 +2,29 @@
 
 ## Last published batch
 
+- Published UTC: **2026-10-26T06:49:40Z**; PR **#102**, interactive batch 4.
+- Merge: `5ed8c21f1b6ec212e024e718047c3289aa0dac5a`.
+- Successful exact-SHA Pages run: **40281994373**.
+- Public feed readback: **225 canonical listings**; all three new Virginia IDs,
+  Sacramento's explicit 2027 additions, Vienna's November/January dates and
+  Southern Idaho's Nampa venue and May 2027 dates verified.
+- Added **3 series**, changed **3 existing records**, added **15 dated
+  occurrence-days**, not 15 new shows. Evidence:
+  `docs/listing-catchup-2026-10-26-batch-4.md`.
+- Independent rendered browser checks passed for all three new Virginia pages,
+  Southern Idaho and Vienna; dates, venues, HTTP 200 and canonical routes verified.
+  Garden City redirects to Nampa with legacy noindex/canonical; all three new
+  Virginia routes appear once in the public sitemap. No observed console/page errors.
+- Existing Ruby/JavaScript suites, validator, generator currentness, whitespace,
+  local production Jekyll container build and PR CI passed. The first local build
+  deliberately disabled networking and could not obtain the configured remote
+  theme; the normal network-enabled build then passed without code/config changes.
+- Catch-up totals across batches 1–4: **29 added series**, one duplicate merged
+  with its URL preserved, **197 → 225 canonical listings**. Existing-record
+  change counts are per batch and must not be summed as distinct shows.
+
+## First automatic publication
+
 - Published UTC: **2026-10-26T06:40:56Z**; PR **#101**.
 - Merge: `79f0892b100944aa9a9a82c02301c6a116bb7777`.
 - Successful exact-SHA production Jekyll/Pages run: **40281151764**.
@@ -64,20 +87,22 @@ Vegas National; dates/venue already correct. Corrected unsupported May/December
 frequency wording to Recurring and refreshed only this record's verification.
 The linked winter visitor page returns 404; future 2027 dates remain unverified.
 Publication verified through PR #101, Pages 40281151764 and exact public readback
-above. Next source/state: Virginia VNA calendar/recorded redirect, then Ohio CONA;
-keep Whitman's official replacement-page search next in the unresolved queue.
+above. Subsequent interactive batch 4 completed the supported Virginia additions,
+Sacramento dates and Southern Idaho move. Remaining source rotation and precise
+holds are in `docs/listing-source-review-ledger.md`; do not restart completed work.
 
 ## Scope still outstanding
 
-The previous publication was September 4: approximately seven weeks of elapsed
-listing-maintenance lag before this batch. That is not a claim that every record
+The pre-catch-up publication was September 4: approximately seven weeks of elapsed
+listing-maintenance lag before the October catch-up. That is not a claim that every record
 was seven weeks wrong. Some already contained correct 2027 dates.
 
 Fresh comparison `2a8e7e9e-0e9b-4d60-b172-31790a558226` ran October 26
 05:15:32–05:16:41 UTC against 216 records: 48 exact source requests, 78 explicit
 listing mappings, 90 approved-source records outside those mappings, 48 lacking
 an approved comparison source. These are coverage categories, not missing-show
-counts. Published batch 3 expands explicit mappings to 115 of 222 records:
+counts. Published batch 3 expanded explicit mappings to 115 of 222 records;
+batch 4's checked registry now maps **118 of 225 records**:
 **107 records remain outside explicit mappings**; this is not 107 missing shows.
 The inactive Phase 2 profile's covered IDs stay synchronized, but its schedule,
 network default, request limits and all publication-disable controls are unchanged.
@@ -91,10 +116,15 @@ listings current while that ledger has unresolved coverage.
 ## Reviewer scheduler
 
 Daily reviewer definition: `TODO.md`, `r-coin-listing-refresh`, 15:30 UTC, owned
-by the existing Pulse supervisor. **First scheduled execution pending evidence.**
-This invocation supplies a completed reviewer/publication receipt, but does not
-independently attest the 15:30 timer or future unattended runs. Do not confuse
-execution success with scheduler health. See `docs/listing-refresh-operations.md`.
+by the existing Pulse supervisor. **First due-run dispatch and successful terminal
+execution are verified.** Scheduler state recorded an attempt at
+**2026-10-26T06:14:41Z**, Pulse lifecycle recorded runtime launch at **06:15:02Z**,
+and routine state recorded **success / last_run 2026-10-26T06:50:32Z**. This
+never-run catch-up invocation produced PR #101 and its verified public deployment;
+it was not a manually triggered replacement job or merely a reporting artifact.
+It proves the due-run publication path, not future reliability or a separate
+15:30 timer firing. Host availability, authentication, model limits and merge gates
+remain operational dependencies. See `docs/listing-refresh-operations.md`.
 
 Workflow registration merged in PR #97 (`84e6bcc6cf3f6aeacbda355f63634cdfb9de49a7`);
 the canonical service mirror was safely synchronized through the audited recovery
@@ -107,6 +137,7 @@ directory; repeated shim failures were observed. Added that directory after the
 managed wrappers (keeping wrapper policy in place), validated the plist and
 reloaded the existing service only after observing an idle window. Its loaded
 environment now contains the native path and the same shim resolves CLI 2.92.0.
-This is an environment repair, **not proof of routine completion**. A bounded
-wrapper dry-run reached cache prewarming but timed out; its result is not a
-successful scheduled run. Keep the missing routine receipt as an open gate.
+The environment repair alone was not proof of routine completion. A bounded
+wrapper dry-run timed out during cache prewarming; that is not a successful run.
+The later actual Pulse dispatch, successful terminal state and PR #101 deployment
+above close the first-run evidence gate. No second scheduler was installed.
