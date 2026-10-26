@@ -2251,15 +2251,20 @@
   state_name: North Carolina
   city: Raleigh
   city_slug: raleigh-nc
-  venue: Exposition Center, NC State Fairgrounds, 4285 Trinity Rd, Raleigh, NC
+  venue: Raleigh Convention Center, 500 S. Salisbury Street, Raleigh, NC
   frequency: Annual (June)
-  next_date: TBD
+  next_date: June 17-19, 2027
   website: https://www.raleighcoinclub.org/expo
-  organizer: Raleigh Coin Club
+  organizer: Whitman Brands / Raleigh Coin Club
   source_url: https://www.raleighcoinclub.org/expo
-  last_verified: '2026-07-16'
-  verification_notes: Official Raleigh Coin Club Expo page still lists only the completed June 26-28, 2026 event at the Exposition Center; no future date is posted, so the public listing now remains TBD.
-  notes: Annual June event; check the official club page for the next announced date.
+  source_type: club-show-page
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2027-06-17'
+  - '2027-06-18'
+  - '2027-06-19'
+  verification_notes: Official Raleigh Coin Club Expo page announces June 17-19, 2027 at Raleigh Convention Center, 500 S. Salisbury Street, with Whitman Brands and Raleigh Coin Club partnering. Replaces the old fairgrounds venue; preserves the existing show URL.
+  notes: Expanded national show partnership; check the official source for admission and public hours before traveling.
 - id: red-river-valley-coin-club-show
   name: Red River Valley Coin Club Show
   state: ND
@@ -3485,15 +3490,14 @@
   city_slug: eau-claire-wi
   venue: Best Western Plus Eau Claire Conference Center, 3340 Mondovi Road, Eau Claire, WI 54701
   frequency: Recurring
-  next_date: September 13, 2026
+  next_date: May 2, 2027
   website: http://www.numismatistsofwisconsin.com/showcalendar.html
   organizer: Chippewa Valley Coin Club
   source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
-  last_verified: '2026-07-15'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-13'
   - '2027-05-02'
-  verification_notes: Official Numismatists of Wisconsin show calendar lists Chippewa Valley Coin Club shows September 13, 2026 and May 2, 2027 at Best Western Plus, 3340 Mondovi Road; rechecked during official-source listing verification.
+  verification_notes: Official NOW calendar rechecked October 26 explicitly lists May 2, 2027 at Best Western Plus, 3340 Mondovi Road. Removed the completed September occurrence from upcoming dates.
   notes: 'Hours: Sun 9-3. Official calendar lists contact Adam at 715-226-0553.'
 - id: milwaukee-numismatic-society-show
   name: Milwaukee Numismatic Society Show
@@ -3502,7 +3506,7 @@
   city: Brookfield
   city_slug: brookfield-wi
   venue: Sheraton Milwaukee Brookfield Hotel, Brookfield Ballroom, 375 S. Moorland Rd, Brookfield, WI 53005
-  frequency: Annual (October)
+  frequency: Annual (November)
   next_date: November 8, 2026
   website: http://www.milwaukeenumismaticsociety.com/
   organizer: Milwaukee Numismatic Society
@@ -3531,6 +3535,151 @@
   - '2027-04-25'
   verification_notes: Official Numismatists of Wisconsin show calendar lists the NOW State Convention on April 25, 2027 at Stadium View Bar & Grill in Green Bay; existing Oshkosh venue appears to refer to a different Wisconsin Coin Expos listing.
   notes: Official calendar identifies this as the 2027 NOW State Convention.
+- id: wisconsin-coin-expos-annual-show
+  name: Wisconsin Coin Expos Annual Coin Show
+  state: WI
+  state_name: Wisconsin
+  city: Oshkosh
+  city_slug: oshkosh-wi
+  venue: Oshkosh Convention Center, 2 North Main St., Oshkosh, WI
+  frequency: Annual
+  next_date: February 21, 2027
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
+  organizer: Wisconsin Coin Expos LLC
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2027-02-21'
+  verification_notes: Official NOW calendar explicitly lists the 44th Wisconsin Coin Expos annual show on February 21, 2027 in Oshkosh. Distinct from the existing NOW State Convention in Green Bay.
+  notes: 'Hours: 9am-4pm. Free admission and door prizes.'
+- id: madison-coin-club-show
+  name: Madison Coin Club Coin Show
+  state: WI
+  state_name: Wisconsin
+  city: Middleton
+  city_slug: middleton-wi
+  venue: Madison Marriott West Hotel and Conference Center, 1313 John Q. Hammons Drive, Middleton, WI 53562
+  frequency: Recurring
+  next_date: November 29, 2026
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
+  organizer: Madison Coin Club
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2026-11-29'
+  - '2027-02-28'
+  verification_notes: Official NOW calendar explicitly lists November 29, 2026 and February 28, 2027 at Madison Marriott West in Middleton. Both occurrences belong to one club show series.
+  notes: 'Hours: 9am-3pm. Early bird 8am-9am costs $25; regular admission not specified.'
+- id: sheboygan-coin-club-show
+  name: Sheboygan Coin Club Coin Show
+  state: WI
+  state_name: Wisconsin
+  city: Sheboygan
+  city_slug: sheboygan-wi
+  venue: Emil Mazey Hall, 5425 Superior Ave., Sheboygan, WI 53083
+  frequency: Annual
+  next_date: March 14, 2027
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
+  organizer: Sheboygan Coin Club
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2027-03-14'
+  verification_notes: Official NOW calendar explicitly lists Sheboygan Coin Club on March 14, 2027 at Emil Mazey Hall.
+  notes: 'Hours: 9am-3pm. Free admission; penny table for kids.'
+- id: waukesha-coin-club-show
+  name: Waukesha Coin Club Coin Show
+  state: WI
+  state_name: Wisconsin
+  city: New Berlin
+  city_slug: new-berlin-wi
+  venue: New Berlin Ale House, 16000 W. Cleveland Ave., New Berlin, WI
+  frequency: Annual
+  next_date: March 14, 2027
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
+  organizer: Waukesha Coin Club
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2027-03-14'
+  verification_notes: Official NOW calendar explicitly lists the 57th annual Waukesha Coin Show on March 14, 2027 at New Berlin Ale House. Public city follows the venue rather than the club name.
+  notes: 'Hours: 9am-4pm. Adults $3; children under 12 free.'
+- id: fox-valley-coin-club-show
+  name: Fox Valley Coin Club Coin Show
+  state: WI
+  state_name: Wisconsin
+  city: Appleton
+  city_slug: appleton-wi
+  venue: Hilton Paper Valley Hotel, 333 W. College Avenue, Appleton, WI 54911
+  frequency: Annual
+  next_date: March 21, 2027
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
+  organizer: Fox Valley Coin Club
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2027-03-21'
+  verification_notes: Official NOW calendar explicitly lists the 71st annual Fox Valley Coin Club show on March 21, 2027 at Hilton Paper Valley Hotel.
+  notes: 'Hours: 9am-4pm. Free admission; Sunday street and ramp parking free. 50 tables.'
+- id: south-shore-coin-club-show
+  name: South Shore Coin Club Coin Show
+  state: WI
+  state_name: Wisconsin
+  city: Oak Creek
+  city_slug: oak-creek-wi
+  venue: American Legion Post 434, Lower Hall, 9327 S Shepard Ave, Oak Creek, WI 53154
+  frequency: Annual
+  next_date: April 11, 2027
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
+  organizer: South Shore Coin Club
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2027-04-11'
+  verification_notes: Official NOW calendar lists April 11, 2027 under Milwaukee but the actual venue is in Oak Creek; listing uses the venue city.
+  notes: 'Hours: 9am-4pm. Check the source for admission.'
+- id: wisconsin-valley-coin-club-show
+  name: Wisconsin Valley Coin Club Coin Show
+  state: WI
+  state_name: Wisconsin
+  city: Rothschild
+  city_slug: rothschild-wi
+  venue: Holiday Inn, 1000 Imperial Ave, Rothschild, WI 54474
+  frequency: Annual
+  next_date: April 18, 2027
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
+  organizer: Wisconsin Valley Coin Club
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2027-04-18'
+  verification_notes: Official NOW calendar explicitly lists April 18, 2027 under Wausau with the venue in Rothschild; listing uses the venue city.
+  notes: 'Hours: 9am-4pm. Free admission; free coins and activity for kids.'
+- id: barron-county-coin-club-show
+  name: Barron County Coin Club Coin Show
+  state: WI
+  state_name: Wisconsin
+  city: Rice Lake
+  city_slug: rice-lake-wi
+  venue: Cedar Mall, 2900 S. Main St, Rice Lake, WI
+  frequency: Annual
+  next_date: June 12, 2027
+  website: http://www.numismatistsofwisconsin.com/showcalendar.html
+  organizer: Barron County Coin Club
+  source_url: http://www.numismatistsofwisconsin.com/showcalendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates:
+  - '2027-06-12'
+  verification_notes: Official NOW calendar explicitly lists Barron County Coin Club on June 12, 2027 at Cedar Mall in Rice Lake.
+  notes: 'Hours: 9:30am-3pm. Free admission.'
 - id: kanawha-valley-coin-club-show
   name: Kanawha Valley Coin Club Show
   state: WV
