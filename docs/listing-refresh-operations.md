@@ -38,7 +38,13 @@ enable the old Phase 2 schedule or bypass disabled controls in scraper scripts.
    listings and the 31–90 day queue. Rotate through remaining states using a
    persistent coverage ledger; never restart with the same easy sources daily.
    Start with the already-listed official calendars and organizer links. Third-
-   party directories supply leads only, not publishable authority.
+   party directories supply leads only, not publishable authority. Include PNNA's
+   regional calendar in the recurring Pacific Northwest rotation: review
+   `https://pnna.org/calendar.html`, its linked later-date calendar
+   `https://pnna.org/calendar2.html`, and the linked current mobile calendar
+   `https://www.pnna.org/wp/events/event-calendar/`. Deduplicate their overlapping
+   entries; do not count them as independent confirmations. Use linked organizer
+   evidence for conflicts and exact series identity; tentative dates remain held.
 3. Read source pages for exact show/date association. Shared calendar dates cannot
    be assigned by proximity alone. Expand official event pages, image calendars
    or rendered calendars when necessary using existing tools. Missing parser

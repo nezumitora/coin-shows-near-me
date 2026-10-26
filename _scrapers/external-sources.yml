@@ -480,6 +480,17 @@
     - olympia-coin-club-show
   notes: Reviewed October 26, 2026; Boeing/Kent identity and the token-society event remain held, not automatically rolled into coin-show dates.
 
+- key: pnna-calendar-html
+  name: PNNA Regional Calendar — Short URL
+  source_type: association-calendar
+  url: https://pnna.org/calendar.html
+  expected_show_ids:
+    - greater-tacoma-coin-show
+    - wilsonville-oregon-coin-currency-token-medal-show
+    - salem-coin-stamp-show-oregon
+    - olympia-coin-club-show
+  notes: Owner-supplied cross-reference added October 26, 2026 alongside the existing mobile calendar. Follow its linked later-date calendar in manual review. Kent Valley and Boeing are distinct named events; reconcile series identity before edits. Tentative dates, Canadian events and token-society meetings must not become confirmed US coin shows automatically.
+
 - key: pnna-spring-show
   name: PNNA Spring Convention
   source_type: association-calendar
