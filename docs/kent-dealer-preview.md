@@ -34,7 +34,21 @@ the rotation and exact-date/identity holds are in
   title, address and both actions are readable at both widths. Homepage remains
   promotion-free. No forms submitted, calls made or customer contact performed.
 
-Publication and final live verification receipts will be recorded after deployment.
+### Published receipt
+
+- PR: https://github.com/nezumitora/coin-shows-near-me/pull/106
+- Merge: `9aa778b660b6ed30ab31ee0bf5d109c3f3c101ad`, October 26, 2026 21:15:47 UTC.
+- Exact-SHA Pages run: `40402864790`, completed successfully by 21:18:25 UTC:
+  https://github.com/nezumitora/coin-shows-near-me/actions/runs/40402864790
+- Live https://coinshownearme.com/dealers/ readback contains the complimentary
+  featured block and separate Kent regular card, approved address/phone and Maps
+  links. No Claimed/Verified badge or invented website was added.
+- Live viewport-only captures at 1440×900 and 375×667 of `/dealers/` and
+  `/shows/greater-tacoma-coin-show/` all returned HTTP 200 with no console errors
+  and found the Kent featured component. The live mobile directory screenshot was
+  opened and confirms readable labels and stacked actions matching the candidate.
+- PNNA's short calendar is in the merged source registry and recurring rotation;
+  no show records, paid services, forms, CRM data or schedules were changed.
 
 ## Historical preview evidence (before publication approval)
 
