@@ -14,7 +14,11 @@
   `docs/listing-source-review-ledger.md` and `docs/listing-refresh-operations.md`.
 - Existing tests, validator, generated currentness, source dry run and production
   Jekyll build passed. Desktop/mobile Kent visual and functional checks passed.
-  Publication/live verification is the remaining gate for this handoff.
+  Published through PR #106, merge `9aa778b660b6ed30ab31ee0bf5d109c3f3c101ad`;
+  exact-SHA Pages run `40402864790` succeeded October 26 at 21:18:25 UTC.
+  Live directory and representative show-page desktop/mobile captures returned
+  HTTP 200, displayed the Kent placement and had no console errors. Live directory
+  readback confirms the separate regular listing and approved public contacts.
 - The previous listing catch-up published 225 canonical shows; exact receipts are
   in `docs/listing-refresh-status.md`. This Kent/PNNA change does not alter shows.
 - Next work after Kent publication: verify reviewer operation after reboot,
