@@ -2,7 +2,8 @@
 
 ## Latest routine attempt — October 26, 2026 evening UTC
 
-Started **2026-10-26T21:28:21Z**. No overlapping listing PR or tracked edits in
+Started **2026-10-26T21:28:21Z**; completed **2026-10-26T21:51:32Z**.
+No overlapping listing PR or tracked edits in
 the recent listing worktrees at intake; badge PR #100 is unrelated. Linked
 worktree based on remote main `e2c61cbce246dae6a8fbd81cfe43dc19823180d9`.
 
@@ -38,9 +39,34 @@ Next rotation: Pennsylvania Lehigh County/Valley identity, then West Virginia KV
 date/venue blocks and South Dakota Midwest spring/fall identity; preserve PNNA's
 three-calendar rotation and existing identity/tentative-date holds.
 
-Batch publication/checks/readback pending its own receipt; no publication claimed yet.
+Result: **published**, through PR **#108**. Existing 27 Ruby syntax checks,
+all 11 Ruby suites, all 16 JavaScript tests, validator, generated currentness,
+whitespace and local production Jekyll container build passed. PR CI also passed.
+No test expectations, disabled controls or schedules changed. The managed GitHub
+shim temporarily lost the installed native CLI in its search path; authenticated
+native read-only checks confirmed CLI availability and no duplicate PR. A
+session-only PATH correction retained managed wrappers and restored the normal
+write/merge path; no host configuration or credentials changed.
 
 ## Last published batch
+
+- PR **#108**, merge **`7116a42ef02288a9a28bc4b463005565a4416755`** at
+  **2026-10-26T21:48:16Z**.
+- Exact-SHA production Pages/Jekyll run **40407406063**, successful at
+  **2026-10-26T21:49:37Z**.
+- Counts: **0 new series, 1 changed existing record, 0 added occurrence-days**;
+  225 canonical shows retained. Official Baltimore source repair, street/ZIP,
+  frequency correction and evidence-specific verification only.
+- Post-success public readback completed **2026-10-26T21:51:32Z**: full
+  `shows.json` equals the reviewed generated feed; Whitman page includes verified
+  street/ZIP, Oct 26 verification, Nov 12–14 ISO dates, current official evidence
+  URL and unchanged canonical route. Public sitemap includes its route. No
+  deployment/content mismatch. Legacy show alias remains in canonical data.
+- Age of last published listing update at completion: **1 minute 55 seconds**.
+  Seven-day escalation not due. The preserved DC candidate and coverage backlog
+  remain separate from this successful publication.
+
+## Previous published batch — interactive batch 4
 
 - Published UTC: **2026-10-26T06:49:40Z**; PR **#102**, interactive batch 4.
 - Merge: `5ed8c21f1b6ec212e024e718047c3289aa0dac5a`.
