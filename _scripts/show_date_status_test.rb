@@ -17,9 +17,9 @@ class ShowDateStatusTest < Minitest::Test
   def test_frozen_directory_classification_counts
     counts = SHOWS.group_by { |record| ShowDateStatus.classification(record, as_of: AS_OF) }.transform_values(&:length)
 
-    assert_equal 216, SHOWS.length
-    assert_equal 119, counts.fetch(:scheduled)
-    assert_equal 97, counts.fetch(:date_not_confirmed)
+    assert_equal 222, SHOWS.length
+    assert_equal 129, counts.fetch(:scheduled)
+    assert_equal 93, counts.fetch(:date_not_confirmed)
     assert_equal 0, counts.fetch(:past_date_unconfirmed, 0)
     assert_nil counts[:past_show]
   end
@@ -65,12 +65,7 @@ class ShowDateStatusTest < Minitest::Test
     assert_equal Date.new(2026, 9, 5), saturday
     assert_equal Date.new(2026, 9, 6), sunday
     assert_equal %w[
-      coinacopia-tampas-coin-show
-      first-sunday-coin-show-apopka
-      gold-coast-coin-collectibles-show
-      greater-tacoma-coin-show
       ohio-state-coin-show
-      orland-park-coin-show
     ], ids
   end
 

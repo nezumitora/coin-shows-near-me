@@ -586,10 +586,32 @@
     "city": "Fort Collins",
     "state": "CO",
     "state_name": "Colorado",
-    "venue": "Larimer County Fairgrounds McKee 4H Bldg, 5280 Arena Circle, Loveland, CO",
+    "venue": "Lincoln Center, Fort Collins, CO",
     "frequency": "Semiannual (Spring & Fall)",
-    "next_date": "TBD",
-    "upcoming_dates": [],
+    "next_date": "December 5-6, 2027",
+    "upcoming_dates": [
+      "2027-12-05",
+      "2027-12-06"
+    ],
+    "series_ended": false,
+    "postal_code": "",
+    "website": "https://fortcollinscoinclub.com/upcoming-shows/"
+  },
+  {
+    "id": "colorado-money-show",
+    "name": "Colorado Money Show",
+    "city": "Golden",
+    "state": "CO",
+    "state_name": "Colorado",
+    "venue": "Jefferson County Fairgrounds",
+    "frequency": "Date-specific",
+    "next_date": "January 29-30, 2027",
+    "upcoming_dates": [
+      "2027-01-29",
+      "2027-01-30",
+      "2027-08-06",
+      "2027-08-07"
+    ],
     "series_ended": false,
     "postal_code": "",
     "website": "https://fortcollinscoinclub.com/upcoming-shows/"
@@ -658,8 +680,12 @@
     "state_name": "Delaware",
     "venue": "Nur Shrine Temple, 198 South DuPont Highway, New Castle, DE 19720",
     "frequency": "Annual (January)",
-    "next_date": "TBD",
-    "upcoming_dates": [],
+    "next_date": "January 14-16, 2027",
+    "upcoming_dates": [
+      "2027-01-14",
+      "2027-01-15",
+      "2027-01-16"
+    ],
     "series_ended": false,
     "postal_code": "19720",
     "website": "https://www.wilmingtoncoinclub.org/wilmington-coin-show"
@@ -672,11 +698,11 @@
     "state_name": "Florida",
     "venue": "Apopka Community Center, 519 S. Central Ave, Apopka, FL 32703",
     "frequency": "Monthly (1st Sunday)",
-    "next_date": "September 6, 2026",
+    "next_date": "November 1, 2026",
     "upcoming_dates": [
-      "2026-09-06",
-      "2026-10-04",
-      "2026-11-01"
+      "2026-11-01",
+      "2026-12-06",
+      "2027-01-03"
     ],
     "series_ended": false,
     "postal_code": "32703",
@@ -721,11 +747,11 @@
     "state_name": "Florida",
     "venue": "Rotary Club of Hollywood, 2349 Taylor St, Hollywood, FL 33020",
     "frequency": "Recurring",
-    "next_date": "September 6, 2026",
+    "next_date": "November 1, 2026",
     "upcoming_dates": [
-      "2026-09-06",
-      "2026-10-04",
-      "2026-11-01"
+      "2026-11-01",
+      "2026-12-06",
+      "2027-01-03"
     ],
     "series_ended": false,
     "postal_code": "33020",
@@ -806,13 +832,7 @@
     "upcoming_dates": [
       "2027-07-15",
       "2027-07-16",
-      "2027-07-17",
-      "2028-07-13",
-      "2028-07-14",
-      "2028-07-15",
-      "2029-07-12",
-      "2029-07-13",
-      "2029-07-14"
+      "2027-07-17"
     ],
     "series_ended": false,
     "postal_code": "",
@@ -826,10 +846,8 @@
     "state_name": "Florida",
     "venue": "Volunteer Park Community Center, 12050 W Sunrise Blvd, Plantation, FL 33323",
     "frequency": "Monthly (3rd Sunday)",
-    "next_date": "September 20, 2026",
+    "next_date": "November 15, 2026",
     "upcoming_dates": [
-      "2026-09-20",
-      "2026-10-18",
       "2026-11-15",
       "2026-12-20"
     ],
@@ -873,9 +891,9 @@
     "state_name": "Florida",
     "venue": "Central Professional Building, 13336 N Central Ave, Tampa, FL 33612",
     "frequency": "Recurring",
-    "next_date": "September 5, 2026",
+    "next_date": "December 5, 2026",
     "upcoming_dates": [
-      "2026-09-05"
+      "2026-12-05"
     ],
     "series_ended": false,
     "postal_code": "33612",
@@ -905,10 +923,8 @@
     "state_name": "Florida",
     "venue": "American Polish Club, 4725 Lake Worth Rd, Greenacres, FL 33463",
     "frequency": "Recurring",
-    "next_date": "September 27, 2026",
+    "next_date": "November 22, 2026",
     "upcoming_dates": [
-      "2026-09-27",
-      "2026-10-25",
       "2026-11-22",
       "2026-12-27"
     ],
@@ -1197,10 +1213,8 @@
     "state_name": "Illinois",
     "venue": "Orland Park Civic Center",
     "frequency": "Monthly (1st Sunday)",
-    "next_date": "September 6, 2026",
+    "next_date": "November 1, 2026",
     "upcoming_dates": [
-      "2026-09-06",
-      "2026-10-04",
       "2026-11-01",
       "2026-12-06"
     ],
@@ -1216,9 +1230,8 @@
     "state_name": "Illinois",
     "venue": "",
     "frequency": "Recurring",
-    "next_date": "October 4, 2026",
+    "next_date": "December 20, 2026",
     "upcoming_dates": [
-      "2026-10-04",
       "2026-12-20"
     ],
     "series_ended": false,
@@ -1252,9 +1265,8 @@
     "state_name": "Illinois",
     "venue": "Renaissance Schaumburg Hotel and Convention Center, 1551 North Thoreau Drive, Schaumburg, IL 60173",
     "frequency": "Annual (April)",
-    "next_date": "April 21-24, 2027",
+    "next_date": "April 22-24, 2027",
     "upcoming_dates": [
-      "2027-04-21",
       "2027-04-22",
       "2027-04-23",
       "2027-04-24"
@@ -1421,12 +1433,29 @@
     "website": "http://www.shreveportcoinclub.com/"
   },
   {
+    "id": "greater-worcester-coin-show",
+    "name": "Greater Worcester Coin Show",
+    "city": "Auburn",
+    "state": "MA",
+    "state_name": "Massachusetts",
+    "venue": "Auburn-Webster Elks Lodge, 754 Southbridge St, Auburn, MA",
+    "frequency": "Recurring",
+    "next_date": "November 8, 2026",
+    "upcoming_dates": [
+      "2026-11-08",
+      "2026-12-13"
+    ],
+    "series_ended": false,
+    "postal_code": "",
+    "website": "https://ebwpromotions.com/greater-worcester-coin-show/"
+  },
+  {
     "id": "devens-coin-show",
     "name": "Devens Coin Show",
     "city": "Devens",
     "state": "MA",
     "state_name": "Massachusetts",
-    "venue": "SpringHill Suites Marriott, 31 Andrews Parkway, Devens, MA",
+    "venue": "Devens Common Center, 31 Andrews Parkway, Devens, MA",
     "frequency": "Monthly (Last Sunday)",
     "next_date": "October 25, 2026",
     "upcoming_dates": [
@@ -1902,10 +1931,8 @@
     "state_name": "Minnesota",
     "venue": "United Food & Commercial Workers Union Hall, 266 Hardman Ave. N., South St. Paul, MN 55075",
     "frequency": "Recurring",
-    "next_date": "September 20, 2026",
+    "next_date": "November 22, 2026",
     "upcoming_dates": [
-      "2026-09-20",
-      "2026-10-18",
       "2026-11-22",
       "2026-12-20"
     ],
@@ -2157,10 +2184,13 @@
     "city": "Hollis",
     "state": "NH",
     "state_name": "New Hampshire",
-    "venue": "Alpine Grove Events Center, 9 S. Depot St, Hollis, NH",
+    "venue": "Alpine Grove Events Centre, 19 S. Depot St, Hollis, NH",
     "frequency": "Monthly (3rd Sunday)",
-    "next_date": "TBD",
-    "upcoming_dates": [],
+    "next_date": "November 15, 2026",
+    "upcoming_dates": [
+      "2026-11-15",
+      "2026-12-20"
+    ],
     "series_ended": false,
     "postal_code": "",
     "website": "http://www.nashuacoinclub.com/"
@@ -2227,24 +2257,6 @@
     "website": "http://whccnj.org/"
   },
   {
-    "id": "albuquerque-coin-club-show",
-    "name": "Albuquerque Coin Club Show",
-    "city": "Albuquerque",
-    "state": "NM",
-    "state_name": "New Mexico",
-    "venue": "Crowne Plaza or Marriott Pyramid",
-    "frequency": "Semiannual (Spring & Fall)",
-    "next_date": "November 13-15, 2026",
-    "upcoming_dates": [
-      "2026-11-13",
-      "2026-11-14",
-      "2026-11-15"
-    ],
-    "series_ended": false,
-    "postal_code": "",
-    "website": "http://www.albuquerquecoinclub.com/"
-  },
-  {
     "id": "albuquerque-coin-clubs-great-southwest-coin-expo",
     "name": "Albuquerque Coin Club's  Great Southwest Coin Expo",
     "city": "Albuquerque",
@@ -2256,7 +2268,10 @@
     "upcoming_dates": [
       "2026-11-13",
       "2026-11-14",
-      "2026-11-15"
+      "2026-11-15",
+      "2027-04-16",
+      "2027-04-17",
+      "2027-04-18"
     ],
     "series_ended": false,
     "postal_code": "",
@@ -2436,10 +2451,8 @@
     "state_name": "Ohio",
     "venue": "St. Michael's Woodside, 5025 Mill Rd, Broadview Heights, OH 44147",
     "frequency": "Monthly (2nd Saturday)",
-    "next_date": "September 12, 2026",
+    "next_date": "November 14, 2026",
     "upcoming_dates": [
-      "2026-09-12",
-      "2026-10-10",
       "2026-11-14",
       "2026-12-12"
     ],
@@ -2625,6 +2638,24 @@
     "website": "https://www.pnna.org/wp/events/event-calendar/"
   },
   {
+    "id": "pnna-spring-convention",
+    "name": "PNNA Spring Convention",
+    "city": "Portland",
+    "state": "OR",
+    "state_name": "Oregon",
+    "venue": "Holiday Inn Portland at Columbia Riverfront",
+    "frequency": "Annual (April)",
+    "next_date": "April 2-4, 2027",
+    "upcoming_dates": [
+      "2027-04-02",
+      "2027-04-03",
+      "2027-04-04"
+    ],
+    "series_ended": false,
+    "postal_code": "",
+    "website": "https://www.pnna.org/wp/events/spring/"
+  },
+  {
     "id": "portland-coin-show",
     "name": "Portland Coin Show",
     "city": "Portland",
@@ -2643,6 +2674,23 @@
     "website": "http://www.pdxcoinclub.org/"
   },
   {
+    "id": "salem-coin-stamp-show-oregon",
+    "name": "Salem Coin & Stamp Show",
+    "city": "Rickreall",
+    "state": "OR",
+    "state_name": "Oregon",
+    "venue": "Polk County Fairgrounds, Building A",
+    "frequency": "Date-specific",
+    "next_date": "December 19-20, 2026",
+    "upcoming_dates": [
+      "2026-12-19",
+      "2026-12-20"
+    ],
+    "series_ended": false,
+    "postal_code": "",
+    "website": "https://www.pnna.org/wp/events/event-calendar/"
+  },
+  {
     "id": "wilsonville-oregon-coin-currency-token-medal-show",
     "name": "Oregon Coin, Currency, Token & Medal Show",
     "city": "Wilsonville",
@@ -2650,9 +2698,9 @@
     "state_name": "Oregon",
     "venue": "Holiday Inn, 25425 SW 95th Ave, Wilsonville, OR",
     "frequency": "Recurring",
-    "next_date": "September 13, 2026",
+    "next_date": "December 13, 2026",
     "upcoming_dates": [
-      "2026-09-13"
+      "2026-12-13"
     ],
     "series_ended": false,
     "postal_code": "25425",
@@ -2820,10 +2868,8 @@
     "state_name": "Pennsylvania",
     "venue": "Franconia Heritage Banquet & Conference Center, 508 Harleysville Pike Unit A, Telford, PA 18969",
     "frequency": "Monthly (2nd Sunday)",
-    "next_date": "September 13, 2026",
+    "next_date": "November 8, 2026",
     "upcoming_dates": [
-      "2026-09-13",
-      "2026-10-11",
       "2026-11-08",
       "2026-12-13"
     ],
@@ -2839,10 +2885,8 @@
     "state_name": "Pennsylvania",
     "venue": "Trevose Fire Hall, 4900 E. Street Rd., Trevose, PA 19053",
     "frequency": "Monthly (4th Sunday)",
-    "next_date": "September 27, 2026",
+    "next_date": "November 22, 2026",
     "upcoming_dates": [
-      "2026-09-27",
-      "2026-10-25",
       "2026-11-22",
       "2026-12-27"
     ],
@@ -3063,6 +3107,40 @@
     "website": ""
   },
   {
+    "id": "northern-utah-coin-show",
+    "name": "Northern Utah Coin Show",
+    "city": "Ogden",
+    "state": "UT",
+    "state_name": "Utah",
+    "venue": "Courtyard by Marriott",
+    "frequency": "Date-specific",
+    "next_date": "April 9-10, 2027",
+    "upcoming_dates": [
+      "2027-04-09",
+      "2027-04-10"
+    ],
+    "series_ended": false,
+    "postal_code": "84401",
+    "website": "http://www.utahcoinshows.com/"
+  },
+  {
+    "id": "salt-lake-coin-token-show",
+    "name": "Salt Lake Coin & Token Show",
+    "city": "Sandy",
+    "state": "UT",
+    "state_name": "Utah",
+    "venue": "SLCC Miller Conference Center",
+    "frequency": "Date-specific",
+    "next_date": "June 11-12, 2027",
+    "upcoming_dates": [
+      "2027-06-11",
+      "2027-06-12"
+    ],
+    "series_ended": false,
+    "postal_code": "84070",
+    "website": "http://www.utahcoinshows.com/"
+  },
+  {
     "id": "utah-numismatic-society-coin-show",
     "name": "Utah Numismatic Society Coin Show",
     "city": "Sandy",
@@ -3077,6 +3155,23 @@
     ],
     "series_ended": false,
     "postal_code": "",
+    "website": "http://www.utahcoinshows.com/"
+  },
+  {
+    "id": "wasatch-winter-coin-show",
+    "name": "Wasatch Winter Coin Show",
+    "city": "Sandy",
+    "state": "UT",
+    "state_name": "Utah",
+    "venue": "SLCC Miller Conference Center",
+    "frequency": "Date-specific",
+    "next_date": "January 29-30, 2027",
+    "upcoming_dates": [
+      "2027-01-29",
+      "2027-01-30"
+    ],
+    "series_ended": false,
+    "postal_code": "84070",
     "website": "http://www.utahcoinshows.com/"
   },
   {
@@ -3177,6 +3272,22 @@
     "website": "https://www.pnna.org/wp/events/event-calendar/"
   },
   {
+    "id": "olympia-coin-club-show",
+    "name": "Olympia Coin Club Show",
+    "city": "Lacey",
+    "state": "WA",
+    "state_name": "Washington",
+    "venue": "Thurston County Fairgrounds, Expo Hall",
+    "frequency": "Date-specific",
+    "next_date": "January 30, 2027",
+    "upcoming_dates": [
+      "2027-01-30"
+    ],
+    "series_ended": false,
+    "postal_code": "",
+    "website": "https://www.pnna.org/wp/events/event-calendar/"
+  },
+  {
     "id": "northwest-token-medal-society-show",
     "name": "Northwest Token & Medal Society Show",
     "city": "Olympia",
@@ -3198,9 +3309,9 @@
     "state_name": "Washington",
     "venue": "Holiday Inn Express, I-5 and Bridgeport Way, Tacoma, WA",
     "frequency": "Recurring",
-    "next_date": "September 5, 2026",
+    "next_date": "November 28, 2026",
     "upcoming_dates": [
-      "2026-09-05"
+      "2026-11-28"
     ],
     "series_ended": false,
     "postal_code": "",
@@ -3221,20 +3332,6 @@
     "series_ended": false,
     "postal_code": "",
     "website": "https://www.tlcc.info/coin-show/"
-  },
-  {
-    "id": "pnna-spring-convention",
-    "name": "PNNA Spring Convention",
-    "city": "TBD",
-    "state": "WA",
-    "state_name": "Washington",
-    "venue": "TBD",
-    "frequency": "Annual (April)",
-    "next_date": "TBD",
-    "upcoming_dates": [],
-    "series_ended": false,
-    "postal_code": "",
-    "website": "https://www.pnna.org/wp/events/spring/"
   },
   {
     "id": "fox-valley-coin-club-show",

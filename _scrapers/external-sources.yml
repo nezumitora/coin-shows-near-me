@@ -59,6 +59,14 @@
     - chippewa-valley-coin-club-cvcc-coin-show
     - milwaukee-numismatic-society-show
     - numismatists-of-wisconsin-annual-show
+    - wisconsin-coin-expos-annual-show
+    - madison-coin-club-show
+    - sheboygan-coin-club-show
+    - waukesha-coin-club-show
+    - fox-valley-coin-club-show
+    - south-shore-coin-club-show
+    - wisconsin-valley-coin-club-show
+    - barron-county-coin-club-show
   notes: High-value regional calendar found during 2026-07-13 broad future-date refresh.
 
 - key: cona-events
@@ -175,6 +183,9 @@
   url: http://www.utahcoinshows.com/
   expected_show_ids:
     - utah-numismatic-society-coin-show
+    - wasatch-winter-coin-show
+    - northern-utah-coin-show
+    - salt-lake-coin-token-show
   notes: Official Utah show source already used by the Sandy listing.
 
 - key: sacramento-coin-show
@@ -372,6 +383,17 @@
     - royal-oak-coins-collectibles-show
     - new-baltimore-monthly-coin-show
     - detroit-area-coin-shows
+    - kalamazoo-numismatic-club-fall-coin-show
+    - downriver-coins-collectibles-show
+    - grand-rapids-monthly-coin-show
+    - livingston-county-coin-club-show
+    - livonia-monthly-coin-show
+    - clarkston-area-numismatic-society-coin-show
+    - lincoln-coin-club-collectibles-show
+    - winter-international-coin-show-troy
+    - grand-rapids-coin-club-show
+    - jackson-area-coin-club-show
+    - northwest-detroit-coin-club-show
   notes: Official MSNS local-show calendar exposes the listed event names and dates for comparison.
 
 - key: raleigh-coin-club-expo
@@ -421,3 +443,68 @@
   expected_show_ids:
     - ama-fall-coin-stamp-show
   notes: Promoter calendar identifies the Sioux Falls event as the Midwest Gold & Silver Coin Show and provides exact dates, venue, and hours.
+
+- key: ebw-regional-shows
+  name: EBW Promotions Regional Calendar
+  source_type: promoter-calendar
+  url: https://ebwpromotions.com/events/
+  expected_show_ids:
+    - devens-coin-show
+    - nashua-coin-show
+    - greater-worcester-coin-show
+  notes: Event-specific links reviewed October 26, 2026; shared calendar dates must be associated with their named show, not every expected record.
+
+- key: fort-collins-upcoming-shows
+  name: Fort Collins Coin Club Upcoming Shows
+  source_type: club-calendar
+  url: https://fortcollinscoinclub.com/upcoming-shows/
+  expected_show_ids:
+    - fort-collins-coin-club-show
+    - colorado-money-show
+  notes: Separate named Fort Collins and Colorado Money Show event blocks reviewed October 26, 2026; preserve explicit years.
+
+- key: pnna-regional-calendar
+  name: PNNA Regional Calendar
+  source_type: association-calendar
+  url: https://www.pnna.org/wp/events/event-calendar/
+  expected_show_ids:
+    - boeing-employees-coin-club-show
+    - cave-man-coin-club-show
+    - greater-tacoma-coin-show
+    - northwest-token-medal-society-show
+    - wilsonville-oregon-coin-currency-token-medal-show
+    - salem-coin-stamp-show-oregon
+    - olympia-coin-club-show
+  notes: Reviewed October 26, 2026; Boeing/Kent identity and the token-society event remain held, not automatically rolled into coin-show dates.
+
+- key: pnna-spring-show
+  name: PNNA Spring Convention
+  source_type: association-calendar
+  url: https://www.pnna.org/wp/events/spring/
+  expected_show_ids:
+    - pnna-spring-convention
+  notes: Official April 2-4, 2027 Portland announcement reviewed; public-day hours need edition-specific confirmation.
+
+- key: wilmington-club-show
+  name: Wilmington Coin Club Show
+  source_type: club-calendar
+  url: https://www.wilmingtoncoinclub.org/wilmington-coin-show
+  expected_show_ids:
+    - wilmington-coin-club-show
+  notes: January 14-16, 2027 public dates and venue reviewed October 26, 2026.
+
+- key: albuquerque-fall-show
+  name: Albuquerque Coin Club Fall Show
+  source_type: club-calendar
+  url: https://albuquerquecoinclub.com/fall-coin-show/
+  expected_show_ids:
+    - albuquerque-coin-clubs-great-southwest-coin-expo
+  notes: Generic duplicate record now redirects to this canonical series; November 13-15, 2026 verified.
+
+- key: albuquerque-spring-show
+  name: Albuquerque Coin Club Spring Show
+  source_type: club-calendar
+  url: https://albuquerquecoinclub.com/spring-coin-show/
+  expected_show_ids:
+    - albuquerque-coin-clubs-great-southwest-coin-expo
+  notes: April 16-18, 2027 public dates verified; conflicting vendor-setup wording is not public-hours evidence.

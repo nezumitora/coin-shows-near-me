@@ -2,7 +2,7 @@
 layout: city
 title: "Sandy, UT Coin Shows"
 heading: "Coin Shows in Sandy, Utah — 2026-2027"
-description: "Find 1 coin show in Sandy, Utah. Compare dates, venues, and verification details before you travel."
+description: "Find 3 coin shows in Sandy, Utah. Compare dates, venues, and verification details before you travel."
 permalink: /cities/sandy-ut/
 city_slug: "sandy-ut"
 city_name: "Sandy"

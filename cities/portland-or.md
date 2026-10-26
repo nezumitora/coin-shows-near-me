@@ -2,7 +2,7 @@
 layout: city
 title: "Portland, OR Coin Shows"
 heading: "Coin Shows in Portland, Oregon — 2026-2027"
-description: "Find 1 coin show in Portland, Oregon. Compare dates, venues, and verification details before you travel."
+description: "Find 2 coin shows in Portland, Oregon. Compare dates, venues, and verification details before you travel."
 permalink: /cities/portland-or/
 city_slug: "portland-or"
 city_name: "Portland"

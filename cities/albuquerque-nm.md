@@ -2,7 +2,7 @@
 layout: city
 title: "Albuquerque, NM Coin Shows"
 heading: "Coin Shows in Albuquerque, New Mexico — 2026-2027"
-description: "Find 2 coin shows in Albuquerque, New Mexico. Compare dates, venues, and verification details before you travel."
+description: "Find 1 coin show in Albuquerque, New Mexico. Compare dates, venues, and verification details before you travel."
 permalink: /cities/albuquerque-nm/
 city_slug: "albuquerque-nm"
 city_name: "Albuquerque"

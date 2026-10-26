@@ -17,3 +17,6 @@
   canonical_slug: middleton-wi
 - legacy_slug: creating-collectors-co
   canonical_slug: tucson-az
+# PNNA's sole TBD/WA placeholder now has an officially announced Portland venue.
+- legacy_slug: wa
+  canonical_slug: portland-or

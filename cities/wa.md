@@ -1,15 +1,19 @@
 ---
-layout: city
-title: "TBD, WA Coin Shows"
-heading: "Coin Shows in TBD, Washington — 2026-2027"
-description: "Find 1 coin show in TBD, Washington. Compare dates, venues, and verification details before you travel."
+layout: null
+title: "Coin show city page moved"
 permalink: /cities/wa/
-city_slug: "wa"
-city_name: "TBD"
-state_name: "Washington"
-state_slug: "washington"
-breadcrumb_parent: "Washington"
-breadcrumb_parent_url: "/states/washington/"
-breadcrumb_current: "TBD"
-nav_exclude: true
+sitemap: false
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={{ site.baseurl }}/cities/portland-or/">
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}/cities/portland-or/">
+<title>Coin show city page moved</title>
+  </head>
+  <body>
+<p>This city listing moved to <a href="{{ site.baseurl }}/cities/portland-or/">Portland coin shows</a>.</p>
+  </body>
+</html>
