@@ -50,6 +50,19 @@ from recurrence. This ledger tracks review attempts, not nationwide completeness
 | AMA South Dakota | Explicit Midwest May 22–23, 2027 at Sioux Falls Convention Center; existing record is a fall series, so reconcile series identity before appending/adding. September headline Sep 11–12 conflicts with detailed Sep 12–13: held. |
 | Lehigh and KVCC regional calendars | Lehigh Valley Nov 7 lacks venue; existing Lehigh County Nov 21 identity unresolved. KVCC Charleston Nov 14 needs exact city/address association; Parkersburg Oct 31 Marietta block conflicts with Mineral Wells heading. River Cities 2027 Milton block must be reconciled with old Hurricane series. Unnamed Nov 29 block not assigned to Clarksburg by proximity. |
 | National Battlefield future calendar/detail | Nov 27–28, 2026 already recorded; Aspire/Eisenhower venue conflict held. Nov 26 is dealer drop-off only. Explicit 2027/2028 overall ranges do not establish future public/dealer splits. |
+| Whitman Baltimore, Maryland; Oct 26 evening routine | Followed existing `http://expo.whitman.com/` to current official homepage and its linked `https://whitmanexpo.com/home/baltimore-fall-expo/expo-information/`. Nov 12–14, 2026 retained; Baltimore Convention Center, Halls A-C, One West Pratt Street, Baltimore, MD 21201 explicitly supported. Replaced the winter-path 404 in listing/report registry; removed unsupported three-times-yearly frequency. Nov 11 PNG dealer day excluded; no future Baltimore dates inferred. |
+
+## Preserved official new-show candidate
+
+Whitman's linked `https://whitmanexpo.com/home/washington-d-c-coin-expo/`
+explicitly announces its first Washington, D.C. Coin Expo, February 4–6, 2027,
+Walter E. Washington Convention Center, 801 Allen Y. Lew Place NW, Washington, DC,
+free and open to the public. One distinct candidate, not three shows; no ZIP
+supplied in the reviewed announcement. It is not the Baltimore series or Raleigh
+Money Expo. Held from this Maryland batch because `_data/states.yml` contains
+no DC and `_scripts/validate-data.rb` requires exactly 50 states and rejects
+unknown show states. Preserve for a scoped DC routing/data-model follow-up;
+do not misclassify it as Maryland/Virginia or weaken validation to import it.
 
 ## Attempted but unresolved
 
@@ -81,8 +94,7 @@ organizer evidence. Tentative San Jose/North County dates, Canadian listings and
 NWTAMS meeting classification remain review-only. This source registration does
 not change show data or establish nationwide currency.
 
-Next: find Whitman's current official page through exposed official links rather
-than guessing a replacement for the recorded 404. Then resolve Lehigh County/Valley
+Next: resolve Lehigh County/Valley
 identity, KVCC date/venue blocks and Midwest spring/fall identity; apply only
 individually verified facts. Revisit the transport-failed sources above using
 permitted readable official evidence, without treating tool failure as cancellation.

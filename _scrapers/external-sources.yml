@@ -159,10 +159,10 @@
 - key: whitman-expo
   name: Whitman Baltimore Expo
   source_type: promoter
-  url: https://whitmanexpo.com/baltimore-winter-expo/
+  url: https://whitmanexpo.com/home/baltimore-fall-expo/expo-information/
   expected_show_ids:
     - whitman-coin-expo
-  notes: Official Baltimore Whitman Expo source for the canonical listing; the expired date-specific import now redirects to it.
+  notes: Official Baltimore Expo Information page manually reached through the existing official website on October 26, 2026; replaces the winter-path 404. Explicit November 12-14, 2026 association and public venue/address. Canonical listing ID and expired import alias retained.
 
 - key: pan-coins
   name: Pennsylvania Association of Numismatists
