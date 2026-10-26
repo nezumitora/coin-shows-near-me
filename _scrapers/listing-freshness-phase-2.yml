@@ -118,6 +118,14 @@ sources:
       - chippewa-valley-coin-club-cvcc-coin-show
       - milwaukee-numismatic-society-show
       - numismatists-of-wisconsin-annual-show
+      - wisconsin-coin-expos-annual-show
+      - madison-coin-club-show
+      - sheboygan-coin-club-show
+      - waukesha-coin-club-show
+      - fox-valley-coin-club-show
+      - south-shore-coin-club-show
+      - wisconsin-valley-coin-club-show
+      - barron-county-coin-club-show
     source_tier: tier_2_official_organization
     authority_basis: Official Numismatists of Wisconsin regional show calendar.
     check_method: generic_text_name_and_date_proximity_v1
@@ -299,6 +307,17 @@ sources:
       - royal-oak-coins-collectibles-show
       - new-baltimore-monthly-coin-show
       - detroit-area-coin-shows
+      - kalamazoo-numismatic-club-fall-coin-show
+      - downriver-coins-collectibles-show
+      - grand-rapids-monthly-coin-show
+      - livingston-county-coin-club-show
+      - livonia-monthly-coin-show
+      - clarkston-area-numismatic-society-coin-show
+      - lincoln-coin-club-collectibles-show
+      - winter-international-coin-show-troy
+      - grand-rapids-coin-club-show
+      - jackson-area-coin-club-show
+      - northwest-detroit-coin-club-show
     source_tier: tier_2_official_organization
     authority_basis: Official Michigan State Numismatic Society local-show calendar.
     check_method: generic_text_name_and_date_proximity_v1

@@ -633,16 +633,17 @@
   state_name: Colorado
   city: Fort Collins
   city_slug: fort-collins-co
-  venue: Larimer County Fairgrounds McKee 4H Bldg, 5280 Arena Circle, Loveland, CO
+  venue: Lincoln Center, Fort Collins, CO
   frequency: Semiannual (Spring & Fall)
-  next_date: TBD
+  next_date: December 5-6, 2027
   website: https://fortcollinscoinclub.com/upcoming-shows/
   organizer: Fort Collins Coin Club
   source_url: https://fortcollinscoinclub.com/upcoming-shows/
   source_type: official-club-page
-  last_verified: '2026-07-16'
-  verification_notes: Official Fort Collins Coin Club upcoming-shows page confirms the March 20-22, 2026 Spring Coin Show at Larimer County Fairgrounds; no later future club show date was found.
-  notes: Official page confirms venue but no future date after the past March 2026 show; check club page before traveling.
+  last_verified: '2026-10-26'
+  upcoming_dates: ['2027-12-05', '2027-12-06']
+  verification_notes: Official club upcoming-shows page checked October 26, 2026 explicitly prints Fall Show December 5-6, 2027 at Lincoln Center, Fort Collins. The year is preserved exactly as printed, not changed to 2026; the older Loveland venue is not carried forward.
+  notes: 'Officially advertised year is 2027. Reconfirm day-specific hours and venue before travel.'
 - id: cromwell-hartford-coin-and-currency-show
   name: Cromwell-Hartford Coin and Currency Show
   short_title: "Cromwell-Hartford Coin Show"
@@ -700,14 +701,15 @@
   city_slug: new-castle-de
   venue: Nur Shrine Temple, 198 South DuPont Highway, New Castle, DE 19720
   frequency: Annual (January)
-  next_date: TBD
+  next_date: January 14-16, 2027
   website: https://www.wilmingtoncoinclub.org/wilmington-coin-show
   organizer: Wilmington Coin Club
   source_url: https://www.wilmingtoncoinclub.org/wilmington-coin-show
   source_type: club-show-page
-  last_verified: '2026-07-16'
-  verification_notes: Official Wilmington Coin Club show page lists the Nur Shrine Temple address and January 15-17, 2026 dates; those dates are past, so next date remains TBD until the next official date is posted.
-  notes: Check official club show page for the next published January show date before traveling.
+  last_verified: '2026-10-26'
+  upcoming_dates: ['2027-01-14', '2027-01-15', '2027-01-16']
+  verification_notes: Official Wilmington Coin Club show page checked October 26, 2026 explicitly announces January 14-16, 2027 at Nur Shrine Temple, 198 South DuPont Highway, New Castle. No annual recurrence inferred.
+  notes: 'Public hours: January 14-15, 10am-6pm; January 16, 10am-3pm. Adults $5; children free.'
 - id: clearwater-coin-show
   name: St. Pete / Clearwater Coin Show
   state: FL
@@ -735,16 +737,17 @@
   city_slug: hollywood-fl
   venue: Rotary Club of Hollywood, 2349 Taylor St, Hollywood, FL 33020
   frequency: Recurring
-  next_date: September 6, 2026
+  next_date: November 1, 2026
   website: https://GoldCoastCoinClub.com
   organizer: Gold Coast Coin Club
-  source_url: https://GoldCoastCoinClub.com/calendar
-  last_verified: '2026-07-15'
+  source_url: http://www.funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-06'
-  - '2026-10-04'
   - '2026-11-01'
-  verification_notes: Official Gold Coast Coin Club calendar lists August 2, September 6, October 4, and November 1, 2026 show dates, 9am-3pm hours, and Rotary Club of Hollywood address; rechecked during official-source listing verification.
+  - '2026-12-06'
+  - '2027-01-03'
+  verification_notes: FUN statewide calendar event-specific links checked October 26, 2026 confirm Gold Coast shows November 1 and December 6, 2026 and January 3, 2027. Venue remains the previously verified club-calendar address; this review confirms dates, not a new venue inspection.
   notes: 'Hours: Sun 9-3. Official site lists contact phone (754) 221-9970.'
 - id: the-villages-leesburg-coin-show
   name: The Villages / Leesburg Coin Show
@@ -798,21 +801,15 @@
   next_date: July 15-17, 2027
   website: http://www.funtopics.com/
   organizer: Florida United Numismatists
-  source_url: http://www.funtopics.com/content/summer-fun/info.html
+  source_url: http://www.funtopics.com/summer-fun.html
   source_type: official-association-page
-  last_verified: '2026-07-16'
+  last_verified: '2026-10-26'
   upcoming_dates:
   - '2027-07-15'
   - '2027-07-16'
   - '2027-07-17'
-  - '2028-07-13'
-  - '2028-07-14'
-  - '2028-07-15'
-  - '2029-07-12'
-  - '2029-07-13'
-  - '2029-07-14'
-  verification_notes: Official Florida United Numismatists Summer FUN info page lists future Summer FUN dates for 2027, 2028, and 2029 at Orange County Convention Center.
-  notes: 'Future dates confirmed by official FUN page: July 15-17, 2027; July 13-15, 2028; July 12-14, 2029.'
+  verification_notes: Dedicated official Summer FUN page checked October 26, 2026 confirms July 15-17, 2027 at Orange County Convention Center, West Building, Hall C. July 13-15, 2028 and July 12-14, 2029 are explicitly tentative and are not included as confirmed upcoming dates.
+  notes: 'Confirmed July 15-17, 2027. Later announced 2028 and 2029 dates are tentative; reconfirm before planning travel.'
 - id: fort-lauderdale-coin-club-show
   name: Fort Lauderdale Coin Club Show
   state: FL
@@ -821,15 +818,13 @@
   city_slug: plantation-fl
   venue: Volunteer Park Community Center, 12050 W Sunrise Blvd, Plantation, FL 33323
   frequency: Monthly (3rd Sunday)
-  next_date: September 20, 2026
+  next_date: November 15, 2026
   website: http://www.ftlauderdalecoinclub.com/
   organizer: Fort Lauderdale Coin Club
   source_url: http://www.ftlauderdalecoinclub.com/
   source_type: official-club-page
   last_verified: '2026-07-29'
   upcoming_dates:
-  - '2026-09-20'
-  - '2026-10-18'
   - '2026-11-15'
   - '2026-12-20'
   aliases:
@@ -857,15 +852,15 @@
   city_slug: tampa-fl
   venue: Central Professional Building, 13336 N Central Ave, Tampa, FL 33612
   frequency: Recurring
-  next_date: September 5, 2026
+  next_date: December 5, 2026
   website: http://funtopics.com/calendar.html
   organizer: Andrew Lydic / Coinacopia
-  source_url: http://funtopics.com/calendar.html
+  source_url: http://www.funtopics.com/calendar.html
   source_type: association-calendar
-  last_verified: '2026-07-15'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-05'
-  verification_notes: Official Florida United Numismatists statewide calendar lists Coinacopia Coin Show at Central Professional Building, 13336 N Central Ave, including 2026 recurrence entries; verified during Florida lead review.
+  - '2026-12-05'
+  verification_notes: FUN statewide calendar event-specific link checked October 26, 2026 explicitly lists Coinacopia on December 5, 2026. Retains the previously verified venue; no intermediate show dates inferred from the bi-monthly label.
   notes: Official statewide calendar confirms venue and recurrence; hours not listed in fetched source.
 - id: first-sunday-coin-show-apopka
   name: 1st Sunday Coin Show
@@ -875,16 +870,17 @@
   city_slug: apopka-fl
   venue: Apopka Community Center, 519 S. Central Ave, Apopka, FL 32703
   frequency: Monthly (1st Sunday)
-  next_date: September 6, 2026
+  next_date: November 1, 2026
   website: http://www.centralfloridacoinclub.org
   organizer: Central Florida Coin Club
-  source_url: http://www.centralfloridacoinclub.org
-  last_verified: '2026-07-15'
+  source_url: http://www.funtopics.com/calendar.html
+  source_type: association-calendar
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-06'
-  - '2026-10-04'
   - '2026-11-01'
-  verification_notes: Official Central Florida Coin Club site lists 1st Sunday Coin Show dates through November 1, 2026 at Apopka Community Center, 519 S. Central Ave.; verified during Florida lead review.
+  - '2026-12-06'
+  - '2027-01-03'
+  verification_notes: FUN statewide calendar event-specific links checked October 26, 2026 confirm Central Florida Coin Club First Sunday shows November 1 and December 6, 2026 and January 3, 2027. Venue remains the previously verified club-page address; dates were read explicitly, not calculated from recurrence.
   notes: 'Hours: Sun 9:30-3.'
 - id: tallahassee-coin-club-two-day-show
   name: Tallahassee Coin Club Annual Two-Day Show
@@ -978,15 +974,13 @@
   city_slug: west-palm-beach-fl
   venue: American Polish Club, 4725 Lake Worth Rd, Greenacres, FL 33463
   frequency: Recurring
-  next_date: September 27, 2026
+  next_date: November 22, 2026
   website: http://pbcc.anaclubs.org/
   organizer: Palm Beach Coin Club
   source_url: http://pbcc.anaclubs.org/
   source_type: official-club-page
   last_verified: '2026-07-29'
   upcoming_dates:
-  - '2026-09-27'
-  - '2026-10-25'
   - '2026-11-22'
   - '2026-12-27'
   verification_notes: Official Palm Beach Coin Club page confirms the show is held every fourth Sunday at the American Polish Club; September 27, October 25, November 22, and December 27, 2026 remain confirmed after the August occurrence passed.
@@ -1300,15 +1294,13 @@
   city_slug: orland-park-il
   venue: Orland Park Civic Center
   frequency: Monthly (1st Sunday)
-  next_date: September 6, 2026
+  next_date: November 1, 2026
   website: http://www.ilnaclub.org/shows.html
   organizer: ''
   source_url: http://www.ilnaclub.org/shows.html
   source_type: association-calendar
   last_verified: '2026-07-16'
   upcoming_dates:
-  - '2026-09-06'
-  - '2026-10-04'
   - '2026-11-01'
   - '2026-12-06'
   aliases:
@@ -1323,14 +1315,13 @@
   city_slug: peotone-il
   venue: ''
   frequency: Recurring
-  next_date: October 4, 2026
+  next_date: December 20, 2026
   website: http://www.ilnaclub.org/shows.html
   organizer: ''
   source_url: http://www.ilnaclub.org/shows.html
   source_type: association-calendar
   last_verified: '2026-07-16'
   upcoming_dates:
-  - '2026-10-04'
   - '2026-12-20'
   verification_notes: Official Illinois Numismatic Association show calendar confirms Peotone Coin & Currency Show dates for August 16, October 4, and December 20, 2026; venue/address/hours still need direct promoter confirmation.
   notes: Official association calendar confirms dates/city; venue and hours pending official promoter/source confirmation.
@@ -1343,17 +1334,16 @@
   city_slug: schaumburg-il
   venue: Renaissance Schaumburg Hotel and Convention Center, 1551 North Thoreau Drive, Schaumburg, IL 60173
   frequency: Annual (April)
-  next_date: April 21-24, 2027
+  next_date: April 22-24, 2027
   website: https://www.csns.org/
   organizer: Central States Numismatic Society
   source_url: https://www.csns.org/convention
-  last_verified: '2026-07-15'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2027-04-21'
   - '2027-04-22'
   - '2027-04-23'
   - '2027-04-24'
-  verification_notes: Official Central States Numismatic Society convention page lists the 88th anniversary convention on April 21-24, 2027 at Renaissance Schaumburg Hotel and Convention Center; rechecked during nationwide official-source refresh.
+  verification_notes: Official CSNS convention page checked October 26, 2026 advertises the public main bourse April 22-24, 2027 at Renaissance Schaumburg. The full convention begins April 21; that earlier date is not represented as confirmed public bourse admission. Later full-convention ranges are not inferred to be public bourse dates.
   notes: Major regional convention with Heritage Auctions, 415+ booth bourse, free parking, and CSNS member/youth admission rules listed by organizer.
 - id: ilna-illinois-numismatic-association-coin-show
   name: ILNA Illinois Numismatic Association Coin Show
@@ -1529,19 +1519,19 @@
   state_name: Massachusetts
   city: Devens
   city_slug: devens-ma
-  venue: SpringHill Suites Marriott, 31 Andrews Parkway, Devens, MA
+  venue: Devens Common Center, 31 Andrews Parkway, Devens, MA
   frequency: Monthly (Last Sunday)
   next_date: October 25, 2026
   website: https://ebwpromotions.com/devens-ma-coin-show/
   organizer: EBW Promotions
   source_url: https://ebwpromotions.com/events/
   source_type: promoter-calendar
-  last_verified: '2026-07-16'
+  last_verified: '2026-10-26'
   upcoming_dates:
   - '2026-10-25'
   - '2026-11-22'
   - '2026-12-27'
-  verification_notes: Official EBW Promotions events page lists Devens MA Coin & Currency Show dates on October 25, November 22, and December 27, 2026; EBW's 2026 calendar image confirms the SpringHill Suites Marriott venue and 9am-3pm hours.
+  verification_notes: Official EBW events calendar rechecked October 26, 2026 confirms November 22 and December 27, 2026. Its directly linked Devens show page names Devens Common Center at 31 Andrews Parkway; updated the venue label without inferring a location move.
   notes: 'Hours: Sun 9-3. EBW calendar image lists 75 tables, 40+ dealers, early-bird buyers, and $2 admission.'
 - id: bay-state-coin-show
   name: Bay State Coin Show
@@ -2045,15 +2035,13 @@
   city_slug: south-saint-paul-mn
   venue: United Food & Commercial Workers Union Hall, 266 Hardman Ave. N., South St. Paul, MN 55075
   frequency: Recurring
-  next_date: September 20, 2026
+  next_date: November 22, 2026
   website: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
   organizer: Antique Coins
   source_url: https://antiquecoinsmn.com/antique-coins-show-organizer-and-contact-for-south-st-paul-monthly-coin-show-and-the-north-metro-coin-show/
   source_type: organizer-page
   last_verified: '2026-07-29'
   upcoming_dates:
-  - '2026-09-20'
-  - '2026-10-18'
   - '2026-11-22'
   - '2026-12-20'
   aliases:
@@ -2331,16 +2319,17 @@
   state_name: New Hampshire
   city: Hollis
   city_slug: hollis-nh
-  venue: Alpine Grove Events Center, 9 S. Depot St, Hollis, NH
+  venue: Alpine Grove Events Centre, 19 S. Depot St, Hollis, NH
   frequency: Monthly (3rd Sunday)
-  next_date: TBD
+  next_date: November 15, 2026
   website: http://www.nashuacoinclub.com/
   organizer: Nashua Coin Club
-  source_url: http://www.nashuacoinclub.com/
-  source_type: official-club-page
-  last_verified: '2026-07-29'
-  verification_notes: Official Nashua Coin Club page still lists only the completed July 19, 2026 show at Alpine Grove Events Center; no later show date is posted, so the next date is pending rather than inferred.
-  notes: 'Hours: Sun 9-2.'
+  source_url: https://ebwpromotions.com/events/
+  source_type: promoter-calendar
+  last_verified: '2026-10-26'
+  upcoming_dates: ['2026-11-15', '2026-12-20']
+  verification_notes: Official Nashua club page and EBW promoter calendar checked October 26, 2026 explicitly list November 15 and December 20, 2026. The directly linked EBW Nashua show page gives Alpine Grove Events Centre, 19 S. Depot St, Hollis. Corrected street number from 9 to 19; generic and dated closing hours conflict, so confirm hours with the organizer.
+  notes: 'Public show in Hollis, not Nashua city. Admission free; confirm closing time with organizer.'
 - id: new-hampshire-coin-currency-expo
   name: New Hampshire Coin & Currency Expo
   state: NH
@@ -2397,25 +2386,6 @@
   website: http://whccnj.org/
   organizer: Watchung Hills Coin Club
   notes: ''
-- id: albuquerque-coin-club-show
-  name: Albuquerque Coin Club Show
-  state: NM
-  state_name: New Mexico
-  city: Albuquerque
-  city_slug: albuquerque-nm
-  venue: Crowne Plaza or Marriott Pyramid
-  frequency: Semiannual (Spring & Fall)
-  next_date: November 13-15, 2026
-  website: http://www.albuquerquecoinclub.com/
-  organizer: Albuquerque Coin Club
-  source_url: https://albuquerquecoinclub.com/fall-coin-show/
-  last_verified: '2026-07-13'
-  upcoming_dates:
-  - '2026-11-13'
-  - '2026-11-14'
-  - '2026-11-15'
-  verification_notes: Official Albuquerque Coin Club Fall Coin Show page lists November 13-15, 2026; reviewed during broad official-source future-date refresh.
-  notes: ''
 - id: albuquerque-coin-clubs-great-southwest-coin-expo
   name: Albuquerque Coin Club's  Great Southwest Coin Expo
   short_title: "Great Southwest Coin Expo"
@@ -2430,12 +2400,16 @@
   organizer: Albuquerque Coin Club
   source_url: https://albuquerquecoinclub.com/fall-coin-show/
   source_type: club-page
-  last_verified: '2026-07-16'
+  last_verified: '2026-10-26'
   upcoming_dates:
   - '2026-11-13'
   - '2026-11-14'
   - '2026-11-15'
-  verification_notes: Official Albuquerque Coin Club Fall Coin Show page lists November 13-15, 2026 at Marriott Pyramid North Hotel, 5151 San Francisco Rd. NE; verified during larger TBD info sweep.
+  - '2027-04-16'
+  - '2027-04-17'
+  - '2027-04-18'
+  aliases: ['albuquerque-coin-club-show']
+  verification_notes: Official club fall page and schedule confirm November 13-15, 2026; https://albuquerquecoinclub.com/spring-coin-show/ explicitly announces April 16-18, 2027 at Marriott Pyramid North Hotel. Public dates retained; conflicting spring vendor-setup text is not used as public hours. The duplicate generic Albuquerque club-show record used the identical fall source, dates and organizer and now redirects to this existing canonical series.
   notes: 'Hours: Fri 12-5, Sat 9-5, Sun 9-2.'
 - id: vegas-national-coin-show
   name: The Vegas National Coin Show
@@ -2616,14 +2590,12 @@
   city_slug: broadview-heights-oh
   venue: St. Michael's Woodside, 5025 Mill Rd, Broadview Heights, OH 44147
   frequency: Monthly (2nd Saturday)
-  next_date: September 12, 2026
+  next_date: November 14, 2026
   website: https://clevelandcoinexpo.com/
   organizer: Cleveland Coin Expo
   source_url: https://clevelandcoinexpo.com/calender.html
   last_verified: '2026-07-15'
   upcoming_dates:
-  - '2026-09-12'
-  - '2026-10-10'
   - '2026-11-14'
   - '2026-12-12'
   aliases:
@@ -2816,15 +2788,15 @@
   city_slug: wilsonville-or
   venue: Holiday Inn, 25425 SW 95th Ave, Wilsonville, OR
   frequency: Recurring
-  next_date: September 13, 2026
+  next_date: December 13, 2026
   website: https://www.pnna.org/wp/events/event-calendar/
   organizer: Randy Van Wie
   source_url: https://www.pnna.org/wp/events/event-calendar/
   source_type: association-calendar
-  last_verified: '2026-07-17'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-13'
-  verification_notes: Official Pacific Northwest Numismatic Association event calendar lists the Oregon Coin, Currency, Token & Medal Show on September 13, 2026 at the Holiday Inn, 25425 SW 95th Ave, Wilsonville.
+  - '2026-12-13'
+  verification_notes: Official PNNA 2026 fourth-quarter calendar checked October 26, 2026 explicitly lists Oregon Coin-Currency-Token & Medal Show December 13, 2026 at Holiday Inn, Wilsonville. Street address is retained from the earlier verified venue, not newly reverified.
   notes: PNNA lists Randy Van Wie as the show contact.
 - id: cave-man-coin-club-show
   name: Cave Man Coin Club Coin, Currency & Token Show
@@ -3005,14 +2977,12 @@
   city_slug: telford-pa
   venue: Franconia Heritage Banquet & Conference Center, 508 Harleysville Pike Unit A, Telford, PA 18969
   frequency: Monthly (2nd Sunday)
-  next_date: September 13, 2026
+  next_date: November 8, 2026
   website: https://www.buxmontcoinshows.com/
   organizer: BuxMont Coin Shows
   source_url: https://www.buxmontcoinshows.com/about/
   last_verified: '2026-09-04'
   upcoming_dates:
-  - '2026-09-13'
-  - '2026-10-11'
   - '2026-11-08'
   - '2026-12-13'
   verification_notes: Official BuxMont page confirms the Montgomery County/MontCo Coin Show meets every second Sunday at Franconia Heritage Banquet & Conference Center, 508 Harleysville Pike Unit A; the September 13, October 11, November 8, and December 13, 2026 dates were reconfirmed through the bounded official-source review on September 4, 2026.
@@ -3025,15 +2995,13 @@
   city_slug: trevose-pa
   venue: Trevose Fire Hall, 4900 E. Street Rd., Trevose, PA 19053
   frequency: Monthly (4th Sunday)
-  next_date: September 27, 2026
+  next_date: November 22, 2026
   website: https://www.buxmontcoinshows.com
   organizer: BuxMont Coin Shows
   source_url: https://www.buxmontcoinshows.com/about-trevose/
   source_type: organizer-page
   last_verified: '2026-09-04'
   upcoming_dates:
-  - '2026-09-27'
-  - '2026-10-25'
   - '2026-11-22'
   - '2026-12-27'
   verification_notes: Official BuxMont Trevose page confirms the show meets every fourth Sunday; September 27, October 25, November 22, and December 27, 2026 were reconfirmed through the bounded official-source review on September 4, 2026, and Trevose Fire Hall remains confirmed.
@@ -3309,6 +3277,66 @@
   - '2026-10-24'
   verification_notes: Official Utah Coin Shows page lists October 23-24, 2026; reviewed during broad official-source future-date refresh.
   notes: ''
+- id: wasatch-winter-coin-show
+  name: Wasatch Winter Coin Show
+  state: UT
+  state_name: Utah
+  city: Sandy
+  city_slug: sandy-ut
+  venue: SLCC Miller Conference Center
+  street_address: 9750 South 300 West
+  postal_code: '84070'
+  address_status: verified
+  frequency: Date-specific
+  next_date: January 29-30, 2027
+  upcoming_dates: ['2027-01-29', '2027-01-30']
+  website: http://www.utahcoinshows.com/
+  organizer: ''
+  source_url: http://www.utahcoinshows.com/
+  source_type: official-promoter-page
+  last_verified: '2026-10-26'
+  verification_notes: Official Utah Coin Shows page checked October 26, 2026 explicitly associates Wasatch Winter Coin Show with January 29-30, 2027 and SLCC Miller Conference Center, 9750 South 300 West, Sandy, Utah 84070. Distinct named series from the Utah Numismatic Society October show; no recurrence inferred.
+  notes: 'Advertised hours: 10am-7pm. Confirm day-specific admission with the organizer.'
+- id: northern-utah-coin-show
+  name: Northern Utah Coin Show
+  state: UT
+  state_name: Utah
+  city: Ogden
+  city_slug: ogden-ut
+  venue: Courtyard by Marriott
+  street_address: 247 24th St
+  postal_code: '84401'
+  address_status: verified
+  frequency: Date-specific
+  next_date: April 9-10, 2027
+  upcoming_dates: ['2027-04-09', '2027-04-10']
+  website: http://www.utahcoinshows.com/
+  organizer: ''
+  source_url: http://www.utahcoinshows.com/
+  source_type: official-promoter-page
+  last_verified: '2026-10-26'
+  verification_notes: Official Utah Coin Shows page checked October 26, 2026 explicitly lists Northern Utah Coin Show April 9-10, 2027 at Courtyard by Marriott, 247 24th St, Ogden, Utah 84401. Event name, date and venue were read together from its event block.
+  notes: 'Advertised hours: 10am-7pm. Confirm day-specific admission with the organizer.'
+- id: salt-lake-coin-token-show
+  name: Salt Lake Coin & Token Show
+  state: UT
+  state_name: Utah
+  city: Sandy
+  city_slug: sandy-ut
+  venue: SLCC Miller Conference Center
+  street_address: 9750 South 300 West
+  postal_code: '84070'
+  address_status: verified
+  frequency: Date-specific
+  next_date: June 11-12, 2027
+  upcoming_dates: ['2027-06-11', '2027-06-12']
+  website: http://www.utahcoinshows.com/
+  organizer: ''
+  source_url: http://www.utahcoinshows.com/
+  source_type: official-promoter-page
+  last_verified: '2026-10-26'
+  verification_notes: Official Utah Coin Shows page checked October 26, 2026 explicitly lists Salt Lake Coin & Token Show June 11-12, 2027 at SLCC Miller Conference Center, 9750 South 300 West, Sandy, Utah 84070. This is the named June series, not an inferred rollover of the October show.
+  notes: 'Advertised hours: 10am-7pm. Confirm day-specific admission with the organizer.'
 - id: annandale-coin-show
   name: Annandale Coin Show
   state: VA
@@ -3404,15 +3432,15 @@
   city_slug: tacoma-wa
   venue: Holiday Inn Express, I-5 and Bridgeport Way, Tacoma, WA
   frequency: Recurring
-  next_date: September 5, 2026
+  next_date: November 28, 2026
   website: https://www.pnna.org/wp/events/event-calendar/
   organizer: GNW Shows / David F. Schmidt
   source_url: https://www.pnna.org/wp/events/event-calendar/
   source_type: association-calendar
-  last_verified: '2026-07-29'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-05'
-  verification_notes: Official Pacific Northwest Numismatic Association event calendar lists September 5, 2026 as the next Greater Tacoma Coin Show at the Holiday Inn Express near I-5 and Bridgeport Way in Tacoma.
+  - '2026-11-28'
+  verification_notes: Official PNNA 2026 fourth-quarter calendar checked October 26, 2026 explicitly lists Greater Tacoma Coin Show November 28, 2026 at Holiday Inn Express near I-5 and Bridgeport Way, Tacoma; no recurrence inferred.
   notes: ''
 - id: tacoma-lakewood-coin-club-show
   name: Tacoma-Lakewood Coin Club Show
@@ -3467,20 +3495,21 @@
   notes: 'Hours: Sat 8-noon.'
 - id: pnna-spring-convention
   name: PNNA Spring Convention
-  state: WA
-  state_name: Washington
-  city: TBD
-  city_slug: wa
-  venue: TBD
+  state: OR
+  state_name: Oregon
+  city: Portland
+  city_slug: portland-or
+  venue: Holiday Inn Portland at Columbia Riverfront
   frequency: Annual (April)
-  next_date: TBD
+  next_date: April 2-4, 2027
   website: https://www.pnna.org/wp/events/spring/
   organizer: Pacific Northwest Numismatic Association
   source_url: https://www.pnna.org/wp/events/spring/
   source_type: association-page
-  last_verified: '2026-07-16'
-  verification_notes: Official PNNA Spring page says the 2026 show moved from Tukwila to Portland and that next spring plans will be announced later; existing Tukwila venue is stale.
-  notes: Venue/date TBD until PNNA announces the next spring convention location.
+  last_verified: '2026-10-26'
+  upcoming_dates: ['2027-04-02', '2027-04-03', '2027-04-04']
+  verification_notes: Official PNNA spring and next-show pages checked October 26, 2026 explicitly announce April 2-4, 2027 at the same Portland Holiday Inn Columbia Riverfront location. Corrected state from Washington to Oregon and retained this stable canonical show URL. The older 2026 public/dealer hours are not applied to 2027.
+  notes: 'Announced convention range April 2-4, 2027; confirm 2027 public admission days and hours before traveling.'
 - id: chippewa-valley-coin-club-cvcc-coin-show
   name: Chippewa Valley Coin Club (CVCC) Coin Show
   short_title: "Chippewa Valley Coin Club Show"
@@ -3726,3 +3755,71 @@
   website: ''
   organizer: Cheyenne Coin Club
   notes: ''
+- id: colorado-money-show
+  name: Colorado Money Show
+  state: CO
+  state_name: Colorado
+  city: Golden
+  city_slug: golden-co
+  venue: Jefferson County Fairgrounds
+  frequency: Date-specific
+  next_date: January 29-30, 2027
+  upcoming_dates: ['2027-01-29', '2027-01-30', '2027-08-06', '2027-08-07']
+  website: https://fortcollinscoinclub.com/upcoming-shows/
+  organizer: ''
+  source_url: https://fortcollinscoinclub.com/upcoming-shows/
+  source_type: official-club-page
+  last_verified: '2026-10-26'
+  verification_notes: Official Fort Collins club upcoming-shows calendar checked October 26, 2026 explicitly lists Colorado Money Show January 29-30 and August 6-7, 2027 at Jefferson County Fairgrounds, Golden. These are the named Colorado Money Show, not the separate Fort Collins Fall Show.
+  notes: 'Advertised public hours: Friday 11am-6pm, Saturday 9am-5pm. Confirm admission details before traveling.'
+- id: greater-worcester-coin-show
+  name: Greater Worcester Coin Show
+  state: MA
+  state_name: Massachusetts
+  city: Auburn
+  city_slug: auburn-ma
+  venue: Auburn-Webster Elks Lodge, 754 Southbridge St, Auburn, MA
+  frequency: Recurring
+  next_date: November 8, 2026
+  upcoming_dates: ['2026-11-08', '2026-12-13']
+  website: https://ebwpromotions.com/greater-worcester-coin-show/
+  organizer: EBW Promotions
+  source_url: https://ebwpromotions.com/events/
+  source_type: promoter-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official EBW calendar checked October 26, 2026 explicitly lists Greater Worcester November 8 and December 13, 2026; its directly linked show page identifies Auburn-Webster Elks Lodge, 754 Southbridge St, Auburn. Named series is distinct from Devens and Nashua.
+  notes: 'Public admission free; paid early-bird admission is separate.'
+- id: salem-coin-stamp-show-oregon
+  name: Salem Coin & Stamp Show
+  state: OR
+  state_name: Oregon
+  city: Rickreall
+  city_slug: rickreall-or
+  venue: Polk County Fairgrounds, Building A
+  frequency: Date-specific
+  next_date: December 19-20, 2026
+  upcoming_dates: ['2026-12-19', '2026-12-20']
+  website: https://www.pnna.org/wp/events/event-calendar/
+  organizer: ''
+  source_url: https://www.pnna.org/wp/events/event-calendar/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official PNNA calendar 2026 fourth-quarter section checked October 26, 2026 explicitly lists Salem Coin & Stamp Show December 19-20, 2026 at Polk County Fairgrounds, Building A, Rickreall, Oregon. Not the Salem/Roanoke Valley show in Virginia.
+  notes: 'Confirm admission and daily hours with the organizer before travel.'
+- id: olympia-coin-club-show
+  name: Olympia Coin Club Show
+  state: WA
+  state_name: Washington
+  city: Lacey
+  city_slug: lacey-wa
+  venue: Thurston County Fairgrounds, Expo Hall
+  frequency: Date-specific
+  next_date: January 30, 2027
+  upcoming_dates: ['2027-01-30']
+  website: https://www.pnna.org/wp/events/event-calendar/
+  organizer: Olympia Coin Club
+  source_url: https://www.pnna.org/wp/events/event-calendar/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official PNNA calendar 2027 first-quarter section checked October 26, 2026 explicitly lists Olympia Coin Club Show January 30, 2027 at Thurston County Fairgrounds, Expo Hall, Lacey, Washington. Kept distinct from the Northwest Token & Medal Society event in Olympia.
+  notes: 'Confirm admission and daily hours with the organizer before travel.'

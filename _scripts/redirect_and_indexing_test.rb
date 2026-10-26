@@ -13,7 +13,8 @@ class RedirectAndIndexingTest < Minitest::Test
     'des-moines-ia' => 'altoona-ia',
     'july-11th-2026-big-flats-ny' => 'big-flats-ny',
     'charlotte-nc' => 'middleton-wi',
-    'creating-collectors-co' => 'tucson-az'
+    'creating-collectors-co' => 'tucson-az',
+    'wa' => 'portland-or'
   }.freeze
 
   def test_exact_city_redirects_are_noindex_and_canonicalized
