@@ -2,6 +2,23 @@
 
 ## Last published batch
 
+- Published UTC: **2026-10-26T06:40:56Z**; PR **#101**.
+- Merge: `79f0892b100944aa9a9a82c02301c6a116bb7777`.
+- Successful exact-SHA production Jekyll/Pages run: **40281151764**.
+- Result: **published**. New series **0**; changed existing records **1**;
+  added occurrence-days **0**. Vegas National Oct 29–31, 2026 retained; unsupported
+  May/December frequency corrected to Recurring; only this record reverified.
+- Public readback completed before **2026-10-26T06:43:26Z**: entire `shows.json`
+  equals the reviewed generated 222-record feed. Vegas National HTML contains
+  the confirmed dates, October 26 verification date, Recurring label and correct
+  canonical route; sitemap includes its route. No deployment/content mismatch.
+- Local checks: 27 Ruby syntax checks, all 11 Ruby suites, all 16 JavaScript tests,
+  validator, regenerated-currentness and whitespace passed. Host required UTF-8
+  selection; no test expectations changed. Local Jekyll unavailable; existing
+  production Jekyll build completed successfully in the exact-SHA Pages run.
+
+## Recovered publication: batch 3
+
 - Published UTC: **2026-10-26T06:11:38Z** (October 25 Pacific).
 - PR: #99.
 - Merge: `5bdd151f5dbfc03c86f00423621a6905166b93e8`.
@@ -20,10 +37,12 @@
 
 ## Routine attempt: October 26, 2026 UTC
 
-Started **2026-10-26T06:17:23Z**. Recovered batch 3's completed publication rather
-than republishing it. No open PRs at intake; linked worktree starts at remote main.
-Last published listing update was approximately 15 minutes old at 06:26 UTC,
-not the later/earlier spot-price rebuild. Seven-day escalation is not due.
+Started **2026-10-26T06:17:23Z**; execution and readback completed by
+**2026-10-26T06:43:26Z**. Recovered batch 3's completed publication rather than
+republishing it. No open PRs at intake; linked worktree started at remote main.
+Last published listing update was approximately 2.5 minutes old at completion,
+based on PR #101's deployment, not a spot-price rebuild. Seven-day escalation is
+not due. No overlapping listing PR appeared; concurrent badge PR #100 is unrelated.
 
 Latest terminal reporting runs and downloaded artifacts inspected:
 
@@ -39,12 +58,14 @@ predate batches 1–3. The comparison made 48 source requests and explicitly map
 source. These historical categories are not current missing-show counts.
 Discovery has **zero detail rows** (header-only CSV): discovery remains incomplete.
 
-Next small batch: **0 new series, 1 changed existing record, 0 added occurrence-days**.
+Published routine batch: **0 new series, 1 changed existing record, 0 added occurrence-days**.
 Reviewed Nevada CK Shows homepage and linked schedule for the imminent Oct 29–31
 Vegas National; dates/venue already correct. Corrected unsupported May/December
 frequency wording to Recurring and refreshed only this record's verification.
 The linked winter visitor page returns 404; future 2027 dates remain unverified.
-Publication pending this batch's own PR/checks/Pages/readback receipt.
+Publication verified through PR #101, Pages 40281151764 and exact public readback
+above. Next source/state: Virginia VNA calendar/recorded redirect, then Ohio CONA;
+keep Whitman's official replacement-page search next in the unresolved queue.
 
 ## Scope still outstanding
 
@@ -71,8 +92,9 @@ listings current while that ledger has unresolved coverage.
 
 Daily reviewer definition: `TODO.md`, `r-coin-listing-refresh`, 15:30 UTC, owned
 by the existing Pulse supervisor. **First scheduled execution pending evidence.**
-Do not replace this state with success until actual runtime and publication/hold
-receipts exist. See `docs/listing-refresh-operations.md`.
+This invocation supplies a completed reviewer/publication receipt, but does not
+independently attest the 15:30 timer or future unattended runs. Do not confuse
+execution success with scheduler health. See `docs/listing-refresh-operations.md`.
 
 Workflow registration merged in PR #97 (`84e6bcc6cf3f6aeacbda355f63634cdfb9de49a7`);
 the canonical service mirror was safely synchronized through the audited recovery
