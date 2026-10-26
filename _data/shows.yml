@@ -177,13 +177,12 @@
   postal_code: '92806'
   address_status: verified
   frequency: Monthly (1st Sunday)
-  next_date: October 4, 2026
+  next_date: November 1, 2026
   website: https://pacificexposllc.com/
   organizer: Pacific Expos LLC
   source_url: https://pacificexposllc.com/ncmcs-dates%2Fdealers%2Fmap
-  last_verified: '2026-09-04'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-10-04'
   - '2026-11-01'
   - '2026-12-06'
   - '2027-01-03'
@@ -192,8 +191,8 @@
   - '2027-05-02'
   - '2027-07-04'
   - '2027-08-01'
-  verification_notes: Official Pacific Expos LLC page confirms October 4, November 1, and December 6, 2026 plus January 3, February 7, April 4, May 2, July 4, and August 1, 2027; it also confirms 9am-4pm hours and the Embassy Suites street address. Reconfirmed through the bounded official-source review on September 4, 2026 without inferring dates from the monthly frequency.
-  notes: '30+ dealers; free parking and hourly prize drawings. Next confirmed date: October 4, 2026. Hours: 9am-4pm. Official page lists phone 714-271-8946.'
+  verification_notes: Official Pacific Expos dates page checked October 26, 2026 explicitly lists November 1 and December 6, 2026, then January 3, February 7, April 4, May 2, July 4 and August 1, 2027. No dates inferred from recurrence. Venue and full street address confirmed on that page.
+  notes: 'Hours: 9am-4pm. Admission $4 cash; free for US military veterans and children 13 and under. Free parking; organizer says not to pay the hotel overnight-guest parking charge.'
 - id: the-arcadia-coin-currency-and-collectibles-show
   name: Arcadia Coin Show
   state: CA
@@ -217,16 +216,16 @@
   city_slug: buena-park-ca
   venue: Retail Clerks Hall, 8550 Stanton Ave
   frequency: 3 Times Per Year (March, June, September)
-  next_date: September 12-13, 2026
+  next_date: March 13-14, 2027
   website: https://pacificexposllc.com/
   organizer: Pacific Expos LLC
   source_url: https://pacificexposllc.com/
-  last_verified: '2026-07-13'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-12'
-  - '2026-09-13'
-  verification_notes: Official Pacific Expos LLC home page lists the next Buena Park Coin Show as September 12 & 13, 2026 at Retail Clerk’s Hall, 8550 Stanton, Buena Park, California; hours Saturday 10am-5pm and Sunday 10am-4pm; reviewed during future-date cleanup.
-  notes: '50+ dealers, free parking, free hourly coin drawings. Official next date: September 12-13, 2026. Hours: Saturday 10am-5pm, Sunday 10am-4pm.'
+  - '2027-03-13'
+  - '2027-03-14'
+  verification_notes: Official Pacific Expos home page checked October 26, 2026 explicitly announces March 13-14, 2027 at Retail Clerks Hall, 8550 Stanton, Buena Park. Later seasonal dates are not inferred.
+  notes: 'Hours: Saturday 10am-5pm, Sunday 10am-4pm. Admission $5 cash; free for US military veterans and children 13 and under. Free parking and hourly coin drawings.'
 - id: east-bayconcord-coin-show
   name: East Bay / Concord Coin Show
   state: CA
@@ -617,20 +616,17 @@
   city_slug: denver-co
   venue: National Western Complex
   frequency: Semiannual (May & October)
-  next_date: October 8-10, 2026
+  next_date: April 29-May 1, 2027
   website: https://www.rockymtnexpos.com/
   organizer: Rocky Mountain Expos
   source_url: https://www.rockymtnexpos.com/
-  last_verified: '2026-09-04'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-10-08'
-  - '2026-10-09'
-  - '2026-10-10'
   - '2027-04-29'
   - '2027-04-30'
   - '2027-05-01'
-  verification_notes: Official Rocky Mountain Expos site lists Denver Coin Expo dates October 8-10, 2026 and April 29-May 1, 2027; reconfirmed through the bounded official-source review on September 4, 2026.
-  notes: Largest show in the Rocky Mountain region.
+  verification_notes: Official Rocky Mountain Expos home page checked October 26, 2026 explicitly confirms April 29-May 1, 2027 at National Western Complex, with Thursday/Friday 10am-6pm and Saturday 10am-4pm hours.
+  notes: 'Hours: Thursday and Friday 10am-6pm, Saturday 10am-4pm.'
 - id: fort-collins-coin-club-show
   name: Fort Collins Coin Club Show
   state: CO
@@ -1688,15 +1684,16 @@
   city_slug: new-baltimore-mi
   venue: Lempke-Blackwell VFW Post 7573, 35011 23 Mile Rd, New Baltimore, MI 48047
   frequency: Monthly
-  next_date: September 20, 2026
-  website: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238-116/
+  next_date: November 15, 2026
+  website: https://michigancoinclub.org/events/new-baltimore-monthly-coin-show/
   organizer: Mike Tremonti
-  source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238-116/
+  source_url: https://michigancoinclub.org/local_shows/
   source_type: association-calendar
-  last_verified: '2026-09-04'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-20'
-  verification_notes: Official Michigan State Numismatic Society event page lists September 20, 2026, with the venue address and hours; reconfirmed through the bounded official-source review on September 4, 2026.
+  - '2026-11-15'
+  - '2026-12-13'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists November 15 and December 13, 2026 for this show at the existing venue. November 14 belongs to other shows, not this record. No recurring dates inferred.
   notes: 'Hours: Sun 9-3'
 - id: royal-oak-coins-collectibles-show
   name: Royal Oak Coins & Collectibles Show
@@ -1706,18 +1703,19 @@
   city_slug: royal-oak-mi
   venue: Royal Oak Detroit Elks Lodge #34, 2401 E 4th St, Royal Oak, MI 48067
   frequency: Recurring
-  next_date: September 13, 2026
+  next_date: November 8, 2026
   website: https://michigancoinclub.org/
   organizer: Armand Keywell
-  source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238/
+  source_url: https://michigancoinclub.org/local_shows/
   source_type: association-calendar
-  last_verified: '2026-09-04'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-13'
+  - '2026-11-08'
+  - '2026-12-13'
   aliases:
   - royal-oak-coin-collectibles-show-may-10th-2026
   - royal-oak-coin-club-2026-fall-coin-show-1042026
-  verification_notes: Official Michigan State Numismatic Society event page verifies September 13, 2026 at Royal Oak Detroit Elks Lodge #34; reconfirmed through the bounded official-source review on September 4, 2026. Two stale date-specific imports were merged into this canonical listing.
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists November 8 and December 13, 2026 at Royal Oak Detroit Elks Lodge 34, with 10am-3pm hours. Existing aliases retained; no recurrence inferred.
   notes: 'Hours: Sun 10-3.'
 - id: detroit-area-coin-shows
   name: Detroit Area Coin Shows
@@ -1727,15 +1725,16 @@
   city_slug: southfield-mi
   venue: New Hope Banquet Hall, 24222 W. Nine Mile Rd, Southfield, MI 48033
   frequency: Recurring
-  next_date: September 13, 2026
-  website: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-840/
+  next_date: November 8, 2026
+  website: https://michigancoinclub.org/events/detroit-area-coin-show-southfield/
   organizer: Larry Comer and David Nazzaro
-  source_url: https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-840/
+  source_url: https://michigancoinclub.org/local_shows/
   source_type: association-calendar
-  last_verified: '2026-09-04'
+  last_verified: '2026-10-26'
   upcoming_dates:
-  - '2026-09-13'
-  verification_notes: Official Michigan State Numismatic Society event page lists Detroit Area Coin Shows - Southfield on September 13, 2026, with venue address and hours; reconfirmed through the bounded official-source review on September 4, 2026.
+  - '2026-11-08'
+  - '2026-12-06'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists November 8 and December 6, 2026 at New Hope Banquet Hall. December 5 belongs to Clarkston, not Southfield. No recurrence inferred.
   notes: 'Hours: Sun 9-3.'
 - id: michigan-state-numismatic-society-convention-coin-show
   name: Michigan State Numismatic Society Convention & Coin Show
@@ -1801,6 +1800,226 @@
   - '2027-04-11'
   verification_notes: Official MSNS convention page lists the 70th Annual Fall Coin Show & Convention on November 20-22, 2026 at Macomb Community College South Campus in Warren; existing Westland/Hellenic venue appears stale.
   notes: Likely duplicate/canonicalization candidate with the MSNS convention records; official source confirms Warren venue and future dates.
+- id: kalamazoo-numismatic-club-fall-coin-show
+  name: Kalamazoo Numismatic Club Fall Coin Show
+  short_title: Kalamazoo Fall Coin Show
+  state: MI
+  state_name: Michigan
+  city: Kalamazoo
+  city_slug: kalamazoo-mi
+  venue: Kalamazoo County Expo Center
+  street_address: 2900 Lake Street
+  postal_code: '49048'
+  address_status: verified
+  frequency: Annual (Fall)
+  next_date: October 31, 2026
+  upcoming_dates: ['2026-10-31']
+  website: https://michigancoinclub.org/events/kalamazoo-numismatic-club-fall-coin-show/
+  organizer: Kalamazoo Numismatic Club
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists this show, October 31 date, venue, full address and 9am-3pm hours. Not inferred from recurrence.
+  notes: 'Hours: 9am-3pm. Confirm admission with the organizer.'
+- id: downriver-coins-collectibles-show
+  name: Downriver Coins & Collectibles Show
+  state: MI
+  state_name: Michigan
+  city: Wyandotte
+  city_slug: wyandotte-mi
+  venue: Polish Roman Catholic Union (PRCU) Banquet Hall
+  street_address: 1430 Oak Street
+  postal_code: '48192'
+  address_status: verified
+  frequency: Date-specific
+  next_date: November 1, 2026
+  upcoming_dates: ['2026-11-01']
+  website: https://michigancoinclub.org/events/downriver-coins-collectibles-show/
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists November 1, 2026, PRCU Banquet Hall, full address and 10am-3pm hours. Organizer identity and later dates not inferred.
+  notes: 'Hours: 10am-3pm. Confirm admission with the organizer.'
+- id: grand-rapids-monthly-coin-show
+  name: Grand Rapids Monthly Coin Show
+  state: MI
+  state_name: Michigan
+  city: Walker
+  city_slug: walker-mi
+  venue: Neil Fonger American Legion Post 179
+  street_address: 2327 Wilson Avenue
+  postal_code: '49534'
+  address_status: verified
+  frequency: Monthly (selected dates)
+  next_date: November 14, 2026
+  upcoming_dates: ['2026-11-14', '2026-12-19', '2027-02-06', '2027-03-13', '2027-05-15', '2027-08-07', '2027-10-16', '2027-12-18']
+  website: https://michigancoinclub.org/events/grand-rapids-monthly-coin-show/
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists all eight recorded dates through December 2027, venue, full address and 9am-3pm hours. Club-show dates are kept in a separate record; missing months are not inferred.
+  notes: 'Hours: 9am-3pm. Selected dates only; check the official calendar before traveling.'
+- id: livingston-county-coin-club-show
+  name: Livingston County Coin Club Coin Show
+  state: MI
+  state_name: Michigan
+  city: Howell
+  city_slug: howell-mi
+  venue: Heart of the Shepherd Church
+  street_address: 228 N. Burkhart Road
+  postal_code: '48843'
+  address_status: verified
+  frequency: Selected dates
+  next_date: November 14, 2026
+  upcoming_dates: ['2026-11-14', '2027-04-03', '2027-11-06']
+  website: https://michigancoinclub.org/events/livingston-county-coin-show/
+  organizer: Livingston County Coin Club
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists November 14, 2026, April 3 and November 6, 2027, venue, full address and 9:30am-3pm hours.
+  notes: 'Hours: 9:30am-3pm. Confirm admission with the organizer.'
+- id: livonia-monthly-coin-show
+  name: Livonia Monthly Coin Show
+  state: MI
+  state_name: Michigan
+  city: Livonia
+  city_slug: livonia-mi
+  venue: Livonia Elks Lodge 2246
+  street_address: 31117 Plymouth Road
+  postal_code: '48150'
+  address_status: verified
+  frequency: Monthly
+  next_date: November 29, 2026
+  upcoming_dates: ['2026-11-29', '2026-12-27', '2027-01-31', '2027-02-28', '2027-03-28', '2027-04-25', '2027-05-30', '2027-06-27', '2027-07-25', '2027-08-29', '2027-09-26', '2027-10-31', '2027-11-28', '2027-12-26']
+  website: https://michigancoinclub.org/events/livonia-monthly-coin-show/
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists all fourteen recorded dates through December 2027, venue, full address and 9am-3pm hours. No recurrence extrapolation used.
+  notes: 'Hours: 9am-3pm. Confirm dates on the official calendar before traveling.'
+- id: clarkston-area-numismatic-society-coin-show
+  name: Clarkston Area Numismatic Society Coin Show
+  short_title: Clarkston Numismatic Society Coin Show
+  state: MI
+  state_name: Michigan
+  city: Clarkston
+  city_slug: clarkston-mi
+  venue: Campbell-Richmond American Legion Post 63
+  street_address: 8047 Ortonville Road
+  postal_code: '48348'
+  address_status: verified
+  frequency: Date-specific
+  next_date: December 5, 2026
+  upcoming_dates: ['2026-12-05']
+  website: https://michigancoinclub.org/events/clarkston-coin-show/
+  organizer: Clarkston Area Numismatic Society
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists December 5, 2026, venue, full address and 9am-2pm hours.
+  notes: 'Hours: 9am-2pm. Confirm admission with the organizer.'
+- id: lincoln-coin-club-collectibles-show
+  name: Lincoln Coin Club Coin & Collectibles Show
+  short_title: Lincoln Coin & Collectibles Show
+  state: MI
+  state_name: Michigan
+  city: Southgate
+  city_slug: southgate-mi
+  venue: Southgate Civic Center Annex / Parkside Gardens Banquet Hall
+  street_address: 14700 Reaume Parkway
+  postal_code: '48195'
+  address_status: verified
+  frequency: Date-specific
+  next_date: January 17, 2027
+  upcoming_dates: ['2027-01-17']
+  website: https://michigancoinclub.org/events/lincoln-coin-club-coin-collectibles-show/
+  organizer: Lincoln Coin Club
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists January 17, 2027, venue, full address and 10am-4pm hours.
+  notes: 'Hours: 10am-4pm. Confirm admission with the organizer.'
+- id: winter-international-coin-show-troy
+  name: Winter International Coin Show
+  state: MI
+  state_name: Michigan
+  city: Troy
+  city_slug: troy-mi
+  venue: American Polish Cultural Center
+  street_address: 2975 E. Maple Road
+  postal_code: '48083'
+  address_status: verified
+  frequency: Annual (Winter)
+  next_date: February 21, 2027
+  upcoming_dates: ['2027-02-21']
+  website: https://michigancoinclub.org/events/winter-international-coin-show/
+  organizer: Polish American Numismatic Society, Windsor and Northwest Detroit Coin Clubs
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists the joint-club Winter International Coin Show on February 21, 2027, venue, full address and 10am-4pm hours.
+  notes: 'Hours: 10am-4pm. Confirm admission with the organizer.'
+- id: grand-rapids-coin-club-show
+  name: Grand Rapids Coin Club Coin Show
+  state: MI
+  state_name: Michigan
+  city: Walker
+  city_slug: walker-mi
+  venue: Neil Fonger American Legion Post 179
+  street_address: 2327 Wilson Avenue
+  postal_code: '49534'
+  address_status: verified
+  frequency: Selected dates
+  next_date: April 17, 2027
+  upcoming_dates: ['2027-04-17', '2027-09-18']
+  website: https://michigancoinclub.org/events/grand-rapids-coin-club-coin-show/
+  organizer: Grand Rapids Coin Club
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists club shows April 17 and September 18, 2027, separately from the Grand Rapids Monthly Coin Show series, at this venue with 9am-3pm hours.
+  notes: 'Hours: 9am-3pm. Separate club show, not an extra occurrence of the monthly series.'
+- id: jackson-area-coin-club-show
+  name: Jackson Area Coin Club Coin Show
+  state: MI
+  state_name: Michigan
+  city: Jackson
+  city_slug: jackson-mi
+  venue: Richard F. Smith American Legion Post 29
+  street_address: 3200 Lansing Avenue
+  postal_code: '49202'
+  address_status: verified
+  frequency: Selected dates
+  next_date: May 1, 2027
+  upcoming_dates: ['2027-05-01', '2027-10-09']
+  website: https://michigancoinclub.org/events/jackson-coin-show/
+  organizer: Jackson Area Coin Club
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists May 1 and October 9, 2027, venue, full address and 9am-2pm hours.
+  notes: 'Hours: 9am-2pm. Confirm admission with the organizer.'
+- id: northwest-detroit-coin-club-show
+  name: Northwest Detroit Coin Club Coin Show
+  state: MI
+  state_name: Michigan
+  city: Livonia
+  city_slug: livonia-mi
+  venue: Monaghan Knights of Columbus Banquet Hall
+  street_address: 19801 Farmington Road
+  postal_code: '48152'
+  address_status: verified
+  frequency: Date-specific
+  next_date: November 7, 2027
+  upcoming_dates: ['2027-11-07']
+  website: https://michigancoinclub.org/events/northwest-detroit-coin-show/
+  organizer: Northwest Detroit Coin Club
+  source_url: https://michigancoinclub.org/local_shows/
+  source_type: association-calendar
+  last_verified: '2026-10-26'
+  verification_notes: Official MSNS calendar checked October 26, 2026 explicitly lists November 7, 2027, venue, full address and 9:30am-3pm hours. No 2026 date inferred.
+  notes: 'Hours: 9:30am-3pm. Confirm admission with the organizer.'
 - id: north-metro-coin-show
   name: North Metro Coin Show
   state: MN
