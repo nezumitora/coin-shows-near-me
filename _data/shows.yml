@@ -2418,17 +2418,17 @@
   city: Las Vegas
   city_slug: las-vegas-nv
   venue: Tuscany Suites & Casino
-  frequency: Semiannual (May & December)
+  frequency: Recurring
   next_date: October 29-31, 2026
   website: https://www.ckshows.com/
   organizer: CK Shows
   source_url: https://www.ckshows.com/schedule.htm
-  last_verified: '2026-07-13'
+  last_verified: '2026-10-26'
   upcoming_dates:
   - '2026-10-29'
   - '2026-10-30'
   - '2026-10-31'
-  verification_notes: Official CK Shows schedule lists The Vegas National Coin Show on October 29-31, 2026; reviewed during broad official-source future-date refresh.
+  verification_notes: Official CK Shows homepage and linked schedule rechecked October 26, 2026 explicitly associate The Vegas National with October 29-31, 2026 at Tuscany Suites and Casino, Las Vegas. Existing dates retained; removed unsupported May/December frequency wording. Linked winter visitor page returned 404; no 2027 dates or recurrence inferred. Structured street/ZIP fields remain absent.
   notes: ''
 - id: the-reno-coin-show
   name: THE Reno Coin Show

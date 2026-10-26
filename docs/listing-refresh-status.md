@@ -2,25 +2,49 @@
 
 ## Last published batch
 
-- Published UTC: **2026-10-26T04:17:21Z** (October 25 Pacific).
-- PR: #98.
-- Merge: `b4d20eb1aa30c7d555f32fbd0bbb40ae5471ae6d`.
-- Successful Pages run: `40268201028`.
-- Public feed readback: **216 canonical shows** (previously 208).
-- Added: **8 Wisconsin series**; updated: **3 existing records**, including
-  Raleigh's 2027 dates/venue and Wisconsin corrections.
-- Official evidence: `docs/listing-catchup-2026-10-26-batch-2.md`.
+- Published UTC: **2026-10-26T06:11:38Z** (October 25 Pacific).
+- PR: #99.
+- Merge: `5bdd151f5dbfc03c86f00423621a6905166b93e8`.
+- Successful Pages run: `40278289209`, exact merged SHA above.
+- Routine public readback October 26, 06:22–06:25 UTC: **222 canonical shows**;
+  all seven new IDs and dates present in `shows.json`, all seven canonical show
+  routes present in the sitemap, Worcester HTML canonical and ISO date verified.
+- Added: **7 series**; changed: **21 existing records**; merged: **1 duplicate**
+  with URL retained as alias; added: **35 dated occurrence-days**, not 35 shows.
+- Official evidence: `docs/listing-catchup-2026-10-26-batch-3.md`.
+- Earlier PR #98 published 8 Wisconsin series and 3 existing-record corrections;
+  Pages `40268201028` succeeded at `2026-10-26T04:17:21Z`.
 - First batch PR #96 added 11 series and updated 6 existing records; Pages
   `40266952526` succeeded at `2026-10-26T04:03:02Z`. Its evidence remains in
   `docs/listing-catchup-2026-10-26.md`.
 
-## Next reviewed batch (publication not yet verified)
+## Routine attempt: October 26, 2026 UTC
 
-Third interactive batch: 7 new series, 21 changed existing records, 1 duplicate
-merged with its URL retained as an alias; proposed directory total **222**.
-**35 added dated occurrence-days are not 35 new shows.** Evidence:
-`docs/listing-catchup-2026-10-26-batch-3.md`. Publication requires its own merged
-SHA, successful Pages run and public readback, not the earlier receipts above.
+Started **2026-10-26T06:17:23Z**. Recovered batch 3's completed publication rather
+than republishing it. No open PRs at intake; linked worktree starts at remote main.
+Last published listing update was approximately 15 minutes old at 06:26 UTC,
+not the later/earlier spot-price rebuild. Seven-day escalation is not due.
+
+Latest terminal reporting runs and downloaded artifacts inspected:
+
+| Workflow | Run | UTC start / completion | Result |
+|---|---|---|---|
+| Show Update Report | 40196689703 | Oct 25 13:14:17 / 13:17:03 | success |
+| External Source Comparison | 40198661144 | Oct 25 13:40:10 / 13:41:36 | success |
+| Third-Party Discovery | 40199666789 | Oct 25 13:53:14 / 14:00:54 | success |
+
+All are under 48 hours old (about 16–17 hours), but their 197-record snapshots
+predate batches 1–3. The comparison made 48 source requests and explicitly mapped
+78 records; 71 approved-source records awaited comparison and 48 lacked an approved
+source. These historical categories are not current missing-show counts.
+Discovery has **zero detail rows** (header-only CSV): discovery remains incomplete.
+
+Next small batch: **0 new series, 1 changed existing record, 0 added occurrence-days**.
+Reviewed Nevada CK Shows homepage and linked schedule for the imminent Oct 29–31
+Vegas National; dates/venue already correct. Corrected unsupported May/December
+frequency wording to Recurring and refreshed only this record's verification.
+The linked winter visitor page returns 404; future 2027 dates remain unverified.
+Publication pending this batch's own PR/checks/Pages/readback receipt.
 
 ## Scope still outstanding
 
@@ -32,7 +56,8 @@ Fresh comparison `2a8e7e9e-0e9b-4d60-b172-31790a558226` ran October 26
 05:15:32–05:16:41 UTC against 216 records: 48 exact source requests, 78 explicit
 listing mappings, 90 approved-source records outside those mappings, 48 lacking
 an approved comparison source. These are coverage categories, not missing-show
-counts. Batch 3 expands explicit mappings to 115 of 222 proposed records.
+counts. Published batch 3 expands explicit mappings to 115 of 222 records:
+**107 records remain outside explicit mappings**; this is not 107 missing shows.
 The inactive Phase 2 profile's covered IDs stay synchronized, but its schedule,
 network default, request limits and all publication-disable controls are unchanged.
 
