@@ -193,9 +193,8 @@
     "state_name": "California",
     "venue": "Embassy Suites Anaheim North",
     "frequency": "Monthly (1st Sunday)",
-    "next_date": "October 4, 2026",
+    "next_date": "November 1, 2026",
     "upcoming_dates": [
-      "2026-10-04",
       "2026-11-01",
       "2026-12-06",
       "2027-01-03",
@@ -231,10 +230,10 @@
     "state_name": "California",
     "venue": "Retail Clerks Hall, 8550 Stanton Ave",
     "frequency": "3 Times Per Year (March, June, September)",
-    "next_date": "September 12-13, 2026",
+    "next_date": "March 13-14, 2027",
     "upcoming_dates": [
-      "2026-09-12",
-      "2026-09-13"
+      "2027-03-13",
+      "2027-03-14"
     ],
     "series_ended": false,
     "postal_code": "",
@@ -571,11 +570,8 @@
     "state_name": "Colorado",
     "venue": "National Western Complex",
     "frequency": "Semiannual (May & October)",
-    "next_date": "October 8-10, 2026",
+    "next_date": "April 29-May 1, 2027",
     "upcoming_dates": [
-      "2026-10-08",
-      "2026-10-09",
-      "2026-10-10",
       "2027-04-29",
       "2027-04-30",
       "2027-05-01"
@@ -1547,6 +1543,73 @@
     "website": "http://www.brunswickmainecoinclub.com/"
   },
   {
+    "id": "clarkston-area-numismatic-society-coin-show",
+    "name": "Clarkston Area Numismatic Society Coin Show",
+    "city": "Clarkston",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Campbell-Richmond American Legion Post 63",
+    "frequency": "Date-specific",
+    "next_date": "December 5, 2026",
+    "upcoming_dates": [
+      "2026-12-05"
+    ],
+    "series_ended": false,
+    "postal_code": "48348",
+    "website": "https://michigancoinclub.org/events/clarkston-coin-show/"
+  },
+  {
+    "id": "livingston-county-coin-club-show",
+    "name": "Livingston County Coin Club Coin Show",
+    "city": "Howell",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Heart of the Shepherd Church",
+    "frequency": "Selected dates",
+    "next_date": "November 14, 2026",
+    "upcoming_dates": [
+      "2026-11-14",
+      "2027-04-03",
+      "2027-11-06"
+    ],
+    "series_ended": false,
+    "postal_code": "48843",
+    "website": "https://michigancoinclub.org/events/livingston-county-coin-show/"
+  },
+  {
+    "id": "jackson-area-coin-club-show",
+    "name": "Jackson Area Coin Club Coin Show",
+    "city": "Jackson",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Richard F. Smith American Legion Post 29",
+    "frequency": "Selected dates",
+    "next_date": "May 1, 2027",
+    "upcoming_dates": [
+      "2027-05-01",
+      "2027-10-09"
+    ],
+    "series_ended": false,
+    "postal_code": "49202",
+    "website": "https://michigancoinclub.org/events/jackson-coin-show/"
+  },
+  {
+    "id": "kalamazoo-numismatic-club-fall-coin-show",
+    "name": "Kalamazoo Numismatic Club Fall Coin Show",
+    "city": "Kalamazoo",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Kalamazoo County Expo Center",
+    "frequency": "Annual (Fall)",
+    "next_date": "October 31, 2026",
+    "upcoming_dates": [
+      "2026-10-31"
+    ],
+    "series_ended": false,
+    "postal_code": "49048",
+    "website": "https://michigancoinclub.org/events/kalamazoo-numismatic-club-fall-coin-show/"
+  },
+  {
     "id": "first-annual-lansing-coin-show",
     "name": "First Annual Lansing Coin Show",
     "city": "Lansing",
@@ -1575,6 +1638,51 @@
     "website": "https://michigancoinclub.org/"
   },
   {
+    "id": "livonia-monthly-coin-show",
+    "name": "Livonia Monthly Coin Show",
+    "city": "Livonia",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Livonia Elks Lodge 2246",
+    "frequency": "Monthly",
+    "next_date": "November 29, 2026",
+    "upcoming_dates": [
+      "2026-11-29",
+      "2026-12-27",
+      "2027-01-31",
+      "2027-02-28",
+      "2027-03-28",
+      "2027-04-25",
+      "2027-05-30",
+      "2027-06-27",
+      "2027-07-25",
+      "2027-08-29",
+      "2027-09-26",
+      "2027-10-31",
+      "2027-11-28",
+      "2027-12-26"
+    ],
+    "series_ended": false,
+    "postal_code": "48150",
+    "website": "https://michigancoinclub.org/events/livonia-monthly-coin-show/"
+  },
+  {
+    "id": "northwest-detroit-coin-club-show",
+    "name": "Northwest Detroit Coin Club Coin Show",
+    "city": "Livonia",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Monaghan Knights of Columbus Banquet Hall",
+    "frequency": "Date-specific",
+    "next_date": "November 7, 2027",
+    "upcoming_dates": [
+      "2027-11-07"
+    ],
+    "series_ended": false,
+    "postal_code": "48152",
+    "website": "https://michigancoinclub.org/events/northwest-detroit-coin-show/"
+  },
+  {
     "id": "new-baltimore-monthly-coin-show",
     "name": "New Baltimore Monthly Coin Show",
     "city": "New Baltimore",
@@ -1582,13 +1690,14 @@
     "state_name": "Michigan",
     "venue": "Lempke-Blackwell VFW Post 7573, 35011 23 Mile Rd, New Baltimore, MI 48047",
     "frequency": "Monthly",
-    "next_date": "September 20, 2026",
+    "next_date": "November 15, 2026",
     "upcoming_dates": [
-      "2026-09-20"
+      "2026-11-15",
+      "2026-12-13"
     ],
     "series_ended": false,
     "postal_code": "48047",
-    "website": "https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-238-116/"
+    "website": "https://michigancoinclub.org/events/new-baltimore-monthly-coin-show/"
   },
   {
     "id": "royal-oak-coins-collectibles-show",
@@ -1598,9 +1707,10 @@
     "state_name": "Michigan",
     "venue": "Royal Oak Detroit Elks Lodge",
     "frequency": "Recurring",
-    "next_date": "September 13, 2026",
+    "next_date": "November 8, 2026",
     "upcoming_dates": [
-      "2026-09-13"
+      "2026-11-08",
+      "2026-12-13"
     ],
     "series_ended": false,
     "postal_code": "",
@@ -1614,13 +1724,86 @@
     "state_name": "Michigan",
     "venue": "New Hope Banquet Hall, 24222 W. Nine Mile Rd, Southfield, MI 48033",
     "frequency": "Recurring",
-    "next_date": "September 13, 2026",
+    "next_date": "November 8, 2026",
     "upcoming_dates": [
-      "2026-09-13"
+      "2026-11-08",
+      "2026-12-06"
     ],
     "series_ended": false,
     "postal_code": "48033",
-    "website": "https://michigancoinclub.org/events/1st-annual-lansing-coin-show-176-834-840/"
+    "website": "https://michigancoinclub.org/events/detroit-area-coin-show-southfield/"
+  },
+  {
+    "id": "lincoln-coin-club-collectibles-show",
+    "name": "Lincoln Coin Club Coin & Collectibles Show",
+    "city": "Southgate",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Southgate Civic Center Annex / Parkside Gardens Banquet Hall",
+    "frequency": "Date-specific",
+    "next_date": "January 17, 2027",
+    "upcoming_dates": [
+      "2027-01-17"
+    ],
+    "series_ended": false,
+    "postal_code": "48195",
+    "website": "https://michigancoinclub.org/events/lincoln-coin-club-coin-collectibles-show/"
+  },
+  {
+    "id": "winter-international-coin-show-troy",
+    "name": "Winter International Coin Show",
+    "city": "Troy",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "American Polish Cultural Center",
+    "frequency": "Annual (Winter)",
+    "next_date": "February 21, 2027",
+    "upcoming_dates": [
+      "2027-02-21"
+    ],
+    "series_ended": false,
+    "postal_code": "48083",
+    "website": "https://michigancoinclub.org/events/winter-international-coin-show/"
+  },
+  {
+    "id": "grand-rapids-coin-club-show",
+    "name": "Grand Rapids Coin Club Coin Show",
+    "city": "Walker",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Neil Fonger American Legion Post 179",
+    "frequency": "Selected dates",
+    "next_date": "April 17, 2027",
+    "upcoming_dates": [
+      "2027-04-17",
+      "2027-09-18"
+    ],
+    "series_ended": false,
+    "postal_code": "49534",
+    "website": "https://michigancoinclub.org/events/grand-rapids-coin-club-coin-show/"
+  },
+  {
+    "id": "grand-rapids-monthly-coin-show",
+    "name": "Grand Rapids Monthly Coin Show",
+    "city": "Walker",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Neil Fonger American Legion Post 179",
+    "frequency": "Monthly (selected dates)",
+    "next_date": "November 14, 2026",
+    "upcoming_dates": [
+      "2026-11-14",
+      "2026-12-19",
+      "2027-02-06",
+      "2027-03-13",
+      "2027-05-15",
+      "2027-08-07",
+      "2027-10-16",
+      "2027-12-18"
+    ],
+    "series_ended": false,
+    "postal_code": "49534",
+    "website": "https://michigancoinclub.org/events/grand-rapids-monthly-coin-show/"
   },
   {
     "id": "michigan-state-numismatic-society-convention-coin-show",
@@ -1678,6 +1861,22 @@
     "series_ended": false,
     "postal_code": "",
     "website": "http://www.michigancoinclub.org/"
+  },
+  {
+    "id": "downriver-coins-collectibles-show",
+    "name": "Downriver Coins & Collectibles Show",
+    "city": "Wyandotte",
+    "state": "MI",
+    "state_name": "Michigan",
+    "venue": "Polish Roman Catholic Union (PRCU) Banquet Hall",
+    "frequency": "Date-specific",
+    "next_date": "November 1, 2026",
+    "upcoming_dates": [
+      "2026-11-01"
+    ],
+    "series_ended": false,
+    "postal_code": "48192",
+    "website": "https://michigancoinclub.org/events/downriver-coins-collectibles-show/"
   },
   {
     "id": "north-metro-coin-show",

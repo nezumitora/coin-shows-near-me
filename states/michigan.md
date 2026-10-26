@@ -2,7 +2,7 @@
 layout: state
 title: "Michigan Coin Shows"
 heading: "Coin Shows in Michigan — 2026-2027 Schedule"
-description: "Browse 8 coin shows in Michigan with dates, venues, and verification details. Check each listing before you travel."
+description: "Browse 19 coin shows in Michigan with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/michigan/
 state_abbrev: "MI"
 state_name: "Michigan"

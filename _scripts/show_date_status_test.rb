@@ -17,8 +17,8 @@ class ShowDateStatusTest < Minitest::Test
   def test_frozen_directory_classification_counts
     counts = SHOWS.group_by { |record| ShowDateStatus.classification(record, as_of: AS_OF) }.transform_values(&:length)
 
-    assert_equal 197, SHOWS.length
-    assert_equal 99, counts.fetch(:scheduled)
+    assert_equal 208, SHOWS.length
+    assert_equal 110, counts.fetch(:scheduled)
     assert_equal 98, counts.fetch(:date_not_confirmed)
     assert_equal 0, counts.fetch(:past_date_unconfirmed, 0)
     assert_nil counts[:past_show]
@@ -42,7 +42,7 @@ class ShowDateStatusTest < Minitest::Test
     end.compact
 
     assert_empty mismatches
-    assert_equal 'October 4, 2026', ShowDateStatus.display_date(show('north-county-monthly-coin-show'), as_of: AS_OF)
+    assert_equal 'November 1, 2026', ShowDateStatus.display_date(show('north-county-monthly-coin-show'), as_of: AS_OF)
     assert_equal 'September 13, 2026', ShowDateStatus.display_date(show('melville-coin-stamp-collectibles-show'), as_of: AS_OF)
     assert_equal 'September 13, 2026', ShowDateStatus.display_date(show('melville-coin-stamp-collectibles-show'), as_of: WEEKEND_AS_OF)
   end
@@ -54,7 +54,7 @@ class ShowDateStatusTest < Minitest::Test
 
     assert_empty missing
     assert_equal %w[2026-09-25 2026-09-26], show('waco-coin-show').fetch('upcoming_dates')
-    assert_equal %w[2026-09-12 2026-09-13], show('buena-park-coin-show').fetch('upcoming_dates')
+    assert_equal %w[2027-03-13 2027-03-14], show('buena-park-coin-show').fetch('upcoming_dates')
     assert_includes show('fun-convention').fetch('upcoming_dates'), '2027-01-10'
   end
 
