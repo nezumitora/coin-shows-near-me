@@ -2,6 +2,14 @@
 
 Goal: keep show dates fresh without guessing, copying a third-party directory, or publishing stale Event schema dates.
 
+## Current operating owner
+
+The October 26, 2026 owner-directed catch-up adds a daily reviewed-update routine
+in `TODO.md`. Follow `docs/listing-refresh-operations.md` for execution, current
+scope, receipts and publication verification. The older report-only phases below
+remain historical tooling boundaries: their scripts still must not directly
+modify listings. Their disabled Phase 2 schedule is not enabled by this routine.
+
 ## Source order
 
 1. Official show/promoter site.
@@ -14,7 +22,7 @@ Goal: keep show dates fresh without guessing, copying a third-party directory, o
 ## Safe publish rules
 
 - Publish a date only when the source gives a year and the date is future as of the review date.
-- For recurring rules, compute only near-term future dates when the official source clearly states the rule.
+- Record explicit dated occurrences; do not extrapolate future dates from recurrence prose or a monthly title.
 - Keep stable show URLs; log duplicate/imported/date-in-title records for later canonicalization instead of deleting them during a date refresh.
 - Change expired or unconfirmed dates to `TBD` rather than guessing.
 - Add `source_url`, `last_verified`, `upcoming_dates`, and `verification_notes` when a source confirms dates.

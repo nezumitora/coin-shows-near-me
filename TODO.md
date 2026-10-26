@@ -19,7 +19,7 @@ Know of a coin show not in the directory? Open an issue with:
 - [x] **Stop expired dates from emitting scheduled Event schema** — Event schema now requires a confirmed ISO date on or after the build date; strict range/status regressions cover scheduled, unconfirmed, past recurring, explicitly ended, partial, and weekend cases without inferring dates from recurrence prose.
 - [x] Build a version-controlled public-URL retirement map for seven proven city successors, including `/cities/westland-mi/` → `/cities/warren-mi/` and the corrected malformed Tucson city slug; generated pages use one-hop canonical/noindex redirects rather than broad homepage redirects.
 - [ ] Add rendered SEO validation: every sitemap URL must return 200, remain indexable, use a consistent canonical, and not be an alias; alias destinations must resolve and expired dates must not emit scheduled Event schema.
-- [x] **Make `_data/shows.yml` the enforced source for `shows.json`** — deterministic generation now emits exactly 197 canonical records, excludes aliases/internal notes, sanitizes website URLs, and fails validation/CI on any feed drift or ID mismatch.
+- [x] **Make `_data/shows.yml` the enforced source for `shows.json`** — deterministic generation emits canonical records, excludes aliases/internal notes, sanitizes website URLs, and fails validation/CI on any feed drift or ID mismatch. The October 26 catch-up increased the directory from 197 to 208 records.
 - [x] Confirm the current GSC report has no 403 category or example URLs; no Cloudflare, GitHub Pages, or other security rule was weakened.
 - [ ] Turn organizer verification into the first outreach offer: confirm listing facts, show a visible evidence-backed verification state, provide a correction path, and only then optionally invite sharing or a backlink; never require a link or payment for verification.
 - [ ] **HIGH PRIORITY: Track every verification as a separate evidence record** — the append-only record schema and public-provenance rules are documented; implement the protected EspoCRM synchronization so multiple organizer/venue/dealer/community records never overwrite earlier evidence.
@@ -31,6 +31,7 @@ Know of a coin show not in the directory? Open an issue with:
 - [ ] **HIGH PRIORITY: Audit the existing 50-state coin and bullion sales-tax guide against primary government sources** — record an exact statute, regulation, or agency-guidance URL and source-checked date for every state/DC; verify product definitions, thresholds, seller conditions, local-tax caveats, and effective dates before promoting summaries as current.
 - [ ] Automate a monthly upcoming-show media package from verified directory data: produce an accessible slideshow/video, narration-ready script, podcast audio and transcript, show notes, chapter timestamps, and source links; keep every release in draft for human fact-checking before any YouTube, podcast, or social publication.
 - [ ] **HIGH PRIORITY: Complete nationwide 2026-2027 show refresh** — gather every active U.S. coin show from official organizer/club/state-association calendars first, use third-party directories only as leads, verify show name/date/venue/address/organizer/source URL before publishing, and track uncertain leads separately.
+- [ ] **HIGH PRIORITY: Continue the October 26 catch-up beyond its first batch** — 11 missing Michigan shows and six existing listings were published in PR #96. Finish other states using `docs/listing-refresh-operations.md`; successful report jobs are not listing publication. Repair the empty individual-show discovery detail output without weakening official-source verification.
 - [ ] **HIGH PRIORITY: Verify and normalize full addresses for the existing directory** — collect street, city, state, and ZIP from official organizer/club/venue sources for every show and future dealer profile; never infer or invent missing address components, and clearly label records still awaiting verification.
 - [ ] **Improve source discovery reliability** — for each state, run source-discovery passes that search for official regional promoter calendars and club/event pages for every TBD listing before marking a state launch-ready; Arcadia/California Coin Events was the first missed-source example to fold into this process.
 - [ ] **Audit the Ahrefs spam-backlink spike without reacting blindly** — export the referring-domain report, classify indexability/dofollow/relevance, compare it with GSC Links and Manual Actions over time, and do not request removals or submit a disavow file unless verified evidence shows Google is counting harmful manipulative links.
@@ -46,6 +47,10 @@ Know of a coin show not in the directory? Open an issue with:
 - [ ] Add server-side Cloudflare Turnstile validation via a Worker/Formspree bridge so invalid form submissions are rejected before they count against monthly Formspree quota.
 - [ ] Build a server-side Cloudflare Worker bridge before re-enabling EspoCRM forwarding for Coin Shows forms; the rotated Lead Capture URL is stored locally and must never be placed in public HTML/JavaScript.
 - [ ] Review saved Instagram item for Coin Shows relevance. Instagram often blocks bot fetching, so open directly or use a screenshot/summary before creating website/content/operations tasks. Source: inbox/2026-05-05_165001_milo-bot-coinshows.json
+
+## Routines
+
+- [x] r-coin-listing-refresh Review and publish verified show freshness batches following docs/listing-refresh-operations.md repeat:daily(@15:30) timezone:UTC ~45m agent:Build+
 
 ## Logo & Branding
 
