@@ -2,7 +2,7 @@
 layout: state
 title: "West Virginia Coin Shows"
 heading: "Coin Shows in West Virginia — 2026-2027 Schedule"
-description: "Browse 2 coin shows in West Virginia with dates, venues, and verification details. Check each listing before you travel."
+description: "Browse 3 coin shows in West Virginia with dates, venues, and verification details. Check each listing before you travel."
 permalink: /states/west-virginia/
 state_abbrev: "WV"
 state_name: "West Virginia"

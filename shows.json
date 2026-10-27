@@ -3590,6 +3590,22 @@
     "website": "http://www.numismatistsofwisconsin.com/showcalendar.html"
   },
   {
+    "id": "clarksburg-coin-show",
+    "name": "Clarksburg Coin Show",
+    "city": "Bridgeport",
+    "state": "WV",
+    "state_name": "West Virginia",
+    "venue": "Best Western Plus",
+    "frequency": "Date-specific",
+    "next_date": "November 29, 2026",
+    "upcoming_dates": [
+      "2026-11-29"
+    ],
+    "series_ended": false,
+    "postal_code": "",
+    "website": "https://www.kvcc.eznetway.com/coin-shows.php"
+  },
+  {
     "id": "kanawha-valley-coin-club-show",
     "name": "Kanawha Valley Coin Club Show",
     "city": "Charleston",

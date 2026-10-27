@@ -3896,3 +3896,21 @@
   last_verified: '2026-10-26'
   verification_notes: Official VNA calendar checked October 26, 2026 explicitly associates Winchester Coin Club Show December 18, 2026 with Friendship Fire Company Bingo Hall, 627 N Pleasant Valley Road, Winchester, VA 22601, and Friday 9-4 public hours in its own date-bearing block.
   notes: 'Public hours: Friday 9-4. Confirm admission before travel.'
+- id: clarksburg-coin-show
+  name: Clarksburg Coin Show
+  state: WV
+  state_name: West Virginia
+  city: Bridgeport
+  city_slug: bridgeport-wv
+  venue: Best Western Plus
+  street_address: 100 Lodgeville Road
+  frequency: Date-specific
+  next_date: November 29, 2026
+  upcoming_dates: ['2026-11-29']
+  website: https://www.kvcc.eznetway.com/coin-shows.php
+  organizer: ''
+  source_url: https://www.kvcc.eznetway.com/coin-shows.php
+  source_type: club-show-page
+  last_verified: '2026-10-27'
+  verification_notes: Official KVCC regional calendar checked October 27, 2026 in rendered DOM explicitly pairs Clarksburg Coin Show, 100 Lodgeville Road, Bridgeport WV in grid cell imCell_50 with November 29, 2026 and Best Western Plus in imCell_44, the immediately following row of the same grid column. No ZIP or organizer identity supplied; both remain absent. Distinct from Charleston, KVCC, River Cities and Parkersburg events; no recurrence or future edition inferred.
+  notes: 'Public hours: 10am-3pm. Confirm admission before travel.'

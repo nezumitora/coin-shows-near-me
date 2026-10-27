@@ -238,7 +238,8 @@
   expected_show_ids:
     - oh-kan-coin-club-show
     - river-city-coin-club-coin-show
-  notes: Official club area-show page verified after Ohio lead review.
+    - clarksburg-coin-show
+  notes: Official club area-show page; October 27, 2026 rendered-DOM review confirms Clarksburg November 29 at Best Western Plus, 100 Lodgeville Road, Bridgeport WV in one grid column. Other city/venue/series conflicts remain manual holds; missing parser matches do not establish missing shows.
 
 - key: central-florida-coin-club
   name: Central Florida Coin Club
