@@ -51,6 +51,9 @@ from recurrence. This ledger tracks review attempts, not nationwide completeness
 | Lehigh and KVCC regional calendars | Lehigh Valley Nov 7 lacks venue; existing Lehigh County Nov 21 identity unresolved. KVCC Charleston Nov 14 needs exact city/address association; Parkersburg Oct 31 Marietta block conflicts with Mineral Wells heading. River Cities 2027 Milton block must be reconciled with old Hurricane series. Unnamed Nov 29 block not assigned to Clarksburg by proximity. |
 | National Battlefield future calendar/detail | Nov 27–28, 2026 already recorded; Aspire/Eisenhower venue conflict held. Nov 26 is dealer drop-off only. Explicit 2027/2028 overall ranges do not establish future public/dealer splits. |
 | Whitman Baltimore, Maryland; Oct 26 evening routine | Followed existing `http://expo.whitman.com/` to current official homepage and its linked `https://whitmanexpo.com/home/baltimore-fall-expo/expo-information/`. Nov 12–14, 2026 retained; Baltimore Convention Center, Halls A-C, One West Pratt Street, Baltimore, MD 21201 explicitly supported. Replaced the winter-path 404 in listing/report registry; removed unsupported three-times-yearly frequency. Nov 11 PNG dealer day excluded; no future Baltimore dates inferred. |
+| Lehigh, Pennsylvania; Oct 27 review | Legacy `/event/lehigh-county-coin-expo-2/` returns 404. Current events page links `https://www.abcoinclub.com/events/lehigh-valley-coin-expo/`, explicitly Nov 7, 2026, 10am-3pm but still no venue. Club-meeting location is not show evidence. Preserve existing County identity/date; no new Valley record or timestamp refresh. |
+| KVCC rendered calendar, West Virginia/Ohio; Oct 27 review | Added missing Clarksburg Coin Show Nov 29, 2026, Best Western Plus, 100 Lodgeville Road, Bridgeport WV. Exact DOM: `imCell_50` heading/address/city at column 74/110 row 7 and `imCell_44` date/venue at the same column row 8. This resolves the formerly unnamed-date hold using rendered structure, not text proximity. No organizer or ZIP invented. |
+| KVCC remaining blocks; Oct 27 review | Charleston Nov 14 and 5380 Big Tyler Road/Tyler Mountain Community Center align in column 38/74, cells 46/40, but no city/state line is explicit. KVCC's own separate cell 39 still says see you in 2027. River Cities' four 2027 dates/address are in cell 41; cell 47 above names Mt Vernon Baptist Church, but singular/plural name and Hurricane/Milton identity remain unresolved. Parkersburg Mineral Wells heading (cell 49) conflicts with separate dated Marietta block (cell 43). Existing records/evidence untouched. |
 
 ## Preserved official new-show candidate
 
@@ -94,9 +97,10 @@ organizer evidence. Tentative San Jose/North County dates, Canadian listings and
 NWTAMS meeting classification remain review-only. This source registration does
 not change show data or establish nationwide currency.
 
-Next: resolve Lehigh County/Valley
-identity, KVCC date/venue blocks and Midwest spring/fall identity; apply only
-individually verified facts. Revisit the transport-failed sources above using
+Next rotation: South Dakota Midwest spring/fall identity, then readable Iowa
+association calendar evidence. Lehigh venue/identity and the remaining KVCC
+city/series conflicts stay held; Clarksburg is resolved, do not rediscover it.
+Apply only individually verified facts. Revisit the transport-failed sources above using
 permitted readable official evidence, without treating tool failure as cancellation.
 Existing Facebook-only sources stay held where public details require login.
 Long Beach/Heartland legacy next-date labels and future public-day distinctions

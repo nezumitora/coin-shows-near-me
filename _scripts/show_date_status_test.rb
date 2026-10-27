@@ -17,8 +17,8 @@ class ShowDateStatusTest < Minitest::Test
   def test_frozen_directory_classification_counts
     counts = SHOWS.group_by { |record| ShowDateStatus.classification(record, as_of: AS_OF) }.transform_values(&:length)
 
-    assert_equal 225, SHOWS.length
-    assert_equal 133, counts.fetch(:scheduled)
+    assert_equal 226, SHOWS.length
+    assert_equal 134, counts.fetch(:scheduled)
     assert_equal 92, counts.fetch(:date_not_confirmed)
     assert_equal 0, counts.fetch(:past_date_unconfirmed, 0)
     assert_nil counts[:past_show]

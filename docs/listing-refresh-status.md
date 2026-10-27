@@ -1,5 +1,64 @@
 # Listing refresh status
 
+## Latest routine attempt — October 27, 2026 UTC
+
+Started **2026-10-27T15:41:23Z**. No overlapping listing PR at intake; badge
+PR #100 is unrelated. Canonical checkout has unrelated Beads hook/issue changes
+and was left untouched. Work uses a linked worktree from current remote main
+`1e8baa0efcc106de158c214a02aadbfccfbaa0d0`.
+
+| Latest terminal workflow | Run | UTC start / completion | Result |
+|---|---|---|---|
+| Show Update Report | 40523330398 | Oct 27 14:40:12 / 14:43:27 | success |
+| External Source Comparison | 40529418661 | Oct 27 15:16:58 / 15:18:40 | success |
+| Third-Party Discovery | 40531688969 | Oct 27 15:30:39 / 15:38:23 | success |
+
+Downloaded/inspected artifacts for all three. Reports are less than 2 hours old,
+not stale (>48h). Comparison `96811176-7521-4c71-a2a4-fd8999fae723` made 56
+exact source requests against 225 listings: 118 explicitly mapped, 59 approved-
+source records awaiting comparison, 48 without an approved source. Discovery's
+detail CSV remains header-only: zero detail rows, incomplete discovery. Coverage
+categories and parser misses are not missing-show counts.
+
+Last verified listing publication recovered: PR #108, merge
+`7116a42ef02288a9a28bc4b463005565a4416755`, Pages 40407406063 success at
+Oct 26 21:49:37 UTC, approximately **17h52m old** at intake. Public feed matches
+the existing 225-record data. Later receipt and spot-price deployments are not
+new listing batches; seven-day escalation is not due.
+
+Reviewed Pennsylvania Lehigh event detail and West Virginia/Ohio KVCC rendered
+calendar. Proposed batch: **1 new series, 0 changed existing records, 1 added
+dated occurrence-day**; 226 canonical listings. Clarksburg Coin Show is Nov 29,
+2026 at Best Western Plus, 100 Lodgeville Road, Bridgeport WV, 10am-3pm. The
+rendered grid binds heading/address/city and date/venue in the same column;
+not assigned by proximity. No ZIP or named organizer supplied. Existing series
+were deduplicated by names, club, venue/address and location before adding.
+
+Lehigh Nov 7 lacks venue and County/Valley identity remains unresolved; Charleston
+Nov 14 lacks an explicit city line; River Cities Hurricane/Milton identity and
+Parkersburg Mineral Wells/Marietta venue conflict remain held. No old timestamps
+refreshed. DC support candidate remains held separately. Source scan: KVCC clean;
+Lehigh flagged emoji Unicode escapes, event facts only extracted.
+
+New record adds one explicit comparison mapping: **119 of 226**, leaving **107
+outside explicit mappings**, not 107 proven missing shows. Next rotation: South
+Dakota Midwest spring/fall identity, then Iowa calendar readability; retain PNNA's
+three-calendar rotation and its pending identity/tentative-date holds.
+
+Inbox intake correction: initial file search omitted ignored files. A complete
+canonical-inbox search found **8 messages**, all reviewed. Three Ahrefs notices
+refer to one audit-only follow-up, not three tasks; two bot/test-routing notices,
+one planning-only CRM classification request and one historical report-only
+Phase 2B handoff remain outside this factual listing batch. The Phase 2B handoff
+explicitly requires owner review before archival; no disabled controls changed.
+One new directory lead is `https://www.instagram.com/reel/DePVDL5i0RO/`.
+Public reader returned only an Instagram shell/images, not usable show/date/venue
+facts; hold pending readable content and official-source verification. No record
+inferred or media uploaded. Original inbox messages remain available for their
+pending work; no CRM/mailbox/Ahrefs crawl, outreach or cross-project work performed.
+
+Checks/publication/readback pending this batch's own receipt; no publication claimed yet.
+
 ## Latest routine attempt — October 26, 2026 evening UTC
 
 Started **2026-10-26T21:28:21Z**; completed **2026-10-26T21:51:32Z**.
