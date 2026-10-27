@@ -1,8 +1,29 @@
 # Listing refresh status
 
+## Last published batch — October 27, 2026 UTC
+
+- Result: **published**. PR **#110**, merged **2026-10-27T16:01:34Z** as
+  **`401ead8d1ef1fdfa0c1e1fadec9e8d758b76f0df`**.
+- Exact-SHA production Jekyll/Pages run **40536827091** succeeded at
+  **2026-10-27T16:03:17Z**.
+- **1 new series, 0 changed existing records, 1 added occurrence-day**;
+  **226 canonical shows**. New `clarksburg-coin-show`, November 29, 2026,
+  Best Western Plus, 100 Lodgeville Road, Bridgeport WV; ZIP/organizer unknown.
+- Post-success public readback completed **2026-10-27T16:04:05Z**: entire
+  226-record feed matches reviewed generated data. New show page confirms date,
+  venue, street, city and canonical; new Bridgeport city page confirms its canonical
+  and show link. Both new routes appear in the public sitemap. No mismatch.
+- Existing checks passed: 27 Ruby syntax checks, all 11 Ruby suites, 16 JavaScript
+  tests, data validator (50 states, 226 shows, 33 aliases, 10 city redirects),
+  generated currentness, whitespace, local production Jekyll and PR CI. Only
+  frozen dataset expectations adjusted, from 225/133 to 226/134 total/scheduled.
+- Age of last published listing update at readback completion: **48 seconds**.
+  No seven-day escalation. Unresolved candidates/coverage remain held below.
+
 ## Latest routine attempt — October 27, 2026 UTC
 
-Started **2026-10-27T15:41:23Z**. No overlapping listing PR at intake; badge
+Started **2026-10-27T15:41:23Z**; completed **2026-10-27T16:04:05Z**.
+No overlapping listing PR at intake; badge
 PR #100 is unrelated. Canonical checkout has unrelated Beads hook/issue changes
 and was left untouched. Work uses a linked worktree from current remote main
 `1e8baa0efcc106de158c214a02aadbfccfbaa0d0`.
@@ -27,7 +48,7 @@ the existing 225-record data. Later receipt and spot-price deployments are not
 new listing batches; seven-day escalation is not due.
 
 Reviewed Pennsylvania Lehigh event detail and West Virginia/Ohio KVCC rendered
-calendar. Proposed batch: **1 new series, 0 changed existing records, 1 added
+calendar. Published batch: **1 new series, 0 changed existing records, 1 added
 dated occurrence-day**; 226 canonical listings. Clarksburg Coin Show is Nov 29,
 2026 at Best Western Plus, 100 Lodgeville Road, Bridgeport WV, 10am-3pm. The
 rendered grid binds heading/address/city and date/venue in the same column;
@@ -57,7 +78,9 @@ facts; hold pending readable content and official-source verification. No record
 inferred or media uploaded. Original inbox messages remain available for their
 pending work; no CRM/mailbox/Ahrefs crawl, outreach or cross-project work performed.
 
-Checks/publication/readback pending this batch's own receipt; no publication claimed yet.
+Checks, merge, exact-SHA deployment and post-success public readback completed;
+see PR #110 / Pages 40536827091 receipt above. Original unresolved inbox messages
+remain queued rather than being declared completed by this listing publication.
 
 ## Latest routine attempt — October 26, 2026 evening UTC
 
@@ -107,7 +130,7 @@ native read-only checks confirmed CLI availability and no duplicate PR. A
 session-only PATH correction retained managed wrappers and restored the normal
 write/merge path; no host configuration or credentials changed.
 
-## Last published batch
+## Previous published batch — October 26, 2026 UTC
 
 - PR **#108**, merge **`7116a42ef02288a9a28bc4b463005565a4416755`** at
   **2026-10-26T21:48:16Z**.
