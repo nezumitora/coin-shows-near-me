@@ -2991,11 +2991,11 @@
     "state": "SD",
     "state_name": "South Dakota",
     "venue": "Sioux Falls Convention Center, 1201 N West Ave, Sioux Falls, SD 57104",
-    "frequency": "Annual (September)",
-    "next_date": "September 12-13, 2026",
+    "frequency": "Recurring (spring & fall)",
+    "next_date": "May 22-23, 2027",
     "upcoming_dates": [
-      "2026-09-12",
-      "2026-09-13"
+      "2027-05-22",
+      "2027-05-23"
     ],
     "series_ended": false,
     "postal_code": "57104",
