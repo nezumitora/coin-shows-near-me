@@ -1,8 +1,32 @@
 # Listing refresh status
 
+## Last published batch — October 28, 2026 UTC
+
+- Result: **published**. PR **#112**, merged **2026-10-28T16:16:24Z** as
+  **`c28c44726195438d6ab3aecd63065db312ddc807`**.
+- Exact-SHA production Jekyll/Pages run **40724332728** succeeded at
+  **2026-10-28T16:17:24Z**.
+- **0 new series, 1 changed existing record, 2 added occurrence-days**;
+  **226 canonical shows** retained. Midwest Gold & Silver May 22–23, 2027,
+  Sioux Falls Convention Center, with verified street/ZIP and recurring frequency.
+  Historical September 2026 evidence retained; conflicting September 2027 held.
+- Post-success public readback completed **2026-10-28T16:18:38Z**: full
+  226-record `shows.json` equals reviewed generated data. Live page confirms
+  `2027-05-22,2027-05-23` payload, 1201 North West Avenue / 57104, October 28
+  verification and unchanged canonical. Canonical is present in the public sitemap.
+  Production JS module classifies these same dates as Scheduled / May 22-23, 2027.
+  No observed deployment/content mismatch.
+- Existing checks, production build and PR CI passed; see attempt details below.
+  No frozen dataset expectations changed. Age of last published listing update
+  at readback completion: **1 minute 14 seconds**. Seven-day escalation not due.
+- Iowa calendar readability recovered, no new future additions. Dated source
+  supplement preserves remaining holds and next Alabama / West Hernando rotation.
+  Incomplete discovery and unrelated pending inbox work remain separate.
+
 ## Latest routine attempt — October 28, 2026 UTC
 
-Started **2026-10-28T15:51:07Z** on remote main
+Started **2026-10-28T15:51:07Z**; completed **2026-10-28T16:18:38Z**.
+Based on remote main
 `8ce684e2f0c18e948f2174e334ee127a661f0734` in a linked worktree. No open listing
 PR at intake; badge PR #100 is unrelated. An active PNNA advertising review has
 uncommitted shared-ledger edits; this session avoids its files/sources and records
@@ -23,13 +47,13 @@ organizer/source URLs. Older comparison covers 225/118 mapped, not today's 226/1
 Discovery detail CSV still has zero data rows; discovery remains incomplete.
 No report/coverage count is a proven missing-show count.
 
-Last published listing batch: PR #110 / merge
+Prior listing batch recovered at intake: PR #110 / merge
 `401ead8d1ef1fdfa0c1e1fadec9e8d758b76f0df`, exact-SHA Pages 40536827091 success
 at Oct 27 16:03:17 UTC, **23h48m old at intake**. Rechecked that run and the live
 226-record feed, which matches current baseline. Later receipt/spot deployments
 are not new listing batches. Seven-day escalation is not due.
 
-Prepared **0 new series, 1 changed existing record, 2 added occurrence-days**:
+Published **0 new series, 1 changed existing record, 2 added occurrence-days**:
 Midwest Gold & Silver May 22–23, 2027, Sioux Falls Convention Center, same series
 and canonical ID. Fall's conflicting dates remain held. Iowa decoding recovered;
 no newly supported future additions. No verification timestamps refreshed merely
@@ -44,9 +68,11 @@ The production JS module classifies the new dates as Scheduled / May 22-23, 2027
 Initial local Ruby tests hit US-ASCII encoding errors; UTF-8 environment rerun
 passed without code/test changes. No frozen expectations changed.
 
-Publication and exact-SHA public readback pending; no new publication claimed yet.
+Normal merge gates, exact-SHA publication and post-success public readback passed;
+see PR #112 / Pages 40724332728 receipt above. Pending candidate/inbox work is not
+declared completed by this successful factual listing batch.
 
-## Last published batch — October 27, 2026 UTC
+## Previous published batch — October 27, 2026 UTC
 
 - Result: **published**. PR **#110**, merged **2026-10-27T16:01:34Z** as
   **`401ead8d1ef1fdfa0c1e1fadec9e8d758b76f0df`**.
