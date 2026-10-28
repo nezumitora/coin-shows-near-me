@@ -1,5 +1,51 @@
 # Listing refresh status
 
+## Latest routine attempt — October 28, 2026 UTC
+
+Started **2026-10-28T15:51:07Z** on remote main
+`8ce684e2f0c18e948f2174e334ee127a661f0734` in a linked worktree. No open listing
+PR at intake; badge PR #100 is unrelated. An active PNNA advertising review has
+uncommitted shared-ledger edits; this session avoids its files/sources and records
+SD/IA coverage in `listing-source-review-2026-10-28.md`. Canonical Beads changes
+are preserved. Eight previously reviewed inbox messages remain queued/retained;
+no unrelated CRM, outreach, Ahrefs, spending or disabled Phase 2 controls touched.
+
+| Latest terminal workflow | Run | UTC start / completion | Result |
+|---|---|---|---|
+| Show Update Report | 40713699045 | Oct 28 15:13:06 / 15:16:22 | success |
+| External Source Comparison | 40529418661 | Oct 27 15:16:58 / 15:18:40 | success |
+| Third-Party Discovery | 40531688969 | Oct 27 15:30:39 / 15:38:23 | success |
+
+Downloaded and inspected artifacts from all three. Latest comparison/discovery
+are about 24 hours old, not stale (>48h). The new report covers 226 records, 178
+source URLs checked, 42 stale specific-date records and 48 records missing
+organizer/source URLs. Older comparison covers 225/118 mapped, not today's 226/119.
+Discovery detail CSV still has zero data rows; discovery remains incomplete.
+No report/coverage count is a proven missing-show count.
+
+Last published listing batch: PR #110 / merge
+`401ead8d1ef1fdfa0c1e1fadec9e8d758b76f0df`, exact-SHA Pages 40536827091 success
+at Oct 27 16:03:17 UTC, **23h48m old at intake**. Rechecked that run and the live
+226-record feed, which matches current baseline. Later receipt/spot deployments
+are not new listing batches. Seven-day escalation is not due.
+
+Prepared **0 new series, 1 changed existing record, 2 added occurrence-days**:
+Midwest Gold & Silver May 22–23, 2027, Sioux Falls Convention Center, same series
+and canonical ID. Fall's conflicting dates remain held. Iowa decoding recovered;
+no newly supported future additions. No verification timestamps refreshed merely
+for fetching a page. Source evidence, holds and next rotation (Alabama, then West
+Hernando) are in the dated review supplement. Shared PNNA ledger left alone.
+
+Local checks passed: 27 Ruby syntax checks, all 11 Ruby suites, 16 JavaScript
+tests, validator (50 states / 226 shows / 33 aliases / 10 city redirects), generated
+currentness and whitespace. Production Jekyll build succeeded; generated page
+confirms ISO payload, street/ZIP, verification date and unchanged canonical.
+The production JS module classifies the new dates as Scheduled / May 22-23, 2027.
+Initial local Ruby tests hit US-ASCII encoding errors; UTF-8 environment rerun
+passed without code/test changes. No frozen expectations changed.
+
+Publication and exact-SHA public readback pending; no new publication claimed yet.
+
 ## Last published batch — October 27, 2026 UTC
 
 - Result: **published**. PR **#110**, merged **2026-10-27T16:01:34Z** as
