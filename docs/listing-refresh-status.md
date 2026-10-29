@@ -1,5 +1,61 @@
 # Listing refresh status
 
+## Latest routine attempt — October 29, 2026 UTC
+
+Result: **held — no verified changes**. Started **2026-10-29T15:55:54Z**;
+source review completed **2026-10-29T16:01:53Z**. Linked worktree based on remote
+main `ff2eb17b02c66807d362ad6f606e3648a03474df`. No open listing PR at intake;
+badge PR #100 is unrelated. Active PNNA advertising/ledger edits remain untouched.
+Coverage is recorded in `listing-source-review-2026-10-29.md`, not the shared
+ledger being edited elsewhere. Canonical Beads changes are preserved. The same
+eight previously reviewed inbox messages remain queued/retained; this routine
+does not complete their unrelated or evidence-blocked work.
+
+| Latest terminal workflow | Run | UTC start / completion | Result |
+|---|---|---|---|
+| Show Update Report | 40900105635 | Oct 29 15:17:48 / 15:20:44 | success |
+| External Source Comparison | 40720780346 | Oct 28 15:55:05 / 15:56:54 | success |
+| Third-Party Discovery | 40723971001 | Oct 28 16:14:18 / 16:22:39 | success |
+
+Downloaded and inspected all three artifact sets. The new report covers 226
+listings, 178 source URLs checked, 93 future specific-date records with sources,
+41 stale specific-date records, and 48 missing organizer/source URLs. Comparison
+snapshot `99af3184-13fb-4e20-80c4-256a309396f8` covers 226 listings / 119 explicitly
+mapped, 59 approved-source records awaiting comparison and 48 without an approved
+comparison source; 56 exact requests. Comparison/discovery are about 24 hours old,
+not >48h stale. Discovery detail CSV still has **zero data rows**, so discovery is
+incomplete. No coverage category or parser miss is a proven missing-show count.
+
+Reviewed the scheduled Alabama Numismatic Society and West Hernando starting
+URLs, then Kansas Numismatic Association and Oklahoma Numismatic Association as
+safe continuation. All four exact existing URLs failed local DNS resolution
+(`curl` exit 6); today's upstream per-URL report independently records SocketError
+for all four. No readable official event content was obtained. Do not interpret
+this as cancellation/closure, infer a replacement domain or roll dates forward.
+No source-specific verification timestamp was refreshed.
+
+Counts: **0 new series, 0 changed existing records, 0 added occurrence-days**;
+226 listings and existing aliases/routes retained. No new listing merge SHA or
+listing Pages deployment exists for this held pass. The documentation-only review
+record is not a new listing batch. Prior published batch remains PR #112, merge
+`c28c44726195438d6ab3aecd63065db312ddc807`, exact-SHA Pages 40724332728 success at
+**2026-10-28T16:17:24Z**, rechecked this invocation. Live full feed matches current
+reviewed baseline. Publication age: **23h38m30s at intake**, **23h44m29s at source
+review completion**. Seven-day escalation not due; no per-candidate issues created.
+
+Next rotation: **Nebraska Numismatic Association, then Lafayette Coin Club**,
+using their existing official URLs and readable evidence. Keep the four source
+recovery holds, historical-only Iowa leads, South Dakota date conflicts, Lehigh/
+KVCC identity/venue holds, DC routing candidate, unreadable Instagram lead and
+PNNA's independently active review separate. No claim of nationwide currency.
+
+Generated pages/feed remain byte-identical. All 27 Ruby syntax checks, 11 existing
+Ruby suites, 16 JavaScript tests, data validator (50 states / 226 shows / 33 aliases /
+10 city redirects), generated currentness and whitespace passed. Existing local
+production Jekyll build also passed. Only review documentation changes; no frozen
+expectations or source controls changed. Normal PR gates still apply to that
+review record; no new listing publication is claimed.
+
 ## Last published batch — October 28, 2026 UTC
 
 - Result: **published**. PR **#112**, merged **2026-10-28T16:16:24Z** as
