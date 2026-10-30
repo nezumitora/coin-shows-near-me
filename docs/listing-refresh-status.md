@@ -1,5 +1,65 @@
 # Listing refresh status
 
+## Latest routine attempt — October 30, 2026 UTC
+
+Result: **held — no verified changes**. Started **2026-10-30T15:36:06Z**;
+source review completed **2026-10-30T15:41:28Z**. Linked worktree based on remote
+main `c6e34169c629cdbe650a1895475b0f59ed21f1c6`. No open listing PR at intake;
+badge PR #100 is unrelated. Active PNNA advertising/shared-ledger edits and
+canonical Beads changes are preserved. Coverage goes in the dated
+`listing-source-review-2026-10-30.md` supplement rather than the shared ledger.
+The eight retained inbox messages remain separate from this factual review.
+
+| Latest terminal workflow | Run | UTC start / completion | Result |
+|---|---|---|---|
+| Show Update Report | 41077664023 | Oct 30 15:06:44 / 15:09:52 | success |
+| External Source Comparison | 40907305314 | Oct 29 16:00:44 / 16:02:30 | success |
+| Third-Party Discovery | 40910980353 | Oct 29 16:22:47 / 16:30:39 | success |
+
+Downloaded and inspected all three artifact sets. The new report covers 226
+listings, 178 source URLs checked, 93 future specific-date records with sources,
+41 stale specific-date records and 48 missing organizer/source URLs. Comparison
+snapshot `97b84a41-08f3-442c-ab2b-7ebf82f2d513` covers 226 listings / 119 explicit
+mappings, 59 approved-source records awaiting comparison and 48 without an
+approved comparison source; 56 exact requests. Comparison/discovery are about
+23–24 hours old, not >48h stale. Discovery detail CSV still has **zero data rows**;
+discovery remains incomplete, not proof of zero missing shows.
+
+Attempted Nebraska Numismatic Association and Lafayette Coin Club starting URLs,
+then continued safely to Omaha Coin Club and St. Cloud Area Coin Club. All four
+exact existing URLs failed DNS resolution (`curl` exit 6). Today's upstream URL
+report separately records SocketError for each; an ordinary-shell Nebraska retry
+also failed DNS. No readable official event/date/venue content was obtained.
+These are access/verification holds, not cancellations, closures or proof that
+future shows are absent. No replacement domain or future date was guessed.
+
+Counts: **0 new series, 0 changed existing records, 0 added occurrence-days**;
+all 226 listings, source-specific verification dates, aliases and routes retained.
+Generated pages/feed are byte-identical. No new listing merge SHA or listing
+Pages deployment exists for this held pass. This documentation-only record is
+not a new listing batch and must not reset the last-published listing timestamp.
+
+Prior actual publication remains PR #112, merge
+`c28c44726195438d6ab3aecd63065db312ddc807`, exact-SHA Pages **40724332728** success
+at **2026-10-28T16:17:24Z**, rechecked this invocation. The complete public feed
+equals current reviewed baseline. Publication age: **47h18m42s at intake** and
+**47h24m04s at source-review completion**. The October 29 documentation deployment
+and spot-price rebuilds are not listing publications. Seven-day escalation is
+not due; no per-candidate issues created.
+
+Next rotation: **Watchung Hills Coin Club, then Louisville Coin Club**, following
+existing official listing links. Preserve today's four holds and yesterday's
+Alabama/West Hernando/Kansas/Oklahoma holds; do not repeat those failed URLs solely
+to obtain a fresh timestamp. Other held candidates and the independently active
+PNNA review remain separate. No nationwide-currency claim.
+
+Review-record checks passed: 27 Ruby syntax checks, all 11 existing Ruby suites,
+16 JavaScript tests, validator (50 states / 226 shows / 33 aliases / 10 city
+redirects), generated currentness and whitespace. Existing local production
+Jekyll build passed. Only review documentation changes; no frozen expectations,
+source controls, forms, CRM, outreach, services or spending changed. Normal PR
+gates apply to the record; no new listing publication is claimed.
+
 ## Latest routine attempt — October 29, 2026 UTC
 
 Result: **held — no verified changes**. Started **2026-10-29T15:55:54Z**;
