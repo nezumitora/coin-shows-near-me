@@ -1,5 +1,64 @@
 # Listing refresh status
 
+## Latest routine attempt — October 31, 2026 UTC
+
+Result: **held — no verified changes**. Started **2026-10-31T15:53:48Z**;
+source review completed **2026-10-31T15:59:29Z**. Linked worktree based on remote
+main `c93ba59af7bbf40eaf4573df9b93143398812024`. No open listing PR at intake;
+badge PR #100 is unrelated. Active PNNA advertising/shared-ledger edits and
+canonical Beads changes are preserved. The dated source-review supplement records
+this rotation; eight retained inbox messages remain outside this factual batch.
+
+| Latest terminal workflow | Run | UTC start / completion | Result |
+|---|---|---|---|
+| Show Update Report | 41210900299 | Oct 31 14:36:10 / 14:39:11 | success |
+| External Source Comparison | 41213944597 | Oct 31 15:15:03 / 15:16:43 | success |
+| Third-Party Discovery | 41215023553 | Oct 31 15:28:37 / 15:36:16 | success |
+
+Downloaded and inspected all three artifact sets; all less than two hours old
+at intake, not >48h stale. The report covers 226 listings, 178 source URLs checked,
+93 future specific-date records with sources, 41 stale specific-date records and
+48 missing organizer/source URLs. Comparison snapshot
+`c2d3fd88-ecc6-4cf8-bd89-8c7fbc59f034` covers 226 listings / 119 explicit mappings,
+59 approved-source records awaiting comparison and 48 without an approved
+comparison source; 56 exact requests. Discovery detail CSV again has **zero data
+rows**: discovery remains incomplete, not proof of zero missing shows.
+
+Attempted Watchung Hills and Louisville starting URLs, then continued safely to
+Red River Valley and Rochester. All four exact existing official URLs failed DNS
+resolution (`curl` exit 6); today's upstream per-URL report separately records
+SocketError for each. No readable official event/date/venue facts obtained.
+Kentucky's exact CoinZip category URL from the discovery artifact was fetched as
+a lead-only recovery attempt and injection-scanned clean. Its public page says
+no results and supplies no Louisville organizer/event link. This is not evidence
+that Kentucky has no shows and cannot verify a replacement official source.
+
+Counts: **0 new series, 0 changed existing records, 0 added occurrence-days**;
+all 226 listings, evidence-specific timestamps, aliases and routes retained.
+No cancellation, closure, replacement domain or future date inferred. Generated
+pages/feed remain byte-identical. This documentation-only record is not a new
+listing batch; no new listing merge SHA or listing Pages run is claimed.
+
+Last actual listing publication remains PR #112, merge
+`c28c44726195438d6ab3aecd63065db312ddc807`, exact-SHA Pages **40724332728** success
+at **2026-10-28T16:17:24Z**, rechecked this invocation. The full live feed equals
+reviewed baseline. Publication age: **71h36m24s at intake**, **71h42m05s at source
+review completion**. Later documentation/spot-price deployments do not reset it.
+Seven-day escalation not due; no per-candidate issues created.
+
+Next rotation: **Texas Numismatics linked-current-page recovery, then Santa
+Clara**, using existing official URLs and links, never guessed replacement paths.
+Today's four holds join prior source-access holds; do not repeatedly fetch failed
+URLs just for timestamps. Preserve all older identity/date/venue holds and PNNA's
+independent active review. No nationwide-currency claim.
+
+Review-record checks passed: 27 Ruby syntax checks, all 11 existing Ruby suites,
+16 JavaScript tests, validator (50 states / 226 shows / 33 aliases / 10 city
+redirects), generated currentness and whitespace. Existing local production
+Jekyll build passed. Only review documentation changes; no frozen expectations,
+source controls, forms, CRM, outreach, services or spending changed. Normal PR
+gates apply to this metadata record; no new listing publication is claimed.
+
 ## Latest routine attempt — October 30, 2026 UTC
 
 Result: **held — no verified changes**. Started **2026-10-30T15:36:06Z**;
