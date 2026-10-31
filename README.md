@@ -1,5 +1,14 @@
 # Coin Shows Near Me
 
+<!-- aidevops:badges:start -->
+<!-- managed by aidevops badges; edit the template, not this block -->
+
+[![Lines of code](docs/metrics/badges/loc.svg)](docs/metrics/repo-metrics.md)
+[![Dependencies](docs/metrics/badges/dependencies.svg)](docs/metrics/repo-metrics.md)
+
+[![Languages by lines of code](docs/metrics/badges/languages.svg)](docs/metrics/repo-metrics.md)
+<!-- aidevops:badges:end -->
+
 Find upcoming coin shows near you, including local and regional coin shows across the United States.
 
 > ⚠️ **Important:** Dates and venues can change. Always verify details on the official show or club website before traveling. Some future dates may be listed as “TBD — Check Organizer Website” when not yet announced.
